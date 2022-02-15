@@ -131,6 +131,18 @@ const routes: Routes = [
     path: 'history',
     loadChildren: () => import('./Job/history/history.module').then( m => m.HistoryPageModule)
   },
+  {
+    path: 'forgotpass',
+    loadChildren: () => import('./Job/forgotpass/forgotpass.module').then( m => m.ForgotpassPageModule)
+  },
+  {
+    path: 'verify',
+    loadChildren: () => import('./Job/verify/verify.module').then( m => m.VerifyPageModule)
+  },
+  {
+    path: 'newpassword',
+    loadChildren: () => import('./Job/newpassword/newpassword.module').then( m => m.NewpasswordPageModule)
+  },
 
 
 ];
