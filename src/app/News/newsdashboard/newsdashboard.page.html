@@ -1,0 +1,1935 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-row style="padding-left: 2px; padding-right: 2px;">
+      <ion-col size="2">
+        <div routerLink="/dashboard">&nbsp;&nbsp;
+          <!-- <ion-menu-button> -->
+          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:40%; height:40%;" viewBox="0 0 20 20"
+            fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+              clip-rule="evenodd" />
+          </svg>
+          <!-- </ion-menu-button> -->
+        </div>
+      </ion-col>
+
+      <ion-col size="8">
+        <div align="center">
+          <ion-label style="color: #fff; font-size: large;"><b>News</b></ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="2">
+        <div style="margin-left: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;
+          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:45%; height:45%; " fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+          </svg>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-toolbar>
+
+  <ion-toolbar color="light">
+    <ion-segment (ionChange)='segmentChanged($event)' scrollable value="top">
+      <ion-segment-button value="top">
+        <ion-label>Top</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="brief">
+        <ion-label>Briefs</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="for">
+        <ion-label>for You</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="late">
+        <ion-label>Latest</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="world">
+        <ion-label>World </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="busin">
+        <ion-label>Business</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="entert">
+        <ion-label>Entertainment</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="sport">
+        <ion-label>Sports</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="money">
+        <ion-label>Money</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="trend">
+        <ion-label>Trending</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="cricket">
+        <ion-label>Cricket</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="tech">
+        <ion-label>Tech</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="scie">
+        <ion-label>Science</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="life">
+        <ion-label>Lifestyle</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="auto">
+        <ion-label>Automobile</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+
+  <!-- ======1st Segment Start Top ===== -->
+
+  <div class="ion-padding" *ngIf="switchTab == 'top'">
+    <img style="width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n1.jpg" alt="">
+
+    <div style="margin: 1ch; ">
+      <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+        Coronavirus Omicron
+        Variant India Live &nbsp;Updates: India Reports 71,365 new Covid-19 &nbsp;cases in last 24 hours
+      </ion-label>
+
+      <ion-row>
+        <ion-col size="11">
+          <ion-label class="label-text">The Times Of India</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </div>
+
+
+    <div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Us Vice President Kamala Harris' Husband Evacuated In Bomb Threat
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n2.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1" routerLink="/topnewsdeatils">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Netflix announces new thriller series with Hansal Mehta
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n3.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">Live Mint</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Seven Elgar accused's phones to be given to Sc Pegasus panel
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n4.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">The Times Of India</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Angry Dutch Locals Plan To Throw Eggs At Jeff Bezos' Superyacht
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n5.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+  </div>
+  <!-- ======1st Segment End Top ===== -->
+
+  <!-- ======2nd Segment Start Brief ===== -->
+
+  <div class="ion-padding" *ngIf="switchTab == 'brief'">
+    <img style="width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n6.jpg" alt="">
+    <div style="margin: 1ch; ">
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="label-text">NewsBytes</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon style="color: rgb(143, 143, 143);" name="arrow-redo-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);" name="ellipsis-vertical-outline">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+        PAK vs AUS : Hosts Announce 16-member squad for Test series
+      </ion-label>
+      <p style="font-size: 0.9em; color: rgb(133, 133, 133);">Pakistan's 16-member squad for the Test series: Babar Azam
+        (captain), Mohammad Rizwan (vice-captain), Abdullah
+        Shafique, Azhar Ali, Faheem Ashraf, Fawad Alam, Haris Rauf, Hasan Ali, Imam-ul-Haq, Mohammad Nawaz, Nauman Ali,
+        Sajid Khan, Saud Shakeel, Shaheen Shah Afridi, Shan Masood, Zahid Mahmood</p>
+
+
+    </div>
+
+  </div>
+  <!-- ======2nd Segment End Brief ===== -->
+
+  <!-- ======3rd Segment Start For You ===== -->
+  <div class="ion-padding" *ngIf="switchTab == 'for'">
+    <img style="width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n7.jpg" alt="">
+    <div style="margin: 1ch; ">
+
+      <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+        Kerala Trekker, Stuck On Hill For 2 Days, Rescued By Army
+      </ion-label>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="label-text">NDTV Headlines</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);" name="ellipsis-vertical-outline">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Us Vice President Kamala Harris' Husband Evacuated In Bomb Threat
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n2.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Netflix announces new thriller series with Hansal Mehta
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n3.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">Live Mint</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Seven Elgar accused's phones to be given to Sc Pegasus panel
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n4.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">The Times Of India</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Angry Dutch Locals Plan To Throw Eggs At Jeff Bezos' Superyacht
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n5.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+
+  </div>
+  <!-- ======3rd Segment End For You ===== -->
+
+
+  <!-- ======4th Segment Start Latest ===== -->
+  <div class="ion-padding" *ngIf="switchTab == 'late'">
+    <img style=" width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n8.jpg" alt="">
+    <div style="margin: 1ch; ">
+
+      <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+        In Argentina, Protests erupt against govt's debt deal with IMF worth $44.5 billion s: Report
+      </ion-label>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="label-text">Republich</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);" name="ellipsis-vertical-outline">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Us Vice President Kamala Harris' Husband Evacuated In Bomb Threat
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n2.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Netflix announces new thriller series with Hansal Mehta
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n3.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">Live Mint</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Seven Elgar accused's phones to be given to Sc Pegasus panel
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n4.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">The Times Of India</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Angry Dutch Locals Plan To Throw Eggs At Jeff Bezos' Superyacht
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n5.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+
+
+  </div>
+  <!-- ======4th Segment End Latest ===== -->
+
+  <!-- ======4th Segment Start world ===== -->
+  <div class="ion-padding" *ngIf="switchTab == 'world'">
+    <img style=" width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n9.jpg" alt="">
+    <div style="margin: 1ch; ">
+
+      <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+        How The World Really Works Review : The Tech That Underpins Society
+      </ion-label>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="label-text">New Scientist</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);" name="ellipsis-vertical-outline">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Us Vice President Kamala Harris' Husband Evacuated In Bomb Threat
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n2.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Netflix announces new thriller series with Hansal Mehta
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n3.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">Live Mint</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Seven Elgar accused's phones to be given to Sc Pegasus panel
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n4.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">The Times Of India</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Angry Dutch Locals Plan To Throw Eggs At Jeff Bezos' Superyacht
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n5.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+
+  </div>
+  <!-- ======5th Segment End world ===== -->
+
+  <!-- ======6th Segment Start business ===== -->
+  <div class="ion-padding" *ngIf="switchTab == 'busin'">
+    <img style=" width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n10.jpg"
+      alt="">
+    <div style="margin: 1ch; ">
+
+      <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+        Arvind Kejriwal govt gives permanent jobs to 700 contractual DJB employees
+      </ion-label>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="label-text">Moneycontrol</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);" name="ellipsis-vertical-outline">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Us Vice President Kamala Harris' Husband Evacuated In Bomb Threat
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n2.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Netflix announces new thriller series with Hansal Mehta
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n3.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">Live Mint</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Seven Elgar accused's phones to be given to Sc Pegasus panel
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n4.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">The Times Of India</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Angry Dutch Locals Plan To Throw Eggs At Jeff Bezos' Superyacht
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n5.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+  </div>
+  <!-- ======6th Segment End business ===== -->
+
+  <!-- ======7th Segment Start entertainment ===== -->
+
+  <div class="ion-padding" *ngIf="switchTab == 'entert'">
+    <ion-card>
+      <img style=" width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n11.jpg"
+        alt="">
+      <div style="margin: 1ch; ">
+
+        <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+          Sonu Sood saves 19-year-old car accident victim on Punjab higway with his swift action
+        </ion-label>
+        <ion-row>
+          <ion-col size="10">
+            <ion-label class="label-text">India Tv</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);"
+              name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-card>
+
+    <ion-card>
+      <img style=" width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n12.jpg"
+        alt="">
+      <div style="margin: 1ch; ">
+
+        <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+          Kajal slams trolls body-shaming her
+        </ion-label>
+        <ion-row>
+          <ion-col size="10">
+            <ion-label class="label-text">India Tv</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);"
+              name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-card>
+
+    <ion-card>
+      <img style=" width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n13.jpg"
+        alt="">
+      <div style="margin: 1ch; ">
+
+        <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+          Bestseller : Trailer of Shruti Haasan, Mithun Chakraborty and Gauahar Khan starrer psychological thriller out
+        </ion-label>
+        <ion-row>
+          <ion-col size="10">
+            <ion-label class="label-text">India Tv</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);"
+              name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-card>
+
+  </div>
+  <!-- ======7th Segment End entertainment ===== -->
+
+  <!-- ======8th Segment Start Sport ===== -->
+
+  <div class="ion-padding" *ngIf="switchTab == 'sport'">
+    <img style=" width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n14.jpg"
+      alt="">
+    <div style="margin: 1ch; ">
+      <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+        India vs West Indies 2nd ODI live streaming: How to watch IND vs WI live in india, UK, US?
+      </ion-label>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="label-text">Republic</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);" name="ellipsis-vertical-outline">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Us Vice President Kamala Harris' Husband Evacuated In Bomb Threat
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n2.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Netflix announces new thriller series with Hansal Mehta
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n3.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">Live Mint</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Seven Elgar accused's phones to be given to Sc Pegasus panel
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n4.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">The Times Of India</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Angry Dutch Locals Plan To Throw Eggs At Jeff Bezos' Superyacht
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n5.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+
+  </div>
+
+  <!-- ======8th Segment End Sport ===== -->
+
+  <!-- ======9th Segment Start Money ===== -->
+
+  <div class="ion-padding" *ngIf="switchTab == 'money'">
+    <img style=" width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n15.jpg"
+      alt="">
+    <div style="margin: 1ch; ">
+      <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+        e-Shram Portal Registrations : Agricultural accounts for lion share of registrations; see sector-wise traction
+      </ion-label>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="label-text">Zee Business</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);" name="ellipsis-vertical-outline">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Us Vice President Kamala Harris' Husband Evacuated In Bomb Threat
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n2.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Netflix announces new thriller series with Hansal Mehta
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n3.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">Live Mint</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Seven Elgar accused's phones to be given to Sc Pegasus panel
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n4.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">The Times Of India</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Angry Dutch Locals Plan To Throw Eggs At Jeff Bezos' Superyacht
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n5.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+
+  </div>
+
+  <!-- ======9th Segment End Money ===== -->
+
+  <!-- ======10th Segment Start Trending ===== -->
+
+  <div class="ion-padding" *ngIf="switchTab == 'trend'">
+    <img style=" width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n16.jpg"
+      alt="">
+    <div style="margin: 1ch; ">
+      <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+        Guwahati zoo has two new members. Watch videos, photos of Royal Bengal tiger cubs.
+      </ion-label>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="label-text">Zee Business</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);" name="ellipsis-vertical-outline">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Us Vice President Kamala Harris' Husband Evacuated In Bomb Threat
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n2.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Netflix announces new thriller series with Hansal Mehta
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n3.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">Live Mint</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Seven Elgar accused's phones to be given to Sc Pegasus panel
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n4.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">The Times Of India</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Angry Dutch Locals Plan To Throw Eggs At Jeff Bezos' Superyacht
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n5.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+
+  </div>
+
+  <!-- ======10th Segment End Trending ===== -->
+
+  <!-- ======11th Segment Start Cricket ===== -->
+
+  <div class="ion-padding" *ngIf="switchTab == 'cricket'">
+    <img style=" width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n17.jpg"
+      alt="">
+    <div style="margin: 1ch; ">
+      <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+        Live Cricket Score : India vs West Indies, 2nd ODI
+      </ion-label>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="label-text">The Times Of India</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);" name="ellipsis-vertical-outline">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Us Vice President Kamala Harris' Husband Evacuated In Bomb Threat
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n2.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Netflix announces new thriller series with Hansal Mehta
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n3.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">Live Mint</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Seven Elgar accused's phones to be given to Sc Pegasus panel
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n4.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">The Times Of India</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Angry Dutch Locals Plan To Throw Eggs At Jeff Bezos' Superyacht
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n5.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+
+  </div>
+
+  <!-- ======11th Segment End Cricket ===== -->
+
+  <!-- ======12th Segment Start Tech ===== -->
+
+  <div class="ion-padding" *ngIf="switchTab == 'tech'">
+    <img style=" width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n18.jpg"
+      alt="">
+    <div style="margin: 1ch; ">
+      <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+        Redmi Smart Band Pro, Redmi Smart TV X43 Launched in India : All Details
+      </ion-label>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="label-text">NDTV</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);" name="ellipsis-vertical-outline">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Us Vice President Kamala Harris' Husband Evacuated In Bomb Threat
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n2.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Netflix announces new thriller series with Hansal Mehta
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n3.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">Live Mint</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Seven Elgar accused's phones to be given to Sc Pegasus panel
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n4.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">The Times Of India</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Angry Dutch Locals Plan To Throw Eggs At Jeff Bezos' Superyacht
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n5.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+
+  </div>
+
+  <!-- ======12th Segment End Tech ===== -->
+
+  <!-- ======13th Segment Start Science ===== -->
+
+  <div class="ion-padding" *ngIf="switchTab == 'scie'">
+    <img style=" width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n19.jpg"
+      alt="">
+    <div style="margin: 1ch; ">
+      <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+        Nasa's Perseverance Mars Rover Covers 'More ground In Day Than Ever Before', Sets new Martian Record
+      </ion-label>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="label-text">Gadgets 360</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);" name="ellipsis-vertical-outline">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Us Vice President Kamala Harris' Husband Evacuated In Bomb Threat
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n2.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Netflix announces new thriller series with Hansal Mehta
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n3.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">Live Mint</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Seven Elgar accused's phones to be given to Sc Pegasus panel
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n4.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">The Times Of India</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Angry Dutch Locals Plan To Throw Eggs At Jeff Bezos' Superyacht
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n5.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+
+  </div>
+
+  <!-- ======13th Segment End Science ===== -->
+
+
+  <!-- ======15th Segment Start LifeStyle ===== -->
+
+  <div class="ion-padding" *ngIf="switchTab == 'life'">
+    <img style=" width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n20.jpg"
+      alt="">
+    <div style="margin: 1ch; ">
+      <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+        Matar Ghughra Recipe | Green Peas Ghughra | green Peas & Coconut Stuffing | Gujiya | Karanji | Varun
+      </ion-label>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="label-text">Rajshri Food</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);" name="ellipsis-vertical-outline">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Us Vice President Kamala Harris' Husband Evacuated In Bomb Threat
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n2.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Netflix announces new thriller series with Hansal Mehta
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n3.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">Live Mint</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Seven Elgar accused's phones to be given to Sc Pegasus panel
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n4.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">The Times Of India</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Angry Dutch Locals Plan To Throw Eggs At Jeff Bezos' Superyacht
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n5.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+
+  </div>
+
+  <!-- ======15th Segment End LifeStyle  ===== -->
+
+  <!-- ======16th Segment Start Automobile  ===== -->
+
+  <div class="ion-padding" *ngIf="switchTab == 'auto'">
+    <img style=" width: 100%; border-top-right-radius: 10px ; border-top-left-radius: 10px;" src="assets/n21.jpg"
+      alt="">
+    <div style="margin: 1ch; ">
+      <ion-label style=" color:black; font-size: 1.2em; font-weight: bold;">
+        Cristiano Ronaldo Gets A Cadillac Escalade For His 37th Birthday From Partner Georgina Rodriguez
+      </ion-label>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="label-text">Rajshri Food</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon style="color: rgb(143, 143, 143);" name="document-text-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon (click)="presentActionSheet()" style="color: rgb(143, 143, 143);" name="ellipsis-vertical-outline">
+          </ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </div>
+
+    <div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Us Vice President Kamala Harris' Husband Evacuated In Bomb Threat
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n2.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Netflix announces new thriller series with Hansal Mehta
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n3.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">Live Mint</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Seven Elgar accused's phones to be given to Sc Pegasus panel
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n4.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">The Times Of India</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label style=" color:black; font-size: 1.0em; ">
+              Angry Dutch Locals Plan To Throw Eggs At Jeff Bezos' Superyacht
+            </ion-label>
+          </ion-col>
+          <ion-col size="4">
+            <img style="border-radius: 10px;" src="assets/n5.jpg" alt="">
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="border-top: 1px solid rgb(192, 192, 192); margin: 0.9ch;">
+          <ion-col size="10">
+            <ion-label class="label-text">NDTV</ion-label>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="document-text-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon (click)="presentActionSheet()" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+    </div>
+
+  </div>
+
+  <!-- ======16th Segment End Automobile  ===== -->
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" routerLink="/discover">
+    <ion-fab-button color="danger">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

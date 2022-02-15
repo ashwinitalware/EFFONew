@@ -1,0 +1,366 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-row style="padding-left: 2px; padding-right: 2px;">
+      <ion-col size="2">
+        <div routerLink="/newsdashboard">&nbsp;&nbsp;
+          <!-- <ion-menu-button> -->
+          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:40%; height:40%;" viewBox="0 0 20 20"
+            fill="currentColor">
+            <path fill-rule="evenodd"
+              d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+              clip-rule="evenodd" />
+          </svg>
+          <!-- </ion-menu-button> -->
+        </div>
+      </ion-col>
+
+      <ion-col size="8">
+        <div align="center">
+          <ion-label style="color: #fff; font-size: large;"><b>Discover</b></ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="2">
+        <div style="margin-left: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;
+          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:45%; height:45%; " fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+          </svg>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-toolbar>
+
+  <ion-toolbar color="light">
+    <ion-segment (ionChange)='segmentChanged($event)' scrollable value="lang">
+      <ion-segment-button value="lang">
+        <ion-label>Languages</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="topic">
+        <ion-label>Topics</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="publish">
+        <ion-label>Publishers</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+
+  <div class="ion-padding" *ngIf="switchTab == 'lang'">
+
+    <div style="margin-left: 1.5ch;">
+      <ion-label><b>Select Preferred Language</b></ion-label>
+    </div>
+
+    <ion-grid fixed style="margin-top: 0.5ch;">
+      <ion-row>
+
+        <ion-col size="6">
+          <label for="radio-card-1" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-1" checked />
+            <div class="card-content-wrapper" style="background-color: #fff;">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <!-- <img src="assets/patient.png" alt="" /> -->
+                <h4><b>English</b></h4>
+              </div>
+            </div>
+          </label>
+          <!-- /.radio-card -->
+        </ion-col>
+
+        <ion-col size="6">
+          <label for="radio-card-2" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-2" />
+            <div class="card-content-wrapper" style="background-color: #fff;">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <!-- <img src="assets/doctor.png" alt="" /> -->
+                <h4><b>Hindi</b></h4>
+              </div>
+            </div>
+          </label>
+        </ion-col>
+
+        <ion-col size="6">
+          <label for="radio-card-3" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-3" />
+            <div class="card-content-wrapper" style="background-color: #fff;">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <!-- <img src="assets/patient.png" alt="" /> -->
+                <h4><b>Kannada</b></h4>
+              </div>
+            </div>
+          </label>
+          <!-- /.radio-card -->
+        </ion-col>
+
+        <ion-col size="6">
+          <label for="radio-card-4" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-4" />
+            <div class="card-content-wrapper" style="background-color: #fff;">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <!-- <img src="assets/doctor.png" alt="" /> -->
+                <h4><b>Bengali</b></h4>
+              </div>
+            </div>
+          </label>
+        </ion-col>
+
+        <ion-col size="6">
+          <label for="radio-card-5" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-5" />
+            <div class="card-content-wrapper" style="background-color: #fff;">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <!-- <img src="assets/patient.png" alt="" /> -->
+                <h4><b>Tamil</b></h4>
+              </div>
+            </div>
+          </label>
+          <!-- /.radio-card -->
+        </ion-col>
+
+        <ion-col size="6">
+          <label for="radio-card-6" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-6" />
+            <div class="card-content-wrapper" style="background-color: #fff;">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <!-- <img src="assets/doctor.png" alt="" /> -->
+                <h4><b>Marathi</b></h4>
+              </div>
+            </div>
+          </label>
+        </ion-col>
+
+        <ion-col size="6">
+          <label for="radio-card-7" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-7" />
+            <div class="card-content-wrapper" style="background-color: #fff;">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <!-- <img src="assets/patient.png" alt="" /> -->
+                <h4><b>Telugu</b></h4>
+              </div>
+            </div>
+          </label>
+          <!-- /.radio-card -->
+        </ion-col>
+
+        <ion-col size="6">
+          <label for="radio-card-8" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-8" />
+            <div class="card-content-wrapper" style="background-color: #fff;">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <!-- <img src="assets/doctor.png" alt="" /> -->
+                <h4><b>Malayalam</b></h4>
+              </div>
+            </div>
+          </label>
+        </ion-col>
+
+        <ion-col size="6">
+          <label for="radio-card-9" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-9" />
+            <div class="card-content-wrapper" style="background-color: #fff;">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <!-- <img src="assets/patient.png" alt="" /> -->
+                <h4><b>Gujarati</b></h4>
+              </div>
+            </div>
+          </label>
+          <!-- /.radio-card -->
+        </ion-col>
+
+        <ion-col size="6">
+          <label for="radio-card-10" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-10" />
+            <div class="card-content-wrapper" style="background-color: #fff;">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <!-- <img src="assets/doctor.png" alt="" /> -->
+                <h4><b>Punjabi</b></h4>
+              </div>
+            </div>
+          </label>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="ion-padding" *ngIf="switchTab == 'topic'">
+
+    <div style="margin-left: 1.5ch;">
+      <ion-label><b>Pick 5 (or more to get started)</b></ion-label>
+    </div>
+
+    <ion-grid fixed style="margin-top: 0.5ch;">
+      <ion-row>
+        <ion-col size="4">
+          <label for="radio-card-1" class="radio-card " style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-1" checked />
+            <div class="card-content-wrapper card1 ">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <h4 style="color: white;">Entertainment</h4>
+              </div>
+            </div>
+          </label>
+          <!-- /.radio-card -->
+        </ion-col>
+
+        <ion-col size="4">
+          <label for="radio-card-2" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-2" />
+            <div class="card-content-wrapper card2">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <h4 style="color: white;">India</h4>
+              </div>
+            </div>
+          </label>
+        </ion-col>
+
+        <ion-col size="4">
+          <label for="radio-card-3" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-3" />
+            <div class="card-content-wrapper card3">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <h4 style="color: white;">Business</h4>
+              </div>
+            </div>
+          </label>
+          <!-- /.radio-card -->
+        </ion-col>
+
+        <ion-col size="4">
+          <label for="radio-card-4" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-4" />
+            <div class="card-content-wrapper card4">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <h4 style="color: white;">Sports</h4>
+              </div>
+            </div>
+          </label>
+        </ion-col>
+
+        <ion-col size="4">
+          <label for="radio-card-5" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-5" />
+            <div class="card-content-wrapper card5">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <h4 style="color: white;">Tech</h4>
+              </div>
+            </div>
+          </label>
+          <!-- /.radio-card -->
+        </ion-col>
+
+        <ion-col size="4">
+          <label for="radio-card-6" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-6" />
+            <div class="card-content-wrapper card6">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <h4 style="color: white;">Lifestyle</h4>
+              </div>
+            </div>
+          </label>
+        </ion-col>
+
+        <ion-col size="4">
+          <label for="radio-card-7" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-7" />
+            <div class="card-content-wrapper card7">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <h4 style="color: white;">Trending</h4>
+              </div>
+            </div>
+          </label>
+          <!-- /.radio-card -->
+        </ion-col>
+
+        <ion-col size="4">
+          <label for="radio-card-8" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-8" />
+            <div class="card-content-wrapper card8">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <h4 style="color: white;">Money</h4>
+              </div>
+            </div>
+          </label>
+        </ion-col>
+
+        <ion-col size="4">
+          <label for="radio-card-9" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-9" />
+            <div class="card-content-wrapper card9">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <h4 style="color: white;">Science</h4>
+              </div>
+            </div>
+          </label>
+          <!-- /.radio-card -->
+        </ion-col>
+
+        <ion-col size="4">
+          <label for="radio-card-10" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-10" />
+            <div class="card-content-wrapper card10">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <h4 style="color: white;">Cricket</h4>
+              </div>
+            </div>
+          </label>
+        </ion-col>
+
+        <ion-col size="4">
+          <label for="radio-card-9" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-9" />
+            <div class="card-content-wrapper card11">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <h4 style="color: white;">Automobile</h4>
+              </div>
+            </div>
+          </label>
+          <!-- /.radio-card -->
+        </ion-col>
+
+        <ion-col size="4">
+          <label for="radio-card-10" class="radio-card" style="margin-top: -3vh;">
+            <input type="radio" name="radio-card" id="radio-card-10" />
+            <div class="card-content-wrapper card12">
+              <span class="check-icon"></span>
+              <div class="card-content" align="center">
+                <h4 style="color: white;">Health</h4>
+              </div>
+            </div>
+          </label>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+
+</ion-content>

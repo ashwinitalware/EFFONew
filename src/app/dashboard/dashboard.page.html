@@ -1,0 +1,221 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="2">
+        <div>
+          <ion-menu-button>
+            <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:70%; height:70%;" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd" />
+            </svg>
+          </ion-menu-button>
+        </div>
+      </ion-col>
+
+      <ion-col size="7">
+        <div align="center">
+          <img src="assets/textW.png" width="50%" height="50%" alt="">
+          <!-- <ion-label style="color: #fff;"><b>EFFO</b></ion-label> -->
+        </div>
+      </ion-col>
+
+      <ion-col size="3">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:30%; height:30%; " fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:30%; height:30%; margin-left: 20px;"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row class="pl-2 pr-2 pt-3">
+    <div style="width: 100%; background-color: white; border-radius: 10px; border: 1px solid rgb(211, 211, 211);">
+      <ion-input placeholder="Search In All India" id="search">
+        <ion-icon name="search" style="margin-left: 7px;"></ion-icon>
+      </ion-input>
+    </div>
+  </ion-row>
+
+  <div style="padding-left:0.8em ;" class="pt-3">
+    <ion-label>All Categories</ion-label>
+  </div>
+
+  <div style="background-color: white; border-radius: 5px; margin-top: 3%;">
+    <ion-grid fixed>
+      <ion-row class="small_text">
+        <ion-col size="3" align="center" routerLink="/newsdashboard">
+          <img src="assets/D1.png" alt=""><br>
+          <ion-label>News </ion-label>
+        </ion-col>
+        <ion-col size="3" align="center" routerLink="/jobdashboard">
+          <img src="assets/D2.png" alt=""><br>
+          <ion-label>Jobs</ion-label>
+        </ion-col>
+        <ion-col size="3" align="center">
+          <img src="assets/D3.png" alt=""><br>
+          <ion-label>Services</ion-label>
+        </ion-col>
+        <ion-col size="3" align="center">
+          <img src="assets/D4.png" alt=""><br>
+          <ion-label>Maintenance</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="small_text">
+        <ion-col size="3" align="center">
+          <img src="assets/shop.png" alt=""><br>
+          <ion-label>Shopping</ion-label>
+        </ion-col>
+        <ion-col size="3" align="center">
+          <img src="assets/cab_icon.png" alt=""><br>
+          <ion-label>Cab Services</ion-label>
+        </ion-col>
+        <ion-col size="3" align="center">
+          <img src="assets/D8.png" alt=""><br>
+          <ion-label>Ticket Booking</ion-label>
+        </ion-col>
+        <ion-col size="3" align="center">
+          <img src="assets/D11.png" alt=""><br>
+          <ion-label>Old Ex</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="small_text">
+        <ion-col size="3" align="center">
+          <img src="assets/D6.png" alt=""><br>
+          <ion-label>Property</ion-label>
+        </ion-col>
+        <ion-col size="3" align="center">
+          <img src="assets/D7.png" alt=""><br>
+          <ion-label>Lodging</ion-label>
+        </ion-col>
+        <ion-col size="3" align="center">
+          <img src="assets/D9.png" alt=""><br>
+          <ion-label>Restaurant & Food</ion-label>
+        </ion-col>
+        <ion-col size="3" align="center">
+          <img src="assets/empty.png" alt=""><br>
+          <ion-label></ion-label>
+        </ion-col>
+      </ion-row>
+
+
+
+      <!-- <ion-row style="margin-top: 2%; border-top: 1px solid rgb(194, 192, 192);">
+        <ion-col size="12" align="center" (click)="book_ride()">
+          <ion-icon name="chevron-down"></ion-icon>
+        </ion-col>
+      </ion-row> -->
+
+    </ion-grid>
+    <!-- </ion-card> -->
+  </div>
+
+  <div style="background-color: white; border-radius: 5px; margin-top: 2%; padding: 5px;">
+    <ion-slides #slider loop="true" [options]="slideOpts" (ionSlideTouchEnd)="slideChanged()">
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-3.jpg" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-2.jpg" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-1.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-4.jpg" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-3.jpg" />
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div style="padding-left:0.8em;" class="pt-3">
+    <ion-label>Popular Ads</ion-label>
+  </div>
+
+  <div style="background-color: white; border-radius: 5px; margin-top: 2%; padding: 5px; margin-bottom: 20%;">
+    <ion-slides #slider loop="true" [options]="slideOptss">
+      <ion-slide>
+        <ion-card class="adds-card">
+          <img src="assets/A1.png" alt="">
+          <ion-label>A Good Sofa</ion-label>
+          <p><span>Chennai</span></p>
+          <p>₹ 14,000</p>
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card class="adds-card">
+          <img src="assets/A2.png" alt="">
+          <ion-label>Iphone 8 Plus </ion-label>
+          <p>Nagpur</p>
+          <p>₹ 5,999</p>
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card class="adds-card">
+          <img src="assets/A3.png" alt="">
+          <ion-label>Old Coins</ion-label>
+          <p>Delhi</p>
+          <p>₹ 35,000</p>
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card class="adds-card">
+          <img src="assets/A4.png" alt="">
+          <ion-label>Sofa Cum Bed</ion-label>
+          <p>Bangalore</p>
+          <p>₹ 6,000</p>
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card class="adds-card">
+          <img src="assets/A5.png" alt="">
+          <ion-label>UAE Old Coin</ion-label>
+          <p>Chennai</p>
+          <p>₹ 10,000</p>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div align="center">
+    <img src="assets/ft.png" alt="" width="40%" height="40%">
+  </div>
+
+</ion-content>

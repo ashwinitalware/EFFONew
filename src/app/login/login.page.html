@@ -1,0 +1,81 @@
+<ion-content>
+
+  <!-- <header>
+    <h1>Login</h1>
+  </header> -->
+
+  <div align="center" style="margin-top: 10%;">
+    <img src="assets/v1.png" alt="" width="30%" height="30%">
+  </div>
+
+  <div class="login_title" style="margin-top: 10px;">
+    <ion-title>Login</ion-title>
+    <p style="font-size: small;  color: rgb(184, 184, 184);">please sign in to continue</p>
+    <!-- <p class="small_text">please sign in to continue</p> -->
+  </div>
+
+  <div style="padding: 8%;">
+
+
+    <div style="padding: 6px;">
+      <!-- <ion-item>
+        <ion-label class="text" position="floating">Full Name</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label class="text" position="floating">Mobile Number</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text" position="floating">Password</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+    </div>
+
+
+    <div align="center" class="button_login">
+      <button expand="block" color="light" class="bg-class" routerLink="/dashboard">
+        Login
+      </button>
+      <p style="font-size: small; margin-top: 1%; color: rgb(184, 184, 184);">Don't have an account? <span
+          style="color: red;" routerLink="/signin"><b>Sign
+            up</b></span></p>
+    </div>
+
+
+
+    <ion-grid fixed>
+      <ion-row>
+        <!-- <ion-col size="5" style="color: gainsboro;">
+          -------------
+        </ion-col> -->
+        <ion-col size="12" style="color: dimgrey;" align="center">
+          ----&nbsp; OR &nbsp;----
+        </ion-col>
+        <!-- <ion-col size="5" style="color: gainsboro;">
+          
+        </ion-col> -->
+      </ion-row>
+
+
+      <ion-row style="margin-top: 2vh;">
+        <ion-col size="6">
+          <div class="facebook ">
+            <img class="img_login" src="assets/facebook.png" alt="">
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div class="facebook ">
+            <img class="img_login" src="assets/google.png" alt="">
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+
+</ion-content>

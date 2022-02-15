@@ -1,0 +1,61 @@
+.small_text {
+  font-size: small;
+}
+
+header {
+  position: relative;
+  height: 200px;
+  background-image: linear-gradient(#d10808, #f90101);
+  border-bottom-right-radius: 50% 30%;
+}
+
+h1 {
+  margin: 0;
+  padding: 100px 0;
+  font: 24px "Arial";
+  text-align: center;
+}
+
+header h1 {
+  color: white;
+}
+
+.facebook {
+  border: 1px solid rgb(214, 214, 214);
+  border-radius: 5px;
+  padding: 3px;
+  text-align: center;
+}
+
+ion-grid {
+  margin-top: 2vh;
+}
+
+.login_title {
+  text-align: center;
+  margin-top: 10vh;
+  font-size: large;
+}
+
+.img_login {
+  width: 15%;
+  height: 15%;
+}
+
+.text {
+  font-size: 0.9em;
+  color: rgb(184, 184, 184);
+}
+
+.button_login {
+  margin-top: 5vh;
+  padding: 6px;
+}
+
+.bg-class {
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  color: #fff;
+  background-image: linear-gradient(197deg, #d10808, #f90101, #d10808 100%) !important
+}

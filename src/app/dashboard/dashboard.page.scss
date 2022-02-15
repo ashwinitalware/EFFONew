@@ -1,0 +1,141 @@
+.small_text {
+  font-size: 0.7em;
+  text-align: center;
+  color: rgb(56, 56, 56);
+}
+
+ion-toolbar {
+  --background: linear-gradient(90deg, rgb(255, 0, 0) 0%, #cf0808 100%);
+}
+
+
+@-webkit-keyframes slide-in-bck-center {
+  0% {
+    -webkit-transform: translateZ(600px);
+    transform: translateZ(600px);
+    opacity: 0
+  }
+
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1
+  }
+}
+
+@keyframes slide-in-bck-center {
+  0% {
+    -webkit-transform: translateZ(600px);
+    transform: translateZ(600px);
+    opacity: 0
+  }
+
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1
+  }
+}
+
+.main_slider {
+  -webkit-animation: slide-in-bck-center 0.7s cubic-bezier(.25, .46, .45, .94) both;
+  animation: slide-in-bck-center 0.7s cubic-bezier(.25, .46, .45, .94) both;
+
+  padding: 2% 10%;
+
+  .slide_s {
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px rgba(141, 161, 255, 0.17);
+    -webkit-box-shadow: 1px 1px 5px 1px rgba(141, 161, 255, 0.17);
+    -moz-box-shadow: 1px 1px 5px 1px rgba(141, 161, 255, 0.17);
+    margin-left: 2%;
+    margin-right: 2%;
+
+    .doctor_card {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      padding-bottom: 1vh;
+      box-shadow: none;
+    }
+
+    .star_color {
+      color: var(--ion-color-warning);
+      font-size: 0.8em;
+      margin-right: 2px;
+    }
+
+    .doc_name {
+      margin: 0 !important;
+      white-space: nowrap;
+      width: 99%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 0.8em;
+      color: var(--ion-color-dark);
+      padding: 0.2vh 0.8vh;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .doc_speciality {
+      text-align: left;
+      margin: 0 !important;
+      white-space: nowrap;
+      width: 99%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 0.8em;
+      color: var(--ion-color-medium2);
+      padding: 0.2vh 0.8vh;
+    }
+
+    .doc_rating {
+      text-align: left;
+      font-size: 0.7em;
+      color: var(--ion-color-medium2);
+      padding: 0.2vh 0.8vh;
+    }
+
+    img {
+      margin: auto;
+      min-height: 12vh;
+      height: 12vh;
+      max-height: 12vh;
+      min-width: auto;
+      width: auto;
+      max-width: auto;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+  }
+
+}
+
+.parent-border-radius {
+  border-radius: 0px 0px 0 0;
+}
+
+/* This is added for the iOS segment indicator */
+.parent-border-radius ion-segment-button:first-of-type {
+  --border-radius: 5px 5px 5px 5px;
+}
+
+.parent-border-radius ion-segment-button:second-of-type {
+  --border-radius: 5px 5px 5px 5px;
+}
+
+.parent-border-radius ion-segment-button:last-of-type {
+  --border-radius: 5px 5px 5px 5px;
+}
+
+.adds-card {
+  border-radius: 5px;
+  width: 100%;
+  height: 60%;
+  background-color: white;
+
+  ion-label {
+    color: black;
+  }
+}
