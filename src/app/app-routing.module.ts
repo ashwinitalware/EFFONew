@@ -139,6 +139,18 @@ const routes: Routes = [
     path: 'editprofile',
     loadChildren: () => import('./Job/editprofile/editprofile.module').then(m => m.EditprofilePageModule)
   },
+  {
+    path: 'forgotpass',
+    loadChildren: () => import('./Job/forgotpass/forgotpass.module').then(m => m.ForgotpassPageModule)
+  },
+  {
+    path: 'verify',
+    loadChildren: () => import('./Job/verify/verify.module').then(m => m.VerifyPageModule)
+  },
+  {
+    path: 'newpassword',
+    loadChildren: () => import('./Job/newpassword/newpassword.module').then(m => m.NewpasswordPageModule)
+  },
 
 
 

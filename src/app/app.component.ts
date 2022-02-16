@@ -17,7 +17,7 @@ export class AppComponent {
   }
   initializeApp() {
     this.platform.ready().then(() => {
-      this.router.navigate(['/profile']);
+      // this.router.navigate(['/profile']);
     })
   }
 }
