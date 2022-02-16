@@ -865,22 +865,14 @@
                   Call
                 </ion-button>
               </ion-col>
-              <!-- <ion-col size="2">
-                <img src="assets/whatsapp.png" alt="">&nbsp;
-              </ion-col> -->
             </ion-row>
           </ion-grid>
         </ion-card>
-        <!-- <ion-card class="adds-card">
-          <ion-label>Sofa Cum Bed</ion-label>
-          <p>Bangalore</p>
-          <p>₹ 6,000</p>
-        </ion-card> -->
       </ion-slide>
 
       <ion-slide>
-        <ion-card class="product-card" style="background-color: #fff;" style="width: 100%;">
-          <div class="product-details">
+        <ion-card class="product-card " style="background-color: #fff; " style="width: 100%;">
+          <div class="product-details ">
             <ion-row>
               <ion-col size="11">
                 <span class="product-catagory">₹ 50,000 </span>
@@ -913,43 +905,69 @@
                   Call
                 </ion-button>
               </ion-col>
-              <!-- <ion-col size="2">
-                <img src="assets/whatsapp.png" alt="">&nbsp;
-              </ion-col> -->
             </ion-row>
           </ion-grid>
         </ion-card>
-        <!-- <ion-card class="adds-card">
-          <ion-label>UAE Old Coin</ion-label>
-          <p>Chennai</p>
-          <p>₹ 10,000</p>
-        </ion-card> -->
       </ion-slide>
     </ion-slides>
   </div>
 
-  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+</ion-content>
+
+
+<!-- <ion-fab horizontal="start" vertical="bottom" slot="fixed">
+  <ion-fab-button color="dark">
+    <ion-icon md="caret-up" ios="chevron-up-circle-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top" style="margin-bottom: 100%;">
     <ion-fab-button color="dark">
-      <ion-icon md="caret-up" ios="chevron-up-circle-outline"></ion-icon>
+      <ion-icon name="ellipsis-vertical-outline"></ion-icon>
     </ion-fab-button>
-    <ion-fab-list side="top" routerLink="/joblist">
-      <ion-fab-button color="light">
-        <!-- <ion-icon name="logo-facebook"></ion-icon> -->
-        <ion-label>list</ion-label>
-      </ion-fab-button>
-      <ion-fab-button color="light">
-        <!-- <ion-icon name="logo-twitter"></ion-icon> -->
-        <ion-label>histroy</ion-label>
-      </ion-fab-button>
-      <ion-fab-button color="light">
-        <ion-icon name="logo-vimeo"></ion-icon>
-        <ion-label>profile</ion-label>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
+    <ion-fab-button color="dark">
+      <ion-icon name="newspaper-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="dark">
+      <ion-icon name="person-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab> -->
+
+<ion-fab horizontal="start" vertical="bottom">
+  <ion-fab-button color="dark">
+    <ion-icon name="caret-up-outline"></ion-icon>
+    <!-- <ion-icon style="font-size: large;" name="alert-circle-outline"></ion-icon> -->
+  </ion-fab-button>
+  <ion-fab-list side="top" style="margin-bottom: 100%;">
+    <ion-fab-button data-desc="Profile" color="dark" routerLink="/profile">
+      <ion-icon name="person"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button data-desc="History" color="dark" routerLink="/history">
+      <ion-icon name="receipt"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button data-desc="JobList" color="dark" routerLink="/alljoblist">
+      <ion-icon name="ellipsis-vertical"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
 
 
-  <!-- <ion-segment mode="ios" value="job" class="parent-border-radius" (ionChange)='segmentChanged($event)'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-segment mode="ios" value="job" class="parent-border-radius" (ionChange)='segmentChanged($event)'>
     <ion-segment-button value="job">Job Seeker</ion-segment-button>
     <ion-segment-button value="emp">Employer</ion-segment-button>
   </ion-segment>
@@ -1294,4 +1312,4 @@
 
 
 
-</ion-content>
+<!-- </ion-content> -->

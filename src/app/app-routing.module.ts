@@ -130,7 +130,15 @@ const routes: Routes = [
   {
     path: 'history',
     loadChildren: () => import('./Job/history/history.module').then( m => m.HistoryPageModule)
+  },  {
+    path: 'profile',
+    loadChildren: () => import('./Job/profile/profile.module').then( m => m.ProfilePageModule)
   },
+  {
+    path: 'editprofile',
+    loadChildren: () => import('./Job/editprofile/editprofile.module').then( m => m.EditprofilePageModule)
+  },
+
 
 
 ];

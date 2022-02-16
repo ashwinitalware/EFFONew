@@ -1,0 +1,23 @@
+ion-toolbar {
+  --background: linear-gradient(90deg, rgb(255, 0, 0) 0%, #cf0808 100%);
+}
+
+.thumb {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  overflow: hidden;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumb img {
+  height: 100%;
+  width: auto;
+}

@@ -17,7 +17,7 @@ export class AppComponent {
   }
   initializeApp() {
     this.platform.ready().then(() => {
-      this.router.navigate(['/fulltime-job']);
+      this.router.navigate(['/profile']);
     })
   }
 }
