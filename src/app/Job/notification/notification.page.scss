@@ -4,7 +4,12 @@ ion-toolbar {
 
 .div1 {
   background-color: white;
-  border: 1px solid rgb(180, 179, 179);
+  border-left: 1px solid rgb(48, 92, 214);
   // padding: 2px;
-  border-radius: 8px;
+  border-radius: 5px;
+
+  p {
+    color: gray;
+    font-size: 0.9em;
+  }
 }
