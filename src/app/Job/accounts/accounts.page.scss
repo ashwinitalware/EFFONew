@@ -35,10 +35,29 @@ ion-icon {
 }
 
 .bg-class-outline {
-  padding: 8px;
+  // padding: 8px;
+  padding: 2px;
   width: 100%;
   border-radius: 5px;
-  border: 1px solid rgb(255, 1, 1);
-  color: red;
+  border: 1px solid #fadb50;
+  color: #fadb50;
+  background-color: #fff;
+}
+
+.bg-class-outline1 {
+  padding: 2px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid rgb(151, 171, 238);
+  color: rgb(151, 171, 238);
+  background-color: #fff;
+}
+
+.bg-class-outline2 {
+  padding: 2px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid rgb(141, 238, 111);
+  color: rgb(141, 238, 111);
   background-color: #fff;
 }

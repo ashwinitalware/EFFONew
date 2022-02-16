@@ -206,7 +206,7 @@ ion-fab-button[data-desc]::after {
   position: absolute;
   content: attr(data-desc);
   z-index: 1;
-  left: 50px;
+  right: 50px;
   bottom: 7px;
   color: var(--ion-color-contrast, #fff);
   background-color: var(--ion-color-base, #fff);

@@ -21,57 +21,36 @@
       </ion-col>
 
       <ion-col size="2">
-        <div style="margin-left: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;
+        <div style="margin-left: 10%;">
           <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:45%; height:45%; " fill="none"
             viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
           </svg>
-          <!-- <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:30%; height:30%; margin-left: 20px;"
-            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:45%; height:45%; " fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" routerLink="/filters">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+          </svg>
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:45%; height:45%; " fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" (click)="presentAlertRadio()">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
           </svg> -->
         </div>
       </ion-col>
     </ion-row>
   </ion-toolbar>
-  <!-- <div style="background-color: #fff; padding: 3px;">
-    <ion-row align="center">
-      <ion-col size="6" style="border-right: 1px solid gray;" (click)="presentAlertRadio()">
-        <ion-icon name="swap-vertical"></ion-icon>&nbsp; <ion-label>Sort</ion-label>
-      </ion-col>
-      <ion-col size="5" routerLink="/filters">
-        <ion-icon name="funnel-outline"></ion-icon>&nbsp; <ion-label>Filter</ion-label>
-      </ion-col>
-    </ion-row>
-  </div> -->
-  <!-- <ion-toolbar color="light">
-    <ion-row align="center">
-      <ion-col size="6" style="border-right: 1px solid gray;" (click)="presentAlertRadio()">
-        <ion-icon name="swap-vertical"></ion-icon>&nbsp; <ion-label>Sort</ion-label>
-      </ion-col>
-      <ion-col size="5">
-        <ion-icon name="funnel-outline"></ion-icon>&nbsp; <ion-label>Filter</ion-label>
-      </ion-col>
-    </ion-row>
-  </ion-toolbar> -->
-
 </ion-header>
 
 
-<ion-content>
 
+<ion-content>
 
   <div style="background-color: #fff;  margin-top: 4%;">
     <ion-label class="large-text" style="color: black; background-color: rgb(216, 216, 216); padding: 4px; border-bottom-right-radius: 
     10px;">Urgent Opening for Account Assistant &nbsp;
     </ion-label>
-    <!-- <p class="label-text">
-      <ion-icon name="location-outline"></ion-icon> &nbsp; Dastur Nagar Amravati
-    </p> -->
 
     <ion-grid fixed>
       <ion-row style="border-bottom: 1px solid rgb(204, 203, 203)">
@@ -112,22 +91,20 @@
       </ion-row>
 
       <ion-row style="margin-top: 1ch;">
-        <ion-col size="5">
-          <button style="width: 100%; font-size: 0.8em;" class="bg-class-outline">
-            Call Now
-          </button>
+        <ion-col size="4">
+          <div class="bg-class-outline">
+            <img src="assets/phone.png" alt="">&nbsp;<span style="width: 100%; font-size: 0.8em;">Call Now</span>
+          </div>
         </ion-col>
-        <ion-col size="5">
-          <button style="width: 100%; font-size: 0.8em;" class="bg-class" routerLink="/apply">
-            Apply
-          </button>
+        <ion-col size="4">
+          <div class="bg-class-outline1" routerLink="/apply">
+            <img src="assets/check.png" alt="">&nbsp;<span style="width: 100%; font-size: 0.8em;">Apply Now</span>
+          </div>
         </ion-col>
-        <ion-col size="2">
-          <img src="assets/whats-app.png" alt="">
-          <!-- <button style="width: 100%; " class="bg-class-outline">
-            <ion-icon style="color: green; font-size: 0.8em;" name="logo-whatsapp"></ion-icon> <span
-              style="font-size: 0.8em;">&nbsp; WhatsApp</span>
-          </button> -->
+        <ion-col size="4">
+          <div class="bg-class-outline2">
+            <img src="assets/wapp.png" alt="">&nbsp;<span style="width: 100%; font-size: 0.8em;">Whatsapp</span>
+          </div>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -192,22 +169,20 @@
       </ion-row>
 
       <ion-row style="margin-top: 1ch;">
-        <ion-col size="5">
-          <button style="width: 100%; font-size: 0.8em;" class="bg-class-outline">
-            Call Now
-          </button>
+        <ion-col size="4">
+          <div class="bg-class-outline">
+            <img src="assets/phone.png" alt="">&nbsp;<span style="width: 100%; font-size: 0.8em;">Call Now</span>
+          </div>
         </ion-col>
-        <ion-col size="5">
-          <button style="width: 100%; font-size: 0.8em;" class="bg-class" routerLink="/apply">
-            Apply
-          </button>
+        <ion-col size="4">
+          <div class="bg-class-outline1" routerLink="/apply">
+            <img src="assets/check.png" alt="">&nbsp;<span style="width: 100%; font-size: 0.8em;">Apply Now</span>
+          </div>
         </ion-col>
-        <ion-col size="2">
-          <img src="assets/whats-app.png" alt="">
-          <!-- <button style="width: 100%; " class="bg-class-outline">
-            <ion-icon style="color: green; font-size: 0.8em;" name="logo-whatsapp"></ion-icon> <span
-              style="font-size: 0.8em;">&nbsp; WhatsApp</span>
-          </button> -->
+        <ion-col size="4">
+          <div class="bg-class-outline2">
+            <img src="assets/wapp.png" alt="">&nbsp;<span style="width: 100%; font-size: 0.8em;">Whatsapp</span>
+          </div>
         </ion-col>
       </ion-row>
 
@@ -265,22 +240,20 @@
       </ion-row>
 
       <ion-row style="margin-top: 1ch;">
-        <ion-col size="5">
-          <button style="width: 100%; font-size: 0.8em;" class="bg-class-outline">
-            Call Now
-          </button>
+        <ion-col size="4">
+          <div class="bg-class-outline">
+            <img src="assets/phone.png" alt="">&nbsp;<span style="width: 100%; font-size: 0.8em;">Call Now</span>
+          </div>
         </ion-col>
-        <ion-col size="5">
-          <button style="width: 100%; font-size: 0.8em;" class="bg-class" routerLink="/apply">
-            Apply
-          </button>
+        <ion-col size="4">
+          <div class="bg-class-outline1" routerLink="/apply">
+            <img src="assets/check.png" alt="">&nbsp;<span style="width: 100%; font-size: 0.8em;">Apply Now</span>
+          </div>
         </ion-col>
-        <ion-col size="2">
-          <img src="assets/whats-app.png" alt="">
-          <!-- <button style="width: 100%; " class="bg-class-outline">
-            <ion-icon style="color: green; font-size: 0.8em;" name="logo-whatsapp"></ion-icon> <span
-              style="font-size: 0.8em;">&nbsp; WhatsApp</span>
-          </button> -->
+        <ion-col size="4">
+          <div class="bg-class-outline2">
+            <img src="assets/wapp.png" alt="">&nbsp;<span style="width: 100%; font-size: 0.8em;">Whatsapp</span>
+          </div>
         </ion-col>
       </ion-row>
     </ion-grid>

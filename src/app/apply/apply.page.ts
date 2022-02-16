@@ -19,8 +19,7 @@ export class ApplyPage implements OnInit {
   confirmOrder() {
     const swalWithBootstrapButtons = Swal.mixin({});
     swalWithBootstrapButtons.fire({
-      // title: 'Apply successfully.',
-      title: '',
+      title: 'Successfully Applied',
       text: '',
       timer: 3000,
       icon: 'success',

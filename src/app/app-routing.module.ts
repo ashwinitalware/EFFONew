@@ -150,7 +150,11 @@ const routes: Routes = [
   {
     path: 'newpassword',
     loadChildren: () => import('./Job/newpassword/newpassword.module').then(m => m.NewpasswordPageModule)
+  },  {
+    path: 'notification',
+    loadChildren: () => import('./Job/notification/notification.module').then( m => m.NotificationPageModule)
   },
+
 
 
 

@@ -33,7 +33,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid fixed>
+  <ion-row class="pl-2 pr-2 pt-3">
+    <div style="width: 100%; background-color: white; border-radius: 10px; border: 1px solid rgb(211, 211, 211);">
+      <ion-input placeholder="Search In All India" id="search">
+        <ion-icon name="search" style="margin-left: 7px;"></ion-icon>
+      </ion-input>
+    </div>
+  </ion-row>
+
+  <div style="padding-left:0.8em ;" class="pt-3 pb-2">
+    <ion-label>All Jobs Categories</ion-label>
+  </div>
+
+  <!-- <ion-grid fixed>
     <ion-row align="center" class="pt-2">
       <ion-col size="2" style="border-right: 1px solid rgb(224, 224, 224) ;" routerLink="/fulltime-job">
         <img src="assets/full-time.png" alt=""><br>
@@ -58,7 +70,7 @@
         <ion-label style="font-size: 0.6em;">Night Shift</ion-label>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 
   <div style="background-color: white; margin-bottom: 7px;">
     <ion-grid fixed>
@@ -72,13 +84,13 @@
           <img src="assets/J2.png" alt=""><br>
           <ion-label class="label-text card_text">Marketing</ion-label>
         </ion-col>
-        <ion-col size="2" align="center" routerLink="/itindustry">
+        <ion-col size="2" align="center">
           <img src="assets/J3.png" alt="">
           <ion-label class="label-text card_text">IT Industry</ion-label>
           <!-- <ion-label class="ion-text-wrap" class="label-text">{{temp.length > 5 ? temp.slice(0,4) +'...' : temp}}
           </ion-label> -->
         </ion-col>
-        <ion-col size="2" align="center" routerLink="/backoffice">
+        <ion-col size="2" align="center">
           <img src="assets/J4.png" alt=""><br>
           <ion-label class="label-text card_text">Back Office</ion-label>
         </ion-col>
@@ -92,12 +104,12 @@
           <img src="assets/J6.png" alt=""><br>
           <ion-label class="label-text">Delivery Boy</ion-label>
         </ion-col> -->
-        <ion-col size="2" align="center" routerLink="/teachers">
+        <ion-col size="2" align="center">
           <img src="assets/J7.png" alt=""><br>
           <ion-label class="label-text card_text">Teachers</ion-label>
         </ion-col>
 
-        <ion-col *ngIf="bookride" size="2" align="center" routerLink="/beautician">
+        <ion-col *ngIf="bookride" size="2" align="center">
           <img src="assets/J8.png" alt=""><br>
           <ion-label class="label-text card_text">Beautician</ion-label>
         </ion-col>
@@ -144,7 +156,7 @@
             <img src="assets/J4.png" alt=""><br>
             <ion-label class="label-text card_text">BPO</ion-label>
           </ion-col>
-          <ion-col size="2" align="center" routerLink="/deliveryboy">
+          <ion-col size="2" align="center">
             <img src="assets/J6.png" alt=""><br>
             <ion-label class="label-text card_text">Delivery</ion-label>
           </ion-col>
@@ -152,7 +164,7 @@
             <img src="assets/J16.png" alt=""><br>
             <ion-label class="label-text card_text">Chef</ion-label>
           </ion-col>
-          <ion-col size="2" align="center" routerLink="/deliveryboy">
+          <ion-col size="2" align="center">
             <img src="assets/J17.png" alt=""><br>
             <ion-label class="label-text card_text">Events</ion-label>
           </ion-col>
@@ -165,8 +177,8 @@
     </ion-grid>
   </div>
 
-  <div class="pt-2 pl-4 pb-2" style="background-color: #fff; border-bottom: 2px solid red;">
-    <ion-label style="color: red;">Jobs Near Me</ion-label>
+  <div class="pt-2 pl-4 pb-2" style="background-color: #fff; border-bottom: 2px solid blue;">
+    <ion-label style="color: blue;">Jobs Near Me</ion-label>
     <p style="font-size: 0.7em;">Nearby Jobs On EFFO App</p>
   </div>
 
@@ -208,7 +220,7 @@
           <ion-grid fixed>
             <ion-row>
               <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
+                <ion-button size="small" color="danger" style="font-size: 0.7em;" routerLink="/software-deatils">
                   Apply
                 </ion-button>
               </ion-col>
@@ -249,7 +261,7 @@
           <ion-grid fixed>
             <ion-row>
               <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
+                <ion-button size="small" color="danger" style="font-size: 0.7em;" routerLink="/software-deatils">
                   Apply
                 </ion-button>
               </ion-col>
@@ -297,7 +309,7 @@
           <ion-grid fixed>
             <ion-row>
               <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
+                <ion-button size="small" color="danger" style="font-size: 0.7em;" routerLink="/software-deatils">
                   Apply
                 </ion-button>
               </ion-col>
@@ -345,7 +357,7 @@
           <ion-grid fixed>
             <ion-row>
               <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
+                <ion-button size="small" color="danger" style="font-size: 0.7em;" routerLink="/software-deatils">
                   Apply
                 </ion-button>
               </ion-col>
@@ -393,7 +405,7 @@
           <ion-grid fixed>
             <ion-row>
               <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
+                <ion-button size="small" color="danger" style="font-size: 0.7em;" routerLink="/software-deatils">
                   Apply
                 </ion-button>
               </ion-col>
@@ -417,8 +429,8 @@
     </ion-slides>
   </div>
 
-  <div class="pt-2 pl-4 pb-2" style="background-color: #fff; border-bottom: 2px solid blue;">
-    <ion-label style="color: blue;">High Salary Jobs</ion-label>
+  <div class="pt-2 pl-4 pb-2" style="background-color: #fff; border-bottom: 2px solid darkmagenta;">
+    <ion-label style="color: darkmagenta;">High Salary Jobs</ion-label>
     <p style="font-size: 0.7em;">High salary jobs in your desired category</p>
   </div>
 
@@ -519,11 +531,6 @@
             </ion-row>
           </ion-grid>
         </ion-card>
-        <!-- <ion-card class="adds-card">
-          <ion-label>Iphone 8 Plus </ion-label>
-          <p>Nagpur</p>
-          <p>₹ 5,999</p>
-        </ion-card> -->
       </ion-slide>
 
       <ion-slide>
@@ -561,17 +568,9 @@
                   Call
                 </ion-button>
               </ion-col>
-              <!-- <ion-col size="2">
-                <img src="assets/whatsapp.png" alt="">&nbsp;
-              </ion-col> -->
             </ion-row>
           </ion-grid>
         </ion-card>
-        <!-- <ion-card class="adds-card">
-          <ion-label>Old Coins</ion-label>
-          <p>Delhi</p>
-          <p>₹ 35,000</p>
-        </ion-card> -->
       </ion-slide>
 
       <ion-slide>
@@ -609,17 +608,9 @@
                   Call
                 </ion-button>
               </ion-col>
-              <!-- <ion-col size="2">
-                <img src="assets/whatsapp.png" alt="">&nbsp;
-              </ion-col> -->
             </ion-row>
           </ion-grid>
         </ion-card>
-        <!-- <ion-card class="adds-card">
-          <ion-label>Sofa Cum Bed</ion-label>
-          <p>Bangalore</p>
-          <p>₹ 6,000</p>
-        </ion-card> -->
       </ion-slide>
 
       <ion-slide>
@@ -657,17 +648,9 @@
                   Call
                 </ion-button>
               </ion-col>
-              <!-- <ion-col size="2">
-                <img src="assets/whatsapp.png" alt="">&nbsp;
-              </ion-col> -->
             </ion-row>
           </ion-grid>
         </ion-card>
-        <!-- <ion-card class="adds-card">
-          <ion-label>UAE Old Coin</ion-label>
-          <p>Chennai</p>
-          <p>₹ 10,000</p>
-        </ion-card> -->
       </ion-slide>
     </ion-slides>
   </div>
@@ -725,9 +708,6 @@
                   Call
                 </ion-button>
               </ion-col>
-              <!-- <ion-col size="2">
-                <img src="assets/whatsapp.png" alt="">&nbsp;
-              </ion-col> -->
             </ion-row>
           </ion-grid>
         </ion-card>
@@ -736,7 +716,6 @@
       <ion-slide>
         <ion-card class="product-card">
           <div class="product-details">
-            <!-- <span class="product-catagory">₹ 50,000</span> -->
             <ion-row>
               <ion-col size="11">
                 <span class="product-catagory">₹ 50,000 </span>
@@ -769,17 +748,9 @@
                   Call
                 </ion-button>
               </ion-col>
-              <!-- <ion-col size="2">
-                <img src="assets/whatsapp.png" alt="">&nbsp;
-              </ion-col> -->
             </ion-row>
           </ion-grid>
         </ion-card>
-        <!-- <ion-card class="adds-card">
-          <ion-label>Iphone 8 Plus </ion-label>
-          <p>Nagpur</p>
-          <p>₹ 5,999</p>
-        </ion-card> -->
       </ion-slide>
 
       <ion-slide>
@@ -915,37 +886,16 @@
 </ion-content>
 
 
-<!-- <ion-fab horizontal="start" vertical="bottom" slot="fixed">
+<ion-fab horizontal="end" vertical="bottom">
   <ion-fab-button color="dark">
-    <ion-icon md="caret-up" ios="chevron-up-circle-outline"></ion-icon>
-  </ion-fab-button>
-  <ion-fab-list side="top" style="margin-bottom: 100%;">
-    <ion-fab-button color="dark">
-      <ion-icon name="ellipsis-vertical-outline"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-button color="dark">
-      <ion-icon name="newspaper-outline"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-button color="dark">
-      <ion-icon name="person-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab-list>
-</ion-fab> -->
-
-<ion-fab horizontal="start" vertical="bottom">
-  <ion-fab-button color="dark">
-    <ion-icon name="caret-up-outline"></ion-icon>
-    <!-- <ion-icon style="font-size: large;" name="alert-circle-outline"></ion-icon> -->
+    <ion-icon style="font-size: 1.5em;" name="settings-outline"></ion-icon>
   </ion-fab-button>
   <ion-fab-list side="top" style="margin-bottom: 100%;">
     <ion-fab-button data-desc="Profile" color="dark" routerLink="/profile">
-      <ion-icon name="person"></ion-icon>
+      <ion-icon name="person-outline"></ion-icon>
     </ion-fab-button>
     <ion-fab-button data-desc="History" color="dark" routerLink="/history">
-      <ion-icon name="receipt"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-button data-desc="JobList" color="dark" routerLink="/alljoblist">
-      <ion-icon name="ellipsis-vertical"></ion-icon>
+      <ion-icon name="receipt-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab-list>
 </ion-fab>

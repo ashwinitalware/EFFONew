@@ -57,3 +57,31 @@ ion-icon {
   font-size: 0.9em;
   color: rgb(105, 105, 105);
 }
+
+.button_login_file {
+  margin-top: 5vh;
+  // padding: 8px;
+}
+
+.bg-class_file {
+  padding: 7px;
+  width: 100%;
+  border-radius: 5px;
+  color: red;
+  border: 1px solid red;
+  background-color: #fff;
+  //   background-image: linear-gradient(197deg, #d10808, #f90101, #d10808 100%) !important
+}
+
+
+label {
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-bottom: 0px;
+}
+
+#upload-photo {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
