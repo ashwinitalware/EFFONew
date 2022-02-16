@@ -73,70 +73,71 @@ const routes: Routes = [
   },
   {
     path: 'accounts',
-    loadChildren: () => import('./Job/accounts/accounts.module').then( m => m.AccountsPageModule)
+    loadChildren: () => import('./Job/accounts/accounts.module').then(m => m.AccountsPageModule)
   },
   {
     path: 'marketing',
-    loadChildren: () => import('./Job/marketing/marketing.module').then( m => m.MarketingPageModule)
+    loadChildren: () => import('./Job/marketing/marketing.module').then(m => m.MarketingPageModule)
   },
   {
     path: 'itindustry',
-    loadChildren: () => import('./Job/itindustry/itindustry.module').then( m => m.ItindustryPageModule)
+    loadChildren: () => import('./Job/itindustry/itindustry.module').then(m => m.ItindustryPageModule)
   },
   {
     path: 'backoffice',
-    loadChildren: () => import('./Job/backoffice/backoffice.module').then( m => m.BackofficePageModule)
+    loadChildren: () => import('./Job/backoffice/backoffice.module').then(m => m.BackofficePageModule)
   },
   {
     path: 'bpo',
-    loadChildren: () => import('./Job/bpo/bpo.module').then( m => m.BpoPageModule)
+    loadChildren: () => import('./Job/bpo/bpo.module').then(m => m.BpoPageModule)
   },
   {
     path: 'deliveryboy',
-    loadChildren: () => import('./Job/deliveryboy/deliveryboy.module').then( m => m.DeliveryboyPageModule)
+    loadChildren: () => import('./Job/deliveryboy/deliveryboy.module').then(m => m.DeliveryboyPageModule)
   },
   {
     path: 'teachers',
-    loadChildren: () => import('./Job/teachers/teachers.module').then( m => m.TeachersPageModule)
+    loadChildren: () => import('./Job/teachers/teachers.module').then(m => m.TeachersPageModule)
   },
   {
     path: 'beautician',
-    loadChildren: () => import('./Job/beautician/beautician.module').then( m => m.BeauticianPageModule)
+    loadChildren: () => import('./Job/beautician/beautician.module').then(m => m.BeauticianPageModule)
   },
   {
     path: 'apply',
-    loadChildren: () => import('./apply/apply.module').then( m => m.ApplyPageModule)
+    loadChildren: () => import('./apply/apply.module').then(m => m.ApplyPageModule)
   },
   {
     path: 'empdashboard',
-    loadChildren: () => import('./Employer/empdashboard/empdashboard.module').then( m => m.EmpdashboardPageModule)
+    loadChildren: () => import('./Employer/empdashboard/empdashboard.module').then(m => m.EmpdashboardPageModule)
   },
   {
     path: 'filters',
-    loadChildren: () => import('./Job/filters/filters.module').then( m => m.FiltersPageModule)
+    loadChildren: () => import('./Job/filters/filters.module').then(m => m.FiltersPageModule)
   },
   {
     path: 'softwaredeveloper',
-    loadChildren: () => import('./Job/softwaredeveloper/softwaredeveloper.module').then( m => m.SoftwaredeveloperPageModule)
+    loadChildren: () => import('./Job/softwaredeveloper/softwaredeveloper.module').then(m => m.SoftwaredeveloperPageModule)
   },
   {
     path: 'software-deatils',
-    loadChildren: () => import('./Job/software-deatils/software-deatils.module').then( m => m.SoftwareDeatilsPageModule)
+    loadChildren: () => import('./Job/software-deatils/software-deatils.module').then(m => m.SoftwareDeatilsPageModule)
   },
   {
     path: 'joblist',
-    loadChildren: () => import('./Job/joblist/joblist.module').then( m => m.JoblistPageModule)
+    loadChildren: () => import('./Job/joblist/joblist.module').then(m => m.JoblistPageModule)
   },
   {
     path: 'history',
-    loadChildren: () => import('./Job/history/history.module').then( m => m.HistoryPageModule)
-  },  {
+    loadChildren: () => import('./Job/history/history.module').then(m => m.HistoryPageModule)
+  },
+  {
     path: 'profile',
-    loadChildren: () => import('./Job/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./Job/profile/profile.module').then(m => m.ProfilePageModule)
   },
   {
     path: 'editprofile',
-    loadChildren: () => import('./Job/editprofile/editprofile.module').then( m => m.EditprofilePageModule)
+    loadChildren: () => import('./Job/editprofile/editprofile.module').then(m => m.EditprofilePageModule)
   },
 
 
