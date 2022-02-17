@@ -35,6 +35,7 @@ ion-grid {
   text-align: center;
   margin-top: 10vh;
   font-size: large;
+  margin-top: 10px;
 }
 
 .img_login {
@@ -58,4 +59,9 @@ ion-grid {
   border-radius: 5px;
   color: #fff;
   background-image: linear-gradient(197deg, #d10808, #f90101, #d10808 100%) !important
+}
+
+.text-p {
+  font-size: small;
+  color: rgb(184, 184, 184);
 }
