@@ -16,15 +16,15 @@ export class JobdashboardPage implements OnInit {
     this.bookride = true
   }
 
-  slider: any;
-  slideOptions = {
-    initialSlide: 0,
-    slidesPerView: 1,
-    autoplay: true,
+  // slider: any;
+  // slideOptions = {
+  //   initialSlide: 0,
+  //   slidesPerView: 1,
+  //   autoplay: true,
 
-  };
+  // };
   slideOptss = {
-    initialSlide: 0,
+    initialSlide: 3,
     slidesPerView: 2.5,
   }
 
@@ -36,9 +36,9 @@ export class JobdashboardPage implements OnInit {
   }
 
   constructor() { }
-  slideChanged() {
-    this.slider.stopAutoplay(); //this code for slide after page change
-  }
+  // slideChanged() {
+  //   this.slider.stopAutoplay(); 
+  // }
 
   ngOnInit() {
   }
