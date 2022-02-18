@@ -1,14 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-row style="padding-left: 2px; padding-right: 2px;">
+    <ion-row style="padding-left: 2px; padding-right: 2px">
       <ion-col size="2">
-        <div routerLink="/dashboard">&nbsp;&nbsp;
+        <div routerLink="/dashboard">
+          &nbsp;&nbsp;
           <!-- <ion-menu-button> -->
-          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:40%; height:40%;" viewBox="0 0 20 20"
-            fill="currentColor">
-            <path fill-rule="evenodd"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style="color: #fff; width: 40%; height: 40%"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
               d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-              clip-rule="evenodd" />
+              clip-rule="evenodd"
+            />
           </svg>
           <!-- </ion-menu-button> -->
         </div>
@@ -16,15 +23,28 @@
 
       <ion-col size="8">
         <div align="center">
-          <ion-label style="color: #fff; font-size: large;"><b>Jobs</b></ion-label>
+          <ion-label style="color: #fff; font-size: large"
+            ><b>Jobs</b></ion-label
+          >
         </div>
       </ion-col>
       <ion-col size="2">
-        <div style="margin-left: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;
-          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:45%; height:45%; " fill="none"
-            viewBox="0 0 24 24" stroke="currentColor" routerLink="/notification">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        <div style="margin-left: 10%">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style="color: #fff; width: 45%; height: 45%"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            routerLink="/notification"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+            />
           </svg>
         </div>
       </ion-col>
@@ -33,15 +53,31 @@
 </ion-header>
 
 <ion-content>
-  <ion-row class="pl-2 pr-2 pt-3">
-    <div style="width: 100%; background-color: white; border-radius: 10px; border: 1px solid rgb(211, 211, 211);">
-      <ion-input placeholder="Search In All India" id="search">
-        <ion-icon name="search" style="margin-left: 7px;"></ion-icon>
+  <div class="p-4 flex">
+    <div
+      class="flex-1 mr-4"
+      style="
+        background-color: white;
+        border-radius: 10px;
+        border: 1px solid rgb(211, 211, 211);
+      "
+    >
+      <ion-input
+        placeholder="Search By Job Title"
+        id="search"
+        [(ngModel)]="this.jobService.jobQuery"
+      >
+        <ion-icon name="search" style="margin-left: 7px"></ion-icon>
       </ion-input>
     </div>
-  </ion-row>
-
-  <div style="padding-left:0.8em ;" class="pt-3 pb-2">
+    <button
+      [routerLink]="'/joblist/'+this.jobService.jobQuery"
+      class="rounded-md bg-red-600 text-white text-center shadow-md px-4"
+    >
+      Search
+    </button>
+  </div>
+  <div style="padding-left: 0.8em" class="pt-3 pb-2">
     <ion-label>All Jobs Categories</ion-label>
   </div>
 
@@ -72,794 +108,134 @@
     </ion-row>
   </ion-grid> -->
 
-  <div style="background-color: white; margin-bottom: 7px;">
+  <div style="background-color: white; margin-bottom: 7px">
     <ion-grid fixed>
       <ion-row>
-        <ion-col size="2" align="center" routerLink="/accounts">
-          <img src="assets/J1.png" alt=""><br>
-          <ion-label class="label-text card_text">Accounts</ion-label>
-          <!-- <ion-label class="label-text">Accounts</ion-label> -->
-        </ion-col>
-        <ion-col size="2" align="center" routerLink="/marketing">
-          <img src="assets/J2.png" alt=""><br>
-          <ion-label class="label-text card_text">Marketing</ion-label>
-        </ion-col>
-        <ion-col size="2" align="center">
-          <img src="assets/J3.png" alt="">
-          <ion-label class="label-text card_text">IT Industry</ion-label>
-          <!-- <ion-label class="ion-text-wrap" class="label-text">{{temp.length > 5 ? temp.slice(0,4) +'...' : temp}}
-          </ion-label> -->
-        </ion-col>
-        <ion-col size="2" align="center">
-          <img src="assets/J4.png" alt=""><br>
-          <ion-label class="label-text card_text">Back Office</ion-label>
-        </ion-col>
-        <!-- </ion-row>
-      <ion-row> -->
-        <!-- <ion-col size="3" align="center" routerLink="/bpo">
-          <img src="assets/J4.png" alt=""><br>
-          <ion-label class="label-text">BPO</ion-label>
-        </ion-col>
-        <ion-col size="3" align="center" routerLink="/deliveryboy">
-          <img src="assets/J6.png" alt=""><br>
-          <ion-label class="label-text">Delivery Boy</ion-label>
-        </ion-col> -->
-        <ion-col size="2" align="center">
-          <img src="assets/J7.png" alt=""><br>
-          <ion-label class="label-text card_text">Teachers</ion-label>
+        <ion-col
+          *ngFor="let category of this.jobService.categories"
+          size="2"
+          align="center"
+          [routerLink]="'/joblist/'+category.id"
+        >
+          <img src="assets/J1.png" alt="" />
+          <ion-label class="label-text card_text"
+            >{{category.attributes.name}}</ion-label
+          >
         </ion-col>
 
-        <ion-col *ngIf="bookride" size="2" align="center">
-          <img src="assets/J8.png" alt=""><br>
+        <ion-col *ngIf="showAll" size="2" align="center">
+          <img src="assets/J8.png" alt="" /><br />
           <ion-label class="label-text card_text">Beautician</ion-label>
         </ion-col>
 
-        <ion-col *ngIf="!bookride" size="2" align="center" (click)="bookride=true">
-          <img src="assets/more.png" alt=""><br>
+        <!-- <ion-col
+          *ngIf="!showAll"
+          size="2"
+          align="center"
+          (click)="showAll=true"
+        >
+          <img src="assets/more.png" alt="" /><br />
           <ion-label class="label-text">More</ion-label>
-        </ion-col>
+        </ion-col> -->
       </ion-row>
-
-
-      <div *ngIf="bookride">
-        <ion-row>
-          <ion-col size="2" align="center">
-            <img src="assets/J9.png" alt=""><br>
-            <ion-label class="label-text card_text">Electrician</ion-label>
-          </ion-col>
-          <ion-col size="2" align="center">
-            <img src="assets/J10.png" alt=""><br>
-            <ion-label class="label-text card_text">HR/Admin</ion-label>
-          </ion-col>
-          <ion-col size="2" align="center">
-            <img src="assets/J11.png" alt=""><br>
-            <ion-label class="label-text card_text">Nurse</ion-label>
-          </ion-col>
-
-          <ion-col size="2" align="center">
-            <img src="assets/J15.png" alt=""><br>
-            <ion-label class="label-text card_text">Sales</ion-label>
-          </ion-col>
-          <ion-col size="2" align="center">
-            <img src="assets/J12.png" alt=""><br>
-            <ion-label class="label-text card_text">Designer</ion-label>
-          </ion-col>
-          <ion-col size="2" align="center">
-            <img src="assets/J13.png" alt=""><br>
-            <ion-label class="label-text card_text">Doctor</ion-label>
-          </ion-col>
-          <ion-col size="2" align="center">
-            <img src="assets/J14.png" alt=""><br>
-            <ion-label class="label-text card_text">Data Entry</ion-label>
-          </ion-col>
-          <ion-col size="2" align="center" routerLink="/bpo">
-            <img src="assets/J4.png" alt=""><br>
-            <ion-label class="label-text card_text">BPO</ion-label>
-          </ion-col>
-          <ion-col size="2" align="center">
-            <img src="assets/J6.png" alt=""><br>
-            <ion-label class="label-text card_text">Delivery</ion-label>
-          </ion-col>
-          <ion-col size="2" align="center" routerLink="/bpo">
-            <img src="assets/J16.png" alt=""><br>
-            <ion-label class="label-text card_text">Chef</ion-label>
-          </ion-col>
-          <ion-col size="2" align="center">
-            <img src="assets/J17.png" alt=""><br>
-            <ion-label class="label-text card_text">Events</ion-label>
-          </ion-col>
-          <ion-col *ngIf="bookride" size="2" align="center" (click)="bookride=false">
-            <img src="assets/more.png" alt=""><br>
-            <ion-label class="label-text">Less</ion-label>
-          </ion-col>
-        </ion-row>
-      </div>
     </ion-grid>
   </div>
 
-  <div class="pt-2 pl-4 pb-2" style="background-color: #fff; border-bottom: 2px solid blue;">
-    <ion-label style="color: blue;">Jobs Near Me</ion-label>
-    <p style="font-size: 0.7em;">Nearby Jobs On EFFO App</p>
-  </div>
-
-  <div style="border-radius: 5px; margin-top: 2%; padding: 5px; margin-bottom: 2%;">
+  <div
+    *ngFor="let category of this.jobService.categories;let i=index"
+    style="border-radius: 5px; margin-top: 2%; padding: 5px; margin-bottom: 2%"
+  >
+    <div
+      *ngIf="informations[i]"
+      class="pt-2 pl-4 pb-2"
+      style="background-color: #fff; border-bottom: 2px solid {{informations[i].color}}"
+    >
+      <ion-label style="color:  {{informations[i].color}}"
+        >{{informations[i].title}}</ion-label
+      >
+      <p style="font-size: 0.7em">{{informations[i].subtitle}}</p>
+    </div>
     <ion-grid fixed>
-      <ion-row style="padding: 5px;">
+      <ion-row style="padding: 5px">
         <ion-col size="9">
-          <p style="color: black; ">Software /Web Developer</p>
+          <p style="color: black">{{category.attributes.name}} Jobs</p>
         </ion-col>
-        <ion-col size="3" align="right" routerLink="/softwaredeveloper">
-          <p style="color: darkgray; font-size: 0.8em;"> View All</p>
+        <ion-col size="3">
+          <p style="color: darkgray; font-size: 0.8em">View All</p>
         </ion-col>
       </ion-row>
     </ion-grid>
 
     <ion-slides #slider loop="true" [options]="slideOptss">
-      <ion-slide>
-        <ion-card class="product-card" style="width: 100%;">
+      <ion-slide *ngFor="let job of category.jobs" (click)="jobDetails(job)">
+        <ion-card class="product-card" style="width: 100%">
           <div class="product-details">
             <ion-row>
               <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
+                <span class="product-catagory"
+                  >₹ {{job.attributes.salaryFrom}} - ₹
+                  {{job.attributes.salaryUpto}}
+                </span>
               </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
+              <ion-col size="1">
+                <ion-icon name="chevron-forward-outline"> </ion-icon>
               </ion-col>
             </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
+            <p align="left">
+              {{job.attributes.author.data.attributes.job_profile.data.attributes.companyName}}
+            </p>
             <div align="left">
               <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
+                <ion-icon
+                  style="font-size: 0.9em"
+                  name="business-outline"
+                ></ion-icon
+                >&nbsp;{{job.attributes.address}}
               </p>
               <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
+                <ion-icon
+                  style="font-size: 0.9em"
+                  name="megaphone-outline"
+                ></ion-icon
+                >&nbsp;{{job.attributes.vacancies}} Openings
               </p>
             </div>
           </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;" routerLink="/software-deatils">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="product-card" style="width: 100%;">
-          <div class="product-details">
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
-              </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
-            <div align="left">
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
-              </p>
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
-              </p>
-            </div>
+          <div class="px-2">
+            <button
+              class="w-full shadow-md rounded-md bg-red-600 text-white text-center py-2"
+            >
+              Apply Now
+            </button>
           </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;" routerLink="/software-deatils">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="product-card" style="width: 100%;">
-          <div class="product-details">
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
-              </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
-            <div align="left">
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
-              </p>
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
-              </p>
-            </div>
-          </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;" routerLink="/software-deatils">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="product-card" style="width: 100%;" style="background-color: #fff;">
-          <div class="product-details">
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
-              </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
-            <div align="left">
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
-              </p>
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
-              </p>
-            </div>
-          </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;" routerLink="/software-deatils">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="product-card" style="width: 100%;" style="background-color: #fff;">
-          <div class="product-details">
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
-              </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
-            <div align="left">
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
-              </p>
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
-              </p>
-            </div>
-          </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;" routerLink="/software-deatils">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
         </ion-card>
       </ion-slide>
     </ion-slides>
   </div>
 
-
-  <div class="pt-2 pl-4 pb-2" style="background-color: #fff; border-bottom: 2px solid darkmagenta;">
-    <ion-label style="color: darkmagenta;">High Salary Jobs</ion-label>
-    <p style="font-size: 0.7em;">High salary jobs in your desired category</p>
+  <!-- <div
+    class="pt-2 pl-4 pb-2"
+    style="background-color: #fff; border-bottom: 2px solid darkmagenta"
+  >
+    <ion-label style="color: darkmagenta">High Salary Jobs</ion-label>
+    <p style="font-size: 0.7em">High salary jobs in your desired category</p>
   </div>
-
-  <div style="border-radius: 5px; margin-top: 3%; padding: 5px; margin-bottom: 2%;">
-    <ion-grid fixed>
-      <ion-row style="padding: 5px;">
-        <ion-col size="9">
-          <p style="color: black; ">Digital Marketing </p>
-        </ion-col>
-        <ion-col size="3" align="right" routerLink="/softwaredeveloper">
-          <p style="color: darkgray; font-size: 0.8em;"> View All</p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    <ion-slides #slider loop="true" [options]="slideOptss">
-      <ion-slide>
-        <ion-card class="product-card" style="width: 100%;">
-          <div class="product-details">
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
-              </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
-            <div align="left">
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
-              </p>
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
-              </p>
-            </div>
-          </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-              <!-- <ion-col size="2">
-                <img src="assets/whatsapp.png" alt="">&nbsp;
-              </ion-col> -->
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="product-card" style="width: 100%;">
-          <div class="product-details">
-            <!-- <span class="product-catagory">₹ 50,000</span> -->
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
-              </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
-            <div align="left">
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
-              </p>
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
-              </p>
-            </div>
-          </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-              <!-- <ion-col size="2">
-                <img src="assets/whatsapp.png" alt="">&nbsp;
-              </ion-col> -->
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="product-card" style="width: 100%;">
-          <div class="product-details">
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
-              </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
-            <div align="left">
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
-              </p>
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
-              </p>
-            </div>
-          </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="product-card" style="background-color: #fff;" style="width: 100%;">
-          <div class="product-details">
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
-              </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
-            <div align="left">
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
-              </p>
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
-              </p>
-            </div>
-          </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="product-card" style="background-color: #fff;" style="width: 100%;">
-          <div class="product-details">
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
-              </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
-            <div align="left">
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
-              </p>
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
-              </p>
-            </div>
-          </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-      </ion-slide>
-    </ion-slides>
-  </div>
-
-
-  <div class="pt-2 pl-4 pb-2" style="background-color: #fff; border-bottom: 2px solid rgb(76, 224, 76);">
-    <ion-label style="color: rgb(76, 224, 76);">Recommended Jobs</ion-label>
-    <p style="font-size: 0.7em;">Handpicked jobs by our experts especially for you</p>
-  </div>
-
-  <div style="border-radius: 5px; margin-top: 2%;  padding: 5px; margin-bottom: 2%;">
-    <ion-grid fixed>
-      <ion-row style="padding: 5px;">
-        <ion-col size="9">
-          <p style="color: black; ">Computer / Data Entry Operator</p>
-        </ion-col>
-        <ion-col size="3" align="right" routerLink="/softwaredeveloper">
-          <p style="color: darkgray; font-size: 0.8em;"> View All</p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    <ion-slides #slider loop="true" [options]="slideOptss">
-      <ion-slide>
-        <ion-card class="product-card" style="width: 100%;">
-          <div class="product-details">
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
-              </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
-            <div align="left">
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
-              </p>
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
-              </p>
-            </div>
-          </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="product-card" style="width: 100%;">
-          <div class="product-details">
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
-              </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
-            <div align="left">
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
-              </p>
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
-              </p>
-            </div>
-          </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="product-card" style="width: 100%;">
-          <div class="product-details">
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
-              </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
-            <div align="left">
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
-              </p>
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
-              </p>
-            </div>
-          </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-              <!-- <ion-col size="2">
-                <img src="assets/whatsapp.png" alt="">&nbsp;
-              </ion-col> -->
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-        <!-- <ion-card class="adds-card">
-          <ion-label>Old Coins</ion-label>
-          <p>Delhi</p>
-          <p>₹ 35,000</p>
-        </ion-card> -->
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="product-card" style="background-color: #fff;" style="width: 100%;">
-          <div class="product-details">
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
-              </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
-            <div align="left">
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
-              </p>
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
-              </p>
-            </div>
-          </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="product-card " style="background-color: #fff; " style="width: 100%;">
-          <div class="product-details ">
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory">₹ 50,000 </span>
-              </ion-col>
-              <ion-col size="1" routerLink="/software-deatils">
-                <ion-icon name="chevron-forward-outline">
-                </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">WebMediaIndia Pvt.Ltd.</p>
-            <div align="left">
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="business-outline"></ion-icon>&nbsp;IT Park
-              </p>
-              <p>
-                <ion-icon style="font-size: 0.9em;" name="megaphone-outline"></ion-icon>&nbsp;2 Openings
-              </p>
-            </div>
-          </div>
-
-          <ion-grid fixed>
-            <ion-row>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" style="font-size: 0.7em;">
-                  Apply
-                </ion-button>
-              </ion-col>
-              <ion-col size="6">
-                <ion-button size="small" color="danger" fill="outline" style="font-size: 0.7em;">
-                  Call
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-      </ion-slide>
-    </ion-slides>
-  </div>
-
+  <div
+    class="pt-2 pl-4 pb-2"
+    style="background-color: #fff; border-bottom: 2px solid rgb(76, 224, 76)"
+  >
+    <ion-label style="color: rgb(76, 224, 76)">Recommended Jobs</ion-label>
+    <p style="font-size: 0.7em">
+      Handpicked jobs by our experts especially for you
+    </p>
+  </div> -->
 </ion-content>
-
 
 <ion-fab horizontal="end" vertical="bottom">
   <ion-fab-button color="dark">
-    <ion-icon style="font-size: 1.5em;" name="settings-outline"></ion-icon>
+    <ion-icon style="font-size: 1.5em" name="settings-outline"></ion-icon>
   </ion-fab-button>
-  <ion-fab-list side="top" style="margin-bottom: 100%;">
+  <ion-fab-list side="top" style="margin-bottom: 100%">
     <ion-fab-button data-desc="Profile" color="dark" routerLink="/profile">
       <ion-icon name="person-outline"></ion-icon>
     </ion-fab-button>
@@ -868,23 +244,6 @@
     </ion-fab-button>
   </ion-fab-list>
 </ion-fab>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- <ion-segment mode="ios" value="job" class="parent-border-radius" (ionChange)='segmentChanged($event)'>
     <ion-segment-button value="job">Job Seeker</ion-segment-button>
@@ -1227,8 +586,5 @@
       </div>
     </div>
   </div> -->
-
-
-
 
 <!-- </ion-content> -->

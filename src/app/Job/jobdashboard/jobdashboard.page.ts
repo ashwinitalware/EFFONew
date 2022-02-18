@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { JobService } from 'src/app/services/job.service';
 
 @Component({
   selector: 'app-jobdashboard',
@@ -6,41 +9,57 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./jobdashboard.page.scss'],
 })
 export class JobdashboardPage implements OnInit {
+  temp = 'IT Industry';
 
-  temp = "IT Industry"
+  informations = [
+    {
+      title: 'Jobs Near Me',
+      subtitle: 'Nearby Jobs On EFFO App',
+      color: 'blue',
+    },
+    {
+      title: 'High Salary Jobs',
+      subtitle: 'High salary jobs in your desired category',
+      color: 'green',
+    },
+    {
+      title: 'Recommended Jobs',
+      subtitle: '  Handpicked jobs by our experts especially for you',
+      color: 'black',
+    },
+  ];
+  // bookride = false;
+  showAll = false;
+  selectedLeave = '';
 
-  bookride = false;
-  selectedLeave: string = '';
+  // book_ride() {
+  //   this.bookride = true;
+  // }
 
-  book_ride() {
-    this.bookride = true
-  }
-
-  // slider: any;
-  // slideOptions = {
-  //   initialSlide: 0,
-  //   slidesPerView: 1,
-  //   autoplay: true,
-
-  // };
   slideOptss = {
     initialSlide: 3,
-    slidesPerView: 2.5,
+    slidesPerView: 1.8,
+  };
+
+  switchTab = 'job';
+  constructor(
+    public jobService: JobService,
+    public router: Router,
+    public navCtrl: NavController
+  ) {
+    this.jobService.getCategories();
   }
-
-  switchTab = 'job'
-
   segmentChanged(ev: any) {
     this.switchTab = ev.detail.value;
     console.log('Segment changed', ev);
   }
 
-  constructor() { }
   // slideChanged() {
-  //   this.slider.stopAutoplay(); 
+  //   this.slider.stopAutoplay();
   // }
 
-  ngOnInit() {
+  ngOnInit() {}
+  jobDetails(job) {
+    this.navCtrl.navigateForward(['/jobdetails/' + job.id]);
   }
-
 }

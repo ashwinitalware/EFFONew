@@ -1,14 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-row style="padding-left: 2px; padding-right: 2px;">
+    <ion-row style="padding-left: 2px; padding-right: 2px">
       <ion-col size="2">
-        <div routerLink="/jobdashboard">&nbsp;&nbsp;
+        <div routerLink="/jobdashboard">
+          &nbsp;&nbsp;
           <!-- <ion-menu-button> -->
-          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:40%; height:40%;" viewBox="0 0 20 20"
-            fill="currentColor">
-            <path fill-rule="evenodd"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style="color: #fff; width: 40%; height: 40%"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
               d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-              clip-rule="evenodd" />
+              clip-rule="evenodd"
+            />
           </svg>
           <!-- </ion-menu-button> -->
         </div>
@@ -16,16 +23,28 @@
 
       <ion-col size="8">
         <div align="center">
-          <ion-label style="color: #fff; font-size: large;"><b>Job List</b></ion-label>
+          <ion-label style="color: #fff; font-size: large"
+            ><b>Job List</b></ion-label
+          >
         </div>
       </ion-col>
 
       <ion-col size="2">
-        <div style="margin-left: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;
-          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:45%; height:45%; " fill="none"
-            viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        <div style="margin-left: 10%">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style="color: #fff; width: 45%; height: 45%"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+            />
           </svg>
           <!-- <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:30%; height:30%; margin-left: 20px;"
             fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -41,122 +60,195 @@
 </ion-header>
 
 <ion-content>
-  <div class="pt-2 pl-4">
-    <ion-label>All Roles</ion-label>
+  <div
+    *ngFor="let job of this.jobService.jobs"
+    style="background-color: #fff; margin-top: 4%"
+  >
+    <ion-label
+      class="large-text"
+      style="
+        color: black;
+        background-color: rgb(216, 216, 216);
+        padding: 4px;
+        border-bottom-right-radius: 10px;
+      "
+      >Urgent Opening for Account Assistant &nbsp;
+    </ion-label>
+
+    <ion-grid fixed>
+      <ion-row style="border-bottom: 1px solid rgb(204, 203, 203)">
+        <ion-col size="5">
+          <p class="label-text">Salary</p>
+        </ion-col>
+        <ion-col size="7">
+          <ion-label class="large-text">18000-25000 per month</ion-label>
+        </ion-col>
+
+        <ion-col size="5" class="div-col">
+          <p class="label-text">Job Type</p>
+        </ion-col>
+
+        <ion-col size="7" class="div-col">
+          <ion-label class="large-text">Full Time Job</ion-label>
+        </ion-col>
+        <ion-col size="5" class="div-col">
+          <p class="label-text">Posted By</p>
+        </ion-col>
+        <ion-col size="7" class="div-col">
+          <ion-label class="large-text">Aeon Enterprises</ion-label>
+        </ion-col>
+        <ion-col size="5" class="div-col">
+          <p class="label-text">Role</p>
+        </ion-col>
+        <ion-col size="7" class="div-col">
+          <ion-label class="large-text">Accountant</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="margin-top: 1ch">
+        <ion-col size="4">
+          <div class="bg-class-outline">
+            <img src="assets/phone.png" alt="" />&nbsp;<span
+              style="width: 100%; font-size: 0.8em"
+              >Call Now</span
+            >
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div class="bg-class-outline1" routerLink="/apply">
+            <img src="assets/check.png" alt="" />&nbsp;<span
+              style="width: 100%; font-size: 0.8em"
+              >Apply Now</span
+            >
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div class="bg-class-outline2">
+            <img src="assets/wapp.png" alt="" />&nbsp;<span
+              style="width: 100%; font-size: 0.8em"
+              >Whatsapp</span
+            >
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
-
-  <div>
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/J1.png" alt="">
-      </ion-avatar>
-      <ion-label class="roles-text">Accounts</ion-label>
-      <ion-icon routerLink="/accounts" name="chevron-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/J2.png" alt="">
-      </ion-avatar>
-      <ion-label class="roles-text">Marketing</ion-label>
-      <ion-icon routerLink="/marketing" name="chevron-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/J3.png" alt="">
-      </ion-avatar>
-      <ion-label class="roles-text">IT Industry</ion-label>
-      <ion-icon routerLink="/itindustry" name="chevron-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/J4.png" alt="">
-      </ion-avatar>
-      <ion-label class="roles-text">Back Office</ion-label>
-      <ion-icon routerLink="/backoffice" name="chevron-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/J4.png" alt="">
-      </ion-avatar>
-      <ion-label class="roles-text">BPO</ion-label>
-      <ion-icon routerLink="/bpo" name="chevron-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/J6.png" alt="">
-      </ion-avatar>
-      <ion-label class="roles-text">Delivery Boy</ion-label>
-      <ion-icon routerLink="/deliveryboy" name="chevron-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/J7.png" alt="">
-      </ion-avatar>
-      <ion-label class="roles-text">Teachers</ion-label>
-      <ion-icon routerLink="/teachers" name="chevron-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/J8.png" alt="">
-      </ion-avatar>
-      <ion-label class="roles-text">Data Entry</ion-label>
-      <ion-icon name="chevron-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/J9.png" alt="">
-      </ion-avatar>
-      <ion-label class="roles-text">Finance Companies</ion-label>
-      <ion-icon name="chevron-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/J10.png" alt="">
-      </ion-avatar>
-      <ion-label class="roles-text">Mechanical Engineer</ion-label>
-      <ion-icon name="chevron-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/J11.png" alt="">
-      </ion-avatar>
-      <ion-label class="roles-text">Sales Executive</ion-label>
-      <ion-icon name="chevron-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/J12.png" alt="">
-      </ion-avatar>
-      <ion-label class="roles-text">Security Staff</ion-label>
-      <ion-icon name="chevron-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/J3.png" alt="">
-      </ion-avatar>
-      <ion-label class="roles-text">Office Boy</ion-label>
-      <ion-icon name="chevron-forward-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="assets/other.png" alt="">
-      </ion-avatar>
-      <ion-label class="roles-text">Other</ion-label>
-      <ion-icon name="chevron-forward-outline"></ion-icon>
-    </ion-item>
-  </div>
-
 </ion-content>
+
+<!-- <div class="pt-2 pl-4">
+  <ion-label>All Roles</ion-label>
+</div>
+
+<div>
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/J1.png" alt="">
+    </ion-avatar>
+    <ion-label class="roles-text">Accounts</ion-label>
+    <ion-icon routerLink="/accounts" name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/J2.png" alt="">
+    </ion-avatar>
+    <ion-label class="roles-text">Marketing</ion-label>
+    <ion-icon routerLink="/marketing" name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/J3.png" alt="">
+    </ion-avatar>
+    <ion-label class="roles-text">IT Industry</ion-label>
+    <ion-icon routerLink="/itindustry" name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/J4.png" alt="">
+    </ion-avatar>
+    <ion-label class="roles-text">Back Office</ion-label>
+    <ion-icon routerLink="/backoffice" name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/J4.png" alt="">
+    </ion-avatar>
+    <ion-label class="roles-text">BPO</ion-label>
+    <ion-icon routerLink="/bpo" name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/J6.png" alt="">
+    </ion-avatar>
+    <ion-label class="roles-text">Delivery Boy</ion-label>
+    <ion-icon routerLink="/deliveryboy" name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/J7.png" alt="">
+    </ion-avatar>
+    <ion-label class="roles-text">Teachers</ion-label>
+    <ion-icon routerLink="/teachers" name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/J8.png" alt="">
+    </ion-avatar>
+    <ion-label class="roles-text">Data Entry</ion-label>
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/J9.png" alt="">
+    </ion-avatar>
+    <ion-label class="roles-text">Finance Companies</ion-label>
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/J10.png" alt="">
+    </ion-avatar>
+    <ion-label class="roles-text">Mechanical Engineer</ion-label>
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/J11.png" alt="">
+    </ion-avatar>
+    <ion-label class="roles-text">Sales Executive</ion-label>
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/J12.png" alt="">
+    </ion-avatar>
+    <ion-label class="roles-text">Security Staff</ion-label>
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/J3.png" alt="">
+    </ion-avatar>
+    <ion-label class="roles-text">Office Boy</ion-label>
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="assets/other.png" alt="">
+    </ion-avatar>
+    <ion-label class="roles-text">Other</ion-label>
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+</div> -->
