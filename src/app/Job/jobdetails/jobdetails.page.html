@@ -24,7 +24,7 @@
       <ion-col size="8">
         <div align="center">
           <ion-label style="color: #fff; font-size: large"
-            ><b>Software / Web Developer</b></ion-label
+            ><b>Job Details</b></ion-label
           >
         </div>
       </ion-col>
@@ -88,36 +88,13 @@
   <ion-list-header>This Job Requires</ion-list-header>
   <p class="pl-2">
     <button
-      class="border border-solid border-red-600 rounded-full px-2 py-1 text-red-600"
+      *ngFor="let skill of data.attributes.job_post_skills.data"
+      class="border border-solid border-blue-600 rounded-full px-2 py-1 text-blue-600 mr-4"
     >
       <ion-icon style="font-size: small" name="checkmark"></ion-icon>
-      HTML
+      {{skill.attributes.name }}
     </button>
 
-    <ion-chip outline color="primary">
-      <ion-label>
-        <ion-icon style="font-size: small" name="checkmark"></ion-icon> &nbsp;
-        HTML
-      </ion-label>
-    </ion-chip>
-    <ion-chip outline color="primary">
-      <ion-label>
-        <ion-icon style="font-size: small" name="checkmark"></ion-icon> &nbsp;
-        CSS
-      </ion-label>
-    </ion-chip>
-    <ion-chip outline color="primary">
-      <ion-label>
-        <ion-icon style="font-size: small" name="checkmark"></ion-icon> &nbsp;
-        Web Designing
-      </ion-label>
-    </ion-chip>
-    <ion-chip outline color="primary">
-      <ion-label>
-        <ion-icon style="font-size: small" name="checkmark"></ion-icon> &nbsp;
-        Computer / Laptop ownership
-      </ion-label>
-    </ion-chip>
     <!-- <ion-chip color="warning">
       <ion-label>Warning</ion-label>
     </ion-chip>
@@ -135,7 +112,9 @@
         <ion-label style="color: black; font-weight: 500"
           >Minimum Education</ion-label
         >
-        <p style="font-size: 1em; color: rgb(121, 121, 121)">Graduate</p>
+        <p style="font-size: 1em; color: rgb(121, 121, 121)">
+          {{data.attributes.minimumEducation }}
+        </p>
       </ion-col>
       <ion-col size="1">
         <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
@@ -144,7 +123,9 @@
         <ion-label style="color: black; font-weight: 500"
           >English Level</ion-label
         >
-        <p style="font-size: 1em; color: rgb(121, 121, 121)">Fluent</p>
+        <p style="font-size: 1em; color: rgb(121, 121, 121)">
+          {{data.attributes.english }}
+        </p>
       </ion-col>
       <ion-col size="1">
         <ion-icon name="star-outline"></ion-icon>
@@ -152,7 +133,7 @@
       <ion-col size="11" align="left">
         <ion-label style="color: black; font-weight: 500">Experience</ion-label>
         <p style="font-size: 1em; color: rgb(121, 121, 121)">
-          Fresher Can Apply
+          {{data.attributes.experience }}
         </p>
       </ion-col>
       <ion-col size="1">
@@ -163,11 +144,7 @@
           >Description</ion-label
         >
         <p style="font-size: 1em; color: rgb(121, 121, 121)">
-          Responsibilities of candidates include:<br />
-          1. Designing and implementing applications<br />
-          2. Developing and testing software<br />
-          3. Resolving technical issues that arise<br />
-          4. fixing bugs
+          {{data.attributes.description }}
         </p>
       </ion-col>
       <ion-col size="1">
@@ -176,7 +153,7 @@
       <ion-col size="11" align="left">
         <ion-label style="color: black; font-weight: 500">Timings</ion-label>
         <p style="font-size: 1em; color: rgb(121, 121, 121)">
-          10:30 AM to 07:30 PM
+          {{data.attributes.timings }}
         </p>
       </ion-col>
       <ion-col size="1">
@@ -187,7 +164,7 @@
           >Working Days</ion-label
         >
         <p style="font-size: 1em; color: rgb(121, 121, 121)">
-          Monday - Saturday
+          {{data.attributes.workingDays }}
         </p>
       </ion-col>
       <ion-col size="1">
@@ -198,7 +175,7 @@
           >Address (Remote Job)</ion-label
         >
         <p style="font-size: 1em; color: rgb(121, 121, 121)">
-          Omkar Nagar, Nagpur, Maharashtra 440027, India Manewada Raod, Nagpur
+          {{data.attributes.address }}
         </p>
       </ion-col>
     </ion-row>

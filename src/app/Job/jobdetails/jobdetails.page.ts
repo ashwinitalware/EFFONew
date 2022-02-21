@@ -47,6 +47,19 @@ export class JobdetailsPage implements OnInit {
                   address
                   salaryFrom
                   salaryUpto
+                  minimumEducation
+                  english
+                  experience
+                  description
+                  timings
+                  workingDays
+                  job_post_skills{
+                    data{
+                     attributes{
+                       name
+                     }
+                   }
+                 }
                  author{
                   data{
                      attributes{
