@@ -41,7 +41,12 @@
     {
       "files": ["*.html"],
       "extends": ["plugin:@angular-eslint/template/recommended"],
-      "rules": {}
+      "rules": {
+
+        "curly":"off",
+        "template-curly-spacing":"off"
+
+      }
     }
   ]
 }

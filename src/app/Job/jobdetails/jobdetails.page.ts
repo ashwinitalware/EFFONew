@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { JobService } from 'src/app/services/job.service';
+import * as qs from 'querystring';
 
 @Component({
   selector: 'app-jobdetails',
@@ -10,6 +11,9 @@ import { JobService } from 'src/app/services/job.service';
   styleUrls: ['./jobdetails.page.scss'],
 })
 export class JobdetailsPage implements OnInit {
+  //applied
+  //not
+  jobApplied;
   data;
   constructor(
     public dataService: DataService,
@@ -18,6 +22,48 @@ export class JobdetailsPage implements OnInit {
     public activatedRoute: ActivatedRoute
   ) {
     this.getJobDetails();
+    this.jobAppliedCheck();
+  }
+
+  jobAppliedCheck() {
+    //asdf
+    const query = qs.stringify({
+      populate: '*',
+    });
+    this.http
+      .get(this.dataService.apiUrl + 'job-applications', {
+        params: {
+          'filters[applicant][id][$eq]': this.dataService.profile.id + '',
+          'filters[jobPost][id][$eq]':
+            this.activatedRoute.snapshot.params.jobId + '',
+          populate: '*',
+        },
+      })
+      .subscribe((data: any) => {
+        this.jobApplied = data.data.length ? true : false;
+      });
+  }
+  apply() {
+    if (this.jobApplied) {
+      return;
+    }
+    if (this.jobApplied === false) {
+      this.http
+        .post(this.dataService.apiUrl + 'job-applications', {
+          data: {
+            applicant: this.dataService.profile.id + '',
+            jobPost: this.data.id + '',
+          },
+        })
+        .subscribe((data) => {
+          this.jobApplied = true;
+          this.dataService.swal(
+            'Job Applied',
+            'You will see job status in history',
+            'success'
+          );
+        });
+    }
   }
   getJobDetails() {
     //  +
@@ -41,7 +87,9 @@ export class JobdetailsPage implements OnInit {
               }
             ){
               data{
+                id
                 attributes{
+
                   title
                   vacancies
                   address
