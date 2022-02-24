@@ -27,9 +27,9 @@ export class JobdetailsPage implements OnInit {
 
   jobAppliedCheck() {
     //asdf
-    const query = qs.stringify({
-      populate: '*',
-    });
+    // const query = qs.stringify({
+    //   populate: '*',
+    // });
     this.http
       .get(this.dataService.apiUrl + 'job-applications', {
         params: {
@@ -101,13 +101,13 @@ export class JobdetailsPage implements OnInit {
                   description
                   timings
                   workingDays
-                  job_post_skills{
-                    data{
-                     attributes{
-                       name
-                     }
-                   }
-                 }
+                  # job_post_skills{
+                    # //   data{
+                      #//    attributes{
+                        # //      name
+                        # //    }
+                        #  //  }
+                        # //  }
                  author{
                   data{
                      attributes{
@@ -130,6 +130,7 @@ export class JobdetailsPage implements OnInit {
       })
       .subscribe((data: any) => {
         this.data = data.data.jobPosts.data[0];
+        console.log(this.data);
       });
   }
 

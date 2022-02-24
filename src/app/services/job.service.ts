@@ -16,6 +16,7 @@ export class JobService {
       (data: any) => {
         this.categories = data.data;
         for (let i = 0; i < this.categories.length; i++) {
+          // this.categories[i].jobs = [];
           setTimeout(() => {
             this.getJobs(true, i);
           }, 100 * i);
@@ -37,7 +38,7 @@ export class JobService {
 
           filters:{
 
-             job_category:{
+            jobCategory:{
               id:{
                 eq:${this.categories[categoryIndex].id}
                }
@@ -48,7 +49,7 @@ export class JobService {
           data{
             id
             attributes{
-
+              title
               vacancies
               address
               salaryFrom
@@ -103,7 +104,7 @@ export class JobService {
                 ? `title:{
                   contains:"${jobCategoryIdOrQuery}"
                 }`
-                : `job_category:{
+                : `jobCategory:{
               id:{
                 eq:${jobCategoryIdOrQuery}
               }
@@ -114,7 +115,8 @@ export class JobService {
         ){
           data{
             attributes{
-
+              skillsByComma
+              companyName
               vacancies
               address
               salaryFrom

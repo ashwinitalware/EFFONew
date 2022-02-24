@@ -166,9 +166,18 @@
       </ion-row>
     </ion-grid>
 
-    <ion-slides #slider loop="true" [options]="slideOptss">
+    <!-- {{category.jobs|json}} -->
+    <ion-slides
+      #slider
+      loop="true"
+      [options]="slideOptss"
+      *ngIf="category.jobs"
+    >
       <ion-slide *ngFor="let job of category.jobs" (click)="jobDetails(job)">
         <ion-card class="product-card" style="width: 100%">
+          <div class="text-black text-left p-4">
+            {{job.attributes.title|titlecase}}
+          </div>
           <div class="product-details">
             <ion-row>
               <ion-col size="11">
@@ -182,7 +191,8 @@
               </ion-col>
             </ion-row>
             <p align="left">
-              {{job.attributes.author.data.attributes.job_profile.data.attributes.companyName}}
+              <!-- {{job.attributes.author.data.attributes.job_profile.data.attributes.companyName}} -->
+              {{job.attributes.companyName}}
             </p>
             <div align="left">
               <p>
