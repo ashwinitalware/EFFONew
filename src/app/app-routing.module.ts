@@ -163,7 +163,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'apply',
+    path: 'apply/:jobId',
     loadChildren: () =>
       import('./apply/apply.module').then((m) => m.ApplyPageModule),
   },

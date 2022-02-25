@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { JobService } from 'src/app/services/job.service';
 import * as qs from 'querystring';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-jobdetails',
@@ -16,12 +17,16 @@ export class JobdetailsPage implements OnInit {
   jobApplied;
   data;
   constructor(
+    public navCtrl: NavController,
     public dataService: DataService,
     public jobService: JobService,
     public http: HttpClient,
     public activatedRoute: ActivatedRoute
   ) {
     this.getJobDetails();
+    // this.jobAppliedCheck();
+  }
+  ionViewWillEnter() {
     this.jobAppliedCheck();
   }
 
@@ -48,21 +53,22 @@ export class JobdetailsPage implements OnInit {
       return;
     }
     if (this.jobApplied === false) {
-      this.http
-        .post(this.dataService.apiUrl + 'job-applications', {
-          data: {
-            applicant: this.dataService.profile.id + '',
-            jobPost: this.data.id + '',
-          },
-        })
-        .subscribe((data) => {
-          this.jobApplied = true;
-          this.dataService.swal(
-            'Job Applied',
-            'You will see job status in history',
-            'success'
-          );
-        });
+      this.navCtrl.navigateForward(['/apply/' + this.data.id]);
+      // this.http
+      //   .post(this.dataService.apiUrl + 'job-applications', {
+      //     data: {
+      //       applicant: this.dataService.profile.id + '',
+      //       jobPost: this.data.id + '',
+      //     },
+      //   })
+      //   .subscribe((data) => {
+      //     this.jobApplied = true;
+      //     this.dataService.swal(
+      //       'Job Applied',
+      //       'You will see job status in history',
+      //       'success'
+      //     );
+      //   });
     }
   }
   getJobDetails() {

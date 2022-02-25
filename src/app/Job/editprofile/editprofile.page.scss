@@ -1,49 +1,65 @@
-ion-toolbar {
-  --background: linear-gradient(90deg, rgb(255, 0, 0) 0%, #cf0808 100%);
-}
-
-.thumb {
-  width: 100px;
-  height: 100px;
+header {
   position: relative;
-  overflow: hidden;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  //   border: 1px solid gray;
+  height: 200px;
+  background-image: linear-gradient(#ff2f2f, #ff6126);
+  // background-image: linear-gradient(#ff2f2f, #ff6126);
+  // border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 30%;
 }
 
-.thumb img {
-  height: 100%;
-  width: auto;
+h1 {
+  margin: 0;
+  padding: 80px 0;
+  font: 24px "Arial";
+  text-align: center;
 }
+
+header h1 {
+  color: white;
+}
+
+
+
+.facebook {
+  border: 1px solid rgb(214, 214, 214);
+  border-radius: 5px;
+  padding: 3px;
+  text-align: center;
+}
+
+
+.small_text {
+  font-size: small;
+}
+
+
+ion-grid {
+  margin-top: 2vh;
+}
+
+.login_title {
+  text-align: center;
+  margin-top: 10vh;
+  font-size: large;
+}
+
+.img_login {
+  width: 15%;
+  height: 15%;
+}
+
+// .terms {
+//   text-align: center;
+//   margin-top: 60%;
+//   font-size: small;
+//   color: darkgray;
+
+// }
 
 .text {
   font-size: 0.9em;
   color: rgb(184, 184, 184);
 }
-
-// input#file {
-//   display: inline-block;
-//   width: 100%;
-//   padding: 120px 0 0 0;
-//   height: 100px;
-//   overflow: hidden;
-//   -webkit-box-sizing: border-box;
-//   -moz-box-sizing: border-box;
-//   box-sizing: border-box;
-//   background: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698394-icon-130-cloud-upload-512.png') center center no-repeat #e4e4e4;
-//   border-radius: 20px;
-//   background-size: 60px 60px;
-// }
-
-
-
 
 .button_login {
   margin-top: 5vh;
@@ -51,36 +67,15 @@ ion-toolbar {
 }
 
 .bg-class {
-  padding: 8px;
+  padding: 10px;
   width: 100%;
   border-radius: 5px;
+  border: 1px solid rgb(255, 1, 1);
   color: #fff;
+  // background-image: linear-gradient(197deg, #f0f0f0, #ebebeb, #f0f0f0 100%)!important
+  // background-image: linear-gradient(197deg, #520A05, #A21801, #520A05 100%) !important
+
+  // background-image: linear-gradient(197deg, #db1001, #ff1100, #db1001 100%) !important
+
   background-image: linear-gradient(197deg, #d10808, #f90101, #d10808 100%) !important
-}
-
-.button_login_file {
-  margin-top: 5vh;
-  padding: 7px;
-}
-
-.bg-class_file {
-  padding: 6px;
-  width: 100%;
-  border-radius: 5px;
-  color: red;
-  border: 1px solid red;
-  background-color: #fff;
-  //   background-image: linear-gradient(197deg, #d10808, #f90101, #d10808 100%) !important
-}
-
-label {
-  cursor: pointer;
-  font-size: 0.9em;
-  margin-bottom: 0px;
-}
-
-#upload-photo {
-  opacity: 0;
-  position: absolute;
-  z-index: -1;
 }

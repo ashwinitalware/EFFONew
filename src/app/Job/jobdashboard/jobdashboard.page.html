@@ -160,7 +160,7 @@
         <ion-col size="9">
           <p style="color: black">{{category.attributes.name}} Jobs</p>
         </ion-col>
-        <ion-col size="3">
+        <ion-col size="3" [routerLink]="['/joblist/'+category.id]">
           <p style="color: darkgray; font-size: 0.8em">View All</p>
         </ion-col>
       </ion-row>
@@ -175,7 +175,7 @@
     >
       <ion-slide *ngFor="let job of category.jobs" (click)="jobDetails(job)">
         <ion-card class="product-card" style="width: 100%">
-          <div class="text-black text-left p-4">
+          <div class="text-black text-left px-4 mt-4">
             {{job.attributes.title|titlecase}}
           </div>
           <div class="product-details">
@@ -246,7 +246,13 @@
     <ion-icon style="font-size: 1.5em" name="settings-outline"></ion-icon>
   </ion-fab-button>
   <ion-fab-list side="top" style="margin-bottom: 100%">
-    <ion-fab-button data-desc="Profile" color="dark" routerLink="/profile">
+    <!-- <ion-fab-button data-desc="Profile" color="dark" routerLink="/profile"> -->
+    <ion-fab-button
+      data-desc="Profile"
+      color="dark"
+      [queryParams]="{navigate:'back'}"
+      [routerLink]="[ '/editprofile' ]"
+    >
       <ion-icon name="person-outline"></ion-icon>
     </ion-fab-button>
     <ion-fab-button data-desc="History" color="dark" routerLink="/history">

@@ -1,14 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-row style="padding-left: 2px; padding-right: 2px;">
+    <ion-row style="padding-left: 2px; padding-right: 2px">
       <ion-col size="2">
-        <div routerLink="/jobdashboard">&nbsp;&nbsp;
+        <div routerLink="/jobdashboard">
+          &nbsp;&nbsp;
           <!-- <ion-menu-button> -->
-          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:40%; height:40%;" viewBox="0 0 20 20"
-            fill="currentColor">
-            <path fill-rule="evenodd"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style="color: #fff; width: 40%; height: 40%"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
               d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-              clip-rule="evenodd" />
+              clip-rule="evenodd"
+            />
           </svg>
           <!-- </ion-menu-button> -->
         </div>
@@ -16,16 +23,28 @@
 
       <ion-col size="8">
         <div align="center">
-          <ion-label style="color: #fff; font-size: large;"><b>Apply To Job</b></ion-label>
+          <ion-label style="color: #fff; font-size: large"
+            ><b>Apply To Job</b></ion-label
+          >
         </div>
       </ion-col>
 
       <ion-col size="2">
-        <div style="margin-left: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;
-          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:45%; height:45%; " fill="none"
-            viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        <div style="margin-left: 10%">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style="color: #fff; width: 45%; height: 45%"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+            />
           </svg>
           <!-- <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:30%; height:30%; margin-left: 20px;"
             fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -41,50 +60,78 @@
 </ion-header>
 
 <ion-content>
-
-  <div style="padding: 6%;">
-
-    <div class="login_title" style="margin-top: 10px;">
+  <div style="padding: 6%">
+    <div class="login_title" style="margin-top: 10px">
       <ion-title>Apply To Job </ion-title>
-      <p class="small_text">Please enter details all fields are mandatory</p>
+      <p class="small_text">Please enter details & upload resume</p>
     </div>
-    <div style="padding: 4px;">
-      <ion-item>
+    <div style="padding: 4px">
+      <!-- <ion-item>
         <ion-label class="text" position="floating">Full Name &nbsp;<span style="color: red;">*</span></ion-label>
         <ion-input type="text"></ion-input>
-      </ion-item>
+      </ion-item> -->
 
-      <ion-item>
+      <!-- <ion-item>
         <ion-label class="text" position="floating">Mobile Number &nbsp;<span style="color: red;">*</span></ion-label>
         <ion-input type="number"></ion-input>
-      </ion-item>
+      </ion-item> -->
 
-      <ion-item>
+      <!-- <ion-item>
         <ion-label class="text" position="floating">Email ID &nbsp;<span style="color: red;">*</span></ion-label>
         <ion-input type="number"></ion-input>
-      </ion-item>
+      </ion-item> -->
 
       <ion-item>
-        <ion-label class="text" position="floating">Location &nbsp;<span style="color: red;">*</span></ion-label>
-        <ion-input type="number"></ion-input>
+        <ion-label class="text" position="stacked"
+          >Your Experience &nbsp;<span style="color: red">*</span></ion-label
+        >
+        <ion-textarea
+          type="text"
+          placeholder="Your Previous experience details in this field"
+        ></ion-textarea>
       </ion-item>
     </div>
 
-    <div align="center" class="button_login_file " style="margin-top: 20px;">
-      <button expand="block" color="light" class="bg-class_file ">
-        <label for="upload-photo">Upload Resume</label>
+    <div align="center" class="button_login_file" style="margin-top: 20px">
+      <button
+        expand="block"
+        color="light"
+        class="bg-class_file"
+        *ngIf="!this.dataService.profile.resume"
+      >
+        <label for="upload-photo">Upload Resume (.pdf)</label>
+        <input type="file" name="photo" id="upload-photo" />
+      </button>
+
+      <p
+        class="text-left text-blue-800 my-4"
+        *ngIf="this.dataService.profile.resume"
+      >
+        *Resume Already Uploaded
+      </p>
+
+      <button
+        expand="block"
+        color="light"
+        class="bg-class_file"
+        *ngIf="this.dataService.profile.resume"
+      >
+        <label for="upload-photo">Change Resume (.pdf)</label>
         <input type="file" name="photo" id="upload-photo" />
       </button>
     </div>
 
-
-    <div align="center" class="button_login" style="margin-top: 10px;">
-      <button expand="block" color="light" class="bg-class" (click)="confirmOrder()">
-        Apply
+    <div align="center" class="button_login" style="margin-top: 10px">
+      <button
+        [disabled]="jobApplied"
+        expand="block"
+        color="light"
+        class="bg-red-600 text-white py-2 rounded-md shadow-md w-full"
+        [ngClass]="{'bg-red-400': jobApplied}"
+        (click)="apply()"
+      >
+        {{jobApplied?"APPLIED":"APPLY "}}
       </button>
     </div>
-
-
   </div>
-
 </ion-content>

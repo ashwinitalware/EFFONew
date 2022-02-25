@@ -1,80 +1,58 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-row style="padding-left: 2px; padding-right: 2px;">
-      <ion-col size="2">
-        <div routerLink="/profile">&nbsp;&nbsp;
-          <!-- <ion-menu-button> -->
-          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:40%; height:40%;" viewBox="0 0 20 20"
-            fill="currentColor">
-            <path fill-rule="evenodd"
-              d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-              clip-rule="evenodd" />
-          </svg>
-          <!-- </ion-menu-button> -->
-        </div>
-      </ion-col>
-
-      <ion-col size="8">
-        <div align="center">
-          <ion-label style="color: #fff; font-size: large;"><b>Edit Profile</b></ion-label>
-        </div>
-      </ion-col>
-
-      <ion-col size="2">
-        <div style="margin-left: 10%;">&nbsp;&nbsp;&nbsp;&nbsp;
-          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:45%; height:45%; " fill="none"
-            viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-          </svg>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-toolbar>
-
-</ion-header>
-
 <ion-content>
-  <div class="p-3">
+  <!-- <header>
+    <h1>Register<br>
+      <p class="small_text">All you need to do is register below</p>
+    </h1>
 
-    <div align="center">
-      <img class="thumb" src="assets/edit-profile.png" />
-    </div>
+  </header> -->
 
+  <div align="center" style="margin-top: 10%">
+    <img src="assets/v1.png" alt="" width="30%" height="30%" />
+  </div>
+
+  <div class="login_title" style="margin-top: 3%">
+    <ion-title>Update Profile</ion-title>
+    <p style="font-size: small; color: rgb(184, 184, 184)">
+      Fill all the required fields
+    </p>
+    <!-- <p class="small_text">All you need to do is register below</p> -->
+  </div>
+
+  <div style="padding: 6%">
     <ion-item>
       <ion-label class="text" position="floating">Full Name</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input
+        [(ngModel)]="this.dataService.profile.fullName"
+        type="text"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="text" position="floating">Mobile Number</ion-label>
+      <ion-input
+        type="number"
+        disabled
+        [(ngModel)]="this.dataService.profile.phone"
+      ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label class="text" position="floating">Email ID</ion-label>
-      <ion-input type="email"></ion-input>
+      <ion-input
+        [(ngModel)]="this.dataService.profile.email"
+        type="email"
+      ></ion-input>
     </ion-item>
 
-
-    <ion-item>
-      <ion-label class="text" position="floating">Mobile Number</ion-label>
-      <ion-input type="number"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label class="text" position="floating">Address</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-
-    <div align="center" class="button_login_file ">
-      <button expand="block" color="light" class="bg-class_file ">
-        <label for="upload-photo">Upload Resume</label>
-        <input type="file" name="photo" id="upload-photo" />
+    <div align="center" class="button_login">
+      <button
+        expand="block"
+        color="light"
+        class="bg-class"
+        (click)="updateProfile()"
+      >
+        Update Profile
       </button>
     </div>
-
-    <div align="center" class="button_login" style="margin-top: -4px;">
-      <button expand="block" color="light" class="bg-class">
-        Save
-      </button>
-    </div>
-
   </div>
-
 </ion-content>

@@ -1,67 +1,95 @@
 <ion-content>
-
-  <div align="center" style="margin-top: 10%;">
-    <img src="assets/v1.png" alt="" width="30%" height="30%">
+  <div align="center" style="margin-top: 10%">
+    <img src="assets/v1.png" alt="" width="30%" height="30%" />
   </div>
 
   <div class="login_title">
     <ion-title>Login</ion-title>
-    <p class="text-p">please sign in to continue</p>
+    <p class="text-p text-gray-600">Enter your phone number to continue</p>
   </div>
 
-  <div style="padding: 8%;">
-
-
+  <div style="padding: 8%">
     <div>
-
       <ion-item>
         <ion-label class="text" position="floating">Mobile Number</ion-label>
-        <ion-input type="number"></ion-input>
+        <ion-input
+          [disabled]="this.dataService.auth.otpSent"
+          [(ngModel)]="this.dataService.auth.phone"
+          type="number"
+        ></ion-input>
       </ion-item>
 
-      <ion-item>
-        <ion-label class="text" position="floating">Password</ion-label>
-        <ion-input type="password"></ion-input>
+      <ion-item *ngIf=" this.dataService.auth.otpSent">
+        <ion-label class="text" position="floating">OTP</ion-label>
+        <ion-input
+          [(ngModel)]="this.dataService.auth.otp"
+          type="number"
+        ></ion-input>
       </ion-item>
-      <p align="right" class="text-p pt-2" routerLink="/forgotpass">
-        Forgot Password ?
+      <!-- <p align="right" class="text-p pt-2" routerLink="/forgotpass"> -->
+      <p
+        align="right"
+        class="text-p pt-2 text-red-600"
+        *ngIf=" this.dataService.auth.otpSent"
+        (click)="resend()"
+      >
+        Resend OTP
       </p>
     </div>
 
-
     <div align="center" class="button_login">
-      <button expand="block" color="light" class="bg-class" routerLink="/dashboard">
-        Login
+      <button
+        *ngIf="this.dataService.auth.otpSent"
+        expand="block"
+        color="light"
+        class="bg-class"
+        (click)="verify()"
+      >
+        <!-- routerLink="/dashboard" -->
+        Verify OTP
       </button>
-      <p class="text-p pt-2">Don't have an account? <span style="color: red;" routerLink="/signin"><b>Sign
-            up</b></span></p>
+      <button
+        *ngIf="!this.dataService.auth.otpSent"
+        expand="block"
+        color="light"
+        class="bg-class"
+        (click)="login()"
+      >
+        Send OTP
+      </button>
+      <!-- <p class="text-p pt-2">
+        Don't have an account?
+        <span style="color: red" routerLink="/signin"><b>Sign up</b></span>
+      </p> -->
     </div>
 
+    <p
+      *ngIf="this.dataService.auth.otpSent"
+      class="text-red-700 text-sm text-center mt-4"
+      (click)="changePhone()"
+    >
+      OR CHANGE PHONE NUMBER
+    </p>
 
-
-    <ion-grid fixed>
+    <!-- <ion-grid fixed>
       <ion-row>
-        <ion-col size="12" style="color: dimgrey;" align="center">
+        <ion-col size="12" style="color: dimgrey" align="center">
           ----&nbsp; OR &nbsp;----
         </ion-col>
       </ion-row>
 
-
-      <ion-row style="margin-top: 2vh;">
+      <ion-row style="margin-top: 2vh">
         <ion-col size="6">
-          <div class="facebook ">
-            <img class="img_login" src="assets/facebook.png" alt="">
+          <div class="facebook">
+            <img class="img_login" src="assets/facebook.png" alt="" />
           </div>
         </ion-col>
         <ion-col size="6">
-          <div class="facebook ">
-            <img class="img_login" src="assets/google.png" alt="">
+          <div class="facebook">
+            <img class="img_login" src="assets/google.png" alt="" />
           </div>
         </ion-col>
       </ion-row>
-    </ion-grid>
+    </ion-grid> -->
   </div>
-
-
-
 </ion-content>
