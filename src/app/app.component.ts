@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
-
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +11,14 @@ import { Platform } from '@ionic/angular';
 export class AppComponent {
   constructor(
     private router: Router,
-    public platform: Platform
+    public platform: Platform,
+    public dataService: DataService
   ) {
     this.initializeApp();
   }
   initializeApp() {
     this.platform.ready().then(() => {
       // this.router.navigate(['/profile']);
-    })
+    });
   }
 }
-

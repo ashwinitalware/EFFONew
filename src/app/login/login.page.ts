@@ -13,7 +13,9 @@ export class LoginPage implements OnInit {
     public dataService: DataService,
     public http: HttpClient,
     public navCtrl: NavController
-  ) {}
+  ) {
+    // this.navCtrl.navigateRoot(['/dashboard']);
+  }
 
   ngOnInit() {}
 
@@ -60,7 +62,8 @@ export class LoginPage implements OnInit {
           ) {
             this.navCtrl.navigateForward(['/editprofile']);
           } else {
-            this.navCtrl.navigateForward(['/dashboard']);
+            this.navCtrl.navigateRoot(['/dashboard']);
+            // this.navCtrl.navigateForward(['/dashboard']);
           }
         }
         if (data.status == false) {

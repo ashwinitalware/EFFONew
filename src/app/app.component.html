@@ -5,51 +5,72 @@
 <ion-app>
   <ion-menu side="start" contentId="main" menuClose="left">
     <ion-content>
-      <div class="bg-class" style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, #cf0808 100%);">
+      <div
+        class="bg-class"
+        style="
+          background: linear-gradient(90deg, rgb(255, 0, 0) 0%, #cf0808 100%);
+        "
+      >
         <ion-grid fixed>
           <ion-row>
             <ion-col size="3">
-              <img src="assets/skeleton_avatar.png" alt="">
+              <img src="assets/skeleton_avatar.png" alt="" />
             </ion-col>
-            <ion-col size="7" style="margin-top: 4%;">
-              <ion-label style="color: white; font-weight: bold;">Ashwini Talware</ion-label>
-              <p style="font-size: small; color: white; font-weight: bold;">My Account</p>
+            <ion-col size="7" style="margin-top: 4%">
+              <ion-label style="color: white; font-weight: bold"
+                >Ashwini Talware</ion-label
+              >
+              <p style="font-size: small; color: white; font-weight: bold">
+                My Account
+              </p>
             </ion-col>
-            <ion-col size="2" style="margin-top: 6%;">
-              <ion-icon style="color: white; font-size: large;  margin-left: 3%;" name="chevron-forward"></ion-icon>
+            <ion-col size="2" style="margin-top: 6%">
+              <ion-icon
+                style="color: white; font-size: large; margin-left: 3%"
+                name="chevron-forward"
+              ></ion-icon>
             </ion-col>
           </ion-row>
         </ion-grid>
       </div>
 
-      <ion-list class="menu-items" lines="none">        
+      <ion-list class="menu-items" lines="none">
+               
         <ion-menu-toggle auto-hide="false">
           <ion-item routerLink="/dashboard">
-            <ion-icon style="font-size: large;" name="home-outline"></ion-icon>
+            <ion-icon style="font-size: large" name="home-outline"></ion-icon>
             <ion-text color="medium">Home</ion-text>
           </ion-item>
 
           <ion-item>
-            <ion-icon style="font-size: large;" name="apps-outline"></ion-icon>
+            <ion-icon style="font-size: large" name="apps-outline"></ion-icon>
             <ion-text color="medium">Categories</ion-text>
           </ion-item>
 
-          <ion-item style="border-bottom: gray 1px solid;">
-            <ion-text style="font-size: small;" color="dark">MY ACTIVITIES</ion-text>
+          <ion-item style="border-bottom: gray 1px solid">
+            <ion-text style="font-size: small" color="dark"
+              >MY ACTIVITIES</ion-text
+            >
           </ion-item>
 
           <ion-item>
-            <ion-icon style="font-size: large;" name="card-outline"></ion-icon>
+            <ion-icon style="font-size: large" name="card-outline"></ion-icon>
             <ion-text color="medium">Orders & Payments</ion-text>
           </ion-item>
 
           <ion-item routerLink="/profile">
-            <ion-icon style="font-size: large;" name="newspaper-outline"></ion-icon>
+            <ion-icon
+              style="font-size: large"
+              name="newspaper-outline"
+            ></ion-icon>
             <ion-text color="medium">My Ads</ion-text>
           </ion-item>
 
           <ion-item>
-            <ion-icon style="font-size: large;" name="megaphone-outline"></ion-icon>
+            <ion-icon
+              style="font-size: large"
+              name="megaphone-outline"
+            ></ion-icon>
             <ion-text color="medium">Messages & Notifications</ion-text>
           </ion-item>
 
@@ -58,46 +79,59 @@
             <ion-text color="medium">QCash</ion-text>
           </ion-item> -->
 
-          <ion-item style="border-bottom: gray 1px solid;">
-            <ion-text style="font-size: small;" color="dark">OTHERS</ion-text>
+          <ion-item style="border-bottom: gray 1px solid">
+            <ion-text style="font-size: small" color="dark">OTHERS</ion-text>
           </ion-item>
 
-
           <ion-item>
-            <ion-icon style="font-size: large;" name="business-outline"></ion-icon>
+            <ion-icon
+              style="font-size: large"
+              name="business-outline"
+            ></ion-icon>
             <ion-text color="medium">Register Business</ion-text>
           </ion-item>
 
           <ion-item>
-            <ion-icon style="font-size: large;" name="star-outline"></ion-icon>
+            <ion-icon style="font-size: large" name="star-outline"></ion-icon>
             <ion-text color="medium">Rate us on Playstore</ion-text>
           </ion-item>
 
           <ion-item>
-            <ion-icon style="font-size: large;" name="location-outline"></ion-icon>
+            <ion-icon
+              style="font-size: large"
+              name="location-outline"
+            ></ion-icon>
             <ion-text color="medium">Location</ion-text>
           </ion-item>
 
           <ion-item>
-            <ion-icon style="font-size: large;" name="settings-outline"></ion-icon>
+            <ion-icon
+              style="font-size: large"
+              name="settings-outline"
+            ></ion-icon>
             <ion-text color="medium">App Settings</ion-text>
           </ion-item>
 
           <ion-item>
-            <ion-icon style="font-size: large;" name="receipt-outline"></ion-icon>
+            <ion-icon
+              style="font-size: large"
+              name="receipt-outline"
+            ></ion-icon>
             <ion-text color="medium">Privacy Policy</ion-text>
           </ion-item>
 
           <ion-item>
-            <ion-icon style="font-size: large;" name="call-outline"></ion-icon>
+            <ion-icon style="font-size: large" name="call-outline"></ion-icon>
             <ion-text color="medium">Contact Us</ion-text>
           </ion-item>
 
-          <ion-item>
-            <ion-icon style="font-size: large;" name="log-out-outline"></ion-icon>
+          <ion-item (click)="this.dataService.logout()">
+            <ion-icon
+              style="font-size: large"
+              name="log-out-outline"
+            ></ion-icon>
             <ion-text color="medium">Log Out</ion-text>
           </ion-item>
-
         </ion-menu-toggle>
       </ion-list>
       <!-- <section class="sticky">
@@ -118,9 +152,7 @@
       <!-- <div>
         <img src="assets/wave.svg" alt="">
       </div> -->
-
     </ion-content>
   </ion-menu>
-  <ion-router-outlet id="main">
-  </ion-router-outlet>
+  <ion-router-outlet id="main"> </ion-router-outlet>
 </ion-app>

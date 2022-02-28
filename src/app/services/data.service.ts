@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 declare const Swal: any;
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ export class DataService {
     otpSent: false,
     email: '',
     fullName: '',
+    canLoad: true,
   };
   profile: any = {
     id: 1,
@@ -17,7 +19,7 @@ export class DataService {
   domainUrl = 'http://localhost:1337/';
   apiUrl = this.domainUrl + 'api/';
 
-  constructor() {
+  constructor(public router: Router) {
     this.syncProfileFromLs();
   }
 
@@ -25,6 +27,7 @@ export class DataService {
     const tempStringProfile = window.localStorage.getItem('effoProfile');
     if (tempStringProfile) {
       this.profile = JSON.parse(tempStringProfile);
+      this.auth.canLoad = false;
     }
   }
   saveProfileObject(profile) {
@@ -40,5 +43,11 @@ export class DataService {
       icon,
     });
     // this.router.navigate(['/login']);
+  }
+
+  logout() {
+    this.auth.canLoad = true;
+    this.router.navigate(['/login']);
+    localStorage.clear();
   }
 }
