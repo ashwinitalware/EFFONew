@@ -1,0 +1,178 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title align="center" class="text-white">Mobile & Accesseries</ion-title>
+    <div slot="end">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    </div>
+    <div slot="end" class="pr-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+      </svg>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row class="pl-2 pr-2 pt-3">
+    <div style="width: 100%; background-color: white; border-radius: 10px; border: 1px solid rgb(211, 211, 211);">
+      <ion-input placeholder="Search In All India" id="search">
+        <ion-icon name="search" style="margin-left: 7px;"></ion-icon>
+      </ion-input>
+    </div>
+  </ion-row>
+
+  <div class="pl-2 pr-2 pt-2">
+    <ion-slides [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+      <ion-slide>
+        <img class="rounded-md" src="assets/shopping/sliderc.jpg" />
+      </ion-slide>
+      <ion-slide>
+        <img class="rounded-md" src="assets/shopping/slider1c.jfif" />
+      </ion-slide>
+      <ion-slide>
+        <img class="rounded-md" src="assets/shopping/slider2c.jpg" />
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+
+
+  <div style="padding-left:0.8em ;" class=" pt-2 pb-1">
+    <ion-label>Shop By Brand</ion-label>
+  </div>
+
+  <ion-row class="text-center" class="pl-1 pr-1">
+    <ion-col size="3" roterLink="/mobiledetails">
+      <ion-avatar class="pl-1">
+        <img src="assets/shopping/mi.png" />
+      </ion-avatar>
+      <p align="center" class="pt-1 text-sm text-center">Xiaomi</p>
+      <!-- <ion-list-header align="center">Xiaomi</ion-list-header> -->
+    </ion-col>
+
+    <ion-col size="3">
+      <ion-avatar class="ion-margin-start">
+        <img src="assets/shopping/one.png" />
+      </ion-avatar>
+      <p align="center" class="pt-1 text-sm text-center">One-plus</p>
+      <!-- <ion-list-header>One-plus</ion-list-header> -->
+    </ion-col>
+
+    <ion-col size="3">
+      <ion-avatar class="ion-margin-start">
+        <img src="assets/shopping/samsung.png" />
+      </ion-avatar>
+      <p align="center" class="pt-1 text-sm text-center">Samsung</p>
+      <!-- <ion-list-header>Samsung</ion-list-header> -->
+    </ion-col>
+
+    <ion-col size="3">
+      <ion-avatar class="ion-margin-start">
+        <img src="assets/shopping/apple.png" />
+      </ion-avatar>
+      <p align="center" class="pt-1 text-sm text-center">Apple</p>
+      <!-- <ion-list-header>Apple</ion-list-header> -->
+    </ion-col>
+  </ion-row>
+
+  <div class="mt-2">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" routerLink="/mobiledetails">
+          <div class="bg-white p-2">
+            <img src="assets/shopping/samsung.jfif" />
+            <p class="mt-2"><b>Samsung</b></p>
+            <div class="flex justify-between">
+              <div>
+                <p><span class="rupees"> </span> 15,000</p>
+              </div>
+              <div>
+                <ion-icon name="share-social-outline"></ion-icon>&nbsp;
+                <ion-icon name="heart-outline"></ion-icon>
+              </div>
+            </div>
+
+            <p>
+              <ion-icon class="text-green-500" name="caret-forward"></ion-icon>
+              Free Delivery
+            </p>
+          </div>
+        </ion-col>
+
+        <ion-col size="6">
+          <div class="bg-white p-2">
+            <img src="assets/shopping/xiomi.jfif" />
+            <p class="mt-2"><b>Xiaomi</b></p>
+            <div class="flex justify-between">
+              <div>
+                <p><span class="rupees"> </span> 10,0000</p>
+              </div>
+              <div>
+                <ion-icon name="share-social-outline"></ion-icon>&nbsp;
+                <ion-icon name="heart-outline"></ion-icon>
+              </div>
+            </div>
+
+            <p>
+              <ion-icon class="text-green-500" name="caret-forward"></ion-icon>
+              Free Delivery
+            </p>
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div class="bg-white p-2">
+            <img src="assets/shopping/one.jpg" />
+            <p class="mt-2"><b>One-plus</b></p>
+            <div class="flex justify-between">
+              <div>
+                <p><span class="rupees"> </span> 30,5000</p>
+              </div>
+              <div>
+                <ion-icon name="share-social-outline"></ion-icon>&nbsp;
+                <ion-icon name="heart-outline"></ion-icon>
+              </div>
+            </div>
+
+            <p>
+              <ion-icon class="text-green-500" name="caret-forward"></ion-icon>
+              Free Delivery
+            </p>
+          </div>
+        </ion-col>
+
+        <ion-col size="6">
+          <div class="bg-white p-2">
+            <img src="assets/shopping/iphone.jpg" />
+            <p class="mt-2"><b>Apple</b></p>
+            <div class="flex justify-between">
+              <div>
+                <p><span class="rupees"> </span> 50,000</p>
+              </div>
+              <div>
+                <ion-icon name="share-social-outline"></ion-icon>&nbsp;
+                <ion-icon name="heart-outline"></ion-icon>
+              </div>
+            </div>
+
+            <p>
+              <ion-icon class="text-green-500" name="caret-forward"></ion-icon>
+              Free Delivery
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

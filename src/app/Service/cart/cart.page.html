@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title align="center" class="text-white">My Cart</ion-title>
+    <div slot="end">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    </div>
+    <div slot="end" class="pr-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+      </svg>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="p-1 bg-white">
+    <ion-row>
+      <ion-col size="4"><img img src="assets/services/e7.jpg"> </ion-col>
+      <ion-col size="7">
+        <p class="text-black text-base" routerLink="/acservice"><b>AC Repair Service</b><br>
+          Work all done<br> ₹ 5,699 </p>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card class="p-2 bg-white">
+    <ion-row>
+      <ion-col size="4"><img img src="assets/services/p1.jpg"> </ion-col>
+      <ion-col size="7">
+        <p class="text-black text-base " routerLink="/pestcontrolservice">Pest Control Service<br>
+          Work all done<br>₹ 4,699</p>
+        <!-- <p class="text-black"> Work all done</p>
+        <p class="text-black text-xs "> <span class="rs"></span>4,699
+          <p> -->
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <div style="padding-left:0.8em ;" class="pt-3 pb-2">
+    <ion-label>Payment Method</ion-label>
+  </div>
+
+  <ion-radio-group value="grape">
+    <ion-item lines="none" color="none"
+      class="bg-white border-solid border-2 p-1 ml-2 mr-2 pt-2 border-grey-300 hover:border-red-300 ">
+      <ion-avatar slot="start">
+        <img src="assets/services/visa.jpeg">
+      </ion-avatar>
+      <ion-label>** ** ** 308</ion-label>
+      <ion-radio slot="start" color="danger" value="apple"></ion-radio>
+    </ion-item>
+
+    <ion-item lines="none" color="none"
+      class="bg-white border-solid border-2 p-1 ml-2 mr-2 mt-1 border-gery-300 hover:border-red-300 ">
+      <ion-avatar slot="start">
+        <img src="assets/services/gpay.jpeg">
+      </ion-avatar>
+      <ion-label>** ** ** 408</ion-label>
+      <ion-radio slot="start" color="danger" value="grape"></ion-radio>
+    </ion-item>
+
+    <ion-item lines="none" color="none"
+      class="bg-white border-solid border-2 p-1 ml-2 mr-2 mt-1 border-gery-300 hover:border-red-300 ">
+      <ion-avatar slot="start">
+        <img src="assets/services/paytm.jpeg">
+      </ion-avatar>
+      <ion-label>** ** ** 508</ion-label>
+      <ion-radio slot="start" color="danger" value="cherry"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="flex justify-between p-2 font-semibold">
+      <div class="text-white pt-2 text-sm">
+        Total <span class="rs"></span> 5,699
+      </div>
+      <div>
+        <ion-button color="light font-semibold" routerLink="/cart" class="px-1 py-1">
+          Continue
+        </ion-button>
+      </div>
+
+
+    </div>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title align="center" class="text-white">My Cart</ion-title>
+    <div slot="end">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    </div>
+    <div slot="end" class="pr-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+      </svg>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-card class="p-1 bg-white">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4"><img img src="assets/cabservices/d25.jpg"> </ion-col>
+        <ion-col size="7">
+          <p class="text-black text-base "><b>Perodic Service</b><br>
+            <!-- <span class="text-sm">work all done</span> -->
+            <span class="text-sm"> ₹ 5,600</span></p>
+          <!-- <p class="text-black"> </p>
+          <p class="text-black text-xs "> <span class="rs"></span> 5,699
+            <p> -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card class="p-1 bg-white">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4"><img img src="assets/cabservices/d25.jpg"> </ion-col>
+        <ion-col size="7">
+          <p class="text-black text-base "><b>AC Service</b><br>
+            <!-- <span class="text-sm"></span> -->
+            <span class="text-sm"> ₹ 5,600</span></p>
+          <!-- <p class="text-black"> </p>
+          <p class="text-black text-xs "> <span class="rs"></span> 5,699
+            <p> -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <div style="padding-left:0.8em ;" class="pt-2 pb-2">
+    <ion-label>Payment Method</ion-label>
+  </div>
+  <!-- 
+
+  <div class=" pb-4 ">
+    <ion-label class="pl-2  ">Payment Method</ion-label>
+  </div> -->
+
+  <ion-radio-group value="grape">
+
+    <ion-item lines="none" color="none"
+      class="border-solid border-2 p-1 ml-2 mr-2 pt-2 bg-white border-grey-300 hover:border-red-300 ">
+      <ion-avatar slot="start">
+        <img src="assets/cabservices/visa.png">
+      </ion-avatar>
+      <ion-label>***** ***** **** 308</ion-label>
+      <ion-radio slot="start" color="danger" value="apple"></ion-radio>
+    </ion-item>
+
+    <ion-item lines="none" color="none"
+      class="border-solid border-2  bg-white p-1 ml-2 mr-2 mt-2 border-gery-300 hover:border-red-300 ">
+      <ion-avatar slot="start">
+        <img src="assets/cabservices/v2.png">
+      </ion-avatar>
+      <ion-label>***** ***** **** 408</ion-label>
+      <ion-radio slot="start" color="danger" value="grape"></ion-radio>
+    </ion-item>
+
+    <ion-item lines="none" color="none"
+      class="border-solid border-2 bg-white p-1 ml-2 mr-2 mt-2 border-gery-300 hover:border-red-300 ">
+      <ion-avatar slot="start">
+        <img src="assets/cabservices/paytm.png">
+      </ion-avatar>
+      <ion-label>***** ***** **** 508</ion-label>
+      <ion-radio slot="start" color="danger" value="cherry"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+
+
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class="flex justify-between p-2 font-semibold">
+      <div class="text-white pt-2 text-sm">
+        Total <span class="rs"></span> 5,699
+      </div>
+      <div>
+        <ion-button color="light font-semibold" class="px-1 py-1">
+          Continue
+        </ion-button>
+      </div>
+
+    </div>
+  </ion-toolbar>
+</ion-footer>

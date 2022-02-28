@@ -1,0 +1,7 @@
+ion-toolbar {
+  --background: linear-gradient(90deg, rgb(255, 0, 0) 0%, #cf0808 100%);
+}
+
+.rupees::before {
+  content: "\20B9";
+}

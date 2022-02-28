@@ -150,10 +150,88 @@ const routes: Routes = [
   {
     path: 'newpassword',
     loadChildren: () => import('./Job/newpassword/newpassword.module').then(m => m.NewpasswordPageModule)
-  },  {
-    path: 'notification',
-    loadChildren: () => import('./Job/notification/notification.module').then( m => m.NotificationPageModule)
   },
+  {
+    path: 'notification',
+    loadChildren: () => import('./Job/notification/notification.module').then(m => m.NotificationPageModule)
+  },
+  {
+    path: 'servicedashboard',
+    loadChildren: () => import('./Service/servicedashboard/servicedashboard.module').then(m => m.ServicedashboardPageModule)
+  },
+  {
+    path: 'maintedashboard',
+    loadChildren: () => import('./Maintenance/maintedashboard/maintedashboard.module').then(m => m.MaintedashboardPageModule)
+  },
+  {
+    path: 'cabserdashboard',
+    loadChildren: () => import('./Cabservice/cabserdashboard/cabserdashboard.module').then(m => m.CabserdashboardPageModule)
+  },
+  {
+    path: 'shopdash',
+    loadChildren: () => import('./Shopping/shopdash/shopdash.module').then(m => m.ShopdashPageModule)
+  },
+  {
+    path: 'periodicser',
+    loadChildren: () => import('./Cabservice/periodicser/periodicser.module').then(m => m.PeriodicserPageModule)
+  },
+  {
+    path: 'allservices',
+    loadChildren: () => import('./Cabservice/allservices/allservices.module').then(m => m.AllservicesPageModule)
+  },
+  {
+    path: 'addcart',
+    loadChildren: () => import('./Cabservice/addcart/addcart.module').then(m => m.AddcartPageModule)
+  },
+  {
+    path: 'electronicsservices',
+    loadChildren: () => import('./Service/electronicsservices/electronicsservices.module').then(m => m.ElectronicsservicesPageModule)
+  },
+  {
+    path: 'homeservices',
+    loadChildren: () => import('./Service/homeservices/homeservices.module').then(m => m.HomeservicesPageModule)
+  },
+  {
+    path: 'allservices',
+    loadChildren: () => import('./Service/allservices/allservices.module').then(m => m.AllservicesPageModule)
+  },
+  {
+    path: 'automobileservice',
+    loadChildren: () => import('./Service/automobileservice/automobileservice.module').then(m => m.AutomobileservicePageModule)
+  },
+  {
+    path: 'allshopcategories',
+    loadChildren: () => import('./Shopping/allshopcategories/allshopcategories.module').then(m => m.AllshopcategoriesPageModule)
+  },  {
+    path: 'mobile',
+    loadChildren: () => import('./Shopping/mobile/mobile.module').then( m => m.MobilePageModule)
+  },
+  {
+    path: 'mobiledetails',
+    loadChildren: () => import('./Shopping/mobiledetails/mobiledetails.module').then( m => m.MobiledetailsPageModule)
+  },
+  {
+    path: 'mycard',
+    loadChildren: () => import('./Shopping/mycard/mycard.module').then( m => m.MycardPageModule)
+  },
+  {
+    path: 'fashion',
+    loadChildren: () => import('./Shopping/fashion/fashion.module').then( m => m.FashionPageModule)
+  },
+  {
+    path: 'acservice',
+    loadChildren: () => import('./Service/acservice/acservice.module').then( m => m.AcservicePageModule)
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./Service/cart/cart.module').then( m => m.CartPageModule)
+  },
+  {
+    path: 'pestcontrolservice',
+    loadChildren: () => import('./Service/pestcontrolservice/pestcontrolservice.module').then( m => m.PestcontrolservicePageModule)
+  },
+
+
 
 
 
