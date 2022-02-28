@@ -37,12 +37,12 @@
       </p>
     </div>
 
-    <div align="center" class="button_login">
+    <div>
       <button
         *ngIf="this.dataService.auth.otpSent"
         expand="block"
         color="light"
-        class="bg-class"
+        class="bg-class mt-4"
         (click)="verify()"
       >
         <!-- routerLink="/dashboard" -->
@@ -52,10 +52,10 @@
         *ngIf="!this.dataService.auth.otpSent"
         expand="block"
         color="light"
-        class="bg-class"
+        class="bg-class mt-4"
         (click)="login()"
       >
-        Send OTP
+        Login with OTP
       </button>
       <!-- <p class="text-p pt-2">
         Don't have an account?
@@ -70,7 +70,25 @@
     >
       OR CHANGE PHONE NUMBER
     </p>
+    <p
+      *ngIf="!this.dataService.auth.otpSent"
+      class="text-red-700 text-sm text-center mt-4"
+      (click)="changePhone()"
+    >
+      OR
+    </p>
 
+    <div *ngIf="!this.dataService.auth.otpSent">
+      <button
+        expand="block"
+        color="light"
+        (click)="google()"
+        class="w-full mt-4 rounded-md bg-white py-2 px-4 flex items-center"
+      >
+        <img src="assets/images/google.png" alt="" class="h-8" />
+        <div class="flex-1">Login with Google</div>
+      </button>
+    </div>
     <!-- <ion-grid fixed>
       <ion-row>
         <ion-col size="12" style="color: dimgrey" align="center">

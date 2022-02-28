@@ -16,6 +16,7 @@ export class JobdetailsPage implements OnInit {
   //not
   jobApplied;
   data;
+  skills = [];
   constructor(
     public navCtrl: NavController,
     public dataService: DataService,
@@ -48,6 +49,18 @@ export class JobdetailsPage implements OnInit {
         this.jobApplied = data.data.length ? true : false;
       });
   }
+  calculateSkills(skillsString) {
+    console.log(skillsString);
+
+    try {
+      this.skills = skillsString.split(',');
+    } catch (error) {
+      console.log(error);
+
+      this.skills = [];
+    }
+    console.log(this.skills);
+  }
   apply() {
     if (this.jobApplied) {
       return;
@@ -72,6 +85,23 @@ export class JobdetailsPage implements OnInit {
     }
   }
   getJobDetails() {
+    this.http
+      .get(
+        this.dataService.apiUrl +
+          'job-posts/' +
+          this.activatedRoute.snapshot.params.jobId,
+        {
+          params: {
+            populate: '*',
+          },
+        }
+      )
+      .subscribe((data: any) => {
+        this.data = data.data;
+        this.calculateSkills(this.data.attributes.skillsByComma);
+      });
+  }
+  getJobDetails2UsingGraphql() {
     //  +
     // this.activatedRoute.snapshot.params.jobId
     this.http

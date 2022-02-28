@@ -1,55 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-row style="padding-left: 2px; padding-right: 2px">
-      <ion-col size="2">
-        <div routerLink="/jobdashboard">
-          &nbsp;&nbsp;
-          <!-- <ion-menu-button> -->
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            style="color: #fff; width: 40%; height: 40%"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          <!-- </ion-menu-button> -->
-        </div>
-      </ion-col>
-
-      <ion-col size="8">
-        <div align="center">
-          <ion-label style="color: #fff; font-size: large"
-            ><b>Job Details</b></ion-label
-          >
-        </div>
-      </ion-col>
-
-      <ion-col size="2">
-        <div style="margin-left: 10%">
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            style="color: #fff; width: 45%; height: 45%"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            routerLink="/notification"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-            />
-          </svg>
-        </div>
-      </ion-col>
-    </ion-row>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Job Details</div>
   </ion-toolbar>
   <div *ngIf="data" style="background-color: #fff; padding: 3px">
     <ion-row align="left" class="pl-2">
@@ -85,102 +39,105 @@
 </ion-header>
 
 <ion-content *ngIf="data">
-  <!-- {{data|json}} -->
-  <ion-list-header>This Job Requires</ion-list-header>
-  <p class="pl-2">
-    <!-- <button
-      *ngFor="let skill of data.attributes.job_post_skills.data"
-      class="border border-solid border-blue-600 rounded-full px-2 py-1 text-blue-600 mr-4"
-    >
-      <ion-icon style="font-size: small" name="checkmark"></ion-icon>
-      {{skill.attributes.name }}
-    </button> -->
+  <div class="p-4">
+    <!-- {{data|json}} -->
+    <div>This job requires</div>
 
-    <!-- <ion-chip color="warning">
+    <p class="pl-2">
+      <button
+        *ngFor="let skill of skills;let i=index"
+        class="bg-red-600 rounded-full px-2 py-1 text-white mr-4 mt-2 text-sm"
+      >
+        <ion-icon style="font-size: small" name="checkmark"></ion-icon>
+        {{skill |uppercase}}
+      </button>
+
+      <!-- <ion-chip color="warning">
       <ion-label>Warning</ion-label>
     </ion-chip>
     <ion-chip color="danger">
       <ion-label>Danger</ion-label>
     </ion-chip> -->
-  </p>
+    </p>
 
-  <ion-grid fixed>
-    <ion-row class="pl-2 pr-2">
-      <ion-col size="1">
-        <ion-icon name="book-outline"></ion-icon>
-      </ion-col>
-      <ion-col size="5" align="left">
-        <ion-label style="color: black; font-weight: 500"
-          >Minimum Education</ion-label
-        >
-        <p style="font-size: 1em; color: rgb(121, 121, 121)">
-          {{data.attributes.minimumEducation }}
-        </p>
-      </ion-col>
-      <ion-col size="1">
-        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-      </ion-col>
-      <ion-col size="5" align="left">
-        <ion-label style="color: black; font-weight: 500"
-          >English Level</ion-label
-        >
-        <p style="font-size: 1em; color: rgb(121, 121, 121)">
-          {{data.attributes.english }}
-        </p>
-      </ion-col>
-      <ion-col size="1">
-        <ion-icon name="star-outline"></ion-icon>
-      </ion-col>
-      <ion-col size="11" align="left">
-        <ion-label style="color: black; font-weight: 500">Experience</ion-label>
-        <p style="font-size: 1em; color: rgb(121, 121, 121)">
-          {{data.attributes.experience }}
-        </p>
-      </ion-col>
-      <ion-col size="1">
-        <ion-icon name="bag-handle-outline"></ion-icon>
-      </ion-col>
-      <ion-col size="11" align="left">
-        <ion-label style="color: black; font-weight: 500"
-          >Description</ion-label
-        >
-        <p style="font-size: 1em; color: rgb(121, 121, 121)">
-          {{data.attributes.description }}
-        </p>
-      </ion-col>
-      <ion-col size="1">
-        <ion-icon name="time-outline"></ion-icon>
-      </ion-col>
-      <ion-col size="11" align="left">
-        <ion-label style="color: black; font-weight: 500">Timings</ion-label>
-        <p style="font-size: 1em; color: rgb(121, 121, 121)">
-          {{data.attributes.timings }}
-        </p>
-      </ion-col>
-      <ion-col size="1">
-        <ion-icon name="today-outline"></ion-icon>
-      </ion-col>
-      <ion-col size="11" align="left">
-        <ion-label style="color: black; font-weight: 500"
-          >Working Days</ion-label
-        >
-        <p style="font-size: 1em; color: rgb(121, 121, 121)">
-          {{data.attributes.workingDays }}
-        </p>
-      </ion-col>
-      <ion-col size="1">
-        <ion-icon name="location-outline"></ion-icon>
-      </ion-col>
-      <ion-col size="11" align="left">
-        <ion-label style="color: black; font-weight: 500"
-          >Address (Remote Job)</ion-label
-        >
-        <p style="font-size: 1em; color: rgb(121, 121, 121)">
-          {{data.attributes.address }}
-        </p>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid fixed>
+      <ion-row class="pl-2 pr-2">
+        <ion-col size="1">
+          <ion-icon name="book-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="5" align="left">
+          <ion-label style="color: black; font-weight: 500"
+            >Minimum Education</ion-label
+          >
+          <p style="font-size: 1em; color: rgb(121, 121, 121)">
+            {{data.attributes.minimumEducation }}
+          </p>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="5" align="left">
+          <ion-label style="color: black; font-weight: 500"
+            >English Level</ion-label
+          >
+          <p style="font-size: 1em; color: rgb(121, 121, 121)">
+            {{data.attributes.english }}
+          </p>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon name="star-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="11" align="left">
+          <ion-label style="color: black; font-weight: 500"
+            >Experience</ion-label
+          >
+          <p style="font-size: 1em; color: rgb(121, 121, 121)">
+            {{data.attributes.experience }}
+          </p>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon name="bag-handle-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="11" align="left">
+          <ion-label style="color: black; font-weight: 500"
+            >Description</ion-label
+          >
+          <p style="font-size: 1em; color: rgb(121, 121, 121)">
+            {{data.attributes.description }}
+          </p>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon name="time-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="11" align="left">
+          <ion-label style="color: black; font-weight: 500">Timings</ion-label>
+          <p style="font-size: 1em; color: rgb(121, 121, 121)">
+            {{data.attributes.timings }}
+          </p>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon name="today-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="11" align="left">
+          <ion-label style="color: black; font-weight: 500"
+            >Working Days</ion-label
+          >
+          <p style="font-size: 1em; color: rgb(121, 121, 121)">
+            {{data.attributes.workingDays }}
+          </p>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon name="location-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="11" align="left">
+          <ion-label style="color: black; font-weight: 500">City</ion-label>
+          <p style="font-size: 1em; color: rgb(121, 121, 121)">
+            {{data.attributes.city|titlecase }}
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
 
 <ion-footer>

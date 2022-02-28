@@ -1,69 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-row style="padding-left: 2px; padding-right: 2px">
-      <ion-col size="2">
-        <div routerLink="/dashboard">
-          &nbsp;&nbsp;
-          <!-- <ion-menu-button> -->
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            style="color: #fff; width: 40%; height: 40%"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-              clip-rule="evenodd"
-            />
-          </svg>
-          <!-- </ion-menu-button> -->
-        </div>
-      </ion-col>
-
-      <ion-col size="8">
-        <div align="center">
-          <ion-label style="color: #fff; font-size: large"
-            ><b>Jobs</b></ion-label
-          >
-        </div>
-      </ion-col>
-      <ion-col size="2">
-        <div style="margin-left: 10%">
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            style="color: #fff; width: 45%; height: 45%"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            routerLink="/notification"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-            />
-          </svg>
-        </div>
-      </ion-col>
-    </ion-row>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Find Jobs</div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="p-4 flex">
-    <div
-      class="flex-1 mr-4"
-      style="
-        background-color: white;
-        border-radius: 10px;
-        border: 1px solid rgb(211, 211, 211);
-      "
-    >
+  <div class="px-4 mt-4 flex">
+    <div class="flex-1 mr-4 bg-white rounded-lg shadow-md">
       <ion-input
-        placeholder="Search By Job Title"
+        placeholder="Search by skills"
         id="search"
         [(ngModel)]="this.jobService.jobQuery"
       >
@@ -72,13 +20,13 @@
     </div>
     <button
       [routerLink]="'/joblist/'+this.jobService.jobQuery"
-      class="rounded-md bg-red-600 text-white text-center shadow-md px-4"
+      class="bg-red text-white text-center shadow-md px-4 rounded-lg shadow-md"
     >
       Search
     </button>
   </div>
-  <div style="padding-left: 0.8em" class="pt-3 pb-2">
-    <ion-label>All Jobs Categories</ion-label>
+  <div style="" class="px-4 pt-4 pb-2">
+    <ion-label>Job Categories</ion-label>
   </div>
 
   <!-- <ion-grid fixed>
@@ -142,83 +90,51 @@
   </div>
 
   <div
-    *ngFor="let category of this.jobService.categories;let i=index"
+    *ngFor="let section of sections;let i=index"
     style="border-radius: 5px; margin-top: 2%; padding: 5px; margin-bottom: 2%"
   >
     <div
-      *ngIf="informations[i]"
       class="pt-2 pl-4 pb-2"
-      style="background-color: #fff; border-bottom: 2px solid {{informations[i].color}}"
+      style="background-color: #fff; border-bottom: 2px solid {{section.color}}"
     >
-      <ion-label style="color:  {{informations[i].color}}"
-        >{{informations[i].title}}</ion-label
-      >
-      <p style="font-size: 0.7em">{{informations[i].subtitle}}</p>
+      <ion-label style="color:  {{section.color}}">{{section.title}}</ion-label>
+      <p style="font-size: 0.7em">{{section.subtitle}}</p>
     </div>
-    <ion-grid fixed>
-      <ion-row style="padding: 5px">
-        <ion-col size="9">
-          <p style="color: black">{{category.attributes.name}} Jobs</p>
-        </ion-col>
-        <ion-col size="3" [routerLink]="['/joblist/'+category.id]">
-          <p style="color: darkgray; font-size: 0.8em">View All</p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
 
-    <!-- {{category.jobs|json}} -->
-    <ion-slides
-      #slider
-      loop="true"
-      [options]="slideOptss"
-      *ngIf="category.jobs"
-    >
-      <ion-slide *ngFor="let job of category.jobs" (click)="jobDetails(job)">
-        <ion-card class="product-card" style="width: 100%">
-          <div class="text-black text-left px-4 mt-4">
+    <ion-slides class="mt-4" #slider loop="true" [options]="slideOptss">
+      <ion-slide
+        *ngFor="let job of section.jobs"
+        (click)="jobDetails(job)"
+        class="pr-2"
+      >
+        <div class="primary-card bg-white p-4" style="width: 100%">
+          <div class="text-black text-left text-base font-bold">
             {{job.attributes.title|titlecase}}
           </div>
-          <div class="product-details">
-            <ion-row>
-              <ion-col size="11">
-                <span class="product-catagory"
-                  >₹ {{job.attributes.salaryFrom}} - ₹
-                  {{job.attributes.salaryUpto}}
-                </span>
-              </ion-col>
-              <ion-col size="1">
-                <ion-icon name="chevron-forward-outline"> </ion-icon>
-              </ion-col>
-            </ion-row>
-            <p align="left">
-              <!-- {{job.attributes.author.data.attributes.job_profile.data.attributes.companyName}} -->
-              {{job.attributes.companyName}}
-            </p>
-            <div align="left">
-              <p>
-                <ion-icon
-                  style="font-size: 0.9em"
-                  name="business-outline"
-                ></ion-icon
-                >&nbsp;{{job.attributes.address}}
-              </p>
-              <p>
-                <ion-icon
-                  style="font-size: 0.9em"
-                  name="megaphone-outline"
-                ></ion-icon
-                >&nbsp;{{job.attributes.vacancies}} Openings
-              </p>
-            </div>
+
+          <div class="text-sm text-gray-600">
+            ₹ {{job.attributes.salaryFrom}} - ₹ {{job.attributes.salaryUpto}}
           </div>
-          <div class="px-2">
-            <button
-              class="w-full shadow-md rounded-md bg-red-600 text-white text-center py-2"
-            >
-              Apply Now
-            </button>
+
+          <div class="text-sm flex items-center mt-4">
+            <ion-icon name="podium" class="text-blue-500"></ion-icon>
+            &nbsp; {{job.attributes.companyName||"Company Name"|titlecase}}
           </div>
-        </ion-card>
+          <div class="text-sm flex items-center">
+            <ion-icon name="location" class="text-green-600"></ion-icon>&nbsp;
+            {{job.attributes.city||"City not provided"|titlecase}}
+          </div>
+          <div class="text-sm flex items-center">
+            <ion-icon name="people" class="text-yellow-500"></ion-icon>&nbsp;
+            {{job.attributes.vacancies||0}} Vacancies
+          </div>
+
+          <button
+            class="w-full shadow-md rounded-md bg-red text-white text-center py-2 text-sm mt-4"
+          >
+            Apply Now
+          </button>
+        </div>
       </ion-slide>
     </ion-slides>
   </div>

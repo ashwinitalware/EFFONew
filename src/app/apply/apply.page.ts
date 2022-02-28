@@ -12,6 +12,11 @@ declare const Swal: any;
 })
 export class ApplyPage implements OnInit {
   jobApplied;
+  fileToUpload: File | null = null;
+
+  // resumeUploaded=false
+  resumeText = 'Upload Resume (.pdf)';
+  profile;
   constructor(
     public navCtrl: NavController,
     public router: Router,
@@ -20,10 +25,50 @@ export class ApplyPage implements OnInit {
     public activatedRoute: ActivatedRoute
   ) {
     this.jobAppliedCheck();
+    this.checkForResumeExists();
   }
 
+  checkForResumeExists() {
+    this.http
+      .get(this.dataService.apiUrl + 'users/' + this.dataService.profile.id)
+      .subscribe((data: any) => {
+        if (data.resume) {
+          this.resumeText = 'Change Your Resume';
+          this.dataService.profile = data;
+          // this.resumeUploaded=true
+        }
+      });
+  }
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+    this.uploadFileToActivity();
+  }
+  uploadFileToActivity() {
+    const endpoint = 'your-destination-url';
+    const formData: FormData = new FormData();
+    formData.append('files', this.fileToUpload, this.fileToUpload.name);
+    return this.http
+      .post(this.dataService.apiUrl + 'upload', formData)
+      .subscribe((data: any) => {
+        this.http
+          .put(
+            this.dataService.apiUrl + 'users/' + this.dataService.profile.id,
+            {
+              resume: data[0].url,
+            }
+          )
+          .subscribe((data2: any) => {
+            this.dataService.profile.resume = data2.resume;
+          });
+      });
+  }
   ngOnInit() {}
-
+  viewResume() {
+    window.open(this.dataService.profile.resume, '_blank');
+  }
+  uploadResume() {
+    // upload and update resume
+  }
   confirmOrder() {
     const swalWithBootstrapButtons = Swal.mixin({});
     swalWithBootstrapButtons.fire({

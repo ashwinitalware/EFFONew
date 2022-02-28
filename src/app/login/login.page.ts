@@ -55,7 +55,8 @@ export class LoginPage implements OnInit {
 
           if (
             !data.profile.fullName ||
-            data.profile.email == 'email@gmail.com'
+            data.profile.email == 'email@gmail.com' ||
+            !data.profile.city
           ) {
             this.navCtrl.navigateForward(['/editprofile']);
           } else {
@@ -74,5 +75,8 @@ export class LoginPage implements OnInit {
   changePhone() {
     this.dataService.auth.otpSent = false;
     this.dataService.auth.otp = undefined;
+  }
+  google() {
+    this.dataService.swal('Coming Soon..', '', 'warning');
   }
 }

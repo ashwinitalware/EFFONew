@@ -32,6 +32,7 @@ export class EditprofilePage implements OnInit {
       .put(this.dataService.apiUrl + 'custom/updateProfile', {
         id: this.dataService.profile.id,
         fullName: this.dataService.profile.fullName,
+        city: this.dataService.profile.city,
         email: this.dataService.profile.email,
       })
       .subscribe((data: any) => {

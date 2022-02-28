@@ -22,6 +22,7 @@
     <ion-item>
       <ion-label class="text" position="floating">Full Name</ion-label>
       <ion-input
+        name="name"
         [(ngModel)]="this.dataService.profile.fullName"
         type="text"
       ></ion-input>
@@ -36,6 +37,14 @@
       ></ion-input>
     </ion-item>
 
+    <ion-item>
+      <ion-label class="text" position="floating">City</ion-label>
+      <ion-input
+        name="city"
+        [(ngModel)]="this.dataService.profile.city"
+        type="text"
+      ></ion-input>
+    </ion-item>
     <ion-item>
       <ion-label class="text" position="floating">Email ID</ion-label>
       <ion-input
