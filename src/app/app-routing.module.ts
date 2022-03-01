@@ -11,6 +11,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
+    // redirectTo: 'home',
     pathMatch: 'full',
   },
   {
@@ -30,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    // canDeactivate:[LoginGuard],
+    // canDeactivate: [LoginGuard],
     // canActivate: [!LoginGuard],
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardPageModule),

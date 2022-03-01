@@ -12,6 +12,7 @@ import { JobService } from './services/job.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './services/data.service';
+import { LoginGuard } from './guards/login.guard';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -26,6 +27,7 @@ import { DataService } from './services/data.service';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     JobService,
     DataService,
+    LoginGuard,
   ],
   bootstrap: [AppComponent],
 })

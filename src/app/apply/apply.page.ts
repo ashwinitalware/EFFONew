@@ -47,6 +47,7 @@ export class ApplyPage implements OnInit {
     const endpoint = 'your-destination-url';
     const formData: FormData = new FormData();
     formData.append('files', this.fileToUpload, this.fileToUpload.name);
+    this.dataService.present();
     return this.http
       .post(this.dataService.apiUrl + 'upload', formData)
       .subscribe((data: any) => {
@@ -57,9 +58,16 @@ export class ApplyPage implements OnInit {
               resume: data[0].url,
             }
           )
-          .subscribe((data2: any) => {
-            this.dataService.profile.resume = data2.resume;
-          });
+          .subscribe(
+            (data2: any) => {
+              this.dataService.swal('Resume Updated', '', 'success');
+              this.dataService.dismiss();
+              this.dataService.profile.resume = data2.resume;
+            },
+            (err) => {
+              this.dataService.dismiss();
+            }
+          );
       });
   }
   ngOnInit() {}

@@ -23,15 +23,15 @@ export class LoginGuard implements CanActivate {
     | boolean
     | UrlTree {
     if (this.dataService.auth.canLoad) {
-      this.router.navigateByUrl('/login');
+      // this.router.navigateByUrl('/login');
       return true;
     } else {
-      this.router.navigateByUrl('/dashboard');
+      // this.router.navigateByUrl('/dashboard');
       return false;
       // this.router.navigate(['/dashboard']);
     }
 
-    return this.dataService.auth.canLoad;
+    // return this.dataService.auth.canLoad;
     // return true;
   }
 }

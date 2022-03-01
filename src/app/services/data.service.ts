@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 declare const Swal: any;
 @Injectable({
   providedIn: 'root',
@@ -13,21 +14,46 @@ export class DataService {
     fullName: '',
     canLoad: true,
   };
-  profile: any = {
-    id: 1,
-  };
+  // profile: any = {
+  //   // id: 1,
+  // };
+  profile: any;
   domainUrl = 'http://localhost:1337/';
   apiUrl = this.domainUrl + 'api/';
-
-  constructor(public router: Router) {
+  isLoading = false;
+  constructor(public router: Router, public loadingCtrl: LoadingController) {
     this.syncProfileFromLs();
   }
+  async present(content = 'Loading Data...') {
+    this.isLoading = true;
+    return await this.loadingCtrl
+      .create({
+        message: content,
+        // duration: 5000,
+      })
+      .then((a) => {
+        a.present().then(() => {
+          console.log('presented');
+          if (!this.isLoading) {
+            a.dismiss().then(() => console.log('abort presenting'));
+          }
+        });
+      });
+  }
 
+  async dismiss() {
+    try {
+      this.isLoading = false;
+      return await this.loadingCtrl
+        .dismiss()
+        .then(() => console.log('dismissed'));
+    } catch (error) {}
+  }
   syncProfileFromLs() {
     const tempStringProfile = window.localStorage.getItem('effoProfile');
     if (tempStringProfile) {
       this.profile = JSON.parse(tempStringProfile);
-      this.auth.canLoad = false;
+      // this.auth.canLoad = false;
     }
   }
   saveProfileObject(profile) {

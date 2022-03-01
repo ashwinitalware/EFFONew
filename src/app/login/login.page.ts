@@ -15,9 +15,18 @@ export class LoginPage implements OnInit {
     public navCtrl: NavController
   ) {
     // this.navCtrl.navigateRoot(['/dashboard']);
+    this.autoLogin();
   }
 
   ngOnInit() {}
+
+  autoLogin() {
+    // alert(this.dataService.profile);
+    if (this.dataService.profile) {
+      this.dataService.auth.canLoad = false;
+      this.navCtrl.navigateForward(['/dashboard']);
+    }
+  }
 
   login() {
     const newPhone = this.dataService.auth.phone + '';
@@ -54,7 +63,7 @@ export class LoginPage implements OnInit {
           this.dataService.profile = data.profile;
 
           localStorage.setItem('effoProfile', JSON.stringify(data.profile));
-
+          this.dataService.auth.canLoad = false;
           if (
             !data.profile.fullName ||
             data.profile.email == 'email@gmail.com' ||

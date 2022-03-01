@@ -114,6 +114,7 @@ export class JobService {
           }
         ){
           data{
+            id
             attributes{
               skillsByComma
               companyName
