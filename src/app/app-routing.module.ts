@@ -230,6 +230,14 @@ const routes: Routes = [
     path: 'pestcontrolservice',
     loadChildren: () => import('./Service/pestcontrolservice/pestcontrolservice.module').then( m => m.PestcontrolservicePageModule)
   },
+  {
+    path: 'all-services',
+    loadChildren: () => import('./Service/all-services/all-services.module').then( m => m.AllServicesPageModule)
+  },
+  {
+    path: 'homecleaning',
+    loadChildren: () => import('./Service/homecleaning/homecleaning.module').then( m => m.HomecleaningPageModule)
+  },
 
 
 

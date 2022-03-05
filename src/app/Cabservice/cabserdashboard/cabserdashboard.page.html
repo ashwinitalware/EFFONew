@@ -23,162 +23,216 @@
 </ion-header>
 
 <ion-content>
-  <ion-row class="pl-2 pr-2 pt-3">
-    <div style="width: 100%; background-color: white; border-radius: 10px; border: 1px solid rgb(211, 211, 211);">
-      <ion-input placeholder="Search In All India" id="search">
-        <ion-icon name="search" style="margin-left: 7px;"></ion-icon>
-      </ion-input>
+  <div class="p-2">
+    <ion-slides class="slider" [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+      <ion-slide>
+        <img class="rounded-md" src="assets/cabservices/cab1.jpg" />
+      </ion-slide>
+      <ion-slide>
+        <img class="rounded-md" src="assets/cabservices/cab2.jpg" />
+      </ion-slide>
+    </ion-slides><br>
+
+    <div align="center" class=" bg-gradient-to-r from-blue-300 to-purple-300  p-2 rounded-md">
+      <ion-label>Ready ? Then let's Roll<br><span class="text-sm font-bold">
+          Ride with EFFO
+        </span></ion-label>
     </div>
-  </ion-row>
 
-  <div style="padding-left:0.8em ;" class="pt-2 pb-2">
-    <ion-label>Explore our cab services</ion-label>
-  </div>
-
-  <div class="pt-3 bg-white rounded-md">
-    <ion-grid class="ion-no-padding">
+    <ion-grid fixed>
       <ion-row>
-        <ion-col size="3" routerLink="/periodicser">
-          <div align="center">
-            <img src="assets/cabservices/Dt.png">
-            <p class="text-xs ">Periodic services</p>
+        <ion-col size="4">
+          <div align="center" class="bg-gray-300 rounded-lg">
+            <img src="assets/cabservices/cabservice1.png" alt="">
+            <ion-label class="text-sm">Daily</ion-label>
           </div>
         </ion-col>
 
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/cabservices/D2.png">
-            <p class="text-xs ">Car Detailing</p>
+        <ion-col size="4">
+          <div align="center" class="bg-gray-300 rounded-lg">
+            <img src="assets/cabservices/cabservice1.png" alt="">
+            <ion-label class="text-sm">Rentals</ion-label>
           </div>
         </ion-col>
-
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/cabservices/D3.png">
-            <p class="text-xs ">Ac Services</p>
-          </div>
-        </ion-col>
-
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/cabservices/Dt.png">
-            <p class="text-xs ">Windshields and lights</p>
-          </div>
-        </ion-col>
-
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/cabservices/D5.png">
-            <p class="text-xs">Clutch and fitnents</p>
-          </div>
-        </ion-col>
-
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/cabservices/Dt.png">
-            <p class="text-xs">Tyre Replacement</p>
-          </div>
-        </ion-col>
-
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/cabservices/D6.png">
-            <p class="text-xs"> Car cleaning spa</p>
-          </div>
-        </ion-col>
-
-        <ion-col size="3" routerLink="/allservices">
-          <div align="center">
-            <img src="assets/cabservices/9.png">
-            <p class="text-xs">More</p>
+        <ion-col size="4">
+          <div align="center" class="bg-gray-300 rounded-lg">
+            <img src="assets/cabservices/cabservice1.png" alt="">
+            <ion-label class="text-sm">Outstation</ion-label>
           </div>
         </ion-col>
       </ion-row>
     </ion-grid>
+
+    <div align="center" class="bg-gradient-to-r from-blue-300 to-purple-300  p-2 rounded-md">
+      <ion-label>Ready ? Then let's Roll<br><span class="text-sm font-bold">
+          Ride with EFFO
+        </span></ion-label>
+    </div>
+
+
+    <!-- <div class="flex justify-between ">
+      <div class="bg-blue-400 rounned-sm">
+        <img src="assets/cabservices/cabservice1.png" alt="">
+        <ion-label>Label</ion-label>
+      </div>
+
+      <div class="bg-blue-400 rounned-sm">
+        <img src="assets/cabservices/cabservice1.png" alt="">
+        <ion-label>Label</ion-label>
+      </div>
+
+      <div class="bg-blue-400 rounned-sm">
+        <img src="assets/cabservices/cabservice1.png" alt="">
+        <ion-label>Label</ion-label>
+      </div>
+    </div> -->
+
   </div>
 
-  <div style="padding-left:0.8em ;" class="pt-2 pb-2">
-    <ion-label> All services</ion-label>
-  </div>
-
-  <div class="pt-3 bg-white rounded-md">
-    <ion-slides #slider loop="true" [options]="slideOptss">
-      <ion-slide>
-        <ion-card class="p-1">
-          <img src="assets/cabservices/d25.jpg" alt="">
-          <p class="text-black text-xs text-left pt-1"><b>Perodic Services</b><br>
-            <span class="text-gray-500">All activity performed on cab</span></p>
-          <!-- <p class="text-grey-400 text-xs text-left"></p> -->
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class=" p-1">
-          <img src="assets/cabservices/d26.jpg" alt="">
-          <p class="text-black text-xs text-left pt-1"><b>Ac services</b>
-            <br><span class="text-gray-500">Ac will check and repair</span></p>
-          <!-- <p class="text-grey-400 text-xs text-left pt-1">Ac will check and repair </p> -->
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="p-1">
-          <img src="assets/cabservices/d22.jpg" alt="">
-          <p class="text-black text-xs text-left pt-1"><b>Batteries</b><br>
-            <span class="text-gray-500">Batteries will check and replace</span> </p>
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="p-1">
-          <img src="assets/cabservices/d29.jpg" alt="">
-          <p class="text-black text-xs text-left pt-1"><b>Windshields </b><br>
-            <span class="text-gray-500">Windshields will check and replace</span></p>
-        </ion-card>
-      </ion-slide>
 
 
-      <ion-slide>
-        <ion-card class="p-1">
-          <img src="assets/cabservices/d27.jpg" alt="">
-          <p class="text-black text-xs text-left pt-1"><b>Clutch</b><br>
-            <span class="text-gray-500">Batteries will check and replace</span> </p>
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="p-1">
-          <img src="assets/cabservices/d28.jpg" alt="">
-          <p class="text-black text-xs text-left pt-1"><b>Tyre</b><br>
-            <span class="text-gray-500">tyre will check and replace</span></p>
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card class="p-1">
-          <img src="assets/cabservices/d31.jpg" alt="">
-          <p class="text-black text-xs text-left pt-1"><b>cleaning</b><br>
-            <span class="text-gray-500">cab will cleaning and washing</span> </p>
-        </ion-card>
-      </ion-slide>
 
 
-    </ion-slides>
-  </div>
+  <!-- <ion-row class=" pl-2 pr-2 pt-3">
+      <div style="width: 100%; background-color: white; border-radius: 10px; border: 1px solid rgb(211, 211, 211);">
+        <ion-input placeholder="Search In All India" id="search">
+          <ion-icon name="search" style="margin-left: 7px;"></ion-icon>
+        </ion-input>
+      </div>
+      </ion-row>
 
-  <!-- <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-    <ion-fab-button color="dark">
-      <ion-icon md="caret-forward" ios="chevron-forward-circle-outline"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="end">
-      <ion-fab-button color="dark">
-        <ion-icon name="person-circle-outline" routerLink="/profile"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button color="dark">
-        <ion-icon name="newspaper-outline" routerLink="/history"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab> -->
+      <div style="padding-left:0.8em ;" class="pt-2 pb-2">
+        <ion-label>Explore our cab services</ion-label>
+      </div>
+
+      <div class="pt-3 bg-white rounded-md">
+        <ion-grid class="ion-no-padding">
+          <ion-row>
+            <ion-col size="3" routerLink="/periodicser">
+              <div align="center">
+                <img src="assets/cabservices/Dt.png">
+                <p class="text-xs ">Periodic services</p>
+              </div>
+            </ion-col>
+
+            <ion-col size="3">
+              <div align="center">
+                <img src="assets/cabservices/D2.png">
+                <p class="text-xs ">Car Detailing</p>
+              </div>
+            </ion-col>
+
+            <ion-col size="3">
+              <div align="center">
+                <img src="assets/cabservices/D3.png">
+                <p class="text-xs ">Ac Services</p>
+              </div>
+            </ion-col>
+
+            <ion-col size="3">
+              <div align="center">
+                <img src="assets/cabservices/Dt.png">
+                <p class="text-xs ">Windshields and lights</p>
+              </div>
+            </ion-col>
+
+            <ion-col size="3">
+              <div align="center">
+                <img src="assets/cabservices/D5.png">
+                <p class="text-xs">Clutch and fitnents</p>
+              </div>
+            </ion-col>
+
+            <ion-col size="3">
+              <div align="center">
+                <img src="assets/cabservices/Dt.png">
+                <p class="text-xs">Tyre Replacement</p>
+              </div>
+            </ion-col>
+
+            <ion-col size="3">
+              <div align="center">
+                <img src="assets/cabservices/D6.png">
+                <p class="text-xs"> Car cleaning spa</p>
+              </div>
+            </ion-col>
+
+            <ion-col size="3" routerLink="/allservices">
+              <div align="center">
+                <img src="assets/cabservices/9.png">
+                <p class="text-xs">More</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div style="padding-left:0.8em ;" class="pt-2 pb-2">
+        <ion-label> All services</ion-label>
+      </div>
+
+      <div class="pt-3 bg-white rounded-md">
+        <ion-slides #slider loop="true" [options]="slideOptss">
+          <ion-slide>
+            <ion-card class="p-1">
+              <img src="assets/cabservices/d25.jpg" alt="">
+              <p class="text-black text-xs text-left pt-1"><b>Perodic Services</b><br>
+                <span class="text-gray-500">All activity performed on cab</span></p>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class=" p-1">
+              <img src="assets/cabservices/d26.jpg" alt="">
+              <p class="text-black text-xs text-left pt-1"><b>Ac services</b>
+                <br><span class="text-gray-500">Ac will check and repair</span></p>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="p-1">
+              <img src="assets/cabservices/d22.jpg" alt="">
+              <p class="text-black text-xs text-left pt-1"><b>Batteries</b><br>
+                <span class="text-gray-500">Batteries will check and replace</span> </p>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="p-1">
+              <img src="assets/cabservices/d29.jpg" alt="">
+              <p class="text-black text-xs text-left pt-1"><b>Windshields </b><br>
+                <span class="text-gray-500">Windshields will check and replace</span></p>
+            </ion-card>
+          </ion-slide>
+
+
+          <ion-slide>
+            <ion-card class="p-1">
+              <img src="assets/cabservices/d27.jpg" alt="">
+              <p class="text-black text-xs text-left pt-1"><b>Clutch</b><br>
+                <span class="text-gray-500">Batteries will check and replace</span> </p>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="p-1">
+              <img src="assets/cabservices/d28.jpg" alt="">
+              <p class="text-black text-xs text-left pt-1"><b>Tyre</b><br>
+                <span class="text-gray-500">tyre will check and replace</span></p>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="p-1">
+              <img src="assets/cabservices/d31.jpg" alt="">
+              <p class="text-black text-xs text-left pt-1"><b>cleaning</b><br>
+                <span class="text-gray-500">cab will cleaning and washing</span> </p>
+            </ion-card>
+          </ion-slide>
+
+
+        </ion-slides>
+      </div> -->
 
 </ion-content>
 
