@@ -15,7 +15,23 @@ export class ServicedashboardPage implements OnInit {
   };
 
 
+  slider: any;
+
+  slideOpts = {
+    initialSlide: 0,
+    slidesPerView: 1,
+    autoplay: true
+  };
+
+  slideOptss = {
+    initialSlide: 0,
+    slidesPerView: 2.5,
+  }
   constructor() { }
+
+  slideChanged() {
+    this.slider.stopAutoplay(); //this code for slide after page change
+  }
   slidesDidLoad(slides: IonSlides): void {
     slides.startAutoplay();
   }

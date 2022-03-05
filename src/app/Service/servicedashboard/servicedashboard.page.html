@@ -40,65 +40,65 @@
   <div class="bg-white mt-1 rounded-tl-xl rounded-tr-xl">
     <ion-grid>
       <ion-row>
+        <!-- routerLink="/electronicsservices" -->
         <ion-col size="3">
-          <div align="center" routerLink="/electronicsservices">
+          <div align="center" routerLink="/appliancesrepairing">
             <img src="assets/services/p2.png" />
             <p class="text-xs">Appliances Repairing</p>
           </div>
         </ion-col>
 
-        <ion-col size="3">
-
-          <div align="center" routerLink="/homeservices">
+        <ion-col size="3" routerLink="/beauty">
+          <div align="center">
             <img src="assets/services/p5.png" />
             <p class="text-xs ">Beauty</p>
           </div>
         </ion-col>
 
-        <ion-col size="3">
-          <div align="center" routerLink="/automobileservice">
+        <ion-col size="3" routerLink="/contractor">
+          <div align="center">
             <img src="assets/services/p10.png" />
             <p class="text-xs ">Contractor</p>
           </div>
         </ion-col>
 
-        <ion-col size="3">
-          <div align="center" routerLink="/all-services">
+        <ion-col size="3" routerLink="/contractor">
+          <div align="center">
             <img src="assets/services/p9.png" />
             <p class="text-xs">Consultant</p>
           </div>
         </ion-col>
 
-        <ion-col size="3">
-          <div align="center" routerLink="/electronicsservices">
+        <ion-col size="3" routerLink="/contractor">
+          <div align="center">
             <img src="assets/services/p12.png" />
             <p class="text-xs">Event</p>
           </div>
         </ion-col>
 
-        <ion-col size="3">
+        <ion-col size="3" routerLink="/contractor">
 
-          <div align="center" routerLink="/homeservices">
+          <div align="center">
             <img src="assets/services/p13.png" />
             <p class="text-xs ">Education</p>
           </div>
         </ion-col>
 
-        <ion-col size="3">
-          <div align="center" routerLink="/automobileservice">
+        <ion-col size="3" routerLink="/contractor">
+          <div align="center" routerLink="/homeservices">
             <img src="assets/services/p7.png" />
             <p class="text-xs ">Home Repair & Doctor</p>
           </div>
         </ion-col>
 
-        <ion-col size="3">
-          <div align="center" routerLink="/all-services">
+        <ion-col size="3" routerLink="/contractor">
+          <div align="center">
             <img src="assets/services/p11.png" />
             <p class="text-xs">Manpower Services</p>
           </div>
         </ion-col>
 
-        <ion-col size="3">
+        <!-- <ion-col size="3" routerLink="/contractor">
           <div align="center" routerLink="/all-services">
             <img src="assets/services/p6.png" />
             <p class="text-xs">Vehicle</p>
@@ -107,35 +107,94 @@
 
         <ion-col size="3">
           <div align="center" routerLink="/all-services">
-            <img src="assets/services/empty.png" />
-            <p class="text-xs"></p>
+            <img src="assets/services/9.png" />
+            <p class="text-xs">More</p>
           </div>
         </ion-col>
 
         <ion-col size="3">
-          <div align="center" routerLink="/all-services">
+          <div align="center">
             <img src="assets/services/empty.png" />
             <p class="text-xs"></p>
           </div>
         </ion-col>
         <ion-col size="3">
-          <div align="center" routerLink="/all-services">
+          <div align="center">
             <img src="assets/services/empty.png" />
             <p class="text-xs"></p>
           </div>
+        </ion-col> -->
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+
+  <div style="padding-left:0.8em ;" class="pt-3 pb-1">
+    <ion-label>Paid Advertisements</ion-label>
+  </div>
+
+  <div style="background-color: white; border-radius: 5px; margin-top: 2%; padding: 5px;">
+    <ion-slides #slider loop="true" [options]="slideOpts" (ionSlideTouchEnd)="slideChanged()">
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-3.jpg" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-2.jpg" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-1.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-4.jpg" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-3.jpg" />
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div><br>
+
+  <div style="padding-left:0.8em ;" class="pt-1 pb-2">
+    <ion-label>Top Service Providers</ion-label>
+  </div>
+
+  <div class="bg-white border-b-4 border-gray-300" routerLink="/civilcontractor" *ngFor="let item of [1,1,1,1]">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">
+          <img class="img_class rounded-md" src="assets/services/cc1.jpg" />
+        </ion-col>
+        <ion-col size="8">
+          <p>
+            <span class="font-medium text-base">Civil Contractor</span><br>
+            <span class="text-sm text-gray-500">
+              <ion-icon name="location-outline"></ion-icon>Dhayari phata,Dhayari,Pune.
+            </span>
+            <ion-button size="small" color="success" class="text-xs">Call Now</ion-button>
+          </p>
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
 
-  <div style="padding-left:0.8em ;" class="pt-3 pb-2">
-    <ion-label>New Category Launches</ion-label>
-  </div>
 
-  <div class="bg-white p-1">
+  <!-- <div class="bg-white p-1">
     <ion-grid>
       <ion-row>
-        <!-- <h5 class="font-bold">New Category Launches</h5> -->
         <ion-col size="6">
           <img style="width: 90%;
           height: 70%;
@@ -176,9 +235,9 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </div>
+  </div> -->
 
-  <div style="padding-left:0.8em ;" class="pt-3 pb-2">
+  <!-- <div style="padding-left:0.8em ;" class="pt-3 pb-2">
     <ion-label> Salon & Spa for Women</ion-label>
   </div>
 
@@ -201,7 +260,6 @@
           <img style=" width: 80%;
           height: 80%;
           border-radius: 5px;" src="assets/services/s2.jpg" alt="">
-          <!-- <img class="img_class" src="assets/services/s2.jpg" /> -->
         </ion-col>
         <ion-col size="8">
           <ion-label class="pt-3">
@@ -239,10 +297,10 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </div>
+  </div> -->
 
 
-  <div style="padding-left:0.8em ;" class="pt-3 pb-2">
+  <!-- <div style="padding-left:0.8em ;" class="pt-3 pb-2">
     <ion-label> AC & Appliance Repair </ion-label>
   </div>
 
@@ -297,7 +355,7 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </div>
+  </div> -->
 
 
 

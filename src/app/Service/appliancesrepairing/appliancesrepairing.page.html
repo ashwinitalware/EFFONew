@@ -1,0 +1,135 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons color="light" slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Appliance Srepairing</ion-title>
+    <ion-icon slot="end" color="light" class="text-lg pr-2" name="notifications-outline"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row class="pl-2 pr-2 pt-3 pb-2">
+    <div style="width: 100%; background-color: white; border-radius: 10px; border: 1px solid rgb(211, 211, 211);">
+      <ion-input placeholder="Search In All India" id="search">
+        <ion-icon name="search" style="margin-left: 7px;"></ion-icon>
+      </ion-input>
+    </div>
+  </ion-row>
+
+  <div class="bg-white rounded-tl-2xl rounded-tr-2xl">
+    <div style="padding-left:0.8em ;" class="pt-3 pb-1">
+      <ion-label>Appliances</ion-label>
+    </div>
+
+    <ion-segment color="danger" (ionChange)='segmentChanged($event)' scrollable value="civil">
+      <ion-segment-button value="civil">
+        <ion-label class="bg-white border-2 border-gray-400 rounded-2xl p-1 pr-4 pl-4">Civil</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label class="border-2 border-gray-400 rounded-2xl p-1 pr-4 pl-4">Interior
+        </ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label class="border-2 border-gray-400 rounded-2xl p-1 pr-4 pl-4 ">Electrician</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label class="border-2 border-gray-400 rounded-2xl p-1 pr-4 pl-4">Plumbers</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label class="border-2 border-gray-400 rounded-2xl p-1 pr-4 pl-4">Civil</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label class="border-2 border-gray-400 rounded-2xl p-1 pr-4 pl-4">Interior</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label class="border-2 border-gray-400 rounded-2xl p-1 pr-4 pl-4">Electrician</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label class="border-2 border-gray-400 rounded-2xl p-1 pr-4 pl-4">Plumbers</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div *ngIf="switchTab == 'civil'" class=" pt-2">
+
+    <div class="bg-white border-b-4 border-gray-300" routerLink="/civilcontractor">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="4">
+            <img class="img_class rounded-md" src="assets/services/cc1.jpg" />
+          </ion-col>
+          <ion-col size="8">
+            <p>
+              <span class="font-medium text-base">Civil Contractor</span><br>
+              <span class="text-sm text-gray-500">
+                <ion-icon name="location-outline"></ion-icon>Dhayari phata,Dhayari,Pune.
+              </span>
+              <ion-button size="small" color="success" class="text-xs">Call Now</ion-button>
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="bg-white  border-b-4 border-gray-300">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="4">
+            <img class="img_class rounded-md" src="assets/services/cc1.jpg" />
+          </ion-col>
+          <ion-col size="8">
+            <p>
+              <span class="font-medium text-base">Interior Contractor</span><br>
+              <span class="text-sm text-gray-500">
+                <ion-icon name="location-outline"></ion-icon>Dhayari phata,Dhayari,Pune.
+              </span>
+              <ion-button size="small" color="success" class="text-xs">Call Now</ion-button>
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="bg-white border-b-4 border-gray-300">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="4">
+            <img class="img_class rounded-md" src="assets/services/cc1.jpg" />
+          </ion-col>
+          <ion-col size="8">
+            <p>
+              <span class="font-medium text-base">Electrician</span><br>
+              <span class="text-xs text-gray-600">
+                <ion-icon name="location-outline"></ion-icon>Dhayari phata,Dhayari,Pune.
+              </span>
+              <ion-button size="small" color="success" class="text-xs">Call Now</ion-button>
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="bg-white  border-b-4 border-gray-300">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="4">
+            <img class="img_class rounded-md" src="assets/services/cc1.jpg" />
+          </ion-col>
+          <ion-col size="8">
+            <p>
+              <span class="font-medium text-base">Plumber</span><br>
+              <span class="text-xs text-gray-600">
+                <ion-icon name="location-outline"></ion-icon>Dhayari phata,Dhayari,Pune.
+              </span>
+              <ion-button size="small" color="success" class="text-xs">Call Now</ion-button>
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+
+</ion-content>

@@ -238,6 +238,26 @@ const routes: Routes = [
     path: 'homecleaning',
     loadChildren: () => import('./Service/homecleaning/homecleaning.module').then( m => m.HomecleaningPageModule)
   },
+  {
+    path: 'contractor',
+    loadChildren: () => import('./Service/contractor/contractor.module').then( m => m.ContractorPageModule)
+  },
+  {
+    path: 'civilcontractor',
+    loadChildren: () => import('./Service/civilcontractor/civilcontractor.module').then( m => m.CivilcontractorPageModule)
+  },
+  {
+    path: 'reviews',
+    loadChildren: () => import('./Service/reviews/reviews.module').then( m => m.ReviewsPageModule)
+  },
+  {
+    path: 'appliancesrepairing',
+    loadChildren: () => import('./Service/appliancesrepairing/appliancesrepairing.module').then( m => m.AppliancesrepairingPageModule)
+  },
+  {
+    path: 'beauty',
+    loadChildren: () => import('./Service/beauty/beauty.module').then( m => m.BeautyPageModule)
+  },
 
 
 
