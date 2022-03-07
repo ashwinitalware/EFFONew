@@ -10,15 +10,19 @@
 <ion-content>
   <div class="p-4">
     <div
-      *ngFor="let job of this.jobService.jobs"
-      class="mb-2 bg-white rounded-md"
+      *ngFor="let job of this.jobs"
+      class="primary-card bg-white p-4 mb-2 bg-white rounded-md"
     >
-      <ion-label
+      <!-- <ion-label
         class="large-text bg-blue-200"
         style="padding: 4px; border-bottom-right-radius: 10px"
         >Urgent Opening &nbsp;
-      </ion-label>
+      </ion-label> -->
 
+      <div>{{job.attributes.title|titlecase}}</div>
+      <div class="text-sm text-gray-700">
+        {{job.attributes.companyName|titlecase}}
+      </div>
       <ion-grid fixed>
         <ion-row style="border-bottom: 1px solid rgb(204, 203, 203)">
           <ion-col size="5">
@@ -56,7 +60,7 @@
           </ion-col>
         </ion-row>
 
-        <div class="flex px-4 py-4">
+        <div class="flex mt-2">
           <!-- <div class="pr-2 flex-1">
             <button
               class="flex justify-center items-center py-2 w-full bg-yellow-400 text-white rounded-md shadow-md"

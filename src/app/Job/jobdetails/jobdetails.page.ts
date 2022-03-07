@@ -169,6 +169,8 @@ export class JobdetailsPage implements OnInit {
         console.log(this.data);
       });
   }
-
+  call(data) {
+    window.open('tel:+91' + data.attributes.contactNumber);
+  }
   ngOnInit() {}
 }

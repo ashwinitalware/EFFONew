@@ -85,6 +85,32 @@
   <div style="background-color: white; border-radius: 5px; margin-top: 3%">
     <ion-grid fixed>
       <ion-row class="small_text">
+        <ion-col
+          *ngFor="let category  of categories"
+          size="3"
+          align="center"
+          (click)="navigateCategory(category)"
+          class="flex justify-center flex-col"
+        >
+          <div
+            class="m-auto primary-red p-2 text-white rounded-md flex items-center justify-center"
+          >
+            <ion-icon
+              *ngIf="category.icon"
+              name="{{category.icon}}"
+              class="text-xl"
+            ></ion-icon>
+          </div>
+          <!-- <img src="assets/D2.png" alt="" /><br /> -->
+          <div class="truncate mt-2">{{category.name}}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div style="background-color: white; border-radius: 5px; margin-top: 3%">
+    <ion-grid fixed>
+      <ion-row class="small_text">
         <!-- <ion-col size="3" align="center" routerLink="/newsdashboard">
           <img src="assets/D1.png" alt=""><br>
           <ion-label>News </ion-label>

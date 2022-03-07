@@ -64,11 +64,32 @@ export class JobdashboardPage implements OnInit {
     console.log('Segment changed', ev);
   }
 
+  viewAll(category) {
+    console.log(category);
+    let query = '';
+    switch (category.title) {
+      case 'New Jobs':
+        query = 'newJobs';
+        break;
+      case 'Jobs Near Me':
+        query = 'jobsNearMe';
+        break;
+      case 'High Salary Jobs':
+        query = 'highSalaryJobs';
+        break;
+
+      default:
+        return;
+      // break;
+    }
+    this.router.navigate(['/joblist/' + query]);
+  }
   getNewJobs() {
     this.http
       .get(this.dataService.apiUrl + 'job-posts', {
         params: {
           sort: 'createdAt:desc',
+          'pagination[pageSize]': '10',
         },
       })
       .subscribe((data: any) => {
@@ -80,6 +101,7 @@ export class JobdashboardPage implements OnInit {
       .get(this.dataService.apiUrl + 'job-posts', {
         params: {
           'filters[city][$eq]': this.dataService.profile.city,
+          'pagination[pageSize]': '10',
         },
       })
       .subscribe((data: any) => {
@@ -91,6 +113,7 @@ export class JobdashboardPage implements OnInit {
       .get(this.dataService.apiUrl + 'job-posts', {
         params: {
           sort: 'salaryUpto:desc',
+          'pagination[pageSize]': '10',
         },
       })
       .subscribe((data: any) => {

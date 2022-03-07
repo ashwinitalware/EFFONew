@@ -101,6 +101,12 @@
       <p style="font-size: 0.7em">{{section.subtitle}}</p>
     </div>
 
+    <div
+      class="text-right text-sm font-bold mt-2 pr-2"
+      (click)="viewAll(section)"
+    >
+      View All
+    </div>
     <ion-slides class="mt-4" #slider loop="true" [options]="slideOptss">
       <ion-slide
         *ngFor="let job of section.jobs"

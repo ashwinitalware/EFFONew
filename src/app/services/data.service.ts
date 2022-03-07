@@ -22,9 +22,9 @@ export class DataService {
   apiUrl = this.domainUrl + 'api/';
   isLoading = false;
   constructor(public router: Router, public loadingCtrl: LoadingController) {
-    this.domainUrl =
-      'http://effo-env.eba-cuy23cbc.ap-south-1.elasticbeanstalk.com/';
-    this.apiUrl = this.domainUrl + 'api/';
+    // this.domainUrl =
+    //   'http://effo-env.eba-cuy23cbc.ap-south-1.elasticbeanstalk.com/';
+    // this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
   }
   async present(content = 'Loading Data...') {

@@ -22,6 +22,7 @@
       <ion-item *ngIf=" this.dataService.auth.otpSent">
         <ion-label class="text" position="floating">OTP</ion-label>
         <ion-input
+          autocomplete="one-time-code"
           [(ngModel)]="this.dataService.auth.otp"
           type="number"
         ></ion-input>

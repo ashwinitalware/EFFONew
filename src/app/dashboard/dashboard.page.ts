@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 // import { IonSlides } from '@ionic/angular';
@@ -9,6 +10,68 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
+  categories = [
+    {
+      name: 'Jobs',
+      image: '',
+      icon: 'briefcase',
+      link: 'jobdashboard',
+    },
+    {
+      name: 'Services',
+      image: '',
+      icon: 'apps',
+      link: '',
+    },
+    {
+      name: 'Maintainance',
+      image: '',
+      icon: 'hammer',
+      link: '',
+    },
+    {
+      name: 'Shopping',
+      image: '',
+      icon: 'bag-handle',
+      link: '',
+    },
+    {
+      name: 'Cab Services',
+      image: '',
+      icon: 'car',
+      link: '',
+    },
+    {
+      name: 'Ticket Booking',
+      image: '',
+      icon: 'ticket',
+      link: '',
+    },
+    {
+      name: 'Old Exchange',
+      image: '',
+      link: '',
+      icon: 'swap-horizontal',
+    },
+    {
+      name: 'Property',
+      image: '',
+      link: '',
+      icon: 'home',
+    },
+    {
+      name: 'Lodging',
+      image: '',
+      link: '',
+      icon: 'bed',
+    },
+    {
+      name: 'Restaurant ',
+      image: '',
+      link: '',
+      icon: 'restaurant',
+    },
+  ];
   slider: any;
   slideOpts = {
     initialSlide: 0,
@@ -24,17 +87,24 @@ export class DashboardPage implements OnInit {
   bookride = false;
   subscription: any;
 
-  book_ride() {
-    this.bookride = true;
-  }
-
-  constructor(public platform: Platform, public dataService: DataService) {
+  constructor(
+    public platform: Platform,
+    public dataService: DataService,
+    public router: Router
+  ) {
     this.dataService.auth.canLoad = false;
   }
   slideChanged() {
     this.slider.stopAutoplay(); //this code for slide after page change
   }
+  navigateCategory(category) {
+    if (!category.link) {
+      this.dataService.swal('Coming Soon', '', 'warning');
+      return;
+    }
 
+    this.router.navigate(['/' + category.link]);
+  }
   ngOnInit() {}
 
   ionViewWillEnter() {}
