@@ -10,6 +10,7 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./editprofile.page.scss'],
 })
 export class EditprofilePage implements OnInit {
+  pinAddress = '';
   constructor(
     public dataService: DataService,
     public http: HttpClient,
@@ -24,8 +25,31 @@ export class EditprofilePage implements OnInit {
         this.dataService.profile.email = '';
       }
     }
+
+    if (!this.dataService.profile.pincode) {
+      this.dataService.profile.pincode = '';
+    }
   }
 
+  checkPinCode() {
+    this.http
+      .get(
+        'https://maps.googleapis.com/maps/api/geocode/json?address=' +
+          this.dataService.profile.pincode +
+          '&sensor=true&key=AIzaSyD6d0aNvUiSWaENoQ1UuqCOzfMg0Wmq7Do'
+      )
+      .subscribe((data: any) => {
+        if (data.results) {
+          this.pinAddress = data.results[0].formatted_address;
+          try {
+            this.dataService.profile.city =
+              data.results[0].address_components[1].long_name;
+          } catch (error) {}
+        } else {
+          alert('Invalid Pin Code');
+        }
+      });
+  }
   ngOnInit() {}
   updateProfile() {
     this.http

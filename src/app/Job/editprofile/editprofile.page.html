@@ -36,7 +36,26 @@
         [(ngModel)]="this.dataService.profile.phone"
       ></ion-input>
     </ion-item>
+    <div class="flex">
+      <ion-item class="flex-1">
+        <ion-label class="text" position="floating">Pin Code</ion-label>
 
+        <ion-input
+          name="city"
+          [(ngModel)]="this.dataService.profile.pincode"
+          type="text"
+        ></ion-input>
+      </ion-item>
+      <div class="flex items-end">
+        <button
+          (click)="checkPinCode()"
+          class="bg-red-600 px-4 py-2 rounded-md text-white"
+        >
+          Check
+        </button>
+      </div>
+    </div>
+    <div class="text-blue-800 font-bold text-sm px-4 pt-2">{{pinAddress}}</div>
     <ion-item>
       <ion-label class="text" position="floating">City</ion-label>
       <ion-input
