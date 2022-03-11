@@ -26,8 +26,8 @@ export class EditprofilePage implements OnInit {
       }
     }
 
-    if (!this.dataService.profile.pincode) {
-      this.dataService.profile.pincode = '';
+    if (!this.dataService.profile.pinCode) {
+      this.dataService.profile.pinCode = '';
     }
   }
 
@@ -35,7 +35,7 @@ export class EditprofilePage implements OnInit {
     this.http
       .get(
         'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-          this.dataService.profile.pincode +
+          this.dataService.profile.pinCode +
           '&sensor=true&key=AIzaSyD6d0aNvUiSWaENoQ1UuqCOzfMg0Wmq7Do'
       )
       .subscribe((data: any) => {
@@ -58,6 +58,7 @@ export class EditprofilePage implements OnInit {
         fullName: this.dataService.profile.fullName,
         city: this.dataService.profile.city,
         email: this.dataService.profile.email,
+        pinCode: this.dataService.profile.pinCode,
       })
       .subscribe((data: any) => {
         if (data.status) {
