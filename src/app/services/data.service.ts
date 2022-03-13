@@ -1,11 +1,58 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, MenuController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
+
 declare const Swal: any;
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
+  drawer = [
+    {
+      icon: 'apps',
+      title: 'Home ',
+      active: true,
+      role: 'home',
+    },
+    {
+      icon: 'business',
+      title: 'Business Registration',
+      active: false,
+      role: 'business',
+    },
+    {
+      icon: 'star-half',
+      title: 'Rate Us',
+      active: false,
+      role: 'rate',
+    },
+    {
+      icon: 'share-social',
+      title: 'Share App',
+      active: false,
+      role: 'share',
+    },
+    {
+      icon: 'lock-open',
+      title: 'Privacy Policy',
+      active: false,
+      role: 'privacy',
+    },
+    {
+      icon: 'call',
+      title: 'Contact Us',
+      active: false,
+      role: 'contact',
+    },
+    {
+      icon: 'log-out',
+      title: 'Logout',
+      active: false,
+      role: 'logout',
+    },
+  ];
+
   auth = {
     phone: '',
     otp: '',
@@ -21,7 +68,12 @@ export class DataService {
   domainUrl = 'http://localhost:1337/';
   apiUrl = this.domainUrl + 'api/';
   isLoading = false;
-  constructor(public router: Router, public loadingCtrl: LoadingController) {
+  constructor(
+    public router: Router,
+    public loadingCtrl: LoadingController,
+    public toastController: ToastController,
+    public menu: MenuController
+  ) {
     // this.domainUrl =
     //   'http://effo-env.eba-cuy23cbc.ap-south-1.elasticbeanstalk.com/';
     // this.apiUrl = this.domainUrl + 'api/';
@@ -42,6 +94,14 @@ export class DataService {
           }
         });
       });
+  }
+
+  async presentToast(message, time = 2000) {
+    const toast = await this.toastController.create({
+      message,
+      duration: time,
+    });
+    toast.present();
   }
 
   async dismiss() {
@@ -76,7 +136,7 @@ export class DataService {
 
   logout() {
     this.auth.canLoad = true;
-    this.router.navigate(['/login']);
     localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }

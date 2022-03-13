@@ -11,6 +11,7 @@ import { JobService } from 'src/app/services/job.service';
   styleUrls: ['./jobdashboard.page.scss'],
 })
 export class JobdashboardPage implements OnInit {
+  sliceValue = 4;
   temp = 'IT Industry';
   // New Jobs Near Me
 

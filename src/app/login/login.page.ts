@@ -48,7 +48,8 @@ export class LoginPage implements OnInit {
       });
   }
   resend() {
-    this.dataService.swal('OTP Resend', '', 'success');
+    this.dataService.presentToast('OTP Sent Successfully !');
+    // this.dataService.swal('OTP Resend', '', 'success');
   }
   verify() {
     this.http

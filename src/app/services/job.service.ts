@@ -7,6 +7,7 @@ import { DataService } from './data.service';
 })
 export class JobService {
   jobQuery = '';
+  jobCity = '';
   categories = [];
   jobs = [];
 

@@ -16,6 +16,7 @@ export class DashboardPage implements OnInit {
       image: '',
       icon: 'briefcase',
       link: 'jobdashboard',
+      available: true,
     },
     {
       name: 'Services',

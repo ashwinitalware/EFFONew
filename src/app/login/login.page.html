@@ -1,44 +1,44 @@
-<ion-content>
-  <div align="center" style="margin-top: 10%">
+<ion-content class="fondologin">
+  <div class="flex flex-col h-full">
+    <!-- <div align="center" style="margin-top: 10%">
     <img src="assets/v1.png" alt="" width="30%" height="30%" />
-  </div>
+  </div> -->
 
-  <div class="login_title">
-    <ion-title>Login</ion-title>
+    <!--   <div class="login_title">
+ <ion-title>Login</ion-title>
     <p class="text-p text-gray-600">Enter your phone number to continue</p>
   </div>
+ -->
+    <div class="bg-red flex items-center text h-1/3">
+      <img src="assets/textW.png" class="w-1/2 m-auto" />
+    </div>
 
-  <div style="padding: 8%">
-    <div>
-      <ion-item>
-        <ion-label class="text" position="floating">Mobile Number</ion-label>
-        <ion-input
-          [disabled]="this.dataService.auth.otpSent"
-          [(ngModel)]="this.dataService.auth.phone"
-          type="number"
-        ></ion-input>
-      </ion-item>
-
-      <ion-item *ngIf=" this.dataService.auth.otpSent">
-        <ion-label class="text" position="floating">OTP</ion-label>
-        <ion-input
+    <div class="bg-white p-8 flex-1">
+      <div class="text-sm font-bold">Phone Number :</div>
+      <input
+        [(ngModel)]="this.dataService.auth.phone"
+        [disabled]="this.dataService.auth.otpSent"
+        type="number"
+        placeholder="Ex : 86056500xx"
+        class="bg-white w-full rounded-md h-14 px-2 border border-gray-300 mt-4"
+      />
+      <div class="mt-4" *ngIf="this.dataService.auth.otpSent">
+        <div class="text-sm font-bold">Enter Your OTP :</div>
+        <input
           autocomplete="one-time-code"
           [(ngModel)]="this.dataService.auth.otp"
           type="number"
-        ></ion-input>
-      </ion-item>
-      <!-- <p align="right" class="text-p pt-2" routerLink="/forgotpass"> -->
-      <p
-        align="right"
-        class="text-p pt-2 text-red-600"
-        *ngIf=" this.dataService.auth.otpSent"
-        (click)="resend()"
-      >
-        Resend OTP
-      </p>
-    </div>
+          placeholder="4 Digit OTP Code"
+          class="bg-white w-full rounded-md h-14 px-2 border border-gray-300 mt-4"
+        />
+        <p
+          class="text-p pt-2 text-red-600 font-bold text-right"
+          (click)="resend()"
+        >
+          Resend OTP
+        </p>
+      </div>
 
-    <div>
       <button
         *ngIf="this.dataService.auth.otpSent"
         expand="block"
@@ -49,14 +49,22 @@
         <!-- routerLink="/dashboard" -->
         Verify OTP
       </button>
+
+      <p
+        *ngIf="this.dataService.auth.otpSent"
+        class="text-red-700 text-sm text-center mt-4"
+        (click)="changePhone()"
+      >
+        OR CHANGE PHONE NUMBER
+      </p>
       <button
         *ngIf="!this.dataService.auth.otpSent"
         expand="block"
-        color="light"
-        class="bg-class mt-4"
+        color="light  "
+        class="bg-class mt-8 h-12"
         (click)="login()"
       >
-        Login with OTP
+        Login
       </button>
       <!-- <p class="text-p pt-2">
         Don't have an account?
@@ -64,32 +72,25 @@
       </p> -->
     </div>
 
-    <p
-      *ngIf="this.dataService.auth.otpSent"
-      class="text-red-700 text-sm text-center mt-4"
-      (click)="changePhone()"
-    >
-      OR CHANGE PHONE NUMBER
-    </p>
-    <p
-      *ngIf="!this.dataService.auth.otpSent"
-      class="text-red-700 text-sm text-center mt-4"
-      (click)="changePhone()"
-    >
-      OR
-    </p>
+    <!-- <p
+    *ngIf="!this.dataService.auth.otpSent"
+    class="text-red-700 text-sm text-center mt-4"
+    (click)="changePhone()"
+  >
+    OR
+  </p> -->
 
-    <div *ngIf="!this.dataService.auth.otpSent">
-      <button
-        expand="block"
-        color="light"
-        (click)="google()"
-        class="w-full mt-4 rounded-md bg-white py-2 px-4 flex items-center"
-      >
-        <img src="assets/images/google.png" alt="" class="h-8" />
-        <div class="flex-1">Login with Google</div>
-      </button>
-    </div>
+    <!-- <div *ngIf="!this.dataService.auth.otpSent">
+    <button
+      expand="block"
+      color="light"
+      (click)="google()"
+      class="w-full mt-4 rounded-md bg-white py-2 px-4 flex items-center"
+    >
+      <img src="assets/images/google.png" alt="" class="h-8" />
+      <div class="flex-1">Login with Google</div>
+    </button>
+  </div> -->
     <!-- <ion-grid fixed>
       <ion-row>
         <ion-col size="12" style="color: dimgrey" align="center">

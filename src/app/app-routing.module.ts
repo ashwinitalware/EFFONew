@@ -204,6 +204,11 @@ const routes: Routes = [
       import('./Job/joblist/joblist.module').then((m) => m.JoblistPageModule),
   },
   {
+    path: 'joblist/:categoryIdOrQuery/:city',
+    loadChildren: () =>
+      import('./Job/joblist/joblist.module').then((m) => m.JoblistPageModule),
+  },
+  {
     path: 'history',
     loadChildren: () =>
       import('./Job/history/history.module').then((m) => m.HistoryPageModule),
@@ -245,6 +250,11 @@ const routes: Routes = [
       import('./Job/notification/notification.module').then(
         (m) => m.NotificationPageModule
       ),
+  },
+  {
+    path: 'contactus',
+    loadChildren: () =>
+      import('./contact/contact.module').then((m) => m.ContactPageModule),
   },
 ];
 
