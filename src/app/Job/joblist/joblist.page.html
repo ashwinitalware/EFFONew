@@ -30,7 +30,7 @@
       <div class="text-sm text-gray-600">
         ₹ {{job.attributes.salaryFrom}} - ₹ {{job.attributes.salaryUpto}}
       </div>
-      <span class="text-black text-sm">
+      <span class="text-black text-sm" *ngIf="job.attributes.jobCategory.data">
         {{job.attributes.jobCategory.data.attributes.name}} Job
       </span>
       <div class="text-sm flex items-center mt-2">

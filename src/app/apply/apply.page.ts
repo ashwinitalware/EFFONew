@@ -39,8 +39,8 @@ export class ApplyPage implements OnInit {
         }
       });
   }
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
+  handleFileInput(files: any) {
+    this.fileToUpload = files.target.files.item(0);
     this.uploadFileToActivity();
   }
   uploadFileToActivity() {

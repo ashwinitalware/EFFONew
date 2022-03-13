@@ -25,6 +25,7 @@ export class JoblistPage implements OnInit {
   ) {
     this.jobCategoryIdOrQuery =
       this.activatedRoute.snapshot.params.categoryIdOrQuery;
+
     this.city = this.activatedRoute.snapshot.params.city;
     switch (this.jobCategoryIdOrQuery) {
       case 'newJobs':
@@ -93,7 +94,10 @@ export class JoblistPage implements OnInit {
           $or: [
             {
               title: {
-                $contains: this.jobCategoryIdOrQuery,
+                $contains:
+                  this.jobCategoryIdOrQuery == 'any'
+                    ? ''
+                    : this.jobCategoryIdOrQuery,
               },
               city: {
                 $contains: this.city,

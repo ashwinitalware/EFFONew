@@ -26,7 +26,7 @@
       </ion-input>
     </div>
     <button
-      [routerLink]="'/joblist/'+this.jobService.jobQuery+'/'+this.jobService.jobCity"
+      [routerLink]="'/joblist/'+(this.jobService.jobQuery||'any')+'/'+this.jobService.jobCity"
       class="bg-red text-white text-center shadow-md px-4 rounded-lg shadow-md"
     >
       Search
