@@ -74,9 +74,10 @@ export class DataService {
     public toastController: ToastController,
     public menu: MenuController
   ) {
-    // this.domainUrl =
-    //   'http://effo-env.eba-cuy23cbc.ap-south-1.elasticbeanstalk.com/';
-    // this.apiUrl = this.domainUrl + 'api/';
+    this.domainUrl =
+      // 'http://effo-env.eba-cuy23cbc.ap-south-1.elasticbeanstalk.com/';
+      'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
+    this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
   }
   async present(content = 'Loading Data...') {
@@ -138,5 +139,38 @@ export class DataService {
     this.auth.canLoad = true;
     localStorage.clear();
     this.router.navigate(['/login']);
+  }
+
+  timeSince(date) {
+    try {
+      let seconds = Math.floor(
+        (new Date().valueOf() - new Date(date).valueOf()) / 1000
+      );
+
+      let interval = seconds / 31536000;
+
+      if (interval > 1) {
+        return Math.floor(interval) + ' years ago';
+      }
+      interval = seconds / 2592000;
+      if (interval > 1) {
+        return Math.floor(interval) + ' months ago';
+      }
+      interval = seconds / 86400;
+      if (interval > 1) {
+        return Math.floor(interval) + ' days ago';
+      }
+      interval = seconds / 3600;
+      if (interval > 1) {
+        return Math.floor(interval) + ' hours ago';
+      }
+      interval = seconds / 60;
+      if (interval > 1) {
+        return Math.floor(interval) + ' minutes ago';
+      }
+      return Math.floor(seconds) + ' seconds';
+    } catch (error) {
+      return '';
+    }
   }
 }
