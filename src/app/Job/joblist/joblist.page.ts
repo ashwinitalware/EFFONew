@@ -1,10 +1,25 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
-import { DataService } from 'src/app/services/data.service';
-import { JobService } from 'src/app/services/job.service';
-import { stringify } from 'query-string';
+import {
+  HttpClient
+} from '@angular/common/http';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  ActivatedRoute
+} from '@angular/router';
+import {
+  NavController
+} from '@ionic/angular';
+import {
+  DataService
+} from 'src/app/services/data.service';
+import {
+  JobService
+} from 'src/app/services/job.service';
+import {
+  stringify
+} from 'query-string';
 import qs from 'qs';
 @Component({
   selector: 'app-joblist',
@@ -45,40 +60,99 @@ export class JoblistPage implements OnInit {
   }
 
   getNewJobs() {
-    this.http
-      .get(this.dataService.apiUrl + 'job-posts', {
-        params: {
-          sort: 'createdAt:desc',
-          'pagination[pageSize]': '10',
-        },
-      })
-      .subscribe((data: any) => {
+    this.dataService.present();
+    this.jobs = [];
+    let query = qs.stringify({
+      sort: ['createdAt:desc'],
+      populate: '*',
+      pagination: {
+        pageSize: '30'
+      },
+      filters:{city:{
+        $eq:this.dataService.profile.city+''
+      }}
+    });
+    this.http.get(this.dataService.apiUrl + 'job-posts?' + query).subscribe(
+      (data: any) => {
+        this.dataService.dismiss();
         this.jobs = data.data;
-      });
+        if (!this.jobs.length) {
+          this.noJobsFound = true;
+        }
+      },
+      (err) => {
+        this.dataService.dismiss();
+        alert('Connect Error');
+      }
+    );
+
   }
   getNearJobs() {
-    this.http
-      .get(this.dataService.apiUrl + 'job-posts', {
-        params: {
-          'filters[city][$eq]': this.dataService.profile.city,
-          'pagination[pageSize]': '10',
-        },
-      })
-      .subscribe((data: any) => {
+
+
+    this.dataService.present();
+    this.jobs = [];
+    let query = qs.stringify({
+      sort: ['createdAt:desc'],
+      populate: '*',
+      pagination: {
+        pageSize: '30'
+      },
+      // 'pagination[pageSize]': '30',
+      filters: {
+        city:{
+          $eq:this.dataService.profile.city+''
+        }
+      },
+    });
+    this.http.get(this.dataService.apiUrl + 'job-posts?' + query).subscribe(
+      (data: any) => {
+        this.dataService.dismiss();
         this.jobs = data.data;
-      });
+        if (!this.jobs.length) {
+          this.noJobsFound = true;
+        }
+      },
+      (err) => {
+        this.dataService.dismiss();
+        alert('Connect Error');
+      }
+    );
+  
   }
   getHighSalaryJobs() {
-    this.http
-      .get(this.dataService.apiUrl + 'job-posts', {
-        params: {
-          sort: 'salaryUpto:desc',
-          'pagination[pageSize]': '10',
-        },
-      })
-      .subscribe((data: any) => {
+
+
+    this.dataService.present();
+    this.jobs = [];
+    let query = qs.stringify({
+      sort: ['salaryUpto:desc'],
+      populate: '*',
+      pagination: {
+        pageSize: '30'
+      },
+      // 'pagination[pageSize]': '30',
+      filters: {
+        city:{
+          $eq:this.dataService.profile.city+''
+        }
+      },
+    });
+    this.http.get(this.dataService.apiUrl + 'job-posts?' + query).subscribe(
+      (data: any) => {
+        this.dataService.dismiss();
         this.jobs = data.data;
-      });
+        if (!this.jobs.length) {
+          this.noJobsFound = true;
+        }
+      },
+      (err) => {
+        this.dataService.dismiss();
+        alert('Connect Error');
+      }
+    );
+
+ 
   }
   getAllJobs() {
     this.dataService.present();
@@ -86,42 +160,46 @@ export class JoblistPage implements OnInit {
     this.jobs = [];
 
     let query;
+    // for job category
+    let sort = {
+      sort: ['createdAt:desc']
+    };
     if (isNaN(this.jobCategoryIdOrQuery)) {
       query = qs.stringify({
+        ...sort,
         populate: '*',
 
         filters: {
-          $or: [
-            {
-              title: {
-                $contains:
-                  this.jobCategoryIdOrQuery == 'any'
-                    ? ''
-                    : this.jobCategoryIdOrQuery,
-              },
-              city: {
-                $contains: this.city,
-              },
+          $or: [{
+            title: {
+              $contains: this.jobCategoryIdOrQuery == 'any' ?
+                '' :
+                this.jobCategoryIdOrQuery,
             },
-          ],
+            city: {
+              $contains: this.city,
+            },
+          }, ],
         },
       });
-    } else {
+    }
+
+    // for direct query
+    else {
       query = qs.stringify({
+        ...sort,
         populate: '*',
         filters: {
-          $or: [
-            {
-              jobCategory: {
-                id: {
-                  $eq: this.jobCategoryIdOrQuery,
-                },
-              },
-              city: {
-                $contains: this.city,
+          $or: [{
+            jobCategory: {
+              id: {
+                $eq: this.jobCategoryIdOrQuery,
               },
             },
-          ],
+            city: {
+              $contains: this.city,
+            },
+          }, ],
         },
       });
     }
@@ -141,64 +219,6 @@ export class JoblistPage implements OnInit {
         alert('Connect Error');
       }
     );
-
-    // this.http
-    //   .post(this.dataService.domainUrl + 'graphql', {
-    //     query: `query{
-
-    //     jobPosts (
-
-    //       filters:{
-
-    //         ${
-    //           isNaN(jobCategoryIdOrQuery)
-    //             ? `title:{
-    //               contains:"${jobCategoryIdOrQuery}"
-    //             }`
-    //             : `jobCategory:{
-    //           id:{
-    //             eq:${jobCategoryIdOrQuery}
-    //           }
-    //         }`
-    //         }
-
-    //       }
-    //     ){
-    //       data{
-    //         id
-    //         attributes{
-    //           skillsByComma
-    //           companyName
-    //           vacancies
-    //           address
-    //           title
-    //           salaryFrom
-    //           salaryUpto
-    //          author{
-    //           data{
-    //              attributes{
-    //               job_profile{
-    //                 data{
-    //                   attributes{
-    //                      companyName
-
-    //                   }
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         }
-    //         }
-    //       }
-    //     }
-
-    //   }`,
-    //   })
-    //   .subscribe((data: any) => {
-    //     this.jobs = data.data.jobPosts.data;
-    //     // this.categories[categoryIndex].jobs = data.data.jobPosts.data;
-    //     // console.log(data.data.jobPosts.data);
-    //   });
   }
 
   ngOnInit() {}

@@ -9,23 +9,32 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+
+showLoginPage=false
+
   constructor(
     public dataService: DataService,
     public http: HttpClient,
     public navCtrl: NavController
   ) {
     // this.navCtrl.navigateRoot(['/dashboard']);
+    
     this.autoLogin();
   }
 
   ngOnInit() {}
 
   autoLogin() {
+
+    this.dataService.present('Syncing Profile...',200)
     // alert(this.dataService.profile);
     if (this.dataService.profile) {
       this.dataService.auth.canLoad = false;
       this.navCtrl.navigateForward(['/dashboard']);
+    }else{
+      this.showLoginPage=true
     }
+   
   }
 
   login() {

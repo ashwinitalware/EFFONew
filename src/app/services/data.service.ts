@@ -75,16 +75,17 @@ export class DataService {
     public menu: MenuController
   ) {
     this.domainUrl =
-      // 'http://effo-env.eba-cuy23cbc.ap-south-1.elasticbeanstalk.com/';
+     
       'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
     this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
   }
-  async present(content = 'Loading Data...') {
+  async present(content = 'Loading Data...',duration=10000) {
     this.isLoading = true;
     return await this.loadingCtrl
       .create({
         message: content,
+        duration
         // duration: 5000,
       })
       .then((a) => {
@@ -137,7 +138,10 @@ export class DataService {
 
   logout() {
     this.auth.canLoad = true;
+    this.profile=undefined
     localStorage.clear();
+    this.auth.otp=""
+    this.auth.otpSent=false
     this.router.navigate(['/login']);
   }
 

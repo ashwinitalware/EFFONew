@@ -33,15 +33,15 @@
       <span class="text-black text-sm" *ngIf="job.attributes.jobCategory.data">
         {{job.attributes.jobCategory.data.attributes.name}} Job
       </span>
-      <div class="text-sm flex items-center mt-2">
+      <div class="text-sm flex items-center mt-2"  *ngIf="job.attributes.author.data">
         <ion-icon name="podium" class="text-blue-500"></ion-icon>
-        &nbsp; {{job.attributes.companyName|titlecase}}
+        &nbsp; {{job.attributes.author.data.attributes.companyName|titlecase}}
       </div>
       <div class="text-sm flex items-center">
-        <ion-icon name="location" class="text-green-600"></ion-icon>&nbsp; Pune
+        <ion-icon name="location" class="text-green-600"></ion-icon>&nbsp; {{job.attributes.city|titlecase}}
       </div>
       <div class="text-sm flex items-center">
-        <ion-icon name="people" class="text-yellow-500"></ion-icon>&nbsp; 3
+        <ion-icon name="people" class="text-yellow-500"></ion-icon>&nbsp; {{job.attributes.vacancies}}
         Vacancies
       </div>
     </div>
