@@ -120,6 +120,13 @@ export class JoblistPage implements OnInit {
     );
   
   }
+
+  call(job){
+this.dataService.contact('call','91'+job.attributes.contactNumber)
+  }
+  whatsapp(job){
+    this.dataService.contact('whatsapp','91'+job.attributes.contactNumber)
+  }
   getHighSalaryJobs() {
 
 

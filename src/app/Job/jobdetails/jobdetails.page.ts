@@ -49,6 +49,12 @@ export class JobdetailsPage implements OnInit {
         this.jobApplied = data.data.length ? true : false;
       });
   }
+  call(job){
+    this.dataService.contact('call','91'+job.attributes.contactNumber)
+      }
+      whatsapp(job){
+        this.dataService.contact('whatsapp','91'+job.attributes.contactNumber)
+      }
   calculateSkills(skillsString) {
     console.log(skillsString);
 
@@ -60,6 +66,14 @@ export class JobdetailsPage implements OnInit {
       this.skills = [];
     }
     console.log(this.skills);
+  }
+  share(){
+    this.dataService.share(this.data.attributes.title,'View Job Details only on effo app ! Download Today !','https://play.google.com/store/apps/details?id=ionic.effo.starter')
+  }
+
+  report(){
+    window.open('mailto:support@vendorclub.com'+'?subject=Job Report | Job ID : '+this.data.id+'&body=I want to report this job because ....', '_system')
+
   }
   apply() {
     if (this.jobApplied) {
@@ -169,8 +183,6 @@ export class JobdetailsPage implements OnInit {
         console.log(this.data);
       });
   }
-  call(data) {
-    window.open('tel:+91' + data.attributes.contactNumber);
-  }
+
   ngOnInit() {}
 }

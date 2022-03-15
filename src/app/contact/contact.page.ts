@@ -16,4 +16,8 @@ export class ContactPage implements OnInit {
       window.open('https://api.whatsapp.com/send?phone=' + contact);
     }
   }
+  mail(mail){
+    window.open('mailto:'+mail+'?subject=Help Needed', '_system')
+
+  }
 }

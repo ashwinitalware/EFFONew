@@ -22,6 +22,16 @@
       <div class="flex items-center mt-4">
         <div
           class="flex-1 flex items-center"
+          (click)="mail('support@vendorclub.com')"
+        >
+          <ion-icon name="mail" class="red"></ion-icon>
+          &nbsp; &nbsp; support@vendorclub.com
+        </div>
+      
+      </div>
+      <div class="flex items-center mt-4">
+        <div
+          class="flex-1 flex items-center"
           (click)="contact('call','919004101004')"
         >
           <ion-icon name="call" class="red"></ion-icon>

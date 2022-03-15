@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'SuperApp',
+  appId: 'ionic.effo.starter',
+  appName: 'EFFO',
   webDir: 'www',
   bundledWebRuntime: false,
   cordova: {

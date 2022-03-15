@@ -16,7 +16,7 @@
       class="primary-card bg-white p-4 mt-4"
       style="width: 100%"
       *ngFor="let job of this.jobs"
-      (click)="jobDetails(job)"
+     
     >
       <div class="flex">
         <div class="flex-1 text-black text-left text-base font-bold">
@@ -35,7 +35,7 @@
       </span>
       <div class="text-sm flex items-center mt-2"  *ngIf="job.attributes.author.data">
         <ion-icon name="podium" class="text-blue-500"></ion-icon>
-        &nbsp; {{job.attributes.author.data.attributes.companyName|titlecase}}
+        &nbsp; {{(job.attributes.author.data.attributes.companyName||"Company Name")|titlecase}}
       </div>
       <div class="text-sm flex items-center">
         <ion-icon name="location" class="text-green-600"></ion-icon>&nbsp; {{job.attributes.city|titlecase}}
@@ -43,6 +43,14 @@
       <div class="text-sm flex items-center">
         <ion-icon name="people" class="text-yellow-500"></ion-icon>&nbsp; {{job.attributes.vacancies}}
         Vacancies
+      </div>
+
+      <div class="flex ">
+        <ion-button  color="dark" (click)="call(job)" class="flex-1" size="small" expand="block" fill="outline">Call Now</ion-button>
+        <ion-button   color="dark" (click)="whatsapp(job)"  class="flex-1" size="small" expand="block" fill="outline">Whatsapp</ion-button>
+        <ion-button  color="dark" (click)="jobDetails(job)"  class="flex-1" size="small" expand="block" fill="outline">Apply</ion-button>
+
+      
       </div>
     </div>
   </div>

@@ -74,9 +74,7 @@ export class ApplyPage implements OnInit {
   viewResume() {
     window.open(this.dataService.profile.resume, '_blank');
   }
-  uploadResume() {
-    // upload and update resume
-  }
+ 
   confirmOrder() {
     const swalWithBootstrapButtons = Swal.mixin({});
     swalWithBootstrapButtons.fire({

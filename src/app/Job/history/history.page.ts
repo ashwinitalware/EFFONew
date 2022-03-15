@@ -21,6 +21,7 @@ export class HistoryPage implements OnInit {
     this.http
       .get(this.dataService.apiUrl + 'job-applications', {
         params: {
+          'sort': 'createdAt:desc',
           'filters[applicant][id][$eq]': this.dataService.profile.id + '',
           populate: '*',
         },

@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController, MenuController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
+import { Share } from '@capacitor/share';
+import { HttpClient } from '@angular/common/http';
+import { AppUpdate } from '@robingenz/capacitor-app-update';
 
 declare const Swal: any;
 @Injectable({
@@ -69,14 +72,13 @@ export class DataService {
   apiUrl = this.domainUrl + 'api/';
   isLoading = false;
   constructor(
+    public http:HttpClient,
     public router: Router,
     public loadingCtrl: LoadingController,
     public toastController: ToastController,
     public menu: MenuController
   ) {
-    this.domainUrl =
-     
-      'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
+    this.domainUrl ='http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
     this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
   }
@@ -125,6 +127,13 @@ export class DataService {
     this.profile = profile;
     localStorage.setItem('effoProfile', JSON.stringify(profile));
   }
+
+  updateLastLogin(){
+    this.http.put(this.apiUrl+'users',{
+      // lastLogin
+    })
+  }
+
   swal(title, text, icon, timer = 4000) {
     const swalWithBootstrapButtons = Swal.mixin({});
     swalWithBootstrapButtons.fire({
@@ -136,6 +145,14 @@ export class DataService {
     // this.router.navigate(['/login']);
   }
 
+  async share(title,text,url){
+    await Share.share({
+      title,
+      text,
+      url,
+      dialogTitle: 'Share with buddies',
+    });
+  }
   logout() {
     this.auth.canLoad = true;
     this.profile=undefined
@@ -144,7 +161,13 @@ export class DataService {
     this.auth.otpSent=false
     this.router.navigate(['/login']);
   }
-
+  contact(type, contact) {
+    if (type == 'call') {
+      window.open('tel:+' + contact);
+    } else {
+      window.open('https://api.whatsapp.com/send?phone=' + contact);
+    }
+  }
   timeSince(date) {
     try {
       let seconds = Math.floor(
