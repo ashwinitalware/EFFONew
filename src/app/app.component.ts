@@ -20,6 +20,10 @@ import {
   AppUpdate,
   AppUpdateAvailability
 } from '@robingenz/capacitor-app-update';
+import { FCM } from "@capacitor-community/fcm";
+import { PushNotifications } from "@capacitor/push-notifications";
+
+// import { PushNotifications } from "@capacitor/push-notifications";
 
 @Component({
   selector: 'app-root',
@@ -41,7 +45,12 @@ export class AppComponent {
   }
   initializeApp() {
     this.platform.ready().then(async () => {
-      alert('1')
+      // alert('1')
+      // await PushNotifications.requestPermissions();
+      // await PushNotifications.register();
+      FCM.subscribeTo({ topic: "test123" })
+  .then((r) => alert(`subscribed to topic`))
+  .catch((err) => console.log(err));
 
       let result = await AppUpdate.getAppUpdateInfo();
 

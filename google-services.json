@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "537733285396",
+    "project_id": "effo-5c6af",
+    "storage_bucket": "effo-5c6af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537733285396:android:eddd4820d7109701e14901",
+        "android_client_info": {
+          "package_name": "ionic.effo.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "537733285396-2r48irifn70i6hvt3kcnujc1k1oi61pc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeXQ_Q97LpOCu7mF3PrvjQZYhq8ZWOtkc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "537733285396-2r48irifn70i6hvt3kcnujc1k1oi61pc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
