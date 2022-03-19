@@ -40,7 +40,15 @@ export class ApplyPage implements OnInit {
       });
   }
   handleFileInput(files: any) {
+    // console.log(files.target.files.item(0));
+    // check file extension
+    if (files.target.files.item(0).name.split('.').pop() != 'pdf') {
+      this.dataService.presentToast('Only PDF file is allowed');
+      return;
+    }
+
     this.fileToUpload = files.target.files.item(0);
+
     this.uploadFileToActivity();
   }
   uploadFileToActivity() {
@@ -74,7 +82,7 @@ export class ApplyPage implements OnInit {
   viewResume() {
     window.open(this.dataService.profile.resume, '_blank');
   }
- 
+
   confirmOrder() {
     const swalWithBootstrapButtons = Swal.mixin({});
     swalWithBootstrapButtons.fire({

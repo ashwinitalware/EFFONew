@@ -72,22 +72,23 @@ export class DataService {
   apiUrl = this.domainUrl + 'api/';
   isLoading = false;
   constructor(
-    public http:HttpClient,
+    public http: HttpClient,
     public router: Router,
     public loadingCtrl: LoadingController,
     public toastController: ToastController,
     public menu: MenuController
   ) {
-    this.domainUrl ='http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
+    this.domainUrl =
+      'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
     this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
   }
-  async present(content = 'Loading Data...',duration=10000) {
+  async present(content = 'Loading Data...', duration = 10000) {
     this.isLoading = true;
     return await this.loadingCtrl
       .create({
         message: content,
-        duration
+        duration,
         // duration: 5000,
       })
       .then((a) => {
@@ -128,10 +129,10 @@ export class DataService {
     localStorage.setItem('effoProfile', JSON.stringify(profile));
   }
 
-  updateLastLogin(){
-    this.http.put(this.apiUrl+'users',{
+  updateLastLogin() {
+    this.http.put(this.apiUrl + 'users', {
       // lastLogin
-    })
+    });
   }
 
   swal(title, text, icon, timer = 4000) {
@@ -145,7 +146,7 @@ export class DataService {
     // this.router.navigate(['/login']);
   }
 
-  async share(title,text,url){
+  async share(title, text, url) {
     await Share.share({
       title,
       text,
@@ -155,10 +156,10 @@ export class DataService {
   }
   logout() {
     this.auth.canLoad = true;
-    this.profile=undefined
+    this.profile = undefined;
     localStorage.clear();
-    this.auth.otp=""
-    this.auth.otpSent=false
+    this.auth.otp = '';
+    this.auth.otpSent = false;
     this.router.navigate(['/login']);
   }
   contact(type, contact) {
@@ -198,6 +199,21 @@ export class DataService {
       return Math.floor(seconds) + ' seconds';
     } catch (error) {
       return '';
+    }
+  }
+
+  parseData(data: string) {
+    switch (data) {
+      case 'mondayToFriday':
+        return 'Monday To Friday';
+        break;
+      case 'mondayToSaturday':
+        return 'Monday To Saturday';
+        break;
+
+      default:
+        return data;
+        break;
     }
   }
 }

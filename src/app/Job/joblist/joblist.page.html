@@ -16,7 +16,7 @@
       class="primary-card bg-white p-4 mt-4"
       style="width: 100%"
       *ngFor="let job of this.jobs"
-     
+      (click)="jobDetails(job)"
     >
       <div class="flex">
         <div class="flex-1 text-black text-left text-base font-bold">
@@ -33,24 +33,73 @@
       <span class="text-black text-sm" *ngIf="job.attributes.jobCategory.data">
         {{job.attributes.jobCategory.data.attributes.name}} Job
       </span>
-      <div class="text-sm flex items-center mt-2"  *ngIf="job.attributes.author.data">
+      <div
+        class="text-sm flex items-center mt-2"
+        *ngIf="job.attributes.author.data"
+      >
         <ion-icon name="podium" class="text-blue-500"></ion-icon>
-        &nbsp; {{(job.attributes.author.data.attributes.companyName||"Company Name")|titlecase}}
+        &nbsp;
+
+        <!-- {{(job.attributes.author.data.attributes.companyName||"Company Name")|titlecase}} -->
+        <span
+          *ngIf="job.attributes.author.data && job.attributes.author.data.attributes.job_profile.data"
+        >
+          {{(job.attributes.author.data.attributes.job_profile.data.attributes.companyName||"Company
+          Name")|titlecase}}
+        </span>
       </div>
       <div class="text-sm flex items-center">
-        <ion-icon name="location" class="text-green-600"></ion-icon>&nbsp; {{job.attributes.city|titlecase}}
+        <ion-icon name="location" class="text-green-600"></ion-icon>&nbsp;
+        {{job.attributes.city|titlecase}}
       </div>
       <div class="text-sm flex items-center">
-        <ion-icon name="people" class="text-yellow-500"></ion-icon>&nbsp; {{job.attributes.vacancies}}
-        Vacancies
+        <ion-icon name="people" class="text-yellow-500"></ion-icon>&nbsp;
+        {{job.attributes.vacancies}} Vacancies
       </div>
 
-      <div class="flex ">
-        <ion-button  color="dark" (click)="call(job)" class="flex-1" size="small" expand="block" fill="outline">Call Now</ion-button>
-        <ion-button   color="dark" (click)="whatsapp(job)"  class="flex-1" size="small" expand="block" fill="outline">Whatsapp</ion-button>
-        <ion-button  color="dark" (click)="jobDetails(job)"  class="flex-1" size="small" expand="block" fill="outline">Apply</ion-button>
+      <div class="flex">
+        <!-- <ion-button
+          color="dark"
+          (click)="call(job)"
+          class="flex-1"
+          size="small"
+          expand="block"
+          fill="outline"
+          >Call Now</ion-button
+        >
+        <ion-button
+          color="dark"
+          (click)="whatsapp(job)"
+          class="flex-1"
+          size="small"
+          expand="block"
+          fill="outline"
+          >Whatsapp</ion-button
+        >
+        <ion-button
+          color="dark"
+          (click)="jobDetails(job)"
+          class="flex-1"
+          size="small"
+          expand="block"
+          fill="outline"
+          >Apply</ion-button
+        > -->
 
-      
+        <!-- <ion-button
+          color="dark"
+          (click)="jobDetails(job)"
+          class="flex-1 mt-2"
+          expand="block"
+          >View Details</ion-button
+        > -->
+        <!-- size="small" -->
+        <!-- fill="outline" -->
+      </div>
+      <div class="text-right red">
+        <ion-button color="dark" fill="clear" class="flex-1 mt-2"
+          >Apply Now</ion-button
+        >
       </div>
     </div>
   </div>

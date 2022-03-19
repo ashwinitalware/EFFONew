@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { JobService } from 'src/app/services/job.service';
-import * as qs from 'querystring';
+import qs from 'qs';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -33,28 +33,44 @@ export class JobdetailsPage implements OnInit {
 
   jobAppliedCheck() {
     //asdf
-    // const query = qs.stringify({
-    //   populate: '*',
-    // });
-    this.http
-      .get(this.dataService.apiUrl + 'job-applications', {
-        params: {
-          'filters[applicant][id][$eq]': this.dataService.profile.id + '',
-          'filters[jobPost][id][$eq]':
-            this.activatedRoute.snapshot.params.jobId + '',
+    const query = qs.stringify({
+      populate: {
+        author: {
           populate: '*',
         },
+      },
+      filters: {
+        applicant: {
+          id: {
+            $eq: this.dataService.profile.id,
+          },
+        },
+        jobPost: {
+          id: {
+            $eq: this.activatedRoute.snapshot.params.jobId + '',
+          },
+        },
+      },
+    });
+    this.http
+      .get(this.dataService.apiUrl + 'job-applications?' + query, {
+        // params: {
+        //   'filters[applicant][id][$eq]': this.dataService.profile.id + '',
+        //   'filters[jobPost][id][$eq]':
+        //     this.activatedRoute.snapshot.params.jobId + '',
+        //   populate: '*',
+        // },
       })
       .subscribe((data: any) => {
         this.jobApplied = data.data.length ? true : false;
       });
   }
-  call(job){
-    this.dataService.contact('call','91'+job.attributes.contactNumber)
-      }
-      whatsapp(job){
-        this.dataService.contact('whatsapp','91'+job.attributes.contactNumber)
-      }
+  call(job) {
+    this.dataService.contact('call', '91' + job.attributes.contactNumber);
+  }
+  whatsapp(job) {
+    this.dataService.contact('whatsapp', '91' + job.attributes.contactNumber);
+  }
   calculateSkills(skillsString) {
     console.log(skillsString);
 
@@ -67,13 +83,22 @@ export class JobdetailsPage implements OnInit {
     }
     console.log(this.skills);
   }
-  share(){
-    this.dataService.share(this.data.attributes.title,'View Job Details only on effo app ! Download Today !','https://play.google.com/store/apps/details?id=ionic.effo.starter')
+  share() {
+    this.dataService.share(
+      this.data.attributes.title,
+      'View Job Details only on effo app ! Download Today !',
+      'https://play.google.com/store/apps/details?id=ionic.effo.starter'
+    );
   }
 
-  report(){
-    window.open('mailto:support@vendorclub.com'+'?subject=Job Report | Job ID : '+this.data.id+'&body=I want to report this job because ....', '_system')
-
+  report() {
+    window.open(
+      'mailto:support@vendorclub.com' +
+        '?subject=Job Report | Job ID : ' +
+        this.data.id +
+        '&body=I want to report this job because ....',
+      '_system'
+    );
   }
   apply() {
     if (this.jobApplied) {
@@ -99,15 +124,24 @@ export class JobdetailsPage implements OnInit {
     }
   }
   getJobDetails() {
+    const query = qs.stringify({
+      populate: {
+        author: {
+          populate: '*',
+        },
+      },
+    });
     this.http
       .get(
         this.dataService.apiUrl +
           'job-posts/' +
-          this.activatedRoute.snapshot.params.jobId,
+          this.activatedRoute.snapshot.params.jobId +
+          '?' +
+          query,
         {
-          params: {
-            populate: '*',
-          },
+          // params: {
+          //   populate: '*',
+          // },
         }
       )
       .subscribe((data: any) => {

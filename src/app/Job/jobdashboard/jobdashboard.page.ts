@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { JobService } from 'src/app/services/job.service';
-
+import qs from 'qs';
 @Component({
   selector: 'app-jobdashboard',
   templateUrl: './jobdashboard.page.html',
@@ -14,6 +14,12 @@ export class JobdashboardPage implements OnInit {
   sliceValue = 4;
   temp = 'IT Industry';
   // New Jobs Near Me
+  populate = {
+    author: {
+      populate: '*',
+    },
+    jobCategory: '*',
+  };
 
   sections = [
     {
@@ -86,37 +92,54 @@ export class JobdashboardPage implements OnInit {
     this.router.navigate(['/joblist/' + query]);
   }
   getNewJobs() {
+    let query = qs.stringify({
+      sort: ['createdAt:desc'],
+      populate: this.populate,
+      pagination: {
+        pageSize: '5',
+      },
+    });
+
     this.http
-      .get(this.dataService.apiUrl + 'job-posts', {
-        params: {
-          sort: 'createdAt:desc',
-          'pagination[pageSize]': '10',
-        },
-      })
+      .get(this.dataService.apiUrl + 'job-posts?' + query, {})
       .subscribe((data: any) => {
         this.sections[0].jobs = data.data;
       });
   }
   getNearJobs() {
-    this.http
-      .get(this.dataService.apiUrl + 'job-posts', {
-        params: {
-          'filters[city][$eq]': this.dataService.profile.city,
-          'pagination[pageSize]': '10',
+    let query = qs.stringify({
+      sort: ['createdAt:desc'],
+      populate: this.populate,
+      pagination: {
+        pageSize: '5',
+      },
+      filters: {
+        city: {
+          $eq: this.dataService.profile.city + '',
         },
-      })
+      },
+    });
+    this.http
+      .get(this.dataService.apiUrl + 'job-posts?' + query, {})
       .subscribe((data: any) => {
         this.sections[1].jobs = data.data;
       });
   }
   getHighSalaryJobs() {
-    this.http
-      .get(this.dataService.apiUrl + 'job-posts', {
-        params: {
-          sort: 'salaryUpto:desc',
-          'pagination[pageSize]': '10',
+    let query = qs.stringify({
+      sort: ['createdAt:desc'],
+      populate: this.populate,
+      pagination: {
+        pageSize: '5',
+      },
+      filters: {
+        city: {
+          $eq: this.dataService.profile.city + '',
         },
-      })
+      },
+    });
+    this.http
+      .get(this.dataService.apiUrl + 'job-posts?' + query, {})
       .subscribe((data: any) => {
         this.sections[2].jobs = data.data;
       });

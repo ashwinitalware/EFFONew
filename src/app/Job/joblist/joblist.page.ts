@@ -1,25 +1,10 @@
-import {
-  HttpClient
-} from '@angular/common/http';
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import {
-  ActivatedRoute
-} from '@angular/router';
-import {
-  NavController
-} from '@ionic/angular';
-import {
-  DataService
-} from 'src/app/services/data.service';
-import {
-  JobService
-} from 'src/app/services/job.service';
-import {
-  stringify
-} from 'query-string';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { DataService } from 'src/app/services/data.service';
+import { JobService } from 'src/app/services/job.service';
+import { stringify } from 'query-string';
 import qs from 'qs';
 @Component({
   selector: 'app-joblist',
@@ -30,6 +15,12 @@ export class JoblistPage implements OnInit {
   jobs = [];
   jobCategoryIdOrQuery;
   city;
+  populate = {
+    author: {
+      populate: '*',
+    },
+    jobCategory: '*',
+  };
   noJobsFound = false;
   constructor(
     public activatedRoute: ActivatedRoute,
@@ -64,13 +55,15 @@ export class JoblistPage implements OnInit {
     this.jobs = [];
     let query = qs.stringify({
       sort: ['createdAt:desc'],
-      populate: '*',
+      populate: this.populate,
       pagination: {
-        pageSize: '30'
+        pageSize: '30',
       },
-      filters:{city:{
-        $eq:this.dataService.profile.city+''
-      }}
+      filters: {
+        city: {
+          $eq: this.dataService.profile.city + '',
+        },
+      },
     });
     this.http.get(this.dataService.apiUrl + 'job-posts?' + query).subscribe(
       (data: any) => {
@@ -85,24 +78,21 @@ export class JoblistPage implements OnInit {
         alert('Connect Error');
       }
     );
-
   }
   getNearJobs() {
-
-
     this.dataService.present();
     this.jobs = [];
     let query = qs.stringify({
       sort: ['createdAt:desc'],
-      populate: '*',
+
       pagination: {
-        pageSize: '30'
+        pageSize: '30',
       },
       // 'pagination[pageSize]': '30',
       filters: {
-        city:{
-          $eq:this.dataService.profile.city+''
-        }
+        city: {
+          $eq: this.dataService.profile.city + '',
+        },
       },
     });
     this.http.get(this.dataService.apiUrl + 'job-posts?' + query).subscribe(
@@ -118,31 +108,28 @@ export class JoblistPage implements OnInit {
         alert('Connect Error');
       }
     );
-  
   }
 
-  call(job){
-this.dataService.contact('call','91'+job.attributes.contactNumber)
+  call(job) {
+    this.dataService.contact('call', '91' + job.attributes.contactNumber);
   }
-  whatsapp(job){
-    this.dataService.contact('whatsapp','91'+job.attributes.contactNumber)
+  whatsapp(job) {
+    this.dataService.contact('whatsapp', '91' + job.attributes.contactNumber);
   }
   getHighSalaryJobs() {
-
-
     this.dataService.present();
     this.jobs = [];
     let query = qs.stringify({
       sort: ['salaryUpto:desc'],
-      populate: '*',
+      populate: this.populate,
       pagination: {
-        pageSize: '30'
+        pageSize: '30',
       },
       // 'pagination[pageSize]': '30',
       filters: {
-        city:{
-          $eq:this.dataService.profile.city+''
-        }
+        city: {
+          $eq: this.dataService.profile.city + '',
+        },
       },
     });
     this.http.get(this.dataService.apiUrl + 'job-posts?' + query).subscribe(
@@ -158,8 +145,6 @@ this.dataService.contact('call','91'+job.attributes.contactNumber)
         alert('Connect Error');
       }
     );
-
- 
   }
   getAllJobs() {
     this.dataService.present();
@@ -169,24 +154,27 @@ this.dataService.contact('call','91'+job.attributes.contactNumber)
     let query;
     // for job category
     let sort = {
-      sort: ['createdAt:desc']
+      sort: ['createdAt:desc'],
     };
     if (isNaN(this.jobCategoryIdOrQuery)) {
       query = qs.stringify({
         ...sort,
-        populate: '*',
+        populate: this.populate,
 
         filters: {
-          $or: [{
-            title: {
-              $contains: this.jobCategoryIdOrQuery == 'any' ?
-                '' :
-                this.jobCategoryIdOrQuery,
+          $or: [
+            {
+              title: {
+                $contains:
+                  this.jobCategoryIdOrQuery == 'any'
+                    ? ''
+                    : this.jobCategoryIdOrQuery,
+              },
+              city: {
+                $contains: this.city,
+              },
             },
-            city: {
-              $contains: this.city,
-            },
-          }, ],
+          ],
         },
       });
     }
@@ -195,18 +183,20 @@ this.dataService.contact('call','91'+job.attributes.contactNumber)
     else {
       query = qs.stringify({
         ...sort,
-        populate: '*',
+        populate: this.populate,
         filters: {
-          $or: [{
-            jobCategory: {
-              id: {
-                $eq: this.jobCategoryIdOrQuery,
+          $or: [
+            {
+              jobCategory: {
+                id: {
+                  $eq: this.jobCategoryIdOrQuery,
+                },
+              },
+              city: {
+                $contains: this.city,
               },
             },
-            city: {
-              $contains: this.city,
-            },
-          }, ],
+          ],
         },
       });
     }
