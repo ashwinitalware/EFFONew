@@ -13,6 +13,11 @@ import qs from 'qs';
 export class JobdashboardPage implements OnInit {
   sliceValue = 4;
   temp = 'IT Industry';
+  commonFilter = {
+    expiry: {
+      $gt: new Date().toISOString(),
+    },
+  };
   // New Jobs Near Me
   populate = {
     author: {
@@ -93,6 +98,9 @@ export class JobdashboardPage implements OnInit {
   }
   getNewJobs() {
     let query = qs.stringify({
+      filters: {
+        ...this.commonFilter,
+      },
       sort: ['createdAt:desc'],
       populate: this.populate,
       pagination: {
@@ -114,6 +122,7 @@ export class JobdashboardPage implements OnInit {
         pageSize: '5',
       },
       filters: {
+        ...this.commonFilter,
         city: {
           $eq: this.dataService.profile.city + '',
         },
@@ -133,6 +142,7 @@ export class JobdashboardPage implements OnInit {
         pageSize: '5',
       },
       filters: {
+        ...this.commonFilter,
         city: {
           $eq: this.dataService.profile.city + '',
         },

@@ -12,9 +12,21 @@ import qs from 'qs';
   styleUrls: ['./joblist.page.scss'],
 })
 export class JoblistPage implements OnInit {
+  totalJobs = 0;
+  currentPage = 0;
+  totalPage = 1;
+  showFilterModal = false;
   jobs = [];
   jobCategoryIdOrQuery;
   city;
+  //common filter
+  commonFilter: any = {
+    expiry: {
+      $gt: new Date().toISOString(),
+    },
+  };
+
+  // common populate
   populate = {
     author: {
       populate: '*',
@@ -22,6 +34,7 @@ export class JoblistPage implements OnInit {
     jobCategory: '*',
   };
   noJobsFound = false;
+
   constructor(
     public activatedRoute: ActivatedRoute,
     public jobService: JobService,
@@ -33,42 +46,79 @@ export class JoblistPage implements OnInit {
       this.activatedRoute.snapshot.params.categoryIdOrQuery;
 
     this.city = this.activatedRoute.snapshot.params.city;
+    this.getData();
+  }
+  apply(type = '') {
+    this.showFilterModal = false;
+    this.jobService.jobFilters.type = type;
+    this.commonFilter = {
+      ...this.commonFilter,
+      type: {
+        $contains: this.jobService.jobFilters.type,
+      },
+    };
+    // this.getAllJobs();
+    this.getData(undefined, true);
+  }
+
+  getData(pager = undefined, resetValues = false) {
+    if (resetValues) {
+      this.totalJobs = 0;
+      this.currentPage = 0;
+      this.totalPage = 1;
+      this.jobs = [];
+    }
+    if (this.currentPage == this.totalPage) {
+      // alert('abc');
+      if (pager) pager.target.complete();
+      return;
+    }
     switch (this.jobCategoryIdOrQuery) {
       case 'newJobs':
-        this.getNewJobs();
+        this.getNewJobs(pager);
         break;
       case 'jobsNearMe':
-        this.getNearJobs();
+        this.getNearJobs(pager);
         break;
       case 'highSalaryJobs':
-        this.getHighSalaryJobs();
+        this.getHighSalaryJobs(pager);
         break;
 
       default:
-        this.getAllJobs();
+        this.getAllJobs(pager);
         break;
     }
   }
 
-  getNewJobs() {
+  getNewJobs(pager = undefined) {
+    if (pager) pager.target.complete();
+    this.noJobsFound = false;
     this.dataService.present();
-    this.jobs = [];
+    // this.jobs = [];
     let query = qs.stringify({
       sort: ['createdAt:desc'],
       populate: this.populate,
       pagination: {
-        pageSize: '30',
+        page: this.currentPage + 1,
+        pageSize: '10',
       },
       filters: {
+        ...this.commonFilter,
         city: {
           $eq: this.dataService.profile.city + '',
         },
       },
     });
+
     this.http.get(this.dataService.apiUrl + 'job-posts?' + query).subscribe(
       (data: any) => {
+        if (data.meta) {
+          this.totalJobs = data.meta.pagination.total;
+          this.currentPage = data.meta.pagination.page;
+          this.totalPage = data.meta.pagination.pageCount;
+        }
         this.dataService.dismiss();
-        this.jobs = data.data;
+        this.jobs.push(...data.data);
         if (!this.jobs.length) {
           this.noJobsFound = true;
         }
@@ -79,17 +129,18 @@ export class JoblistPage implements OnInit {
       }
     );
   }
-  getNearJobs() {
+  getNearJobs(pager = undefined) {
+    if (pager) pager.target.complete();
+    this.noJobsFound = false;
     this.dataService.present();
-    this.jobs = [];
+    // this.jobs = [];
     let query = qs.stringify({
       sort: ['createdAt:desc'],
 
-      pagination: {
-        pageSize: '30',
-      },
+      pagination: { page: this.currentPage + 1, pageSize: '10' },
       // 'pagination[pageSize]': '30',
       filters: {
+        ...this.commonFilter,
         city: {
           $eq: this.dataService.profile.city + '',
         },
@@ -97,8 +148,15 @@ export class JoblistPage implements OnInit {
     });
     this.http.get(this.dataService.apiUrl + 'job-posts?' + query).subscribe(
       (data: any) => {
+        if (data.meta) {
+          this.totalJobs = data.meta.pagination.total;
+          this.currentPage = data.meta.pagination.page;
+          this.totalPage = data.meta.pagination.pageCount;
+        }
         this.dataService.dismiss();
-        this.jobs = data.data;
+
+        this.jobs.push(...data.data);
+        // this.jobs = data.data;
         if (!this.jobs.length) {
           this.noJobsFound = true;
         }
@@ -116,17 +174,18 @@ export class JoblistPage implements OnInit {
   whatsapp(job) {
     this.dataService.contact('whatsapp', '91' + job.attributes.contactNumber);
   }
-  getHighSalaryJobs() {
+  getHighSalaryJobs(pager = undefined) {
+    if (pager) pager.target.complete();
+    this.noJobsFound = false;
     this.dataService.present();
-    this.jobs = [];
+    // this.jobs = [];
     let query = qs.stringify({
       sort: ['salaryUpto:desc'],
       populate: this.populate,
-      pagination: {
-        pageSize: '30',
-      },
+      pagination: { page: this.currentPage + 1, pageSize: '10' },
       // 'pagination[pageSize]': '30',
       filters: {
+        ...this.commonFilter,
         city: {
           $eq: this.dataService.profile.city + '',
         },
@@ -134,8 +193,13 @@ export class JoblistPage implements OnInit {
     });
     this.http.get(this.dataService.apiUrl + 'job-posts?' + query).subscribe(
       (data: any) => {
+        if (data.meta) {
+          this.totalJobs = data.meta.pagination.total;
+          this.currentPage = data.meta.pagination.page;
+          this.totalPage = data.meta.pagination.pageCount;
+        }
         this.dataService.dismiss();
-        this.jobs = data.data;
+        this.jobs.push(...data.data);
         if (!this.jobs.length) {
           this.noJobsFound = true;
         }
@@ -146,10 +210,12 @@ export class JoblistPage implements OnInit {
       }
     );
   }
-  getAllJobs() {
+  getAllJobs(pager = undefined) {
+    if (pager) pager.target.complete();
+    this.noJobsFound = false;
     this.dataService.present();
     // let jobCategoryId=
-    this.jobs = [];
+    // this.jobs = [];
 
     let query;
     // for job category
@@ -160,8 +226,9 @@ export class JoblistPage implements OnInit {
       query = qs.stringify({
         ...sort,
         populate: this.populate,
-
+        pagination: { page: this.currentPage + 1, pageSize: '10' },
         filters: {
+          ...this.commonFilter,
           $or: [
             {
               title: {
@@ -184,7 +251,9 @@ export class JoblistPage implements OnInit {
       query = qs.stringify({
         ...sort,
         populate: this.populate,
+        pagination: { page: this.currentPage + 1, pageSize: '10' },
         filters: {
+          ...this.commonFilter,
           $or: [
             {
               jobCategory: {
@@ -205,8 +274,13 @@ export class JoblistPage implements OnInit {
 
     this.http.get(this.dataService.apiUrl + 'job-posts?' + query).subscribe(
       (data: any) => {
+        if (data.meta) {
+          this.totalJobs = data.meta.pagination.total;
+          this.currentPage = data.meta.pagination.page;
+          this.totalPage = data.meta.pagination.pageCount;
+        }
         this.dataService.dismiss();
-        this.jobs = data.data;
+        this.jobs.push(...data.data);
         if (!this.jobs.length) {
           this.noJobsFound = true;
         }
@@ -221,5 +295,17 @@ export class JoblistPage implements OnInit {
   ngOnInit() {}
   jobDetails(job) {
     this.navCtrl.navigateForward(['/jobdetails/' + job.id]);
+  }
+  loadData(event) {
+    this.getData(event);
+    // setTimeout(() => {
+    // console.log('Done');
+    // event.target.complete();
+    // App logic to determine if all data is loaded
+    // and disable the infinite scroll
+    // if (data.length === 1000) {
+    //   event.target.disabled = true;
+    // }
+    //  }, 500);
   }
 }

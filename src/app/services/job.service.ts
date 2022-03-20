@@ -11,6 +11,10 @@ export class JobService {
   categories = [];
   jobs = [];
 
+  jobFilters = {
+    type: '',
+  };
+
   constructor(public http: HttpClient, public dataService: DataService) {}
   getCategories() {
     this.http.get(this.dataService.apiUrl + 'job-categories').subscribe(

@@ -14,90 +14,95 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="data" style="">
-  <div class="h-full bg-white p-4">
-    <div class="flex justify-between items-center">
-      <div class="text-xl font-bold">
-        <div>{{data.attributes.title|titlecase}}</div>
-      </div>
-      <div class="font-bold">
-        Rs {{data.attributes.salaryFrom}} - Rs {{data.attributes.salaryUpto}}
-      </div>
-    </div>
-    <div class="text-sm text-gray-800">
-      {{data.attributes.vacancies}} Opening(s)
-    </div>
-    <div class="flex mt-2">
-      <span class="flex items-center">
-        <ion-icon name="location-outline"></ion-icon>
-        &nbsp; {{data.attributes.city|titlecase}}
-      </span>
-      <span class="flex items-center ml-4">
-        <ion-icon name="briefcase-outline"></ion-icon>
-        &nbsp;Experience {{data.attributes.experience|titlecase}}
-      </span>
-    </div>
-
-    <div class="flex mt-2">
-      <span class="flex items-center">
-        <ion-icon name="bookmark-outline"></ion-icon>
-        &nbsp; {{data.attributes.minimumEducation|titlecase}}
-      </span>
-      <span class="flex items-center ml-4">
-        <ion-icon name="calendar-outline"></ion-icon>
-        &nbsp; {{dataService.parseData(data.attributes.workingDays)|titlecase}}
-      </span>
-    </div>
-    <div class="flex mt-2">
-      <span class="flex items-center">
-        <ion-icon name="pin-outline"></ion-icon>
-        &nbsp; {{data.attributes.address|titlecase}}
-      </span>
-    </div>
-    <div class="flex mt-2">
-      <ion-button
-        class="w-full"
-        color="dark"
-        expand="block"
-        (click)="call(this.data)"
-      >
-        Call Now
-      </ion-button>
-      <ion-button
-        class="w-full"
-        color="success"
-        expand="block"
-        (click)="whatsapp(this.data)"
-      >
-        Whatsapp
-      </ion-button>
-    </div>
-    <div class="flex justify-end">
-      <ion-button (click)="report()" color="dark" fill="clear">
-        Report Job
-      </ion-button>
-    </div>
-
-    <div class="text-lg font-bold mt-2">Job Description</div>
-
-    <div>{{data.attributes.description }}</div>
-
-    <div class="flex mt-2 border-t border-b py-2">
-
-      <img  class="w-12 h-12 bg-gray-200 rounded-full" src="{{data.attributes.author.data.attributes.job_profile.data.attributes.logo}}" alt="">
- 
-      <div class="flex-1 ml-2">
+<ion-content style="">
+  <div *ngIf="data" class="h-full">
+    <div class="h-full bg-white p-4">
+      <div class="flex justify-between items-center">
+        <div class="text-xl font-bold">
+          <div>{{data.attributes.title|titlecase}}</div>
+        </div>
         <div class="font-bold">
-          {{data.attributes.author.data.attributes.job_profile.data.attributes.companyName|titlecase}}
+          Rs {{data.attributes.salaryFrom}} - Rs {{data.attributes.salaryUpto}}
         </div>
-        <div>
-          {{data.attributes.author.data.attributes.job_profile.data.attributes.companyAddress|titlecase}}
+      </div>
+      <div class="text-sm text-gray-800">
+        {{data.attributes.vacancies}} Opening(s)
+      </div>
+      <div class="flex mt-2">
+        <span class="flex items-center">
+          <ion-icon name="location-outline"></ion-icon>
+          &nbsp; {{data.attributes.city|titlecase}}
+        </span>
+        <span class="flex items-center ml-4">
+          <ion-icon name="briefcase-outline"></ion-icon>
+          &nbsp;Experience {{data.attributes.experience|titlecase}}
+        </span>
+      </div>
+
+      <div class="flex mt-2">
+        <span class="flex items-center">
+          <ion-icon name="bookmark-outline"></ion-icon>
+          &nbsp; {{data.attributes.minimumEducation|titlecase}}
+        </span>
+        <span class="flex items-center ml-4">
+          <ion-icon name="calendar-outline"></ion-icon>
+          &nbsp;
+          {{dataService.parseData(data.attributes.workingDays)|titlecase}}
+        </span>
+      </div>
+      <div class="flex mt-2">
+        <span class="flex items-center">
+          <ion-icon name="pin-outline"></ion-icon>
+          &nbsp; {{data.attributes.address|titlecase}}
+        </span>
+      </div>
+      <div class="flex mt-2">
+        <ion-button
+          class="w-full"
+          color="dark"
+          expand="block"
+          (click)="call(this.data)"
+        >
+          Call Now
+        </ion-button>
+        <ion-button
+          class="w-full"
+          color="success"
+          expand="block"
+          (click)="whatsapp(this.data)"
+        >
+          Whatsapp
+        </ion-button>
+      </div>
+      <div class="flex justify-end">
+        <ion-button (click)="report()" color="dark" fill="clear">
+          Report Job
+        </ion-button>
+      </div>
+
+      <div class="text-lg font-bold mt-2">Job Description</div>
+
+      <div>{{data.attributes.description }}</div>
+
+      <div class="flex mt-2 border-t border-b py-2">
+        <img
+          class="w-12 h-12 bg-gray-200 rounded-full"
+          src="{{data.attributes.author.data.attributes.job_profile.data.attributes.logo}}"
+          alt=""
+        />
+
+        <div class="flex-1 ml-2">
+          <div class="font-bold">
+            {{data.attributes.author.data.attributes.job_profile.data.attributes.companyName|titlecase}}
+          </div>
+          <div>
+            {{data.attributes.author.data.attributes.job_profile.data.attributes.companyAddress|titlecase}}
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!--
+    <!--
 
   <div class="p-4">
     <div>This job requires</div>
@@ -185,6 +190,7 @@
     </ion-button>
 
   </div> -->
+  </div>
 </ion-content>
 <ion-footer class="p-4">
   <ion-button

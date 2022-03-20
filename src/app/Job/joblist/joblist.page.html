@@ -8,10 +8,19 @@
 </ion-header>
 
 <ion-content>
+  <div class="flex justify-between items-center pt-4 px-4">
+    <div class="pl-4">
+      {{totalJobs}} Jobs Found
+      <!-- {{currentPage}} {{totalPage}} -->
+    </div>
+    <ion-button color="dark" fill="outline" (click)="showFilterModal=true"
+      >Filters</ion-button
+    >
+  </div>
   <div *ngIf="noJobsFound" class="font-bold text-center text-lg mt-4">
     No Jobs Found
   </div>
-  <div class="p-4">
+  <div class="px-4" *ngIf="!noJobsFound">
     <div
       class="primary-card bg-white p-4 mt-4"
       style="width: 100%"
@@ -20,7 +29,7 @@
     >
       <div class="flex">
         <div class="flex-1 text-black text-left text-base font-bold">
-          {{job.attributes.title|titlecase}}
+          {{job.id}} {{job.attributes.title|titlecase}}
         </div>
 
         <div class="text-sm">
@@ -30,9 +39,17 @@
       <div class="text-sm text-gray-600">
         ₹ {{job.attributes.salaryFrom}} - ₹ {{job.attributes.salaryUpto}}
       </div>
-      <span class="text-black text-sm" *ngIf="job.attributes.jobCategory.data">
-        {{job.attributes.jobCategory.data.attributes.name}} Job
+      <span
+        class="text-black text-sm font-bold text-gray-700"
+        *ngIf="job.attributes.jobCategory.data"
+      >
+        {{job.attributes.type|titlecase}}
       </span>
+      |
+      <span class="text-black text-sm" *ngIf="job.attributes.jobCategory.data">
+        {{job.attributes.jobCategory.data.attributes.name}}
+      </span>
+
       <div
         class="text-sm flex items-center mt-2"
         *ngIf="job.attributes.author.data"
@@ -103,6 +120,61 @@
       </div>
     </div>
   </div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <!-- <ion-modal [isOpen]="isModalOpen"> -->
+  <ion-modal
+    [isOpen]="showFilterModal"
+    [initialBreakpoint]="0.4"
+    (didDismiss)="showFilterModal=false"
+  >
+    <ng-template>
+      <div class="p-4">
+        <div>Filter</div>
+        <div>
+          <ion-button
+            (click)="apply()"
+            color="dark"
+            expand="block"
+            fill="{{this.jobService.jobFilters.type==''?'solid':'outline'}}"
+            class="flex-1 mt-2"
+            >Any</ion-button
+          >
+          <ion-button
+            (click)="apply('fullTime')"
+            expand="block"
+            color="dark"
+            fill="{{this.jobService.jobFilters.type=='fullTime'?'solid':'outline'}}"
+            class="flex-1 mt-2"
+            >Full Time</ion-button
+          >
+          <ion-button
+            (click)="apply('partTime')"
+            expand="block"
+            color="dark"
+            fill="{{this.jobService.jobFilters.type=='partTime'?'solid':'outline'}}"
+            class="flex-1 mt-2"
+            >Part Time</ion-button
+          >
+          <ion-button
+            (click)="apply('freelance')"
+            expand="block"
+            color="dark"
+            fill="{{this.jobService.jobFilters.type=='freelance'?'solid':'outline'}}"
+            class="flex-1 mt-2"
+            >Freelance</ion-button
+          >
+        </div>
+      </div>
+      <!-- filters -->
+      <!-- <app-modal-content></app-modal-content> -->
+    </ng-template>
+  </ion-modal>
 </ion-content>
 
 <!-- <div class="pt-2 pl-4">
