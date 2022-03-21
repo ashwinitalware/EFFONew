@@ -133,9 +133,8 @@
             &nbsp;
             <!-- {{job.attributes.companyName||"Company Name"|titlecase}} -->
 
-            <span *ngIf="job.attributes.author">
-              {{(job.attributes.author.data.attributes.job_profile.data.attributes.companyName||"Company
-              Name")|titlecase}}
+            <span *ngIf="job.attributes.author.data && job.attributes.author.data.attributes.job_profile.data">
+              {{(job.attributes.author.data.attributes.job_profile.data.attributes.companyName||"Company Name")|titlecase}}
             </span>
             <span *ngIf="!job.attributes.author"> Company Name </span>
           </div>
