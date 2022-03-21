@@ -5,6 +5,9 @@ const config: CapacitorConfig = {
   appName: 'EFFO',
   webDir: 'www',
   bundledWebRuntime: false,
+  server: {
+    cleartext: true,
+  },
   cordova: {
     preferences: {
       ScrollEnabled: 'false',
@@ -13,9 +16,9 @@ const config: CapacitorConfig = {
       FadeSplashScreenDuration: '300',
       SplashShowOnlyFirstTime: 'false',
       SplashScreen: 'screen',
-      SplashScreenDelay: '3000'
-    }
-  }
+      SplashScreenDelay: '3000',
+    },
+  },
 };
 
 export default config;

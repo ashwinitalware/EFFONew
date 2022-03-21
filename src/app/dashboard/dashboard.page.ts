@@ -94,6 +94,7 @@ export class DashboardPage implements OnInit {
     public router: Router
   ) {
     this.dataService.auth.canLoad = false;
+    this.dataService.syncFCMToken();
   }
   slideChanged() {
     this.slider.stopAutoplay(); //this code for slide after page change

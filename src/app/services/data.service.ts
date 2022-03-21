@@ -5,7 +5,8 @@ import { ToastController } from '@ionic/angular';
 import { Share } from '@capacitor/share';
 import { HttpClient } from '@angular/common/http';
 import { AppUpdate } from '@robingenz/capacitor-app-update';
-
+import { FCM } from '@capacitor-community/fcm';
+import { PushNotifications } from '@capacitor/push-notifications';
 declare const Swal: any;
 @Injectable({
   providedIn: 'root',
@@ -78,9 +79,9 @@ export class DataService {
     public toastController: ToastController,
     public menu: MenuController
   ) {
-    // this.domainUrl =
-    //   'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
-    // this.apiUrl = this.domainUrl + 'api/';
+    this.domainUrl =
+      'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
+    this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
   }
   async present(content = 'Loading Data...', duration = 10000) {
@@ -214,6 +215,27 @@ export class DataService {
       default:
         return data;
         break;
+    }
+  }
+  async syncFCMToken() {
+    if (this.profile) {
+      if (this.profile.id) {
+        await PushNotifications.addListener('registration', (token) => {
+          // console.info('Registration token: ', token.value);
+          console.log(token.value);
+          alert(token.value);
+
+          this.http
+            .put(this.apiUrl + 'users/' + this.profile.id, {
+              token: token.value,
+            })
+            .subscribe((data) => {});
+        });
+
+        // FCM.getToken()
+        //   .then((token) => {})
+        //   .catch((err) => console.log(err));
+      }
     }
   }
 }

@@ -1,27 +1,15 @@
-import {
-  Component
-} from '@angular/core';
-import {
-  Router
-} from '@angular/router';
-import {
-  Platform
-} from '@ionic/angular';
-import {
-  DataService
-} from './services/data.service';
-import {
-  InAppBrowser
-} from '@awesome-cordova-plugins/in-app-browser/ngx';
-import {
-  HttpClient
-} from '@angular/common/http';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Platform } from '@ionic/angular';
+import { DataService } from './services/data.service';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { HttpClient } from '@angular/common/http';
 import {
   AppUpdate,
-  AppUpdateAvailability
+  AppUpdateAvailability,
 } from '@robingenz/capacitor-app-update';
-import { FCM } from "@capacitor-community/fcm";
-import { PushNotifications } from "@capacitor/push-notifications";
+import { FCM } from '@capacitor-community/fcm';
+import { PushNotifications } from '@capacitor/push-notifications';
 
 // import { PushNotifications } from "@capacitor/push-notifications";
 
@@ -46,34 +34,34 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(async () => {
       // alert('1')
-      // await PushNotifications.requestPermissions();
-      // await PushNotifications.register();
-      FCM.subscribeTo({ topic: "test123" })
-  .then((r) => alert(`subscribed to topic`))
-  .catch((err) => console.log(err));
+      await PushNotifications.requestPermissions();
+      await PushNotifications.register();
+      //     FCM.subscribeTo({ topic: "test123" })
+      // .then((r) => alert(`subscribed to topic`))
+      // .catch((err) => console.log(err));
 
       let result = await AppUpdate.getAppUpdateInfo();
 
-      try {
-        alert('getAppUpdateInfo' + JSON.stringify(result))
-      } catch (error) {
-        alert('catch getAppUpdateInfo' + result)
-      }
-      
+      // try {
+      //   alert('getAppUpdateInfo' + JSON.stringify(result));
+      // } catch (error) {
+      //   alert('catch getAppUpdateInfo' + result);
+      // }
+
       result = await AppUpdate.getAppUpdateInfo();
-      if (result.updateAvailability !== AppUpdateAvailability.UPDATE_AVAILABLE) {
+      if (
+        result.updateAvailability !== AppUpdateAvailability.UPDATE_AVAILABLE
+      ) {
         return;
       }
       if (result.flexibleUpdateAllowed) {
         await AppUpdate.startFlexibleUpdate();
       }
       try {
-        alert('getAppUpdateInfo' + JSON.stringify(result))
+        // alert('getAppUpdateInfo' + JSON.stringify(result));
       } catch (error) {
-        alert('catch getAppUpdateInfo' + result)
+        // alert('catch getAppUpdateInfo' + result);
       }
-
-
 
       // this.router.navigate(['/profile']);
     });
@@ -133,7 +121,8 @@ export class AppComponent {
       .subscribe((data: any) => {
         this.http
           .put(
-            this.dataService.apiUrl + 'users/' + this.dataService.profile.id, {
+            this.dataService.apiUrl + 'users/' + this.dataService.profile.id,
+            {
               profileImage: data[0].url,
             }
           )
@@ -141,7 +130,7 @@ export class AppComponent {
             (data2: any) => {
               this.dataService.dismiss();
               this.dataService.presentToast('Image Updated');
-              this.dataService.saveProfileObject(data2)
+              this.dataService.saveProfileObject(data2);
               // this.dataService.profile.profileImage = data2.profileImage;
             },
             (err) => {
@@ -150,5 +139,4 @@ export class AppComponent {
           );
       });
   }
-
 }
