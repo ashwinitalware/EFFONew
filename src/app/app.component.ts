@@ -33,9 +33,6 @@ export class AppComponent {
   }
   initializeApp() {
     this.platform.ready().then(async () => {
-      // alert('1')
-      await PushNotifications.requestPermissions();
-      await PushNotifications.register();
       //     FCM.subscribeTo({ topic: "test123" })
       // .then((r) => alert(`subscribed to topic`))
       // .catch((err) => console.log(err));

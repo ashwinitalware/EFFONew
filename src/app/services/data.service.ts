@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { AppUpdate } from '@robingenz/capacitor-app-update';
 import { FCM } from '@capacitor-community/fcm';
 import { PushNotifications } from '@capacitor/push-notifications';
+import { LocalNotifications } from '@capacitor/local-notifications';
 declare const Swal: any;
 @Injectable({
   providedIn: 'root',
@@ -79,9 +80,9 @@ export class DataService {
     public toastController: ToastController,
     public menu: MenuController
   ) {
-    this.domainUrl =
-      'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
-    this.apiUrl = this.domainUrl + 'api/';
+    // this.domainUrl =
+    //   'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
+    // this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
   }
   async present(content = 'Loading Data...', duration = 10000) {
@@ -218,6 +219,8 @@ export class DataService {
     }
   }
   async syncFCMToken() {
+    await PushNotifications.requestPermissions();
+    await PushNotifications.register();
     if (this.profile) {
       if (this.profile.id) {
         await PushNotifications.addListener('registration', (token) => {
@@ -237,5 +240,20 @@ export class DataService {
         //   .catch((err) => console.log(err));
       }
     }
+
+    PushNotifications.addListener(
+      'pushNotificationReceived',
+      (notification) => {
+        LocalNotifications.schedule({
+          notifications: [
+            {
+              id: 1,
+              title: notification.title,
+              body: notification.body,
+            },
+          ],
+        });
+      }
+    ).then((data) => {});
   }
 }
