@@ -10,6 +10,7 @@ import {
 } from '@robingenz/capacitor-app-update';
 import { FCM } from '@capacitor-community/fcm';
 import { PushNotifications } from '@capacitor/push-notifications';
+import { RateApp } from 'capacitor-rate-app';
 
 // import { PushNotifications } from "@capacitor/push-notifications";
 
@@ -64,8 +65,6 @@ export class AppComponent {
     });
   }
 
-  share() {}
-  rateUs() {}
   businessRegistration() {}
   contactUs() {}
   privacy() {}
@@ -80,12 +79,19 @@ export class AppComponent {
     if (item.role == 'privacy') alert('need terms & conditions');
     if (item.role == 'contact') this.router.navigate(['/contactus']);
     if (item.role == 'share') {
-      navigator.share({
-        title: 'Download Effo App',
-        // eslint-disable-next-line max-len
-        text: 'You will get all information about home appliances repairing, Beauty parlor, cab services, contractor, consultants, events, catering service, vehicle service, photography, mandap, Hall /lawns, classes, school, college, tours and travels, washing center, school bus, and other huge services.',
-        url: 'https://play.google.com/store/apps/details?id=ionic.effo.starter',
-      });
+
+      this.dataService.share(
+    "Download Effo App",
+        'You will get all information about home appliances repairing, Beauty parlor, cab services, contractor, consultants, events, catering service, vehicle service, photography, mandap, Hall /lawns, classes, school, college, tours and travels, washing center, school bus, and other huge services.'
+      );
+
+
+      // navigator.share({
+      //   title: 'Download Effo App',
+      //   // eslint-disable-next-line max-len
+      //   text: 'You will get all information about home appliances repairing, Beauty parlor, cab services, contractor, consultants, events, catering service, vehicle service, photography, mandap, Hall /lawns, classes, school, college, tours and travels, washing center, school bus, and other huge services.',
+      //   url: 'https://play.google.com/store/apps/details?id=ionic.effo.starter',
+      // });
     }
     if (item.role == 'logout') this.dataService.logout();
     if (item.role == 'business') {
@@ -98,10 +104,19 @@ export class AppComponent {
       );
     }
     if (item.role == 'rate') {
-      window.open(
-        'https://play.google.com/store/apps/details?id=ionic.effo.starter',
-        '_system'
-      );
+
+      RateApp.requestReview().then(data=>{
+        console.log(data);
+        
+      }).catch(err=>{
+        console.log(err);
+        
+      });
+
+      // window.open(
+      //   'https://play.google.com/store/apps/details?id=ionic.effo.starter',
+      //   '_system'
+      // );
     }
   }
   handleFileInput(files: any) {

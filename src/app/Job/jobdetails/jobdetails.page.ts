@@ -12,6 +12,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./jobdetails.page.scss'],
 })
 export class JobdetailsPage implements OnInit {
+  imageError=false
   //applied
   //not
   jobApplied;
@@ -86,11 +87,13 @@ export class JobdetailsPage implements OnInit {
   share() {
     this.dataService.share(
       this.data.attributes.title,
-      'View Job Details only on effo app ! Download Today !',
+      'View Job Details only on Effo App ! Download Today !',
       'https://play.google.com/store/apps/details?id=ionic.effo.starter'
     );
   }
-
+  errorImage(){
+    alert('asdf')
+  }
   report() {
     window.open(
       'mailto:support@vendorclub.com' +

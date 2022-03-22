@@ -57,6 +57,12 @@
         </span>
       </div>
       <div class="flex mt-2">
+        <span class="flex items-center">
+          <ion-icon name="pin-outline"></ion-icon>
+          &nbsp; {{data.attributes.skillsByComma|titlecase}}
+        </span>
+      </div>
+      <div class="flex mt-2">
         <ion-button
           class="w-full"
           color="dark"
@@ -85,17 +91,23 @@
       <div>{{data.attributes.description }}</div>
 
       <div class="flex mt-2 border-t border-b py-2">
-        <img
+        <img *ngIf="data && !imageError && data.attributes.author.data.attributes"
           class="w-12 h-12 bg-gray-200 rounded-full"
-          src="{{data.attributes.author.data.attributes.job_profile.data.attributes.logo}}"
+          src="{{data.attributes.author.data.attributes.job_profile.data.attributes.logo+'sdf'}}"
+          (error)="imageError=true"
           alt=""
         />
-
+        <div   *ngIf="data &&  imageError"
+        class="bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center text-gray-500"
+      >
+        <ion-icon class="text-3xl" name="briefcase"></ion-icon>
+      </div>
+        
         <div class="flex-1 ml-2">
-          <div class="font-bold">
+          <div class="font-bold" *ngIf="data.attributes.author.data && data.attributes.author.data.attributes.job_profile.data">
             {{data.attributes.author.data.attributes.job_profile.data.attributes.companyName|titlecase}}
           </div>
-          <div>
+          <div *ngIf="data.attributes.author.data && data.attributes.author.data.attributes.job_profile.data">
             {{data.attributes.author.data.attributes.job_profile.data.attributes.companyAddress|titlecase}}
           </div>
         </div>

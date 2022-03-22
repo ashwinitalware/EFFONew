@@ -22,7 +22,6 @@
     <ion-item>
       <ion-label class="text" position="floating">Full Name</ion-label>
       <ion-input
-        name="name"
         [(ngModel)]="this.dataService.profile.fullName"
         type="text"
       ></ion-input>
@@ -41,9 +40,8 @@
         <ion-label class="text" position="floating">Pin Code</ion-label>
 
         <ion-input
-          name="pin"
           [(ngModel)]="this.dataService.profile.pinCode"
-          type="text"
+          type="number"
         ></ion-input>
       </ion-item>
       <div class="flex items-end">
@@ -59,7 +57,6 @@
     <ion-item>
       <ion-label class="text" position="floating">City</ion-label>
       <ion-input
-        name="city"
         [(ngModel)]="this.dataService.profile.city"
         type="text"
       ></ion-input>

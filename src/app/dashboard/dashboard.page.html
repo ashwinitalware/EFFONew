@@ -50,7 +50,7 @@
           </div>
           <!-- <img src="assets/D2.png" alt="" /><br /> -->
           <div class="truncate mt-2">{{category.name}}</div>
-          <div class="red" [ngClass]="{'text-white': category.available}">
+          <div class="red" [ngStyle]="{'color': category.available?'white':'red'}">
             Coming Soon
           </div>
         </ion-col>

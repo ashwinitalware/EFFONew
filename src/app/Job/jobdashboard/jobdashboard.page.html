@@ -8,8 +8,8 @@
 </ion-header>
 
 <ion-content>
-  <div class="px-4 mt-4 flex">
-    <div class="flex-1 mr-4 bg-white rounded-lg shadow-md">
+  <div class="px-4 mt-4 ">
+    <div class=" bg-white rounded-lg shadow-md">
       <ion-input
         placeholder="Search by skills"
         id="search"
@@ -25,13 +25,15 @@
         <ion-icon name="location-outline" style="margin-left: 7px"></ion-icon>
       </ion-input>
     </div>
-    <button
-      [routerLink]="'/joblist/'+(this.jobService.jobQuery||'any')+'/'+this.jobService.jobCity"
-      class="bg-red text-white text-center shadow-md px-4 rounded-lg shadow-md"
-    >
-      Search
-    </button>
-  </div>
+  
+    <ion-button expand="block" class="mt-4"
+    [routerLink]="'/joblist/'+(this.jobService.jobQuery||'any')+'/'+this.jobService.jobCity"
+   
+  >
+    Search
+  </ion-button >
+  </div>   
+
   <div style="" class="px-4 pt-4 pb-2">
     <ion-label>Job Categories</ion-label>
   </div>

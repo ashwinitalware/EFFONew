@@ -116,6 +116,10 @@ export class ApplyPage implements OnInit {
     if (this.jobApplied) {
       return;
     }
+
+    if(!this.dataService.profile.resume)
+    return this.dataService.presentToast('Upload Resume First')
+
     if (this.jobApplied === false) {
       this.http
         .post(this.dataService.apiUrl + 'job-applications', {

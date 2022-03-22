@@ -32,7 +32,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     // canDeactivate: [LoginGuard],
-    // canActivate: [!LoginGuard],
+    canActivate: [LoginGuard],
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardPageModule),
   },

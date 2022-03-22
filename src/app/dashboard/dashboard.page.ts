@@ -105,6 +105,9 @@ export class DashboardPage implements OnInit {
       return;
     }
 
+
+    // if its a job. then check if the profile is complete
+
     this.router.navigate(['/' + category.link]);
   }
   ngOnInit() {}

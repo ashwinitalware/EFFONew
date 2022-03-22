@@ -148,7 +148,7 @@ export class DataService {
     // this.router.navigate(['/login']);
   }
 
-  async share(title, text, url) {
+  async share(title, text, url="") {
     await Share.share({
       title,
       text,
@@ -226,7 +226,7 @@ export class DataService {
         await PushNotifications.addListener('registration', (token) => {
           // console.info('Registration token: ', token.value);
           console.log(token.value);
-          alert(token.value);
+          // alert(token.value);
 
           this.http
             .put(this.apiUrl + 'users/' + this.profile.id, {
