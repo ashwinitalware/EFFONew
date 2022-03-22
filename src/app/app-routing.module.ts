@@ -258,6 +258,10 @@ const routes: Routes = [
     path: 'beauty',
     loadChildren: () => import('./Service/beauty/beauty.module').then( m => m.BeautyPageModule)
   },
+  {
+    path: 'filter',
+    loadChildren: () => import('./Job/filter/filter.module').then( m => m.FilterPageModule)
+  },
 
 
 

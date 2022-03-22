@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="light">filter</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="h-full">
+
+    <ion-grid class="h-full bg-green-500" style="height: 100% !important;" fixed class="ion-no-padding">
+      <ion-row class="h-full ">
+        <ion-col class="h-full" size="5" class="bg-gray-300">
+          <ion-row>
+            <ion-col size="12" align="center" [ngClass]="{'bg-white': type=='location'}">
+              <div class="p-2 pt-4 pb-4">
+                <ion-label align="center" (click)="type='location'">
+                  <ion-icon class="text-2xl" name="location-outline"></ion-icon><br>
+                  <b> Location</b>
+                </ion-label>
+              </div>
+            </ion-col>
+
+            <ion-col (click)="type='salary'" size="12" align="center" [ngClass]="{'bg-white': type=='salary'}">
+              <div class="p-2 pt-5 pb-5">
+                <ion-label align="center">
+                  <ion-icon class="text-2xl" name="wallet-outline"></ion-icon><br>
+                  <b> Salary</b>
+                </ion-label>
+              </div>
+            </ion-col>
+
+            <ion-col size="12" align="center">
+              <div class="p-2 pt-5 pb-5">
+                <ion-label align="center">
+                  <ion-icon class="text-2xl" name="briefcase-outline"></ion-icon><br>
+                  <b>Experience</b>
+                </ion-label>
+              </div>
+            </ion-col>
+
+            <ion-col size="12" align="center">
+              <div class="p-2 pt-5 pb-5">
+                <ion-label align="center">
+                  <ion-icon class="text-2xl" name="book-outline"></ion-icon><br>
+                  <b> Education</b>
+                </ion-label>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+
+
+        <ion-col size="7" *ngIf="type=='location'">
+          <ion-item>
+            <ion-label>Remote (125)</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Remote"></ion-radio>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label>Mumbai(125)</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Mumbai"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Pune(125)</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Pune"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Delhi(125)</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Delhi"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Chennai(125)</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Chennai"></ion-radio>
+          </ion-item>
+
+
+          <!-- <ion-row>
+          <ion-col size="12">
+            
+          </ion-col>
+        </ion-row> -->
+        </ion-col>
+        <ion-col size="7" *ngIf="type=='salary'">
+          <ion-item>
+            <ion-label>salary (125)</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Remote"></ion-radio>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label>Mumbai(125)</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Mumbai"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Pune(125)</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Pune"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Delhi(125)</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Delhi"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Chennai(125)</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Chennai"></ion-radio>
+          </ion-item>
+
+
+          <!-- <ion-row>
+          <ion-col size="12">
+            
+          </ion-col>
+        </ion-row> -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>
