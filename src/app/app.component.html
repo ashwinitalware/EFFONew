@@ -8,20 +8,14 @@
       <div class="p-4">
         <div>
           <div class="flex py-4">
-            <input
-            type="file"
-            class="hidden"
-            #fileUpload2
-            (change)="handleFileInput($event)"
-          />
-            <div   (click)="fileUpload2.click()" *ngIf="!this.dataService.profile.profileImage"
-              class="bg-gray-300 w-16 h-16 rounded-full flex items-center justify-center text-gray-500"
-            >
+            <input type="file" class="hidden" #fileUpload2 (change)="handleFileInput($event)" />
+            <div (click)="fileUpload2.click()" *ngIf="!this.dataService.profile.profileImage"
+              class="bg-gray-300 w-16 h-16 rounded-full flex items-center justify-center text-gray-500">
               <ion-icon class="text-3xl" name="person"></ion-icon>
             </div>
-            <div class="w-16 h-16 rounded-full "  *ngIf="this.dataService.profile.profileImage" >
-            <img   (click)="fileUpload2.click()" src="{{this.dataService.profile.profileImage}}" alt="">
-          </div>
+            <div class="w-16 h-16 rounded-full " *ngIf="this.dataService.profile.profileImage">
+              <img (click)="fileUpload2.click()" src="{{this.dataService.profile.profileImage}}" alt="">
+            </div>
             <div class="pl-4">
               <div class="text-xl font-bold text-gray-800">
                 {{ this.dataService.profile.fullName | titlecase }}
@@ -29,10 +23,7 @@
               <div class="text-sm text-gray-600">
                 {{ this.dataService.profile.phone }}
               </div>
-              <div
-                class="flex items-center text-sm font-bold red"
-                (click)="edit()"
-              >
+              <div class="flex items-center text-sm font-bold red" (click)="edit()">
                 Edit Profile
                 <!-- <ion-icon name="create"></ion-icon> -->
               </div>
@@ -48,13 +39,10 @@
         </div>
 
         <div>
-          <div
-            class="flex items-center rounded-md p-2 text-lg mt-2"
-            *ngFor="let item of this.dataService.drawer; let i = index"
-            [ngClass]="{ 'bg-red text-white': item.active }"
-            (click)="itemClicked(item)"
-          >
-            <ion-icon class="text-xl" name="{{ item.icon }}"></ion-icon>
+          <div class="flex items-center rounded-md p-2 text-sm mt-2"
+            *ngFor="let item of this.dataService.drawer; let i = index" [ngClass]="{ 'bg-red text-white': item.active }"
+            (click)="itemClicked(item)">
+            <ion-icon class="text-lg" name="{{ item.icon }}"></ion-icon>
             <div class="pl-2">{{ item.title }}</div>
           </div>
         </div>
