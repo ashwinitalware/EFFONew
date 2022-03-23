@@ -11,7 +11,7 @@ import qs from 'qs';
   styleUrls: ['./jobdashboard.page.scss'],
 })
 export class JobdashboardPage implements OnInit {
-  sliceValue = 4;
+  sliceValue = 3;
   temp = 'IT Industry';
   commonFilter = {
     expiry: {
@@ -159,7 +159,7 @@ export class JobdashboardPage implements OnInit {
   //   this.slider.stopAutoplay();
   // }
 
-  ngOnInit() {}
+  ngOnInit() { }
   jobDetails(job) {
     this.navCtrl.navigateForward(['/jobdetails/' + job.id]);
   }

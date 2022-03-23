@@ -8,25 +8,20 @@
 </ion-header>
 
 <ion-content>
-  <div class="flex justify-between items-center pt-4 px-4">
-    <div class="pl-4">
-      {{totalJobs}} Jobs Found
+  <div class="flex justify-between items-center pt-3 px-4">
+    <div class="pl-2">
+      <b> {{totalJobs}} Jobs Found</b>
       <!-- {{currentPage}} {{totalPage}} -->
     </div>
-    <ion-button color="dark" fill="outline" (click)="showFilterModal=true"
-      >Filters</ion-button
-    >
+    <!-- <ion-button color="dark" fill="outline" (click)="showFilterModal=true">Filters</ion-button> -->
   </div>
-  <div *ngIf="noJobsFound" class="font-bold text-center text-lg mt-4">
+  <div *ngIf="noJobsFound" class="font-bold text-center text-lg mt-3">
     No Jobs Found
   </div>
+
   <div class="px-4" *ngIf="!noJobsFound">
-    <div
-      class="primary-card bg-white p-4 mt-4"
-      style="width: 100%"
-      *ngFor="let job of this.jobs"
-      (click)="jobDetails(job)"
-    >
+    <div class=" bg-white p-4 mt-2 rounded-md" style="width: 100%" *ngFor="let job of this.jobs"
+      (click)="jobDetails(job)">
       <div class="flex">
         <div class="flex-1 text-black text-left text-base font-bold">
           {{job.attributes.title|titlecase}}
@@ -39,10 +34,7 @@
       <div class="text-sm text-gray-600">
         ₹ {{job.attributes.salaryFrom}} - ₹ {{job.attributes.salaryUpto}}
       </div>
-      <span
-        class="text-black text-sm font-bold text-gray-700"
-        *ngIf="job.attributes.jobCategory.data"
-      >
+      <span class="text-black text-sm font-bold text-gray-700" *ngIf="job.attributes.jobCategory.data">
         {{job.attributes.type|titlecase}}
       </span>
       |
@@ -50,33 +42,49 @@
         {{job.attributes.jobCategory.data.attributes.name}}
       </span>
 
-      <div
-        class="text-sm flex items-center mt-2"
-        *ngIf="job.attributes.author.data"
-      >
+      <div class="text-sm flex items-center mt-2" *ngIf="job.attributes.author.data">
         <ion-icon name="podium" class="text-blue-500"></ion-icon>
         &nbsp;
 
         <!-- {{(job.attributes.author.data.attributes.companyName||"Company Name")|titlecase}} -->
-        <span
-          *ngIf="job.attributes.author.data && job.attributes.author.data.attributes.job_profile.data"
-        >
+        <span *ngIf="job.attributes.author.data && job.attributes.author.data.attributes.job_profile.data">
           {{(job.attributes.author.data.attributes.job_profile.data.attributes.companyName||"Company
           Name")|titlecase}}
         </span>
       </div>
-      <div class="text-sm flex items-center">
+
+      <div class="flex justify-start">
+        <div class="pr-2">
+          <div class="text-sm flex items-center">
+            <ion-icon name="briefcase" class="text-green-600"></ion-icon>&nbsp;
+            {{job.attributes.experience}}
+          </div>
+        </div>
+        <div>
+          <div class="text-sm flex items-center">
+            <ion-icon name="location" class="text-red-600"></ion-icon>&nbsp;
+            {{job.attributes.city|titlecase}}
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <div class="text-sm flex items-center">
         <ion-icon name="location" class="text-green-600"></ion-icon>&nbsp;
         {{job.attributes.experience}}
-      </div>
+      </div> -->
+
       <div class="text-sm flex items-center">
-        <ion-icon name="location" class="text-green-600"></ion-icon>&nbsp;
+        <ion-icon name="rocket" class="text-blue-600"></ion-icon>&nbsp;
         {{job.attributes.skillsByComma|titlecase}}
       </div>
-      <div class="text-sm flex items-center">
+
+      <!-- <div class="text-sm flex items-center">
         <ion-icon name="location" class="text-green-600"></ion-icon>&nbsp;
         {{job.attributes.city|titlecase}}
-      </div>
+      </div> -->
+
+
       <div class="text-sm flex items-center">
         <ion-icon name="people" class="text-yellow-500"></ion-icon>&nbsp;
         {{job.attributes.vacancies}} Vacancies
@@ -84,7 +92,7 @@
 
       <div class="flex">
         <!-- <ion-button
-          color="dark"
+          color="tertiary"
           (click)="call(job)"
           class="flex-1"
           size="small"
@@ -121,62 +129,34 @@
         <!-- size="small" -->
         <!-- fill="outline" -->
       </div>
+
       <div class="text-right red">
-        <ion-button color="dark" fill="clear" class="flex-1 mt-2"
-          >Apply Now</ion-button
-        >
+        <ion-button color="dark" fill="clear" class="flex-1 mt-2 bg-white text-sm"><b>Apply Now</b>
+        </ion-button>
       </div>
     </div>
   </div>
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
-    <ion-infinite-scroll-content
-      loadingSpinner="bubbles"
-      loadingText="Loading more data..."
-    >
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
   <!-- <ion-modal [isOpen]="isModalOpen"> -->
-  <ion-modal
-    [isOpen]="showFilterModal"
-    [initialBreakpoint]="0.4"
-    (didDismiss)="showFilterModal=false"
-  >
+  <ion-modal [isOpen]="showFilterModal" [initialBreakpoint]="0.4" (didDismiss)="showFilterModal=false">
     <ng-template>
       <div class="p-4">
         <div>Filter</div>
         <div>
-          <ion-button
-            (click)="apply()"
-            color="dark"
-            expand="block"
-            fill="{{this.jobService.jobFilters.type==''?'solid':'outline'}}"
-            class="flex-1 mt-2"
-            >Any</ion-button
-          >
-          <ion-button
-            (click)="apply('fullTime')"
-            expand="block"
-            color="dark"
-            fill="{{this.jobService.jobFilters.type=='fullTime'?'solid':'outline'}}"
-            class="flex-1 mt-2"
-            >Full Time</ion-button
-          >
-          <ion-button
-            (click)="apply('partTime')"
-            expand="block"
-            color="dark"
-            fill="{{this.jobService.jobFilters.type=='partTime'?'solid':'outline'}}"
-            class="flex-1 mt-2"
-            >Part Time</ion-button
-          >
-          <ion-button
-            (click)="apply('freelance')"
-            expand="block"
-            color="dark"
-            fill="{{this.jobService.jobFilters.type=='freelance'?'solid':'outline'}}"
-            class="flex-1 mt-2"
-            >Freelance</ion-button
-          >
+          <ion-button (click)="apply()" color="dark" expand="block"
+            fill="{{this.jobService.jobFilters.type==''?'solid':'outline'}}" class="flex-1 mt-2">Any</ion-button>
+          <ion-button (click)="apply('fullTime')" expand="block" color="dark"
+            fill="{{this.jobService.jobFilters.type=='fullTime'?'solid':'outline'}}" class="flex-1 mt-2">Full Time
+          </ion-button>
+          <ion-button (click)="apply('partTime')" expand="block" color="dark"
+            fill="{{this.jobService.jobFilters.type=='partTime'?'solid':'outline'}}" class="flex-1 mt-2">Part Time
+          </ion-button>
+          <ion-button (click)="apply('freelance')" expand="block" color="dark"
+            fill="{{this.jobService.jobFilters.type=='freelance'?'solid':'outline'}}" class="flex-1 mt-2">Freelance
+          </ion-button>
         </div>
       </div>
       <!-- filters -->
@@ -184,6 +164,12 @@
     </ng-template>
   </ion-modal>
 </ion-content>
+
+<ion-fab horizontal="end" vertical="bottom" slot="fixed" (click)="showFilterModal=true">
+  <ion-fab-button class="text-2xl" color="danger">
+    <ion-icon color="light" name="funnel"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 
 <!-- <div class="pt-2 pl-4">
   <ion-label>All Roles</ion-label>

@@ -292,7 +292,7 @@ export class JoblistPage implements OnInit {
     );
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
   jobDetails(job) {
     this.navCtrl.navigateForward(['/jobdetails/' + job.id]);
   }

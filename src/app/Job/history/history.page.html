@@ -10,26 +10,21 @@
 <ion-content>
   <div class="p-3">
     <!-- routerLink="/software-deatils" -->
-    <div
-      (click)="jobDetails(application)"
-      class="div1 p-4 mb-4"
-      *ngFor="let application of data"
-    >
-      <ion-label class=""
-        >{{application.attributes.jobPost.data.attributes.title|titlecase}}</ion-label
-      >
+    <div (click)="jobDetails(application)" class="div1 p-3 mb-2  shadow-lg border-b-2 border-black "
+      *ngFor="let application of data">
+      <ion-label class=""><b>{{application.attributes.jobPost.data.attributes.title|titlecase}}</b></ion-label>
       <p class="">
         {{application.attributes.jobPost.data.attributes.companyName|titlecase}}
       </p>
       <div class="flex items-center mt-2">
-        <ion-icon name="time-outline"></ion-icon> &nbsp;
+        <ion-icon name="time" class="text-indigo-600"></ion-icon> &nbsp;
         <span>Applied on {{application.attributes.createdAt|date}}</span>
       </div>
 
-      <div class="mt-4">
-        <span
-          class="{{statusToClass(application.attributes.status)}} rounded-full p-2 text-sm "
-        >
+      <div class="flex items-center mt-2">
+        <ion-icon name="checkmark-circle" class="text-green-500"></ion-icon>
+        &nbsp;
+        <span class="{{statusToClass(application.attributes.status)}} rounded-full p-1 text-sm ">
           <!-- <ion-icon style="font-size: 1em" name="checkmark-circle"></ion-icon
           >&nbsp; -->
           {{application.attributes.status|uppercase}}
