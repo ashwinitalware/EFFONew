@@ -11,14 +11,12 @@
 
 <ion-content>
   <ion-row class="pl-2 pr-2 pt-3">
-    <div
-      style="
+    <div style="
         width: 100%;
         background-color: white;
         border-radius: 10px;
         border: 1px solid rgb(211, 211, 211);
-      "
-    >
+      ">
       <ion-input placeholder="Search In All India" id="search">
         <ion-icon name="search" style="margin-left: 7px"></ion-icon>
       </ion-input>
@@ -32,21 +30,10 @@
   <div style="background-color: white; border-radius: 5px; margin-top: 3%">
     <ion-grid fixed>
       <ion-row class="small_text">
-        <ion-col
-          *ngFor="let category  of categories"
-          size="3"
-          align="center"
-          (click)="navigateCategory(category)"
-          class="flex justify-center flex-col"
-        >
-          <div
-            class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center"
-          >
-            <ion-icon
-              *ngIf="category.icon"
-              name="{{category.icon}}"
-              class="text-xl"
-            ></ion-icon>
+        <ion-col *ngFor="let category  of categories" size="3" align="center" (click)="navigateCategory(category)"
+          class="flex justify-center flex-col">
+          <div class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center">
+            <ion-icon *ngIf="category.icon" name="{{category.icon}}" class="text-xl"></ion-icon>
           </div>
           <!-- <img src="assets/D2.png" alt="" /><br /> -->
           <div class="truncate mt-2">{{category.name}}</div>
@@ -58,20 +45,13 @@
     </ion-grid>
   </div>
 
-  <div
-    style="
+  <div style="
       background-color: white;
       border-radius: 5px;
       margin-top: 2%;
       padding: 5px;
-    "
-  >
-    <ion-slides
-      #slider
-      loop="true"
-      [options]="slideOpts"
-      (ionSlideTouchEnd)="slideChanged()"
-    >
+    ">
+    <ion-slides #slider loop="true" [options]="slideOpts" (ionSlideTouchEnd)="slideChanged()">
       <ion-slide>
         <ion-card style="border-radius: 5px">
           <img src="assets/slider-3.jpg" />
@@ -108,15 +88,13 @@
     <ion-label>Popular Ads</ion-label>
   </div>
 
-  <div
-    style="
+  <div style="
       background-color: white;
       border-radius: 5px;
       margin-top: 2%;
       padding: 5px;
       margin-bottom: 20%;
-    "
-  >
+    ">
     <ion-slides #slider loop="true" [options]="slideOptss">
       <ion-slide>
         <ion-card class="adds-card">
@@ -166,6 +144,6 @@
   </div>
 
   <div align="center">
-    <img src="assets/ft.png" alt="" width="40%" height="40%" />
+    <img src="assets/ft.png" alt="" width="35%" height="35%" />
   </div>
 </ion-content>
