@@ -58,6 +58,13 @@ export class JobdashboardPage implements OnInit {
     slidesPerView: 1.5,
   };
 
+  slider: any;
+  slideOpts = {
+    initialSlide: 0,
+    slidesPerView: 1,
+    autoplay: true,
+  };
+
   switchTab = 'job';
   constructor(
     public jobService: JobService,
@@ -74,6 +81,10 @@ export class JobdashboardPage implements OnInit {
   segmentChanged(ev: any) {
     this.switchTab = ev.detail.value;
     console.log('Segment changed', ev);
+  }
+
+  slideChanged() {
+    this.slider.stopAutoplay(); //this code for slide after page change
   }
 
   viewAll(category) {
