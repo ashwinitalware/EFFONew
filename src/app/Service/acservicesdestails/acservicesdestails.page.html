@@ -1,0 +1,346 @@
+<ion-content>
+  <div>
+    <img src="assets/services/c11.jpg" />
+    <div style="z-index:1000; position:absolute; margin-top:-44%; margin-left: 5px; " routerLink="/electronicsservices">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white " fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+    </div>
+  </div>
+
+  <div class=" bg-white shadow-md rounded-md ">
+    <p class="text-lg text-black font-semibold ml-2"> Air Conditioner <span style="padding-left: 35%;">
+
+        <button
+          class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mt-4 border-gray-200 hover:gray-400 ">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-5 text-black" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <span class="text-xs text-black">UC Safe</span>
+        </button>
+
+        <!-- <ion-button routerLink="" class="p-2 px-1 py-1 rounded-m font-semibold">
+              <ion-icon name="shield-checkmark"></ion-icon> UC Safe
+          </ion-button> -->
+      </span>
+    </p>
+
+    <p class="text-gray-800  text-sm ml-2 ">
+      <ion-icon class=" text-sm" name="star"></ion-icon> 4.78(826k)
+    </p>
+
+    <p class="ml-2 text-sm text-gray-800">
+      <ion-icon class=" text-sm" name="clipboard"></ion-icon> 1,207 bookings this year in Bharat Nagar
+    </p>
+
+    <div>
+      <ion-slides class="slider" [options]="slideOptions" pager="false" #slider
+        (ionSlidesDidLoad)="slidesDidLoad(slider)">
+        <ion-slide class="pl-2">
+          <ion-card class="w-full mr-40">
+            <p class="pl-1 mt-2 pr-1 text-xs">
+              <ion-icon class="text-green-600" name="bookmark"></ion-icon>
+              Get free repair visits
+            </p>
+            <p class="pl-5  mb-2 text-xs">Get Plus now</p>
+          </ion-card>
+
+        </ion-slide>
+        <ion-slide class="pl-2">
+
+          <ion-card class="w-full mr-40">
+            <p class="pl-1 mt-2 pr-1 text-xs">
+              <ion-icon class="text-green-600" name="bookmark"></ion-icon>
+              Get upto ₹250 cashback
+            </p>
+            <p class="pl-5  mb-2 text-xs">Valid on Mobikwik Wallet</p>
+          </ion-card>
+
+        </ion-slide>
+        <ion-slide class="pl-2">
+
+          <ion-card class="w-full mr-40">
+            <p class="pl-1 mt-2 pr-1 text-xs">
+              <ion-icon class="text-green-600" name="pricetag"></ion-icon>
+              Get 10% off upto ₹100
+            </p>
+            <p class="pl-5  mb-2 text-xs">On CRED Pay</p>
+          </ion-card>
+
+        </ion-slide>
+
+        <ion-slide class="pl-2">
+
+          <ion-card class="w-full mr-40">
+            <p class="pl-1 mt-2 pr-1 text-xs">
+              <ion-icon class="text-green-600" name="bookmark"></ion-icon>
+              Upto ₹200 cashback
+            </p>
+            <p class="pl-5  mb-2 text-xs">On Amazon Pay wallet</p>
+          </ion-card>
+
+        </ion-slide>
+        <ion-slide class="pl-2">
+
+          <ion-card class="w-full mr-40">
+            <p class="pl-1 mt-2 pr-1 text-xs">
+              <ion-icon class="text-green-600" name="bookmark"></ion-icon>
+              10% off on HSBC
+            </p>
+            <p class="pl-5  mb-2 text-xs">Upto ₹150 | Use HSBCUC10 </p>
+          </ion-card>
+
+        </ion-slide>
+
+        <ion-slide class="pl-2">
+
+          <ion-card class="w-full mr-40">
+            <p class="pl-1 mt-2 pr-1 text-xs">
+              <ion-icon class="text-green-600" name="pricetag"></ion-icon>
+              Upto ₹200 cashback
+            </p>
+            <p class="pl-5  mb-2 text-xs">On Amazon Pay wallet & Postpaid</p>
+          </ion-card>
+
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+  </div>
+
+  <div class="mt-3 bg-white p-2 shadow-md rounded-md ">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <img class="rounded-md   border-solid border-2 border-gray-200 hover:border-pink-500"
+            src="assets/services/aa2.jpg" />
+          <p class="text-gray-800 text-sm">Service</p>
+        </ion-col>
+
+        <ion-col size="4">
+          <img class="rounded-md   border-solid border-2 border-gray-200 hover:border-pink-500"
+            src="assets/services/aa4.jpg" />
+          <p class="text-gray-800 text-sm">Repair</p>
+        </ion-col>
+
+        <ion-col size="4">
+          <img class="rounded-md   border-solid border-2 border-gray-200 hover:border-pink-500"
+            src="assets/services/aa3.jpeg" />
+          <p class="text-gray-800 text-sm">Installation & Uninstallation</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+  <div class="mt-3 bg-white p-2 shadow-md rounded-md ">
+    <p class="text-lg text-black font-semibold pt-3 pl-2">Service</p>
+
+    <ion-grid>
+      <ion-row class="border-b-2 border-gray-500">
+        <ion-col size="8">
+          <p class="text-green-600 text-xs pt-2">BESTSELLER</p>
+          <p class="text-base text-black font-semibold">Deep clean AC service(window)</p>
+          <p class="text-gray-600 text-sm">
+            <ion-icon name="star"></ion-icon> 4.71(1.6k)
+          </p>
+          <p> <span class="text-sm font-semibold ">₹399</span> &nbsp; <span
+              class="text-sm "><del>₹499</del></span>&nbsp; <span class="text-xs ">
+              <ion-icon class="text-xs" name="ellipse"></ion-icon> 45 mins
+            </span> </p>
+          <p class="text-gray-800 text-sm border-b-2 border-dotted border-gray-500 pb-3">
+            <ion-icon class="text-green-800" name="pricetag"></ion-icon> ₹100 off
+          </p>
+          <p class="text-gray-800 text-sm pt-3">
+            <ion-icon class="text-xs text-black " name="ellipse"></ion-icon> Get 2x deeper dust removal with unique foam
+            jet technology
+          </p>
+          <p class="text-gray-800 text-sm pb-4">
+            <ion-icon class="text-xs text-black " name="ellipse"></ion-icon> Recommended for ACs serviced more than 6
+            months ago
+          </p>
+        </ion-col>
+
+
+        <ion-col size="4">
+          <img class="rounded-md   border-solid border-2 border-gray-200 hover:border-pink-500"
+            src="assets/services/aa4.jpg" />
+          <button style="z-index:1000; position:absolute; margin-top:-10%; margin-left: 12%;"
+            class=" bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mt-4 border-gray-200 hover:gray-400 ">
+
+            <span class="text-xs text-purple-800 ">Add</span>
+          </button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="pt-4 border-b-2 border-gray-500">
+        <ion-col size="8">
+          <p class="text-green-600 text-xs ">BESTSELLER</p>
+          <p class="text-base text-black font-semibold">Deep clean AC service(split)</p>
+          <p class="text-gray-600 text-sm">
+            <ion-icon name="star"></ion-icon> 4.80(428.7k)
+          </p>
+          <p> <span class="text-sm font-semibold ">₹499</span> &nbsp; <span
+              class="text-sm "><del>₹599</del></span>&nbsp; <span class="text-xs ">
+              <ion-icon class="text-xs" name="ellipse"></ion-icon> 45 mins
+            </span> </p>
+          <p class="text-gray-800 text-sm border-b-2 border-dotted border-gray-500 pb-3">
+            <ion-icon class="text-green-800" name="pricetag"></ion-icon> ₹100 off
+          </p>
+          <p class="text-gray-800 text-sm pt-3">
+            <ion-icon class="text-xs text-black " name="ellipse"></ion-icon> Get 2x deeper dust removal with unique foam
+            jet technology
+          </p>
+          <p class="text-gray-800 text-sm">
+            <ion-icon class="text-xs text-black " name="ellipse"></ion-icon> Recommended for ACs serviced more than 6
+            months ago
+          </p>
+        </ion-col>
+        <ion-col size="4">
+          <img class="rounded-md   border-solid border-2 border-gray-200 hover:border-pink-500"
+            src="assets/services/aa3.jpeg" />
+          <button style="z-index:1000; position:absolute; margin-top:-10%; margin-left: 12%;"
+            class=" bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mt-4 border-gray-200 hover:gray-400 ">
+
+            <span class="text-xs text-purple-800 ">Add</span>
+          </button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="pt-4">
+        <ion-col size="8">
+          <p class="text-green-600 text-xs ">BESTSELLER</p>
+          <p class="text-base text-black font-semibold"> Life AC service(split)</p>
+          <p class="text-gray-600 text-sm">
+            <ion-icon name="star"></ion-icon> 4.80(428.7k)
+          </p>
+          <p> <span class="text-sm font-semibold ">₹499</span> &nbsp; <span
+              class="text-sm "><del>₹599</del></span>&nbsp; <span class="text-xs ">
+              <ion-icon class="text-xs" name="ellipse"></ion-icon> 45 mins
+            </span> </p>
+          <p class="text-gray-800 text-sm border-b-2 border-dotted border-gray-500 pb-3">
+            <ion-icon class="text-green-800" name="pricetag"></ion-icon> ₹100 off
+          </p>
+          <p class="text-gray-800 text-sm pt-3">
+            <ion-icon class="text-xs text-black " name="ellipse"></ion-icon> Get 2x deeper dust removal with unique foam
+            jet technology
+          </p>
+          <p class="text-gray-800 text-sm">
+            <ion-icon class="text-xs text-black " name="ellipse"></ion-icon> Recommended for ACs serviced more than 6
+            months ago
+          </p>
+        </ion-col>
+        <ion-col size="4">
+          <img class="rounded-md   border-solid border-2 border-gray-200 hover:border-pink-500"
+            src="assets/services/aa4.jpg" />
+          <button style="z-index:1000; position:absolute; margin-top:-10%; margin-left: 12%;"
+            class=" bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mt-4 border-gray-200 hover:gray-400 ">
+
+            <span class="text-xs text-purple-800 ">Add</span>
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+  </div>
+
+
+  <div class="bg-white mt-4 p-2 shadow-md rounded-md">
+    <p class="text-lg text-black font-semibold pb-4">Repair</p>
+    <img class="rounded-md" src="assets/services/eee3.jpeg" />
+    <p class="text-base text-black font-semibold pt-2">AC repair (window/split)
+      <span class="pl-24">
+        <ion-button color="light font-semibold" routerLink="" class="p-3 px-1 py-1 rounded-m">
+          Add
+        </ion-button>
+      </span>
+    </p>
+
+    <p class="text-gray-800 text-sm">
+      <ion-icon name="star"></ion-icon> 4.80(4.7k)
+    </p>
+    <p class="font-medium text-black border-dotted border-b-2 border-gray-500 mb-3 mt-2 pb-4">Starts at ₹299 </p>
+    <p class="text-gray-800 text-sm">
+      <ion-icon class="text-xs text-black" name="ellipse"></ion-icon>
+      The classic look that never fails to impress for any occasion
+    </p>
+    <p class="text-gray-800 text-sm  border-b-2 border-gray-500 mb-3 mt-2 pb-4">
+      <ion-icon class="text-xs text-black" name="ellipse"></ion-icon>
+      Perfect for days when you want to glam up without spending a lot of time
+    </p>
+  </div>
+
+  <div class="bg-white mt-4 p-2 shadow-md rounded-md">
+    <p class="text-lg text-black font-semibold pb-4">Installation & Uninstallation</p>
+    <img class="rounded-md" src="assets/services/eee3.jpeg" />
+    <p class="text-base text-black font-semibold pt-2"> Installation(window/split)
+      <span class="pl-24">
+        <ion-button color="light font-semibold" routerLink="" class="p-3 px-1 py-1 rounded-m">
+          Add
+        </ion-button>
+      </span>
+    </p>
+
+    <p class="text-gray-800 text-sm">
+      <ion-icon name="star"></ion-icon> 4.80(4.7k)
+    </p>
+    <p class="font-medium text-black border-dotted border-b-2 border-gray-500 mb-3 mt-2 pb-4">Starts at ₹299 </p>
+    <p class="text-gray-800 text-sm">
+      <ion-icon class="text-xs text-black" name="ellipse"></ion-icon>
+      The classic look that never fails to impress for any occasion
+    </p>
+    <p class="text-gray-800 text-sm  border-b-2 border-gray-300 mb-3 mt-2 pb-4">
+      <ion-icon class="text-xs text-black" name="ellipse"></ion-icon>
+      Perfect for days when you want to glam up without spending a lot of time
+    </p>
+    <ion-grid>
+      <ion-row class="pt-3">
+        <ion-col size="8">
+
+          <p class="text-base text-black font-semibold"> Uninstallation (window/split)</p>
+          <p class="text-gray-600 text-sm">
+            <ion-icon name="star"></ion-icon> 4.80(428.7k)
+          </p>
+          <p> <span class="text-sm font-semibold ">₹499</span> &nbsp; <span
+              class="text-sm "><del>₹599</del></span>&nbsp; <span class="text-xs ">
+              <ion-icon class="text-xs" name="ellipse"></ion-icon> 45 mins
+            </span> </p>
+          <p class="text-gray-800 text-sm border-b-2 border-dotted border-gray-500 pb-3">
+            <ion-icon class="text-green-800" name="pricetag"></ion-icon> ₹100 off
+          </p>
+          <p class="text-gray-800 text-sm pt-3">
+            <ion-icon class="text-xs text-black " name="ellipse"></ion-icon> Get 2x deeper dust removal with unique foam
+            jet technology
+          </p>
+
+        </ion-col>
+        <ion-col size="4">
+          <img class="rounded-md   border-solid border-2 border-gray-200 hover:border-pink-500"
+            src="assets/services/aa4.jpg" />
+          <button style="z-index:1000; position:absolute; margin-top:-10%; margin-left: 12%;"
+            class=" bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mt-4 border-gray-200 hover:gray-400 ">
+
+            <span class="text-xs text-purple-800 ">Add</span>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <div class=" font-semibold " style="text-align: center;" routerLink="/appointment">
+      <ion-button color="light font-semibold " class="px-1 py-1 ">
+        Book an Appointment
+      </ion-button>
+    </div>
+
+  </ion-toolbar>
+
+</ion-footer>

@@ -202,65 +202,99 @@ const routes: Routes = [
   {
     path: 'allshopcategories',
     loadChildren: () => import('./Shopping/allshopcategories/allshopcategories.module').then(m => m.AllshopcategoriesPageModule)
-  },  {
+  },
+  {
     path: 'mobile',
-    loadChildren: () => import('./Shopping/mobile/mobile.module').then( m => m.MobilePageModule)
+    loadChildren: () => import('./Shopping/mobile/mobile.module').then(m => m.MobilePageModule)
   },
   {
     path: 'mobiledetails',
-    loadChildren: () => import('./Shopping/mobiledetails/mobiledetails.module').then( m => m.MobiledetailsPageModule)
+    loadChildren: () => import('./Shopping/mobiledetails/mobiledetails.module').then(m => m.MobiledetailsPageModule)
   },
   {
     path: 'mycard',
-    loadChildren: () => import('./Shopping/mycard/mycard.module').then( m => m.MycardPageModule)
+    loadChildren: () => import('./Shopping/mycard/mycard.module').then(m => m.MycardPageModule)
   },
   {
     path: 'fashion',
-    loadChildren: () => import('./Shopping/fashion/fashion.module').then( m => m.FashionPageModule)
+    loadChildren: () => import('./Shopping/fashion/fashion.module').then(m => m.FashionPageModule)
   },
   {
     path: 'acservice',
-    loadChildren: () => import('./Service/acservice/acservice.module').then( m => m.AcservicePageModule)
+    loadChildren: () => import('./Service/acservice/acservice.module').then(m => m.AcservicePageModule)
   },
   {
     path: 'cart',
-    loadChildren: () => import('./Service/cart/cart.module').then( m => m.CartPageModule)
+    loadChildren: () => import('./Service/cart/cart.module').then(m => m.CartPageModule)
   },
   {
     path: 'pestcontrolservice',
-    loadChildren: () => import('./Service/pestcontrolservice/pestcontrolservice.module').then( m => m.PestcontrolservicePageModule)
+    loadChildren: () => import('./Service/pestcontrolservice/pestcontrolservice.module').then(m => m.PestcontrolservicePageModule)
   },
   {
     path: 'all-services',
-    loadChildren: () => import('./Service/all-services/all-services.module').then( m => m.AllServicesPageModule)
+    loadChildren: () => import('./Service/all-services/all-services.module').then(m => m.AllServicesPageModule)
   },
   {
     path: 'homecleaning',
-    loadChildren: () => import('./Service/homecleaning/homecleaning.module').then( m => m.HomecleaningPageModule)
+    loadChildren: () => import('./Service/homecleaning/homecleaning.module').then(m => m.HomecleaningPageModule)
   },
   {
     path: 'contractor',
-    loadChildren: () => import('./Service/contractor/contractor.module').then( m => m.ContractorPageModule)
+    loadChildren: () => import('./Service/contractor/contractor.module').then(m => m.ContractorPageModule)
   },
   {
     path: 'civilcontractor',
-    loadChildren: () => import('./Service/civilcontractor/civilcontractor.module').then( m => m.CivilcontractorPageModule)
+    loadChildren: () => import('./Service/civilcontractor/civilcontractor.module').then(m => m.CivilcontractorPageModule)
   },
   {
     path: 'reviews',
-    loadChildren: () => import('./Service/reviews/reviews.module').then( m => m.ReviewsPageModule)
+    loadChildren: () => import('./Service/reviews/reviews.module').then(m => m.ReviewsPageModule)
   },
   {
     path: 'appliancesrepairing',
-    loadChildren: () => import('./Service/appliancesrepairing/appliancesrepairing.module').then( m => m.AppliancesrepairingPageModule)
+    loadChildren: () => import('./Service/appliancesrepairing/appliancesrepairing.module').then(m => m.AppliancesrepairingPageModule)
   },
   {
     path: 'beauty',
-    loadChildren: () => import('./Service/beauty/beauty.module').then( m => m.BeautyPageModule)
+    loadChildren: () => import('./Service/beauty/beauty.module').then(m => m.BeautyPageModule)
   },
   {
     path: 'filter',
-    loadChildren: () => import('./Job/filter/filter.module').then( m => m.FilterPageModule)
+    loadChildren: () => import('./Job/filter/filter.module').then(m => m.FilterPageModule)
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('./Job/contact/contact.module').then(m => m.ContactPageModule)
+  },
+
+  {
+    path: 'acservicesdestails',
+    loadChildren: () => import('./Service/acservicesdestails/acservicesdestails.module').then(m => m.AcservicesdestailsPageModule)
+  },
+  {
+    path: 'bookappointment',
+    loadChildren: () => import('./Service/bookappointment/bookappointment.module').then(m => m.BookappointmentPageModule)
+  },
+  {
+    path: 'subservices',
+    loadChildren: () => import('./Service/subservices/subservices.module').then(m => m.SubservicesPageModule)
+  },
+  {
+    path: 'serviceslisting',
+    loadChildren: () => import('./Service/serviceslisting/serviceslisting.module').then(m => m.ServiceslistingPageModule)
+  },
+  {
+    path: 'servicedeatils',
+    loadChildren: () => import('./Service/servicedeatils/servicedeatils.module').then(m => m.ServicedeatilsPageModule)
+  },
+  {
+    path: 'share',
+    loadChildren: () => import('./share/share.module').then(m => m.SharePageModule)
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./Service/modal/modal.module').then(m => m.ModalPageModule)
   },
 
 

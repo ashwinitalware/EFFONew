@@ -1,0 +1,238 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons color="light" slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Air Conditioner </ion-title>
+    <ion-icon slot="end" color="light" class="text-lg pr-2" name="notifications-outline"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <img src="assets/services/e7.jpg" />
+  </div>
+
+  <div class="bg-white">
+    <div class="p-3">
+      <ion-label class="text-lg">Air Conditioner</ion-label><br>
+      <span class="text-sm">
+        <ion-icon class="text-gray-600 text-sm" name="star"></ion-icon> 4.78
+      </span><br>
+      <span class="text-sm">
+        <ion-icon class="text-gray-600 text-sm" name="checkbox"></ion-icon> 2056 booking in nagapur this year
+      </span>
+    </div>
+  </div>
+
+  <div class="bg-white mt-2">
+    <div class="p-3">
+      <ion-label class="text-lg">Address</ion-label><br>
+      <span class="text-sm">
+        <ion-icon class="text-gray-600 text-sm" name="location"></ion-icon> Near Dhayari phata,Dhayari,Pune 411041.
+      </span><br>
+      <span class="text-sm">
+        <ion-icon class="text-gray-600 text-sm" name="time"></ion-icon> 2 Hours : 9AM to 9PM
+      </span><br>
+      <span class="text-sm">
+        <ion-icon class="text-gray-600 text-sm" name="call"></ion-icon> +91 9851000000
+      </span><br>
+      <span class="text-sm">
+        <ion-icon class="text-gray-600 text-sm" name="globe"></ion-icon> www.nhjg.com
+      </span>
+    </div>
+  </div>
+
+  <div class="bg-white mt-2">
+    <div class="p-3">
+      <ion-label class="text-lg">About</ion-label><br>
+      <p class="text-sm">
+        Main contractor is responsible to find and hire right subcontractors
+        and individuals to complete the job. Main contractor with cooperation of subcontractors need to manage
+        equipment,
+        materials, and other services required for smooth flow of the
+        project.
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-white mt-2 pb-2">
+    <div class="pl-3 pt-3 pr-3 ">
+      <ion-label class="text-lg">Services</ion-label><br>
+      <p class="text-sm">
+        It includes tiling, bathroom renovation, breaking any walls,fixing the kitchen platform, electrical work, etc.
+        <!-- It is usually more messy and tedious compared to the other work such as furniture and kitchen. -->
+      </p>
+    </div>
+
+
+    <div class="bg-white mt-2">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="7">
+            <div>
+              <p class="ion-no-padding"><b>Deep clean AC service (window)</b>
+                <br> <span class="text-xs">
+                  <ion-icon class="text-green-500" name="pricetag"></ion-icon>&nbsp;30% Off 2nd service onwards
+                </span><br><span class="text-xs"> ₹ 645 &nbsp; - 45min
+                </span></p>
+            </div>
+          </ion-col>
+          <ion-col size="5">
+            <div class="pl-4">
+              <img class="rounded-md w-full border-solid border-2 border-gray-200" src="assets/services/e8.jpg" />
+              <!-- <div class="w-24 p-2" style="z-index: 1000; position: absolute; margin-left:5px; margin-top: -19%;"> -->
+              <div class="flex rounded-md bg-white border-gray-500 border-2" *ngIf="add1" (click)="add1=false">
+                <div class=" flex-grow  bg-white rounded-md text-gray-500 text-center py-1">
+                  -
+                </div>
+                <div class="flex-grow text-center py-1 ">
+                  1
+                </div>
+                <div class=" flex-grow text-gray-500 text-center py-1">
+                  +
+                </div>
+              </div>
+              <div class="rounded-md text-center" (click)="add1=true" *ngIf="!add1">
+                <div class="px-2 py-1 bg-white border-gray-500 border-2 rounded-md text-gray-800">
+                  ADD
+                </div>
+              </div>
+              <!-- </div> -->
+            </div>
+          </ion-col>
+        </ion-row>
+
+
+
+        <ion-row class="pt-3">
+          <ion-col size="7">
+            <div>
+              <p class="ion-no-padding"><b>Lite AC service (Split)</b>
+                <br> <span class="text-xs">
+                  <ion-icon class="text-green-500" name="pricetag"></ion-icon>&nbsp;30% Off 2nd service onwards
+                </span><br><span class="text-xs"> ₹ 645 &nbsp; - 45min
+                </span></p>
+            </div>
+          </ion-col>
+          <ion-col size="5">
+            <div class="pl-4">
+              <img class="rounded-md w-full border-solid border-2 border-gray-200" src="assets/services/e8.jpg" />
+              <!-- <div class="w-24 p-2" style="z-index: 1000; position: absolute; margin-left:5px; margin-top: -19%;"> -->
+              <div class="flex rounded-md bg-white border-gray-500 border-2" *ngIf="add" (click)="add=false">
+                <div class=" flex-grow  bg-white rounded-md text-gray-500 text-center py-1">
+                  -
+                </div>
+                <div class="flex-grow text-center py-1 ">
+                  1
+                </div>
+                <div class=" flex-grow text-gray-500 text-center py-1">
+                  +
+                </div>
+              </div>
+              <div class="rounded-md text-center" (click)="add=true" *ngIf="!add">
+                <div class="px-2 py-1 bg-white border-gray-500 border-2 rounded-md text-gray-800">
+                  ADD
+                </div>
+              </div>
+            </div>
+            <!-- </div> -->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <!-- <ion-grid fixed> -->
+    <!-- <ion-row class="pl-2 pr-2 border-b-2 border-gray-300">
+        <ion-col size="7">
+          <div>
+            <p class="ion-no-padding"><b>Deep clean AC service (window)</b>
+              <br> <span class="text-xs">
+                <ion-icon class="text-green-500" name="pricetag"></ion-icon>&nbsp;30% Off 2nd service onwards
+              </span><br><span class="text-xs"> ₹ 645 &nbsp; - 45min
+              </span></p>
+          </div>
+        </ion-col>
+        <ion-col size="5">
+          <div class="pl-4">
+            <img class="rounded-md w-full border-solid border-2 border-gray-200" src="assets/services/e7.jpg" />
+            <div align="center" class="w-24  text-center pl-4"
+              style="z-index: 1000; position: absolute; margin-left:5px; margin-top: -19%;">
+              <div class="flex rounded-md bg-white border-gray-500 border-2 " *ngIf="add" (click)="add=false">
+                <div class=" flex-grow  bg-white rounded-md text-gray-500 text-center py-1">
+                  -
+                </div>
+                <div class="flex-grow text-center py-1 ">
+                  1
+                </div>
+                <div class=" flex-grow text-gray-500 text-center py-1">
+                  +
+                </div>
+              </div>
+              <div class="rounded-md text-center" (click)="add=true" *ngIf="!add">
+                <div class="px-2 py-1 bg-white border-gray-500 border-2 rounded-md text-gray-800">
+                  ADD
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row> -->
+
+    <!-- </ion-grid> -->
+
+    <!-- <div class="flex justify-between pl-3 pr-3 pb-2">
+      <div>
+        <p><b>Deep clean AC service (window)</b></p><br>
+      </div>
+      <div class="pl-5">
+        <img class="rounded-md   border-solid border-2 border-gray-200 hover:border-pink-500"
+          src="assets/services/e7.jpg" width="50%" height="50%" />
+        <div class="w-24">
+          <div class="flex rounded-md  " *ngIf="add" (click)="add=false">
+            <div class=" flex-grow  bg-white border-gray-500 border-2 rounded-md text-red-600 text-center py-1">
+              -
+            </div>
+            <div class="flex-grow text-center py-1 ">
+              1
+            </div>
+            <div class=" flex-grow  bg-white border-gray-500 border-2 rounded-md text-red-600 text-center py-1">
+              +
+            </div>
+          </div>
+          <div class=" rounded-md text-center" (click)="add=true" *ngIf="!add">
+            <div class="px-4 py-1 bg-white border-gray-500 border-2 rounded-md text-gray-800">
+              ADD
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+  <div class="bg-white mt-2">
+    <div class="p-3">
+      <ion-label class="text-lg">Rating And Reviews</ion-label><br>
+      <p class="text-sm pt-2">
+        <ion-icon class="text-yellow-500" name="star"></ion-icon>
+        <ion-icon class="text-yellow-500" name="star"></ion-icon>
+        <ion-icon class="text-yellow-500" name="star"></ion-icon> 3.2
+      </p>
+      <ion-label class="text-lg" routerLink="/reviews">View Reviews<br></ion-label>
+      <p class="text-base pt-3 font-semibold">Give Rating And Reviews</p>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <div align="right" class="p-2 pr-4">
+    <button (click)="presentModal()" size="small" color="dark" shape="round"
+      class="bg-black p-2 rounded-sm text-white slide-left">
+      <ion-icon class="text-lg text-white" name="menu-outline"></ion-icon>&nbsp; Menu
+    </button>
+  </div>
+  <ion-toolbar routerLink="/bookappointment">
+    <ion-title class="text-center text-white text-sm">Book an Appointment</ion-title>
+  </ion-toolbar>
+</ion-footer>

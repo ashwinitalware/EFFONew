@@ -3,15 +3,8 @@
     <ion-buttons slot="start">
       <ion-back-button class="text-white"></ion-back-button>
     </ion-buttons>
-    <ion-title align="center" class="text-white">Electronic Services</ion-title>
-    <div slot="end">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
-        stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    </div>
+    <ion-title align="center" class="text-white">Appliances</ion-title>
+
     <div slot="end" class="pr-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
         stroke="currentColor">
@@ -23,25 +16,33 @@
 </ion-header>
 
 <ion-content>
+  <ion-row class="pl-2 pr-2 pt-3 pb-2">
+    <div style="width: 100%; background-color: white; border-radius: 10px; border: 1px solid rgb(211, 211, 211);">
+      <ion-input placeholder="Search" id="search">
+        <ion-icon name="search" style="margin-left: 7px;"></ion-icon>
+      </ion-input>
+    </div>
+  </ion-row>
+
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="3" routerLink="/contractor">
-        <img src="assets/services/e7.jpg" class="rounded-md w-full h-full" />
+      <ion-col size="3" routerLink="/serviceslisting">
+        <img src="assets/services/a_1.jpg" class="rounded-md w-full h-full" />
       </ion-col>
-      <ion-col size="8" routerLink="/contractor">
-        <p class="font-bold text-sm">AC Repair</p>
+      <ion-col size="8" routerLink="/serviceslisting">
+        <p class="font-bold text-sm">Air Conditioner</p>
         <p style="font-size: 0.7em; margin-top: -1.1em;">Fan motor, evaporator unit, condenser unit, thermostat etc</p>
       </ion-col>
-      <ion-col size="1" class="mt-4" routerLink="/contractor">
+      <ion-col size="1" class="mt-4" routerLink="/serviceslisting">
         <ion-icon name="chevron-forward-outline"></ion-icon>
       </ion-col>
       <ion-col size="12" class="border-b-2 border-gray-300"></ion-col>
 
       <ion-col size="3" class="mt-1">
-        <img src="assets/services/e2.jpg" class="rounded-md w-full h-full" />
+        <img src="assets/services/a_2.jpg" class="rounded-md w-full h-full" />
       </ion-col>
       <ion-col size="8">
-        <p class="font-bold text-sm">Mobile Repair</p>
+        <p class="font-bold text-sm">Chimney</p>
         <p style="font-size: 0.7em; margin-top: -1.1em;">Fan motor, evaporator unit, condenser unit, thermostat etc</p>
       </ion-col>
       <ion-col size="1" class="mt-4">
@@ -50,10 +51,10 @@
       <ion-col size="12" class="border-b-2 border-gray-300"></ion-col>
 
       <ion-col size="3">
-        <img src="assets/services/e3.jpg" class="rounded-md w-full h-full" />
+        <img src="assets/services/a_3.jpg" class="rounded-md w-full h-full" />
       </ion-col>
       <ion-col size="8">
-        <p class="font-bold text-sm">Refrigerator Repair</p>
+        <p class="font-bold text-sm">Geyser</p>
         <p style="font-size: 0.7em; margin-top: -1.1em;">Fan motor, evaporator unit, condenser unit, thermostat etc</p>
       </ion-col>
       <ion-col size="1" class="mt-4">
@@ -62,10 +63,10 @@
       <ion-col size="12" class="border-b-2 border-gray-300"></ion-col>
 
       <ion-col size="3">
-        <img src="assets/services/e4.jpg" class="rounded-md w-full h-full" />
+        <img src="assets/services/a_4.jpg" class="rounded-md w-full h-full" />
       </ion-col>
       <ion-col size="8">
-        <p class="font-bold text-sm">Water Purifier Repair</p>
+        <p class="font-bold text-sm">Microwave</p>
         <p style="font-size: 0.7em; margin-top: -1.1em;">Fan motor, evaporator unit, condenser unit, thermostat etc</p>
       </ion-col>
       <ion-col size="1" class="mt-4">
@@ -75,10 +76,10 @@
 
 
       <ion-col size="3">
-        <img src="assets/services/e5.jpg" class="rounded-md w-full h-full" />
+        <img src="assets/services/a_5.jpg" class="rounded-md w-full h-full" />
       </ion-col>
       <ion-col size="8">
-        <p class="font-bold text-sm">Microwave Oven Repair</p>
+        <p class="font-bold text-sm">Refrigerator</p>
         <p style="font-size: 0.7em; margin-top: -1.1em;">Fan motor, evaporator unit, condenser unit, thermostat etc</p>
       </ion-col>
       <ion-col size="1" class="mt-4">
@@ -87,10 +88,10 @@
       <ion-col size="12" class="border-b-2 border-gray-300"></ion-col>
 
       <ion-col size="3">
-        <img src="assets/services/e6.jpg" class="rounded-md w-full h-full" />
+        <img src="assets/services/a_6.jpg" class="rounded-md w-full h-full" />
       </ion-col>
       <ion-col size="8">
-        <p class="font-bold text-sm">TV Repair LED/LCD Only</p>
+        <p class="font-bold text-sm">Washing Machine</p>
         <p style="font-size: 0.7em; margin-top: -1.1em;">Fan motor, evaporator unit, condenser unit, thermostat etc</p>
       </ion-col>
       <ion-col size="1" class="mt-4">
@@ -99,10 +100,10 @@
       <ion-col size="12" class="border-b-2 border-gray-300"></ion-col>
 
       <ion-col size="3">
-        <img src="assets/services/e8.jpg" class="rounded-md w-full h-full" />
+        <img src="assets/services/a_7.jpg" class="rounded-md w-full h-full" />
       </ion-col>
       <ion-col size="8">
-        <p class="font-bold text-sm">Technicians</p>
+        <p class="font-bold text-sm">Water Purifier</p>
         <p style="font-size: 0.7em; margin-top: -1.1em;">Fan motor, evaporator unit, condenser unit, thermostat etc</p>
       </ion-col>
       <ion-col size="1" class="mt-4">

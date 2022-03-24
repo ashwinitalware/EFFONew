@@ -22,47 +22,51 @@
     <div style="padding-left:0.8em ;" class="pt-3 pb-1">
       <ion-label>Appliances Repairing</ion-label>
     </div>
-
-    <ion-segment color="primary" (ionChange)='segmentChanged($event)' scrollable value="civil" class="ion-no-padding"
-      class="ion-no-margin">
-      <ion-segment-button value="civil">
-        <ion-label class="bg-white border-2 border-blue-400 rounded-2xl p-1 text-xs pr-4 pl-4">AC Repair</ion-label>
+    <!-- mode="ios" -->
+    <ion-segment mode="ios" color="danger" (ionChange)='segmentChanged($event)' scrollable value="civil"
+      class="ion-no-padding" class="ion-no-margin">
+      <ion-segment-button class="ion-no-padding" value="civil">
+        <ion-label class="p-1">AC Repair</ion-label>
       </ion-segment-button>
       <ion-segment-button>
-        <ion-label class="border-2 border-gray-400 hover:border-blue-400 text-xs rounded-2xl p-1 pr-4 pl-4">Mobile
-          Repair
-        </ion-label>
+        <ion-label class="p-1">Chimney </ion-label>
       </ion-segment-button>
       <ion-segment-button>
-        <ion-label class="border-2 border-gray-400 hover:border-blue-400 text-xs rounded-2xl p-1 pr-4 pl-4 ">
-          Refrigerator Repair</ion-label>
+        <ion-label class="p-1">Microwave</ion-label>
       </ion-segment-button>
       <ion-segment-button>
-        <ion-label class="border-2 border-gray-400 hover:border-blue-400 text-xs rounded-2xl p-1 pr-4 pl-4">Water
-          Purifier Repair</ion-label>
+        <ion-label class="p-1">Geyser</ion-label>
       </ion-segment-button>
+      <!-- <ion-segment-button>
+        <ion-label class="p-1">Refrigerator</ion-label>
+      </ion-segment-button> -->
+      <!-- <ion-segment-button>
+        <ion-label class="p-1">Washing Machine</ion-label>
+      </ion-segment-button> -->
+      <!-- <ion-segment-button>
+        <ion-label class="p-1">Water Purifier </ion-label>
+      </ion-segment-button> -->
       <ion-segment-button>
-        <ion-label class="border-2 border-gray-400 hover:border-blue-400 text-xs rounded-2xl p-1 pr-4 pl-4">Microwave
-          Oven Repair</ion-label>
-      </ion-segment-button>
-      <ion-segment-button>
-        <ion-label class="border-2 border-gray-400 hover:border-blue-400 text-xs rounded-2xl p-1 pr-4 pl-4">Interior
-        </ion-label>
-      </ion-segment-button>
-      <ion-segment-button>
-        <ion-label class="border-2 border-gray-400 hover:border-blue-400 text-xs rounded-2xl p-1 pr-4 pl-4">Electrician
-        </ion-label>
-      </ion-segment-button>
-      <ion-segment-button>
-        <ion-label class="border-2 border-gray-400 hover:border-blue-400 text-xs rounded-2xl p-1 pr-4 pl-4">Plumbers
-        </ion-label>
+        <ion-label class="p-1">Plumbers</ion-label>
       </ion-segment-button>
     </ion-segment>
   </div>
 
+  <!-- <div>
+    <ion-segment mode="ios" value="civil" class="parent-border-radius" scrollable value="civil"
+      (ionChange)='segmentChanged($event)'>
+      <ion-segment-button value="civil"> Uploaded By You</ion-segment-button>
+      <ion-segment-button value="updoc"> Uploaded By Doctor</ion-segment-button>
+      <ion-segment-button value="2"> Uploaded By You</ion-segment-button>
+      <ion-segment-button value="3"> Uploaded By Doctor</ion-segment-button>
+      <ion-segment-button value="4"> Uploaded By You</ion-segment-button>
+      <ion-segment-button value="5"> Uploaded By Doctor</ion-segment-button>
+    </ion-segment>
+  </div> -->
+
   <div *ngIf="switchTab == 'civil'" class=" pt-2">
 
-    <div class="bg-white border-b-4 border-gray-300" routerLink="/civilcontractor">
+    <div class="bg-white border-b-4 border-gray-300" routerLink="/servicedeatils">
       <ion-grid fixed>
         <ion-row>
           <ion-col size="4">
@@ -70,7 +74,7 @@
           </ion-col>
           <ion-col size="8">
             <p>
-              <span class="font-medium text-base">Civil Contractor</span><br>
+              <span class="font-medium text-base">Ridge Appliance</span><br>
               <span class="text-sm text-gray-500">
                 <ion-icon name="location-outline"></ion-icon>Dhayari phata,Dhayari,Pune.
               </span><br>
@@ -82,7 +86,7 @@
       </ion-grid>
     </div>
 
-    <div class="bg-white  border-b-4 border-gray-300">
+    <div class="bg-white  border-b-4 border-gray-300" routerLink="/civilcontractor">
       <ion-grid fixed>
         <ion-row>
           <ion-col size="4">
@@ -90,10 +94,10 @@
           </ion-col>
           <ion-col size="8">
             <p>
-              <span class="font-medium text-base">Interior Contractor</span><br>
+              <span class="font-medium text-base">Technopliance </span><br>
               <span class="text-sm text-gray-500">
                 <ion-icon name="location-outline"></ion-icon>Dhayari phata,Dhayari,Pune.
-              </span>
+              </span><br>
               <ion-button size="small" color="success" class="text-xs">Call Now</ion-button>
             </p>
           </ion-col>
@@ -109,10 +113,10 @@
           </ion-col>
           <ion-col size="8">
             <p>
-              <span class="font-medium text-base">Electrician</span><br>
+              <span class="font-medium text-base">Max Appliance</span><br>
               <span class="text-xs text-gray-600">
                 <ion-icon name="location-outline"></ion-icon>Dhayari phata,Dhayari,Pune.
-              </span>
+              </span><br>
               <ion-button size="small" color="success" class="text-xs">Call Now</ion-button>
             </p>
           </ion-col>
@@ -128,10 +132,29 @@
           </ion-col>
           <ion-col size="8">
             <p>
-              <span class="font-medium text-base">Plumber</span><br>
+              <span class="font-medium text-base">Absolute Appliance</span><br>
               <span class="text-xs text-gray-600">
                 <ion-icon name="location-outline"></ion-icon>Dhayari phata,Dhayari,Pune.
-              </span>
+              </span><br>
+              <ion-button size="small" color="success" class="text-xs">Call Now</ion-button>
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="bg-white  border-b-4 border-gray-300">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="4">
+            <img class="img_class rounded-md" src="assets/services/cc1.jpg" />
+          </ion-col>
+          <ion-col size="8">
+            <p>
+              <span class="font-medium text-base">Efficappliance</span><br>
+              <span class="text-xs text-gray-600">
+                <ion-icon name="location-outline"></ion-icon>Dhayari phata,Dhayari,Pune.
+              </span><br>
               <ion-button size="small" color="success" class="text-xs">Call Now</ion-button>
             </p>
           </ion-col>

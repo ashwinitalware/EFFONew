@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="flex justify-between p-2">
+      <ion-buttons color="light" slot="start">
+        <ion-back-button color="light"></ion-back-button>
+      </ion-buttons>
+      <ion-title color="light"> Appointment </ion-title>
+      <!-- <ion-icon slot="end" color="light" class="text-lg pr-2" name="notifications-outline"></ion-icon> -->
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-4">
+    <div>
+      <div>
+        <ion-item>
+          <ion-label class="text-red-500" position="floating">Select Date</ion-label>
+          <ion-input placeholder="select date" type="date"></ion-input>
+        </ion-item>
+      </div>
+
+      <div>
+        <ion-item>
+          <ion-label class="text-red-500" position="floating">Select Time</ion-label>
+          <ion-input placeholder="select time" type="time"></ion-input>
+        </ion-item>
+      </div>
+      <div>
+        <ion-item>
+          <ion-label position="floating">Description</ion-label>
+          <ion-textarea></ion-textarea>
+        </ion-item>
+      </div>
+
+      <div align="center" class="pt-4">
+        <button class="small-button-fill p-2 text-white w-full">
+          Confirm
+        </button>
+      </div>
+
+    </div>
+  </div>
+</ion-content>
