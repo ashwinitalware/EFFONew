@@ -9,8 +9,7 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
-showLoginPage=false
+  showLoginPage = false;
 
   constructor(
     public dataService: DataService,
@@ -18,33 +17,31 @@ showLoginPage=false
     public navCtrl: NavController
   ) {
     // this.navCtrl.navigateRoot(['/dashboard']);
-    
+
     this.autoLogin();
   }
 
   ngOnInit() {}
 
   autoLogin() {
-
-    this.dataService.present('Syncing Profile...',200)
+    this.dataService.present('Syncing Profile...', 200);
     // alert(this.dataService.profile);
     if (this.dataService.profile) {
       this.dataService.auth.canLoad = false;
       this.navCtrl.navigateForward(['/dashboard']);
-    }else{
-      this.showLoginPage=true
+    } else {
+      this.showLoginPage = true;
     }
-   
   }
 
   login() {
     const newPhone = this.dataService.auth.phone + '';
 
     if (newPhone.length != 10) {
-      return this.dataService.swal(
+      return this.dataService.presentToast(
         'Invalid Phone Number',
-        'Enter 10 digit phone number',
-        'error'
+
+        'danger'
       );
     }
     this.dataService.present();
@@ -66,7 +63,6 @@ showLoginPage=false
   }
   resend() {
     this.dataService.presentToast('OTP Sent Successfully !');
-    // this.dataService.swal('OTP Resend', '', 'success');
   }
   verify() {
     this.dataService.present();
@@ -97,11 +93,7 @@ showLoginPage=false
             }
           }
           if (data.status == false) {
-            this.dataService.swal(
-              'Wrong OTP',
-              'Please type the correct OTP',
-              'error'
-            );
+            this.dataService.presentToast('Wrong OTP', 'danger');
           }
         },
         (err) => {
@@ -114,6 +106,6 @@ showLoginPage=false
     this.dataService.auth.otp = undefined;
   }
   google() {
-    this.dataService.swal('Coming Soon..', '', 'warning');
+    this.dataService.presentToast('Coming Soon..', 'danger');
   }
 }

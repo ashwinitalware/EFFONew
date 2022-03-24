@@ -170,7 +170,7 @@ export class JobdashboardPage implements OnInit {
   //   this.slider.stopAutoplay();
   // }
 
-  ngOnInit() { }
+  ngOnInit() {}
   jobDetails(job) {
     this.navCtrl.navigateForward(['/jobdetails/' + job.id]);
   }

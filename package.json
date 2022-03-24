@@ -42,6 +42,7 @@
     "query-string": "^7.1.1",
     "rxjs": "~6.6.0",
     "sweetalert2": "^11.4.0",
+    "swiper": "^8.0.7",
     "time-ago-pipe": "^1.3.2",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"

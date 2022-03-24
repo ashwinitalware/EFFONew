@@ -12,10 +12,38 @@ import qs from 'qs';
   styleUrls: ['./joblist.page.scss'],
 })
 export class JoblistPage implements OnInit {
+  selectedFilterSection = 'type';
+  filterTypes = [
+    {
+      name: 'Job Type',
+      icon: 'bookmarks',
+      tag: 'type',
+    },
+    {
+      name: 'Sort By',
+      icon: 'list',
+      tag: 'sort',
+    },
+    {
+      name: 'Salary',
+      icon: 'cash',
+      tag: 'salary',
+    },
+    {
+      name: 'Experience',
+      icon: 'cellular',
+      tag: 'experience',
+    },
+    {
+      name: 'Location',
+      icon: 'location',
+      tag: 'location',
+    },
+  ];
   totalJobs = 0;
   currentPage = 0;
   totalPage = 1;
-  showFilterModal = false;
+  showFilterModal = true;
   jobs = [];
   jobCategoryIdOrQuery;
   city;
@@ -292,7 +320,7 @@ export class JoblistPage implements OnInit {
     );
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
   jobDetails(job) {
     this.navCtrl.navigateForward(['/jobdetails/' + job.id]);
   }

@@ -12,7 +12,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./jobdetails.page.scss'],
 })
 export class JobdetailsPage implements OnInit {
-  imageError=false
+  imageError = false;
   //applied
   //not
   jobApplied;
@@ -91,8 +91,8 @@ export class JobdetailsPage implements OnInit {
       'https://play.google.com/store/apps/details?id=ionic.effo.starter'
     );
   }
-  errorImage(){
-    alert('asdf')
+  errorImage() {
+    alert('asdf');
   }
   report() {
     window.open(
@@ -109,21 +109,6 @@ export class JobdetailsPage implements OnInit {
     }
     if (this.jobApplied === false) {
       this.navCtrl.navigateForward(['/apply/' + this.data.id]);
-      // this.http
-      //   .post(this.dataService.apiUrl + 'job-applications', {
-      //     data: {
-      //       applicant: this.dataService.profile.id + '',
-      //       jobPost: this.data.id + '',
-      //     },
-      //   })
-      //   .subscribe((data) => {
-      //     this.jobApplied = true;
-      //     this.dataService.swal(
-      //       'Job Applied',
-      //       'You will see job status in history',
-      //       'success'
-      //     );
-      //   });
     }
   }
   getJobDetails() {

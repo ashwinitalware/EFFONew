@@ -66,9 +66,7 @@ export class AppComponent {
   }
 
   businessRegistration() {}
-  contactUs() {}
-  privacy() {}
-  logout() {}
+
   edit() {
     this.dataService.menu.close();
     this.router.navigate(['/editprofile']);
@@ -76,15 +74,14 @@ export class AppComponent {
   itemClicked(item) {
     this.dataService.menu.close();
     if (item.role == 'home') this.router.navigate(['/dashboard']);
-    if (item.role == 'privacy') alert('need terms & conditions');
+    if (item.role == 'privacy') this.router.navigate(['/privacypolicy']);
     if (item.role == 'contact') this.router.navigate(['/contactus']);
     if (item.role == 'share') {
-
       this.dataService.share(
-    "Download Effo App",
-        'You will get all information about home appliances repairing, Beauty parlor, cab services, contractor, consultants, events, catering service, vehicle service, photography, mandap, Hall /lawns, classes, school, college, tours and travels, washing center, school bus, and other huge services.'
+        'Download Effo App',
+        'You will get all information about home appliances repairing, Beauty parlor, cab services, contractor, consultants, events, catering service, vehicle service, photography, mandap, Hall /lawns, classes, school, college, tours and travels, washing center, school bus, and other huge services.',
+        'https://play.google.com/store/apps/details?id=ionic.effo.starter'
       );
-
 
       // navigator.share({
       //   title: 'Download Effo App',
@@ -104,19 +101,18 @@ export class AppComponent {
       );
     }
     if (item.role == 'rate') {
+      // RateApp.requestReview()
+      //   .then((data) => {
+      //     console.log(data);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
 
-      RateApp.requestReview().then(data=>{
-        console.log(data);
-        
-      }).catch(err=>{
-        console.log(err);
-        
-      });
-
-      // window.open(
-      //   'https://play.google.com/store/apps/details?id=ionic.effo.starter',
-      //   '_system'
-      // );
+      window.open(
+        'https://play.google.com/store/apps/details?id=ionic.effo.starter',
+        '_system'
+      );
     }
   }
   handleFileInput(files: any) {

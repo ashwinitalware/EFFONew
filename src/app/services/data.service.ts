@@ -103,9 +103,10 @@ export class DataService {
       });
   }
 
-  async presentToast(message, time = 2000) {
+  async presentToast(message, color = 'dark', time = 2000) {
     const toast = await this.toastController.create({
       message,
+      color,
       duration: time,
     });
     toast.present();
@@ -148,7 +149,7 @@ export class DataService {
     // this.router.navigate(['/login']);
   }
 
-  async share(title, text, url="") {
+  async share(title, text, url = '') {
     await Share.share({
       title,
       text,

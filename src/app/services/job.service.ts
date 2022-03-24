@@ -23,7 +23,7 @@ export class JobService {
         for (let i = 0; i < this.categories.length; i++) {
           // this.categories[i].jobs = [];
           setTimeout(() => {
-            this.getJobs(true, i);
+            // this.getJobs(true, i);
           }, 100 * i);
         }
       },
@@ -81,6 +81,7 @@ export class JobService {
         })
         .subscribe((data: any) => {
           this.categories[categoryIndex].jobs = data.data.jobPosts.data;
+          alert();
           console.log(data.data.jobPosts.data);
         });
     } else {

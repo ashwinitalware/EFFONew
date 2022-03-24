@@ -8,15 +8,16 @@ import { IonicModule } from '@ionic/angular';
 import { JobdashboardPageRoutingModule } from './jobdashboard-routing.module';
 
 import { JobdashboardPage } from './jobdashboard.page';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   imports: [
+    SwiperModule,
     CommonModule,
     FormsModule,
     IonicModule,
-    JobdashboardPageRoutingModule
-
+    JobdashboardPageRoutingModule,
   ],
-  declarations: [JobdashboardPage]
+  declarations: [JobdashboardPage],
 })
-export class JobdashboardPageModule { }
+export class JobdashboardPageModule {}

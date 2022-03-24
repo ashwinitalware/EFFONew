@@ -21,7 +21,7 @@ export class HistoryPage implements OnInit {
     this.http
       .get(this.dataService.apiUrl + 'job-applications', {
         params: {
-          'sort': 'createdAt:desc',
+          sort: 'createdAt:desc',
           'filters[applicant][id][$eq]': this.dataService.profile.id + '',
           populate: '*',
         },
@@ -37,6 +37,12 @@ export class HistoryPage implements OnInit {
         break;
       case 'accepted':
         return 'bg-green-600 text-white';
+        break;
+      case 'selected':
+        return 'bg-green-600 text-white';
+        break;
+      case 'shortlisted':
+        return 'bg-yellow-600 text-white';
         break;
       case 'rejected':
         return 'bg-red-600 text-white';

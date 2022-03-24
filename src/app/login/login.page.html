@@ -18,10 +18,12 @@
       <input
         [(ngModel)]="this.dataService.auth.phone"
         [disabled]="this.dataService.auth.otpSent"
+        [ngClass]="{'bg-gray-200': this.dataService.auth.otpSent}"
         type="number"
         placeholder="Ex : 86056500xx"
         class="bg-white w-full rounded-md h-14 px-2 border border-gray-300 mt-4"
       />
+
       <div class="mt-4" *ngIf="this.dataService.auth.otpSent">
         <div class="text-sm font-bold">Enter Your OTP :</div>
         <input

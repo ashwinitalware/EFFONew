@@ -52,6 +52,16 @@ export class EditprofilePage implements OnInit {
   }
   ngOnInit() {}
   updateProfile() {
+    // check for validations
+    let tempProfile = this.dataService.profile;
+    if (
+      !tempProfile.fullName ||
+      !tempProfile.pinCode ||
+      !tempProfile.city ||
+      !tempProfile.email
+    )
+      return this.dataService.presentToast('Invalid Form', 'danger');
+
     this.http
       .put(this.dataService.apiUrl + 'custom/updateProfile', {
         id: this.dataService.profile.id,
@@ -62,7 +72,7 @@ export class EditprofilePage implements OnInit {
       })
       .subscribe((data: any) => {
         if (data.status) {
-          this.dataService.swal('Profile Updated', '', 'success');
+          this.dataService.presentToast('Profile Updated');
         }
         if (data.profile) {
           this.dataService.saveProfileObject(data.profile);

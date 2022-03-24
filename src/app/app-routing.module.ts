@@ -255,11 +255,14 @@ const routes: Routes = [
     path: 'contactus',
     loadChildren: () =>
       import('./contact/contact.module').then((m) => m.ContactPageModule),
-  },  {
-    path: 'privacypolicy',
-    loadChildren: () => import('./privacypolicy/privacypolicy.module').then( m => m.PrivacypolicyPageModule)
   },
-
+  {
+    path: 'privacypolicy',
+    loadChildren: () =>
+      import('./privacypolicy/privacypolicy.module').then(
+        (m) => m.PrivacypolicyPageModule
+      ),
+  },
 ];
 
 @NgModule({

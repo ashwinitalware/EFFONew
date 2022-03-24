@@ -68,7 +68,7 @@ export class ApplyPage implements OnInit {
           )
           .subscribe(
             (data2: any) => {
-              this.dataService.swal('Resume Updated', '', 'success');
+              this.dataService.presentToast('Resume Updated');
               this.dataService.dismiss();
               this.dataService.profile.resume = data2.resume;
             },
@@ -117,8 +117,8 @@ export class ApplyPage implements OnInit {
       return;
     }
 
-    if(!this.dataService.profile.resume)
-    return this.dataService.presentToast('Upload Resume First')
+    if (!this.dataService.profile.resume)
+      return this.dataService.presentToast('Upload Resume First');
 
     if (this.jobApplied === false) {
       this.http
@@ -131,11 +131,7 @@ export class ApplyPage implements OnInit {
         .subscribe((data) => {
           this.jobApplied = true;
           this.navCtrl.back();
-          this.dataService.swal(
-            'Job Applied',
-            'You will see job status in history',
-            'success'
-          );
+          this.dataService.presentToast('Job Applied !');
         });
     }
   }

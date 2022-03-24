@@ -101,10 +101,9 @@ export class DashboardPage implements OnInit {
   }
   navigateCategory(category) {
     if (!category.link) {
-      this.dataService.swal('Coming Soon', '', 'warning');
+      this.dataService.presentToast('Coming Soon', 'danger');
       return;
     }
-
 
     // if its a job. then check if the profile is complete
 
