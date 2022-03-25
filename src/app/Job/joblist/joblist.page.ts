@@ -43,7 +43,7 @@ export class JoblistPage implements OnInit {
   totalJobs = 0;
   currentPage = 0;
   totalPage = 1;
-  showFilterModal = true;
+  showFilterModal = false;
   jobs = [];
   jobCategoryIdOrQuery;
   city;
@@ -70,23 +70,26 @@ export class JoblistPage implements OnInit {
     public http: HttpClient,
     public dataService: DataService
   ) {
+    console.log('filters.......', this.jobService.jobFilters);
+
     this.jobCategoryIdOrQuery =
       this.activatedRoute.snapshot.params.categoryIdOrQuery;
 
     this.city = this.activatedRoute.snapshot.params.city;
     this.getData();
   }
-  apply(type = '') {
+  apply() {
     this.showFilterModal = false;
-    this.jobService.jobFilters.type = type;
-    this.commonFilter = {
-      ...this.commonFilter,
-      type: {
-        $contains: this.jobService.jobFilters.type,
-      },
-    };
+    // this.jobService.jobFilters.type = type;
+    // this.commonFilter = {
+    //   ...this.commonFilter,
+    //   type: {
+    //     $contains: this.jobService.jobFilters.type,
+    //   },
+    // };
     // this.getAllJobs();
-    this.getData(undefined, true);
+    // this.getData(undefined, true);
+    this.jobService.getJobsNew(undefined, true);
   }
 
   getData(pager = undefined, resetValues = false) {
@@ -113,7 +116,10 @@ export class JoblistPage implements OnInit {
         break;
 
       default:
-        this.getAllJobs(pager);
+        // alert('new jobs');
+        // this.jobService.resetFilters();
+        this.jobService.getJobsNew(pager, true);
+        // this.getAllJobs(pager);
         break;
     }
   }
@@ -133,7 +139,7 @@ export class JoblistPage implements OnInit {
       filters: {
         ...this.commonFilter,
         city: {
-          $eq: this.dataService.profile.city + '',
+          $eq: this.dataService.profile.city || undefined,
         },
       },
     });
@@ -325,7 +331,9 @@ export class JoblistPage implements OnInit {
     this.navCtrl.navigateForward(['/jobdetails/' + job.id]);
   }
   loadData(event) {
-    this.getData(event);
+    this.jobService.getJobsNew(event, false);
+
+    // this.getData(event);
     // setTimeout(() => {
     // console.log('Done');
     // event.target.complete();

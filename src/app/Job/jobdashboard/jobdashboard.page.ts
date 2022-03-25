@@ -82,30 +82,47 @@ export class JobdashboardPage implements OnInit {
     this.switchTab = ev.detail.value;
     console.log('Segment changed', ev);
   }
-
+  categorySelected(category) {
+    // [routerLink]="'/joblist/'+category.id"
+    this.jobService.resetFilters();
+    this.jobService.jobFilters.title = category.attributes.name;
+    this.router.navigate(['/joblist']);
+  }
   slideChanged() {
     this.slider.stopAutoplay(); //this code for slide after page change
   }
 
+  search() {
+    // [routerLink]="'/joblist/'+(this.jobService.jobFilters.title||'any')+'/'+this.jobService.jobFilters.city"
+    this.jobService.resetOtherFilters();
+    // this.jobService.jobFilters.title = category.attributes.name;
+    this.router.navigate(['/joblist']);
+  }
   viewAll(category) {
     console.log(category);
-    let query = '';
+    // let query = '';
     switch (category.title) {
       case 'New Jobs':
-        query = 'newJobs';
+        // query = 'newJobs';
+        this.jobService.resetFilters();
+        this.jobService.jobFilters.sort = ['createdAt:desc'];
+        this.router.navigate(['/joblist']);
         break;
       case 'Jobs Near Me':
-        query = 'jobsNearMe';
+        this.jobService.resetFilters();
+        this.jobService.jobFilters.city = this.dataService.profile.city || '';
+        this.router.navigate(['/joblist']);
         break;
       case 'High Salary Jobs':
-        query = 'highSalaryJobs';
+        this.jobService.resetFilters();
+        this.jobService.jobFilters.sort = ['salaryFrom:desc'];
+        this.router.navigate(['/joblist']);
         break;
 
       default:
         return;
-      // break;
     }
-    this.router.navigate(['/joblist/' + query]);
+    // this.router.navigate(['/joblist/' + query]);
   }
   getNewJobs() {
     let query = qs.stringify({

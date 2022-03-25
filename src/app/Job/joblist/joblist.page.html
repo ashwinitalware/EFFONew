@@ -8,9 +8,10 @@
 </ion-header>
 
 <ion-content>
+  <!-- {{ this.jobService.jobFilters|json }} -->
   <div class="flex justify-between items-center pt-3 px-4">
     <div class="pl-2">
-      <b> {{totalJobs}} Jobs Found</b>
+      <b> {{this.jobService.totalJobs}} Jobs Found</b>
       <!-- {{currentPage}} {{totalPage}} -->
     </div>
     <!-- <ion-button color="dark" fill="outline" (click)="showFilterModal=true">Filters</ion-button> -->
@@ -23,11 +24,12 @@
     <div
       class="bg-white p-4 mt-2 rounded-md"
       style="width: 100%"
-      *ngFor="let job of this.jobs"
+      *ngFor="let job of this.jobService.jobs"
       (click)="jobDetails(job)"
     >
       <div class="flex">
         <div class="flex-1 text-black text-left text-base font-bold">
+          <!-- {{job.id}} -->
           {{job.attributes.title|titlecase}}
         </div>
 
@@ -42,11 +44,17 @@
         {{job.attributes.type|titlecase}}
       </span>
       |
-      <span class="text-black text-sm" *ngIf="job.attributes.jobCategory">
+      <span
+        class="text-black text-sm"
+        *ngIf="job.attributes.jobCategory && job.attributes.jobCategory.data"
+      >
         {{job.attributes.jobCategory.data.attributes.name}}
       </span>
 
-      <div class="text-sm flex items-center mt-2" *ngIf="job.attributes.author">
+      <div
+        class="text-sm flex items-center mt-2"
+        *ngIf="job.attributes.author && job.attributes.author.data"
+      >
         <ion-icon name="podium" class="text-blue-500"></ion-icon>
         &nbsp;
 
@@ -162,7 +170,7 @@
           <div class="h-full bg-gray-200">
             <div
               (click)="selectedFilterSection=filter.tag"
-              class="flex flex-col items-center py-8 px-4"
+              class="flex flex-col items-center py-8 px-4 text-black"
               *ngFor="let filter of filterTypes"
               [ngClass]="{'bg-white': selectedFilterSection==filter.tag}"
             >
@@ -170,14 +178,14 @@
                 style="font-size: larger"
                 name="{{filter.icon+(selectedFilterSection==filter.tag?'':'-outline')}}"
               ></ion-icon>
-              {{filter.name}}
+              <span> {{filter.name}} </span>
             </div>
           </div>
 
           <div class="flex-1 p-4">
             <div *ngIf="selectedFilterSection=='type'">
               <ion-list>
-                <ion-radio-group value="">
+                <ion-radio-group [(ngModel)]="this.jobService.jobFilters.type">
                   <ion-item>
                     <ion-label>Any Type</ion-label>
                     <ion-radio slot="start" value=""></ion-radio>
@@ -199,108 +207,118 @@
             </div>
             <div *ngIf="selectedFilterSection=='sort'">
               <ion-list>
-                <ion-radio-group value="">
+                <ion-radio-group
+                  [(ngModel)]="this.jobService.jobFilters.sort[0]"
+                >
                   <ion-item>
                     <ion-label>Newest Job First</ion-label>
-                    <ion-radio slot="start" value=""></ion-radio>
+                    <ion-radio slot="start" value="createdAt:desc"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>Oldest Job First</ion-label>
-                    <ion-radio slot="start" value="fullTime"></ion-radio>
+                    <ion-radio slot="start" value="createdAt:asc"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>High to Low Salary</ion-label>
-                    <ion-radio slot="start" value="partTime"></ion-radio>
+                    <ion-radio slot="start" value="salaryFrom:desc"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>Low To High Salary</ion-label>
-                    <ion-radio slot="start" value="freelance"></ion-radio>
+                    <ion-radio slot="start" value="salaryFrom:asc"></ion-radio>
                   </ion-item>
                 </ion-radio-group>
               </ion-list>
             </div>
             <div *ngIf="selectedFilterSection=='salary'">
               <ion-list>
-                <ion-radio-group value="">
+                <ion-radio-group
+                  [(ngModel)]="this.jobService.jobFilters.salary.min"
+                >
                   <ion-item>
                     <ion-label>Any Salary</ion-label>
-                    <ion-radio slot="start" value=""></ion-radio>
+                    <ion-radio slot="start" value="0"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>₹ 5000 and more</ion-label>
-                    <ion-radio slot="start" value="fullTime"></ion-radio>
+                    <ion-radio slot="start" value="5000"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>₹ 10000 and more</ion-label>
-                    <ion-radio slot="start" value="partTime"></ion-radio>
+                    <ion-radio slot="start" value="10000"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>₹ 20000 and more</ion-label>
-                    <ion-radio slot="start" value="freelance"></ion-radio>
+                    <ion-radio slot="start" value="20000"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>₹ 30000 and more</ion-label>
-                    <ion-radio slot="start" value="freelance"></ion-radio>
+                    <ion-radio slot="start" value="30000"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>₹ 40000 and more</ion-label>
-                    <ion-radio slot="start" value="freelance"></ion-radio>
+                    <ion-radio slot="start" value="40000"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>₹ 50000 and more</ion-label>
-                    <ion-radio slot="start" value="freelance"></ion-radio>
+                    <ion-radio slot="start" value="50000"></ion-radio>
                   </ion-item>
                 </ion-radio-group>
               </ion-list>
             </div>
             <div *ngIf="selectedFilterSection=='experience'">
               <ion-list>
-                <ion-radio-group value="">
+                <ion-radio-group
+                  [(ngModel)]="this.jobService.jobFilters.experience"
+                >
                   <ion-item>
-                    <ion-label>Any Experience</ion-label>
-                    <ion-radio slot="start" value=""></ion-radio>
+                    <ion-label>Freshers</ion-label>
+                    <ion-radio slot="start" value="fresher"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>0 - 1 Year </ion-label>
-                    <ion-radio slot="start" value="fullTime"></ion-radio>
+                    <ion-radio slot="start" value="0-1 year"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>1 - 2 Years </ion-label>
-                    <ion-radio slot="start" value="fullTime"></ion-radio>
+                    <ion-radio slot="start" value="1-2 years"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>2 - 3 Years</ion-label>
-                    <ion-radio slot="start" value="partTime"></ion-radio>
+                    <ion-radio slot="start" value="2-3 years"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>3+ Years</ion-label>
-                    <ion-radio slot="start" value="freelance"></ion-radio>
+                    <ion-radio slot="start" value="3+ years"></ion-radio>
                   </ion-item>
                 </ion-radio-group>
               </ion-list>
             </div>
             <div *ngIf="selectedFilterSection=='location'">
               <ion-list>
-                <ion-radio-group value="">
+                <ion-radio-group [(ngModel)]="this.jobService.jobFilters.city">
                   <ion-item>
                     <ion-label>Any Location</ion-label>
                     <ion-radio slot="start" value=""></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>Amravati</ion-label>
-                    <ion-radio slot="start" value=""></ion-radio>
+                    <ion-radio slot="start" value="amravati"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>Mumbai</ion-label>
-                    <ion-radio slot="start" value=""></ion-radio>
+                    <ion-radio slot="start" value="mumbai"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>Nagpur</ion-label>
-                    <ion-radio slot="start" value=""></ion-radio>
+                    <ion-radio slot="start" value="nagpur"></ion-radio>
                   </ion-item>
                   <ion-item>
                     <ion-label>Pune</ion-label>
-                    <ion-radio slot="start" value=""></ion-radio>
+                    <ion-radio slot="start" value="pune"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Satara</ion-label>
+                    <ion-radio slot="start" value="satara"></ion-radio>
                   </ion-item>
                 </ion-radio-group>
               </ion-list>
@@ -308,7 +326,9 @@
           </div>
         </div>
         <div class="absolute bottom-0 left-0 w-full p-4">
-          <ion-button expand="block" fill="solid">Apply </ion-button>
+          <ion-button expand="block" (click)="apply()" fill="solid"
+            >Apply
+          </ion-button>
         </div>
       </div>
 

@@ -199,6 +199,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'joblist',
+    loadChildren: () =>
+      import('./Job/joblist/joblist.module').then((m) => m.JoblistPageModule),
+  },
+  {
     path: 'joblist/:categoryIdOrQuery',
     loadChildren: () =>
       import('./Job/joblist/joblist.module').then((m) => m.JoblistPageModule),

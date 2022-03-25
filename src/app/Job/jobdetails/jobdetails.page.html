@@ -11,9 +11,6 @@
 </ion-header>
 
 <ion-content>
-
-
-
   <div *ngIf="data" class="h-full">
     <div class="h-full bg-white p-4">
       <div class="flex justify-between items-center">
@@ -69,7 +66,6 @@
         </span>
       </div>
 
-
       <!-- <ion-grid fixed>
         <ion-row>
           <ion-col size="4">
@@ -92,25 +88,35 @@
 
       <div class="flex justify-between pt-3 border-t-2 border-gray-200">
         <div>
-          <button class="p-1 py-2 px-4  hover:bg-blue-700 text-blue-700 font-semibold hover:text-white shadow-lg"
-            style="border: 1px solid blue; border-radius: 5px;" (click)="call(this.data)">
-            <ion-icon class="text-sm " name="call-outline"></ion-icon>
-          </button> &nbsp;
+          <button
+            class="p-1 py-2 px-4 hover:bg-blue-700 text-blue-700 font-semibold hover:text-white shadow-lg"
+            style="border: 1px solid blue; border-radius: 5px"
+            (click)="call(this.data)"
+          >
+            <ion-icon class="text-sm" name="call-outline"></ion-icon>
+          </button>
+          &nbsp;
           <!-- <button
             class="bg-white hover:bg-blue-700 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
             <ion-icon class="text-sm" name="call-outline"></ion-icon>
           </button> -->
 
-          <button class="p-1 py-2 px-4 text-green-500  hover:bg-green-500  font-semibold hover:text-white shadow-lg"
-            style="border: 1px solid green; border-radius: 5px;" (click)="whatsapp(this.data)">
+          <button
+            class="p-1 py-2 px-4 text-green-500 hover:bg-green-500 font-semibold hover:text-white shadow-lg"
+            style="border: 1px solid green; border-radius: 5px"
+            (click)="whatsapp(this.data)"
+          >
             <ion-icon name="logo-whatsapp"></ion-icon>
-          </button> &nbsp;
+          </button>
+          &nbsp;
 
-          <button class="p-1 py-2 px-4  text-black hover:bg-black  font-semibold hover:text-white shadow-lg"
-            style="border: 1px solid black; border-radius: 5px;" (click)="share()">
+          <button
+            class="p-1 py-2 px-4 text-black hover:bg-black font-semibold hover:text-white shadow-lg"
+            style="border: 1px solid black; border-radius: 5px"
+            (click)="share()"
+          >
             <ion-icon name="share-social"></ion-icon>
           </button>
-
 
           <!-- <button
             class="bg-blue-500 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
@@ -143,21 +149,30 @@
       <div>{{data.attributes.description }}</div>
 
       <div class="flex mt-2 border-t border-b py-2">
-        <img *ngIf="data && !imageError && data.attributes.author.data.attributes"
+        <img
+          *ngIf="data && !imageError && data.attributes.author.data.attributes"
           class="w-12 h-12 bg-gray-200 rounded-full"
           src="{{data.attributes.author.data.attributes.job_profile.data.attributes.logo+'sdf'}}"
-          (error)="imageError=true" alt="" />
-        <div *ngIf="data &&  imageError"
-          class="bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center text-gray-500">
+          (error)="imageError=true"
+          alt=""
+        />
+        <div
+          *ngIf="data &&  imageError"
+          class="bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center text-gray-500"
+        >
           <ion-icon class="text-3xl" name="briefcase"></ion-icon>
         </div>
 
         <div class="flex-1 ml-2">
-          <div class="font-bold"
-            *ngIf="data.attributes.author.data && data.attributes.author.data.attributes.job_profile.data">
+          <div
+            class="font-bold"
+            *ngIf="data.attributes.author.data && data.attributes.author.data.attributes.job_profile.data"
+          >
             {{data.attributes.author.data.attributes.job_profile.data.attributes.companyName|titlecase}}
           </div>
-          <div *ngIf="data.attributes.author.data && data.attributes.author.data.attributes.job_profile.data">
+          <div
+            *ngIf="data.attributes.author.data && data.attributes.author.data.attributes.job_profile.data"
+          >
             {{data.attributes.author.data.attributes.job_profile.data.attributes.companyAddress|titlecase}}
           </div>
         </div>
@@ -254,8 +269,15 @@
   </div> -->
   </div>
 </ion-content>
-<ion-footer class="p-4">
-  <ion-button color="primary" (click)="apply()" [disabled]="jobApplied" expand="block">
-    {{jobApplied?"Already Applied":"APPLY NOW "}}
-  </ion-button>
+<ion-footer>
+  <div class="p-4 bg-white">
+    <ion-button
+      color="primary"
+      (click)="apply()"
+      [disabled]="jobApplied"
+      expand="block"
+    >
+      {{jobApplied?"Already Applied":"APPLY NOW "}}
+    </ion-button>
+  </div>
 </ion-footer>
