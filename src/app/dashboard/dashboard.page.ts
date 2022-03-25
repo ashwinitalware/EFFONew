@@ -25,21 +25,21 @@ export class DashboardPage implements OnInit {
       link: '',
     },
     {
-      name: 'Maintainance',
+      name: 'Cab Services',
       image: '',
-      icon: 'hammer',
+      icon: 'car',
       link: '',
+    },
+    {
+      name: 'Property',
+      image: '',
+      link: '',
+      icon: 'home',
     },
     {
       name: 'Shopping',
       image: '',
       icon: 'bag-handle',
-      link: '',
-    },
-    {
-      name: 'Cab Services',
-      image: '',
-      icon: 'car',
       link: '',
     },
     {
@@ -49,17 +49,22 @@ export class DashboardPage implements OnInit {
       link: '',
     },
     {
-      name: 'Old Exchange',
+      name: 'Old EX',
       image: '',
       link: '',
       icon: 'swap-horizontal',
     },
     {
-      name: 'Property',
+      name: 'Utility',
       image: '',
+      icon: 'hammer',
       link: '',
-      icon: 'home',
     },
+   
+   
+  
+  
+  
     {
       name: 'Lodging',
       image: '',
@@ -71,6 +76,12 @@ export class DashboardPage implements OnInit {
       image: '',
       link: '',
       icon: 'restaurant',
+    },
+    {
+      name: '24/7 ',
+      image: '',
+      link: '',
+      icon: 'timer',
     },
   ];
   slider: any;

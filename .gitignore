@@ -13,6 +13,7 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 $RECYCLE.BIN/
 
+/android
 android
 *.log
 log.txt
