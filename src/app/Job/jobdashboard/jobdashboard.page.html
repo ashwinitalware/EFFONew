@@ -10,18 +10,10 @@
 <ion-content>
   <div class="px-4 mt-3">
     <div class="bg-white rounded-lg shadow-md">
-      <ion-input
-        placeholder="Search by skills"
-        id="search"
-        [(ngModel)]="this.jobService.jobFilters.title"
-      >
+      <ion-input placeholder="Search by skills" id="search" [(ngModel)]="this.jobService.jobFilters.title">
         <ion-icon name="search" style="margin-left: 7px"></ion-icon>
       </ion-input>
-      <ion-input
-        placeholder="City Name"
-        id="search"
-        [(ngModel)]="this.jobService.jobFilters.city"
-      >
+      <ion-input placeholder="City Name" id="search" [(ngModel)]="this.jobService.jobFilters.city">
         <ion-icon name="location-outline" style="margin-left: 7px"></ion-icon>
       </ion-input>
     </div>
@@ -32,7 +24,7 @@
   </div>
 
   <div class="px-4 pt-2 pb-1">
-    <ion-label>Job Categories</ion-label>
+    <ion-label><b>Job Categories</b></ion-label>
   </div>
 
   <!-- <ion-grid fixed>
@@ -66,58 +58,29 @@
     <div style="background-color: white; border-radius: 5px; margin-top: 3%">
       <ion-grid fixed>
         <ion-row class="small_text">
-          <ion-col
-            (click)="categorySelected(category)"
-            *ngFor="let category  of this.jobService.categories.slice(0,sliceValue)"
-            size="3"
-            align="center"
-            class="flex justify-center flex-col"
-          >
-            <div
-              class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center"
-            >
-              <ion-icon
-                name="{{category.attributes.icon}}"
-                class="text-xl"
-              ></ion-icon>
+          <ion-col (click)="categorySelected(category)"
+            *ngFor="let category  of this.jobService.categories.slice(0,sliceValue)" size="3" align="center"
+            class="flex justify-center flex-col">
+            <div class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center">
+              <ion-icon name="{{category.attributes.icon}}" class="text-xl"></ion-icon>
             </div>
             <div class="truncate mt-2 text-xs">
               {{category.attributes.name}}
             </div>
           </ion-col>
 
-          <ion-col
-            size="3"
-            align="center"
-            class="flex justify-center flex-col"
-            (click)="sliceValue=100"
-            *ngIf="sliceValue==3"
-          >
-            <div
-              class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center"
-            >
-              <ion-icon
-                name="chevron-down-outline"
-                class="text-xl shake-bottom"
-              ></ion-icon>
+          <ion-col size="3" align="center" class="flex justify-center flex-col" (click)="sliceValue=100"
+            *ngIf="sliceValue==3">
+            <div class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center">
+              <ion-icon name="chevron-down-outline" class="text-xl shake-bottom"></ion-icon>
             </div>
             <div class="truncate mt-2 text-xs">Show More</div>
           </ion-col>
 
-          <ion-col
-            size="3"
-            align="center"
-            class="flex justify-center flex-col"
-            (click)="sliceValue=3"
-            *ngIf="sliceValue==100"
-          >
-            <div
-              class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center"
-            >
-              <ion-icon
-                name="chevron-up-outline"
-                class="text-xl shake-top"
-              ></ion-icon>
+          <ion-col size="3" align="center" class="flex justify-center flex-col" (click)="sliceValue=3"
+            *ngIf="sliceValue==100">
+            <div class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center">
+              <ion-icon name="chevron-up-outline" class="text-xl shake-top"></ion-icon>
             </div>
             <div class="truncate mt-2 text-xs">Show Less</div>
           </ion-col>
@@ -131,23 +94,16 @@
   </div>
 
   <div class="px-4 pt-2 pb-1">
-    <ion-label>Top Ads</ion-label>
+    <ion-label><b>Top Ads</b></ion-label>
   </div>
 
-  <div
-    style="
+  <div style="
       background-color: white;
       border-radius: 5px;
       margin-top: 2%;
       padding: 5px;
-    "
-  >
-    <ion-slides
-      #slider
-      loop="true"
-      [options]="slideOpts"
-      (ionSlideTouchEnd)="slideChanged()"
-    >
+    ">
+    <ion-slides #slider loop="true" [options]="slideOpts" (ionSlideTouchEnd)="slideChanged()">
       <ion-slide>
         <ion-card style="border-radius: 5px">
           <img src="assets/jobs2.jpg" />
@@ -168,32 +124,19 @@
     </ion-slides>
   </div>
 
-  <div
-    *ngFor="let section of sections; let i=index"
-    style="border-radius: 5px; margin-top: 2%; padding: 5px; margin-bottom: 2%"
-  >
-    <div
-      class="pt-2 pl-4 pb-2 bg-white shadow-lg rounded-sm"
-      style=" background-image: url(assets/jobnew4.png); border-bottom: 3px solid {{section.color}} "
-    >
-      <ion-label style=" color: {{section.color}}"
-        ><b>{{section.title}}</b></ion-label
-      >
+  <div *ngFor="let section of sections; let i=index"
+    style="border-radius: 5px; margin-top: 2%; padding: 5px; margin-bottom: 2%">
+    <div class="pt-2 pl-4 pb-2 bg-white shadow-lg rounded-sm"
+      style=" background-image: url(assets/jobnew4.png); border-bottom: 3px solid {{section.color}} ">
+      <ion-label style=" color: {{section.color}}"><b>{{section.title}}</b></ion-label>
       <p style="font-size: 0.7em">{{section.subtitle}}</p>
     </div>
 
-    <div
-      class="text-right text-sm font-bold mt-2 pr-2"
-      (click)="viewAll(section)"
-    >
+    <div class="text-right text-sm font-bold mt-2 pr-2" (click)="viewAll(section)">
       View All
     </div>
     <ion-slides class="mt-4" #slider loop="true" [options]="slideOptss">
-      <ion-slide
-        *ngFor="let job of section.jobs"
-        (click)="jobDetails(job)"
-        class="pr-2"
-      >
+      <ion-slide *ngFor="let job of section.jobs" (click)="jobDetails(job)" class="pr-2">
         <div class="primary-card bg-white p-4" style="width: 100%">
           <div class="text-black text-left text-base font-bold">
             {{job.attributes.title|titlecase}}
@@ -208,9 +151,7 @@
             &nbsp;
             <!-- {{job.attributes.companyName||"Company Name"|titlecase}} -->
 
-            <span
-              *ngIf="job.attributes.author.data && job.attributes.author.data.attributes.job_profile.data"
-            >
+            <span *ngIf="job.attributes.author.data && job.attributes.author.data.attributes.job_profile.data">
               {{(job.attributes.author.data.attributes.job_profile.data.attributes.companyName||"Company
               Name")|titlecase}}
             </span>
@@ -225,9 +166,7 @@
             {{job.attributes.vacancies||0}} Vacancies
           </div>
 
-          <button
-            class="w-full shadow-md rounded-md bg-red text-white text-center py-2 text-sm mt-4"
-          >
+          <button class="w-full shadow-md rounded-md bg-red text-white text-center py-2 text-sm mt-4">
             Apply Now
           </button>
         </div>
@@ -259,12 +198,8 @@
   </ion-fab-button>
   <ion-fab-list side="top" style="margin-bottom: 100%">
     <!-- <ion-fab-button data-desc="Profile" color="dark" routerLink="/profile"> -->
-    <ion-fab-button
-      data-desc="Profile"
-      color="dark"
-      [queryParams]="{navigate:'back'}"
-      [routerLink]="[ '/editprofile' ]"
-    >
+    <ion-fab-button data-desc="Profile" color="dark" [queryParams]="{navigate:'back'}"
+      [routerLink]="[ '/editprofile' ]">
       <ion-icon name="person-outline"></ion-icon>
     </ion-fab-button>
     <ion-fab-button data-desc="History" color="dark" routerLink="/history">

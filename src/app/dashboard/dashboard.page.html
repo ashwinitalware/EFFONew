@@ -10,7 +10,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-row class="pl-2 pr-2 pt-3">
+
+  <div class="p-3">
+    <ion-label>How can we<br><b>Help You Today?</b></ion-label>
+  </div>
+  <ion-row class="pl-2 pr-2 ">
     <div style="
         width: 100%;
         background-color: white;
@@ -23,8 +27,35 @@
     </div>
   </ion-row>
 
+  <div style="
+      background-color: white;
+      border-radius: 5px;
+      margin-top: 2%;
+      padding: 5px;
+    ">
+    <ion-slides #slider loop="true" [options]="slideOpts" (ionSlideTouchEnd)="slideChanged()">
+      <ion-slide>
+        <ion-card style="border-radius: 5px">
+          <img src="assets/jobs2.jpg" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px">
+          <img src="assets/jobs1.jpg" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px">
+          <img src="assets/jobs3.jpg" />
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
   <div style="padding-left: 0.8em" class="pt-3">
-    <ion-label>All Categories</ion-label>
+    <ion-label><b>All Categories</b></ion-label>
   </div>
 
   <div style="background-color: white; border-radius: 5px; margin-top: 3%">
@@ -85,7 +116,7 @@
   </div>
 
   <div style="padding-left: 0.8em" class="pt-3">
-    <ion-label>Popular Ads</ion-label>
+    <ion-label><b>Popular Ads</b></ion-label>
   </div>
 
   <div style="

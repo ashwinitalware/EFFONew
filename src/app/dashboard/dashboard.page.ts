@@ -24,10 +24,16 @@ export class DashboardPage implements OnInit {
       icon: 'apps',
       link: '',
     },
+    // {
+    //   name: 'Cab Services',
+    //   image: '',
+    //   icon: 'car',
+    //   link: '',
+    // },
     {
-      name: 'Cab Services',
+      name: 'Shopping',
       image: '',
-      icon: 'car',
+      icon: 'bag-handle',
       link: '',
     },
     {
@@ -36,58 +42,53 @@ export class DashboardPage implements OnInit {
       link: '',
       icon: 'home',
     },
-    {
-      name: 'Shopping',
-      image: '',
-      icon: 'bag-handle',
-      link: '',
-    },
-    {
-      name: 'Ticket Booking',
-      image: '',
-      icon: 'ticket',
-      link: '',
-    },
-    {
-      name: 'Old EX',
-      image: '',
-      link: '',
-      icon: 'swap-horizontal',
-    },
-    {
-      name: 'Utility',
-      image: '',
-      icon: 'hammer',
-      link: '',
-    },
-   
-   
-  
-  
-  
-    {
-      name: 'Lodging',
-      image: '',
-      link: '',
-      icon: 'bed',
-    },
-    {
-      name: 'Restaurant ',
-      image: '',
-      link: '',
-      icon: 'restaurant',
-    },
-    {
-      name: '24/7 ',
-      image: '',
-      link: '',
-      icon: 'timer',
-    },
+
+    // {
+    //   name: 'Ticket Booking',
+    //   image: '',
+    //   icon: 'ticket',
+    //   link: '',
+    // },
+    // {
+    //   name: 'Old EX',
+    //   image: '',
+    //   link: '',
+    //   icon: 'swap-horizontal',
+    // },
+    // {
+    //   name: 'Utility',
+    //   image: '',
+    //   icon: 'hammer',
+    //   link: '',
+    // },
+
+
+
+
+
+    // {
+    //   name: 'Lodging',
+    //   image: '',
+    //   link: '',
+    //   icon: 'bed',
+    // },
+    // {
+    //   name: 'Restaurant ',
+    //   image: '',
+    //   link: '',
+    //   icon: 'restaurant',
+    // },
+    // {
+    //   name: '24/7 ',
+    //   image: '',
+    //   link: '',
+    //   icon: 'timer',
+    // },
   ];
   slider: any;
   slideOpts = {
     initialSlide: 0,
-    slidesPerView: 1.5,
+    slidesPerView: 1,
     autoplay: true,
   };
 
@@ -120,7 +121,7 @@ export class DashboardPage implements OnInit {
 
     this.router.navigate(['/' + category.link]);
   }
-  ngOnInit() {}
+  ngOnInit() { }
 
-  ionViewWillEnter() {}
+  ionViewWillEnter() { }
 }
