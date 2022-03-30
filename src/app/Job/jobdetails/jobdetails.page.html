@@ -272,10 +272,12 @@
 <ion-footer>
   <div class="p-4 bg-white">
     <ion-button
-      color="primary"
+      [color]="jobApplied?'success':'primary'"
       (click)="apply()"
       [disabled]="jobApplied"
       expand="block"
+
+      
     >
       {{jobApplied?"Already Applied":"APPLY NOW "}}
     </ion-button>

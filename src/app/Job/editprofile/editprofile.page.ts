@@ -62,6 +62,11 @@ export class EditprofilePage implements OnInit {
     )
       return this.dataService.presentToast('Invalid Form', 'danger');
 
+
+      if((tempProfile.pinCode+'').length!=6)
+      return this.dataService.presentToast('Invalid Pin Code', 'danger');
+
+
     this.http
       .put(this.dataService.apiUrl + 'custom/updateProfile', {
         id: this.dataService.profile.id,

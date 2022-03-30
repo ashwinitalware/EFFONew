@@ -8,16 +8,20 @@
 </ion-header>
 
 <ion-content>
+  <!-- {{this.jobService.jobFilters|json}} -->
   <!-- {{ this.jobService.jobFilters|json }} -->
   <div class="flex justify-between items-center pt-3 px-4">
     <div class="pl-2">
-      <b> {{this.jobService.totalJobs}} Jobs Found</b>
+      <b> {{this.jobService.totalJobs}} Jobs Found <span *ngIf="this.jobService.jobFilters.city">
+        in {{this.jobService.jobFilters.city|titlecase}}
+      </span></b>
       <!-- {{currentPage}} {{totalPage}} -->
     </div>
     <!-- <ion-button color="dark" fill="outline" (click)="showFilterModal=true">Filters</ion-button> -->
   </div>
   <div *ngIf="noJobsFound" class="font-bold text-center text-lg mt-3">
-    No Jobs Found
+    No Jobs Found  
+    
   </div>
 
   <div class="px-4" *ngIf="!noJobsFound">
@@ -146,7 +150,7 @@
           color="dark"
           fill="clear"
           class="flex-1 mt-2 bg-white text-sm"
-          ><b>Apply Now</b>
+          ><b>View Details</b>
         </ion-button>
       </div>
     </div>

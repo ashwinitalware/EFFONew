@@ -40,10 +40,14 @@ export class ApplyPage implements OnInit {
       });
   }
   handleFileInput(files: any) {
-    // console.log(files.target.files.item(0));
+    console.log(files.target.files.item(0));
     // check file extension
     if (files.target.files.item(0).name.split('.').pop() != 'pdf') {
       this.dataService.presentToast('Only PDF file is allowed');
+      return;
+    }
+    if (files.target.files.item(0).size>5000000) {
+      this.dataService.presentToast('Max 5 mb can be uploaded');
       return;
     }
 
