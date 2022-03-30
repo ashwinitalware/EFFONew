@@ -267,7 +267,13 @@ const routes: Routes = [
       import('./privacypolicy/privacypolicy.module').then(
         (m) => m.PrivacypolicyPageModule
       ),
+  },  {
+    path: 'confirmationpopup',
+    loadChildren: () => import('./Job/confirmationpopup/confirmationpopup.module').then( m => m.ConfirmationpopupPageModule)
   },
+
+
+
 ];
 
 @NgModule({
@@ -276,4 +282,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Platform } from '@ionic/angular';
+import { Platform, PopoverController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
+
+
 // import { IonSlides } from '@ionic/angular';
 
 @Component({
@@ -103,15 +105,32 @@ export class DashboardPage implements OnInit {
   constructor(
     public platform: Platform,
     public dataService: DataService,
-    public router: Router
+    public router: Router,
+    public popoverController: PopoverController
   ) {
     this.dataService.auth.canLoad = false;
     this.dataService.syncFCMToken();
   }
+
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: DashboardPage,
+      cssClass: 'my-custom-class',
+      event: ev,
+      translucent: true
+    });
+    await popover.present();
+
+    const { role } = await popover.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
+  }
+
+
+
   slideChanged() {
     this.slider.stopAutoplay(); //this code for slide after page change
   }
-  navigateCategory(category) {
+  navigateCategory(category: { link: string; }) {
     if (!category.link) {
       this.dataService.presentToast('Coming Soon', 'danger');
       return;
