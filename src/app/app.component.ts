@@ -38,15 +38,13 @@ export class AppComponent {
       // .then((r) => alert(`subscribed to topic`))
       // .catch((err) => console.log(err));
 
-      let result = await AppUpdate.getAppUpdateInfo();
-
       // try {
       //   alert('getAppUpdateInfo' + JSON.stringify(result));
       // } catch (error) {
       //   alert('catch getAppUpdateInfo' + result);
       // }
+      const result = await AppUpdate.getAppUpdateInfo();
 
-      result = await AppUpdate.getAppUpdateInfo();
       if (
         result.updateAvailability !== AppUpdateAvailability.UPDATE_AVAILABLE
       ) {
@@ -54,6 +52,9 @@ export class AppComponent {
       }
       if (result.flexibleUpdateAllowed) {
         await AppUpdate.startFlexibleUpdate();
+      }
+      if (result.immediateUpdateAllowed) {
+        await AppUpdate.performImmediateUpdate();
       }
       try {
         // alert('getAppUpdateInfo' + JSON.stringify(result));

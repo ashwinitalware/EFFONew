@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Platform, PopoverController } from '@ionic/angular';
+import { App } from '@capacitor/app';
+import { NavController, Platform, PopoverController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
-
 
 // import { IonSlides } from '@ionic/angular';
 
@@ -64,10 +64,6 @@ export class DashboardPage implements OnInit {
     //   link: '',
     // },
 
-
-
-
-
     // {
     //   name: 'Lodging',
     //   image: '',
@@ -106,10 +102,20 @@ export class DashboardPage implements OnInit {
     public platform: Platform,
     public dataService: DataService,
     public router: Router,
+    public navCtrl: NavController,
     public popoverController: PopoverController
   ) {
     this.dataService.auth.canLoad = false;
     this.dataService.syncFCMToken();
+
+    App.addListener('backButton', () => {
+      // console.log('router', this.router);
+      // alert(window.location);
+
+      if ((window.location + '').includes('localhost/dashboard')) App.exitApp();
+      else this.navCtrl.back();
+      // alert('alert');
+    });
   }
 
   async presentPopover(ev: any) {
@@ -117,7 +123,7 @@ export class DashboardPage implements OnInit {
       component: DashboardPage,
       cssClass: 'my-custom-class',
       event: ev,
-      translucent: true
+      translucent: true,
     });
     await popover.present();
 
@@ -125,12 +131,10 @@ export class DashboardPage implements OnInit {
     console.log('onDidDismiss resolved with role', role);
   }
 
-
-
   slideChanged() {
     this.slider.stopAutoplay(); //this code for slide after page change
   }
-  navigateCategory(category: { link: string; }) {
+  navigateCategory(category: { link: string }) {
     if (!category.link) {
       this.dataService.presentToast('Coming Soon', 'danger');
       return;
@@ -140,7 +144,7 @@ export class DashboardPage implements OnInit {
 
     this.router.navigate(['/' + category.link]);
   }
-  ngOnInit() { }
+  ngOnInit() {}
 
-  ionViewWillEnter() { }
+  ionViewWillEnter() {}
 }

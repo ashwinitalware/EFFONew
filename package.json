@@ -21,6 +21,7 @@
     "@angular/router": "~13.0.0",
     "@awesome-cordova-plugins/core": "^5.40.0",
     "@awesome-cordova-plugins/in-app-browser": "^5.40.0",
+    "@awesome-cordova-plugins/sms-retriever": "^5.40.0",
     "@capacitor-community/fcm": "^2.0.2",
     "@capacitor/android": "3.4.3",
     "@capacitor/app": "1.1.1",

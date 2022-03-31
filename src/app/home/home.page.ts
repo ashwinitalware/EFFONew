@@ -7,17 +7,11 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  constructor(
-    public nav: NavController
-  ) { }
+  constructor(public nav: NavController) {}
 
   ngOnInit() {
     setTimeout(() => {
-      this.nav.navigateForward('login')
-    }, 4000)
-
+      this.nav.navigateForward('login');
+    }, 4000);
   }
-
-
 }

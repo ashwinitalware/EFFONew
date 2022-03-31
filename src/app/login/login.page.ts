@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
+import { SmsRetriever } from '@awesome-cordova-plugins/sms-retriever/ngx';
 
 @Component({
   selector: 'app-login',
@@ -10,15 +11,38 @@ import { DataService } from '../services/data.service';
 })
 export class LoginPage implements OnInit {
   showLoginPage = false;
-
+  hash: any = 'hash';
+  // smsPromise: Promise<string>;
   constructor(
     public dataService: DataService,
     public http: HttpClient,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    public smsRetriever: SmsRetriever
   ) {
     // this.navCtrl.navigateRoot(['/dashboard']);
 
     this.autoLogin();
+
+    this.smsRetriever
+      .getAppHash()
+      .then((res: any) => {
+        if (res) this.hash = res;
+        // console.log(res);
+        // alert(res);
+      })
+      .catch((error: any) => console.error(error));
+    this.smsRetriever
+      .startWatching()
+      .then((res: any) => {
+        console.log(res);
+
+        if (res.Message) {
+          this.dataService.auth.otp = res.Message.slice(12, 16);
+
+          this.verify();
+        }
+      })
+      .catch((error: any) => console.error(error));
   }
 
   ngOnInit() {}
@@ -49,6 +73,7 @@ export class LoginPage implements OnInit {
       .get(this.dataService.apiUrl + 'custom/login', {
         params: {
           phone: this.dataService.auth.phone + '',
+          hash: this.hash + '' || 'hash74584',
         },
       })
       .subscribe(
@@ -88,7 +113,7 @@ export class LoginPage implements OnInit {
             ) {
               this.navCtrl.navigateForward(['/editprofile']);
             } else {
-              this.navCtrl.navigateRoot(['/dashboard']);
+              this.navCtrl.navigateForward(['/dashboard']);
               // this.navCtrl.navigateForward(['/dashboard']);
             }
           }

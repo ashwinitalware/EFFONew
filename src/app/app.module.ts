@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './services/data.service';
 import { LoginGuard } from './guards/login.guard';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { SmsRetriever } from '@awesome-cordova-plugins/sms-retriever/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
     IonicSelectableModule,
   ],
   providers: [
+    SmsRetriever,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     JobService,
     DataService,

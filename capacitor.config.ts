@@ -13,10 +13,10 @@ const config: CapacitorConfig = {
       ScrollEnabled: 'false',
       BackupWebStorage: 'none',
       SplashMaintainAspectRatio: 'true',
-      FadeSplashScreenDuration: '100',
+      FadeSplashScreenDuration: '30',
       SplashShowOnlyFirstTime: 'false',
       SplashScreen: 'screen',
-      SplashScreenDelay: '0',
+      SplashScreenDelay: '30',
     },
   },
 };
