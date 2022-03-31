@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Platform } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import { DataService } from './services/data.service';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { HttpClient } from '@angular/common/http';
@@ -11,6 +11,7 @@ import {
 import { FCM } from '@capacitor-community/fcm';
 import { PushNotifications } from '@capacitor/push-notifications';
 import { RateApp } from 'capacitor-rate-app';
+import { App } from '@capacitor/app';
 
 // import { PushNotifications } from "@capacitor/push-notifications";
 
@@ -27,13 +28,19 @@ export class AppComponent {
     public platform: Platform,
     public iab: InAppBrowser,
     public dataService: DataService,
-    public http: HttpClient
+    public http: HttpClient,
+    public navCtrl:NavController
   ) {
     this.initializeApp();
     console.log(this.dataService.profile);
   }
   initializeApp() {
     this.platform.ready().then(async () => {
+
+      App.addListener('backButton', () => {
+        if ((window.location + '').includes('localhost/dashboard') ||(window.location + '').includes('localhost/login')) App.exitApp();
+        else this.navCtrl.back();
+      });
       //     FCM.subscribeTo({ topic: "test123" })
       // .then((r) => alert(`subscribed to topic`))
       // .catch((err) => console.log(err));

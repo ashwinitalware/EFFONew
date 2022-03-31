@@ -10,7 +10,6 @@ import { SmsRetriever } from '@awesome-cordova-plugins/sms-retriever/ngx';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  showLoginPage = false;
   hash: any = 'hash';
   // smsPromise: Promise<string>;
   constructor(
@@ -54,7 +53,6 @@ export class LoginPage implements OnInit {
       this.dataService.auth.canLoad = false;
       this.navCtrl.navigateForward(['/dashboard']);
     } else {
-      this.showLoginPage = true;
     }
   }
 

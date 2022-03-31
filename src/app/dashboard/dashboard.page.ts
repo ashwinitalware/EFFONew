@@ -108,14 +108,7 @@ export class DashboardPage implements OnInit {
     this.dataService.auth.canLoad = false;
     this.dataService.syncFCMToken();
 
-    App.addListener('backButton', () => {
-      // console.log('router', this.router);
-      // alert(window.location);
-
-      if ((window.location + '').includes('localhost/dashboard')) App.exitApp();
-      else this.navCtrl.back();
-      // alert('alert');
-    });
+ 
   }
 
   async presentPopover(ev: any) {
