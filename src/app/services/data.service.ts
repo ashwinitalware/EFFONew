@@ -80,9 +80,9 @@ export class DataService {
     public toastController: ToastController,
     public menu: MenuController
   ) {
-    this.domainUrl = 'http://25bc-223-178-219-154.ngrok.io/';
-    // this.domainUrl =
-    //   'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
+    // this.domainUrl = 'http://25bc-223-178-219-154.ngrok.io/';
+    this.domainUrl =
+      'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
     this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
   }

@@ -11,6 +11,7 @@ import { SmsRetriever } from '@awesome-cordova-plugins/sms-retriever/ngx';
 })
 export class LoginPage implements OnInit {
   hash: any = 'hash';
+
   // smsPromise: Promise<string>;
   constructor(
     public dataService: DataService,

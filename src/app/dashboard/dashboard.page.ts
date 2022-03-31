@@ -12,6 +12,7 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
+  modalClass = 'hidden';
   categories = [
     {
       name: 'Jobs',
@@ -108,7 +109,9 @@ export class DashboardPage implements OnInit {
     this.dataService.auth.canLoad = false;
     this.dataService.syncFCMToken();
 
- 
+    setTimeout(() => {
+      this.modalClass = 'block';
+    }, 3000);
   }
 
   async presentPopover(ev: any) {

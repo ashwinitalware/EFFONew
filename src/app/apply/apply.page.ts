@@ -43,10 +43,10 @@ export class ApplyPage implements OnInit {
     console.log(files.target.files.item(0));
     // check file extension
     if (files.target.files.item(0).name.split('.').pop() != 'pdf') {
-      this.dataService.presentToast('Only PDF file is allowed');
+      this.dataService.presentToast('Only PDF file is allowed', 'danger');
       return;
     }
-    if (files.target.files.item(0).size>5000000) {
+    if (files.target.files.item(0).size > 5000000) {
       this.dataService.presentToast('Max 5 mb can be uploaded');
       return;
     }

@@ -208,6 +208,11 @@ export class JobService {
             },
           },
           {
+            skillsByComma: {
+              $containsi: this.jobFilters.title + '',
+            },
+          },
+          {
             jobCategory: {
               name: {
                 // $containsi: 'it industry',

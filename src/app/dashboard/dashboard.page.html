@@ -10,30 +10,53 @@
 </ion-header>
 
 <ion-content>
+  <div
+    id="myModal"
+    class="modal flex items-center justify-center {{modalClass}}"
+    style="z-index: 10"
+  >
+    <div class="modal-content rounded-md overflow-hidden relative">
+      <img src="https://picsum.photos/1000" alt="" />
+      <span
+        (click)="modalClass='hidden'"
+        class="bg-red text-white w-8 h-8 flex items-center justify-center absolute right-0 top-0"
+        >X</span
+      >
+    </div>
+  </div>
 
   <div class="p-3">
-    <ion-label>How can we<br><b>Help You Today?</b></ion-label>
+    <ion-label>How can we<br /><b>Help You Today?</b></ion-label>
   </div>
-  <ion-row class="pl-2 pr-2 ">
-    <div style="
+  <ion-row class="pl-2 pr-2">
+    <div
+      style="
         width: 100%;
         background-color: white;
         border-radius: 10px;
         border: 1px solid rgb(211, 211, 211);
-      ">
+      "
+    >
       <ion-input placeholder="Search In All India" id="search">
         <ion-icon name="search" style="margin-left: 7px"></ion-icon>
       </ion-input>
     </div>
   </ion-row>
 
-  <div style="
+  <div
+    style="
       background-color: white;
       border-radius: 5px;
       margin-top: 2%;
       padding: 5px;
-    ">
-    <ion-slides #slider loop="true" [options]="slideOpts" (ionSlideTouchEnd)="slideChanged()">
+    "
+  >
+    <ion-slides
+      #slider
+      loop="true"
+      [options]="slideOpts"
+      (ionSlideTouchEnd)="slideChanged()"
+    >
       <ion-slide>
         <ion-card style="border-radius: 5px">
           <img src="assets/jobs2.jpg" />
@@ -61,14 +84,28 @@
   <div style="background-color: white; border-radius: 5px; margin-top: 3%">
     <ion-grid fixed>
       <ion-row class="small_text">
-        <ion-col *ngFor="let category  of categories" size="3" align="center" (click)="navigateCategory(category)"
-          class="flex justify-center flex-col">
-          <div class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center">
-            <ion-icon *ngIf="category.icon" name="{{category.icon}}" class="text-xl"></ion-icon>
+        <ion-col
+          *ngFor="let category  of categories"
+          size="3"
+          align="center"
+          (click)="navigateCategory(category)"
+          class="flex justify-center flex-col"
+        >
+          <div
+            class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center"
+          >
+            <ion-icon
+              *ngIf="category.icon"
+              name="{{category.icon}}"
+              class="text-xl"
+            ></ion-icon>
           </div>
           <!-- <img src="assets/D2.png" alt="" /><br /> -->
           <div class="truncate mt-2">{{category.name}}</div>
-          <div class="red" [ngStyle]="{'color': category.available?'white':'red'}">
+          <div
+            class="red"
+            [ngStyle]="{'color': category.available?'white':'red'}"
+          >
             Coming Soon
           </div>
         </ion-col>
@@ -76,13 +113,20 @@
     </ion-grid>
   </div>
 
-  <div style="
+  <div
+    style="
       background-color: white;
       border-radius: 5px;
       margin-top: 2%;
       padding: 5px;
-    ">
-    <ion-slides #slider loop="true" [options]="slideOpts" (ionSlideTouchEnd)="slideChanged()">
+    "
+  >
+    <ion-slides
+      #slider
+      loop="true"
+      [options]="slideOpts"
+      (ionSlideTouchEnd)="slideChanged()"
+    >
       <ion-slide>
         <ion-card style="border-radius: 5px">
           <img src="assets/slider-3.jpg" />
@@ -119,13 +163,15 @@
     <ion-label><b>Popular Ads</b></ion-label>
   </div>
 
-  <div style="
+  <div
+    style="
       background-color: white;
       border-radius: 5px;
       margin-top: 2%;
       padding: 5px;
       margin-bottom: 20%;
-    ">
+    "
+  >
     <ion-slides #slider loop="true" [options]="slideOptss">
       <ion-slide>
         <ion-card class="adds-card">
@@ -174,7 +220,6 @@
     </ion-slides>
   </div>
 
-
   <!-- <ion-button id="alignment-center">Click to Offer popover</ion-button>
   <ion-popover trigger="alignment-center" side="right" alignment="top">
     <ng-template (click)="presentPopover()">
@@ -189,5 +234,4 @@
   <div align="center" class="pt-12">
     <img src="assets/ft.png" alt="" width="35%" height="35%" />
   </div>
-
 </ion-content>

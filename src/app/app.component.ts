@@ -29,16 +29,19 @@ export class AppComponent {
     public iab: InAppBrowser,
     public dataService: DataService,
     public http: HttpClient,
-    public navCtrl:NavController
+    public navCtrl: NavController
   ) {
     this.initializeApp();
     console.log(this.dataService.profile);
   }
   initializeApp() {
     this.platform.ready().then(async () => {
-
       App.addListener('backButton', () => {
-        if ((window.location + '').includes('localhost/dashboard') ||(window.location + '').includes('localhost/login')) App.exitApp();
+        if (
+          (window.location + '').includes('localhost/dashboard') ||
+          (window.location + '').includes('localhost/login')
+        )
+          App.exitApp();
         else this.navCtrl.back();
       });
       //     FCM.subscribeTo({ topic: "test123" })

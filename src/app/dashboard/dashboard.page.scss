@@ -8,18 +8,17 @@ ion-toolbar {
   --background: linear-gradient(90deg, rgb(255, 0, 0) 0%, #bd0101 100%);
 }
 
-
 @-webkit-keyframes slide-in-bck-center {
   0% {
     -webkit-transform: translateZ(600px);
     transform: translateZ(600px);
-    opacity: 0
+    opacity: 0;
   }
 
   100% {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-    opacity: 1
+    opacity: 1;
   }
 }
 
@@ -27,19 +26,20 @@ ion-toolbar {
   0% {
     -webkit-transform: translateZ(600px);
     transform: translateZ(600px);
-    opacity: 0
+    opacity: 0;
   }
 
   100% {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-    opacity: 1
+    opacity: 1;
   }
 }
 
 .main_slider {
-  -webkit-animation: slide-in-bck-center 0.7s cubic-bezier(.25, .46, .45, .94) both;
-  animation: slide-in-bck-center 0.7s cubic-bezier(.25, .46, .45, .94) both;
+  -webkit-animation: slide-in-bck-center 0.7s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-bck-center 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 
   padding: 2% 10%;
 
@@ -109,7 +109,6 @@ ion-toolbar {
       border-top-left-radius: 5px;
     }
   }
-
 }
 
 .parent-border-radius {
@@ -138,4 +137,72 @@ ion-toolbar {
   ion-label {
     color: black;
   }
+}
+
+/* The Modal (background) */
+.modal {
+  // display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  // padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }

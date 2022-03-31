@@ -61,6 +61,14 @@
       </div> -->
       <div class="flex mt-2 pb-2">
         <span class="flex items-center">
+          <ion-icon name="person-outline"></ion-icon>
+          &nbsp; {{data.attributes.gender|titlecase}}
+          <span *ngIf="data.attributes.gender=='any'"> &nbsp;Gender</span>
+          <span *ngIf="data.attributes.gender!='any'"> &nbsp;Only</span>
+        </span>
+      </div>
+      <div class="flex pb-2">
+        <span class="flex items-center">
           <ion-icon name="rocket-outline"></ion-icon>
           &nbsp; {{data.attributes.skillsByComma|titlecase}}
         </span>
@@ -276,8 +284,6 @@
       (click)="apply()"
       [disabled]="jobApplied"
       expand="block"
-
-      
     >
       {{jobApplied?"Already Applied":"APPLY NOW "}}
     </ion-button>
