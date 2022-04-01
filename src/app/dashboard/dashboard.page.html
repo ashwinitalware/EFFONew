@@ -16,7 +16,11 @@
     style="z-index: 10"
   >
     <div class="modal-content rounded-md overflow-hidden relative">
-      <img src="https://picsum.photos/1000" alt="" />
+      <img
+        src="{{popupImage}}"
+        alt=""
+        (click)="this.dataService.viewImage(popupImage)"
+      />
       <span
         (click)="modalClass='hidden'"
         class="bg-red text-white w-8 h-8 flex items-center justify-center absolute right-0 top-0"
@@ -28,8 +32,9 @@
   <div class="p-3">
     <ion-label>How can we<br /><b>Help You Today?</b></ion-label>
   </div>
-  <ion-row class="pl-2 pr-2">
+  <ion-row class="px-2 relative">
     <div
+      class="flex items-center"
       style="
         width: 100%;
         background-color: white;
@@ -37,9 +42,39 @@
         border: 1px solid rgb(211, 211, 211);
       "
     >
-      <ion-input placeholder="Search In All India" id="search">
-        <ion-icon name="search" style="margin-left: 7px"></ion-icon>
-      </ion-input>
+      <ion-input
+        class="flex-1"
+        placeholder="Search In All India"
+        id="search"
+        (ionChange)="search()"
+        [(ngModel)]="queryText"
+      >
+        <ion-icon name="search" style="margin-left: 7px"></ion-icon> </ion-input
+      ><ion-icon
+        *ngIf="this.queryText"
+        (click)="this.queryText=''"
+        name="close"
+        class="px-4"
+        style="margin-left: 7px"
+      ></ion-icon>
+    </div>
+
+    <!-- class="bg-white rounded-md w-full mt-2 absolute mt-16" -->
+    <div class="bg-white rounded-md w-full mt-2" style="z-index: 10; left: 0px">
+      <div
+        *ngFor="let suggestion of suggestions;let i=index"
+        class="flex px-4 p-2"
+        (click)="selected(suggestion)"
+      >
+        <div class="flex-1">{{suggestion.title}}</div>
+        <div>in <b> {{suggestion.type}}</b></div>
+      </div>
+      <div
+        class="p-4 text-center font-bold"
+        *ngIf="this.queryText&& this.noSuggesions"
+      >
+        No Data Found
+      </div>
     </div>
   </ion-row>
 

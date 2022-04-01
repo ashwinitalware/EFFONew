@@ -8,6 +8,8 @@ import { AppUpdate } from '@robingenz/capacitor-app-update';
 import { FCM } from '@capacitor-community/fcm';
 import { PushNotifications } from '@capacitor/push-notifications';
 import { LocalNotifications } from '@capacitor/local-notifications';
+import { PhotoViewer } from '@awesome-cordova-plugins/photo-viewer/ngx';
+
 declare const Swal: any;
 @Injectable({
   providedIn: 'root',
@@ -78,11 +80,12 @@ export class DataService {
     public router: Router,
     public loadingCtrl: LoadingController,
     public toastController: ToastController,
-    public menu: MenuController
+    public menu: MenuController,
+    public photoViewer: PhotoViewer
   ) {
     // this.domainUrl = 'http://25bc-223-178-219-154.ngrok.io/';
-    this.domainUrl =
-      'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
+    // this.domainUrl =
+    //   'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
     this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
   }
@@ -103,6 +106,18 @@ export class DataService {
         });
       });
   }
+  confirmSwal() {
+    Swal.fire({
+      // title: 'Sweet!',
+      // text: 'Profile Updated',
+      imageUrl: 'assets/images/confirm.gif',
+      // imageHeight: 200,
+      showConfirmButton: false,
+      backdrop: `white`,
+      // imageAlt: 'Custom image',
+      timer: 900,
+    });
+  }
 
   async presentToast(message, color = 'dark', time = 2000) {
     const toast = await this.toastController.create({
@@ -120,6 +135,9 @@ export class DataService {
         .dismiss()
         .then(() => console.log('dismissed'));
     } catch (error) {}
+  }
+  viewImage(image) {
+    this.photoViewer.show(image);
   }
   syncProfileFromLs() {
     const tempStringProfile = window.localStorage.getItem('effoProfile');

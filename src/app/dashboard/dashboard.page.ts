@@ -1,8 +1,10 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { App } from '@capacitor/app';
 import { NavController, Platform, PopoverController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
+import { JobService } from '../services/job.service';
 
 // import { IonSlides } from '@ionic/angular';
 
@@ -12,6 +14,10 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
+  popupImage = '';
+  queryText = '';
+  suggestions = [];
+  noSuggesions = false;
   modalClass = 'hidden';
   categories = [
     {
@@ -104,16 +110,64 @@ export class DashboardPage implements OnInit {
     public dataService: DataService,
     public router: Router,
     public navCtrl: NavController,
+    public http: HttpClient,
+    public jobService: JobService,
     public popoverController: PopoverController
   ) {
     this.dataService.auth.canLoad = false;
     this.dataService.syncFCMToken();
-
-    setTimeout(() => {
-      this.modalClass = 'block';
-    }, 3000);
+    this.getPopupImage();
   }
+  search() {
+    this.noSuggesions = false;
+    // alert(this.textQuery);
+    if (!this.queryText) return (this.suggestions = []);
+    this.http
+      .get(this.dataService.apiUrl + 'custom/homeSearch', {
+        params: {
+          queryText: this.queryText,
+        },
+      })
+      .subscribe((data: any) => {
+        this.suggestions = [];
+        console.log(data);
+        if (data.jobs && data.jobs.length) {
+          this.suggestions.push({
+            title: this.queryText,
+            type: 'job',
+          });
 
+          data.jobs.forEach((job) => {
+            this.suggestions.push({
+              title: job.title,
+              type: 'job',
+            });
+          });
+          data.jobs.forEach((job) => {
+            this.suggestions.push({
+              title: job.skillsByComma,
+              type: 'job',
+            });
+          });
+          data.jobs.forEach((job) => {
+            if (job.jobCategory)
+              this.suggestions.push({
+                title: job.jobCategory.name,
+                type: 'job',
+              });
+          });
+        }
+        this.suggestions = this.suggestions.slice(0, 5);
+        if (!this.suggestions.length) this.noSuggesions = true;
+      });
+  }
+  selected(suggestion) {
+    if (suggestion.type == 'job') {
+      this.jobService.resetOtherFilters();
+      this.jobService.jobFilters.title = suggestion.title;
+      this.router.navigate(['/joblist']);
+    }
+  }
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
       component: DashboardPage,
@@ -143,4 +197,28 @@ export class DashboardPage implements OnInit {
   ngOnInit() {}
 
   ionViewWillEnter() {}
+
+  getPopupImage() {
+    this.http
+      .get(this.dataService.apiUrl + 'home-popups', {
+        params: {
+          'filters[expiry][$gt]': new Date().toISOString(),
+        },
+      })
+      .subscribe((data: any) => {
+        if (data.data.length) {
+          if (window.localStorage.getItem('popupId') == data.data[0].id) {
+            // alert('not showing popup');
+          } else {
+            window.localStorage.setItem('popupId', data.data[0].id + '');
+            // alert('will show poput');
+
+            setTimeout(() => {
+              this.popupImage = data.data[0].attributes.image;
+              this.modalClass = 'block';
+            }, 2000);
+          }
+        }
+      });
+  }
 }
