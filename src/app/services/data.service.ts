@@ -84,8 +84,8 @@ export class DataService {
     public photoViewer: PhotoViewer
   ) {
     // this.domainUrl = 'http://25bc-223-178-219-154.ngrok.io/';
-    // this.domainUrl =
-    //   'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
+    this.domainUrl =
+      'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
     this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
   }
@@ -263,17 +263,66 @@ export class DataService {
 
     PushNotifications.addListener(
       'pushNotificationReceived',
-      (notification) => {
-        LocalNotifications.schedule({
-          notifications: [
+      async (notification) => {
+
+
+        const toast = await this.toastController.create({
+          header: notification.title,
+          message: notification.body,
+          // icon: 'information-circle',
+          // position: 'top',
+          buttons: [
             {
-              id: 1,
-              title: notification.title,
-              body: notification.body,
-            },
-          ],
+              side: 'end',
+              // icon: 'star',
+              cssClass:'toastText',
+              text: 'View',
+              handler: () => {
+                this.router.navigate([notification.data.route])
+                // console.log('Favorite clicked');
+              }
+            }, {
+              text: 'Cancel',
+              role: 'cancel',
+              handler: () => {
+                console.log('Cancel clicked');
+              }
+            }
+          ]
         });
+        await toast.present();
+        
+        
+        // alert(JSON.stringify(notification.data.))
+        // alert('local'+notification.data.link)
+        // LocalNotifications.schedule({
+        //   notifications: [
+        //     {
+        //       id: 1,
+        //       title: notification.title,
+        //       body: notification.body,
+        //     },
+        //   ],
+        // }
+        // ,);
       }
     ).then((data) => {});
+
+    
+
+    PushNotifications.addListener('pushNotificationActionPerformed',data=>{
+      // alert(data)
+      // only navigate if logged in
+      if(this.profile)
+      {
+        this.router.navigate([data.notification.data.route])
+      }
+      
+      // data.notification.data.
+    }).then(data2=>{
+      // alert('data2'+data2)
+    }).catch(err=>{
+      // alert('error'+err)
+    })
   }
 }

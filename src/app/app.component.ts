@@ -21,6 +21,8 @@ import { App } from '@capacitor/app';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+
+  version='0.0.1'
   fileToUpload: File | null = null;
 
   constructor(
@@ -31,11 +33,15 @@ export class AppComponent {
     public http: HttpClient,
     public navCtrl: NavController
   ) {
+    this.getAppVersion()
     this.initializeApp();
     console.log(this.dataService.profile);
   }
   initializeApp() {
     this.platform.ready().then(async () => {
+
+
+
       App.addListener('backButton', () => {
         if (
           (window.location + '').includes('localhost/dashboard') ||
@@ -53,26 +59,24 @@ export class AppComponent {
       // } catch (error) {
       //   alert('catch getAppUpdateInfo' + result);
       // }
-      const result = await AppUpdate.getAppUpdateInfo();
+      AppUpdate.getAppUpdateInfo().then(data=>{
+        console.log('UPDATE INFO',);
+        if (
+          data.updateAvailability == AppUpdateAvailability.UPDATE_AVAILABLE
+        ) {
+          this.dataService.presentToast('Update Available')
+          if (data.flexibleUpdateAllowed) {
+             AppUpdate.startFlexibleUpdate();
+          }
+          if (data.immediateUpdateAllowed) {
+             AppUpdate.performImmediateUpdate();
+          }
+        }
+      })
+     
+   
+ 
 
-      if (
-        result.updateAvailability !== AppUpdateAvailability.UPDATE_AVAILABLE
-      ) {
-        return;
-      }
-      if (result.flexibleUpdateAllowed) {
-        await AppUpdate.startFlexibleUpdate();
-      }
-      if (result.immediateUpdateAllowed) {
-        await AppUpdate.performImmediateUpdate();
-      }
-      try {
-        // alert('getAppUpdateInfo' + JSON.stringify(result));
-      } catch (error) {
-        // alert('catch getAppUpdateInfo' + result);
-      }
-
-      // this.router.navigate(['/profile']);
     });
   }
 
@@ -157,5 +161,11 @@ export class AppComponent {
             }
           );
       });
+  }
+
+  getAppVersion(){
+    App.getInfo().then(data=>{
+      this.version=data.version
+    })
   }
 }
