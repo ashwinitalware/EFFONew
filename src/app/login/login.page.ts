@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 import { SmsRetriever } from '@awesome-cordova-plugins/sms-retriever/ngx';
+import { SplashScreen } from '@capacitor/splash-screen';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginPage implements OnInit {
   ) {
     // this.navCtrl.navigateRoot(['/dashboard']);
 
-    this.autoLogin();
+    // this.autoLogin();
 
     this.smsRetriever
       .getAppHash()
@@ -47,15 +48,15 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {}
 
-  autoLogin() {
-    this.dataService.present('Syncing Profile...', 200);
-    // alert(this.dataService.profile);
-    if (this.dataService.profile) {
-      this.dataService.auth.canLoad = false;
-      this.navCtrl.navigateForward(['/dashboard']);
-    } else {
-    }
-  }
+  // autoLogin() {
+  //   this.dataService.present('Syncing Profile...', 200);
+  //   // alert(this.dataService.profile);
+  //   if (this.dataService.profile) {
+  //     // this.dataService.auth.canLoad = false;
+  //     this.navCtrl.navigateForward(['/dashboard']);
+  //   } else {
+  //   }
+  // }
 
   login() {
     const newPhone = this.dataService.auth.phone + '';
@@ -104,7 +105,7 @@ export class LoginPage implements OnInit {
             this.dataService.profile = data.profile;
 
             localStorage.setItem('effoProfile', JSON.stringify(data.profile));
-            this.dataService.auth.canLoad = false;
+            // this.dataService.auth.canLoad = false;
             if (
               !data.profile.fullName ||
               data.profile.email == 'email@gmail.com' ||
@@ -131,5 +132,12 @@ export class LoginPage implements OnInit {
   }
   google() {
     this.dataService.presentToast('Coming Soon..', 'danger');
+  }
+  
+   ionViewDidEnter(){
+setTimeout(async() => {
+  
+  await SplashScreen.hide()
+}, 100);
   }
 }

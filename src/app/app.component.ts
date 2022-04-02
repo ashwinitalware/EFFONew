@@ -39,6 +39,7 @@ export class AppComponent {
   }
   initializeApp() {
     this.platform.ready().then(async () => {
+      
 
 
 

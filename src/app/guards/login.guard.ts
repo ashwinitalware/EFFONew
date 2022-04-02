@@ -33,9 +33,8 @@ export class LoginGuard implements CanActivate {
     UrlTree {
 
 
-      console.log('guard',route);
+      console.log('guard', route);
       if (route.routeConfig.path == 'dashboard') {
-
 
         const tempStringProfile = window.localStorage.getItem('effoProfile');
         if (tempStringProfile) {
@@ -45,20 +44,24 @@ export class LoginGuard implements CanActivate {
         } else {
           this.router.navigate(['/login']);
           return false
-          
+
         }
 
-      }else if(route.routeConfig.path == 'login'){
+      } else if (route.routeConfig.path == 'login') {
 
-      if (this.dataService.auth.canLoad) {
-        // this.router.navigateByUrl('/login');
-        return true;
-      } else {
-        // this.router.navigateByUrl('/dashboard');
-        return false;
-        // this.router.navigate(['/dashboard']);
+        const tempStringProfile = window.localStorage.getItem('effoProfile');
+        if (tempStringProfile) {
+          this.dataService.profile = JSON.parse(tempStringProfile);
+        } 
+        if (this.dataService.profile) {
+          this.router.navigateByUrl('/dashboard');
+          return false
+        } else {
+          // this.router.navigateByUrl('/dashboard');
+          return true;
+          // this.router.navigate(['/dashboard']);
+        }
       }
-    }
       // return this.dataService.auth.canLoad;
       // return true;
     }

@@ -66,7 +66,7 @@ export class DataService {
     otpSent: false,
     email: '',
     fullName: '',
-    canLoad: true,
+    // canLoad: true,
   };
   // profile: any = {
   //   // id: 1,
@@ -87,7 +87,7 @@ export class DataService {
     this.domainUrl =
       'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
     this.apiUrl = this.domainUrl + 'api/';
-    this.syncProfileFromLs();
+    // this.syncProfileFromLs();
   }
   async present(content = 'Loading Data...', duration = 10000) {
     this.isLoading = true;
@@ -139,13 +139,13 @@ export class DataService {
   viewImage(image) {
     this.photoViewer.show(image);
   }
-  syncProfileFromLs() {
-    const tempStringProfile = window.localStorage.getItem('effoProfile');
-    if (tempStringProfile) {
-      this.profile = JSON.parse(tempStringProfile);
-      // this.auth.canLoad = false;
-    }
-  }
+  // syncProfileFromLs() {
+  //   const tempStringProfile = window.localStorage.getItem('effoProfile');
+  //   if (tempStringProfile) {
+  //     this.profile = JSON.parse(tempStringProfile);
+  //     // this.auth.canLoad = false;
+  //   }
+  // }
   saveProfileObject(profile) {
     this.profile = profile;
     localStorage.setItem('effoProfile', JSON.stringify(profile));
@@ -177,7 +177,6 @@ export class DataService {
     });
   }
   logout() {
-    this.auth.canLoad = true;
     this.profile = undefined;
     localStorage.clear();
     this.auth.otp = '';

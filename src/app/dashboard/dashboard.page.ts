@@ -2,6 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { App } from '@capacitor/app';
+import { SplashScreen } from '@capacitor/splash-screen';
 import { NavController, Platform, PopoverController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 import { JobService } from '../services/job.service';
@@ -114,7 +115,8 @@ export class DashboardPage implements OnInit {
     public jobService: JobService,
     public popoverController: PopoverController
   ) {
-    this.dataService.auth.canLoad = false;
+     
+    // this.dataService.auth.canLoad = false;
     this.dataService.syncFCMToken();
     this.getPopupImage();
   }
@@ -196,6 +198,9 @@ export class DashboardPage implements OnInit {
   }
   ngOnInit() {}
 
+  async ionViewDidEnter(){
+    await SplashScreen.hide()
+  }
   ionViewWillEnter() {}
 
   getPopupImage() {

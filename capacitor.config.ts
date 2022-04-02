@@ -8,15 +8,24 @@ const config: CapacitorConfig = {
   server: {
     cleartext: true,
   },
+  plugins:{
+SplashScreen:{
+  
+  
+  // launchShowDuration:2000,
+  // androidScaleType:'CENTER',
+  launchAutoHide:false
+}
+  },
   cordova: {
     preferences: {
       ScrollEnabled: 'false',
       BackupWebStorage: 'none',
-      SplashMaintainAspectRatio: 'true',
-      FadeSplashScreenDuration: '30',
-      SplashShowOnlyFirstTime: 'false',
-      SplashScreen: 'screen',
-      SplashScreenDelay: '30',
+      // SplashMaintainAspectRatio: 'true',
+      // FadeSplashScreenDuration: '30',
+      // SplashShowOnlyFirstTime: 'false',
+      // SplashScreen: 'screen',
+      // SplashScreenDelay: '30',
     },
   },
 };
