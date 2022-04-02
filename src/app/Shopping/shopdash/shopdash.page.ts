@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
 
 @Component({
@@ -13,7 +14,38 @@ export class ShopdashPage implements OnInit {
     speed: 600,
   };
 
-  constructor() { }
+  categories = [
+    {
+      name: 'All Catagories',
+      image: '',
+      icon: 'apps',
+      link: 'allshopcategories',
+      available: true,
+    },
+    {
+      name: 'Mobile',
+      image: '',
+      icon: 'phone-portrait',
+      link: 'mobile',
+    },
+    {
+      name: 'Fashion',
+      image: '',
+      icon: 'shirt',
+      link: '',
+    },
+    {
+      name: 'Computer',
+      image: '',
+      icon: 'desktop',
+      link: '',
+    },
+
+  ];
+
+  constructor(
+    public router: Router,
+  ) { }
 
   slidesDidLoad(slides: IonSlides): void {
     slides.startAutoplay();
@@ -21,6 +53,11 @@ export class ShopdashPage implements OnInit {
 
 
   ngOnInit() {
+  }
+
+  navigate(category) {
+
+    this.router.navigate(['/' + category.link])
   }
 
 }

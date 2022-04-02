@@ -37,11 +37,9 @@
 
   <!-- <h5 style="margin-left: 12px;"><b>Explore Our Services</b></h5> -->
 
-  <div class="bg-white mt-1 rounded-tl-xl rounded-tr-xl">
+  <!-- <div class="bg-white mt-1 rounded-tl-xl rounded-tr-xl">
     <ion-grid>
       <ion-row>
-        <!-- routerLink="/appliancesrepairing" -->
-        <!-- routerLink="/electronicsservices" -->
         <ion-col size="3">
           <div align="center" routerLink="/subservices">
             <img src="assets/services/p2.png" />
@@ -92,8 +90,6 @@
           </div>
         </ion-col>
 
-
-
         <ion-col size="3" routerLink="/contractor">
           <div align="center">
             <img src="assets/services/p11.png" />
@@ -102,7 +98,42 @@
         </ion-col>
       </ion-row>
     </ion-grid>
+  </div> -->
+
+  <div class="p-1" style="background-color: white; border-radius: 5px; margin-top: 3%">
+    <ion-grid fixed>
+      <ion-row class="small_text">
+        <ion-col (click)="navigate(category)" *ngFor="let category  of categories" size="3" align="center"
+          class="flex justify-center flex-col">
+          <div class="m-auto bg-red-600 p-3 text-white rounded-md flex items-center justify-center">
+            <ion-icon name="{{category.icon}}" class="text-xl"></ion-icon>
+          </div>
+          <!-- <img src="assets/D2.png" alt="" /><br /> -->
+          <div class="truncate mt-2 text-sm">{{category.name}}</div>
+          <!-- <div class="red" [ngStyle]="{'color': category.available?'white':'red'}">
+                    Coming Soon
+                </div> -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
+
+
+  <!-- <div style="background-color: white; border-radius: 5px; margin-top: 3%">
+    <ion-grid fixed>
+      <ion-row class="small_text">
+        <ion-col *ngFor="let category  of categories" size="3" align="center" class="flex justify-center flex-col">
+          <div class="m-auto bg-red-600 p-3 text-white rounded-md flex items-center justify-center">
+            <ion-icon *ngIf="category.icon" name="{{category.icon}}" class="text-xl"></ion-icon>
+          </div>
+          <div class="truncate mt-2">{{category.name}}</div>
+          <div class="red" [ngStyle]="{'color': category.available?'white':'red'}">
+            Coming Soon
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div> -->
 
 
 

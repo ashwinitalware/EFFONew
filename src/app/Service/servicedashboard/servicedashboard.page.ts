@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
 
 @Component({
@@ -27,7 +28,70 @@ export class ServicedashboardPage implements OnInit {
     initialSlide: 0,
     slidesPerView: 2.5,
   }
-  constructor() { }
+
+  categories = [
+    {
+      name: 'Appliances Repairing',
+      image: '',
+      icon: 'tv',
+      link: 'subservices',
+      available: true,
+    },
+    {
+      name: 'Beauty',
+      image: '',
+      icon: 'sparkles',
+      link: '',
+      available: true,
+    },
+    {
+      name: 'Contractor',
+      image: '',
+      icon: 'construct',
+      link: 'contractorservices',
+    },
+    {
+      name: 'Consultant',
+      image: '',
+      icon: 'bag-handle',
+      link: '',
+    },
+    {
+      name: 'Event',
+      image: '',
+      icon: 'desktop',
+      link: '',
+    },
+    {
+      name: 'Eduacation',
+      image: '',
+      icon: 'school',
+      link: '',
+    },
+    {
+      name: 'Home Repair & Decor',
+      image: '',
+      link: '',
+      icon: 'home',
+    },
+    {
+      name: 'Manpower Services',
+      image: '',
+      link: '',
+      icon: 'people',
+    },
+    {
+      name: 'Vehicle',
+      image: '',
+      link: '',
+      icon: 'car-sport',
+    },
+  ]
+
+
+  constructor(
+    public router: Router,
+  ) { }
 
   slideChanged() {
     this.slider.stopAutoplay(); //this code for slide after page change
@@ -37,7 +101,13 @@ export class ServicedashboardPage implements OnInit {
   }
 
 
+
   ngOnInit() {
+  }
+
+  navigate(category) {
+
+    this.router.navigate(['/' + category.link])
   }
 
 }

@@ -43,112 +43,25 @@
     <ion-label>All Categories</ion-label>
   </div>
 
-  <div style="background-color: white; border-radius: 5px; margin-top: 3%;">
+  <div class="p-1" style="background-color: white; border-radius: 5px; margin-top: 3%">
     <ion-grid fixed>
       <ion-row class="small_text">
-        <!-- <ion-col size="3" align="center" routerLink="/newsdashboard">
-          <img src="assets/D1.png" alt=""><br>
-          <ion-label>News </ion-label>
-        </ion-col> -->
-        <ion-col size="3" routerLink="/jobdashboard">
-          <div align="center">
-            <img src="assets/D2.png" alt="">
-            <ion-label align="center">Jobs</ion-label>
+        <ion-col (click)="navigate(category)" *ngFor="let category  of categories" size="3" align="center"
+          class="flex justify-center flex-col">
+          <div class="m-auto bg-red-600 p-3 text-white rounded-md flex items-center justify-center">
+            <ion-icon name="{{category.icon}}" class="text-xl"></ion-icon>
           </div>
-        </ion-col>
-
-        <ion-col size="3" routerLink="/servicedashboard">
-          <div align="center">
-            <img src="assets/D3.png" alt="">
-            <ion-label>Services</ion-label>
-          </div>
-        </ion-col>
-
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/D4.png" alt="">
-            <ion-label>Maintenance</ion-label>
-          </div>
-        </ion-col>
-
-        <ion-col size="3" routerLink="/shopdash">
-          <div align="center">
-            <img src="assets/shop.png" alt="">
-            <ion-label>Shopping</ion-label>
-          </div>
+          <!-- <img src="assets/D2.png" alt="" /><br /> -->
+          <div class="truncate mt-2 text-sm">{{category.name}}</div>
+          <!-- <div class="red" [ngStyle]="{'color': category.available?'white':'red'}">
+                    Coming Soon
+                </div> -->
         </ion-col>
       </ion-row>
-      <!-- routerLink="/cabserdashboard" -->
-      <ion-row class="small_text">
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/cab_icon.png" alt="">
-            <ion-label>Cab Services</ion-label>
-          </div>
-        </ion-col>
-
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/D8.png" alt="">
-            <ion-label>Ticket Booking</ion-label>
-          </div>
-        </ion-col>
-
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/D11.png" alt="">
-            <ion-label>Old Ex</ion-label>
-          </div>
-        </ion-col>
-
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/D6.png" alt="">
-            <ion-label>Property</ion-label>
-          </div>
-        </ion-col>
-      </ion-row>
-
-      <ion-row class="small_text">
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/D7.png" alt="">
-            <ion-label>Lodging</ion-label>
-          </div>
-        </ion-col>
-
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/D9.png" alt="">
-            <ion-label>Restaurant & Food</ion-label>
-          </div>
-        </ion-col>
-
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/empty.png" alt=""><br>
-            <ion-label></ion-label>
-          </div>
-        </ion-col>
-        <ion-col size="3">
-          <div align="center">
-            <img src="assets/empty.png" alt=""><br>
-            <ion-label></ion-label>
-          </div>
-        </ion-col>
-      </ion-row>
-
-
-
-      <!-- <ion-row style="margin-top: 2%; border-top: 1px solid rgb(194, 192, 192);">
-        <ion-col size="12" align="center" (click)="book_ride()">
-          <ion-icon name="chevron-down"></ion-icon>
-        </ion-col>
-      </ion-row> -->
-
     </ion-grid>
-    <!-- </ion-card> -->
   </div>
+
+
 
   <div style="background-color: white; border-radius: 5px; margin-top: 2%; padding: 5px;">
     <ion-slides #slider loop="true" [options]="slideOpts" (ionSlideTouchEnd)="slideChanged()">

@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="flex justify-between p-2">
+      <div>
+        <svg routerLink="/mobiledetails" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+      </div>
+      <div class="text-white">
+        <p>Add delivery address</p>
+      </div>
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        </svg>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="bg-white p-2">
+    <ion-label style="padding-left:0.8em ;" class="pt-2 pb-2">
+      <ion-icon name="call-outline"></ion-icon> &nbsp;Contact Details
+    </ion-label>
+  </div>
+
+  <!-- <div class="pl-4 pr-4 pt-2"> -->
+  <div class="p-3">
+    <ion-item>
+      <ion-label class="text-red-500" position="floating">Full Name</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Phone Number</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Alternate Phone Number</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+  </div>
+
+  <div class="bg-white p-2">
+    <ion-label style="padding-left:0.8em ;" class="pt-2 pb-2">
+      <ion-icon name="location-outline"></ion-icon>&nbsp; Address
+    </ion-label>
+  </div>
+
+
+  <div class="p-3">
+    <ion-item>
+      <ion-label position="floating">House no. building name </ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Road name,area colony </ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Pincode </ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+  </div>
+
+  <ion-row class="pl-2 pr-2">
+    <ion-col size="6">
+      <ion-item>
+        <ion-label position="floating">City</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="6">
+      <ion-item>
+        <ion-label position="floating">State </ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <div class="p-2 mb-2">
+    <ion-item>
+      <ion-label position="floating">Nearby Location (optional) </ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+  </div>
+
+  <div class="bg-white p-2">
+    <ion-label style="padding-left:0.8em ;" class="pt-2 pb-2">
+      <ion-icon name="location-outline"></ion-icon>&nbsp; Type of address
+    </ion-label>
+  </div>
+
+  <div class="flex justify-between p-2 pl-3 pr-3 mt-3">
+    <div>
+      <button
+        class=" w-full bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+        <ion-icon name="home-outline"></ion-icon> Home
+      </button>
+    </div>
+    <div>
+      <button
+        class="w-full  bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded-md shadow">
+        <ion-icon name="business-outline"></ion-icon> Work
+      </button>
+    </div>
+  </div>
+
+
+  <div align="center" class="pl-3 pr-3 pb-3">
+    <button class="mt-3 text-white bg-red-600 px-2 py-2 rounded-md w-full small-button-fill" routerLink="/mycard">
+      Save Address & Continue
+    </button>
+  </div>
+
+
+  <!-- </div> -->
+</ion-content>

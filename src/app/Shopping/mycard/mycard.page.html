@@ -1,64 +1,51 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button class="text-white" defaultHref="/mobiledetails"></ion-back-button>
-    </ion-buttons>
-    <ion-title align="center" class="text-white">My Cart</ion-title>
-    <div slot="end">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
-        stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    </div>
-    <div slot="end" class="pr-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
-        stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-      </svg>
+    <div class="flex justify-between p-2">
+      <div>
+        <svg routerLink="/address" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+      </div>
+      <div class="text-white">
+        <p>Payment</p>
+      </div>
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        </svg>
+      </div>
     </div>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
-  <ion-card class="p-2 bg-white">
-    <div>
-      <img class="w-full" src="assets/shopping/samsungf12.jfif">
-    </div>
-    <p class="text-black text-lg mt-2"><b>Samsung Galaxy f12</b> <span class="text-lg rupees"><b>&nbsp;
-          ₹ 15,500</b></span><br>
-      <span class="text-sm">Delivery by monday feb 28</span><br>
-    </p>
-
-    <h5>Price Details</h5>
-    <p>price : <span class="rupees"></span> 18,500</p>
-    <p>Discount : <span class="rupees"></span> -3500</p>
-    <p>Delivery Charges : Free</p>
-    <p><b>Total Amount : </b> <span class="rupees"></span> 15,500</p>
-    <p class="text-green-500">
-      You will save <span class="rupees"></span> 3500 on this order
-    </p>
-  </ion-card>
-
-  <div style="padding-left:0.8em ;" class=" pt-2 pb-1">
-    <ion-label>Payment Method</ion-label>
+  <div class="pb-4 mt-4">
+    <ion-label class="pl-2"><b>Select Payment Method</b></ion-label>
   </div>
 
   <ion-radio-group value="grape">
-    <ion-item lines="none" color="none"
-      class="bg-white border-solid border-2 p-1 ml-2 mr-2 pt-2 border-grey-300 hover:border-red-300">
+    <ion-item lines="none" class="border-solid border-2 p-1 ml-2 mr-2 mt-1 border-gery-300 hover:border-red-300">
+      <ion-avatar slot="start">
+        <img src="assets/shopping/cash.png" />
+      </ion-avatar>
+      <ion-label>Cash on Delivery</ion-label>
+      <ion-radio slot="start" color="danger" value="beef"></ion-radio>
+    </ion-item>
+
+
+    <ion-item lines="none" class="border-solid border-2 p-1 ml-2 mr-2 mt-1 pt-2 border-grey-300 hover:border-red-300 ">
       <ion-avatar slot="start">
         <img src="assets/shopping/visa.jpeg" />
       </ion-avatar>
+
       <ion-label>* * ** 308</ion-label>
       <ion-radio slot="start" color="danger" value="apple"></ion-radio>
     </ion-item>
 
-    <ion-item lines="none" color="none"
-      class=" bg-white border-solid border-2 p-1 ml-2 mr-2 mt-1 border-gery-300 hover:border-red-300">
+    <ion-item lines="none" class="border-solid border-2 p-1 ml-2 mr-2 mt-1 border-gery-300 hover:border-red-300">
       <ion-avatar slot="start">
         <img src="assets/shopping/gpay.jpg" />
       </ion-avatar>
@@ -66,8 +53,7 @@
       <ion-radio slot="start" color="danger" value="grape"></ion-radio>
     </ion-item>
 
-    <ion-item lines="none" color="none"
-      class="bg-white border-solid border-2 p-1 ml-2 mr-2 mt-1 border-gery-300 hover:border-red-300">
+    <ion-item lines="none" class="border-solid border-2 p-1 ml-2 mr-2 mt-1 border-gery-300 hover:border-red-300">
       <ion-avatar slot="start">
         <img src="assets/shopping/pytm.jpg" />
       </ion-avatar>
@@ -75,16 +61,37 @@
       <ion-radio slot="start" color="danger" value="cherry"></ion-radio>
     </ion-item>
   </ion-radio-group>
+
+
+  <div class="mt-2 p-4">
+    <p class=" text-sm mt-2"><b>Samsung Galaxy f12</b></p>
+    <p class="text-black text-xs">Delivery by mon feb 28</p>
+    <div class=" border-b-2 ">
+      <p class="text-black text-sm  mb-2 ">₹ <b>15,500</b></p>
+
+    </div>
+
+    <p class="text-sm mt-2 text-black">Price Details</p>
+    <p class="text-xs">price : ₹ 18,500</p>
+    <p class="text-xs">Discount : ₹ -3500</p>
+    <p class="text-xs">Delivery Charges : Free</p>
+    <p class="text-xs"><b>Total Amount : </b> ₹ 15,500</p>
+    <p class="text-green-500 text-xs">
+      You will save ₹ 3500 on this order
+    </p>
+  </div>
+
+
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
     <div class="flex justify-between p-2 font-semibold">
       <div class="text-white pt-2 text-sm">
-        Total <span class="rupees"></span> 15,000
+        Total ₹ 15,000
       </div>
       <div>
-        <ion-button color="light font-semibold" routerLink="/cart" class="px-1 py-1">
+        <ion-button color="light font-semibold" routerLink="/cart" class="px-1 py-1" routerLink="/ordersummery">
           Continue
         </ion-button>
       </div>

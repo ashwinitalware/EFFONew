@@ -296,10 +296,38 @@ const routes: Routes = [
     path: 'modal',
     loadChildren: () => import('./Service/modal/modal.module').then(m => m.ModalPageModule)
   },
+  {
+    path: 'address',
+    loadChildren: () => import('./Shopping/address/address.module').then(m => m.AddressPageModule)
+  },
+  {
+    path: 'ordersummery',
+    loadChildren: () => import('./Shopping/ordersummery/ordersummery.module').then(m => m.OrdersummeryPageModule)
+  },
+  {
+    path: 'orderplaced',
+    loadChildren: () => import('./Shopping/orderplaced/orderplaced.module').then(m => m.OrderplacedPageModule)
+  },
+  {
+    path: 'propertydash',
+    loadChildren: () => import('./Property/propertydash/propertydash.module').then(m => m.PropertydashPageModule)
+  },
+  {
+    path: 'details',
+    loadChildren: () => import('./Property/details/details.module').then(m => m.DetailsPageModule)
+  },
+  {
+    path: 'saleandrent',
+    loadChildren: () => import('./Property/saleandrent/saleandrent.module').then(m => m.SaleandrentPageModule)
+  },  {
+    path: 'propertytypes',
+    loadChildren: () => import('./Property/propertytypes/propertytypes.module').then( m => m.PropertytypesPageModule)
+  },
 
-
-
-
+  // {
+  //   path: 'filter',
+  //   loadChildren: () => import('./Property/filter/filter.module').then(m => m.FilterPageModule)
+  // },
 
 
 ];

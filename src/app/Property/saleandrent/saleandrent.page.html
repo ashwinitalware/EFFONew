@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="flex justify-between p-2">
+      <div routerLink="/details">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+      </div>
+      <div class="text-white">
+        <p>Sale and Rent</p>
+      </div>
+
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        </svg>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-3">
+
+    <div class="bg-gray-200 rounded-md border-2 border-gray-400 p-2 mt-2 mb-1">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+
+    <p class="pt-2 border-b-2 border-gray-200"><b>Find a Thousand Homes</b><br>
+      <b>For Sale & Rent</b></p>
+
+    <!-- <div class="bg-white ">
+      <p class="mt-2 ml-2"><b>Might help you</b></p>
+      <ion-row class="mt-4 text-center">
+        <ion-col size="3" roterLink="/mobiledetails">
+          <img src="assets/property/search.png" />
+          <ion-list-header class="text-xs">Find Agent </ion-list-header>
+        </ion-col>
+
+        <ion-col size="3">
+          <img src="assets/property/map.png" />
+          <ion-list-header class="text-xs">Explore-Map</ion-list-header>
+        </ion-col>
+
+        <ion-col size="3">
+          <img src="assets/property/news.png" />
+          <ion-list-header class="text-xs">Blog & News </ion-list-header>
+        </ion-col>
+
+        <ion-col size="3">
+          <img src="assets/property/home.png" />
+          <ion-list-header class="text-xs text-center">Home Loans</ion-list-header>
+        </ion-col>
+      </ion-row>
+    </div> -->
+
+    <div class="mt-2">
+      <p class="mb-2 ml-2"><b>Handpick Project</b></p>
+      <ion-slides class="slider" [options]="slideOptions" pager="false" #slider
+        (ionSlidesDidLoad)="slidesDidLoad(slider)" class="mt-2 rounded-md">
+        <ion-slide>
+          <div>
+            <img class="rounded-md" src="assets/property/slide1.jpg" />
+            <p class="text-left font-medium mt-2 text-sm">
+              Radhe sham residency
+            </p>
+            <p class="text-left text-xs">
+              <ion-icon name="location-outline"></ion-icon> shegao naka amaravti
+            </p>
+          </div>
+        </ion-slide>
+
+        <ion-slide>
+          <div>
+            <img class="rounded-md ml-2" src="assets/property/slide2.jpg" />
+            <p class="text-left font-medium mt-2 text-sm">
+              Radhe sham residency
+            </p>
+            <p class="text-left text-xs">
+              <ion-icon name="location-outline"></ion-icon> shegao naka amaravti
+            </p>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div>
+            <img class="rounded-md ml-5" src="assets/property/slide3.jpg " />
+            <p class="text-left font-medium mt-2 text-sm">
+              Radhe sham residency
+            </p>
+            <p class="text-left text-xs">
+              <ion-icon name="location-outline"></ion-icon> shegao naka amaravti
+            </p>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+
+    <div class="mt-2">
+      <p class="font-semibold">Showing Results</p>
+      <p class="text-sm">2 Properties Found</p>
+
+      <img class="rounded-md mt-1" src="assets/property/img.jpg" />
+      <p class="font-semibold">Durga mawjiya tower</p>
+      <p class="text-xs border-b-2 pb-2">
+        <ion-icon name="location-outline"></ion-icon> Rathi nagar, Amaravati
+      </p>
+      <ion-grid class="bg-white rounded-md">
+        <ion-row>
+          <ion-col size="4" class="border-r-2">
+            <div align="center">
+              <img src="assets/property/bed.png" />
+              <p class="text-xs">2 Bedrooms</p>
+            </div>
+          </ion-col>
+
+          <ion-col size="4" class="border-r-2">
+            <div align="center">
+              <img src="assets/property/bath.png" />
+              <p class="text-xs">1 Bathrooms</p>
+            </div>
+          </ion-col>
+
+          <ion-col size="4">
+            <div align="center">
+              <img src="assets/property/area.png" />
+              <p class="text-xs">1,110 Sqft</p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>
+
+
+<ion-footer routerLink="/propertytypes">
+  <ion-toolbar>
+    <ion-title align="center">Next</ion-title>
+  </ion-toolbar>
+</ion-footer>

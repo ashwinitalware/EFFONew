@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="flex justify-between p-2">
+      <div routerLink="/ordersummery">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+      </div>
+      <div class="text-white ">
+        <p>Order placed</p>
+      </div>
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        </svg>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-1 ">
+    <div class="text-center mt-2">
+      <p class="text-2xl">Order Placed</p>
+      <p class="mt-2">Total price for 3 iterms</p>
+      <p class="mt-2 text-blue-800" routerLink="/ordersummery">View Details <ion-icon name="chevron-forward-outline">
+        </ion-icon>
+      </p>
+
+    </div>
+    <ion-card class="bg-white">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2">
+            <img src="assets/shopping/giftbox (1).png" />
+          </ion-col>
+          <ion-col size="8">
+            <p><b>You won a scratch card </b></p>
+            <p>Tap to see what you have won</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+    <ion-card class="bg-white">
+
+      <div class="border-b mb-2 ml-2">
+        <p class="mt-2 mb-2 ">Delivery by wenesday, 9th 22</p>
+      </div>
+      <div class="ml-2 text-xs">
+        <p><b>tejaswini kavitkar</b></p>
+        <p>Rathi nagar, in front of gajanan maharaj mandir road amaravati</p>
+        <p>Maharastra-444805</p>
+        <p class="mb-5"><b>Phone number:</b> 7020360755</p>
+      </div>
+
+    </ion-card>
+
+    <ion-card class="bg-white p-2">
+      <p class="mb-2 border-b ml-2 mt-2">
+        We have shared the order tracking with 7020360755 used in the address.
+        Tracking link is shared via SMS
+      </p>
+      <p class="ml-2"><b>Manage who can access</b></p>
+      <ion-grid>
+        <ion-row class="mt-2">
+          <ion-col size="2">
+            <img src="assets/shopping/share.png ">
+          </ion-col>
+          <ion-col size="7">
+            <p class="text-sm ">Send order details to someone </p>
+          </ion-col>
+          <ion-col size="3" class="pr-2">
+            <button
+              class="bg-blue-500 hover:bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+              send
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <div align="center" class=" pb-4">
+      <button class="mt-3 text-white bg-red-600 px-10 py-2 rounded-md small-button-fill" routerLink="/shopdash">Continue
+        shopping </button>
+
+    </div>
+  </div>
+</ion-content>

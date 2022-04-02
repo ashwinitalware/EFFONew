@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 // import { IonSlides } from '@ionic/angular';
 
@@ -27,8 +28,82 @@ export class DashboardPage implements OnInit {
     this.bookride = true
   }
 
+
+  categories = [
+    {
+      name: 'Jobs',
+      image: '',
+      icon: 'briefcase',
+      link: '',
+      available: true,
+    },
+    {
+      name: 'Services',
+      image: '',
+      icon: 'apps',
+      link: 'servicedashboard',
+    },
+    {
+      name: 'Cab',
+      image: '',
+      icon: 'car',
+      link: '',
+    },
+    {
+      name: 'Property',
+      image: '',
+      icon: 'home',
+      link: 'propertydash',
+    },
+    {
+      name: 'Shopping',
+      image: '',
+      icon: 'bag-handle',
+      link: 'shopdash',
+    },
+
+    {
+      name: 'Ticket Booking',
+      image: '',
+      icon: 'ticket',
+      link: '',
+    },
+    {
+      name: 'Old EX',
+      image: '',
+      link: '',
+      icon: 'swap-horizontal',
+    },
+    {
+      name: 'Utility',
+      image: '',
+      link: '',
+      icon: 'podium',
+    },
+
+    {
+      name: 'Lodging',
+      image: '',
+      link: '',
+      icon: 'bed',
+    },
+    {
+      name: 'Restaurant ',
+      image: '',
+      link: '',
+      icon: 'restaurant',
+    },
+    {
+      name: '24/7 ',
+      image: '',
+      link: '',
+      icon: 'aperture',
+    },
+  ];
+
   constructor(
-    public platform: Platform
+    public platform: Platform,
+    public router: Router,
   ) { }
   slideChanged() {
     this.slider.stopAutoplay(); //this code for slide after page change
@@ -36,6 +111,17 @@ export class DashboardPage implements OnInit {
 
 
   ngOnInit() {
+  }
+
+
+  navigate(category) {
+    if (category.link) {
+      this.router.navigate(['/' + category.link])
+    }
+
+    else {
+      alert('Coming Soon')
+    }
   }
 
   ionViewWillEnter() {
