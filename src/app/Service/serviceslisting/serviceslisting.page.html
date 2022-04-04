@@ -10,22 +10,22 @@
 
 <ion-content>
 
-  <ion-row class="pl-2 pr-2 pt-3 pb-2">
+  <!-- <ion-row class="pl-2 pr-2 pt-3 pb-2">
     <div style="width: 100%; background-color: white; border-radius: 10px; border: 1px solid rgb(211, 211, 211);">
       <ion-input placeholder="Search In All India" id="search">
         <ion-icon name="search" style="margin-left: 7px;"></ion-icon>
       </ion-input>
     </div>
-  </ion-row>
+  </ion-row> -->
 
   <div class="bg-white rounded-tl-2xl rounded-tr-2xl">
-    <div style="padding-left:0.8em ;" class="pt-3 pb-1">
+    <!-- <div style="padding-left:0.8em ;" class="pt-3 pb-1">
       <ion-label>Appliances Repairing</ion-label>
-    </div>
+    </div> -->
     <!-- mode="ios" -->
-    <ion-segment mode="ios" color="danger" (ionChange)='segmentChanged($event)' scrollable value="civil"
+    <ion-segment mode="ios" class="bg-red-600" (ionChange)='segmentChanged($event)' scrollable value="civil"
       class="ion-no-padding" class="ion-no-margin">
-      <ion-segment-button class="ion-no-padding" value="civil">
+      <ion-segment-button class="ion-no-padding " value="civil">
         <ion-label class="p-1">AC Repair</ion-label>
       </ion-segment-button>
       <ion-segment-button>
@@ -37,15 +37,6 @@
       <ion-segment-button>
         <ion-label class="p-1">Geyser</ion-label>
       </ion-segment-button>
-      <!-- <ion-segment-button>
-        <ion-label class="p-1">Refrigerator</ion-label>
-      </ion-segment-button> -->
-      <!-- <ion-segment-button>
-        <ion-label class="p-1">Washing Machine</ion-label>
-      </ion-segment-button> -->
-      <!-- <ion-segment-button>
-        <ion-label class="p-1">Water Purifier </ion-label>
-      </ion-segment-button> -->
       <ion-segment-button>
         <ion-label class="p-1">Plumbers</ion-label>
       </ion-segment-button>
@@ -66,7 +57,35 @@
 
   <div *ngIf="switchTab == 'civil'" class=" pt-2">
 
-    <div class="bg-white border-b-4 border-gray-300" routerLink="/servicedeatils">
+    <div class="p-1">
+      <ion-card routerLink="/servicedeatils" class="bg-white hover:bg-blue-400" (click)="navigate(listing)"
+        *ngFor="let listing  of categories">
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="4">
+              <img class="rounded-md h-full w-full shadow-md" src="{{listing.image}}" />
+            </ion-col>
+            <ion-col size="8">
+              <p>
+                <span class="font-medium text-base text-black">{{listing.name}}</span><br>
+                <span class="text-black" style="font-size: 0.8em;">
+                  <ion-icon name="{{listing.icon}}" class="text-sm text-black"></ion-icon>{{listing.address}}
+                </span><br>
+                <ion-button (click)="call()" size="small" color="tertiary" class="text-xs">
+                  <ion-icon name="call-outline"></ion-icon>&nbsp;Call
+                </ion-button>
+                <ion-button (click)="whatsapp()" size="small" color="success" class="text-xs">
+                  <ion-icon name="logo-whatsapp"></ion-icon>&nbsp;Whatsapp
+                </ion-button>
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </div>
+
+
+    <!-- <div class="bg-white border-b-4 border-gray-300" routerLink="/servicedeatils">
       <ion-grid fixed>
         <ion-row>
           <ion-col size="4">
@@ -160,7 +179,7 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-    </div>
+    </div> -->
   </div>
 
 
