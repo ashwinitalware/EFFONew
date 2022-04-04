@@ -62,7 +62,7 @@ export class AppComponent {
       AppUpdate.getAppUpdateInfo().then((data) => {
         console.log('UPDATE INFO');
         if (data.updateAvailability == AppUpdateAvailability.UPDATE_AVAILABLE) {
-          this.dataService.presentToast('Update Available');
+          // this.dataService.presentToast('Update Available');
           if (data.flexibleUpdateAllowed) {
             AppUpdate.startFlexibleUpdate();
           }
