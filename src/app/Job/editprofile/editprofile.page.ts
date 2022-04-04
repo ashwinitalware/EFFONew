@@ -39,19 +39,20 @@ export class EditprofilePage implements OnInit {
           '&sensor=true&key=AIzaSyD6d0aNvUiSWaENoQ1UuqCOzfMg0Wmq7Do'
       )
       .subscribe((data: any) => {
-        if (data.results) {
+        if (data.results && data.results.length) {
           this.pinAddress = data.results[0].formatted_address;
           try {
             this.dataService.profile.city =
               data.results[0].address_components[1].long_name;
           } catch (error) {}
         } else {
-          alert('Invalid Pin Code');
+          this.dataService.presentToast('Invalid Pin Code', 'danger');
+          // alert('Invalid Pin Code');
         }
       });
   }
   ngOnInit() {}
-  updateProfile() {
+  async updateProfile() {
     // check for validations
     let tempProfile = this.dataService.profile;
     if (
@@ -62,10 +63,29 @@ export class EditprofilePage implements OnInit {
     )
       return this.dataService.presentToast('Invalid Form', 'danger');
 
-
-      if((tempProfile.pinCode+'').length!=6)
+    if ((tempProfile.pinCode + '').length != 6)
       return this.dataService.presentToast('Invalid Pin Code', 'danger');
 
+    if (!this.validateEmail(tempProfile.email))
+      return this.dataService.presentToast('Invalid Email Address', 'danger');
+
+    this.dataService.present();
+    const pinResult: any = await this.http
+      .get(
+        'https://maps.googleapis.com/maps/api/geocode/json?address=' +
+          this.dataService.profile.pinCode +
+          '&sensor=true&key=AIzaSyD6d0aNvUiSWaENoQ1UuqCOzfMg0Wmq7Do'
+      )
+      .toPromise();
+
+    this.dataService.dismiss();
+
+    console.log(pinResult);
+
+    if (pinResult.status != 'REQUEST_DENIED')
+      if (!pinResult.results.length) {
+        return this.dataService.presentToast('Invalid Pin Code', 'danger');
+      }
 
     this.http
       .put(this.dataService.apiUrl + 'custom/updateProfile', {
@@ -77,22 +97,25 @@ export class EditprofilePage implements OnInit {
       })
       .subscribe((data: any) => {
         if (data.status) {
-          this.dataService.presentToast('Profile Updated');
+          this.dataService.confirmSwal('', 'Profile Updated');
         }
         if (data.profile) {
           this.dataService.saveProfileObject(data.profile);
         }
-        // '/' + this.activateRoute.snapshot.queryParams.navigate,
         if (this.activateRoute.snapshot.queryParams.navigate == 'back') {
           this.navCtrl.back();
         } else {
           this.navCtrl.navigateRoot(['/dashboard']);
         }
-        // if (this.activateRoute.snapshot.queryParams.navigate) {
-        //   this.router.navigate([
-        //     '/' + this.activateRoute.snapshot.queryParams.navigate,
-        //   ]);
-        // }
       });
+  }
+
+  validateEmail(email) {
+    return String(email)
+      .toLowerCase()
+      .match(
+        // eslint-disable-next-line max-len
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
   }
 }

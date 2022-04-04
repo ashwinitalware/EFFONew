@@ -135,7 +135,8 @@ export class ApplyPage implements OnInit {
         .subscribe((data) => {
           this.jobApplied = true;
           this.navCtrl.back();
-          this.dataService.presentToast('Job Applied !');
+          this.dataService.confirmSwal('', 'Job Applied');
+          // this.dataService.presentToast('Job Applied !');
         });
     }
   }

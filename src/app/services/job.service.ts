@@ -240,11 +240,15 @@ export class JobService {
         }
         this.dataService.dismiss();
 
+        // const initialJobsLength=this.jobs?(this.jobs.length-1):0
         if (firstTime) {
           this.jobs = data.data;
         } else {
           this.jobs.push(...data.data);
         }
+
+        // this.jobStatus(this.jobs);
+
         if (!this.jobs.length) {
           this.noJobsFound = true;
         }
@@ -276,5 +280,15 @@ export class JobService {
     this.jobFilters.jobCategoryId = undefined;
     this.jobFilters.salary.min = 0;
     this.jobFilters.salary.max = 1000000;
+  }
+
+  jobViewed(jobs) {
+    jobs.forEach((job) => {
+      job.applied = true;
+    });
+
+    const query = qs.stringify({
+      sort: this.jobFilters.sort,
+    });
   }
 }

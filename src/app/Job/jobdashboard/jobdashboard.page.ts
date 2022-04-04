@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
@@ -11,6 +11,12 @@ import qs from 'qs';
   styleUrls: ['./jobdashboard.page.scss'],
 })
 export class JobdashboardPage implements OnInit {
+  showTitleSuggestions = false;
+  showCitySuggesionts = false;
+  titleSuggestions = [];
+  selectedTitleSuggesion = '';
+  citySuggestions = [];
+  selectedCitySuggesion = '';
   sliceValue = 3;
   temp = 'IT Industry';
   commonFilter = {
@@ -77,6 +83,90 @@ export class JobdashboardPage implements OnInit {
     this.getNewJobs();
     this.getNearJobs();
     this.getHighSalaryJobs();
+  }
+  getSuggesions() {
+    if (this.selectedTitleSuggesion == this.jobService.jobFilters.title) return;
+    // alert(this.jobService.jobFilters.title);
+    if (!this.jobService.jobFilters.title) return (this.titleSuggestions = []);
+    this.http
+      .get(this.dataService.apiUrl + 'custom/homeSearch', {
+        params: {
+          queryText: this.jobService.jobFilters.title,
+        },
+      })
+      .subscribe((data: any) => {
+        this.titleSuggestions = [];
+        console.log(data);
+        if (data.jobs && data.jobs.length) {
+          this.titleSuggestions.push({
+            title: this.jobService.jobFilters.title,
+            type: 'job',
+          });
+
+          data.jobs.forEach((job) => {
+            this.titleSuggestions.push({
+              title: job.title,
+              type: 'job',
+            });
+          });
+          data.jobs.forEach((job) => {
+            this.titleSuggestions.push({
+              title: job.skillsByComma,
+              type: 'job',
+            });
+          });
+          data.jobs.forEach((job) => {
+            if (job.jobCategory)
+              this.titleSuggestions.push({
+                title: job.jobCategory.name,
+                type: 'job',
+              });
+          });
+        }
+        this.titleSuggestions = this.titleSuggestions.slice(0, 5);
+      });
+  }
+  getSuggesionsCities() {
+    if (this.selectedCitySuggesion == this.jobService.jobFilters.city) return;
+    // alert(this.jobService.jobFilters.title);
+    if (!this.jobService.jobFilters.city) {
+      return (this.citySuggestions = []);
+    }
+    this.http
+      .get(this.dataService.apiUrl + 'custom/citySearch', {
+        params: {
+          city: this.jobService.jobFilters.city,
+        },
+      })
+      // .get(
+      //   // eslint-disable-next-line max-len
+      //   `https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyD6d0aNvUiSWaENoQ1UuqCOzfMg0Wmq7Do&types=%28cities%29&components=country:ind&input=${this.jobService.jobFilters.city}`
+      // )
+      .subscribe((data: any) => {
+        this.citySuggestions = [];
+        if (data.predictions && data.predictions.length) {
+          // this.citySuggestions.push({
+          //   title: this.jobService.jobFilters.city,
+          // });
+
+          data.predictions.forEach((city) => {
+            this.citySuggestions.push({
+              title: city.structured_formatting.main_text,
+            });
+          });
+        }
+      });
+  }
+  selected(suggestion, type) {
+    if (type == 'title') {
+      this.jobService.jobFilters.title = suggestion.title;
+      this.selectedTitleSuggesion = suggestion.title;
+      this.titleSuggestions = [];
+    } else {
+      this.jobService.jobFilters.city = suggestion.title;
+      this.selectedCitySuggesion = suggestion.title;
+      this.citySuggestions = [];
+    }
   }
   segmentChanged(ev: any) {
     this.switchTab = ev.detail.value;

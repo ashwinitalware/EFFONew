@@ -9,6 +9,7 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./history.page.scss'],
 })
 export class HistoryPage implements OnInit {
+  segment='pending'
   data: any = [];
   constructor(
     public dataService: DataService,
@@ -23,12 +24,20 @@ export class HistoryPage implements OnInit {
         params: {
           sort: 'createdAt:desc',
           'filters[applicant][id][$eq]': this.dataService.profile.id + '',
+          'filters[status][$eq]': this.segment + '',
           populate: '*',
         },
       })
       .subscribe((data: any) => {
         this.data = data.data;
       });
+  }
+
+  segmentChanged(event) {
+    console.log(event);
+
+    // alert(this.segment);
+    this.getHistory();
   }
   statusToClass(status) {
     switch (status) {

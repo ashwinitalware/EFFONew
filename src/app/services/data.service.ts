@@ -84,10 +84,10 @@ export class DataService {
     public photoViewer: PhotoViewer
   ) {
     // this.domainUrl = 'http://25bc-223-178-219-154.ngrok.io/';
-    this.domainUrl =
-      'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
+    // this.domainUrl =
+    //   'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
     this.apiUrl = this.domainUrl + 'api/';
-    // this.syncProfileFromLs();
+    this.syncProfileFromLs();
   }
   async present(content = 'Loading Data...', duration = 10000) {
     this.isLoading = true;
@@ -106,10 +106,10 @@ export class DataService {
         });
       });
   }
-  confirmSwal() {
+  confirmSwal(title = '', text = '') {
     Swal.fire({
-      // title: 'Sweet!',
-      // text: 'Profile Updated',
+      title,
+      text,
       imageUrl: 'assets/images/confirm.gif',
       // imageHeight: 200,
       showConfirmButton: false,
@@ -139,13 +139,13 @@ export class DataService {
   viewImage(image) {
     this.photoViewer.show(image);
   }
-  // syncProfileFromLs() {
-  //   const tempStringProfile = window.localStorage.getItem('effoProfile');
-  //   if (tempStringProfile) {
-  //     this.profile = JSON.parse(tempStringProfile);
-  //     // this.auth.canLoad = false;
-  //   }
-  // }
+  syncProfileFromLs() {
+    const tempStringProfile = window.localStorage.getItem('effoProfile');
+    if (tempStringProfile) {
+      this.profile = JSON.parse(tempStringProfile);
+      // this.auth.canLoad = false;
+    }
+  }
   saveProfileObject(profile) {
     this.profile = profile;
     localStorage.setItem('effoProfile', JSON.stringify(profile));
@@ -263,8 +263,6 @@ export class DataService {
     PushNotifications.addListener(
       'pushNotificationReceived',
       async (notification) => {
-
-
         const toast = await this.toastController.create({
           header: notification.title,
           message: notification.body,
@@ -274,24 +272,24 @@ export class DataService {
             {
               side: 'end',
               // icon: 'star',
-              cssClass:'toastText',
+              cssClass: 'toastText',
               text: 'View',
               handler: () => {
-                this.router.navigate([notification.data.route])
+                this.router.navigate([notification.data.route]);
                 // console.log('Favorite clicked');
-              }
-            }, {
+              },
+            },
+            {
               text: 'Cancel',
               role: 'cancel',
               handler: () => {
                 console.log('Cancel clicked');
-              }
-            }
-          ]
+              },
+            },
+          ],
         });
         await toast.present();
-        
-        
+
         // alert(JSON.stringify(notification.data.))
         // alert('local'+notification.data.link)
         // LocalNotifications.schedule({
@@ -307,21 +305,20 @@ export class DataService {
       }
     ).then((data) => {});
 
-    
-
-    PushNotifications.addListener('pushNotificationActionPerformed',data=>{
+    PushNotifications.addListener('pushNotificationActionPerformed', (data) => {
       // alert(data)
       // only navigate if logged in
-      if(this.profile)
-      {
-        this.router.navigate([data.notification.data.route])
+      if (this.profile) {
+        this.router.navigate([data.notification.data.route]);
       }
-      
+
       // data.notification.data.
-    }).then(data2=>{
-      // alert('data2'+data2)
-    }).catch(err=>{
-      // alert('error'+err)
     })
+      .then((data2) => {
+        // alert('data2'+data2)
+      })
+      .catch((err) => {
+        // alert('error'+err)
+      });
   }
 }

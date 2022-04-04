@@ -21,8 +21,7 @@ import { App } from '@capacitor/app';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-
-  version='0.0.1'
+  version = '0.0.1';
   fileToUpload: File | null = null;
 
   constructor(
@@ -33,16 +32,12 @@ export class AppComponent {
     public http: HttpClient,
     public navCtrl: NavController
   ) {
-    this.getAppVersion()
+    this.getAppVersion();
     this.initializeApp();
     console.log(this.dataService.profile);
   }
   initializeApp() {
     this.platform.ready().then(async () => {
-      
-
-
-
       App.addListener('backButton', () => {
         if (
           (window.location + '').includes('localhost/dashboard') ||
@@ -50,6 +45,10 @@ export class AppComponent {
         )
           App.exitApp();
         else this.navCtrl.back();
+
+        try {
+          this.dataService.dismiss();
+        } catch (error) {}
       });
       //     FCM.subscribeTo({ topic: "test123" })
       // .then((r) => alert(`subscribed to topic`))
@@ -60,24 +59,18 @@ export class AppComponent {
       // } catch (error) {
       //   alert('catch getAppUpdateInfo' + result);
       // }
-      AppUpdate.getAppUpdateInfo().then(data=>{
-        console.log('UPDATE INFO',);
-        if (
-          data.updateAvailability == AppUpdateAvailability.UPDATE_AVAILABLE
-        ) {
-          this.dataService.presentToast('Update Available')
+      AppUpdate.getAppUpdateInfo().then((data) => {
+        console.log('UPDATE INFO');
+        if (data.updateAvailability == AppUpdateAvailability.UPDATE_AVAILABLE) {
+          this.dataService.presentToast('Update Available');
           if (data.flexibleUpdateAllowed) {
-             AppUpdate.startFlexibleUpdate();
+            AppUpdate.startFlexibleUpdate();
           }
           if (data.immediateUpdateAllowed) {
-             AppUpdate.performImmediateUpdate();
+            AppUpdate.performImmediateUpdate();
           }
         }
-      })
-     
-   
- 
-
+      });
     });
   }
 
@@ -164,9 +157,9 @@ export class AppComponent {
       });
   }
 
-  getAppVersion(){
-    App.getInfo().then(data=>{
-      this.version=data.version
-    })
+  getAppVersion() {
+    App.getInfo().then((data) => {
+      this.version = data.version;
+    });
   }
 }

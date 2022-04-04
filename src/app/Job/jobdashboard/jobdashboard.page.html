@@ -12,13 +12,15 @@
     <div class="bg-white rounded-lg shadow-md">
       <div class="flex items-center">
         <ion-input
+          (ionChange)="getSuggesions()"
           class="flex-1"
-          placeholder="Search by skills"
+          placeholder="Job title, keywords , skills"
           id="search"
           [(ngModel)]="this.jobService.jobFilters.title"
         >
           <ion-icon name="search" style="margin-left: 7px"></ion-icon>
         </ion-input>
+
         <ion-icon
           *ngIf="this.jobService.jobFilters.title"
           (click)="this.jobService.jobFilters.title=''"
@@ -27,10 +29,27 @@
           style="margin-left: 7px"
         ></ion-icon>
       </div>
+
+      <div>
+        <div
+          class="bg-white rounded-md w-full mt-2"
+          style="z-index: 10; left: 0px"
+        >
+          <div
+            *ngFor="let suggestion of titleSuggestions;let i=index"
+            class="flex px-4 p-2"
+            (click)="selected(suggestion,'title')"
+          >
+            <div class="flex-1">{{suggestion.title}}</div>
+          </div>
+        </div>
+      </div>
+
       <div class="flex items-center">
         <ion-input
+          (ionChange)="getSuggesionsCities()"
           class="flex-1"
-          placeholder="City Name"
+          placeholder="Search by city "
           id="search"
           [(ngModel)]="this.jobService.jobFilters.city"
         >
@@ -44,6 +63,21 @@
           class="px-4"
           style="margin-left: 7px"
         ></ion-icon>
+      </div>
+
+      <div>
+        <div
+          class="bg-white rounded-md w-full mt-2"
+          style="z-index: 10; left: 0px"
+        >
+          <div
+            *ngFor="let suggestion of citySuggestions;let i=index"
+            class="flex px-4 p-2"
+            (click)="selected(suggestion,'city')"
+          >
+            <div class="flex-1">{{suggestion.title}}</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -204,10 +238,10 @@
     </div>
 
     <div
-      class="text-right text-sm font-bold mt-2 pr-2"
+      class="text-base red text-right text-sm font-bold mt-2 pr-2"
       (click)="viewAll(section)"
     >
-      View All
+      <span class="border-b border-red-600 pb-1">View All</span>
     </div>
     <ion-slides class="mt-4" #slider loop="true" [options]="slideOptss">
       <ion-slide
