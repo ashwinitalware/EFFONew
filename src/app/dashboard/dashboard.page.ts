@@ -115,7 +115,6 @@ export class DashboardPage implements OnInit {
     public jobService: JobService,
     public popoverController: PopoverController
   ) {
-     
     // this.dataService.auth.canLoad = false;
     this.dataService.syncFCMToken();
     this.getPopupImage();
@@ -145,19 +144,19 @@ export class DashboardPage implements OnInit {
               type: 'job',
             });
           });
-          data.jobs.forEach((job) => {
-            this.suggestions.push({
-              title: job.skillsByComma,
-              type: 'job',
-            });
-          });
-          data.jobs.forEach((job) => {
-            if (job.jobCategory)
-              this.suggestions.push({
-                title: job.jobCategory.name,
-                type: 'job',
-              });
-          });
+          // data.jobs.forEach((job) => {
+          //   this.suggestions.push({
+          //     title: job.skillsByComma,
+          //     type: 'job',
+          //   });
+          // });
+          // data.jobs.forEach((job) => {
+          //   if (job.jobCategory)
+          //     this.suggestions.push({
+          //       title: job.jobCategory.name,
+          //       type: 'job',
+          //     });
+          // });
         }
         this.suggestions = this.suggestions.slice(0, 5);
         if (!this.suggestions.length) this.noSuggesions = true;
@@ -198,8 +197,8 @@ export class DashboardPage implements OnInit {
   }
   ngOnInit() {}
 
-  async ionViewDidEnter(){
-    await SplashScreen.hide()
+  async ionViewDidEnter() {
+    await SplashScreen.hide();
   }
   ionViewWillEnter() {}
 

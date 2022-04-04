@@ -103,27 +103,37 @@ export class JobdashboardPage implements OnInit {
             title: this.jobService.jobFilters.title,
             type: 'job',
           });
-
+          let i = 0;
           data.jobs.forEach((job) => {
+            // i++;
+            // if (
+            //   this.titleSuggestions.length &&
+            //   this.titleSuggestions[i - 1].title == job.title
+            // )
+            //   return;
+
             this.titleSuggestions.push({
               title: job.title,
               type: 'job',
             });
           });
-          data.jobs.forEach((job) => {
-            this.titleSuggestions.push({
-              title: job.skillsByComma,
-              type: 'job',
-            });
-          });
-          data.jobs.forEach((job) => {
-            if (job.jobCategory)
-              this.titleSuggestions.push({
-                title: job.jobCategory.name,
-                type: 'job',
-              });
-          });
+          // data.jobs.forEach((job) => {
+          //   this.titleSuggestions.push({
+          //     title: job.skillsByComma,
+          //     type: 'job',
+          //   });
+          // });
+          // data.jobs.forEach((job) => {
+          //   if (job.jobCategory)
+          //     this.titleSuggestions.push({
+          //       title: job.jobCategory.name,
+          //       type: 'job',
+          //     });
+          // });
         }
+
+        // titleSuggestions.forEach((suggestions) => {});
+
         this.titleSuggestions = this.titleSuggestions.slice(0, 5);
       });
   }
