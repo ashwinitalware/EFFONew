@@ -8,14 +8,14 @@ const config: CapacitorConfig = {
   server: {
     cleartext: true,
   },
-  plugins:{
-SplashScreen:{
-  
-  
-  // launchShowDuration:2000,
-  // androidScaleType:'CENTER',
-  launchAutoHide:false
-}
+  plugins: {
+    SplashScreen: {
+
+
+      // launchShowDuration:2000,
+      androidScaleType:'CENTER_CROP',
+      launchAutoHide: false
+    }
   },
   cordova: {
     preferences: {
