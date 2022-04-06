@@ -1,0 +1,679 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Find Jobs</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="px-4 mt-3">
+    <div class="bg-white rounded-lg shadow-md">
+      <div class="flex items-center">
+        <ion-input
+          (ionChange)="getSuggesions()"
+          class="flex-1"
+          placeholder="Job title, keywords , skills"
+          id="search"
+          [(ngModel)]="this.jobService.jobFilters.title"
+        >
+          <ion-icon name="search" style="margin-left: 7px"></ion-icon>
+        </ion-input>
+
+        <ion-icon
+          *ngIf="this.jobService.jobFilters.title"
+          (click)="this.jobService.jobFilters.title=''"
+          name="close"
+          class="px-4"
+          style="margin-left: 7px"
+        ></ion-icon>
+      </div>
+
+      <div>
+        <div
+          *ngIf="this.jobService.jobFilters.title"
+          class="bg-white rounded-md w-full mt-2"
+          style="z-index: 10; left: 0px"
+        >
+          <div
+            *ngFor="let suggestion of titleSuggestions;let i=index"
+            class="flex px-4 p-2"
+            (click)="selected(suggestion,'title')"
+          >
+            <div class="flex-1">{{suggestion.title}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center">
+        <ion-input
+          (ionChange)="getSuggesionsCities()"
+          class="flex-1"
+          placeholder="Search by city "
+          id="search"
+          [(ngModel)]="this.jobService.jobFilters.city"
+        >
+          <ion-icon name="location-outline" style="margin-left: 7px"></ion-icon>
+        </ion-input>
+
+        <ion-icon
+          *ngIf="this.jobService.jobFilters.city"
+          (click)="this.jobService.jobFilters.city=''"
+          name="close"
+          class="px-4"
+          style="margin-left: 7px"
+        ></ion-icon>
+      </div>
+
+      <div>
+        <div
+          *ngIf="this.jobService.jobFilters.city"
+          class="bg-white rounded-md w-full mt-2"
+          style="z-index: 10; left: 0px"
+        >
+          <div
+            *ngFor="let suggestion of citySuggestions;let i=index"
+            class="flex px-4 p-2"
+            (click)="selected(suggestion,'city')"
+          >
+            <div class="flex-1">{{suggestion.title}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ion-button expand="block" class="mt-3" (click)="search()">
+      Search
+    </ion-button>
+  </div>
+
+  <div class="px-4 pt-2 pb-1">
+    <ion-label><b>Job Categories</b></ion-label>
+  </div>
+
+  <!-- <ion-grid fixed>
+    <ion-row align="center" class="pt-2">
+      <ion-col size="2" style="border-right: 1px solid rgb(224, 224, 224) ;" routerLink="/fulltime-job">
+        <img src="assets/full-time.png" alt=""><br>
+        <ion-label style="font-size: 0.6em;">Full Time </ion-label>
+      </ion-col>
+
+      <ion-col size="2" style="border-right: 1px solid rgb(224, 224, 224) ;" routerLink="/parttime-job">
+        <img src="assets/part-time.png" alt=""><br>
+        <ion-label style="font-size: 0.6em;">Part Time</ion-label>
+      </ion-col>
+
+      <ion-col size="3" style="border-right: 1px solid rgb(224, 224, 224) ;" routerLink="/workfromhome-job">
+        <img src="assets/work-from-home.png" alt=""><br>
+        <ion-label style="font-size: 0.6em;">Work From Home</ion-label>
+      </ion-col>
+      <ion-col size="3" style="border-right: 1px solid rgb(224, 224, 224) ;" routerLink="/workabroad-job">
+        <img src="assets/work-abroad.png" alt=""><br>
+        <ion-label style="font-size: 0.6em;">Work Abroad</ion-label>
+      </ion-col>
+      <ion-col size="2" routerLink="/workabroad-job">
+        <img src="assets/nightshift.png" alt=""><br>
+        <ion-label style="font-size: 0.6em;">Night Shift</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <div style="background-color: white; margin-bottom: 7px">
+    <div style="background-color: white; border-radius: 5px; margin-top: 3%">
+      <ion-grid fixed>
+        <ion-row class="small_text">
+          <ion-col
+            (click)="categorySelected(category)"
+            *ngFor="let category  of this.jobService.categories.slice(0,sliceValue)"
+            size="3"
+            align="center"
+            class="flex justify-center flex-col"
+          >
+            <div
+              class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center"
+            >
+              <ion-icon
+                name="{{category.attributes.icon}}"
+                class="text-xl"
+              ></ion-icon>
+            </div>
+            <div class="truncate mt-2 text-xs">
+              {{category.attributes.name}}
+            </div>
+          </ion-col>
+
+          <ion-col
+            size="3"
+            align="center"
+            class="flex justify-center flex-col"
+            (click)="sliceValue=100"
+            *ngIf="sliceValue==3"
+          >
+            <div
+              class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center"
+            >
+              <ion-icon
+                name="chevron-down-outline"
+                class="text-xl shake-bottom"
+              ></ion-icon>
+            </div>
+            <div class="truncate mt-2 text-xs">Show More</div>
+          </ion-col>
+
+          <ion-col
+            size="3"
+            align="center"
+            class="flex justify-center flex-col"
+            (click)="sliceValue=3"
+            *ngIf="sliceValue==100"
+          >
+            <div
+              class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center"
+            >
+              <ion-icon
+                name="chevron-up-outline"
+                class="text-xl shake-top"
+              ></ion-icon>
+            </div>
+            <div class="truncate mt-2 text-xs">Show Less</div>
+          </ion-col>
+        </ion-row>
+        <!-- <div class="text-center red py-2 bg-gray-100">
+          <div (click)="sliceValue=100" *ngIf="sliceValue==3">Show More</div>
+          <div (click)="sliceValue=3" *ngIf="sliceValue==100">Show Less</div>
+        </div> -->
+      </ion-grid>
+    </div>
+  </div>
+
+  <div class="px-4 pt-2 pb-1">
+    <ion-label><b>Top Ads</b></ion-label>
+  </div>
+
+  <div
+    style="
+      background-color: white;
+      border-radius: 5px;
+      margin-top: 2%;
+      padding: 5px;
+    "
+  >
+    <ion-slides
+      #slider
+      loop="true"
+      [options]="slideOpts"
+      (ionSlideTouchEnd)="slideChanged()"
+    >
+      <ion-slide>
+        <ion-card style="border-radius: 5px">
+          <img src="assets/jobs2.jpg" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px">
+          <img src="assets/jobs1.jpg" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px">
+          <img src="assets/jobs3.jpg" />
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div
+    [ngClass]="{'hidden': section.jobs && !section.jobs.length}"
+    *ngFor="let section of sections; let i=index"
+    style="border-radius: 5px; margin-top: 2%; padding: 5px; margin-bottom: 2%"
+  >
+    <div
+      class="pt-2 pl-4 pb-2 bg-white shadow-lg rounded-sm"
+      style=" background-image: url(assets/jobnew4.png); border-bottom: 3px solid {{section.color}} "
+    >
+      <ion-label style=" color: {{section.color}}"
+        ><b>{{section.title}}</b></ion-label
+      >
+      <p style="font-size: 0.7em">{{section.subtitle}}</p>
+    </div>
+
+    <div
+      class="text-base red text-right text-sm font-bold mt-2 pr-2"
+      (click)="viewAll(section)"
+    >
+      <span class="border-b border-red-600 pb-1">View All</span>
+    </div>
+    <ion-slides class="mt-4" #slider loop="true" [options]="slideOptss">
+      <ion-slide
+        *ngFor="let job of section.jobs"
+        (click)="jobDetails(job)"
+        class="pr-2"
+      >
+        <div class="primary-card bg-white p-4" style="width: 100%">
+          <div class="text-black text-left text-base font-bold truncate">
+            {{job.attributes.title|titlecase}}
+          </div>
+
+          <div class="text-sm text-gray-600">
+            ₹ {{job.attributes.salaryFrom}} - ₹ {{job.attributes.salaryUpto}}
+          </div>
+
+          <div class="text-sm flex items-center mt-4">
+            <ion-icon name="podium" class="text-blue-500"></ion-icon>
+            &nbsp;
+            <!-- {{job.attributes.companyName||"Company Name"|titlecase}} -->
+
+            <span
+              class="truncate"
+              *ngIf="job.attributes.author.data && job.attributes.author.data.attributes.job_profile.data"
+            >
+              {{(job.attributes.author.data.attributes.job_profile.data.attributes.companyName||"Company
+              Name")|titlecase}}
+            </span>
+            <span *ngIf="!job.attributes.author"> Company Name </span>
+          </div>
+          <div class="text-sm flex items-center">
+            <ion-icon name="location" class="text-green-600"></ion-icon>&nbsp;
+            {{job.attributes.city||"City not provided"|titlecase}}
+          </div>
+          <div class="text-sm flex items-center">
+            <ion-icon name="people" class="text-yellow-500"></ion-icon>&nbsp;
+            {{job.attributes.vacancies||0}} Vacancies
+          </div>
+
+          <button
+            class="w-full shadow-md rounded-md bg-red text-white text-center py-2 text-sm mt-4"
+          >
+            View Details
+          </button>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <!-- <div
+    class="pt-2 pl-4 pb-2"
+    style="background-color: #fff; border-bottom: 2px solid darkmagenta"
+  >
+    <ion-label style="color: darkmagenta">High Salary Jobs</ion-label>
+    <p style="font-size: 0.7em">High salary jobs in your desired category</p>
+  </div>
+  <div
+    class="pt-2 pl-4 pb-2"
+    style="background-color: #fff; border-bottom: 2px solid rgb(76, 224, 76)"
+  >
+    <ion-label style="color: rgb(76, 224, 76)">Recommended Jobs</ion-label>
+    <p style="font-size: 0.7em">
+      Handpicked jobs by our experts especially for you
+    </p>
+  </div> -->
+  <br />
+  <br />
+  <br />
+</ion-content>
+
+<!-- <ion-fab horizontal="end" vertical="bottom">
+  <ion-fab-button color="dark">
+    <ion-icon style="font-size: 1.5em" name="settings-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top" style="margin-bottom: 100%">
+    <ion-fab-button
+      data-desc="Profile"
+      color="dark"
+      [queryParams]="{navigate:'back'}"
+      [routerLink]="[ '/editprofile' ]"
+    >
+      <ion-icon name="person-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button data-desc="History" color="dark" routerLink="/history">
+      <ion-icon name="receipt-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab> -->
+
+<!-- <ion-segment mode="ios" value="job" class="parent-border-radius" (ionChange)='segmentChanged($event)'>
+    <ion-segment-button value="job">Job Seeker</ion-segment-button>
+    <ion-segment-button value="emp">Employer</ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="switchTab == 'job'">
+
+    <div style="background-color: white;">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="3" align="center" routerLink="/accounts">
+            <img src="assets/J1.png" alt=""><br>
+            <ion-label class="label-text">Accounts</ion-label>
+          </ion-col>
+          <ion-col size="3" align="center" routerLink="/marketing">
+            <img src="assets/J2.png" alt=""><br>
+            <ion-label class="label-text">Marketing</ion-label>
+          </ion-col>
+          <ion-col size="3" align="center" routerLink="/itindustry">
+            <img src="assets/J3.png" alt="">
+            <ion-label class="label-text">ITIndustry</ion-label>
+          </ion-col>
+          <ion-col size="3" align="center" routerLink="/backoffice">
+            <img src="assets/J4.png" alt=""><br>
+            <ion-label class="label-text">Back Office</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3" align="center" routerLink="/bpo">
+            <img src="assets/J4.png" alt=""><br>
+            <ion-label class="label-text">BPO</ion-label>
+          </ion-col>
+          <ion-col size="3" align="center" routerLink="/deliveryboy">
+            <img src="assets/J6.png" alt=""><br>
+            <ion-label class="label-text">Delivery Boy</ion-label>
+          </ion-col>
+          <ion-col size="3" align="center" routerLink="/teachers">
+            <img src="assets/J7.png" alt=""><br>
+            <ion-label class="label-text">Teachers</ion-label>
+          </ion-col>
+
+          <ion-col *ngIf="bookride" size="3" align="center" routerLink="/beautician">
+            <img src="assets/J8.png" alt=""><br>
+            <ion-label class="label-text">Beautician</ion-label>
+          </ion-col>
+
+          <ion-col *ngIf="!bookride" size="3" align="center" (click)="bookride=true">
+            <img src="assets/more.png" alt=""><br>
+            <ion-label class="label-text">More</ion-label>
+          </ion-col>
+        </ion-row>
+
+
+        <div *ngIf="bookride">
+          <ion-row>
+
+            <ion-col size="3" align="center">
+              <img src="assets/J9.png" alt=""><br>
+              <ion-label class="label-text">Electrician</ion-label>
+            </ion-col>
+            <ion-col size="3" align="center">
+              <img src="assets/J10.png" alt=""><br>
+              <ion-label class="label-text">HR/Admin</ion-label>
+            </ion-col>
+            <ion-col size="3" align="center">
+              <img src="assets/J11.png" alt=""><br>
+              <ion-label class="label-text">Nurse</ion-label>
+            </ion-col>
+
+            <ion-col size="3" align="center">
+              <img src="assets/J15.png" alt=""><br>
+              <ion-label class="label-text">Sales</ion-label>
+            </ion-col>
+            <ion-col size="3" align="center">
+              <img src="assets/J12.png" alt=""><br>
+              <ion-label class="label-text">Designer</ion-label>
+            </ion-col>
+            <ion-col size="3" align="center">
+              <img src="assets/J13.png" alt=""><br>
+              <ion-label class="label-text">Doctor</ion-label>
+            </ion-col>
+            <ion-col size="3" align="center">
+              <img src="assets/J14.png" alt=""><br>
+              <ion-label class="label-text">Data Entry</ion-label>
+            </ion-col>
+            <ion-col *ngIf="bookride" size="3" align="center" (click)="bookride=false">
+              <img src="assets/more.png" alt=""><br>
+              <ion-label class="label-text">Less</ion-label>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-grid>
+    </div>
+
+
+    <div class="pt-2 pl-4">
+      <ion-label>All Roles</ion-label>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/J1.png" alt="">
+        </ion-avatar>
+        <ion-label class="roles-text">Accounts</ion-label>
+        <ion-icon routerLink="/accounts" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/J2.png" alt="">
+        </ion-avatar>
+        <ion-label class="roles-text">Marketing</ion-label>
+        <ion-icon routerLink="/marketing" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/J3.png" alt="">
+        </ion-avatar>
+        <ion-label class="roles-text">IT Industry</ion-label>
+        <ion-icon routerLink="/itindustry" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/J4.png" alt="">
+        </ion-avatar>
+        <ion-label class="roles-text">Back Office</ion-label>
+        <ion-icon routerLink="/backoffice" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/J4.png" alt="">
+        </ion-avatar>
+        <ion-label class="roles-text">BPO</ion-label>
+        <ion-icon routerLink="/bpo" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/J6.png" alt="">
+        </ion-avatar>
+        <ion-label class="roles-text">Delivery Boy</ion-label>
+        <ion-icon routerLink="/deliveryboy" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/J7.png" alt="">
+        </ion-avatar>
+        <ion-label class="roles-text">Teachers</ion-label>
+        <ion-icon routerLink="/teachers" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/J8.png" alt="">
+        </ion-avatar>
+        <ion-label class="roles-text">Data Entry</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/J9.png" alt="">
+        </ion-avatar>
+        <ion-label class="roles-text">Finance Companies</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/J10.png" alt="">
+        </ion-avatar>
+        <ion-label class="roles-text">Mechanical Engineer</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/J11.png" alt="">
+        </ion-avatar>
+        <ion-label class="roles-text">Sales Executive</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/J12.png" alt="">
+        </ion-avatar>
+        <ion-label class="roles-text">Security Staff</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/J3.png" alt="">
+        </ion-avatar>
+        <ion-label class="roles-text">Office Boy</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/other.png" alt="">
+        </ion-avatar>
+        <ion-label class="roles-text">Other</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+    </div>
+  </div>
+
+
+
+  <div *ngIf="switchTab == 'emp'">
+
+    <div style=" margin-top: 3%;">
+      <div class="hire_card">
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="8">
+              <p>EFFO For Employers</p>
+              <p style="font-weight: 100; font-weight: normal;">You are here to hire</p>
+            </ion-col>
+            <ion-col size="4">
+              <img src="assets/employer.png" alt="">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+
+    <div style="margin-top: 3%;">
+      <div class="pt-2 pl-4 pb-2" style="background-color: #fff;">
+        <ion-label>Add Job Details</ion-label>
+      </div>
+
+      <div class="pt-2 pl-4 pr-4 pb-3">
+        <ion-item>
+          <ion-label class="text" position="floating">Enter Job Title</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="text">Job Category</ion-label>
+          <ion-select value="first">
+            <ion-select-option value="erp">Full Time Jobs</ion-select-option>
+            <ion-select-option value="exci">Work From Home</ion-select-option>
+            <ion-select-option value="ms">Part Time Home</ion-select-option>
+            <ion-select-option value="other">Work Abroad</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+
+        <ion-item>
+          <ion-label class="text">Select Role</ion-label>
+          <ion-select value="first">
+            <ion-select-option value="acc">Accountant</ion-select-option>
+            <ion-select-option value="mark">Marketing</ion-select-option>
+            <ion-select-option value="it">IT Industry</ion-select-option>
+            <ion-select-option value="back">Back Office</ion-select-option>
+            <ion-select-option value="bpo">BPO</ion-select-option>
+            <ion-select-option value="deli">Delivery Boy</ion-select-option>
+            <ion-select-option value="teac">Teachers</ion-select-option>
+            <ion-select-option value="elec">Electrician</ion-select-option>
+            <ion-select-option value="hr">HR / Admin</ion-select-option>
+            <ion-select-option value="nurse">Nurse</ion-select-option>
+            <ion-select-option value="sales">Sales</ion-select-option>
+            <ion-select-option value="desi">Designer</ion-select-option>
+            <ion-select-option value="doc">Doctor</ion-select-option>
+            <ion-select-option value="data">Data Entry</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="text">Select Sub Role</ion-label>
+          <ion-select value="first">
+            <ion-select-option value="erp">ERP</ion-select-option>
+            <ion-select-option value="exci">Excise</ion-select-option>
+            <ion-select-option value="ms">MS Excel</ion-select-option>
+            <ion-select-option value="other">Others</ion-select-option>
+            <ion-select-option value="ser">Service tax provisioning</ion-select-option>
+            <ion-select-option value="deli">Tally</ion-select-option>
+            <ion-select-option value="tds">TDS provisioning</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="text" position="floating">Min Salary &nbsp; <span style="color: red;">*</span></ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="text" position="floating">Max Salary &nbsp; <span style="color: red;">*</span></ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="text" position="floating">Company Name</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="text" position="floating">Company Description (Min 30 characters)</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
+      </div>
+
+      <div class="pt-2 pl-4 pb-2" style="background-color: #fff;">
+        <ion-label>Your Contact Information</ion-label>
+      </div>
+
+      <div class="pt-2 pl-4 pr-4">
+
+        <ion-item>
+          <ion-label class="text" position="floating">Job Location</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="text" position="floating">Email</ion-label>
+          <ion-input type="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="text" position="floating">Mobile</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-item>
+
+        <div align="center" class="button_login">
+          <button expand="block" color="light" class="bg-class" routerLink="/accounts">
+            Post Your Job
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div> -->
+
+<!-- </ion-content> -->

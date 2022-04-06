@@ -39,7 +39,7 @@ const routes: Routes = [
   {
     path: 'jobdashboard',
     loadChildren: () =>
-      import('./Job/jobdashboard/jobdashboard.module').then(
+      import('./job/jobdashboard/jobdashboard.module').then(
         (m) => m.JobdashboardPageModule
       ),
   },
@@ -213,11 +213,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./Job/joblist/joblist.module').then((m) => m.JoblistPageModule),
   },
-  {
-    path: 'history',
-    loadChildren: () =>
-      import('./Job/history/history.module').then((m) => m.HistoryPageModule),
-  },
+  // {
+  //   path: 'history',
+  //   loadChildren: () =>
+  //     import('./Job/history/history.module').then((m) => m.HistoryPageModule),
+  // },
   {
     path: 'profile',
     loadChildren: () =>
@@ -275,6 +275,15 @@ const routes: Routes = [
         (m) => m.ConfirmationpopupPageModule
       ),
   },
+  {
+    path: 'job-home',
+    loadChildren: () =>
+      import('./job/job-home/job-home.module').then((m) => m.JobHomePageModule),
+  },
+  // {
+  //   path: 'job-profile',
+  //   loadChildren: () => import('./job/job-profile/job-profile.module').then( m => m.JobProfilePageModule)
+  // },
 ];
 
 @NgModule({

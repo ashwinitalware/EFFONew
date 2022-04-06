@@ -1,0 +1,200 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>jobProfile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <div class="items-center flex flex-col py-4">
+      <input
+        type="file"
+        class="hidden"
+        #fileUpload2
+        (change)="handleFileInput($event)"
+      />
+      <div
+        (click)="fileUpload2.click()"
+        *ngIf="!this.dataService.profile.profileImage"
+        class="bg-gray-300 w-16 h-16 rounded-full flex items-center justify-center text-gray-500"
+      >
+        <ion-icon class="text-3xl" name="person"></ion-icon>
+      </div>
+      <div
+        class="w-16 h-16 overflow-hidden rounded-full"
+        *ngIf="this.dataService.profile.profileImage"
+      >
+        <img
+          (click)="fileUpload2.click()"
+          src="{{ this.dataService.profile.profileImage }}"
+          alt=""
+        />
+      </div>
+      <div class="">
+        <div class="text-xl font-bold text-gray-800">
+          {{ this.dataService.profile.fullName | titlecase }}
+        </div>
+        <div class="text-sm text-gray-600 text-center">
+          {{ this.dataService.profile.phone }}
+        </div>
+        <!-- <div class="flex items-center text-sm font-bold red" (click)="edit()">
+        Edit Profile
+      </div> -->
+      </div>
+      <div class="flex items-center text-sm font-bold red"></div>
+    </div>
+
+    <div class="">
+      <div class="p-4 bg-white rounded-md">
+        <ion-item class="rounded-lg">
+          <ion-label position="stacked">About Yourself</ion-label>
+          <ion-textarea formControlName="about"></ion-textarea>
+        </ion-item>
+
+        <div
+          class="text-red-600 mt-2"
+          *ngIf="form.get('about').invalid && form.get('about').touched"
+        >
+          * Required
+        </div>
+        <ion-item class="rounded-lg mt-4">
+          <ion-label position="stacked">Total Years of Experience</ion-label>
+          <!-- <ion-input type="number"></ion-input> -->
+
+          <ion-select formControlName="experienceYears" interface="popover">
+            <ion-select-option value="1"
+              >1 Year of Experience</ion-select-option
+            >
+            <ion-select-option value="2"
+              >2 Years of Experience</ion-select-option
+            >
+            <ion-select-option value="3"
+              >3 Years of Experience</ion-select-option
+            >
+            <ion-select-option value="4"
+              >4 Years of Experience</ion-select-option
+            >
+            <ion-select-option value="5"
+              >5 Years of Experience</ion-select-option
+            >
+            <ion-select-option value="6"
+              >6 Years of Experience</ion-select-option
+            >
+            <ion-select-option value="7"
+              >7 Years of Experience</ion-select-option
+            >
+            <ion-select-option value="8"
+              >8 Years of Experience</ion-select-option
+            >
+            <ion-select-option value="9"
+              >9 Years of Experience</ion-select-option
+            >
+            <ion-select-option value="10"
+              >10+ Years of Experience</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <div
+          class="text-red-600 mt-2"
+          *ngIf="form.get('experienceYears').invalid && form.get('experienceYears').touched"
+        >
+          * Required
+        </div>
+        <ion-item class="rounded-lg mt-4">
+          <ion-label position="stacked">Your Skills </ion-label>
+          <ion-input formControlName="skills" type="text"></ion-input>
+        </ion-item>
+
+        <div
+          class="text-red-600 mt-2"
+          *ngIf="form.get('skills').invalid && form.get('skills').touched"
+        >
+          * Required
+        </div>
+        <ion-item class="rounded-lg mt-4">
+          <ion-label position="stacked">Highest Education</ion-label>
+          <ion-select formControlName="education" interface="popover">
+            <ion-select-option
+              *ngFor="let education of educations"
+              value="{{education.id}}"
+            >
+              {{education.attributes.name}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <div
+          class="text-red-600 mt-2"
+          *ngIf="form.get('education').invalid && form.get('education').touched"
+        >
+          * Required
+        </div>
+        <ion-item class="rounded-lg mt-4">
+          <ion-label position="stacked">University Name</ion-label>
+          <ion-input formControlName="university" type="text"></ion-input>
+        </ion-item>
+        <div
+          class="text-red-600 mt-2"
+          *ngIf="form.get('university').invalid && form.get('university').touched"
+        >
+          * Required
+        </div>
+        <ion-item class="rounded-lg mt-4">
+          <ion-label position="stacked">Education Field</ion-label>
+          <ion-input
+            formControlName="educationField"
+            type="text"
+            placeholder="Ex. B.Tech in Computer Science"
+          ></ion-input>
+        </ion-item>
+        <div
+          class="text-red-600 mt-2"
+          *ngIf="form.get('educationField').invalid && form.get('educationField').touched"
+        >
+          * Required
+        </div>
+        <ion-item class="rounded-lg mt-4">
+          <ion-label position="stacked">Passing Year</ion-label>
+          <ion-input formControlName="passingYear" type="number"></ion-input>
+        </ion-item>
+        <div
+          class="text-red-600 mt-2"
+          *ngIf="form.get('passingYear').invalid && form.get('passingYear').touched"
+        >
+          * Invalid Data. Must be between 1980-2030
+        </div>
+        <ion-item class="rounded-lg mt-4">
+          <ion-label position="stacked">Interested Job Types</ion-label>
+          <ion-select
+            formControlName="jobCategories"
+            interface="alert"
+            multiple="true"
+          >
+            <ion-select-option
+              *ngFor="let jobCategory of jobCategories"
+              value="{{jobCategory.id}}"
+            >
+              {{jobCategory.attributes.name}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div
+          class="text-red-600 mt-2"
+          *ngIf="form.get('jobCategories').invalid && form.get('jobCategories').touched"
+        >
+          * Required
+        </div>
+        <!-- <ion-item class="rounded-lg mt-4">
+          <ion-label position="stacked">Upload Resume</ion-label>
+          <ion-input type="number"></ion-input>
+        </ion-item> -->
+
+        <ion-button (click)="update()" expand="block" class="mt-4"
+          >Update Profile</ion-button
+        >
+      </div>
+    </div>
+  </form>
+  <!--
+    resume -->
+</ion-content>
