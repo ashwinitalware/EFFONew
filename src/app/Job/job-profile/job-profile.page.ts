@@ -15,6 +15,7 @@ export class JobProfilePage implements OnInit {
   educations = [];
   jobCategories = [];
   form: FormGroup;
+  fileToUpload: File | null = null;
 
   constructor(
     public dataService: DataService,
@@ -90,6 +91,38 @@ export class JobProfilePage implements OnInit {
       });
   }
 
+  handleFileInput(files: any) {
+    this.fileToUpload = files.target.files.item(0);
+    this.uploadFileToActivity();
+  }
+  uploadFileToActivity() {
+    const formData: FormData = new FormData();
+    formData.append('files', this.fileToUpload, this.fileToUpload.name);
+    this.dataService.presentToast('Updating Image', 'dark', 1000);
+    // this.dataService.present();
+    return this.http
+      .post(this.dataService.apiUrl + 'upload', formData)
+      .subscribe((data: any) => {
+        this.http
+          .put(
+            this.dataService.apiUrl + 'users/' + this.dataService.profile.id,
+            {
+              profileImage: data[0].url,
+            }
+          )
+          .subscribe(
+            (data2: any) => {
+              // this.dataService.dismiss();
+              // this.dataService.presentToast('Image Updated');
+              this.dataService.saveProfileObject(data2);
+              // this.dataService.profile.profileImage = data2.profileImage;
+            },
+            (err) => {
+              // this.dataService.dismiss();
+            }
+          );
+      });
+  }
   ngOnInit() {}
   update() {
     // console.log(this.form.value);
@@ -101,9 +134,9 @@ export class JobProfilePage implements OnInit {
 
     this.dataService.confirmSwal('', 'Profile Updated');
 
-    this.navCtrl.back();
+    // this.navCtrl.back();
     this.http[this.id ? 'put' : 'post'](
-      this.dataService.apiUrl + 'user-job-profiles/' + this.id || '',
+      this.dataService.apiUrl + 'user-job-profiles/' + (this.id || ''),
       {
         data: {
           user: this.dataService.profile.id + '',

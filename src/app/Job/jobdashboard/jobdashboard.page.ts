@@ -84,7 +84,38 @@ export class JobdashboardPage implements OnInit {
     this.getNewJobs();
     this.getNearJobs();
     this.getHighSalaryJobs();
+    this.getJobProfileData();
   }
+
+  getJobProfileData() {
+    this.http
+      .get(this.dataService.apiUrl + 'user-job-profiles', {
+        params: {
+          'filters[user][id][$eq]': this.dataService.profile.id,
+          populate: '*',
+        },
+      })
+      .subscribe((data: any) => {
+        if (data.data.length) {
+          const profile = data.data[0].attributes;
+          if (
+            !profile.about ||
+            !profile.educationField ||
+            !profile.skills ||
+            !profile.university
+          ) {
+            this.dataService.presentToast('Please Complete Profile First');
+            this.router.navigate(['/jobdashboard/profile']);
+          }
+        } else {
+          this.dataService.presentToast('Please Complete Profile First');
+          this.router.navigate(['/jobdashboard/profile']);
+        }
+
+        // this.educations = data.data;
+      });
+  }
+
   getSuggesions() {
     if (this.selectedTitleSuggesion == this.jobService.jobFilters.title) return;
     // alert(this.jobService.jobFilters.title);
