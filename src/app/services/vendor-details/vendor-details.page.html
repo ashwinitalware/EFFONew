@@ -13,22 +13,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="data">
   <div>
-    <img src="assets/services/e7.jpg" />
+    <img  src="{{data.attributes.businessImage}}" />
   </div>
 
   <div class="bg-white">
     <div class="p-3">
-      <ion-label class="text-lg">Air Conditioner</ion-label><br />
-      <span class="text-sm">
+      <ion-label class="text-lg">{{data.attributes.companyName|titlecase}}</ion-label><br />
+      <span class="text-lg">
         <ion-icon class="text-gray-600 text-sm" name="star"></ion-icon>
-        4.78 </span
-      ><br />
-      <span class="text-sm">
+
+
+        {{data.attributes.rating}}</span
+      >
+     Ratings
+      <br />
+      <!-- <span class="text-sm">
         <ion-icon class="text-gray-600 text-sm" name="checkbox"></ion-icon> 2056
         booking in nagapur this year
-      </span>
+      </span> -->
     </div>
   </div>
 
@@ -36,21 +40,19 @@
     <div class="p-3">
       <ion-label class="text-lg">Address</ion-label><br />
       <span class="text-sm">
-        <ion-icon class="text-gray-600 text-sm" name="location"></ion-icon> Near
-        Dhayari phata,Dhayari,Pune 411041. </span
+        <ion-icon class="text-gray-600 text-sm" name="location"></ion-icon> {{data.attributes.companyAddress|titlecase}}</span
       ><br />
       <span class="text-sm">
-        <ion-icon class="text-gray-600 text-sm" name="time"></ion-icon> 2 Hours
-        : 9AM to 9PM </span
+        <ion-icon class="text-gray-600 text-sm" name="time"></ion-icon> {{data.attributes.businessTimings}}</span
       ><br />
       <span class="text-sm">
         <ion-icon class="text-gray-600 text-sm" name="call"></ion-icon> +91
-        9851000000 </span
+        {{data.attributes.phone}}</span
       ><br />
-      <span class="text-sm">
+      <!-- <span class="text-sm">
         <ion-icon class="text-gray-600 text-sm" name="globe"></ion-icon>
         www.nhjg.com
-      </span>
+      </span> -->
     </div>
   </div>
 
@@ -58,10 +60,7 @@
     <div class="p-3">
       <ion-label class="text-lg">About</ion-label><br />
       <p class="text-sm">
-        Main contractor is responsible to find and hire right subcontractors and
-        individuals to complete the job. Main contractor with cooperation of
-        subcontractors need to manage equipment, materials, and other services
-        required for smooth flow of the project.
+        {{data.attributes.companyName}}
       </p>
     </div>
   </div>
@@ -70,55 +69,54 @@
     <div class="pl-3 pt-3 pr-3">
       <ion-label class="text-lg">Services</ion-label><br />
       <p class="text-sm">
-        It includes tiling, bathroom renovation, breaking any walls,fixing the
-        kitchen platform, electrical work, etc.
+     
         <!-- It is usually more messy and tedious compared to the other work such as furniture and kitchen. -->
       </p>
     </div>
 
     <div class="bg-white mt-2">
-      <ion-grid fixed>
-        <ion-row>
+      <ion-grid fixed *ngIf="data.attributes.serviceSubcategories && data.attributes.serviceSubcategories.data">
+        <ion-row *ngFor="let service of data.attributes.serviceSubcategories.data">
           <ion-col size="7">
             <div>
               <p class="ion-no-padding">
-                <b>Deep clean AC service (window)</b> <br />
-                <span class="text-xs">
+                <b>{{service.attributes.name}}</b> <br />
+                <!-- <span class="text-xs">
                   <ion-icon class="text-green-500" name="pricetag"></ion-icon
-                  >&nbsp;30% Off 2nd service onwards </span
-                ><br /><span class="text-xs"> ₹ 645 &nbsp; - 45min </span>
+                  >&nbsp;30% Off 2nd service onwards
+                  
+                  
+                  </span
+                ><br />
+                 -->
+                <span class="text-xs"> Price, Description </span>
               </p>
             </div>
           </ion-col>
           <ion-col size="5">
             <div class="pl-4">
-              <img
+              <!-- <img
                 class="rounded-md w-full border-solid border-2 border-gray-200"
                 src="assets/services/e8.jpg"
-              />
+              /> -->
               <!-- <div class="w-24 p-2" style="z-index: 1000; position: absolute; margin-left:5px; margin-top: -19%;"> -->
               <div
-                class="flex rounded-md bg-white border-gray-500 border-2"
-                *ngIf="add1"
-                (click)="add1=false"
+              class="px-2 py-1 bg-green-600 text-white border-gray-500 border-2 rounded-md  rounded-md text-center"
+              *ngIf="service.selected"
+              (click)="service.selected=false"
               >
-                <div
-                  class="flex-grow bg-white rounded-md text-gray-500 text-center py-1"
-                >
-                  -
-                </div>
-                <div class="flex-grow text-center py-1">1</div>
-                <div class="flex-grow text-gray-500 text-center py-1">+</div>
+         
+              Selected
               </div>
               <div
                 class="rounded-md text-center"
-                (click)="add1=true"
-                *ngIf="!add1"
+                (click)="service.selected=true"
+                *ngIf="!service.selected"
               >
                 <div
                   class="px-2 py-1 bg-white border-gray-500 border-2 rounded-md text-gray-800"
                 >
-                  ADD
+                  Select
                 </div>
               </div>
               <!-- </div> -->
@@ -126,53 +124,6 @@
           </ion-col>
         </ion-row>
 
-        <ion-row class="pt-3">
-          <ion-col size="7">
-            <div>
-              <p class="ion-no-padding">
-                <b>Lite AC service (Split)</b> <br />
-                <span class="text-xs">
-                  <ion-icon class="text-green-500" name="pricetag"></ion-icon
-                  >&nbsp;30% Off 2nd service onwards </span
-                ><br /><span class="text-xs"> ₹ 645 &nbsp; - 45min </span>
-              </p>
-            </div>
-          </ion-col>
-          <ion-col size="5">
-            <div class="pl-4">
-              <img
-                class="rounded-md w-full border-solid border-2 border-gray-200"
-                src="assets/services/e8.jpg"
-              />
-              <!-- <div class="w-24 p-2" style="z-index: 1000; position: absolute; margin-left:5px; margin-top: -19%;"> -->
-              <div
-                class="flex rounded-md bg-white border-gray-500 border-2"
-                *ngIf="add"
-                (click)="add=false"
-              >
-                <div
-                  class="flex-grow bg-white rounded-md text-gray-500 text-center py-1"
-                >
-                  -
-                </div>
-                <div class="flex-grow text-center py-1">1</div>
-                <div class="flex-grow text-gray-500 text-center py-1">+</div>
-              </div>
-              <div
-                class="rounded-md text-center"
-                (click)="add=true"
-                *ngIf="!add"
-              >
-                <div
-                  class="px-2 py-1 bg-white border-gray-500 border-2 rounded-md text-gray-800"
-                >
-                  ADD
-                </div>
-              </div>
-            </div>
-            <!-- </div> -->
-          </ion-col>
-        </ion-row>
       </ion-grid>
     </div>
 
@@ -244,20 +195,23 @@
     </div> -->
   </div>
 
-  <div class="bg-white mt-2">
+  <!-- <div class="bg-white mt-2">
     <div class="p-3">
       <ion-label class="text-lg">Rating And Reviews</ion-label><br />
       <p class="text-sm pt-2">
         <ion-icon class="text-yellow-500" name="star"></ion-icon>
         <ion-icon class="text-yellow-500" name="star"></ion-icon>
-        <ion-icon class="text-yellow-500" name="star"></ion-icon> 3.2
+        <ion-icon class="text-yellow-500" name="star"></ion-icon> 
+        
+        
+        3.2
       </p>
       <ion-label class="text-lg" routerLink="/reviews"
         >View Reviews<br
       /></ion-label>
-      <p class="text-base pt-3 font-semibold">Give Rating And Reviews</p>
+    <p class="text-base pt-3 font-semibold">Give Rating And Reviews</p>
     </div>
-  </div>
+  </div> -->
 </ion-content>
 
 <ion-footer>

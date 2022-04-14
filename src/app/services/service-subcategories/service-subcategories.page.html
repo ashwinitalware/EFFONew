@@ -16,8 +16,8 @@
       style="width: 100%"
       *ngFor="let serviceSubCategory of data"
     >
-      <div class="w-16 h-16 bg-red-100">
-        {{serviceSubCategory.attributes.image}}
+      <div class="w-16 h-16">
+        <img src="{{serviceSubCategory.attributes.image}}" alt="">
       </div>
 
       <div class="px-4 flex-1">

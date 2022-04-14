@@ -314,8 +314,9 @@ const routes: Routes = [
       import('./services/vendor-listing/vendor-listing.module').then(
         (m) => m.VendorListingPageModule
       ),
-  },  {
-    path: 'vendor-details',
+  },
+  {
+    path: 'vendor-details/:id',
     loadChildren: () => import('./services/vendor-details/vendor-details.module').then( m => m.VendorDetailsPageModule)
   },
 
