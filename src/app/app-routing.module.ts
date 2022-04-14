@@ -280,6 +280,46 @@ const routes: Routes = [
     loadChildren: () =>
       import('./job/job-home/job-home.module').then((m) => m.JobHomePageModule),
   },
+  {
+    path: 'service-dashboard',
+    loadChildren: () =>
+      import('./services/service-dashboard/service-dashboard.module').then(
+        (m) => m.ServiceDashboardPageModule
+      ),
+  },
+  {
+    path: 'service-home',
+    loadChildren: () =>
+      import('./services/service-home/service-home.module').then(
+        (m) => m.ServiceHomePageModule
+      ),
+  },
+  {
+    path: 'service-bookings',
+    loadChildren: () =>
+      import('./services/service-bookings/service-bookings.module').then(
+        (m) => m.ServiceBookingsPageModule
+      ),
+  },
+  {
+    path: 'service-subcategories/:categoryId',
+    loadChildren: () =>
+      import(
+        './services/service-subcategories/service-subcategories.module'
+      ).then((m) => m.ServiceSubcategoriesPageModule),
+  },
+  {
+    path: 'vendor-listing/:subcategoryId',
+    loadChildren: () =>
+      import('./services/vendor-listing/vendor-listing.module').then(
+        (m) => m.VendorListingPageModule
+      ),
+  },  {
+    path: 'vendor-details',
+    loadChildren: () => import('./services/vendor-details/vendor-details.module').then( m => m.VendorDetailsPageModule)
+  },
+
+
   // {
   //   path: 'job-profile',
   //   loadChildren: () => import('./job/job-profile/job-profile.module').then( m => m.JobProfilePageModule)

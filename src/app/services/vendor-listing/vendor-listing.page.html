@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Select Vendor</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-4">
+    <div
+      class="bg-white p-4 mt-2 rounded-md flex"
+      style="width: 100%"
+      *ngFor="let serviceSubCategory of data"
+    >
+      <div class="flex w-16 h-16 bg-red-100">
+        {{serviceSubCategory.attributes.image}}
+      </div>
+
+      <div class="px-4 flex-1">
+        <div class="font-bold">
+          {{serviceSubCategory.attributes.companyName|titlecase}}
+        </div>
+        <div class="text-gray-700 flex items-center">
+          <ion-icon name="location" class="text-red-600"></ion-icon>&nbsp;
+          {{serviceSubCategory.attributes.companyAddress |titlecase}}
+        </div>
+
+        <div class="flex justify-around">
+          <ion-button
+            [routerLink]="['/vendor-details']"
+            color="dark"
+            fill="clear"
+            class="flex-1 mt-2 bg-white text-sm"
+          >
+            <b> Details</b>
+          </ion-button>
+          <ion-button
+            color="dark"
+            fill="clear"
+            class="flex-1 mt-2 bg-white text-sm"
+          >
+            <b>Call </b>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

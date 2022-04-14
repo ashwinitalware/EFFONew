@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Select Service Type</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-4">
+    <div
+      [routerLink]="['/vendor-listing/'+serviceSubCategory.id]"
+      routerLinkActive="router-link-active"
+      class="bg-white p-4 mt-2 rounded-md flex"
+      style="width: 100%"
+      *ngFor="let serviceSubCategory of data"
+    >
+      <div class="w-16 h-16 bg-red-100">
+        {{serviceSubCategory.attributes.image}}
+      </div>
+
+      <div class="px-4 flex-1">
+        <div class="font-bold">{{serviceSubCategory.attributes.name}}</div>
+        <div class="text-gray-700">
+          {{serviceSubCategory.attributes.description}}
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
