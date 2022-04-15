@@ -9,8 +9,9 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./history.page.scss'],
 })
 export class HistoryPage implements OnInit {
-  segment='pending'
+  segment = 'pending';
   data: any = [];
+
   constructor(
     public dataService: DataService,
     public http: HttpClient,

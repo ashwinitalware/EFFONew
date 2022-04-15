@@ -317,9 +317,25 @@ const routes: Routes = [
   },
   {
     path: 'vendor-details/:id',
-    loadChildren: () => import('./services/vendor-details/vendor-details.module').then( m => m.VendorDetailsPageModule)
+    loadChildren: () =>
+      import('./services/vendor-details/vendor-details.module').then(
+        (m) => m.VendorDetailsPageModule
+      ),
   },
-
+  {
+    path: 'service-history',
+    loadChildren: () =>
+      import('./services/service-history/service-history.module').then(
+        (m) => m.ServiceHistoryPageModule
+      ),
+  },
+  {
+    path: 'booking-details/:id',
+    loadChildren: () =>
+      import('./services/booking-details/booking-details.module').then(
+        (m) => m.BookingDetailsPageModule
+      ),
+  },
 
   // {
   //   path: 'job-profile',

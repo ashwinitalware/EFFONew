@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Booking Details</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-4">
+    <div class="font-bold">Vendor Details</div>
+
+    <div class="bg-white p-4 mt-2 rounded-md flex" style="width: 100%">
+      <!-- <div class="flex w-16 h-16 bg-red-100">image</div> -->
+
+      <div class="px-4 flex-1">
+        <div class="font-bold">Company Name</div>
+        <div class="text-gray-700 flex items-center">
+          <ion-icon name="location" class="text-red-600"></ion-icon>&nbsp;
+          Address
+        </div>
+
+        <div class="flex justify-around">
+          <!-- [routerLink]="['/vendor-details/'+vendor.id]" -->
+          <ion-button
+            color="dark"
+            fill="clear"
+            class="flex-1 mt-2 bg-white text-sm"
+          >
+            <b> Details</b>
+          </ion-button>
+          <ion-button
+            color="dark"
+            fill="clear"
+            class="flex-1 mt-2 bg-white text-sm"
+          >
+            <b>Call </b>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <div class="font-bold bg-white p-2 rounded-md">
+      Services : <span>date time</span>
+    </div>
+    <br />
+    <div class="font-bold bg-white p-2 rounded-md">
+      Date / Time : <span>date time</span>
+    </div>
+    <br />
+    <div class="font-bold bg-white p-2 rounded-md">
+      Description : <span>date time</span>
+    </div>
+    <br />
+    <div class="font-bold bg-white p-2 rounded-md">
+      Vendor Note : <span>date time</span>
+    </div>
+    <br />
+    <div class="font-bold bg-white p-2 rounded-md">Rating / Review</div>
+  </div>
+</ion-content>

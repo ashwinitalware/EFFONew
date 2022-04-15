@@ -18,8 +18,8 @@ const routes: Routes = [
       {
         path: 'history',
         loadChildren: () =>
-          import('../service-bookings/service-bookings.module').then(
-            (m) => m.ServiceBookingsPageModule
+          import('../service-history/service-history.module').then(
+            (m) => m.ServiceHistoryPageModule
           ),
       },
       {

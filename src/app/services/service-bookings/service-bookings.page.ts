@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 import { DataService } from '../data.service';
 import { ServiceService } from '../service.service';
 
@@ -14,7 +15,8 @@ export class ServiceBookingsPage implements OnInit {
   constructor(
     public dataService: DataService,
     public http: HttpClient,
-    public service: ServiceService
+    public service: ServiceService,
+    public navCtrl: NavController
   ) {
     this.form = new FormGroup({
       description: new FormControl('', Validators.required),
@@ -25,6 +27,7 @@ export class ServiceBookingsPage implements OnInit {
 
   ngOnInit() {}
   book() {
+    this.dataService.present('Booking...');
     console.log(this.service.selectedServices);
 
     if (this.form.invalid) return this.dataService.presentToast('Invalid Form');
@@ -45,6 +48,16 @@ export class ServiceBookingsPage implements OnInit {
           description: this.form.value.description,
         },
       })
-      .subscribe((data) => {});
+      .subscribe(
+        (data) => {
+          this.dataService.dismiss();
+          this.dataService.confirmSwal('', 'Booking Done !');
+          this.navCtrl.navigateForward(['/service-dashboard/history']);
+        },
+        (err) => {
+          this.dataService.dismiss();
+          alert('Connection Error, Please contact our support team ');
+        }
+      );
   }
 }

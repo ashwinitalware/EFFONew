@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>serviceHistory</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-3">
+    <ion-segment
+      class="bg-color"
+      [(ngModel)]="segment"
+      mode="ios"
+      (ionChange)="segmentChanged($event)"
+    >
+      <ion-segment-button value="pending">
+        <ion-label>Pending</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="shortlisted">
+        <ion-label>Shortlist</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="selected">
+        <ion-label>Selected</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="rejected">
+        <ion-label>Rejected</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <br />
+    <!-- routerLink="/software-deatils" -->
+    <div
+      (click)="bookingDetails(booking)"
+      *ngFor="let booking of data"
+      class="bg-white"
+    >
+      <div
+        class="div1 p-3 mb-2 shadow-lg border-b-2 border-black rounded-md"
+        *ngIf="booking.attributes.status==this.segment"
+      >
+        <ion-label class=""
+          ><b
+            >{{booking.attributes.vendor.data.attributes.service_profile.data.attributes.companyName|titlecase}}</b
+          ></ion-label
+        >
+        <p
+          class=""
+          *ngIf="booking.attributes.services && booking.attributes.services.data"
+        >
+          {{booking.attributes.services.data.length}} Service(s) Booked
+        </p>
+        <div class="flex items-center mt-2">
+          <ion-icon name="time" class="text-indigo-600"></ion-icon> &nbsp;
+          <span>Booked on {{booking.attributes.createdAt|date}}</span>
+        </div>
+
+        <div class="flex items-center mt-2">
+          <ion-icon name="checkmark-circle" class="text-green-500"></ion-icon>
+          &nbsp;
+          <span
+            class="{{statusToClass(booking.attributes.status)}} rounded-md p-1 text-sm "
+          >
+            <!-- <ion-icon style="font-size: 1em" name="checkmark-circle"></ion-icon
+          >&nbsp; -->
+            {{booking.attributes.status|uppercase}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="noDataFound">
+      <div align="center" style="margin-top: 20%">
+        <img src="assets/noData.png" alt="" width="60%" height="60%" />
+      </div>
+
+      <div align="center">
+        <ion-label class="text">No Bookings Found</ion-label><br />
+      </div>
+    </div>
+  </div>
+</ion-content>

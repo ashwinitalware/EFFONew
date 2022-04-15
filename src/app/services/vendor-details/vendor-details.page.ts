@@ -33,13 +33,12 @@ export class VendorDetailsPage implements OnInit {
       })
       .subscribe((data: any) => {
         if (data.data) this.data = data.data[0];
+        this.service.selectedVendorId = this.data.attributes.vendor.data.id;
       });
   }
 
   ngOnInit() {}
   book() {
-    this.service.selectedVendorId = this.activatedRoute.snapshot.params.id;
-
     let canBook = false;
     this.service.selectedServices = [];
     this.data.attributes.serviceSubcategories.data.forEach((service) => {
