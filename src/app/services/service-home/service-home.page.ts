@@ -5,6 +5,7 @@ import { NavController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { JobService } from 'src/app/services/job.service';
 import qs from 'qs';
+import { ServiceService } from '../service.service';
 @Component({
   selector: 'app-service-home',
   templateUrl: './service-home.page.html',
@@ -19,6 +20,9 @@ export class ServiceHomePage implements OnInit {
   selectedCitySuggesion = '';
   sliceValue = 3;
   temp = 'IT Industry';
+  suggestions = [];
+  noSuggesionsFound = false;
+  topVendors = [];
   commonFilter = {
     expiry: {
       $gt: new Date().toISOString(),
@@ -72,112 +76,64 @@ export class ServiceHomePage implements OnInit {
   };
 
   switchTab = 'job';
+  searchQuery = '';
   constructor(
-    public jobService: JobService,
     public router: Router,
     public navCtrl: NavController,
     public http: HttpClient,
-    public dataService: DataService
+    public dataService: DataService,
+    public serviceService: ServiceService
   ) {
-    this.jobService.resetFilters();
-    this.jobService.getCategories();
-    this.getNewJobs();
-    this.getNearJobs();
-    this.getHighSalaryJobs();
+    this.serviceService.getCategories();
+    this.getTopVendors();
+    // this.jobService.resetFilters();
+    // this.jobService.getCategories();
+    // this.getNewJobs();
+    // this.getNearJobs();
+    // this.getHighSalaryJobs();
   }
-  getSuggesions() {
-    if (this.selectedTitleSuggesion == this.jobService.jobFilters.title) return;
-    // alert(this.jobService.jobFilters.title);
-    if (!this.jobService.jobFilters.title) return (this.titleSuggestions = []);
-    this.http
-      .get(this.dataService.apiUrl + 'custom/homeSearch', {
-        params: {
-          queryText: this.jobService.jobFilters.title,
-        },
-      })
-      .subscribe((data: any) => {
-        this.titleSuggestions = [];
-        console.log(data);
-        if (data.jobs && data.jobs.length) {
-          this.titleSuggestions.push({
-            title: this.jobService.jobFilters.title,
-            type: 'job',
-          });
-          let i = 0;
-          data.jobs.forEach((job) => {
-            // i++;
-            // if (
-            //   this.titleSuggestions.length &&
-            //   this.titleSuggestions[i - 1].title == job.title
-            // )
-            //   return;
 
-            this.titleSuggestions.push({
-              title: job.title,
-              type: 'job',
-            });
-          });
-          // data.jobs.forEach((job) => {
-          //   this.titleSuggestions.push({
-          //     title: job.skillsByComma,
-          //     type: 'job',
-          //   });
-          // });
-          // data.jobs.forEach((job) => {
-          //   if (job.jobCategory)
-          //     this.titleSuggestions.push({
-          //       title: job.jobCategory.name,
-          //       type: 'job',
-          //     });
-          // });
-        }
-
-        // titleSuggestions.forEach((suggestions) => {});
-
-        this.titleSuggestions = this.titleSuggestions.slice(0, 5);
-      });
-  }
-  getSuggesionsCities() {
-    if (this.selectedCitySuggesion == this.jobService.jobFilters.city) return;
-    // alert(this.jobService.jobFilters.title);
-    if (!this.jobService.jobFilters.city) {
-      return (this.citySuggestions = []);
+  getSuggesions(event) {
+    this.noSuggesionsFound = false;
+    console.log(event);
+    this.suggestions = [];
+    if (!event.detail.value) {
+      return;
     }
-    this.http
-      .get(this.dataService.apiUrl + 'custom/citySearch', {
-        params: {
-          city: this.jobService.jobFilters.city,
-        },
-      })
-      // .get(
-      //   // eslint-disable-next-line max-len
-      //   `https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyD6d0aNvUiSWaENoQ1UuqCOzfMg0Wmq7Do&types=%28cities%29&components=country:ind&input=${this.jobService.jobFilters.city}`
-      // )
-      .subscribe((data: any) => {
-        this.citySuggestions = [];
-        if (data.predictions && data.predictions.length) {
-          // this.citySuggestions.push({
-          //   title: this.jobService.jobFilters.city,
-          // });
+    this.serviceService.categories.forEach((categories) => {
+      console.log(categories);
 
-          data.predictions.forEach((city) => {
-            this.citySuggestions.push({
-              title: city.structured_formatting.main_text,
-            });
+      categories.attributes.subCategories.data.forEach((subCategory) => {
+        console.log(subCategory.attributes.name);
+        if (subCategory.attributes.name.includes(event.detail.value)) {
+          this.suggestions.push({
+            title: subCategory.attributes.name,
+            link: '/vendor-listing/' + subCategory.id,
           });
         }
       });
+
+      if (!this.suggestions.length) this.noSuggesionsFound = true;
+    });
+    // alert(this.searchQuery);
   }
-  selected(suggestion, type) {
-    if (type == 'title') {
-      this.jobService.jobFilters.title = suggestion.title;
-      this.selectedTitleSuggesion = suggestion.title;
-      this.titleSuggestions = [];
-    } else {
-      this.jobService.jobFilters.city = suggestion.title;
-      this.selectedCitySuggesion = suggestion.title;
-      this.citySuggestions = [];
-    }
+
+  suggestionClicked(suggestion) {
+    this.router.navigate([suggestion.link]);
+    this.searchQuery = '';
+  }
+  getTopVendors() {
+    this.http
+      .get(this.dataService.apiUrl + 'service-profiles', {
+        params: {
+          populate: '*',
+          'filter[vendor][city][$containsi]': this.dataService.profile.city,
+          sort: ['rating:desc'],
+        },
+      })
+      .subscribe((data: any) => {
+        this.topVendors = data.data;
+      });
   }
   segmentChanged(ev: any) {
     this.switchTab = ev.detail.value;
@@ -189,101 +145,6 @@ export class ServiceHomePage implements OnInit {
   slideChanged() {
     this.slider.stopAutoplay(); //this code for slide after page change
   }
-
-  search() {
-    // [routerLink]="'/joblist/'+(this.jobService.jobFilters.title||'any')+'/'+this.jobService.jobFilters.city"
-    this.jobService.resetOtherFilters();
-    // this.jobService.jobFilters.title = category.attributes.name;
-    this.router.navigate(['/joblist']);
-  }
-  viewAll(category) {
-    console.log(category);
-    // let query = '';
-    switch (category.title) {
-      case 'New Jobs':
-        // query = 'newJobs';
-        this.jobService.resetFilters();
-        this.jobService.jobFilters.sort = ['createdAt:desc'];
-        this.router.navigate(['/joblist']);
-        break;
-      case 'Jobs Near Me':
-        this.jobService.resetFilters();
-        this.jobService.jobFilters.city = this.dataService.profile.city || '';
-        this.router.navigate(['/joblist']);
-        break;
-      case 'High Salary Jobs':
-        this.jobService.resetFilters();
-        this.jobService.jobFilters.sort = ['salaryFrom:desc'];
-        this.router.navigate(['/joblist']);
-        break;
-
-      default:
-        return;
-    }
-    // this.router.navigate(['/joblist/' + query]);
-  }
-  getNewJobs() {
-    let query = qs.stringify({
-      filters: {
-        ...this.commonFilter,
-      },
-      sort: ['createdAt:desc'],
-      populate: this.populate,
-      pagination: {
-        pageSize: '5',
-      },
-    });
-
-    this.http
-      .get(this.dataService.apiUrl + 'job-posts?' + query, {})
-      .subscribe((data: any) => {
-        this.sections[0].jobs = data.data;
-      });
-  }
-  getNearJobs() {
-    let query = qs.stringify({
-      sort: ['createdAt:desc'],
-      populate: this.populate,
-      pagination: {
-        pageSize: '5',
-      },
-      filters: {
-        ...this.commonFilter,
-        city: {
-          $eq: this.dataService.profile.city + '',
-        },
-      },
-    });
-    this.http
-      .get(this.dataService.apiUrl + 'job-posts?' + query, {})
-      .subscribe((data: any) => {
-        this.sections[1].jobs = data.data;
-      });
-  }
-  getHighSalaryJobs() {
-    let query = qs.stringify({
-      sort: ['createdAt:desc'],
-      populate: this.populate,
-      pagination: {
-        pageSize: '5',
-      },
-      filters: {
-        ...this.commonFilter,
-        city: {
-          $eq: this.dataService.profile.city + '',
-        },
-      },
-    });
-    this.http
-      .get(this.dataService.apiUrl + 'job-posts?' + query, {})
-      .subscribe((data: any) => {
-        this.sections[2].jobs = data.data;
-      });
-  }
-
-  // slideChanged() {
-  //   this.slider.stopAutoplay();
-  // }
 
   ngOnInit() {}
   jobDetails(job) {

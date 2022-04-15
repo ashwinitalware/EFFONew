@@ -10,7 +10,7 @@
 <ion-content>
   <div *ngIf="data" class="h-full bg-gray-100">
     <div>
-      <img src="{{data.attributes.businessImage}}" />
+      <img src="{{data.attributes.bannerImage}}" />
     </div>
 
     <div class="bg-white">
@@ -24,7 +24,7 @@
             name="star"
           ></ion-icon>
 
-          {{data.attributes.rating}}</span
+          {{data.attributes.rating||'4.5'}}</span
         >
         Ratings
         <br />
@@ -48,7 +48,7 @@
         ><br />
         <span class="text-sm">
           <ion-icon class="text-gray-600 text-sm" name="call"></ion-icon> +91
-          {{data.attributes.phone}}</span
+          {{data.attributes.vendor.data.attributes.phone}}</span
         ><br />
         <!-- <span class="text-sm">
         <ion-icon class="text-gray-600 text-sm" name="globe"></ion-icon>
@@ -60,7 +60,7 @@
     <div class="bg-white mt-2">
       <div class="p-3">
         <ion-label class="text-lg font-bold">About</ion-label><br />
-        <p class="text-sm">{{data.attributes.companyName}}</p>
+        <p class="text-sm">{{data.attributes.about}}</p>
       </div>
     </div>
 
@@ -83,7 +83,7 @@
             <ion-col size="7">
               <div>
                 <p class="ion-no-padding">
-                  <b>{{service.attributes.name}}</b> <br />
+                  <b>{{service.attributes.name|titlecase}}</b> <br />
                   <!-- <span class="text-xs">
                   <ion-icon class="text-green-500" name="pricetag"></ion-icon
                   >&nbsp;30% Off 2nd service onwards
@@ -92,7 +92,7 @@
                   </span
                 ><br />
                  -->
-                  <span class="text-xs"> Price, Description </span>
+                  <!-- <span class="text-xs"> Price, Description </span> -->
                 </p>
               </div>
             </ion-col>

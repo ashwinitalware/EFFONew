@@ -12,26 +12,24 @@
     <div
       class="bg-white p-4 mt-2 rounded-md flex"
       style="width: 100%"
-     
-     
       *ngFor="let vendor of data"
     >
-      <div class="flex w-16 h-16 bg-red-100">
-        {{vendor.attributes.image}}
-      </div>
+      <div
+        class="flex w-16 h-16 bg-red-100 rounded-full bg-contain bg-no-repeat bg-center"
+        style="background-image: url({{vendor.attributes.bannerImage}});"
+      ></div>
 
       <div class="px-4 flex-1">
-        <div class="font-bold">
-          {{vendor.attributes.companyName|titlecase}}
-        </div>
+        <div class="font-bold">{{vendor.attributes.companyName|titlecase}}</div>
         <div class="text-gray-700 flex items-center">
-          <ion-icon name="location" class="text-red-600"></ion-icon>&nbsp;
-          {{vendor.attributes.companyAddress |titlecase}}
+          <ion-icon name="location" class="text-red-600"></ion-icon>
+          &nbsp;
+          <div>{{vendor.attributes.companyAddress |titlecase}}</div>
         </div>
 
         <div class="flex justify-around">
           <ion-button
-          [routerLink]="['/vendor-details/'+vendor.id]" 
+            [routerLink]="['/vendor-details/'+vendor.id]"
             color="dark"
             fill="clear"
             class="flex-1 mt-2 bg-white text-sm"

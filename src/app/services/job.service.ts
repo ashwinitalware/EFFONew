@@ -28,7 +28,8 @@ export class JobService {
 
   constructor(public http: HttpClient, public dataService: DataService) {}
   getCategories() {
-    this.http.get(this.dataService.apiUrl + 'service-categories').subscribe(
+    // this.http.get(this.dataService.apiUrl + 'service-categories').subscribe(
+    this.http.get(this.dataService.apiUrl + 'job-categories').subscribe(
       (data: any) => {
         this.categories = data.data;
         for (let i = 0; i < this.categories.length; i++) {
