@@ -1,9 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>serviceBookings</ion-title>
+    <ion-buttons color="light" slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Booking Details </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="p-4">
+    <form [formGroup]="form" class="">
+      <ion-item class="">
+        <ion-label position="stacked">Description</ion-label>
+        <ion-textarea
+          formControlName="description"
+          type="text"
+          placeholder="Service Requirments / Description."
+        ></ion-textarea>
+      </ion-item>
+      <ion-item class="">
+        <ion-label position="stacked">Select Date Time</ion-label>
+        <ion-input formControlName="dateTime" type="datetime-local"></ion-input>
+      </ion-item>
+      <ion-item class="">
+        <ion-label position="stacked">Full Address</ion-label>
+        <ion-input
+          formControlName="address"
+          type="text"
+          placeholder="Colony , Area, Pincode"
+        ></ion-input>
+      </ion-item>
 
+      <ion-button (click)="book()" class="mt-4" size="block"
+        >Confirm Booking</ion-button
+      >
+    </form>
+  </div>
 </ion-content>

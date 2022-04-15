@@ -16,6 +16,7 @@ import { LoginGuard } from './guards/login.guard';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { SmsRetriever } from '@awesome-cordova-plugins/sms-retriever/ngx';
 import { PhotoViewer } from '@awesome-cordova-plugins/photo-viewer/ngx';
+import { ServiceService } from './services/service.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +34,7 @@ import { PhotoViewer } from '@awesome-cordova-plugins/photo-viewer/ngx';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     JobService,
     DataService,
+    ServiceService,
     InAppBrowser,
     LoginGuard,
   ],
