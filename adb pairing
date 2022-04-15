@@ -1,0 +1,4 @@
+./adb kill-server
+
+./adb pair ipaddr:port
+

@@ -8,17 +8,19 @@
 </ion-header>
 
 <ion-content>
-  <div class="p-4">
+  <div class="p-4" *ngIf="data">
     <div class="font-bold">Vendor Details</div>
 
     <div class="bg-white p-4 mt-2 rounded-md flex" style="width: 100%">
       <!-- <div class="flex w-16 h-16 bg-red-100">image</div> -->
 
       <div class="px-4 flex-1">
-        <div class="font-bold">Company Name</div>
+        <div class="font-bold">
+          {{data.attributes.vendor.data.attributes.service_profile.data.attributes.companyName|titlecase}}
+        </div>
         <div class="text-gray-700 flex items-center">
           <ion-icon name="location" class="text-red-600"></ion-icon>&nbsp;
-          Address
+          {{data.attributes.vendor.data.attributes.service_profile.data.attributes.companyAddress|titlecase}}
         </div>
 
         <div class="flex justify-around">
@@ -42,22 +44,54 @@
     </div>
 
     <br />
-    <div class="font-bold bg-white p-2 rounded-md">
-      Services : <span>date time</span>
+    <div class="font-bold bg-white p-2 rounded-md flex">
+      Services :
+      <div class="flex-1 px-4">
+        <div *ngFor="let service of data.attributes.services.data;let i=index">
+          {{i+1}}. {{service.attributes.name|titlecase}}
+        </div>
+      </div>
     </div>
     <br />
     <div class="font-bold bg-white p-2 rounded-md">
-      Date / Time : <span>date time</span>
+      Date / Time : <span> {{data.attributes.dateTime|date:'short'}} </span>
     </div>
     <br />
     <div class="font-bold bg-white p-2 rounded-md">
-      Description : <span>date time</span>
+      Description : <span>{{data.attributes.description}}</span>
     </div>
     <br />
     <div class="font-bold bg-white p-2 rounded-md">
-      Vendor Note : <span>date time</span>
+      Vendor Note :
+      <span class="text-red-600"
+        >{{data.attributes.note||'No note provided'}}</span
+      >
     </div>
     <br />
-    <div class="font-bold bg-white p-2 rounded-md">Rating / Review</div>
+
+    <div
+      class="font-bold bg-white p-2 rounded-md"
+      *ngIf="data.attributes.status=='completed'"
+    >
+      <div>Rating / Review</div>
+
+      <div class="flex">
+        <ngx-star-rating
+          [(ngModel)]="this.data.attributes.rating"
+          [id]="'rating'"
+        ></ngx-star-rating>
+      </div>
+      <div>
+        <textarea
+          [(ngModel)]="this.data.attributes.review"
+          class="border border-1 rounded-md w-full p-4"
+          placeholder="Your Review "
+          name=""
+          id=""
+          rows="2"
+        ></textarea>
+      </div>
+      <ion-button (click)="rating()" size="block">Submit Review</ion-button>
+    </div>
   </div>
 </ion-content>

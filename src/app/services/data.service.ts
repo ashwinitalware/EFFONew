@@ -9,6 +9,7 @@ import { FCM } from '@capacitor-community/fcm';
 import { PushNotifications } from '@capacitor/push-notifications';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { PhotoViewer } from '@awesome-cordova-plugins/photo-viewer/ngx';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
 
 declare const Swal: any;
 @Injectable({
