@@ -265,7 +265,7 @@ export class JobHomePage implements OnInit {
   }
   getHighSalaryJobs() {
     let query = qs.stringify({
-      sort: ['createdAt:desc'],
+      sort: ['salaryUpto:desc'],
       populate: this.populate,
       pagination: {
         pageSize: '5',

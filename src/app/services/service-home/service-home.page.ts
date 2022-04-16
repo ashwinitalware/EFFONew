@@ -105,7 +105,7 @@ export class ServiceHomePage implements OnInit {
 
       categories.attributes.subCategories.data.forEach((subCategory) => {
         console.log(subCategory.attributes.name);
-        if (subCategory.attributes.name.includes(event.detail.value)) {
+        if (subCategory.attributes.name.toLowerCase().includes(event.detail.value.toLowerCase())) {
           this.suggestions.push({
             title: subCategory.attributes.name,
             link: '/vendor-listing/' + subCategory.id,

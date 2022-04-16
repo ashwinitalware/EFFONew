@@ -32,8 +32,8 @@ export class DashboardPage implements OnInit {
       name: 'Services',
       image: '',
       icon: 'apps',
-      link: 'service-dashboard',
-      available: true,
+      // link: 'service-dashboard',
+      // available: true,
     },
     // {
     //   name: 'Cab Services',
@@ -186,7 +186,7 @@ export class DashboardPage implements OnInit {
   slideChanged() {
     this.slider.stopAutoplay(); //this code for slide after page change
   }
-  navigateCategory(category: { link: string }) {
+  navigateCategory(category) {
     if (!category.link) {
       this.dataService.presentToast('Coming Soon', 'danger');
       return;
