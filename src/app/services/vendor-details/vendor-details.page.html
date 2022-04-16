@@ -13,43 +13,57 @@
       <img src="{{data.attributes.bannerImage}}" />
     </div>
 
-    <div class="bg-white">
-      <div class="p-3">
-        <ion-label class="text-lg font-bold"
-          >{{data.attributes.companyName|titlecase}}</ion-label
-        ><br />
-        <span class="text-lg">
-          <ion-icon
-            class="text-gray-600 text-sm text-yellow-500"
-            name="star"
-          ></ion-icon>
+    <div class="bg-white ">
+      <div class="p-3 ">
+        <ion-label class="text-lg font-bold">{{data.attributes.companyName|titlecase}}</ion-label>
 
-          {{data.attributes.rating||'4.5'}}</span
-        >
-        Ratings
-        <br />
+        <div class="flex items-center">
+          <div class="flex-1">
+          <span class="text-lg ">
+            <ion-icon class="text-gray-600 text-sm text-yellow-500" name="star"></ion-icon>
+
+            {{data.attributes.rating||'4.5'}}
+          </span>
+          Ratings
+        </div>
+        <div>
+     <ion-button   fill="" >
+      
+      <ion-icon class="text-blue-600" name="call" ></ion-icon>
+
+     </ion-button>
+     <ion-button fill="" >
+      
+      <ion-icon class="text-green-600" name="logo-whatsapp" ></ion-icon>
+
+     </ion-button>
+        </div>
+        </div>
         <!-- <span class="text-sm">
         <ion-icon class="text-gray-600 text-sm" name="checkbox"></ion-icon> 2056
         booking in nagapur this year
       </span> -->
       </div>
+
     </div>
+
+
 
     <div class="bg-white mt-2">
       <div class="p-3">
         <ion-label class="text-lg font-bold">Business Details</ion-label><br />
         <span class="text-sm">
           <ion-icon class="text-gray-600 text-sm" name="location"></ion-icon>
-          {{data.attributes.companyAddress|titlecase}}</span
-        ><br />
+          {{data.attributes.companyAddress|titlecase}}
+        </span><br />
         <span class="text-sm">
           <ion-icon class="text-gray-600 text-sm" name="time"></ion-icon>
-          {{data.attributes.businessTimings}}</span
-        ><br />
+          {{data.attributes.businessTimings}}
+        </span><br />
         <span class="text-sm">
           <ion-icon class="text-gray-600 text-sm" name="call"></ion-icon> +91
-          {{data.attributes.vendor.data.attributes.phone}}</span
-        ><br />
+          {{data.attributes.vendor.data.attributes.phone}}
+        </span><br />
         <!-- <span class="text-sm">
         <ion-icon class="text-gray-600 text-sm" name="globe"></ion-icon>
         www.nhjg.com
@@ -73,14 +87,13 @@
       </div>
 
       <div class="bg-white mt-2">
-        <ion-grid
-          fixed
-          *ngIf="data.attributes.serviceSubcategories && data.attributes.serviceSubcategories.data"
-        >
-          <ion-row
-            *ngFor="let service of data.attributes.serviceSubcategories.data"
-          >
-            <ion-col size="7">
+        <ion-grid fixed *ngIf="data.attributes.serviceSubcategories && data.attributes.serviceSubcategories.data">
+          <ion-row *ngFor="let service of data.attributes.serviceSubcategories.data">
+            <ion-col size="2">
+
+              <img class="rounded-md" src="{{service.attributes.image}}" alt="">
+            </ion-col>
+            <ion-col size="5">
               <div>
                 <p class="ion-no-padding">
                   <b>{{service.attributes.name|titlecase}}</b> <br />
@@ -105,19 +118,11 @@
                 <!-- <div class="w-24 p-2" style="z-index: 1000; position: absolute; margin-left:5px; margin-top: -19%;"> -->
                 <div
                   class="px-2 py-1 bg-green-600 text-white border-gray-500 border-2 rounded-md rounded-md text-center"
-                  *ngIf="service.selected"
-                  (click)="service.selected=false"
-                >
+                  *ngIf="service.selected" (click)="service.selected=false">
                   Selected
                 </div>
-                <div
-                  class="rounded-md text-center"
-                  (click)="service.selected=true"
-                  *ngIf="!service.selected"
-                >
-                  <div
-                    class="px-2 py-1 bg-white border-gray-500 border-2 rounded-md text-gray-800"
-                  >
+                <div class="rounded-md text-center" (click)="service.selected=true" *ngIf="!service.selected">
+                  <div class="px-2 py-1 bg-white border-gray-500 border-2 rounded-md text-gray-800">
                     Select
                   </div>
                 </div>
@@ -224,8 +229,6 @@
     </button>
   </div> -->
   <ion-toolbar (click)="book()">
-    <ion-title class="text-center text-white text-sm"
-      >Book an Appointment</ion-title
-    >
+    <ion-title class="text-center text-white text-sm">Book an Appointment</ion-title>
   </ion-toolbar>
 </ion-footer>

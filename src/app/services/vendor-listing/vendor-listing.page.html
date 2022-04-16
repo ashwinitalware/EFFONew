@@ -36,7 +36,7 @@
           >
             <b> Details</b>
           </ion-button>
-          <ion-button
+          <ion-button (click)="this.dataService.contact( 'call','91'+vendor.attributes.vendor.data.attributes.phone)"
             color="dark"
             fill="clear"
             class="flex-1 mt-2 bg-white text-sm"

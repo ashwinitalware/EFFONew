@@ -183,7 +183,7 @@ export class DataService {
     this.auth.otpSent = false;
     this.router.navigate(['/login']);
   }
-  contact(type, contact) {
+  contact(type='call', contact) {
     if (type == 'call') {
       window.open('tel:+' + contact);
     } else {
