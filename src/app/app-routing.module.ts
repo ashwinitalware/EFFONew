@@ -343,6 +343,10 @@ const routes: Routes = [
     path: 'tab3',
     loadChildren: () => import('./Service/tab3/tab3.module').then( m => m.Tab3PageModule)
   },
+  {
+    path: 'filter',
+    loadChildren: () => import('./Property/filter/filter.module').then( m => m.FilterPageModule)
+  },
 
 
   // {

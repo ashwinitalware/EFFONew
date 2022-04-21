@@ -28,13 +28,12 @@ export class DashboardPage implements OnInit {
     this.bookride = true
   }
 
-
   categories = [
     {
       name: 'Jobs',
       image: '',
       icon: 'briefcase',
-      link: '',
+      link: 'jobdashboard',
       available: true,
     },
     {

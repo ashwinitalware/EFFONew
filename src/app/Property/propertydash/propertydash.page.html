@@ -1,43 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <div class="flex justify-between p-2">
-      <div>
-        <svg routerLink="/dashboard" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
-          viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-      </div>
-      <div class="text-white" align="center">
-        <p>Property</p>
-      </div>
-      <div style="margin-left: 60%">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor" stroke-width="2" routerLink="/propertytypes">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-        </svg>
-      </div>
-
-      <!-- <div routerLink="/favorites">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-        </svg>
-      </div> -->
-    </div>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white" defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <!-- <p>Property</p> -->
+    <!-- <ion-title class="text-white">Real Estate </ion-title> -->
+    <ion-button slot="end" size="small" color="light pr-2" class="text-xs" fill="outline">
+      Post Property
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
   <div class="p-3">
-    <div class="bg-gray-200 rounded-md border-2 border-gray-400 p-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-      </svg>
+
+    <div class="bg-white rounded-md border-2 border-gray-300 shadow-sm">
+      <ion-input placeholder="" id="search">
+        <ion-icon name="search" class="text-gray-300" style="margin-left: 7px;"></ion-icon>
+      </ion-input>
     </div>
 
+    <div class="pt-2">
+      <ion-label><b>Get started with</b><br>
+        <p class="text-xs">Exploring real estate options in top cities</p>
+      </ion-label>
+    </div>
 
     <div class="slider">
       <ion-slides class="slider" [options]="slideOptions" pager="true" #slider
@@ -54,126 +42,285 @@
       </ion-slides>
     </div>
 
+    <div class="pt-2">
+      <ion-label><b>Category</b><br>
+        <p class="text-xs">Apartments, land, builder, floors, villas and more</p>
+      </ion-label>
+    </div>
   </div>
 
 
+  <div class="bg-white">
+    <div class="pl-2 pr-2 pt-3 -mt-3">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="6">
+            <div class="bg-white shadow-md rounded-md">
+              <img class="img-responsive" src="assets/property/h8.jpg" alt="">
+              <p class="text-center p-1 text-black">Residential</p>
+            </div>
+          </ion-col>
 
-  <div class="p-2">
-    <ion-segment (ionChange)='segmentChanged($event)' scrollable value="all">
-      <ion-segment-button value="all">
-        <ion-label>All</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="prop">
-        <ion-label>Property News </ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="Finance">
-        <ion-label>Finance </ion-label>
-      </ion-segment-button>
-      <!-- <ion-segment-button value="tips">
-        <ion-label>Tips </ion-label>
-      </ion-segment-button> -->
-    </ion-segment>
+          <ion-col size="6">
+            <div class="bg-white shadow-md rounded-md">
+              <img class="img-responsive" src="assets/property/inn5.jpg" alt="">
+              <p class="text-center p-1 text-black">Commercial</p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
   </div>
 
-  <div *ngIf="switchTab == 'all'">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="4" routerLink="/details">
-          <img class="rounded-md" src="assets/property/h1.jpg" />
-        </ion-col>
-        <ion-col size="7">
-          <p class="text-sm">Renting a home<br>
-            <span class="text-xs">Appartment, builder floors, villas and more</span></p>
-        </ion-col>
-        <ion-col size="1" class="mt-3" routerLink="/details">
-          <ion-icon name="chevron-forward-outline"></ion-icon>
-        </ion-col>
-        <ion-col size="4">
-          <img class="rounded-md" src="assets/property/inn1.jpg" />
-        </ion-col>
-        <ion-col size="7">
-          <p class="text-sm">PG and co-living<br>
-            <span class="text-xs">
-              Organised, owner and broker listed PGs
-            </span></p>
-        </ion-col>
-        <ion-col size="1" class="mt-3">
-          <ion-icon name="chevron-forward-outline"></ion-icon>
-        </ion-col>
-
-        <ion-col size="4">
-          <img class="rounded-md" src="assets/property/inn5.jpg" />
-        </ion-col>
-
-        <ion-col size="7">
-          <p class="text-sm">Buying a commercial Property<br>
-            <span class="text-xs"> Shops, offices, land, factories, warehouses and more</span></p>
-
-        </ion-col>
-
-        <ion-col size="1" class="mt-3">
-          <ion-icon name="chevron-forward-outline"></ion-icon>
-        </ion-col>
-
-        <ion-col size="4">
-          <img class="rounded-md" src="assets/property/inn7.jpg" />
-        </ion-col>
-
-        <ion-col size="7">
-          <p class="text-sm">Leasing a commercial Property<br>
-            <span class="text-xs">
-              Shops, offices, land, factories, warehouses and more</span></p>
-
-        </ion-col>
-
-        <ion-col size="1" class="mt-3">
-          <ion-icon name="chevron-forward-outline"></ion-icon>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+  <div class="pl-3 pr-3 mt-2">
+    <div class="flex justify-between">
+      <div>
+        <ion-label class="text-base"><b>Residential Near by you</b>
+        </ion-label><br>
+        <p class="text-xs">Featured residential project across india</p>
+      </div>
+      <div>
+        <p class="text-xs  text-black border-b-2 border-red-600">View All</p>
+      </div>
+    </div>
   </div>
 
-  <div class="p-2" *ngIf="switchTab == 'prop'">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="4" routerLink="/details">
-          <img class="rounded-md" src="assets/property/h1.jpg" />
-        </ion-col>
-        <ion-col size="8">
-          <p class="text-sm"><b>Guaranteed monthly rent</b><br>
-            <span class="text-xs">
-              Unlike traditional real estate investments, HomeRoom guarantees
-              monthly rent </span>
-          </p>
-        </ion-col>
-        <ion-col size="4">
-          <img class="rounded-md " src="assets/property/inn1.jpg" />
-        </ion-col>
-        <ion-col size="8">
-          <p class="text-sm"><b>In-house property management</b></p>
-          <p class="text-xs">
-            That’s right, we manage your property at no cost to you.
-          </p>
-        </ion-col>
-        <ion-col size="4">
-          <img class="rounded-md mt-5" src="assets/property/inn5.jpg" />
-        </ion-col>
-        <ion-col size="8">
-          <p class="text-sm">Monthly passive income<br>
-            <span class="text-xs">
-              HomeRoom investors typically earn a few hundred dollars of extra
-              income a month.</span></p>
+  <div class="bg-white -mt-2">
+    <div class="pt-4 p-2 ">
+      <!-- <div class="flex justify-between ">
+          <div>
+            <p class="text-black text-sm font-bold pb-2">{{user_info.gender=='Male' ? 'Bride Profile' : 'Groom Profile'}}
+            </p>
+          </div>
+          <div>
+            <p class="text-xs red" routerLink="/allprofiles/{{user_info.gender=='Male' ? 'Female' : 'Male'}}">View All</p>
+          </div>
+        </div> -->
+      <ion-slides class="slider " [options]="slideOptions1" pager="false" #slider
+        (ionSlidesDidLoad)="slidesDidLoad1(slider)">
+        <!-- <ion-slide class="pr-2">
+            <img class="rounded-t-md img2" src="assets/property/h6.jpg" />
+            <p class="text-xs">Buying a home</p>
+            <img class="rounded-t-md img2" src="assets/myimage.jpg" />
+            <div class="bg-black bg-opacity-50"
+              style="z-index:1000; position:absolute; margin-top: 87%; width: 83%;padding:0.2em; ">
+              <p class="text-white text-xs pb-2 pt-1 user_name">hhghgh</p>
+            </div>
+          </ion-slide> -->
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-t-md img2" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1 ">Buying a home</p>
+          </div>
+        </ion-slide>
 
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-t-md img2" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">Renting a home</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-t-md img2" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">Sell your property</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-t-md img2" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">PG and co-living</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-t-md img2" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">Renting a home</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-t-md img2" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">Sell your property</p>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
   </div>
-  <div class="p-2 pl-3" *ngIf="switchTab == 'Finance'">
-    <li>Public Finance</li>
-    <li>Personal Finance</li>
-    <li>Private Finance</li>
-    <li>Public Finance</li>
-    <li>Public Finance</li>
+
+
+  <div class="pl-3 pr-3 mt-2">
+    <div class="flex justify-between">
+      <div>
+        <ion-label class="text-base"><b>Commercial Near by you</b>
+        </ion-label><br>
+        <p class="text-xs">Shop, offices, land, factories, warehouses and more</p>
+      </div>
+      <div>
+        <p class="text-xs  text-black border-b-2 border-red-600">View All</p>
+      </div>
+    </div>
   </div>
+
+  <div class="bg-white -mt-2">
+    <div class=" pt-4 p-2">
+      <ion-slides class="slider " [options]="slideOptions1" pager="false" #slider
+        (ionSlidesDidLoad)="slidesDidLoad1(slider)">
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-t-md img2" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">Buying a home</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-t-md img2" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">Renting a home</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-t-md img2" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">Sell your property</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-t-md img2" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">PG and co-living</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-t-md img2" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">Renting a home</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-t-md img2" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">Sell your property</p>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+
+  <div class="p-3"></div>
+
+
+
+
+
+
+  <!-- <div class="pl-3 pr-3">
+    <div>
+      <ion-segment mode="ios" (ionChange)='segmentChanged($event)' scrollable value="all">
+        <ion-segment-button value="all">
+          <ion-label>All</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="prop">
+          <ion-label>House</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="Finance">
+          <ion-label>Appartment</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="tips">
+          <ion-label>Office </ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+    <div *ngIf="switchTab == 'all'">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" routerLink="/details">
+            <img class="rounded-md" src="assets/property/h1.jpg" />
+          </ion-col>
+          <ion-col size="7">
+            <p class="text-sm"><b>Renting a home</b><br>
+              <span class="text-xs">Appartment, builder floors, villas and more</span></p>
+          </ion-col>
+          <ion-col size="1" class="mt-3" routerLink="/details">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-col>
+          <ion-col size="4">
+            <img class="rounded-md" src="assets/property/inn1.jpg" />
+          </ion-col>
+          <ion-col size="7">
+            <p class="text-sm"><b>PG and co-living</b><br>
+              <span class="text-xs">
+                Organised, owner and broker listed PGs
+              </span></p>
+          </ion-col>
+          <ion-col size="1" class="mt-3">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-col>
+
+          <ion-col size="4">
+            <img class="rounded-md" src="assets/property/inn5.jpg" />
+          </ion-col>
+
+          <ion-col size="7">
+            <p class="text-sm"><b>Buying a commercial Property</b><br>
+              <span class="text-xs"> Shops, offices, land, factories, warehouses and more</span></p>
+
+          </ion-col>
+
+          <ion-col size="1" class="mt-3">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-col>
+
+          <ion-col size="4">
+            <img class="rounded-md" src="assets/property/inn7.jpg" />
+          </ion-col>
+
+          <ion-col size="7">
+            <p class="text-sm"><b>Leasing a commercial Property</b><br>
+              <span class="text-xs">
+                Shops, offices, land, factories, warehouses and more</span></p>
+
+          </ion-col>
+
+          <ion-col size="1" class="mt-3">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="p-2" *ngIf="switchTab == 'prop'">
+    </div>
+    <div class="p-2 pl-3" *ngIf="switchTab == 'Finance'">
+    </div>
+  </div> -->
 
 </ion-content>
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600" routerLink="/propertydash">
+    <ion-label>Home</ion-label>
+    <ion-icon name="home"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button tab="heart" class="text-gray-600 hover:text-red-600">
+    <ion-label>Shortlisted</ion-label>
+    <ion-icon name="heart"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button tab="business" class="text-gray-600 hover:text-red-600" routerLink="/details">
+    <ion-label>My Property</ion-label>
+    <ion-icon name="business"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button tab="person" class="text-gray-600 hover:text-red-600">
+    <ion-label>Profile</ion-label>
+    <ion-icon name="person"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>

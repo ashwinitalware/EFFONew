@@ -1,207 +1,241 @@
 <ion-header>
   <ion-toolbar>
-    <div class="flex justify-between p-2">
-      <div routerLink="/propertydash">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-          stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-      </div>
-      <div class="text-white">
-        <p>Property Details</p>
-      </div>
-
-      <div>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-        </svg>
-      </div>
-    </div>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white">Property Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="p-3">
-    <p class="font-semibold">Durga mawjiya tower<br>
-      <span class="text-xs">
-        <ion-icon name="location-outline"></ion-icon> Rathi nagar, Amaravati
-      </span></p>
-
-    <div class="slider">
-      <ion-slides class="slider" [options]="slideOptions" pager="true" #slider
-        (ionSlidesDidLoad)="slidesDidLoad(slider)" class="mt-2 rounded-md">
-        <ion-slide>
-          <img src="assets/property/slide1.jpg" />
-        </ion-slide>
-        <ion-slide>
-          <img class="rounded-md ml-2" src="assets/property/slide2.jpg" />
-        </ion-slide>
-        <ion-slide>
-          <img class="rounded-md ml-5" src="assets/property/slide3.jpg" />
-        </ion-slide>
-      </ion-slides>
-    </div>
-
-    <!-- <div class="flex justify-between mt-4">
+    <div class="bg-white">
       <div>
-        <p class="text-sm">Asking</p>
-        <p class="text-xs">₹ 52666</p>
+        <img class="rounded-tl-md rounded-tr-md" src="assets/property/slide1.jpg" />
       </div>
+
+      <div class=" p-2 rounded-md">
+        <div class="flex">
+          <div class="flex-1 text-black text-left text-base font-bold">
+            Owner / Property Name
+          </div>
+
+          <div class="text-sm">
+            2 days ago
+          </div>
+        </div>
+        <div class="text-sm text-gray-700">
+          Plot No.31 MIDC, Pune Infotech Park, Ph-2 Hinjewadi, Pune – 411 057
+        </div>
+        <span class=" text-black text-sm ">
+          1.110 Sqft.
+        </span>
+
+        <div class="text-sm flex items-center mt-2">
+          <ion-icon name="podium" class="text-blue-500"></ion-icon>
+          &nbsp;
+          <span> Buy, Rent/Lease, PG/Co-living
+          </span>
+        </div>
+
+        <div class="text-sm flex items-center">
+          <ion-icon name="rocket" class="text-yellow-500"></ion-icon>&nbsp;
+          Parking, Security, Balcony
+        </div>
+
+        <div class="flex justify-start">
+          <div class="pr-2">
+            <div class="text-sm flex items-center">
+              <ion-icon name="home" class="text-green-600"></ion-icon>&nbsp;
+              2 BHK
+            </div>
+          </div>
+          <div>
+            <div class="text-sm flex items-center">
+              <ion-icon name="cube" class="text-pink-600"></ion-icon>&nbsp;
+              1.110 Sqft.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="bg-white mt-2">
       <div>
-        <p class="text-sm">₹ 5200</p>
-        <p class="text-xs">See my Capability</p>
+        <img class="rounded-tl-md rounded-tr-md" src="assets/property/img.jpg" />
       </div>
-    </div> -->
-    <div class="mb-3">
-      <ion-grid class="bg-white shadow-md rounded-md mt-3 ">
-        <ion-row>
-          <ion-col size="4" class="border-r-2">
-            <div align="center">
-              <img src="assets/property/bed.png" />
-              <p class="text-xs">2 Bedrooms </p>
+
+      <div class=" p-2 rounded-md">
+        <div class="flex">
+          <div class="flex-1 text-black text-left text-base font-bold">
+            Owner / Property Name
+          </div>
+
+          <div class="text-sm">
+            2 days ago
+          </div>
+        </div>
+        <div class="text-sm text-gray-700">
+          Plot No.31 MIDC, Pune Infotech Park, Ph-2 Hinjewadi, Pune – 411 057
+        </div>
+        <span class=" text-black text-sm ">
+          1.110 Sqft.
+        </span>
+
+        <div class="text-sm flex items-center mt-2">
+          <ion-icon name="podium" class="text-blue-500"></ion-icon>
+          &nbsp;
+          <span> Buy, Rent/Lease, PG/Co-living
+          </span>
+        </div>
+
+        <div class="text-sm flex items-center">
+          <ion-icon name="rocket" class="text-yellow-500"></ion-icon>&nbsp;
+          Parking, Security, Balcony
+        </div>
+
+        <div class="flex justify-start">
+          <div class="pr-2">
+            <div class="text-sm flex items-center">
+              <ion-icon name="home" class="text-green-600"></ion-icon>&nbsp;
+              2 BHK
             </div>
-          </ion-col>
-
-          <ion-col size="4" class="border-r-2">
-            <div align="center">
-              <img src="assets/property/bath.png" />
-              <p class="text-xs"> 1 Bathrooms</p>
+          </div>
+          <div>
+            <div class="text-sm flex items-center">
+              <ion-icon name="cube" class="text-pink-600"></ion-icon>&nbsp;
+              1.110 Sqft.
             </div>
-          </ion-col>
-
-          <ion-col size="4">
-            <div align="center">
-              <img src="assets/property/area.png" />
-              <p class="text-xs"> 1,110 Sqft </p>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <p class="font-bold text-sm">Description</p>
-    <p class="text-xs">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown
-      printer took a galley of type and scrambled it to make a type specimen book.</p>
-
-
-    <div>
-      <ion-grid>
-        <p class="mt-3 font-bold text-sm">Features</p>
-        <ion-row>
-          <ion-col size="4">
-            <ion-chip class="bg-white border-2 border-grey-600 w-full">
-              <ion-avatar>
-                <img src="assets/property/car.png" />
-              </ion-avatar>
-              <ion-label>Parking</ion-label>
-            </ion-chip>
-          </ion-col>
-
-          <ion-col size="4">
-            <ion-chip class="bg-white border-2 border-grey-600 w-full">
-              <ion-avatar>
-                <img src="assets/property/security.png" />
-              </ion-avatar>
-              <ion-label>Security </ion-label>
-            </ion-chip>
-          </ion-col>
-
-          <ion-col size="4">
-            <ion-chip class="bg-white border-2 border-grey-600 w-full">
-              <ion-avatar>
-                <img src="assets/property/balcony.png" />
-              </ion-avatar>
-              <ion-label>balcony </ion-label>
-            </ion-chip>
-          </ion-col>
-
-        </ion-row>
-        <ion-row>
-          <ion-col size="4">
-            <ion-chip class="bg-white border-2 border-grey-600 w-full">
-              <ion-avatar>
-                <img src="assets/property/cctv.png" />
-              </ion-avatar>
-              <ion-label> CCTV </ion-label>
-            </ion-chip>
-          </ion-col>
-
-          <ion-col size="4">
-            <ion-chip class="bg-white border-2 border-grey-600 w-full">
-              <ion-avatar>
-                <img src="assets/property/pool.png" />
-              </ion-avatar>
-              <ion-label> &nbsp;Pool </ion-label>
-            </ion-chip>
-          </ion-col>
-
-          <ion-col size="4">
-            <ion-chip class="bg-white border-2 border-grey-600 w-full">
-              <ion-avatar>
-                <img src="assets/property/ac.png" />
-              </ion-avatar>
-              <ion-label> &nbsp; AC </ion-label>
-            </ion-chip>
-          </ion-col>
-
-        </ion-row>
-      </ion-grid>
-    </div>
-    <div class="mt-2 ">
-      <p class="font-bold text-sm">Property Details</p>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="6">
-            <p class="text-xs">Type </p>
-            <p class="text-sm bold">For Sale </p>
-          </ion-col>
-          <ion-col size="6">
-            <p class="text-xs">Electrical</p>
-            <p class="text-sm bold">2200 waltt</p>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size="6">
-            <p class="text-xs">Type Property </p>
-            <p class="text-sm bold">Condominium </p>
-          </ion-col>
-          <ion-col size="6">
-            <p class="text-xs">Price/ sqft</p>
-            <p class="text-sm bold">1231</p>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col size="6">
-            <p class="text-xs">Build Year </p>
-            <p class="text-sm bold">2007 </p>
-          </ion-col>
-          <ion-col size="6">
-            <p class="text-xs">Size area </p>
-            <p class="text-sm bold">1,100 sqft </p>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col size="6">
-            <p class="text-xs">Furnish </p>
-            <p class="text-sm bold">furnished </p>
-          </ion-col>
-          <ion-col size="6">
-            <p class="text-xs">Floor </p>
-            <p class="text-sm bold">Mid Level </p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-
-
   </div>
+
+
+
+  <!-- <p class="font-bold text-sm">Description</p>
+  <p class="text-xs text-justify" style="margin-top: -4%;">Lorem Ipsum is simply dummy text of the printing and
+    typesetting
+    industry. when an unknown
+    printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+
+  <p class="mt-3 font-bold text-sm">Features</p>
+  <div class="flex justify-between" style="margin-top: -4%;">
+    <div>
+      <ion-chip class="bg-white border-2 border-grey-600 w-full" color="tertiary">
+        <ion-icon name="car-outline"></ion-icon>
+        <ion-label>Parking</ion-label>
+      </ion-chip>
+    </div>
+    <div>
+      <ion-chip class="bg-white border-2 border-grey-600 w-full" color="tertiary">
+        <ion-icon name="shield-checkmark-outline"></ion-icon>
+        <ion-label>Security </ion-label>
+      </ion-chip>
+    </div>
+    <div>
+      <ion-chip class="bg-white border-2 border-grey-600 w-full" color="tertiary">
+        <ion-icon name="file-tray-full-outline"></ion-icon>
+        <ion-label>Balcony </ion-label>
+      </ion-chip>
+    </div>
+  </div>
+  <div class="flex justify-between ">
+    <div>
+      <ion-chip class="bg-white border-2 border-grey-600 w-full " color="tertiary">
+        <ion-icon name="videocam-outline"></ion-icon>
+        <ion-label class=" pl-1 pr-2">CCTV</ion-label>
+      </ion-chip>
+    </div>
+    <div>
+      <ion-chip class="bg-white border-2 border-grey-600 w-full" color="tertiary">
+        <ion-icon name="basket-outline"></ion-icon>
+        <ion-label class=" pl-2 pr-2">Pool </ion-label>
+      </ion-chip>
+    </div>
+    <div>
+      <ion-chip class="bg-white border-2 border-grey-600 w-full" color="tertiary">
+        <ion-icon name="phone-landscape-outline"></ion-icon>
+        <ion-label class=" pl-3 pr-2">AC </ion-label>
+      </ion-chip>
+    </div>
+  </div>
+
+  <div class="mt-2 ">
+    <p class="font-bold text-sm">Property Details</p>
+
+    <ion-grid fixed style="margin-top: -4%;">
+      <ion-row style="font-size: small;">
+        <ion-col size="4">Type</ion-col>
+        <ion-col size="1"><b>:</b></ion-col>
+        <ion-col size="7"><b>For Sale</b></ion-col>
+
+        <ion-col size="4">Electrical</ion-col>
+        <ion-col size="1"><b>:</b></ion-col>
+        <ion-col size="7"><b>2200 waltt</b></ion-col>
+
+        <ion-col size="4">Type Property</ion-col>
+        <ion-col size="1"><b>:</b></ion-col>
+        <ion-col size="7"><b>Condominium</b></ion-col>
+
+        <ion-col size="4">Price/ Sqft</ion-col>
+        <ion-col size="1"><b>:</b></ion-col>
+        <ion-col size="7"><b>1231</b></ion-col>
+
+        <ion-col size="4">Build Year</ion-col>
+        <ion-col size="1"><b>:</b></ion-col>
+        <ion-col size="7"><b>2007</b></ion-col>
+
+        <ion-col size="4">Size area</ion-col>
+        <ion-col size="1"><b>:</b></ion-col>
+        <ion-col size="7"><b>1,100 sqft</b></ion-col>
+
+        <ion-col size="4">Furnish</ion-col>
+        <ion-col size="1"><b>:</b></ion-col>
+        <ion-col size="7"><b>Furnished</b></ion-col>
+
+        <ion-col size="4">Floor</ion-col>
+        <ion-col size="1"><b>:</b></ion-col>
+        <ion-col size="7"><b>Mid Level</b></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div> -->
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="danger">
+      <ion-icon name="funnel"></ion-icon>
+      <!-- <ion-icon md="caret-back" ios="chevron-back-circle-outline"></ion-icon> -->
+    </ion-fab-button>
+
+  </ion-fab>
+
+
 </ion-content>
 
-<ion-footer routerLink="/saleandrent">
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600" routerLink="/propertydash">
+    <ion-label>Home</ion-label>
+    <ion-icon name="home"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button tab="heart" class="text-gray-600 hover:text-red-600">
+    <ion-label>Shortlisted</ion-label>
+    <ion-icon name="heart"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button tab="business" class="text-gray-600 hover:text-red-600" routerLink="/details">
+    <ion-label>My Property</ion-label>
+    <ion-icon name="business"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button tab="person" class="text-gray-600 hover:text-red-600">
+    <ion-label>Profile</ion-label>
+    <ion-icon name="person"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>
+
+<!-- <ion-footer routerLink="/saleandrent">
   <ion-toolbar>
     <ion-title align="center">Next</ion-title>
   </ion-toolbar>
-</ion-footer>
+</ion-footer> -->

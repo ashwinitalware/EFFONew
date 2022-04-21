@@ -7,14 +7,25 @@ import { IonSlides } from '@ionic/angular';
   styleUrls: ['./propertydash.page.scss'],
 })
 export class PropertydashPage implements OnInit {
+  bride_list;
+
   slideOptions = {
     initialSlide: 1,
     speed: 600,
   };
 
+  slideOptions1 = {
+    initialSlide: 1,
+    slidesPerView: 3,
+    speed: 500,
+  };
+
   constructor() { }
 
   slidesDidLoad(slides: IonSlides): void {
+    slides.startAutoplay();
+  }
+  slidesDidLoad1(slides: IonSlides): void {
     slides.startAutoplay();
   }
 

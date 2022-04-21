@@ -6,13 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter.page.scss'],
 })
 export class FilterPage implements OnInit {
-  // location1 = false;
   type = 'location'
+  constructor() { }
+
+  // location1 = false;
+
+  type = 'location'
+
   // location_on() {
   //   this.location1 = true
   // }
-  constructor() { }
-
 
   ngOnInit() {
   }
