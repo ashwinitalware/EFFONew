@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FilterPageRoutingModule } from './filter-routing.module';
+import { ShortlistedPageRoutingModule } from './shortlisted-routing.module';
 
-import { FilterPage } from './filter.page';
+import { ShortlistedPage } from './shortlisted.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FilterPageRoutingModule
+    ShortlistedPageRoutingModule
   ],
-  declarations: [FilterPage]
+  declarations: [ShortlistedPage]
 })
-export class FilterPageModule {}
+export class ShortlistedPageModule {}

@@ -1,0 +1,138 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="light">Property Filter</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="h-full">
+    <ion-grid class="h-full bg-green-500" style="height: 100% !important;" fixed class="ion-no-padding">
+      <ion-row class="h-full ">
+        <ion-col class="h-full" size="5" class="bg-gray-300">
+          <ion-row>
+            <ion-col size="12" align="center" [ngClass]="{'bg-white': type=='looking'}">
+              <div class="p-2 pt-4 pb-4">
+                <ion-label align="center" (click)="type='looking'">
+                  <!-- <ion-icon class="text-2xl" name="location-outline"></ion-icon><br> -->
+                  <b>You are looking to ?</b>
+                </ion-label>
+              </div>
+            </ion-col>
+
+            <ion-col (click)="type='Property'" size="12" align="center" [ngClass]="{'bg-white': type=='Property'}">
+              <div class="p-2 pt-5 pb-5">
+                <ion-label align="center">
+                  <!-- <ion-icon class="text-2xl" name="wallet-outline"></ion-icon><br> -->
+                  <b>What Kind Of Property?</b>
+                </ion-label>
+              </div>
+            </ion-col>
+
+            <ion-col (click)="type='Property-type'" size="12" align="center"
+              [ngClass]="{'bg-white': type=='Property-type'}">
+              <div class="p-2 pt-5 pb-5">
+                <ion-label align="center">
+                  <!-- <ion-icon class="text-2xl" name="briefcase-outline"></ion-icon><br> -->
+                  <b>Select Property Type</b>
+                </ion-label>
+              </div>
+            </ion-col>
+
+            <ion-col size="12" align="center">
+              <div class="p-2 pt-5 pb-5">
+                <ion-label align="center">
+                  <!-- <ion-icon class="text-2xl" name="book-outline"></ion-icon><br> -->
+                  <b> City</b>
+                </ion-label>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+
+
+        <ion-col size="7" *ngIf="type=='looking'">
+          <ion-item>
+            <ion-label>Sell</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Remote"></ion-radio>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label>Rent / Lease</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Mumbai"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Paying Guest</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Pune"></ion-radio>
+          </ion-item>
+
+          <!-- <ion-row>
+          <ion-col size="12">
+            
+          </ion-col>
+        </ion-row> -->
+        </ion-col>
+
+        <ion-col size="7" *ngIf="type=='Property'">
+          <ion-item>
+            <ion-label>Residential</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Remote"></ion-radio>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label>Commercial</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Mumbai"></ion-radio>
+          </ion-item>
+        </ion-col>
+
+
+        <ion-col size="7" *ngIf="type=='Property-type'">
+          <ion-item>
+            <ion-label>Apartment </ion-label>
+            <ion-radio slot="end" color="tertiary" value="Remote"></ion-radio>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label>Independent Hose / Villa</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Mumbai"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Independent / Builder Floor</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Mumbai"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Land</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Mumbai"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>1 RK/ Studio Apartment</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Mumbai"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Serviced Apartment</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Mumbai"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Farmhouse</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Mumbai"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Other</ion-label>
+            <ion-radio slot="end" color="tertiary" value="Mumbai"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

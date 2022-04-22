@@ -9,7 +9,7 @@
 
 <ion-content>
   <div class="p-3">
-    <div class="bg-white">
+    <div class="bg-white shadow-md rounded-lg">
       <div>
         <img class="rounded-tl-md rounded-tr-md" src="assets/property/slide1.jpg" />
       </div>
@@ -24,9 +24,9 @@
             2 days ago
           </div>
         </div>
-        <div class="text-sm text-gray-700">
+        <!-- <div class="text-sm text-gray-700">
           Plot No.31 MIDC, Pune Infotech Park, Ph-2 Hinjewadi, Pune – 411 057
-        </div>
+        </div> -->
         <span class=" text-black text-sm ">
           1.110 Sqft.
         </span>
@@ -60,8 +60,7 @@
       </div>
     </div>
 
-
-    <div class="bg-white mt-2">
+    <div class="bg-white mt-3">
       <div>
         <img class="rounded-tl-md rounded-tr-md" src="assets/property/img.jpg" />
       </div>
@@ -76,9 +75,9 @@
             2 days ago
           </div>
         </div>
-        <div class="text-sm text-gray-700">
+        <!-- <div class="text-sm text-gray-700">
           Plot No.31 MIDC, Pune Infotech Park, Ph-2 Hinjewadi, Pune – 411 057
-        </div>
+        </div> -->
         <span class=" text-black text-sm ">
           1.110 Sqft.
         </span>
@@ -114,97 +113,7 @@
   </div>
 
 
-
-  <!-- <p class="font-bold text-sm">Description</p>
-  <p class="text-xs text-justify" style="margin-top: -4%;">Lorem Ipsum is simply dummy text of the printing and
-    typesetting
-    industry. when an unknown
-    printer took a galley of type and scrambled it to make a type specimen book.</p>
-
-
-  <p class="mt-3 font-bold text-sm">Features</p>
-  <div class="flex justify-between" style="margin-top: -4%;">
-    <div>
-      <ion-chip class="bg-white border-2 border-grey-600 w-full" color="tertiary">
-        <ion-icon name="car-outline"></ion-icon>
-        <ion-label>Parking</ion-label>
-      </ion-chip>
-    </div>
-    <div>
-      <ion-chip class="bg-white border-2 border-grey-600 w-full" color="tertiary">
-        <ion-icon name="shield-checkmark-outline"></ion-icon>
-        <ion-label>Security </ion-label>
-      </ion-chip>
-    </div>
-    <div>
-      <ion-chip class="bg-white border-2 border-grey-600 w-full" color="tertiary">
-        <ion-icon name="file-tray-full-outline"></ion-icon>
-        <ion-label>Balcony </ion-label>
-      </ion-chip>
-    </div>
-  </div>
-  <div class="flex justify-between ">
-    <div>
-      <ion-chip class="bg-white border-2 border-grey-600 w-full " color="tertiary">
-        <ion-icon name="videocam-outline"></ion-icon>
-        <ion-label class=" pl-1 pr-2">CCTV</ion-label>
-      </ion-chip>
-    </div>
-    <div>
-      <ion-chip class="bg-white border-2 border-grey-600 w-full" color="tertiary">
-        <ion-icon name="basket-outline"></ion-icon>
-        <ion-label class=" pl-2 pr-2">Pool </ion-label>
-      </ion-chip>
-    </div>
-    <div>
-      <ion-chip class="bg-white border-2 border-grey-600 w-full" color="tertiary">
-        <ion-icon name="phone-landscape-outline"></ion-icon>
-        <ion-label class=" pl-3 pr-2">AC </ion-label>
-      </ion-chip>
-    </div>
-  </div>
-
-  <div class="mt-2 ">
-    <p class="font-bold text-sm">Property Details</p>
-
-    <ion-grid fixed style="margin-top: -4%;">
-      <ion-row style="font-size: small;">
-        <ion-col size="4">Type</ion-col>
-        <ion-col size="1"><b>:</b></ion-col>
-        <ion-col size="7"><b>For Sale</b></ion-col>
-
-        <ion-col size="4">Electrical</ion-col>
-        <ion-col size="1"><b>:</b></ion-col>
-        <ion-col size="7"><b>2200 waltt</b></ion-col>
-
-        <ion-col size="4">Type Property</ion-col>
-        <ion-col size="1"><b>:</b></ion-col>
-        <ion-col size="7"><b>Condominium</b></ion-col>
-
-        <ion-col size="4">Price/ Sqft</ion-col>
-        <ion-col size="1"><b>:</b></ion-col>
-        <ion-col size="7"><b>1231</b></ion-col>
-
-        <ion-col size="4">Build Year</ion-col>
-        <ion-col size="1"><b>:</b></ion-col>
-        <ion-col size="7"><b>2007</b></ion-col>
-
-        <ion-col size="4">Size area</ion-col>
-        <ion-col size="1"><b>:</b></ion-col>
-        <ion-col size="7"><b>1,100 sqft</b></ion-col>
-
-        <ion-col size="4">Furnish</ion-col>
-        <ion-col size="1"><b>:</b></ion-col>
-        <ion-col size="7"><b>Furnished</b></ion-col>
-
-        <ion-col size="4">Floor</ion-col>
-        <ion-col size="1"><b>:</b></ion-col>
-        <ion-col size="7"><b>Mid Level</b></ion-col>
-      </ion-row>
-    </ion-grid>
-  </div> -->
-
-  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" routerLink="/filterproperty">
     <ion-fab-button color="danger">
       <ion-icon name="funnel"></ion-icon>
       <!-- <ion-icon md="caret-back" ios="chevron-back-circle-outline"></ion-icon> -->
@@ -215,12 +124,12 @@
 
 </ion-content>
 
-<ion-tab-bar slot="bottom">
+<!-- <ion-tab-bar slot="bottom">
   <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600" routerLink="/propertydash">
     <ion-label>Home</ion-label>
     <ion-icon name="home"></ion-icon>
   </ion-tab-button>
-  <ion-tab-button tab="heart" class="text-gray-600 hover:text-red-600">
+  <ion-tab-button tab="heart" class="text-gray-600 hover:text-red-600" routerLink="/shortlisted">
     <ion-label>Shortlisted</ion-label>
     <ion-icon name="heart"></ion-icon>
   </ion-tab-button>
@@ -232,7 +141,7 @@
     <ion-label>Profile</ion-label>
     <ion-icon name="person"></ion-icon>
   </ion-tab-button>
-</ion-tab-bar>
+</ion-tab-bar> -->
 
 <!-- <ion-footer routerLink="/saleandrent">
   <ion-toolbar>

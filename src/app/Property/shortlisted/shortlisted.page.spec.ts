@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { FilterPage } from './filter.page';
+import { ShortlistedPage } from './shortlisted.page';
 
-describe('FilterPage', () => {
-  let component: FilterPage;
-  let fixture: ComponentFixture<FilterPage>;
+describe('ShortlistedPage', () => {
+  let component: ShortlistedPage;
+  let fixture: ComponentFixture<ShortlistedPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ FilterPage ],
+      declarations: [ ShortlistedPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FilterPage);
+    fixture = TestBed.createComponent(ShortlistedPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

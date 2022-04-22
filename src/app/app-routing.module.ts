@@ -323,29 +323,42 @@ const routes: Routes = [
   {
     path: 'propertytypes',
     loadChildren: () => import('./Property/propertytypes/propertytypes.module').then(m => m.PropertytypesPageModule)
-  },  {
+  },
+  {
     path: 'footer',
-    loadChildren: () => import('./Service/footer/footer.module').then( m => m.FooterPageModule)
+    loadChildren: () => import('./Service/footer/footer.module').then(m => m.FooterPageModule)
   },
   {
     path: 'tabs',
-    loadChildren: () => import('./Service/tabs/tabs.module').then( m => m.TabsPageModule)
+    loadChildren: () => import('./Service/tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
     path: 'tab1',
-    loadChildren: () => import('./Service/tab1/tab1.module').then( m => m.Tab1PageModule)
+    loadChildren: () => import('./Service/tab1/tab1.module').then(m => m.Tab1PageModule)
   },
   {
     path: 'tab2',
-    loadChildren: () => import('./Service/tab2/tab2.module').then( m => m.Tab2PageModule)
+    loadChildren: () => import('./Service/tab2/tab2.module').then(m => m.Tab2PageModule)
   },
   {
     path: 'tab3',
-    loadChildren: () => import('./Service/tab3/tab3.module').then( m => m.Tab3PageModule)
+    loadChildren: () => import('./Service/tab3/tab3.module').then(m => m.Tab3PageModule)
   },
   {
-    path: 'filter',
-    loadChildren: () => import('./Property/filter/filter.module').then( m => m.FilterPageModule)
+    path: 'filterproperty',
+    loadChildren: () => import('./Property/filterproperty/filterproperty.module').then(m => m.FilterpropertyPageModule)
+  },
+  {
+    path: 'shortlisted',
+    loadChildren: () => import('./Property/shortlisted/shortlisted.module').then(m => m.ShortlistedPageModule)
+  },
+  {
+    path: 'propertyhome',
+    loadChildren: () => import('./Property/propertyhome/propertyhome.module').then(m => m.PropertyhomePageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./Property/profile/profile.module').then(m => m.ProfilePageModule)
   },
 
 
