@@ -26,6 +26,7 @@ export class JobdetailsPage implements OnInit {
     public activatedRoute: ActivatedRoute
   ) {
     this.getJobDetails();
+    
     // this.jobAppliedCheck();
   }
   ionViewWillEnter() {
@@ -71,6 +72,17 @@ export class JobdetailsPage implements OnInit {
   }
   whatsapp(job) {
     this.dataService.contact('whatsapp', '91' + job.attributes.contactNumber);
+  }
+
+  jobSeen(){
+    this.http.post(this.dataService.apiUrl+'job-post-views',{
+data:{
+  user:this.dataService.profile.id,
+  job_post:this.data.id
+}
+    }).subscribe(data=>{
+
+    })
   }
   calculateSkills(skillsString) {
     console.log(skillsString);
@@ -135,6 +147,10 @@ export class JobdetailsPage implements OnInit {
       .subscribe((data: any) => {
         this.data = data.data;
         this.calculateSkills(this.data.attributes.skillsByComma);
+
+
+        this.jobSeen()
+
       });
   }
   getJobDetails2UsingGraphql() {

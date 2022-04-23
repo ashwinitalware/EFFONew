@@ -328,6 +328,7 @@ export class JoblistPage implements OnInit {
 
   ngOnInit() {}
   jobDetails(job) {
+    job.viewed=true
     this.navCtrl.navigateForward(['/jobdetails/' + job.id]);
   }
   loadData(event) {

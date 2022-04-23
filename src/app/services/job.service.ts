@@ -177,6 +177,7 @@ export class JobService {
     this.noJobsFound = false;
     this.dataService.present();
     const query = qs.stringify({
+      userId:this.dataService.profile?this.dataService.profile.id:'0',
       sort: this.jobFilters.sort,
       populate: {
         author: {

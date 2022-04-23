@@ -253,9 +253,20 @@
         class="pr-2"
       >
         <div class="primary-card bg-white p-4" style="width: 100%">
-          <div class="text-black text-left text-base font-bold truncate">
+          <div class="flex items-center">
+          <div class="text-black text-left text-base font-bold truncate flex-1">
             {{job.attributes.title|titlecase}}
+
+            
           </div>
+
+          <div *ngIf="!job.applied && job.viewed" class="text-xs bg-blue-700 text-white  rounded-full px-2">
+       SEEN
+          </div>
+          <div *ngIf="job.applied" class="text-xs bg-green-700 text-white rounded-full px-2">
+APPLIED
+          </div>
+        </div>
 
           <div class="text-sm text-gray-600">
             ₹ {{job.attributes.salaryFrom}} - ₹ {{job.attributes.salaryUpto}}

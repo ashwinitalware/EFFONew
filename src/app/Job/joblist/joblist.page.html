@@ -62,9 +62,17 @@
           {{job.attributes.title|titlecase}}
         </div>
 
-        <div class="text-sm">
+        
+        <div *ngIf="!job.applied && job.viewed" class="text-xs bg-blue-700 text-white  rounded-full px-2 flex items-center">
+          SEEN
+             </div>
+             <div *ngIf="job.applied" class="text-xs bg-green-700 text-white rounded-full px-2 flex items-center">
+   APPLIED
+             </div>
+        <!-- <div class="text-sm">
+          
           {{this.dataService.timeSince(job.attributes.createdAt)}}
-        </div>
+        </div> -->
       </div>
       <div class="text-sm text-gray-600">
         ₹ {{job.attributes.salaryFrom}} - ₹ {{job.attributes.salaryUpto}}
