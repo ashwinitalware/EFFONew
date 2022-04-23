@@ -10,6 +10,7 @@ import { DataService } from '../data.service';
 })
 export class VendorListingPage implements OnInit {
   data = [];
+  notFound=false
   constructor(
     public dataService: DataService,
     public http: HttpClient,
@@ -22,13 +23,15 @@ export class VendorListingPage implements OnInit {
       .get(this.dataService.apiUrl + 'service-profiles', {
         params: {
           populate: '*',
-          'filter[vendor][city][$containsi]': this.dataService.profile.city,
-          'filter[serviceSubcategories][id][$eq]':
+          'filters[vendor][city][$containsi]': this.dataService.profile.city,
+          'filters[serviceSubcategories][id][$eq]':
             this.activatedRoute.snapshot.params.subcategoryId,
         },
       })
       .subscribe((data: any) => {
         this.data = data.data;
+        if(!this.data.length)
+        this.notFound=true
       });
   }
   ngOnInit() {}

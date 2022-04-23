@@ -336,6 +336,38 @@ const routes: Routes = [
         (m) => m.BookingDetailsPageModule
       ),
   },
+  {
+    path: 'shopping-dashboard',
+    loadChildren: () => import('./shopping/shopping-dashboard/shopping-dashboard.module').then( m => m.ShoppingDashboardPageModule)
+  },
+  {
+    path: 'shopping-home',
+    loadChildren: () => import('./shopping/shopping-home/shopping-home.module').then( m => m.ShoppingHomePageModule)
+  },
+  {
+    path: 'orders',
+    loadChildren: () => import('./shopping/orders/orders.module').then( m => m.OrdersPageModule)
+  },
+  {
+    path: 'shopping-orders',
+    loadChildren: () => import('./shopping/shopping-orders/shopping-orders.module').then( m => m.ShoppingOrdersPageModule)
+  },
+  {
+    path: 'shopping-settings',
+    loadChildren: () => import('./shopping/shopping-settings/shopping-settings.module').then( m => m.ShoppingSettingsPageModule)
+  },
+  {
+    path: 'shopping-vendor-listing',
+    loadChildren: () => import('./shopping/shopping-vendor-listing/shopping-vendor-listing.module').then( m => m.ShoppingVendorListingPageModule)
+  },
+  {
+    path: 'shopping-vendor-menu/:id',
+    loadChildren: () => import('./shopping/shopping-vendor-menu/shopping-vendor-menu.module').then( m => m.ShoppingVendorMenuPageModule)
+  },
+  {
+    path: 'shopping-cart',
+    loadChildren: () => import('./shopping/shopping-cart/shopping-cart.module').then( m => m.ShoppingCartPageModule)
+  },
 
   // {
   //   path: 'job-profile',

@@ -8,6 +8,16 @@
 </ion-header>
 
 <ion-content>
+
+  <div *ngIf="notFound">
+    <div align="center" style="margin-top: 20%">
+      <img src="assets/notfound.png" alt="" width="60%" height="60%" />
+    </div>
+
+    <div align="center">
+      <ion-label class="text">No Vendors Found</ion-label><br />
+    </div>
+  </div>
   <div class="p-4">
     <div
       class="bg-white p-4 mt-2 rounded-md flex"

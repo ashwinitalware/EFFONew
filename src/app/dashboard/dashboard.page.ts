@@ -32,8 +32,8 @@ export class DashboardPage implements OnInit {
       name: 'Services',
       image: '',
       icon: 'apps',
-      // link: 'service-dashboard',
-      // available: true,
+      link: 'service-dashboard',
+      available: true,
     },
     // {
     //   name: 'Cab Services',

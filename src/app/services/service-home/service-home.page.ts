@@ -127,7 +127,7 @@ export class ServiceHomePage implements OnInit {
       .get(this.dataService.apiUrl + 'service-profiles', {
         params: {
           populate: '*',
-          'filter[vendor][city][$containsi]': this.dataService.profile.city,
+          'filters[vendor][city][$containsi]': this.dataService.profile.city,
           sort: ['rating:desc'],
         },
       })
