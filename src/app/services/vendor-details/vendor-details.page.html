@@ -27,12 +27,12 @@
           Ratings
         </div>
         <div>
-     <ion-button   fill="" >
+     <ion-button  (click)="this.dataService.contact('call','91'+data.attributes.vendor.data.attributes.phone)"  fill="" >
       
-      <ion-icon class="text-blue-600" name="call" ></ion-icon>
+      <ion-icon  class="text-blue-600" name="call" ></ion-icon>
 
      </ion-button>
-     <ion-button fill="" >
+     <ion-button  (click)="this.dataService.contact('whatsapp','91'+data.attributes.vendor.data.attributes.phone)" fill="" >
       
       <ion-icon class="text-green-600" name="logo-whatsapp" ></ion-icon>
 
@@ -88,15 +88,19 @@
 
       <div class="bg-white mt-2">
         <ion-grid fixed *ngIf="data.attributes.serviceSubcategories && data.attributes.serviceSubcategories.data">
-          <ion-row *ngFor="let service of data.attributes.serviceSubcategories.data">
+          <ion-row *ngFor="let service of data.attributes.serviceSubcategories.data;let i=index">
             <ion-col size="2">
 
               <img class="rounded-md" src="{{service.attributes.image}}" alt="">
             </ion-col>
             <ion-col size="5">
               <div>
-                <p class="ion-no-padding">
+                <div class="ion-no-padding">
                   <b>{{service.attributes.name|titlecase}}</b> <br />
+                  <div class="text-sm text-blue-600">
+{{descriptions[i]}}
+
+                  </div>
                   <!-- <span class="text-xs">
                   <ion-icon class="text-green-500" name="pricetag"></ion-icon
                   >&nbsp;30% Off 2nd service onwards
@@ -106,8 +110,9 @@
                 ><br />
                  -->
                   <!-- <span class="text-xs"> Price, Description </span> -->
-                </p>
+                </div>
               </div>
+              <p>{{service.attributes.description|titlecase}}</p>
             </ion-col>
             <ion-col size="5">
               <div class="pl-4">

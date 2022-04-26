@@ -14,6 +14,7 @@ export class VendorDetailsPage implements OnInit {
   add = false;
   add1 = false;
   data;
+  descriptions=[]
   constructor(
     public navCtrl: NavController,
     public http: HttpClient,
@@ -34,6 +35,17 @@ export class VendorDetailsPage implements OnInit {
       .subscribe((data: any) => {
         if (data.data) this.data = data.data[0];
         this.service.selectedVendorId = this.data.attributes.vendor.data.id;
+        try {
+          let tempDescription=JSON.parse(this.data.attributes.descriptionJson)
+          tempDescription.forEach(element => {
+
+            
+          });
+          this.descriptions=tempDescription
+          
+        } catch (error) {
+          
+        }
       });
   }
 

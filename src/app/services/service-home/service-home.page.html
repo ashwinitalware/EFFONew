@@ -202,10 +202,17 @@
         *ngFor="let vendor of topVendors"
       >
         <div class="flex">
-          <div
+          <div  *ngIf="vendor.attributes.logo"
             class="flex w-16 h-16 bg-red-100 rounded-full bg-contain bg-no-repeat bg-center"
             style="background-image: url({{vendor.attributes.bannerImage}});"
           ></div>
+          <div *ngIf="!vendor.attributes.logo"
+            class="flex w-16 h-16  bg-gray-300 rounded-full bg-contain bg-no-repeat bg-center items-center justify-center  text-gray-500"
+           
+          >
+         
+          <ion-icon class="text-3xl" name="briefcase"></ion-icon>
+        </div>
           <!-- <img
             class="img_class rounded-md h-16 w-16 rounded-full"
             src="{{vendor.attributes.bannerImage}}"

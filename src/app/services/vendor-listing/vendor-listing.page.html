@@ -23,12 +23,21 @@
       class="bg-white p-4 mt-2 rounded-md flex"
       style="width: 100%"
       *ngFor="let vendor of data"
-    >
-      <div
+    > 
+      <div  *ngIf="vendor.attributes.logo"
         class="flex w-16 h-16 bg-red-100 rounded-full bg-contain bg-no-repeat bg-center"
         style="background-image: url({{vendor.attributes.bannerImage}});"
       ></div>
 
+
+      <div *ngIf="!vendor.attributes.logo"
+      class="flex w-16 h-16  bg-gray-300 rounded-full bg-contain bg-no-repeat bg-center items-center justify-center  text-gray-500"
+     
+    >
+   
+    <ion-icon class="text-3xl" name="briefcase"></ion-icon>
+  </div>
+      
       <div class="px-4 flex-1">
         <div class="font-bold">{{vendor.attributes.companyName|titlecase}}</div>
         <div class="text-gray-700 flex items-center">
@@ -40,15 +49,13 @@
         <div class="flex justify-around">
           <ion-button
             [routerLink]="['/vendor-details/'+vendor.id]"
-            color="dark"
-            fill="clear"
+            color="tertiary"
             class="flex-1 mt-2 bg-white text-sm"
           >
             <b> Details</b>
           </ion-button>
           <ion-button (click)="this.dataService.contact( 'call','91'+vendor.attributes.vendor.data.attributes.phone)"
-            color="dark"
-            fill="clear"
+            color="success"
             class="flex-1 mt-2 bg-white text-sm"
           >
             <b>Call </b>

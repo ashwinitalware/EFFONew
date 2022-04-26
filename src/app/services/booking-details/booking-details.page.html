@@ -28,7 +28,7 @@
           <ion-button (click)="this.dataService.contact('whatsapp','91'+data.attributes.vendor.data.attributes.phone)" color="success" class="flex-1 mt-2 ">
             <ion-icon slot="start" name="logo-whatsapp"></ion-icon>   Whatsapp
           </ion-button>
-          <ion-button  (click)="this.dataService.contact('call','91'+data.attributes.vendor.data.attributes.phone)"  class="flex-1 mt-2 ">
+          <ion-button color="tertiary" (click)="this.dataService.contact('call','91'+data.attributes.vendor.data.attributes.phone)"  class="flex-1 mt-2 ">
             <ion-icon  slot="start" name="call"></ion-icon>    Call 
           </ion-button>
         </div>

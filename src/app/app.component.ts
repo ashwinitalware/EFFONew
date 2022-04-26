@@ -88,7 +88,7 @@ export class AppComponent {
     if (item.role == 'share') {
       this.dataService.share(
         'Download Effo App',
-        'You will get all information about home appliances repairing, Beauty parlor, cab services, contractor, consultants, events, catering service, vehicle service, photography, mandap, Hall /lawns, classes, school, college, tours and travels, washing center, school bus, and other huge services.',
+        'I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life.',
         'https://play.google.com/store/apps/details?id=ionic.effo.starter'
       );
 
