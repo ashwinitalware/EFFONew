@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white">Location</ion-title>
+    <ion-button slot="end" size="small" fill="clear" color="light" shape="round">
+      <!-- For Me -->
+      <ion-select value="dog">
+        <ion-select-option value="cat"> For Me</ion-select-option>
+        <ion-select-option value="dog"> For Other</ion-select-option>
+      </ion-select>
+    </ion-button>
+  </ion-toolbar>
+  <div class="bg-white p-2">
+    <div>
+      <ion-item>
+        <ion-input placeholder="Current location"></ion-input>
+      </ion-item>
+    </div>
+    <div class="pt-2">
+      <ion-item>
+        <ion-input placeholder="Where to ?"></ion-input>
+      </ion-item>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content class="class-name">
+
+
+
+
+</ion-content>
+<div class="z-index:1 p-2">
+  <ion-button (click)="presentModal()" expand="block" color="danger">
+    Done
+  </ion-button>
+</div>

@@ -4,7 +4,7 @@
       <ion-back-button class="text-white"></ion-back-button>
     </ion-buttons>
     <ion-title align="center" class="text-white">Cab Services</ion-title>
-    <div slot="end">
+    <!-- <div slot="end">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
         stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -18,7 +18,7 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
           d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
       </svg>
-    </div>
+    </div> -->
   </ion-toolbar>
 </ion-header>
 
@@ -33,7 +33,7 @@
       </ion-slide>
     </ion-slides><br>
 
-    <div align="center" class=" bg-gradient-to-r from-blue-300 to-purple-300  p-2 rounded-md">
+    <div align="center" class=" bg-gradient-to-r from-blue-400 to-purple-400  p-2 rounded-md">
       <ion-label>Ready ? Then let's Roll<br><span class="text-sm font-bold">
           Ride with EFFO
         </span></ion-label>
@@ -42,20 +42,20 @@
     <ion-grid fixed>
       <ion-row>
         <ion-col size="4">
-          <div align="center" class="bg-gray-300 rounded-lg">
+          <div align="center" class="bg-gray-300 rounded-lg" routerLink="/daily">
             <img src="assets/cabservices/cabservice1.png" alt="">
-            <ion-label class="text-sm">Daily</ion-label>
+            <ion-label class="text-sm">Ride</ion-label>
           </div>
         </ion-col>
 
         <ion-col size="4">
-          <div align="center" class="bg-gray-300 rounded-lg">
+          <div align="center" class="bg-gray-300 rounded-lg" routerLink="/rentals">
             <img src="assets/cabservices/cabservice1.png" alt="">
             <ion-label class="text-sm">Rentals</ion-label>
           </div>
         </ion-col>
         <ion-col size="4">
-          <div align="center" class="bg-gray-300 rounded-lg">
+          <div align="center" class="bg-gray-300 rounded-lg" routerLink="/outstation">
             <img src="assets/cabservices/cabservice1.png" alt="">
             <ion-label class="text-sm">Outstation</ion-label>
           </div>
@@ -63,29 +63,35 @@
       </ion-row>
     </ion-grid>
 
-    <div align="center" class="bg-gradient-to-r from-blue-300 to-purple-300  p-2 rounded-md">
-      <ion-label>Ready ? Then let's Roll<br><span class="text-sm font-bold">
-          Ride with EFFO
-        </span></ion-label>
+    <div class="pl-2 pr-2">
+      <div align="center" class="bg-gradient-to-r from-gray-300 to-gray-300  p-2 rounded-md">
+        <div class="flex justify-between">
+          <div>
+            <ion-label>Where to?</ion-label>
+          </div>
+          <div>
+            <div class="bg-white rounded-md pl-2 pr-2 text-sm shadow-md"> Now &nbsp;<ion-icon class="text-sm"
+                name="chevron-down-outline">
+              </ion-icon>
+            </div>
+
+          </div>
+        </div>
+        <!-- <ion-label>Ready ? Then let's Roll<br><span class="text-sm font-bold">
+            Ride with EFFO
+          </span></ion-label> -->
+      </div>
+
+      <div class="flex justify-start pt-2">
+        <div>Around You</div>
+      </div>
+
+      <div class="pt-2">
+        <img class="rounded-xl shadow-md" src="assets/cabservices/map-min.jpg" alt="">
+      </div>
     </div>
 
 
-    <!-- <div class="flex justify-between ">
-      <div class="bg-blue-400 rounned-sm">
-        <img src="assets/cabservices/cabservice1.png" alt="">
-        <ion-label>Label</ion-label>
-      </div>
-
-      <div class="bg-blue-400 rounned-sm">
-        <img src="assets/cabservices/cabservice1.png" alt="">
-        <ion-label>Label</ion-label>
-      </div>
-
-      <div class="bg-blue-400 rounned-sm">
-        <img src="assets/cabservices/cabservice1.png" alt="">
-        <ion-label>Label</ion-label>
-      </div>
-    </div> -->
 
   </div>
 

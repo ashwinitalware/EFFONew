@@ -359,7 +359,27 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./Property/profile/profile.module').then(m => m.ProfilePageModule)
+  },  {
+    path: 'daily',
+    loadChildren: () => import('./Cabservice/daily/daily.module').then( m => m.DailyPageModule)
   },
+  {
+    path: 'rentals',
+    loadChildren: () => import('./Cabservice/rentals/rentals.module').then( m => m.RentalsPageModule)
+  },
+  {
+    path: 'outstation',
+    loadChildren: () => import('./Cabservice/outstation/outstation.module').then( m => m.OutstationPageModule)
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./Cabservice/modal/modal.module').then( m => m.ModalPageModule)
+  },
+  {
+    path: 'confirmpickup',
+    loadChildren: () => import('./Cabservice/confirmpickup/confirmpickup.module').then( m => m.ConfirmpickupPageModule)
+  },
+
 
 
   // {

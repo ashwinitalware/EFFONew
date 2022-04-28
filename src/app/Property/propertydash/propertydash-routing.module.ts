@@ -9,6 +9,10 @@ const routes: Routes = [
     component: PropertydashPage,
     children: [
       {
+        path: '',
+        redirectTo: "home"
+      },
+      {
         path: 'home',
         loadChildren: () => import('../propertyhome/propertyhome.module').then(m => m.PropertyhomePageModule)
       },

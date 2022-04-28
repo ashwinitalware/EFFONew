@@ -46,7 +46,7 @@ export class DashboardPage implements OnInit {
       name: 'Cab',
       image: '',
       icon: 'car',
-      link: '',
+      link: 'cabserdashboard',
     },
     {
       name: 'Property',
@@ -60,7 +60,6 @@ export class DashboardPage implements OnInit {
       icon: 'bag-handle',
       link: 'shopdash',
     },
-
     {
       name: 'Ticket Booking',
       image: '',
