@@ -69,8 +69,8 @@ export class DashboardPage implements OnInit {
     {
       name: 'Old EX',
       image: '',
-      link: '',
       icon: 'swap-horizontal',
+      link: 'oldexdashboard',
     },
     {
       name: 'Utility',

@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="flex justify-between pr-4 items-center">
+      <div class="px-4 text-white text-lg">Property Deatils</div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="p-2">
+    <div class="slider">
+      <ion-slides class="slider" [options]="slideOptions" pager="true" #slider
+        (ionSlidesDidLoad)="slidesDidLoad(slider)" class="mt-2 rounded-md">
+        <ion-slide>
+          <img src="assets/property/slide1.jpg" />
+        </ion-slide>
+        <ion-slide>
+          <img class="rounded-md ml-2" src="assets/property/slide2.jpg" />
+        </ion-slide>
+        <ion-slide>
+          <img class="rounded-md ml-5" src="assets/property/slide3.jpg" />
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+
+  <div class="h-full">
+    <div class="h-full bg-white pl-3 pr-3 pt-1">
+      <div class="flex justify-between items-center">
+        <div class="text-xl font-bold">
+          <div>Owner / Property Name</div>
+        </div>
+        <div>
+          <ion-badge color="tertiary" slot="end">New</ion-badge>
+        </div>
+      </div>
+
+      <div class="text-md text-black">
+        Sell | Apartment
+      </div>
+
+      <div class="flex mt-2">
+        <span class="flex justify-start">
+          <ion-icon name="location-outline"></ion-icon>&nbsp;
+          Ravi Nagar, Near Hanuman Mandir
+        </span>
+        <!-- <span class="flex items-center ml-4">
+          <ion-icon name="briefcase-outline"></ion-icon>
+          &nbsp;Experience2year
+        </span> -->
+      </div>
+
+      <div class="flex mt-2">
+        <span class="flex items-center">
+          <ion-icon name="bed-outline"></ion-icon>
+          &nbsp; Bedrooms 2
+        </span>
+        <span class="flex items-center ml-4">
+          <ion-icon name="file-tray-outline"></ion-icon>
+          &nbsp;
+          Bathroom 1
+        </span>
+      </div>
+
+      <div class="flex mt-2">
+        <span class="flex items-center">
+          <ion-icon name="file-tray-full-outline"></ion-icon>
+          <!-- <ion-icon name="bookmark-outline"></ion-icon> -->
+          &nbsp; Balcony
+        </span>
+        <span class="flex items-center ml-4">
+          <ion-icon name="hardware-chip-outline"></ion-icon>
+          &nbsp;
+          Area 1.110 Sqft.
+        </span>
+      </div>
+
+      <div class="flex justify-between pt-3 border-t-2 border-gray-200">
+        <div>
+          <button
+            class="p-1 py-2 px-4 hover:bg-blue-700 bg-blue-700 text-white font-semibold hover:text-white shadow-lg mr-4"
+            style="border: 1px solid blue; border-radius: 5px">
+            <ion-icon class="text-sm" name="call-outline"></ion-icon>
+          </button>
+
+          <button class="p-1 py-2 px-4 bg-green-600 hover:bg-green-600  font-semibold hover:text-white shadow-lg mr-4"
+            style="border: 1px solid green; border-radius: 5px">
+            <ion-icon class="text-white" name="logo-whatsapp"></ion-icon>
+          </button>
+
+          <button class="p-1 py-2 px-4 text-black hover:bg-black font-semibold  shadow-lg"
+            style="border: 1px solid black; border-radius: 5px">
+            <ion-icon name="share-social"></ion-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="text-lg font-bold mt-3"> Amenities</div>
+
+      <div>Swimming Pool, Gym / Fitness, Playground</div>
+
+      <div class="text-lg font-bold mt-2"> Description</div>
+
+      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores enim culpa possimus esse eveniet rerum
+        tempore aliquam excepturi nam similique nisi inventore iste voluptatibus veniam aspernatur deleniti voluptates,
+        cupiditate doloribus.</div>
+
+      <!-- <div class="flex mt-2 border-t border-b py-2">
+        <img class="w-12 h-12 bg-gray-200 rounded-full" src="" alt="" />
+        <div class="bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center text-gray-500">
+          <ion-icon class="text-3xl" name="briefcase"></ion-icon>
+        </div>
+
+        <div class="flex-1 ml-2">
+          <div class="font-bold">
+            saaasssss
+          </div>
+          <div>
+            sssssd
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</ion-content>

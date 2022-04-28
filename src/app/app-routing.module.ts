@@ -379,6 +379,18 @@ const routes: Routes = [
     path: 'confirmpickup',
     loadChildren: () => import('./Cabservice/confirmpickup/confirmpickup.module').then( m => m.ConfirmpickupPageModule)
   },
+  {
+    path: 'oldexdashboard',
+    loadChildren: () => import('./Oldex/oldexdashboard/oldexdashboard.module').then( m => m.OldexdashboardPageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./Oldex/tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  {
+    path: 'propertydeatils',
+    loadChildren: () => import('./Property/propertydeatils/propertydeatils.module').then( m => m.PropertydeatilsPageModule)
+  },
 
 
 
