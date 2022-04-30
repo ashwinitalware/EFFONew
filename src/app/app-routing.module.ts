@@ -368,6 +368,38 @@ const routes: Routes = [
     path: 'shopping-cart',
     loadChildren: () => import('./shopping/shopping-cart/shopping-cart.module').then( m => m.ShoppingCartPageModule)
   },
+  {
+    path: 'property-dashboard',
+    loadChildren: () => import('./property/property-dashboard/property-dashboard.module').then( m => m.PropertyDashboardPageModule)
+  },
+  {
+    path: 'property-home',
+    loadChildren: () => import('./property/property-home/property-home.module').then( m => m.PropertyHomePageModule)
+  },
+  {
+    path: 'property-shortlist',
+    loadChildren: () => import('./property/property-shortlist/property-shortlist.module').then( m => m.PropertyShortlistPageModule)
+  },
+  {
+    path: 'property-own-list',
+    loadChildren: () => import('./property/property-own-list/property-own-list.module').then( m => m.PropertyOwnListPageModule)
+  },
+  {
+    path: 'property-add',
+    loadChildren: () => import('./property/property-add/property-add.module').then( m => m.PropertyAddPageModule)
+  },
+  {
+    path: 'property-add/:id',
+    loadChildren: () => import('./property/property-add/property-add.module').then( m => m.PropertyAddPageModule)
+  },
+  {
+    path: 'property-list',
+    loadChildren: () => import('./property/property-list/property-list.module').then( m => m.PropertyListPageModule)
+  },
+  {
+    path: 'property-details',
+    loadChildren: () => import('./property/property-details/property-details.module').then( m => m.PropertyDetailsPageModule)
+  },
 
   // {
   //   path: 'job-profile',

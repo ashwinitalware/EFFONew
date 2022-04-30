@@ -10,6 +10,7 @@ import { PushNotifications } from '@capacitor/push-notifications';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { PhotoViewer } from '@awesome-cordova-plugins/photo-viewer/ngx';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
+import { Observable } from 'rxjs';
 
 declare const Swal: any;
 @Injectable({
@@ -84,8 +85,8 @@ export class DataService {
     public menu: MenuController,
     public photoViewer: PhotoViewer
   ) {
-    this.domainUrl = 'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
-    this.apiUrl = this.domainUrl + 'api/';
+    // this.domainUrl = 'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
+    // this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
   }
   async present(content = 'Loading Data...', duration = 10000) {
@@ -319,5 +320,12 @@ export class DataService {
       .catch((err) => {
         // alert('error'+err)
       });
+  }
+
+  _get(endpoint,params):Observable<any>{
+    return this.http.get(this.apiUrl+endpoint+'?'+params)
+  }
+  _post(endpoint,params,body):Observable<any>{
+    return this.http.post(this.apiUrl+endpoint,body)
   }
 }
