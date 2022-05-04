@@ -8,7 +8,247 @@
 </ion-header>
 
 <ion-content>
-  <div class="p-2">
+  <ion-row class="pl-2 pr-2 pt-3">
+    <div style="width: 100%; background-color: white; border-radius: 10px; border: 1px solid rgb(211, 211, 211);">
+      <ion-input placeholder="Search In All India" id="search">
+        <ion-icon name="search" style="margin-left: 7px;"></ion-icon>
+      </ion-input>
+    </div>
+  </ion-row>
 
+
+  <!-- <div style="padding-left:0.8em ;" class="pt-3 pb-2">
+    <ion-label><b>All Categories</b></ion-label>
+  </div>
+
+
+  <div class="p-1" style="background-color: white; border-radius: 5px; margin-top: 3%">
+    <ion-grid fixed>
+      <ion-row class="small_text">
+        <ion-col (click)="navigate(category)" *ngFor="let category  of categories" size="3" align="center"
+          class="flex justify-center flex-col">
+          <div class="m-auto bg-red-600 p-3 text-white rounded-md flex items-center justify-center">
+            <ion-icon name="{{category.icon}}" class="text-xl"></ion-icon>
+          </div>
+          <div class="truncate mt-2 text-sm">{{category.name}}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div> -->
+
+  <!-- <div class="p-2"> -->
+  <div class="pl-3 pr-3 mt-2">
+    <div class="flex justify-between">
+      <div>
+        <ion-label class="text-base"><b>All Categories</b>
+        </ion-label>
+        <!-- <p class="text-xs">Featured residential project across india</p> -->
+      </div>
+      <!-- <div>
+          <p class="text-xs  text-black border-b-2 border-red-600">View All</p>
+        </div> -->
+    </div>
+  </div>
+
+  <div class="bg-white mt-2">
+    <div class="pt-4 p-2 ">
+      <ion-slides class="slider " [options]="slideOptions1" pager="false" #slider
+        (ionSlidesDidLoad)="slidesDidLoad1(slider)">
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/smartphone.png" />
+            <p class="text-xs pt-1 ">Mobiles</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/motorcycle.png" />
+            <p class="text-xs pt-1">Bikes</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/seater-sofa.png" />
+            <p class="text-xs pt-1">Furniture</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/dress.png" />
+            <p class="text-xs pt-1">Fashion</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/books.png" />
+            <p class="text-xs pt-1">Book & Sports</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/guide-dog.png" />
+            <p class="text-xs pt-1">Pets</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2">
+          <div>
+            <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/car.png" />
+            <p class="text-xs pt-1">Cars</p>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+  <!-- </div> -->
+
+  <div class="p-2">
+    <div class="pl-3 pr-3 mt-2">
+      <div class="flex justify-between">
+        <div>
+          <ion-label class="text-base"><b>Fresh Recommendations</b></ion-label>
+        </div>
+        <!-- <div>
+          <p class="text-xs  text-black border-b-2 border-red-600">View All</p>
+        </div> -->
+      </div>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <div class="flex justify-center" routerLink="/productdetails">
+            <div class="rounded-lg shadow-lg bg-white max-w-sm">
+              <img class="rounded-t-lg" src="assets/Oldex/Sofaset1.jpg" alt="" />
+              <div class="flex justify-between pl-2 pr-2 pt-1">
+                <div><b>Sofa Set</b></div>
+                <div>
+                  <ion-icon class="text-lg" name="heart-outline"></ion-icon>
+                </div>
+              </div>
+              <div class="flex justify-start pl-2 pr-2 border-b-2 border-gray-200">
+                <span class="text-gray-700 text-sm ">
+                  Sofa set for living room
+                </span>
+              </div>
+              <div class="flex justify-center">
+                <div><b>₹ 4,550</b></div>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div class="flex justify-center" routerLink="/productdetails">
+            <div class="rounded-lg shadow-lg bg-white max-w-sm">
+              <img class="rounded-t-lg" src="assets/Oldex/Sofaset1.jpg" alt="" />
+              <div class="flex justify-between pl-2 pr-2 pt-1">
+                <div><b>Sofa Set</b></div>
+                <div>
+                  <ion-icon class="text-lg" name="heart-outline"></ion-icon>
+                </div>
+              </div>
+              <div class="flex justify-start pl-2 pr-2 border-b-2 border-gray-200">
+                <span class="text-gray-700 text-sm ">
+                  Sofa set for living room
+                </span>
+              </div>
+              <div class="flex justify-center">
+                <div><b>₹ 4,550</b></div>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="6">
+          <div class="flex justify-center" routerLink="/productdetails">
+            <div class="rounded-lg shadow-lg bg-white max-w-sm p-2">
+              <img class="rounded-lg" src="assets/Oldex/sofaset.jpg" alt="" />
+              <div class="flex justify-between pl-2 pr-2 pt-1">
+                <div><b>Sofa Set</b></div>
+                <div>
+                  <ion-icon class="text-lg" name="heart-outline"></ion-icon>
+                </div>
+              </div>
+              <div class="flex justify-start pl-2 pr-2 border-b-2 border-gray-200">
+                <span class="text-gray-700 text-sm ">
+                  Sofa set for living room
+                </span>
+              </div>
+              <div class="flex justify-center">
+                <div><b>₹ 4,550</b></div>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div class="flex justify-center" routerLink="/productdetails">
+            <div class="rounded-lg shadow-lg bg-white max-w-sm p-2">
+              <img class="rounded-lg" src="assets/Oldex/sofaset.jpg" alt="" />
+              <div class="flex justify-between pl-2 pr-2 pt-1">
+                <div><b>Sofa Set</b></div>
+                <div>
+                  <ion-icon class="text-lg" name="heart-outline"></ion-icon>
+                </div>
+              </div>
+              <div class="flex justify-start pl-2 pr-2 border-b-2 border-gray-200">
+                <span class="text-gray-700 text-sm ">
+                  Sofa set for living room
+                </span>
+              </div>
+              <div class="flex justify-center">
+                <div><b>₹ 4,550</b></div>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600" routerLink="/oldexdashboard">
+    <ion-label>Home</ion-label>
+    <ion-icon name="home"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button tab="product" class="text-gray-600 hover:text-red-600" (click)="presentModal()">
+    <ion-label>Product Sell</ion-label>
+    <ion-icon name="briefcase"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button tab="favorite" class="text-gray-600 hover:text-red-600" routerLink="/addfavorite">
+    <ion-label>Favorite</ion-label>
+    <ion-icon name="heart"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button tab="profile" class="text-gray-600 hover:text-red-600" routerLink="/myprofile">
+    <ion-label>Profile</ion-label>
+    <ion-icon name="person"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>
+
+<!-- <ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600" routerLink="/oldexdashboard">
+      <ion-label>Home</ion-label>
+      <ion-icon name="home"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="product" class="text-gray-600 hover:text-red-600" routerLink="/mobiledetails">
+      <ion-label>Product Sell</ion-label>
+      <ion-icon name="briefcase"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="favorite" class="text-gray-600 hover:text-red-600">
+      <ion-label>Favorite</ion-label>
+      <ion-icon name="business"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="profile" class="text-gray-600 hover:text-red-600" routerLink="/profile">
+      <ion-label>Profile</ion-label>
+      <ion-icon name="person"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs> -->

@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Product Details</ion-title>
+    <!-- <ion-button slot="end" size="small" color="light pr-2" class="text-xs" fill="outline">
+      Product Details
+    </ion-button> -->
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="slider">
+    <ion-slides class="slider" [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)"
+      class="mt-2 rounded-md">
+      <ion-slide>
+        <img src="assets/Oldex/slider1.jpg" />
+      </ion-slide>
+      <ion-slide>
+        <img class="rounded-md ml-2" src="assets/Oldex/slider2.jpg" />
+      </ion-slide>
+      <ion-slide>
+        <img class="rounded-md ml-5" src="assets/Oldex/slider3.jpg" />
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="p-2 flex justify-between">
+    <div><b>Sofa Set</b><br>
+      <b>₹ 4,550</b></div>
+    <div>
+      <ion-icon class="text-lg text-red-600" name="heart"></ion-icon>
+    </div>
+  </div>
+  <div class="flex justify-start pl-2 pr-2 ">
+    <span class="text-gray-700 text-sm ">
+      Sofa set for living room
+    </span>
+  </div>
+  <div class="flex justify-start pl-2 pr-2 border-b-2 border-gray-200">
+    <p class="text-gray-700 text-sm ">
+      <ion-icon name="location-outline"></ion-icon> Delta Pen House ,Railway Station Amravati
+    </p>
+  </div>
+
+  <div class="flex justify-start pl-2">
+    <ion-label><b>Description</b></ion-label>
+  </div>
+
+  <div class="flex justify-start pl-2">
+    <p class="text-gray-700 text-sm ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus beatae natus
+      minus doloremque aliquam
+      quibusdam et, omnis itaque nesciunt recusandae accusantium? Voluptates quod repellendus fugiat placeat dolores
+      veritatis assumenda velit?</p>
+  </div>
+
+  <div class="flex justify-start pl-2 pr-2">
+
+    <!-- <ion-button expand="block">CAll</ion-button> -->
+    <div class="flex-1">
+      <ion-button class="w-full" expand="block" color="primary">
+        <ion-icon name="call-outline"></ion-icon>&nbsp;Call
+      </ion-button>
+    </div>&nbsp;
+    <div class="flex-1">
+      <ion-button class="w-full" expand="block" color="success">
+        <ion-icon name="logo-whatsapp"></ion-icon>&nbsp;Whatsapp
+      </ion-button>
+    </div>
+  </div>
+
+
+</ion-content>

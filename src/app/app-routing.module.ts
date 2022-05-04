@@ -359,38 +359,63 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./Property/profile/profile.module').then(m => m.ProfilePageModule)
-  },  {
+  },
+  {
     path: 'daily',
-    loadChildren: () => import('./Cabservice/daily/daily.module').then( m => m.DailyPageModule)
+    loadChildren: () => import('./Cabservice/daily/daily.module').then(m => m.DailyPageModule)
   },
   {
     path: 'rentals',
-    loadChildren: () => import('./Cabservice/rentals/rentals.module').then( m => m.RentalsPageModule)
+    loadChildren: () => import('./Cabservice/rentals/rentals.module').then(m => m.RentalsPageModule)
   },
   {
     path: 'outstation',
-    loadChildren: () => import('./Cabservice/outstation/outstation.module').then( m => m.OutstationPageModule)
+    loadChildren: () => import('./Cabservice/outstation/outstation.module').then(m => m.OutstationPageModule)
   },
   {
     path: 'modal',
-    loadChildren: () => import('./Cabservice/modal/modal.module').then( m => m.ModalPageModule)
+    loadChildren: () => import('./Cabservice/modal/modal.module').then(m => m.ModalPageModule)
   },
   {
     path: 'confirmpickup',
-    loadChildren: () => import('./Cabservice/confirmpickup/confirmpickup.module').then( m => m.ConfirmpickupPageModule)
+    loadChildren: () => import('./Cabservice/confirmpickup/confirmpickup.module').then(m => m.ConfirmpickupPageModule)
   },
   {
     path: 'oldexdashboard',
-    loadChildren: () => import('./Oldex/oldexdashboard/oldexdashboard.module').then( m => m.OldexdashboardPageModule)
+    loadChildren: () => import('./Oldex/oldexdashboard/oldexdashboard.module').then(m => m.OldexdashboardPageModule)
   },
   {
     path: 'tabs',
-    loadChildren: () => import('./Oldex/tabs/tabs.module').then( m => m.TabsPageModule)
+    loadChildren: () => import('./Oldex/tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
     path: 'propertydeatils',
-    loadChildren: () => import('./Property/propertydeatils/propertydeatils.module').then( m => m.PropertydeatilsPageModule)
+    loadChildren: () => import('./Property/propertydeatils/propertydeatils.module').then(m => m.PropertydeatilsPageModule)
   },
+  {
+    path: 'productdetails',
+    loadChildren: () => import('./Oldex/productdetails/productdetails.module').then(m => m.ProductdetailsPageModule)
+  },
+  // {
+  //   path: 'profile',
+  //   loadChildren: () => import('./Oldex/profile/profile.module').then(m => m.ProfilePageModule)
+  // },
+  {
+    path: 'addfavorite',
+    loadChildren: () => import('./Oldex/addfavorite/addfavorite.module').then(m => m.AddfavoritePageModule)
+  },
+  {
+    path: 'productsell',
+    loadChildren: () => import('./Oldex/productsell/productsell.module').then(m => m.ProductsellPageModule)
+  },
+  {
+    path: 'myprofile',
+    loadChildren: () => import('./Oldex/myprofile/myprofile.module').then(m => m.MyprofilePageModule)
+  },  {
+    path: 'productinfo',
+    loadChildren: () => import('./Oldex/productinfo/productinfo.module').then( m => m.ProductinfoPageModule)
+  },
+
 
 
 

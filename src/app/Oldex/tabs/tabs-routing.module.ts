@@ -6,7 +6,29 @@ import { TabsPage } from './tabs.page';
 const routes: Routes = [
   {
     path: '',
-    component: TabsPage
+    component: TabsPage,
+    children: [
+      {
+        path: '',
+        redirectTo: "home"
+      },
+      {
+        path: 'home',
+        loadChildren: () => import('../oldexdashboard/oldexdashboard.module').then(m => m.OldexdashboardPageModule)
+      },
+      {
+        path: 'product',
+        loadChildren: () => import('../productdetails/productdetails.module').then(m => m.ProductdetailsPageModule)
+      },
+      {
+        path: 'favorite',
+        loadChildren: () => import('../addfavorite/addfavorite.module').then(m => m.AddfavoritePageModule)
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('../myprofile/myprofile.module').then(m => m.MyprofilePageModule)
+      }
+    ]
   }
 ];
 
@@ -14,4 +36,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }
