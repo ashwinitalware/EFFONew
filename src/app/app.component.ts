@@ -40,7 +40,7 @@ export class AppComponent {
     this.platform.ready().then(async () => {
       App.addListener('backButton', () => {
         if (
-          // (window.location + '').includes('localhost/dashboard') ||
+          (window.location + '').includes('localhost/dashboard') ||
           (window.location + '').includes('localhost'+this.dataService.directNavigate) ||
           (window.location + '').includes('localhost/login')
         )
@@ -60,18 +60,29 @@ export class AppComponent {
       // } catch (error) {
       //   alert('catch getAppUpdateInfo' + result);
       // }
-      AppUpdate.getAppUpdateInfo().then((data) => {
-        console.log('UPDATE INFO');
-        if (data.updateAvailability == AppUpdateAvailability.UPDATE_AVAILABLE) {
-          // this.dataService.presentToast('Update Available');
-          if (data.flexibleUpdateAllowed) {
-            AppUpdate.startFlexibleUpdate();
-          }
-          if (data.immediateUpdateAllowed) {
-            AppUpdate.performImmediateUpdate();
-          }
-        }
-      });
+
+      try {
+        
+   
+
+        // alert('new2')
+      // AppUpdate.getAppUpdateInfo().then((data) => {
+      //   console.log('UPDATE INFO');
+      //   if (data.updateAvailability == AppUpdateAvailability.UPDATE_AVAILABLE) {
+      //     // this.dataService.presentToast('Update Available');
+      //     if (data.flexibleUpdateAllowed) {
+      //       AppUpdate.startFlexibleUpdate();
+      //     }
+      //     if (data.immediateUpdateAllowed) {
+      //       AppUpdate.performImmediateUpdate();
+      //     }
+      //   }
+      // });  
+    
+    
+    } catch (error) {
+        
+      }
     });
   }
 

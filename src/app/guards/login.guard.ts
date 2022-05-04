@@ -49,19 +49,32 @@ export class LoginGuard implements CanActivate {
 
       } else if (route.routeConfig.path == 'login') {
 
+        return true;
+        try {
+          // throw 'err'
+     
         const tempStringProfile = window.localStorage.getItem(this.dataService.localStorageName);
         if (tempStringProfile) {
           this.dataService.profile = JSON.parse(tempStringProfile);
         } 
         if (this.dataService.profile) {
-          // this.router.navigateByUrl('/dashboard');
-          this.router.navigateByUrl(''+this.dataService.directNavigate);
+          // alert(this.dataService.directNavigate)
+          this.router.navigateByUrl('/dashboard');
+          // this.router.navigateByUrl('/jobdashboard/home');
+          // this.router.navigateByUrl(this.dataService.directNavigate);
+          // this.router.navigate([this.dataService.directNavigate])
+          // this.router.navigate([this.dataService.directNavigate])
           return false
         } else {
-          // this.router.navigateByUrl('/dashboard');
           return true;
-          // this.router.navigate(['/dashboard']);
         }
+
+             
+      } catch (error) {
+        alert('Error auto login...')
+        return true;
+      }
+
       }
       // return this.dataService.auth.canLoad;
       // return true;

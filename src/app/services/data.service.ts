@@ -17,8 +17,11 @@ declare const Swal: any;
   providedIn: 'root',
 })
 export class DataService {
-
-
+  // DIRECT CONFIGS
+  // directNavigate='/dashboard'
+  directNavigate='/jobdashboard'
+  localStorageName='aisaJobProfileLS'
+// DIRECT CONFIGS
   contacts={
     // reportEmail:"report@aisaindiajobs.com"
     reportEmail:"support@vendorclub.com"
@@ -31,9 +34,7 @@ export class DataService {
     vendor:'https://play.google.com/store/apps/details?id=io.effo.vendor'
   }
   logoName="textW.png"
-  localStorageName='aisaJobProfileLS'
   appName="Effo"
-  directNavigate='/dashboard'
   drawer = [
     {
       icon: 'apps',
@@ -101,19 +102,27 @@ export class DataService {
     this.syncProfileFromLs();
 
     ///MAIN CONFIGS
-//  this doesn't work   // this.localStorageName='aisaJobProfileLS'
+    //  this doesn't work   // this.localStorageName='aisaJobProfileLS'
+    this.contacts.reportEmail='support@webmediaindia.com'
+    this.shareContent='Download the App Now !'
+    this.playStoreLinks={
+      customer:'',
+      vendor:''
+    }
     this.logoName='aisaLogo.png'
     this.appName="AISA"
-    this.directNavigate='/jobdashboard'
+    // this.directNavigate='/jobdashboard'
     this.domainUrl = 'http://strapiapi-env-1.ap-south-1.elasticbeanstalk.com/';
     this.apiUrl = this.domainUrl + 'api/';
 
-    this.drawer.push(...[ {
-      icon: 'call',
-      title: 'Contact Us',
-      active: false,
-      role: 'contact',
-    },
+    this.drawer.push(...[ 
+      
+    //   {
+    //   icon: 'call',
+    //   title: 'Contact Us',
+    //   active: false,
+    //   role: 'contact',
+    // },
     {
       icon: 'log-out',
       title: 'Logout',
