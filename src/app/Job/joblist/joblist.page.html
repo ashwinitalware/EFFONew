@@ -62,17 +62,18 @@
           {{job.attributes.title|titlecase}}
         </div>
 
-        
-        <div *ngIf="!job.applied && job.viewed" class="text-xs bg-blue-700 text-white  rounded-full px-2 flex items-center">
+        <div
+          *ngIf="!job.applied && job.viewed"
+          class="text-xs bg-blue-700 text-white rounded-full px-2 flex items-center"
+        >
           SEEN
-             </div>
-             <div *ngIf="job.applied" class="text-xs bg-green-700 text-white rounded-full px-2 flex items-center">
-   APPLIED
-             </div>
-        <!-- <div class="text-sm">
-          
-          {{this.dataService.timeSince(job.attributes.createdAt)}}
-        </div> -->
+        </div>
+        <div
+          *ngIf="job.applied"
+          class="text-xs bg-green-700 text-white rounded-full px-2 flex items-center"
+        >
+          APPLIED
+        </div>
       </div>
       <div class="text-sm text-gray-600">
         ₹ {{job.attributes.salaryFrom}} - ₹ {{job.attributes.salaryUpto}}
@@ -125,7 +126,8 @@
 
       <div class="text-sm flex items-center">
         <ion-icon name="rocket" class="text-blue-600"></ion-icon>&nbsp;
-        {{job.attributes.skillsByComma|titlecase}}
+        <div class="truncate">{{job.attributes.skillsByComma|titlecase}}</div>
+        <!-- <span *ngIf="job.attributes.skillsByComma.length>30">...</span> -->
       </div>
 
       <!-- <div class="text-sm flex items-center">
@@ -180,7 +182,10 @@
 
       <div class="flex justify-between items-center">
         <div>
-          <div *ngIf="job.applied">Viewed</div>
+          <div class="text-sm">
+            Posted {{this.dataService.timeSince(job.attributes.createdAt)}}
+          </div>
+          <!-- <div *ngIf="job.applied">Viewed</div> -->
         </div>
         <div class="text-right">
           <ion-button

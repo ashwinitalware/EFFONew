@@ -50,9 +50,9 @@ export class DashboardPage implements OnInit {
     {
       name: 'Property',
       image: '',
-      link: 'property-dashboard',
+      // link: 'property-dashboard',
       icon: 'home',
-      available:true
+      // available:true
     },
 
     // {

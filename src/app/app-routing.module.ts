@@ -338,67 +338,113 @@ const routes: Routes = [
   },
   {
     path: 'shopping-dashboard',
-    loadChildren: () => import('./shopping/shopping-dashboard/shopping-dashboard.module').then( m => m.ShoppingDashboardPageModule)
+    loadChildren: () =>
+      import('./shopping/shopping-dashboard/shopping-dashboard.module').then(
+        (m) => m.ShoppingDashboardPageModule
+      ),
   },
   {
     path: 'shopping-home',
-    loadChildren: () => import('./shopping/shopping-home/shopping-home.module').then( m => m.ShoppingHomePageModule)
+    loadChildren: () =>
+      import('./shopping/shopping-home/shopping-home.module').then(
+        (m) => m.ShoppingHomePageModule
+      ),
   },
   {
     path: 'orders',
-    loadChildren: () => import('./shopping/orders/orders.module').then( m => m.OrdersPageModule)
+    loadChildren: () =>
+      import('./shopping/orders/orders.module').then((m) => m.OrdersPageModule),
   },
   {
     path: 'shopping-orders',
-    loadChildren: () => import('./shopping/shopping-orders/shopping-orders.module').then( m => m.ShoppingOrdersPageModule)
+    loadChildren: () =>
+      import('./shopping/shopping-orders/shopping-orders.module').then(
+        (m) => m.ShoppingOrdersPageModule
+      ),
   },
   {
     path: 'shopping-settings',
-    loadChildren: () => import('./shopping/shopping-settings/shopping-settings.module').then( m => m.ShoppingSettingsPageModule)
+    loadChildren: () =>
+      import('./shopping/shopping-settings/shopping-settings.module').then(
+        (m) => m.ShoppingSettingsPageModule
+      ),
   },
   {
     path: 'shopping-vendor-listing',
-    loadChildren: () => import('./shopping/shopping-vendor-listing/shopping-vendor-listing.module').then( m => m.ShoppingVendorListingPageModule)
+    loadChildren: () =>
+      import(
+        './shopping/shopping-vendor-listing/shopping-vendor-listing.module'
+      ).then((m) => m.ShoppingVendorListingPageModule),
   },
   {
     path: 'shopping-vendor-menu/:id',
-    loadChildren: () => import('./shopping/shopping-vendor-menu/shopping-vendor-menu.module').then( m => m.ShoppingVendorMenuPageModule)
+    loadChildren: () =>
+      import(
+        './shopping/shopping-vendor-menu/shopping-vendor-menu.module'
+      ).then((m) => m.ShoppingVendorMenuPageModule),
   },
   {
     path: 'shopping-cart',
-    loadChildren: () => import('./shopping/shopping-cart/shopping-cart.module').then( m => m.ShoppingCartPageModule)
+    loadChildren: () =>
+      import('./shopping/shopping-cart/shopping-cart.module').then(
+        (m) => m.ShoppingCartPageModule
+      ),
   },
   {
     path: 'property-dashboard',
-    loadChildren: () => import('./property/property-dashboard/property-dashboard.module').then( m => m.PropertyDashboardPageModule)
+    loadChildren: () =>
+      import('./property/property-dashboard/property-dashboard.module').then(
+        (m) => m.PropertyDashboardPageModule
+      ),
   },
   {
     path: 'property-home',
-    loadChildren: () => import('./property/property-home/property-home.module').then( m => m.PropertyHomePageModule)
+    loadChildren: () =>
+      import('./property/property-home/property-home.module').then(
+        (m) => m.PropertyHomePageModule
+      ),
   },
   {
     path: 'property-shortlist',
-    loadChildren: () => import('./property/property-shortlist/property-shortlist.module').then( m => m.PropertyShortlistPageModule)
+    loadChildren: () =>
+      import('./property/property-shortlist/property-shortlist.module').then(
+        (m) => m.PropertyShortlistPageModule
+      ),
   },
   {
     path: 'property-own-list',
-    loadChildren: () => import('./property/property-own-list/property-own-list.module').then( m => m.PropertyOwnListPageModule)
+    loadChildren: () =>
+      import('./property/property-own-list/property-own-list.module').then(
+        (m) => m.PropertyOwnListPageModule
+      ),
   },
   {
     path: 'property-add',
-    loadChildren: () => import('./property/property-add/property-add.module').then( m => m.PropertyAddPageModule)
+    loadChildren: () =>
+      import('./property/property-add/property-add.module').then(
+        (m) => m.PropertyAddPageModule
+      ),
   },
   {
     path: 'property-add/:id',
-    loadChildren: () => import('./property/property-add/property-add.module').then( m => m.PropertyAddPageModule)
+    loadChildren: () =>
+      import('./property/property-add/property-add.module').then(
+        (m) => m.PropertyAddPageModule
+      ),
   },
   {
     path: 'property-list',
-    loadChildren: () => import('./property/property-list/property-list.module').then( m => m.PropertyListPageModule)
+    loadChildren: () =>
+      import('./property/property-list/property-list.module').then(
+        (m) => m.PropertyListPageModule
+      ),
   },
   {
-    path: 'property-details',
-    loadChildren: () => import('./property/property-details/property-details.module').then( m => m.PropertyDetailsPageModule)
+    path: 'property-details/:id',
+    loadChildren: () =>
+      import('./property/property-details/property-details.module').then(
+        (m) => m.PropertyDetailsPageModule
+      ),
   },
 
   // {

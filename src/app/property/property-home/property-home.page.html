@@ -1,30 +1,43 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button class="text-white" defaultHref="/dashboard"></ion-back-button>
+      <ion-back-button
+        class="text-white"
+        defaultHref="/dashboard"
+      ></ion-back-button>
     </ion-buttons>
     <!-- <p>Property</p> -->
     <!-- <ion-title class="text-white">Real Estate </ion-title> -->
-    <ion-button slot="end" size="small" color="light pr-2" class="text-xs" fill="outline">
+    <ion-button
+      slot="end"
+      size="small"
+      color="light pr-2"
+      class="text-xs"
+      fill="outline"
+    >
       Post Property
     </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
   <div class="p-3">
-
-
     <div class="pt-2">
-      <ion-label><b>Get started with</b><br>
+      <ion-label
+        ><b>Get started with</b><br />
         <p class="text-xs">Exploring real estate options in top cities</p>
       </ion-label>
     </div>
 
     <div class="slider">
-      <ion-slides class="slider" [options]="slideOptions" pager="true" #slider
-        (ionSlidesDidLoad)="slidesDidLoad(slider)" class="mt-2 rounded-md">
+      <ion-slides
+        class="slider"
+        [options]="slideOptions"
+        pager="true"
+        #slider
+        (ionSlidesDidLoad)="slidesDidLoad(slider)"
+        class="mt-2 rounded-md"
+      >
         <ion-slide>
           <img src="assets/property/slide1.jpg" />
         </ion-slide>
@@ -38,8 +51,11 @@
     </div>
 
     <div class="pt-2">
-      <ion-label><b>Category</b><br>
-        <p class="text-xs">Apartments, land, builder, floors, villas and more</p>
+      <ion-label
+        ><b>Category</b><br />
+        <p class="text-xs">
+          Apartments, land, builder, floors, villas and more
+        </p>
       </ion-label>
     </div>
   </div>
@@ -48,44 +64,67 @@
     <div class="pl-2 pr-2 pt-3 -mt-3">
       <ion-grid fixed>
         <ion-row>
-          <ion-col size="6">
+          <ion-col size="6" (click)="list('apartment')">
             <div class="bg-white shadow-md rounded-md h-20 overflow-hidden">
-              <img class="img-responsive " src="assets/property/apartment.jpg" alt="">
+              <img
+                class="img-responsive"
+                src="assets/property/apartment.jpg"
+                alt=""
+              />
             </div>
             <p class="text-center p-1 text-black">Apartment</p>
           </ion-col>
 
-          <ion-col size="6">
+          <ion-col size="6" (click)="list('house')">
             <div class="bg-white shadow-md rounded-md h-20 overflow-hidden">
-              <img class="img-responsive " src="assets/property/house.jpg" alt="">
+              <img
+                class="img-responsive"
+                src="assets/property/house.jpg"
+                alt=""
+              />
             </div>
             <p class="text-center p-1 text-black">House</p>
           </ion-col>
-          <ion-col size="6">
+          <ion-col size="6" (click)="list('villa')">
             <div class="bg-white shadow-md rounded-md h-20 overflow-hidden">
-              <img class="img-responsive " src="assets/property/villa.jpg" alt="">
+              <img
+                class="img-responsive"
+                src="assets/property/villa.jpg"
+                alt=""
+              />
             </div>
             <p class="text-center p-1 text-black">Villa</p>
           </ion-col>
-          <ion-col size="6">
+          <ion-col size="6" (click)="list('penthouse')">
             <div class="bg-white shadow-md rounded-md h-20 overflow-hidden">
-              <img class="img-responsive " src="assets/property/penthouse.jpg" alt="">
+              <img
+                class="img-responsive"
+                src="assets/property/penthouse.jpg"
+                alt=""
+              />
             </div>
             <p class="text-center p-1 text-black">Penthouse</p>
           </ion-col>
-          <ion-col size="6">
+          <ion-col size="6" (click)="list('studio')">
             <div class="bg-white shadow-md rounded-md h-20 overflow-hidden">
-              <img class="img-responsive " src="assets/property/studio.jpg" alt="">
+              <img
+                class="img-responsive"
+                src="assets/property/studio.jpg"
+                alt=""
+              />
             </div>
             <p class="text-center p-1 text-black">Studio</p>
           </ion-col>
-          <ion-col size="6">
+          <ion-col size="6" (click)="list('plot')">
             <div class="bg-white shadow-md rounded-md h-20 overflow-hidden">
-              <img class="img-responsive " src="assets/property/plot.jpg" alt="">
+              <img
+                class="img-responsive"
+                src="assets/property/plot.jpg"
+                alt=""
+              />
             </div>
             <p class="text-center p-1 text-black">Plot</p>
           </ion-col>
-       
         </ion-row>
       </ion-grid>
     </div>
@@ -215,6 +254,4 @@
       </ion-slides>
     </div>
   </div> -->
-
-
 </ion-content>

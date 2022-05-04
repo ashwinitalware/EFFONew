@@ -68,11 +68,11 @@
         <ion-label style="font-size: 0.6em;">Part Time</ion-label>
       </ion-col>
 
-      <ion-col size="3" style="border-right: 1px solid rgb(224, 224, 224) ;" routerLink="/workfromhome-job">
+      <ion-col size="4" style="border-right: 1px solid rgb(224, 224, 224) ;" routerLink="/workfromhome-job">
         <img src="assets/work-from-home.png" alt=""><br>
         <ion-label style="font-size: 0.6em;">Work From Home</ion-label>
       </ion-col>
-      <ion-col size="3" style="border-right: 1px solid rgb(224, 224, 224) ;" routerLink="/workabroad-job">
+      <ion-col size="4" style="border-right: 1px solid rgb(224, 224, 224) ;" routerLink="/workabroad-job">
         <img src="assets/work-abroad.png" alt=""><br>
         <ion-label style="font-size: 0.6em;">Work Abroad</ion-label>
       </ion-col>
@@ -89,26 +89,24 @@
         <ion-row class="small_text">
           <ion-col
             (click)="categorySelected(category)"
-            *ngFor="let category  of this.serviceService.categories.slice(0,sliceValue)"
-            size="3"
+            *ngFor="let category  of this.serviceService.categories.slice(0,300)"
+            size="4"
             align="center"
-            class="flex justify-center flex-col"
+            class="flex flex-col"
           >
             <div
-              class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center"
+              class="mx-auto primary-red p-3 text-white rounded-md flex items-center justify-center"
             >
               <ion-icon
                 name="{{category.attributes.icon}}"
                 class="text-xl"
               ></ion-icon>
             </div>
-            <div class="truncate mt-2 text-xs">
-              {{category.attributes.name}}
-            </div>
+            <div class="mt-2 text-xs">{{category.attributes.name}}</div>
           </ion-col>
 
-          <ion-col
-            size="3"
+          <!-- <ion-col
+            size="4"
             align="center"
             class="flex justify-center flex-col"
             (click)="sliceValue=100"
@@ -126,7 +124,7 @@
           </ion-col>
 
           <ion-col
-            size="3"
+            size="4"
             align="center"
             class="flex justify-center flex-col"
             (click)="sliceValue=3"
@@ -141,7 +139,7 @@
               ></ion-icon>
             </div>
             <div class="truncate mt-2 text-xs">Show Less</div>
-          </ion-col>
+          </ion-col> -->
         </ion-row>
         <!-- <div class="text-center red py-2 bg-gray-100">
           <div (click)="sliceValue=100" *ngIf="sliceValue==3">Show More</div>
@@ -202,17 +200,17 @@
         *ngFor="let vendor of topVendors"
       >
         <div class="flex">
-          <div  *ngIf="vendor.attributes.logo"
+          <div
+            *ngIf="vendor.attributes.logo"
             class="flex w-16 h-16 bg-red-100 rounded-full bg-contain bg-no-repeat bg-center"
             style="background-image: url({{vendor.attributes.bannerImage}});"
           ></div>
-          <div *ngIf="!vendor.attributes.logo"
-            class="flex w-16 h-16  bg-gray-300 rounded-full bg-contain bg-no-repeat bg-center items-center justify-center  text-gray-500"
-           
+          <div
+            *ngIf="!vendor.attributes.logo"
+            class="flex w-16 h-16 bg-gray-300 rounded-full bg-contain bg-no-repeat bg-center items-center justify-center text-gray-500"
           >
-         
-          <ion-icon class="text-3xl" name="briefcase"></ion-icon>
-        </div>
+            <ion-icon class="text-3xl" name="briefcase"></ion-icon>
+          </div>
           <!-- <img
             class="img_class rounded-md h-16 w-16 rounded-full"
             src="{{vendor.attributes.bannerImage}}"
@@ -260,43 +258,43 @@
     <div style="background-color: white;">
       <ion-grid fixed>
         <ion-row>
-          <ion-col size="3" align="center" routerLink="/accounts">
+          <ion-col size="4" align="center" routerLink="/accounts">
             <img src="assets/J1.png" alt=""><br>
             <ion-label class="label-text">Accounts</ion-label>
           </ion-col>
-          <ion-col size="3" align="center" routerLink="/marketing">
+          <ion-col size="4" align="center" routerLink="/marketing">
             <img src="assets/J2.png" alt=""><br>
             <ion-label class="label-text">Marketing</ion-label>
           </ion-col>
-          <ion-col size="3" align="center" routerLink="/itindustry">
+          <ion-col size="4" align="center" routerLink="/itindustry">
             <img src="assets/J3.png" alt="">
             <ion-label class="label-text">ITIndustry</ion-label>
           </ion-col>
-          <ion-col size="3" align="center" routerLink="/backoffice">
+          <ion-col size="4" align="center" routerLink="/backoffice">
             <img src="assets/J4.png" alt=""><br>
             <ion-label class="label-text">Back Office</ion-label>
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col size="3" align="center" routerLink="/bpo">
+          <ion-col size="4" align="center" routerLink="/bpo">
             <img src="assets/J4.png" alt=""><br>
             <ion-label class="label-text">BPO</ion-label>
           </ion-col>
-          <ion-col size="3" align="center" routerLink="/deliveryboy">
+          <ion-col size="4" align="center" routerLink="/deliveryboy">
             <img src="assets/J6.png" alt=""><br>
             <ion-label class="label-text">Delivery Boy</ion-label>
           </ion-col>
-          <ion-col size="3" align="center" routerLink="/teachers">
+          <ion-col size="4" align="center" routerLink="/teachers">
             <img src="assets/J7.png" alt=""><br>
             <ion-label class="label-text">Teachers</ion-label>
           </ion-col>
 
-          <ion-col *ngIf="bookride" size="3" align="center" routerLink="/beautician">
+          <ion-col *ngIf="bookride" size="4" align="center" routerLink="/beautician">
             <img src="assets/J8.png" alt=""><br>
             <ion-label class="label-text">Beautician</ion-label>
           </ion-col>
 
-          <ion-col *ngIf="!bookride" size="3" align="center" (click)="bookride=true">
+          <ion-col *ngIf="!bookride" size="4" align="center" (click)="bookride=true">
             <img src="assets/more.png" alt=""><br>
             <ion-label class="label-text">More</ion-label>
           </ion-col>
@@ -306,36 +304,36 @@
         <div *ngIf="bookride">
           <ion-row>
 
-            <ion-col size="3" align="center">
+            <ion-col size="4" align="center">
               <img src="assets/J9.png" alt=""><br>
               <ion-label class="label-text">Electrician</ion-label>
             </ion-col>
-            <ion-col size="3" align="center">
+            <ion-col size="4" align="center">
               <img src="assets/J10.png" alt=""><br>
               <ion-label class="label-text">HR/Admin</ion-label>
             </ion-col>
-            <ion-col size="3" align="center">
+            <ion-col size="4" align="center">
               <img src="assets/J11.png" alt=""><br>
               <ion-label class="label-text">Nurse</ion-label>
             </ion-col>
 
-            <ion-col size="3" align="center">
+            <ion-col size="4" align="center">
               <img src="assets/J15.png" alt=""><br>
               <ion-label class="label-text">Sales</ion-label>
             </ion-col>
-            <ion-col size="3" align="center">
+            <ion-col size="4" align="center">
               <img src="assets/J12.png" alt=""><br>
               <ion-label class="label-text">Designer</ion-label>
             </ion-col>
-            <ion-col size="3" align="center">
+            <ion-col size="4" align="center">
               <img src="assets/J13.png" alt=""><br>
               <ion-label class="label-text">Doctor</ion-label>
             </ion-col>
-            <ion-col size="3" align="center">
+            <ion-col size="4" align="center">
               <img src="assets/J14.png" alt=""><br>
               <ion-label class="label-text">Data Entry</ion-label>
             </ion-col>
-            <ion-col *ngIf="bookride" size="3" align="center" (click)="bookride=false">
+            <ion-col *ngIf="bookride" size="4" align="center" (click)="bookride=false">
               <img src="assets/more.png" alt=""><br>
               <ion-label class="label-text">Less</ion-label>
             </ion-col>

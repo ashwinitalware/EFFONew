@@ -1,9 +1,95 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>propertyList</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="text-white">Properties</div>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div
+    *ngIf="this.properService.noPropertyFound && !this.properService.data.length"
+  >
+    <div align="center" style="margin-top: 20%">
+      <img src="assets/notfound.png" alt="" width="60%" height="60%" />
+    </div>
 
+    <div align="center">
+      <ion-label class="text">No Properties Found</ion-label><br />
+    </div>
+  </div>
+  <div class="p-4">
+    <div
+      class="bg-white shadow-md rounded-lg mt-4"
+      *ngFor="let property of this.properService.data"
+    >
+      <div
+        style="background-image: url('{{property.attributes.imagesArray[0]}}');height:8rem"
+        class="bg-center bg-cover"
+      ></div>
+
+      <div class="p-2 rounded-md">
+        <div class="flex">
+          <div class="flex-1 text-black text-left text-base font-bold">
+            {{property.attributes.name}}
+          </div>
+
+          <div class="text-sm">
+            {{property.attributes.createdAt|date}}
+            <!-- 2 days ago -->
+          </div>
+        </div>
+
+        <div class="text-base text-gray-900 font-bold flex items-center">
+          <!-- <ion-icon name="cash" class="text-blue-500"></ion-icon> -->
+          <!-- &nbsp;  -->
+          ₹ {{property.attributes.price}} / -
+        </div>
+
+        <div class="text-sm flex items-center mt-2">
+          <ion-icon name="podium" class="text-blue-500"></ion-icon>
+          &nbsp;
+          <span>
+            {{property.attributes.sellRent=='sell'?'Selling':'Renting'}}
+            {{property.attributes.type|titlecase}}
+          </span>
+        </div>
+
+        <div class="text-sm flex items-center">
+          <ion-icon name="flag" class="text-yellow-500"></ion-icon>&nbsp;
+          {{property.attributes.address|titlecase}}
+        </div>
+
+        <div class="flex justify-start">
+          <div>
+            <div class="text-sm flex items-center">
+              <ion-icon name="cube" class="text-pink-600"></ion-icon>&nbsp;
+              {{property.attributes.area}} Sqft.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ion-button
+        [routerLink]="['/property-details/'+property.id]"
+        size="block"
+        fill="clear"
+      >
+        View Details</ion-button
+      >
+    </div>
+  </div>
+  <ion-infinite-scroll
+    threshold="100px"
+    (ionInfinite)="this.properService.getData($event,false)"
+  >
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

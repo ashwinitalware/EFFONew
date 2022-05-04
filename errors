@@ -14,3 +14,8 @@ dependencies {
 
 // ADD THIS AT THE BOTTOM
 apply plugin: 'com.google.gms.google-services'
+
+
+capacitor settings does not exists
+npm install --save @capacitor/core @capacitor/cli
+ionic capacitor sync android

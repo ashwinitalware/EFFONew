@@ -1,9 +1,163 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>propertyDetails</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="text-white">Property Details</div>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div *ngIf="data" class="h-full overflow-y-scroll">
+    <div class="h-full bg-white">
+      <img
+        class="w-full"
+        *ngIf="data.attributes.imagesArray&&data.attributes.imagesArray.length"
+        src="{{data.attributes.imagesArray[0]}}"
+        alt=""
+      />
 
+      <div class="p-4">
+        <div class="flex justify-between items-center">
+          <div class="text-xl font-bold">
+            <div>{{data.attributes.name|titlecase}}</div>
+          </div>
+          <div class="text-sm text-gray-800">
+            <!-- {{data.attributes.vacancies}} Opening(s) -->
+            {{data.attributes.area}} Sq.Ft.
+          </div>
+          <!-- <div class="font-bold">
+          Rs {{data.attributes.salaryFrom}} - Rs {{data.attributes.salaryUpto}}
+        </div> -->
+        </div>
+
+        <div class="text-md text-black">Rs {{data.attributes.price}}</div>
+        <!-- <div class=" text-sm text-gray-800">
+        {{data.attributes.vacancies}} Opening(s)
+      </div> -->
+        <div class="flex mt-2">
+          <span class="flex items-center">
+            <ion-icon name="location-outline"></ion-icon>
+            &nbsp; {{data.attributes.city|titlecase}}
+          </span>
+          <span class="flex items-center ml-4">
+            <ion-icon name="briefcase-outline"></ion-icon>
+            &nbsp;Transaction : {{data.attributes.ageType|titlecase}}
+          </span>
+        </div>
+
+        <div class="flex mt-2">
+          <span class="flex items-center">
+            <ion-icon name="bed-outline"></ion-icon>
+            &nbsp; {{data.attributes.bedrooms}} Bedrooms
+          </span>
+          <span class="flex items-center ml-4">
+            <ion-icon name="water-outline"></ion-icon>
+            &nbsp; {{data.attributes.bathrooms}} Bathrooms
+          </span>
+        </div>
+        <div class="flex mt-2">
+          <span class="flex items-center">
+            <ion-icon name="home-outline"></ion-icon>
+            &nbsp; {{data.attributes.type|titlecase}}
+          </span>
+        </div>
+        <div class="flex mt-2">
+          <span class="flex items-center">
+            <ion-icon name="navigate-outline"></ion-icon>
+            &nbsp; {{data.attributes.address|titlecase}}
+          </span>
+        </div>
+
+        <div class="flex pb-2 mt-2">
+          <span class="flex items-center">
+            <ion-icon name="wallet-outline"></ion-icon>
+            &nbsp; {{data.attributes.sellRent=='sell'?'Selling':'Renting'}}
+          </span>
+        </div>
+
+        <!-- <ion-grid fixed>
+        <ion-row>
+          <ion-col size="4">
+            <ion-button (click)="onClick()" size="small" color="tertiary" class="text-sm">
+              <ion-icon name="call-outline"></ion-icon> &nbsp; Call Now
+            </ion-button>
+          </ion-col>
+          <ion-col size="4">
+            <ion-button (click)="onClick()" size="small" color="success" class="text-sm">
+              <ion-icon name="logo-whatsapp"></ion-icon> &nbsp; Whatsapp
+            </ion-button>
+          </ion-col>
+          <ion-col size="4">
+            <ion-button (click)="onClick()" size="small" color="warning" class="text-sm">
+              <ion-icon name="share-social"></ion-icon> &nbsp; Share
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid> -->
+
+        <div class="flex justify-between pt-3 border-t-2 border-gray-200">
+          <div>
+            <button
+              (click)="this.dataService.contact('call',91+''+data.attributes.user.data.attributes.phone)"
+              class="p-1 py-2 px-4 hover:bg-blue-700 text-blue-700 font-semibold hover:text-white shadow-lg mr-4"
+              style="border: 1px solid blue; border-radius: 5px"
+            >
+              <ion-icon class="text-sm" name="call-outline"></ion-icon>
+            </button>
+
+            <button
+              (click)="this.dataService.contact('whatsapp',91+''+data.attributes.user.data.attributes.phone)"
+              class="p-1 py-2 px-4 text-green-500 hover:bg-green-500 font-semibold hover:text-white shadow-lg mr-4"
+              style="border: 1px solid green; border-radius: 5px"
+            >
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </button>
+
+            <button
+              (click)="this.dataService.share()"
+              class="p-1 py-2 px-4 text-black hover:bg-black font-semibold hover:text-white shadow-lg"
+              style="border: 1px solid black; border-radius: 5px"
+            >
+              <ion-icon name="share-social"></ion-icon>
+            </button>
+
+            <!-- <button
+            class="bg-blue-500 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+            <ion-icon name="share-social"></ion-icon> &nbsp;
+          </button> -->
+          </div>
+
+          <div>
+            <ion-button
+              color="dark"
+              fill="clear"
+              (click)="this.dataService.report('Report Property Listing | ID : '+data.id)"
+            >
+              Report
+            </ion-button>
+          </div>
+        </div>
+        <!-- <div class="flex mt-2">
+        <ion-button class="w-full" color="tertiary" expand="block" (click)="call(this.data)">
+          <ion-icon name="call-outline"></ion-icon>&nbsp; Call Now
+        </ion-button>
+        <ion-button class="w-full" color="success" expand="block" (click)="whatsapp(this.data)">
+          <ion-icon name="logo-whatsapp"></ion-icon>&nbsp; Whatsapp
+        </ion-button>
+      </div> -->
+        <!-- <div class="flex justify-end">
+        <ion-button (click)="report()" color="dark" fill="clear">
+          Report Job
+        </ion-button>
+      </div> -->
+
+        <div class="text-lg font-bold mt-2">Description</div>
+
+        <div>{{data.attributes.description }}</div>
+      </div>
+    </div>
+  </div>
 </ion-content>

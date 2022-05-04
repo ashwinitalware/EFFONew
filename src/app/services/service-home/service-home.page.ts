@@ -105,7 +105,11 @@ export class ServiceHomePage implements OnInit {
 
       categories.attributes.subCategories.data.forEach((subCategory) => {
         console.log(subCategory.attributes.name);
-        if (subCategory.attributes.name.toLowerCase().includes(event.detail.value.toLowerCase())) {
+        if (
+          subCategory.attributes.name
+            .toLowerCase()
+            .includes(event.detail.value.toLowerCase())
+        ) {
           this.suggestions.push({
             title: subCategory.attributes.name,
             link: '/vendor-listing/' + subCategory.id,
@@ -129,6 +133,7 @@ export class ServiceHomePage implements OnInit {
           populate: '*',
           'filters[vendor][city][$containsi]': this.dataService.profile.city,
           sort: ['rating:desc'],
+          'pagination[pageSize]': '10',
         },
       })
       .subscribe((data: any) => {

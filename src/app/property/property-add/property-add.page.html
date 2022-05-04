@@ -1,115 +1,140 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title color="light" > Your Property Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light"> Your Property Details</ion-title>
     <!-- <div class="px-4 text-white text-lg">Effo Jobs</div> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
   <div class="p-4 bg-white h-full overflow-y-scroll">
-<form [formGroup]="form">
-  <ion-item class="">
-    <ion-label position="floating">Owner / Property Name</ion-label>
-    <ion-input  formControlName="name" ></ion-input>
-  </ion-item>
-  <br>
-  <ion-item>
-    <ion-label>Sell / Rent</ion-label>
-    <ion-select formControlName="sellRent" interface="popover" placeholder="Select One">
-      <ion-select-option value="sell">Selling</ion-select-option>
-      <ion-select-option value="rent">Renting</ion-select-option>
-    </ion-select>
-  </ion-item>
-  <br>
-  <ion-item>
-    <ion-label>Type</ion-label>
-    <ion-select  formControlName="type"  interface="popover" placeholder="Select One">
-      <ion-select-option value="apartment">Apartment</ion-select-option>
-      <ion-select-option value="villa">Villa</ion-select-option>
-      <ion-select-option value="house">House</ion-select-option>
-      <ion-select-option value="penthouse">Penthouse</ion-select-option>
-      <ion-select-option value="studio">Studio</ion-select-option>
-      <ion-select-option value="plot">Plot</ion-select-option>
-    </ion-select>
-  </ion-item>
-  <br>
-  <ion-item class="">
-    <ion-label position="floating">Property Address</ion-label>
-    <ion-input  formControlName="address" ></ion-input>
-  </ion-item>
-  <br>
-  <ion-item class="">
-    <ion-label position="floating">Listing City</ion-label>
-    <ion-input  formControlName="city" ></ion-input>
-  </ion-item>
-  <br>
-  <ion-item class="">
-    <ion-label position="floating">Bedrooms</ion-label>
-    <ion-input type="number" formControlName="bedrooms" > </ion-input>
-  </ion-item>
-  <br>
-  <ion-item class="">
-    <ion-label position="floating">BathRooms</ion-label>
-    <ion-input type="number" formControlName="bathrooms" ></ion-input>
-  </ion-item>
-  <br>
-  <ion-item class="">
-    <ion-label position="floating">Balconies</ion-label>
-    <ion-input type="number" formControlName="balconies"></ion-input>
-  </ion-item>
-  <br>
-  <ion-item class="">
-    <ion-label position="floating">Area in sq/ft.</ion-label>
-    <ion-input  type="number" formControlName="area" ></ion-input>
-  </ion-item>
-  <br>
-  <ion-item class="">
-    <ion-label position="floating">Price</ion-label>
-    <ion-input type="number" formControlName="price" ></ion-input>
-  </ion-item>
-  
-  <br>
-  <ion-item>
-    <ion-label>New / Resale</ion-label>
-    <ion-select formControlName="ageType"  interface="popover" placeholder="Select One">
-      <ion-select-option value="new">New</ion-select-option>
-      <ion-select-option value="resale">Resale</ion-select-option>
-    </ion-select>
-  </ion-item>
-  <br>
-  <ion-item class="">
-    <ion-label position="floating">Description</ion-label>
-    <ion-textarea formControlName="description" ></ion-textarea>
-  </ion-item>
-  <br>
+    <form [formGroup]="form">
+      <ion-item class="">
+        <ion-label position="floating">Owner / Property Name</ion-label>
+        <ion-input formControlName="name"></ion-input>
+      </ion-item>
+      <br />
+      <ion-item>
+        <ion-label>Sell / Rent</ion-label>
+        <ion-select
+          formControlName="sellRent"
+          interface="popover"
+          placeholder="Select One"
+        >
+          <ion-select-option value="sell">Selling</ion-select-option>
+          <ion-select-option value="rent">Renting</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br />
+      <ion-item>
+        <ion-label>Type</ion-label>
+        <ion-select
+          formControlName="type"
+          interface="popover"
+          placeholder="Select One"
+        >
+          <ion-select-option value="apartment">Apartment</ion-select-option>
+          <ion-select-option value="villa">Villa</ion-select-option>
+          <ion-select-option value="house">House</ion-select-option>
+          <ion-select-option value="penthouse">Penthouse</ion-select-option>
+          <ion-select-option value="studio">Studio</ion-select-option>
+          <ion-select-option value="plot">Plot</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br />
+      <ion-item class="">
+        <ion-label position="floating">Property Address</ion-label>
+        <ion-input formControlName="address"></ion-input>
+      </ion-item>
+      <br />
+      <ion-item class="">
+        <ion-label position="floating">Listing City</ion-label>
+        <ion-input formControlName="city"></ion-input>
+      </ion-item>
+      <br />
+      <ion-item class="">
+        <ion-label position="floating">Bedrooms</ion-label>
+        <ion-input type="number" formControlName="bedrooms"> </ion-input>
+      </ion-item>
+      <br />
+      <ion-item class="">
+        <ion-label position="floating">BathRooms</ion-label>
+        <ion-input type="number" formControlName="bathrooms"></ion-input>
+      </ion-item>
+      <br />
+      <ion-item class="">
+        <ion-label position="floating">Balconies</ion-label>
+        <ion-input type="number" formControlName="balconies"></ion-input>
+      </ion-item>
+      <br />
+      <ion-item class="">
+        <ion-label position="floating">Area in sq/ft.</ion-label>
+        <ion-input type="number" formControlName="area"></ion-input>
+      </ion-item>
+      <br />
+      <ion-item class="">
+        <ion-label position="floating">Price</ion-label>
+        <ion-input type="number" formControlName="price"></ion-input>
+      </ion-item>
 
+      <br />
+      <ion-item>
+        <ion-label>New / Resale</ion-label>
+        <ion-select
+          formControlName="ageType"
+          interface="popover"
+          placeholder="Select One"
+        >
+          <ion-select-option value="new">New</ion-select-option>
+          <ion-select-option value="resale">Resale</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br />
+      <ion-item class="">
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea formControlName="description"></ion-textarea>
+      </ion-item>
+      <br />
 
+      <div class="text-right" *ngIf="!tempImages.length">
+        No Images Uploaded
+      </div>
+      <input
+        type="file"
+        class="hidden"
+        #fileUpload2
+        (change)="handleFileInput($event)"
+      />
 
-  
-<div class="text-right" *ngIf="!tempImages.length">
-  No Images Uploaded
-</div>
-<input
-type="file"
-class="hidden"
-#fileUpload2
-(change)="handleFileInput($event)"
-/>
-
-<div class="">
-  <div *ngFor="let image of tempImages;let i=index" class="flex ">
-<img class="w-32" src="{{image}}" alt="">
-<div class="flex-1 flex items-center justify-center">
-<ion-button fill="clear" color="danger" (click)="removeImage(i)">Remove</ion-button>
-</div>
-</div>
-</div>
-  <ion-button (click)="fileUpload2.click()" fill="outline" size="block" color="primary">Add Property Image</ion-button>
-  <ion-button (click)="submit()" size="block" color="primary">Submit</ion-button>
-  <ion-button *ngIf="id" (click)="removeProperty()" size="block" color="primary">Remove Property</ion-button>
-
-
-</form></div>
-
+      <div class="">
+        <div *ngFor="let image of tempImages;let i=index" class="flex">
+          <img class="w-32" src="{{image}}" alt="" />
+          <div class="flex-1 flex items-center justify-center">
+            <ion-button fill="clear" color="danger" (click)="removeImage(i)"
+              >Remove</ion-button
+            >
+          </div>
+        </div>
+      </div>
+      <ion-button
+        (click)="fileUpload2.click()"
+        fill="outline"
+        size="block"
+        color="primary"
+        >Add Property Image</ion-button
+      >
+      <ion-button (click)="submit()" size="block" color="primary"
+        >Submit</ion-button
+      >
+      <ion-button
+        *ngIf="id"
+        (click)="removeProperty()"
+        size="block"
+        color="primary"
+        >Remove Property</ion-button
+      >
+    </form>
+  </div>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PropertyService } from 'src/app/service/property.service';
 
 @Component({
   selector: 'app-property-list',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./property-list.page.scss'],
 })
 export class PropertyListPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor(public properService: PropertyService) {
+    this.properService.getData();
   }
 
+  ngOnInit() {}
 }

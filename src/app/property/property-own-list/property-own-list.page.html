@@ -9,34 +9,46 @@
 
 <ion-content>
   <div class="p-3">
-    <div class="bg-white shadow-md rounded-lg mt-4" *ngFor="let property of data">
-      <!-- class="w-full " style="background-image: url('{{property.attributes.imagesArray[0]}}');max-height:8rem" class="bg-cover" -->
-      <div >
-        <img *ngIf="property.attributes.imagesArray.length" class=" w-full" style="max-height: 16rem;" src="{{property.attributes.imagesArray[0]}}" />
+    <div
+      class="bg-white shadow-md rounded-lg mt-4"
+      *ngFor="let property of this.propertyService.ownProperties"
+    >
+      <!-- class="w-full "  class="bg-cover" -->
+      <div
+        style="background-image: url('{{property.attributes.imagesArray[0]}}');height:8rem"
+        class="bg-center bg-cover"
+      >
+        <!-- <img
+          *ngIf="property.attributes.imagesArray.length"
+          class="w-full"
+          src="{{property.attributes.imagesArray[0]}}"
+        /> -->
       </div>
 
-      <div class=" p-2 rounded-md">
+      <div class="p-2 rounded-md">
         <div class="flex">
           <div class="flex-1 text-black text-left text-base font-bold">
             {{property.attributes.name}}
           </div>
 
-        
           <div class="text-sm">
             {{property.attributes.createdAt|date}}
             <!-- 2 days ago -->
           </div>
         </div>
 
-        <div class="text-base text-gray-900 font-bold flex items-center" >
-          <ion-icon name="cash" class="text-blue-500"></ion-icon>
-          &nbsp; ₹  {{property.attributes.price}} / -
+        <div class="text-base text-gray-900 font-bold flex items-center">
+          <!-- <ion-icon name="cash" class="text-blue-500"></ion-icon> -->
+          <!-- &nbsp;  -->
+          ₹ {{property.attributes.price}} / -
         </div>
 
         <div class="text-sm flex items-center mt-2">
           <ion-icon name="podium" class="text-blue-500"></ion-icon>
           &nbsp;
-          <span> {{property.attributes.sellRent=='sell'?'Selling':'Renting'}}  {{property.attributes.type|titlecase}}
+          <span>
+            {{property.attributes.sellRent=='sell'?'Selling':'Renting'}}
+            {{property.attributes.type|titlecase}}
           </span>
         </div>
 
@@ -46,36 +58,37 @@
         </div>
 
         <div class="flex justify-start">
-        
           <div>
             <div class="text-sm flex items-center">
               <ion-icon name="cube" class="text-pink-600"></ion-icon>&nbsp;
-              {{property.attributes.area}} Sqft. Sqft.
+              {{property.attributes.area}} Sqft.
             </div>
           </div>
         </div>
       </div>
 
-      <ion-button [routerLink]="['/property-add/'+property.id]"   size="block" fill="clear"> Edit Details</ion-button>
-
+      <ion-button
+        [routerLink]="['/property-add/'+property.id]"
+        size="block"
+        fill="clear"
+      >
+        Edit Details</ion-button
+      >
     </div>
-
-
-    
-
   </div>
 
-
-  <ion-fab [routerLink]="['/property-add']"
-  horizontal="end" vertical="bottom" slot="fixed" routerLink="/filterproperty">
+  <ion-fab
+    [routerLink]="['/property-add']"
+    horizontal="end"
+    vertical="bottom"
+    slot="fixed"
+    routerLink="/filterproperty"
+  >
     <ion-fab-button color="danger">
       <ion-icon name="add"></ion-icon>
       <!-- <ion-icon md="caret-back" ios="chevron-back-circle-outline"></ion-icon> -->
     </ion-fab-button>
-
   </ion-fab>
-
-
 </ion-content>
 
 <!-- <ion-tab-bar slot="bottom">

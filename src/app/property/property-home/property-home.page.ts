@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, NavController } from '@ionic/angular';
+import { PropertyService } from 'src/app/service/property.service';
 
 @Component({
   selector: 'app-property-home',
@@ -7,8 +8,6 @@ import { IonSlides } from '@ionic/angular';
   styleUrls: ['./property-home.page.scss'],
 })
 export class PropertyHomePage implements OnInit {
-
-
   slideOptions = {
     initialSlide: 1,
     speed: 600,
@@ -19,7 +18,10 @@ export class PropertyHomePage implements OnInit {
     slidesPerView: 3,
     speed: 500,
   };
-  constructor() { }
+  constructor(
+    public propertyService: PropertyService,
+    public navCtrl: NavController
+  ) {}
 
   slidesDidLoad(slides: IonSlides): void {
     slides.startAutoplay();
@@ -28,7 +30,10 @@ export class PropertyHomePage implements OnInit {
     slides.startAutoplay();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  list(type) {
+    this.propertyService.filters.type = type;
+    this.navCtrl.navigateForward(['/property-list']);
+  }
 }

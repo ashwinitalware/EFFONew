@@ -85,8 +85,13 @@ export class DataService {
     public menu: MenuController,
     public photoViewer: PhotoViewer
   ) {
-    // this.domainUrl = 'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
+    // this.domainUrl =
+    //   'https://vaibhavfuke-effoapistrapi-x97qxwj5hrjq-1337.githubpreview.dev/';
     // this.apiUrl = this.domainUrl + 'api/';
+    // this.domainUrl =
+    //   'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
+    this.domainUrl = 'https://strapi.effoapp.com/';
+    this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
   }
   async present(content = 'Loading Data...', duration = 10000) {
@@ -167,8 +172,17 @@ export class DataService {
     });
     // this.router.navigate(['/login']);
   }
-
-  async share(title, text, url = '') {
+  report(subject = 'Report', body = 'I want to report  ....') {
+    window.open(
+      'mailto:support@vendorclub.com' + '?subject=' + subject + '&body=' + body,
+      '_system'
+    );
+  }
+  async share(
+    title = 'Download Effo App',
+    text = 'I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life.',
+    url = 'https://play.google.com/store/apps/details?id=ionic.effo.starter'
+  ) {
     await Share.share({
       title,
       text,
@@ -183,7 +197,7 @@ export class DataService {
     this.auth.otpSent = false;
     this.router.navigate(['/login']);
   }
-  contact(type='call', contact) {
+  contact(type = 'call', contact) {
     if (type == 'call') {
       window.open('tel:+' + contact);
     } else {
@@ -322,10 +336,10 @@ export class DataService {
       });
   }
 
-  _get(endpoint,params):Observable<any>{
-    return this.http.get(this.apiUrl+endpoint+'?'+params)
+  _get(endpoint, params): Observable<any> {
+    return this.http.get(this.apiUrl + endpoint + '?' + params);
   }
-  _post(endpoint,params,body):Observable<any>{
-    return this.http.post(this.apiUrl+endpoint,body)
+  _post(endpoint, params, body): Observable<any> {
+    return this.http.post(this.apiUrl + endpoint, body);
   }
 }
