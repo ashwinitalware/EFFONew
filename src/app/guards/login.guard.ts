@@ -36,7 +36,7 @@ export class LoginGuard implements CanActivate {
       console.log('guard', route);
       if (route.routeConfig.path == 'dashboard') {
 
-        const tempStringProfile = window.localStorage.getItem('effoProfile');
+        const tempStringProfile = window.localStorage.getItem(this.dataService.localStorageName);
         if (tempStringProfile) {
           this.dataService.profile = JSON.parse(tempStringProfile);
           return true
@@ -49,12 +49,13 @@ export class LoginGuard implements CanActivate {
 
       } else if (route.routeConfig.path == 'login') {
 
-        const tempStringProfile = window.localStorage.getItem('effoProfile');
+        const tempStringProfile = window.localStorage.getItem(this.dataService.localStorageName);
         if (tempStringProfile) {
           this.dataService.profile = JSON.parse(tempStringProfile);
         } 
         if (this.dataService.profile) {
-          this.router.navigateByUrl('/dashboard');
+          // this.router.navigateByUrl('/dashboard');
+          this.router.navigateByUrl(''+this.dataService.directNavigate);
           return false
         } else {
           // this.router.navigateByUrl('/dashboard');

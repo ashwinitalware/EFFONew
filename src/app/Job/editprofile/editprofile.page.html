@@ -7,7 +7,7 @@
   </header> -->
 
   <div align="center" style="margin-top: 10%">
-    <img src="assets/v1.png" alt="" width="30%" height="30%" />
+    <img src="assets/{{this.dataService.logoName}}" alt="" width="30%" height="30%" />
   </div>
 
   <div class="login_title" style="margin-top: 3%">
@@ -47,7 +47,7 @@
       <div class="flex items-end">
         <button
           (click)="checkPinCode()"
-          class="bg-red-600 px-4 py-2 rounded-md text-white"
+          class="bg-primary px-4 py-2 rounded-md text-white"
         >
           Check
         </button>
@@ -70,14 +70,13 @@
     </ion-item>
 
     <div align="center" class="button_login">
-      <button
+      <ion-button
+      color="primary"
         expand="block"
-        color="light"
-        class="bg-class"
         (click)="updateProfile()"
       >
         Update Profile
-      </button>
+      </ion-button>
     </div>
   </div>
 </ion-content>

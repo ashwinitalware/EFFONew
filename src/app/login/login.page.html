@@ -9,9 +9,12 @@
     <p class="text-p text-gray-600">Enter your phone number to continue</p>
   </div>
  -->
-    <div class="bg-red flex items-center text h-1/3">
-      <img src="assets/textW.png" class="w-1/2 m-auto" />
+    <div class="bg-primary flex items-center text h-1/3">
+      <img src="assets/{{this.dataService.logoName}}" class="w-1/2 m-auto" />
     </div>
+    <!-- <div class="bg-red flex items-center text h-1/3">
+      <img src="assets/textW.png" class="w-1/2 m-auto" />
+    </div> -->
 
     <div class="bg-white p-8 flex-1">
       <div class="text-sm font-bold">Phone Number :</div>
@@ -45,7 +48,7 @@
         *ngIf="this.dataService.auth.otpSent"
         expand="block"
         color="light"
-        class="bg-class mt-4"
+        class="bg-primary h-12 mt-4 w-full text-white"
         (click)="verify()"
       >
         <!-- routerLink="/dashboard" -->
@@ -63,7 +66,7 @@
         *ngIf="!this.dataService.auth.otpSent"
         expand="block"
         color="light  "
-        class="bg-class mt-8 h-12"
+        class="bg-primary mt-8 h-12 w-full text-white"
         (click)="login()"
       >
         Login

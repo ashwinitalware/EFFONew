@@ -40,7 +40,8 @@ export class AppComponent {
     this.platform.ready().then(async () => {
       App.addListener('backButton', () => {
         if (
-          (window.location + '').includes('localhost/dashboard') ||
+          // (window.location + '').includes('localhost/dashboard') ||
+          (window.location + '').includes('localhost'+this.dataService.directNavigate) ||
           (window.location + '').includes('localhost/login')
         )
           App.exitApp();
@@ -82,14 +83,14 @@ export class AppComponent {
   }
   itemClicked(item) {
     this.dataService.menu.close();
-    if (item.role == 'home') this.router.navigate(['/dashboard']);
+    // if (item.role == 'home') this.router.navigate(['/dashboard']);
+    if (item.role == 'home') this.router.navigate([''+this.dataService.directNavigate]);
     if (item.role == 'privacy') this.router.navigate(['/privacypolicy']);
     if (item.role == 'contact') this.router.navigate(['/contactus']);
     if (item.role == 'share') {
       this.dataService.share(
-        'Download Effo App',
-        'I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life.',
-        'https://play.google.com/store/apps/details?id=ionic.effo.starter'
+        'Download '+this.dataService.appName+' App',
+        this.dataService.shareContent,this.dataService.playStoreLinks.customer
       );
 
       // navigator.share({
@@ -105,7 +106,7 @@ export class AppComponent {
       //   `https://play.google.com/store/apps/details?id=io.effo.vendor`
       // );
       window.open(
-        'https://play.google.com/store/apps/details?id=io.effo.vendor',
+        this.dataService.playStoreLinks.vendor,
         '_system'
       );
     }
@@ -119,7 +120,7 @@ export class AppComponent {
       //   });
 
       window.open(
-        'https://play.google.com/store/apps/details?id=ionic.effo.starter',
+        this.dataService.playStoreLinks.customer,
         '_system'
       );
     }

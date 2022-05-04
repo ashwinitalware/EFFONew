@@ -104,7 +104,7 @@ export class LoginPage implements OnInit {
           if (data.profile) {
             this.dataService.profile = data.profile;
 
-            localStorage.setItem('effoProfile', JSON.stringify(data.profile));
+            localStorage.setItem(this.dataService.localStorageName, JSON.stringify(data.profile));
             // this.dataService.auth.canLoad = false;
             if (
               !data.profile.fullName ||
@@ -113,8 +113,9 @@ export class LoginPage implements OnInit {
             ) {
               this.navCtrl.navigateForward(['/editprofile']);
             } else {
-              this.navCtrl.navigateForward(['/dashboard']);
               // this.navCtrl.navigateForward(['/dashboard']);
+              this.navCtrl.navigateForward([''+this.dataService.directNavigate]);
+              
             }
           }
           if (data.status == false) {

@@ -17,6 +17,23 @@ declare const Swal: any;
   providedIn: 'root',
 })
 export class DataService {
+
+
+  contacts={
+    // reportEmail:"report@aisaindiajobs.com"
+    reportEmail:"support@vendorclub.com"
+  }
+
+  shareContent='I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life.'
+  
+  playStoreLinks={
+    customer:'https://play.google.com/store/apps/details?id=ionic.effo.starter',
+    vendor:'https://play.google.com/store/apps/details?id=io.effo.vendor'
+  }
+  logoName="textW.png"
+  localStorageName='aisaJobProfileLS'
+  appName="Effo"
+  directNavigate='/dashboard'
   drawer = [
     {
       icon: 'apps',
@@ -48,18 +65,7 @@ export class DataService {
       active: false,
       role: 'privacy',
     },
-    {
-      icon: 'call',
-      title: 'Contact Us',
-      active: false,
-      role: 'contact',
-    },
-    {
-      icon: 'log-out',
-      title: 'Logout',
-      active: false,
-      role: 'logout',
-    },
+   
   ];
 
   auth = {
@@ -90,9 +96,30 @@ export class DataService {
     // this.apiUrl = this.domainUrl + 'api/';
     // this.domainUrl =
     //   'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
-    this.domainUrl = 'https://strapi.effoapp.com/';
-    this.apiUrl = this.domainUrl + 'api/';
+    // this.domainUrl = 'https://strapi.effoapp.com/';
+    // this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
+
+    ///MAIN CONFIGS
+//  this doesn't work   // this.localStorageName='aisaJobProfileLS'
+    this.logoName='aisaLogo.png'
+    this.appName="AISA"
+    this.directNavigate='/jobdashboard'
+    this.domainUrl = 'http://strapiapi-env-1.ap-south-1.elasticbeanstalk.com/';
+    this.apiUrl = this.domainUrl + 'api/';
+
+    this.drawer.push(...[ {
+      icon: 'call',
+      title: 'Contact Us',
+      active: false,
+      role: 'contact',
+    },
+    {
+      icon: 'log-out',
+      title: 'Logout',
+      active: false,
+      role: 'logout',
+    },])
   }
   async present(content = 'Loading Data...', duration = 10000) {
     this.isLoading = true;
@@ -145,7 +172,7 @@ export class DataService {
     this.photoViewer.show(image);
   }
   syncProfileFromLs() {
-    const tempStringProfile = window.localStorage.getItem('effoProfile');
+    const tempStringProfile = window.localStorage.getItem(this.localStorageName);
     if (tempStringProfile) {
       this.profile = JSON.parse(tempStringProfile);
       // this.auth.canLoad = false;
@@ -153,7 +180,7 @@ export class DataService {
   }
   saveProfileObject(profile) {
     this.profile = profile;
-    localStorage.setItem('effoProfile', JSON.stringify(profile));
+    localStorage.setItem(this.localStorageName, JSON.stringify(profile));
   }
 
   updateLastLogin() {
@@ -174,7 +201,7 @@ export class DataService {
   }
   report(subject = 'Report', body = 'I want to report  ....') {
     window.open(
-      'mailto:support@vendorclub.com' + '?subject=' + subject + '&body=' + body,
+      'mailto:'+this.contacts.reportEmail + '?subject=' + subject + '&body=' + body,
       '_system'
     );
   }

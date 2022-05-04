@@ -56,7 +56,7 @@
           <div
             class="flex items-center rounded-md p-2 text-sm mt-2"
             *ngFor="let item of this.dataService.drawer; let i = index"
-            [ngClass]="{ 'bg-red text-white': item.active }"
+            [ngClass]="{ 'bg-primary text-white': item.active }"
             (click)="itemClicked(item)"
           >
             <ion-icon class="text-lg" name="{{ item.icon }}"></ion-icon>

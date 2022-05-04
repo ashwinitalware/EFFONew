@@ -108,7 +108,7 @@ data:{
   }
   report() {
     window.open(
-      'mailto:support@vendorclub.com' +
+      'mailto:'+this.dataService.contacts.reportEmail +
         '?subject=Job Report | Job ID : ' +
         this.data.id +
         '&body=I want to report this job because ....',

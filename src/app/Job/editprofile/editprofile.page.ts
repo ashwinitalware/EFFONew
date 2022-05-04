@@ -105,7 +105,8 @@ export class EditprofilePage implements OnInit {
         if (this.activateRoute.snapshot.queryParams.navigate == 'back') {
           this.navCtrl.back();
         } else {
-          this.navCtrl.navigateRoot(['/dashboard']);
+          // this.navCtrl.navigateRoot(['/dashboard']);
+          this.navCtrl.navigateRoot([''+this.dataService.directNavigate]);
         }
       });
   }

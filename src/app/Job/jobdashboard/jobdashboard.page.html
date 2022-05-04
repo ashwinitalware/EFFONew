@@ -1,9 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <div slot="start" *ngIf="this.dataService.directNavigate!='/dashboard'">
+      <ion-menu-button class="text-white"> </ion-menu-button>
+    </div>
+    <ion-buttons slot="start" *ngIf="this.dataService.directNavigate=='/dashboard'">
       <ion-back-button color="light"></ion-back-button>
     </ion-buttons>
-    <div class="px-4 text-white text-lg">Effo Jobs</div>
+    <div class="px-4 text-white text-lg">{{this.dataService.appName}} Jobs</div>
   </ion-toolbar>
 </ion-header>
 
