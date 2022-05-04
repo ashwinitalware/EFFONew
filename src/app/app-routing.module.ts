@@ -411,9 +411,14 @@ const routes: Routes = [
   {
     path: 'myprofile',
     loadChildren: () => import('./Oldex/myprofile/myprofile.module').then(m => m.MyprofilePageModule)
-  },  {
+  },
+  {
     path: 'productinfo',
-    loadChildren: () => import('./Oldex/productinfo/productinfo.module').then( m => m.ProductinfoPageModule)
+    loadChildren: () => import('./Oldex/productinfo/productinfo.module').then(m => m.ProductinfoPageModule)
+  },
+  {
+    path: 'ridedetails',
+    loadChildren: () => import('./Cabservice/ridedetails/ridedetails.module').then(m => m.RidedetailsPageModule)
   },
 
 

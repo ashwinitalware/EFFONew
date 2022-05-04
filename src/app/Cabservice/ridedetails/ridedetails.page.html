@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white">Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-2">
+    <div class="flex justify-start bg-white p-2 mt-2">
+      <ion-label><b>Time : </b> 10.00 AM</ion-label>
+    </div>
+
+    <div class="flex justify-start bg-white p-2 mt-2">
+      <ion-label><b>Date : </b> 05 May 2022</ion-label>
+    </div>
+
+    <div class=" bg-white p-2 mt-2">
+      <ion-label><b>Pickup Location </b></ion-label><br>
+      <p>
+        Rathi Nagar, Gadge Nagar Pin code is 444604 and postal head office is V.M.V. (Amravati)
+      </p>
+    </div>
+
+    <div class="bg-white p-2 mt-2">
+      <ion-label><b>Drop off Location</b></ion-label><br>
+      <p>
+        Dastur Nagar Amravati, 444606, Amravati, Maharashtra
+      </p>
+    </div>
+
+    <div class="bg-white mt-2">
+      <div class="pt-4 p-2 ">
+        <ion-slides class="slider " [options]="slideOptions1" pager="false" #slider
+          (ionSlidesDidLoad)="slidesDidLoad1(slider)">
+          <ion-slide class="">
+            <div>
+              <ion-icon class="text-4xl text-gray-500 rounded-md p-2 bg-gray-200" name="car-sport-outline"></ion-icon>
+              <p class="text-xs">Mobiles</p>
+            </div>
+          </ion-slide>
+
+          <ion-slide class="">
+            <div>
+              <ion-icon class="text-4xl text-gray-500 rounded-md p-2 bg-gray-200" name="car"></ion-icon>
+              <p class="text-xs pt-1">Bikes</p>
+            </div>
+          </ion-slide>
+
+          <ion-slide class="pr-2">
+            <div>
+              <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/seater-sofa.png" />
+              <p class="text-xs pt-1">Furniture</p>
+            </div>
+          </ion-slide>
+
+          <ion-slide class="pr-2">
+            <div>
+              <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/dress.png" />
+              <p class="text-xs pt-1">Fashion</p>
+            </div>
+          </ion-slide>
+
+          <ion-slide class="pr-2">
+            <div>
+              <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/books.png" />
+              <p class="text-xs pt-1">Book & Sports</p>
+            </div>
+          </ion-slide>
+
+          <ion-slide class="pr-2">
+            <div>
+              <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/guide-dog.png" />
+              <p class="text-xs pt-1">Pets</p>
+            </div>
+          </ion-slide>
+
+          <ion-slide class="pr-2">
+            <div>
+              <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/car.png" />
+              <p class="text-xs pt-1">Cars</p>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

@@ -8,6 +8,12 @@ import { IonSlides } from '@ionic/angular';
 })
 export class CabserdashboardPage implements OnInit {
 
+  switchTab = 'local'
+
+  segmentChanged(ev: any) {
+    this.switchTab = ev.detail.value;
+    console.log('Segment changed', ev);
+  }
   // slider: any;
 
   // slideOptss = {
