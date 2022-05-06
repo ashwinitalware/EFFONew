@@ -420,6 +420,15 @@ const routes: Routes = [
     path: 'ridedetails',
     loadChildren: () => import('./Cabservice/ridedetails/ridedetails.module').then(m => m.RidedetailsPageModule)
   },
+  {
+    path: 'cabhistory',
+    loadChildren: () => import('./Cabservice/cabhistory/cabhistory.module').then(m => m.CabhistoryPageModule)
+  },  {
+    path: 'ridestatus',
+    loadChildren: () => import('./Cabservice/ridestatus/ridestatus.module').then( m => m.RidestatusPageModule)
+  },
+
+
 
 
 

@@ -10,31 +10,41 @@
 </ion-header>
 
 <ion-content class="class-name">
-  <ion-segment mode="ios" class="bg-red-600" (ionChange)='segmentChanged($event)' scrollable value="local"
-    class="ion-no-padding" class="ion-no-margin">
-    <ion-segment-button class="ion-no-padding " value="local">
-      <ion-label class="p-1">Local</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="rental">
-      <ion-label class="p-1">Rentals </ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="out">
-      <ion-label class="p-1">Outstation </ion-label>
-    </ion-segment-button>
+  <!-- <div class="p-2">
+    <ion-segment mode="ios" color="dark" class="bg-red-600 parent-border-radius" (ionChange)='segmentChanged($event)'
+      scrollable value="local" class="ion-no-padding" class="ion-no-margin">
+      <ion-segment-button color="primary" class="ion-no-padding bg-red-600" value="local">
+        <ion-label class="p-1">Local</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="rental">
+        <ion-label class="p-1">Rentals </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="out">
+        <ion-label class="p-1">Outstation </ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div> -->
+
+  <ion-segment mode="ios" value="local" class="parent-border-radius p-1" (ionChange)='segmentChanged($event)'>
+    <ion-segment-button value="local">Local</ion-segment-button>
+    <ion-segment-button value="rental">Rentals</ion-segment-button>
+    <ion-segment-button value="out">Outstation</ion-segment-button>
   </ion-segment>
 
   <div *ngIf="switchTab == 'local'" class=" pt-2 p-2"></div>
   <div *ngIf="switchTab == 'rental'" class=" pt-2 p-2"></div>
   <div *ngIf="switchTab == 'out'" class=" pt-2 p-2"></div>
 
-  <div class="p-2">
+  <div class="p-2 pt-2">
 
-    <div class="bg-white border-2 border-gray-300 rounded-md shadow-md -mt-2">
-      <ion-input class="text-sm" placeholder="Pick up location"></ion-input>
+    <div class="bg-white  flex justify-start p-2 border-2 border-gray-300 rounded-md shadow-md -mt-3">
+      <ion-icon class="flex items-center  text-base " color="primary" name="pin"></ion-icon><span class="text-sm">Pick
+        up </span>
     </div>
 
-    <div class="bg-white border-2 border-gray-300 rounded-md shadow-md mt-3">
-      <ion-input class="text-sm" placeholder="Drop off location"></ion-input>
+    <div class="bg-white flex justify-start border-2 p-2 border-gray-300 rounded-md shadow-md mt-3">
+      <ion-icon class="flex items-center  text-base " color="success" name="pin"></ion-icon><span class="text-sm">Drop
+        off </span>
     </div>
   </div>
 
@@ -47,12 +57,12 @@
 
 <ion-tab-bar slot="bottom">
 
-  <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600" routerLink="/oldexdashboard">
+  <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600" routerLink="/cabserdashboard">
     <ion-label>Home</ion-label>
     <ion-icon name="home"></ion-icon>
   </ion-tab-button>
 
-  <ion-tab-button tab="product" class="text-gray-600 hover:text-red-600">
+  <ion-tab-button tab="product" class="text-gray-600 hover:text-red-600" routerLink="/cabhistory">
     <ion-label>History</ion-label>
     <ion-icon name="briefcase"></ion-icon>
   </ion-tab-button>

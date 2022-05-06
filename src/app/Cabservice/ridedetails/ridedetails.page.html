@@ -10,23 +10,23 @@
 <ion-content>
   <div class="p-2">
     <div class="flex justify-start bg-white p-2 mt-2">
-      <ion-label><b>Time : </b> 10.00 AM</ion-label>
+      <ion-label><b>Time : </b> <span class="text-xs">10.00 AM</span></ion-label>
     </div>
 
     <div class="flex justify-start bg-white p-2 mt-2">
-      <ion-label><b>Date : </b> 05 May 2022</ion-label>
+      <ion-label><b>Date : </b> <span class="text-xs">05 May 2022</span></ion-label>
     </div>
 
     <div class=" bg-white p-2 mt-2">
       <ion-label><b>Pickup Location </b></ion-label><br>
-      <p>
+      <p class="text-xs">
         Rathi Nagar, Gadge Nagar Pin code is 444604 and postal head office is V.M.V. (Amravati)
       </p>
     </div>
 
     <div class="bg-white p-2 mt-2">
       <ion-label><b>Drop off Location</b></ion-label><br>
-      <p>
+      <p class="text-xs">
         Dastur Nagar Amravati, 444606, Amravati, Maharashtra
       </p>
     </div>
@@ -35,57 +35,67 @@
       <div class="pt-4 p-2 ">
         <ion-slides class="slider " [options]="slideOptions1" pager="false" #slider
           (ionSlidesDidLoad)="slidesDidLoad1(slider)">
-          <ion-slide class="">
+          <ion-slide class="pr-2">
             <div>
-              <ion-icon class="text-4xl text-gray-500 rounded-md p-2 bg-gray-200" name="car-sport-outline"></ion-icon>
-              <p class="text-xs">Mobiles</p>
-            </div>
-          </ion-slide>
-
-          <ion-slide class="">
-            <div>
-              <ion-icon class="text-4xl text-gray-500 rounded-md p-2 bg-gray-200" name="car"></ion-icon>
-              <p class="text-xs pt-1">Bikes</p>
+              <img class="rounded-md p-3 bg-gray-200" src="assets/cabservices/sedan.png" />
+              <p class="text-xs">Mini</p>
             </div>
           </ion-slide>
 
           <ion-slide class="pr-2">
             <div>
-              <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/seater-sofa.png" />
-              <p class="text-xs pt-1">Furniture</p>
+              <img class="rounded-md p-3 bg-gray-200" src="assets/cabservices/sedan.png" />
+              <!-- <ion-icon class="text-4xl text-gray-500 rounded-md p-2 bg-gray-200" name="car"></ion-icon> -->
+              <p class="text-xs pt-1">Prime Sedan</p>
             </div>
           </ion-slide>
 
           <ion-slide class="pr-2">
             <div>
-              <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/dress.png" />
-              <p class="text-xs pt-1">Fashion</p>
+              <!-- <ion-icon class="text-4xl text-gray-500 rounded-md p-2 bg-gray-200" name="car"></ion-icon> -->
+              <img class="rounded-md p-3 bg-gray-200" src="assets/cabservices/sedan.png" />
+              <p class="text-xs pt-1">MiniCab</p>
             </div>
           </ion-slide>
 
           <ion-slide class="pr-2">
             <div>
-              <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/books.png" />
-              <p class="text-xs pt-1">Book & Sports</p>
+              <!-- <ion-icon class="text-4xl text-gray-500 rounded-md p-2 bg-gray-200" name="car"></ion-icon> -->
+              <img class="rounded-md p-3 bg-gray-200" src="assets/cabservices/sedan.png" />
+              <p class="text-xs pt-1">MiniCab</p>
             </div>
           </ion-slide>
 
           <ion-slide class="pr-2">
             <div>
-              <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/guide-dog.png" />
-              <p class="text-xs pt-1">Pets</p>
+              <!-- <ion-icon class="text-4xl text-gray-500 rounded-md p-2 bg-gray-200" name="car"></ion-icon> -->
+              <img class="rounded-md p-3 bg-gray-200" src="assets/cabservices/sedan.png" />
+              <p class="text-xs pt-1">MiniCab</p>
             </div>
           </ion-slide>
 
           <ion-slide class="pr-2">
             <div>
-              <img class="rounded-md p-3 bg-gray-200" src="assets/Oldex/car.png" />
-              <p class="text-xs pt-1">Cars</p>
+              <!-- <ion-icon class="text-4xl text-gray-500 rounded-md p-2 bg-gray-200" name="car"></ion-icon> -->
+              <img class="rounded-md p-3 bg-gray-200" src="assets/cabservices/sedan.png" />
+              <p class="text-xs pt-1">MiniCab</p>
+            </div>
+          </ion-slide>
+
+          <ion-slide class="pr-2">
+            <div>
+              <!-- <ion-icon class="text-4xl text-gray-500 rounded-md p-2 bg-gray-200" name="car"></ion-icon> -->
+              <img class="rounded-md p-3 bg-gray-200" src="assets/cabservices/sedan.png" />
+              <p class="text-xs pt-1">MiniCars</p>
             </div>
           </ion-slide>
         </ion-slides>
       </div>
     </div>
-
+    <div class="p-2" style="margin-top: 10%;">
+      <ion-button expand="block" color="primary" routerLink="/ridestatus">
+        Confirm Pick up
+      </ion-button>
+    </div>
   </div>
 </ion-content>
