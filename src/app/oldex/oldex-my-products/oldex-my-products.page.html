@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>oldexMyProducts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-4">
+
+
+
+    <div *ngFor="let product of this.oldExService.myProducts" class="bg-white p-4 mt-2 rounded-md" style="width: 100%">
+
+      <!-- product.attributes.images.data&&product.attributes.images.data.length>1)? -->
+      <div class="flex">
+        <div class="w-10 h-10 bg-blue-100 rounded-md bg-cover"
+        *ngIf="product.attributes.images.data"
+        
+
+        style="background-image: url('{{product.attributes.images.data[0].attributes.url}}');"
+        >
+          
+        </div>
+
+      <div class="flex-1 pl-2">
+
+
+      <div class="flex ">
+        <div class="flex-1 text-black text-left text-base font-bold">
+          <!-- {{job.id}} -->{{product.attributes.title}}
+        </div>
+
+
+      </div>
+      <div class="text-sm text-blue-800 font-bold">
+        ₹ {{product.attributes.price}}
+      </div>
+    </div>
+
+  </div>
+
+      <div class="flex justify-start">
+
+        <div>
+          <div class="text-sm flex items-center">
+            <ion-icon name="location" class="text-red-600"></ion-icon>&nbsp;
+            {{product.attributes.city|titlecase}} | {{product.attributes.category.data.attributes.name|titlecase}}
+          </div>
+        </div>
+      </div>
+
+      <div class="text-sm  items-center mt-2">
+
+
+        <b>Description :</b>
+        {{product.attributes.description|titlecase}}
+      </div>
+
+
+
+
+
+      <div class="flex justify-between items-center">
+        <div>
+          <div class="text-sm">
+            Posted {{this.dataService.timeSince(product.attributes.createdAt)}}
+            <!-- Posted asf -->
+          </div>
+          <!-- <div *ngIf="job.applied">Viewed</div> -->
+        </div>
+        <div class="text-right">
+          <ion-button [routerLink]="['/add-old-product/'+product.id]" routerLinkActive="router-link-active"  color="dark" fill="clear" class="flex-1 mt-2 bg-white text-sm">
+            <b>View Details</b>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/add-old-product']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

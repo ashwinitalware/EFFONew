@@ -288,6 +288,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'oldex-dashboard',
+    loadChildren: () =>
+      import('./oldex/oldex-dashboard/oldex-dashboard.module').then(
+        (m) => m.OldexDashboardPageModule
+      ),
+  },
+  {
     path: 'service-home',
     loadChildren: () =>
       import('./services/service-home/service-home.module').then(
@@ -445,6 +452,26 @@ const routes: Routes = [
       import('./property/property-details/property-details.module').then(
         (m) => m.PropertyDetailsPageModule
       ),
+  },
+  {
+    path: 'add-old-product',
+    loadChildren: () => import('./oldex/add-old-product/add-old-product.module').then( m => m.AddOldProductPageModule)
+  },
+  {
+    path: 'add-old-product/:id',
+    loadChildren: () => import('./oldex/add-old-product/add-old-product.module').then( m => m.AddOldProductPageModule)
+  },
+  {
+    path: 'oldex-home',
+    loadChildren: () => import('./oldex/oldex-home/oldex-home.module').then( m => m.OldexHomePageModule)
+  },
+  {
+    path: 'oldex-my-products',
+    loadChildren: () => import('./oldex/oldex-my-products/oldex-my-products.module').then( m => m.OldexMyProductsPageModule)
+  },
+  {
+    path: 'oldex-details/:id',
+    loadChildren: () => import('./oldex/oldex-details/oldex-details.module').then( m => m.OldexDetailsPageModule)
   },
 
   // {

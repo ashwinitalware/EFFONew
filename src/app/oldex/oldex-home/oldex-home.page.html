@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>oldexHome</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="px-4 mt-3">
+    <div class="bg-white rounded-lg shadow-md">
+      <div class="flex items-center">
+        <ion-input
+          class="flex-1"
+          placeholder="Search by product name"
+          id="search"
+          [(ngModel)]="searchQuery"
+          (ionChange)="getSuggesions($event)"
+        >
+          <ion-icon name="search" style="margin-left: 7px"></ion-icon>
+        </ion-input>
+        <ion-icon
+          *ngIf="this.searchQuery"
+          (click)="this.searchQuery=''"
+          name="close"
+          class="px-4"
+          style="margin-left: 7px"
+        ></ion-icon>
+      </div>
+    </div>
+
+    <div>
+      <div
+        class="bg-white rounded-md w-full mt-2"
+        style="z-index: 10; left: 0px"
+      >
+        <div class="flex px-4 p-2" *ngIf="this.noSuggesionsFound">
+          No Suggesion Found
+        </div>
+        <div
+          (click)="suggestionClicked(suggestion)"
+          class="flex px-4 p-2"
+          *ngFor="let suggestion of suggestions"
+        >
+          <div class="flex-1">{{suggestion.title|titlecase}}</div>
+        </div>
+      </div>
+    </div>
+    <!-- <ion-button expand="block" class="mt-3" (click)="search()">
+      Search
+    </ion-button> -->
+  </div>
+
+  <div class="px-4 pt-4 pb-1">
+    <ion-label><b>Old Exchange Categories</b></ion-label>
+  </div>
+
+  <!-- <ion-grid fixed>
+    <ion-row align="center" class="pt-2">
+      <ion-col size="2" style="border-right: 1px solid rgb(224, 224, 224) ;" routerLink="/fulltime-job">
+        <img src="assets/full-time.png" alt=""><br>
+        <ion-label style="font-size: 0.6em;">Full Time </ion-label>
+      </ion-col>
+
+      <ion-col size="2" style="border-right: 1px solid rgb(224, 224, 224) ;" routerLink="/parttime-job">
+        <img src="assets/part-time.png" alt=""><br>
+        <ion-label style="font-size: 0.6em;">Part Time</ion-label>
+      </ion-col>
+
+      <ion-col size="4" style="border-right: 1px solid rgb(224, 224, 224) ;" routerLink="/workfromhome-job">
+        <img src="assets/work-from-home.png" alt=""><br>
+        <ion-label style="font-size: 0.6em;">Work From Home</ion-label>
+      </ion-col>
+      <ion-col size="4" style="border-right: 1px solid rgb(224, 224, 224) ;" routerLink="/workabroad-job">
+        <img src="assets/work-abroad.png" alt=""><br>
+        <ion-label style="font-size: 0.6em;">Work Abroad</ion-label>
+      </ion-col>
+      <ion-col size="2" routerLink="/workabroad-job">
+        <img src="assets/nightshift.png" alt=""><br>
+        <ion-label style="font-size: 0.6em;">Night Shift</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <div style="background-color: white; margin-bottom: 7px">
+    <div style="background-color: white; border-radius: 5px; margin-top: 3%">
+      <ion-grid fixed>
+        <ion-row class="small_text">
+          <ion-col
+            (click)="categorySelected(category)"
+            *ngFor="let category  of this.oldExService.categories"
+            size="4"
+            align="center"
+            class="flex flex-col"
+          >
+            <div
+              class="mx-auto primary-red p-3 text-white rounded-md flex items-center justify-center"
+            >
+              <ion-icon
+                name="{{category.attributes.icon}}"
+                class="text-xl"
+              ></ion-icon>
+            </div>
+            <div class="mt-2 text-xs">{{category.attributes.name|titlecase}}</div>
+          </ion-col>
+
+        
+        </ion-row>
+       
+      </ion-grid>
+    </div>
+  </div>
+
+  <!-- <div class="px-4 pt-2 pb-1">
+    <ion-label><b>Top Ads</b></ion-label>
+  </div> -->
+
+</ion-content>

@@ -18,9 +18,10 @@ declare const Swal: any;
 })
 export class DataService {
   // DIRECT CONFIGS
-  // directNavigate='/dashboard'
-  directNavigate='/jobdashboard'
-  localStorageName='aisaJobProfileLS'
+  directNavigate='/dashboard'
+  // directNavigate='/jobdashboard'
+  // localStorageName='aisaJobProfileLS'
+  localStorageName='effoProfilev2'
 // DIRECT CONFIGS
   contacts={
     // reportEmail:"report@aisaindiajobs.com"
@@ -98,37 +99,35 @@ export class DataService {
     // this.domainUrl =
     //   'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
     // this.domainUrl = 'https://strapi.effoapp.com/';
-    // this.apiUrl = this.domainUrl + 'api/';
-    this.syncProfileFromLs();
+    this.apiUrl = this.domainUrl + 'api/';
 
     ///MAIN CONFIGS
     //  this doesn't work   // this.localStorageName='aisaJobProfileLS'
-    this.contacts.reportEmail='support@webmediaindia.com'
-    this.shareContent='Download the App Now !'
-    this.playStoreLinks={
-      customer:'',
-      vendor:''
-    }
-    this.logoName='aisaLogo.png'
-    this.appName="AISA"
+    // this.contacts.reportEmail='support@webmediaindia.com'
+    // this.shareContent='Download the App Now !'
+    // this.playStoreLinks={
+    //   customer:'',
+    //   vendor:''
+    // }
+    // this.logoName='aisaLogo.png'
+    // this.appName="AISA"
     // this.directNavigate='/jobdashboard'
-    this.domainUrl = 'http://strapiapi-env-1.ap-south-1.elasticbeanstalk.com/';
-    this.apiUrl = this.domainUrl + 'api/';
+    // this.domainUrl = 'http://strapiapi-env-1.ap-south-1.elasticbeanstalk.com/';
+    // this.apiUrl = this.domainUrl + 'api/';
 
-    this.drawer.push(...[ 
+    // this.drawer.push(...[ 
       
-    //   {
-    //   icon: 'call',
-    //   title: 'Contact Us',
+ 
+    // {
+    //   icon: 'log-out',
+    //   title: 'Logout',
     //   active: false,
-    //   role: 'contact',
-    // },
-    {
-      icon: 'log-out',
-      title: 'Logout',
-      active: false,
-      role: 'logout',
-    },])
+    //   role: 'logout',
+    // },])
+
+
+    this.syncProfileFromLs();
+
   }
   async present(content = 'Loading Data...', duration = 10000) {
     this.isLoading = true;
@@ -377,5 +376,11 @@ export class DataService {
   }
   _post(endpoint, params, body): Observable<any> {
     return this.http.post(this.apiUrl + endpoint, body);
+  }
+  _put(endpoint, params, body): Observable<any> {
+    return this.http.put(this.apiUrl + endpoint, body);
+  }
+  _delete(endpoint, params={}, body={}): Observable<any> {
+    return this.http.delete(this.apiUrl + endpoint, body);
   }
 }

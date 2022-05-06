@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light"> Your Product Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="p-4 bg-white h-full overflow-y-scroll">
+    <form [formGroup]="form">
+      <ion-item class="">
+        <ion-label position="floating">Product Title</ion-label>
+        <ion-input formControlName="title"></ion-input>
+      </ion-item>
+      <br />
+      <ion-item>
+        <ion-label>Category</ion-label>
+        <ion-select formControlName="category"
+          interface="popover"
+          placeholder="Select One"
+        >
+          <ion-select-option *ngFor="let category of this.oldExService.categories"  value="{{category.id}}">{{category.attributes.name|titlecase}}</ion-select-option>
+         
+        </ion-select>
+      </ion-item>
+      <br />
+    
+      <ion-item class="">
+        <ion-label position="floating"> City</ion-label>
+        <ion-input  formControlName="city"></ion-input>
+      </ion-item>
+      <br />
+      <ion-item class="">
+        <ion-label position="floating"> Price</ion-label>
+        <ion-input formControlName="price" type="number"></ion-input>
+      </ion-item>
+      <br />
+
+ 
+      <ion-item class="">
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea formControlName="description"></ion-textarea>
+      </ion-item>
+      <br />
+
+      <div class="text-right" *ngIf="!images.length">
+        No Images Uploaded
+      </div>
+      <input
+        type="file"
+        class="hidden"
+        #fileUpload2
+        (change)="handleFileInput($event)"
+      />
+
+      <div class="">
+        <div *ngFor="let image of images;let i=index" class="flex">
+          <img class="w-32" src="{{image.url||image.attributes.url}}" alt="" />
+          <div class="flex-1 flex items-center justify-center">
+            <ion-button fill="clear" color="danger" (click)="removeImage(i)"
+              >Remove</ion-button
+            >
+          </div>
+        </div>
+      </div>
+      <ion-button
+        (click)="fileUpload2.click()"
+        fill="outline"
+        size="block"
+        color="primary"
+        >Add Property Image</ion-button
+      >
+
+      <ion-button (click)="submit()" size="block" color="primary"
+        >Submit</ion-button
+      >
+      
+      <ion-button
+        *ngIf="id"
+        (click)="remove()"
+        size="block"
+        color="primary"
+        >Remove Product</ion-button
+      >
+
+      
+    </form>
+  </div>
+</ion-content>

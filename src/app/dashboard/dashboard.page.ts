@@ -50,9 +50,9 @@ export class DashboardPage implements OnInit {
     {
       name: 'Property',
       image: '',
-      // link: 'property-dashboard',
+      link: 'property-dashboard',
       icon: 'home',
-      // available:true
+      available:true
     },
 
     // {
@@ -61,12 +61,13 @@ export class DashboardPage implements OnInit {
     //   icon: 'ticket',
     //   link: '',
     // },
-    // {
-    //   name: 'Old EX',
-    //   image: '',
-    //   link: '',
-    //   icon: 'swap-horizontal',
-    // },
+    {
+      name: 'Old EX',
+      image: '',
+      link: 'oldex-dashboard',
+      available:true,
+      icon: 'swap-horizontal',
+    },
     // {
     //   name: 'Utility',
     //   image: '',
