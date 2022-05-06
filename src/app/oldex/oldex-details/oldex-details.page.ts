@@ -17,22 +17,19 @@ export class OldexDetailsPage implements OnInit {
     public http: HttpClient,
     public activatedRoute: ActivatedRoute
   ) {
-    this.getPropertyDetails();
+    this.getDetails();
   }
 
   ngOnInit() {}
-  getPropertyDetails() {
+  getDetails() {
     const query = qs.stringify({
-      populate: {
-        user: {
-          populate: '*',
-        },
-      },
+      populate: '*',
+      
     });
     this.http
       .get(
         this.dataService.apiUrl +
-          'properties/' +
+          'oldex-products/' +
           this.activatedRoute.snapshot.params.id +
           '?' +
           query,
@@ -41,12 +38,12 @@ export class OldexDetailsPage implements OnInit {
       .subscribe((data: any) => {
         this.data = data.data;
 
-        try {
-          data.data.attributes.imagesArray =
-            data.data.attributes.images.split(',');
-        } catch (error) {
-          data.data.attributes.imagesArray = [];
-        }
+        // try {
+        //   data.data.attributes.imagesArray =
+        //     data.data.attributes.images.split(',');
+        // } catch (error) {
+        //   data.data.attributes.imagesArray = [];
+        // }
       });
   }
 }

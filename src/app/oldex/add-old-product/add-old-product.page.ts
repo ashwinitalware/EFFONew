@@ -142,7 +142,8 @@ images=[]
     this.dataService[this.id?'_put':'_post']('oldex-products'+(this.id?'/'+this.id:''),{},{
 data:{
   ...this.form.value,
-  images:imagesIds
+  images:imagesIds,
+  user:this.dataService.profile.id
 }
     })
     .subscribe(data=>{

@@ -5,7 +5,7 @@
 :root {
   /** primary **/
   // --ion-color-primary: #3880ff;
-  --ion-color-primary: red;
+  --ion-color-primary: #26448C;
   --ion-color-white: rgb(255, 255, 255);
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
@@ -86,7 +86,7 @@ ion-content {
 }
 
 ion-toolbar {
-  --background: linear-gradient(90deg, rgb(255, 0, 0) 0%, #af0000 100%) !important;
+  --background: linear-gradient(90deg, #26448C 0%, #3f67c4 100%) !important;
 }
 
 // .background-image {

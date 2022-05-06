@@ -11,8 +11,10 @@ import qs from 'qs'
 })
 export class OldExService {
 
-
+  notFound = false
   filters = {
+    query:'',
+    currentPage: 1,
     city: "",
     category: ""
   }
@@ -20,27 +22,70 @@ export class OldExService {
   products = []
   categories = []
   myProducts = []
+  newNearbyProducts = []
 
   constructor(public dataService: DataService) {
 
   }
 
-  getProducts(clear = false) {
+  getProducts(pager = undefined, firstTime = true) {
 
+    if (firstTime) {
+      this.filters.currentPage = 1;
+    }
+    this.notFound = false;
 
-    let query = qs.stringify({
+    if (firstTime) {
+      this.products = [];
+    }
+    if (pager) {
+      pager.target.complete();
+    }
+
+    let queryObj: any = {
+      sort: ['createdAt:desc'],
+      pagination: {
+        page: this.filters.currentPage++,
+        pageSize: '5',
+      },
+      filters: {
+        city: {
+          $contains: this.filters.city
+        },
+      },
       populate: '*',
-      
 
-      
 
-    })
+
+
+
+    }
+    if (this.filters.category) {
+      queryObj.filters.category = {
+        id: {
+          $eq: this.filters.category
+        }
+      }
+    }
+    if (this.filters.query) {
+      queryObj.filters.title = {
+       
+          $contains: this.filters.query
+       
+      }
+    }
+
+    let query = qs.stringify(queryObj)
+
     this.dataService._get('oldex-products', query).subscribe(data => {
       if (data.data)
-      if (clear)
-        this.products = data.data
-    else
-      this.products.push(data.data)
+        if (firstTime)
+          this.products = data.data
+      else
+        this.products.push(...data.data)
+
+      if (!this.products.length && !data.data.length)
+        this.notFound = true
 
     })
 
@@ -49,7 +94,7 @@ export class OldExService {
     this.dataService._get('oldex-categories', {
 
     }).subscribe(data => {
-     
+
     })
   }
 
@@ -67,15 +112,39 @@ export class OldExService {
   getMyProducts() {
     let query = qs.stringify({
       populate: '*',
-      user: {
-        id: {
-          $eq: this.dataService.profile.id
+      filters: {
+        user: {
+          id: {
+            $eq: this.dataService.profile.id
+          }
         }
       }
     })
     this.dataService._get('oldex-products', query).subscribe(data => {
       if (data.data)
         this.myProducts = data.data
+
+    })
+  }
+  getNearbyProducts() {
+    let query = qs.stringify({
+      sort: ['createdAt:desc'],
+      populate: '*',
+      pagination:{
+        pageSize:10
+      },
+      filters:{
+        city:{
+          $eq:
+            this.dataService.profile.city
+          
+        }
+      }
+   
+    })
+    this.dataService._get('oldex-products', query).subscribe(data => {
+      if (data.data)
+        this.newNearbyProducts = data.data
 
     })
   }

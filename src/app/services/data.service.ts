@@ -18,15 +18,21 @@ declare const Swal: any;
 })
 export class DataService {
   // DIRECT CONFIGS
-  directNavigate='/dashboard'
-  // directNavigate='/jobdashboard'
-  // localStorageName='aisaJobProfileLS'
-  localStorageName='effoProfilev2'
-// DIRECT CONFIGS
+  // appName="Effo"
+  // directNavigate='/dashboard'
+  // localStorageName='effoProfilev2'
+  // logoName="textW.png"
+  appName="AISA"
+  directNavigate='/jobdashboard'
+  localStorageName='aisaJobProfileLS'
+  logoName='aisaLogo.png'
   contacts={
-    // reportEmail:"report@aisaindiajobs.com"
-    reportEmail:"support@vendorclub.com"
+    // reportEmail:"support@vendorclub.com"
+    reportEmail:"report@aisaindiajobs.com"
   }
+  // DIRECT CONFIGS
+  // DIRECT CONFIGS
+  // DIRECT CONFIGS
 
   shareContent='I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life.'
   
@@ -34,8 +40,7 @@ export class DataService {
     customer:'https://play.google.com/store/apps/details?id=ionic.effo.starter',
     vendor:'https://play.google.com/store/apps/details?id=io.effo.vendor'
   }
-  logoName="textW.png"
-  appName="Effo"
+  
   drawer = [
     {
       icon: 'apps',
@@ -93,37 +98,36 @@ export class DataService {
     public menu: MenuController,
     public photoViewer: PhotoViewer
   ) {
-    // this.domainUrl =
-    //   'https://vaibhavfuke-effoapistrapi-x97qxwj5hrjq-1337.githubpreview.dev/';
-    // this.apiUrl = this.domainUrl + 'api/';
-    // this.domainUrl =
-    //   'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
     // this.domainUrl = 'https://strapi.effoapp.com/';
-    this.apiUrl = this.domainUrl + 'api/';
+    // this.apiUrl = this.domainUrl + 'api/';
 
     ///MAIN CONFIGS
-    //  this doesn't work   // this.localStorageName='aisaJobProfileLS'
-    // this.contacts.reportEmail='support@webmediaindia.com'
-    // this.shareContent='Download the App Now !'
-    // this.playStoreLinks={
-    //   customer:'',
-    //   vendor:''
-    // }
-    // this.logoName='aisaLogo.png'
-    // this.appName="AISA"
-    // this.directNavigate='/jobdashboard'
-    // this.domainUrl = 'http://strapiapi-env-1.ap-south-1.elasticbeanstalk.com/';
-    // this.apiUrl = this.domainUrl + 'api/';
 
-    // this.drawer.push(...[ 
+
+    this.shareContent='Download the App Now !'
+    this.playStoreLinks={
+      customer:'',
+      vendor:''
+    }
+    
+
+    this.domainUrl = 'http://strapiapi-env-1.ap-south-1.elasticbeanstalk.com/';
+    this.apiUrl = this.domainUrl + 'api/';
+
+    this.drawer.push(...[ 
       
- 
-    // {
-    //   icon: 'log-out',
-    //   title: 'Logout',
-    //   active: false,
-    //   role: 'logout',
-    // },])
+  //  {
+  //     icon: 'call',
+  //     title: 'Contact Us',
+  //     active: false,
+  //     role: 'contact',
+  //   },
+    {
+      icon: 'log-out',
+      title: 'Logout',
+      active: false,
+      role: 'logout',
+    },])
 
 
     this.syncProfileFromLs();

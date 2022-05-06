@@ -42,11 +42,18 @@ export class DashboardPage implements OnInit {
     //   link: '',
     // },
     {
-      name: 'Shopping',
+      name: 'Old EX',
       image: '',
-      icon: 'bag-handle',
-      link: '',
+      link: 'oldex-dashboard',
+      available:true,
+      icon: 'swap-horizontal',
     },
+    // {
+    //   name: 'Shopping',
+    //   image: '',
+    //   icon: 'bag-handle',
+    //   link: '',
+    // },
     {
       name: 'Property',
       image: '',
@@ -61,13 +68,7 @@ export class DashboardPage implements OnInit {
     //   icon: 'ticket',
     //   link: '',
     // },
-    {
-      name: 'Old EX',
-      image: '',
-      link: 'oldex-dashboard',
-      available:true,
-      icon: 'swap-horizontal',
-    },
+    
     // {
     //   name: 'Utility',
     //   image: '',

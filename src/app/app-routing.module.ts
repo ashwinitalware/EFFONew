@@ -473,6 +473,10 @@ const routes: Routes = [
     path: 'oldex-details/:id',
     loadChildren: () => import('./oldex/oldex-details/oldex-details.module').then( m => m.OldexDetailsPageModule)
   },
+  {
+    path: 'oldex-listing',
+    loadChildren: () => import('./oldex/oldex-listing/oldex-listing.module').then( m => m.OldexListingPageModule)
+  },
 
   // {
   //   path: 'job-profile',

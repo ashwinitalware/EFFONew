@@ -10,34 +10,34 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="data" class="h-full overflow-y-scroll">
-    <div class="h-full bg-white">
-      <!-- <img
+  <div *ngIf="data" class="h-full overflow-y-scroll bg-white">
+    <div class="h-full ">
+      <img
         class="w-full"
-        *ngIf="data.attributes.imagesArray&&data.attributes.imagesArray.length"
-        src="{{data.attributes.imagesArray[0]}}"
+        *ngIf="data.attributes.images.data&&data.attributes.images.data.length"
+        src="{{data.attributes.images.data[0].attributes.url}}"
         alt=""
-      /> -->
+      />
 
       <div class="p-4">
         <div class="flex justify-between items-center">
           <div class="text-xl font-bold">
-            <div>asdf</div>
+            <div>{{data.attributes.title}}</div>
           </div>
           <div class="text-sm text-gray-800">
             <!-- {{data.attributes.vacancies}} Opening(s) -->
-            asdf Sq.Ft.
+            <!-- asdf Sq.Ft. -->
           </div>
           <!-- <div class="font-bold">
           Rs {{data.attributes.salaryFrom}} - Rs {{data.attributes.salaryUpto}}
         </div> -->
         </div>
 
-        <div class="text-md text-black">Rs 123</div>
+        <div class="text-md text-black">Rs {{data.attributes.price}}</div>
         <!-- <div class=" text-sm text-gray-800">
         {{data.attributes.vacancies}} Opening(s)
       </div> -->
-        <div class="flex mt-2">
+        <!-- <div class="flex mt-2">
           <span class="flex items-center">
             <ion-icon name="location-outline"></ion-icon>
             &nbsp;abc
@@ -46,10 +46,10 @@
             <ion-icon name="briefcase-outline"></ion-icon>
             &nbsp;Transaction :123
           </span>
-        </div>
+        </div> -->
 
      
-        <div class="flex mt-2">
+        <!-- <div class="flex mt-2">
           <span class="flex items-center">
             <ion-icon name="home-outline"></ion-icon>
             &nbsp;123
@@ -60,14 +60,14 @@
             <ion-icon name="navigate-outline"></ion-icon>
             &nbsp; 123
           </span>
-        </div>
+        </div> -->
 
-        <div class="flex pb-2 mt-2">
+        <!-- <div class="flex pb-2 mt-2">
           <span class="flex items-center">
             <ion-icon name="wallet-outline"></ion-icon>
             &nbsp; 123
           </span>
-        </div>
+        </div> -->
 
         
         <div class="flex justify-between pt-3 border-t-2 border-gray-200">
@@ -103,7 +103,7 @@
             <ion-button
               color="dark"
               fill="clear"
-              (click)="this.dataService.report('Report Property Listing | ID : '+data.id)"
+              (click)="this.dataService.report('Report Old-Ex Listing | ID : '+data.id)"
             >
               Report
             </ion-button>
@@ -113,7 +113,7 @@
 
         <div class="text-lg font-bold mt-2">Description</div>
 
-        <div>asdf</div>
+        <div>{{data.attributes.description}}</div>
       </div>
     </div>
   </div>

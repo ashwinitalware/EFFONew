@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { DataService } from 'src/app/services/data.service';
 import { OldExService } from 'src/app/services/old-ex.service';
 
 @Component({
@@ -8,9 +10,10 @@ import { OldExService } from 'src/app/services/old-ex.service';
 })
 export class OldexHomePage implements OnInit {
 
-  constructor(public oldExService:OldExService) {
+  constructor(public oldExService:OldExService,public dataService:DataService,public navCtrl:NavController) {
 
     this.oldExService.getCategories()
+    this.oldExService.getNearbyProducts()
 
    }
 
@@ -18,6 +21,22 @@ export class OldexHomePage implements OnInit {
   }
   categorySelected(category){
 
+
+    this.oldExService.filters.query=undefined
+    this.oldExService.filters.city=this.dataService.profile.city
+    this.oldExService.filters.category=category.id
+    this.navCtrl.navigateForward(['/oldex-listing'])
+
+
+  }
+  search(){
+
+
+    this.oldExService.filters.city=this.dataService.profile.city
+    this.oldExService.filters.category=undefined
+    this.navCtrl.navigateForward(['/oldex-listing'])
+
+    
   }
 
 
