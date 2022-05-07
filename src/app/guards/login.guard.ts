@@ -49,7 +49,7 @@ export class LoginGuard implements CanActivate {
 
       } else if (route.routeConfig.path == 'login') {
 
-        return true;
+        // return true;
         try {
           // throw 'err'
      

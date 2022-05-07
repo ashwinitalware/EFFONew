@@ -18,17 +18,17 @@ declare const Swal: any;
 })
 export class DataService {
   // DIRECT CONFIGS
-  // appName="Effo"
-  // directNavigate='/dashboard'
-  // localStorageName='effoProfilev2'
-  // logoName="textW.png"
-  appName="AISA"
-  directNavigate='/jobdashboard'
-  localStorageName='aisaJobProfileLS'
-  logoName='aisaLogo.png'
+  appName="Effo"
+  directNavigate='/dashboard'
+  localStorageName='effoProfilev2'
+  logoName="textW.png"
+  // appName="AISA"
+  // directNavigate='/jobdashboard'
+  // localStorageName='aisaJobProfileLS'
+  // logoName='aisaLogo.png'
   contacts={
-    // reportEmail:"support@vendorclub.com"
-    reportEmail:"report@aisaindiajobs.com"
+    reportEmail:"support@vendorclub.com"
+    // reportEmail:"report@aisaindiajobs.com"
   }
   // DIRECT CONFIGS
   // DIRECT CONFIGS
@@ -98,30 +98,30 @@ export class DataService {
     public menu: MenuController,
     public photoViewer: PhotoViewer
   ) {
-    // this.domainUrl = 'https://strapi.effoapp.com/';
-    // this.apiUrl = this.domainUrl + 'api/';
+    this.domainUrl = 'https://strapi.effoapp.com/';
+    this.apiUrl = this.domainUrl + 'api/';
 
     ///MAIN CONFIGS
 
 
-    this.shareContent='Download the App Now !'
-    this.playStoreLinks={
-      customer:'',
-      vendor:''
-    }
+    // this.shareContent='Download the App Now !'
+    // this.playStoreLinks={
+    //   customer:'',
+    //   vendor:''
+    // }
     
 
-    this.domainUrl = 'http://strapiapi-env-1.ap-south-1.elasticbeanstalk.com/';
-    this.apiUrl = this.domainUrl + 'api/';
+    // this.domainUrl = 'http://strapiapi-env-1.ap-south-1.elasticbeanstalk.com/';
+    // this.apiUrl = this.domainUrl + 'api/';
 
     this.drawer.push(...[ 
       
-  //  {
-  //     icon: 'call',
-  //     title: 'Contact Us',
-  //     active: false,
-  //     role: 'contact',
-  //   },
+   {
+      icon: 'call',
+      title: 'Contact Us',
+      active: false,
+      role: 'contact',
+    },
     {
       icon: 'log-out',
       title: 'Logout',

@@ -90,11 +90,14 @@ export class PropertyAddPage implements OnInit {
 
     this.dataService.present();
 
+    console.log(this.form.value);
+    
     this.http[this.id ? 'put' : 'post'](
       this.dataService.apiUrl + 'properties/' + (this.id || ''),
       {
         data: {
           user: this.dataService.profile.id,
+        
           ...this.form.value,
         },
       }

@@ -10,6 +10,7 @@ import { PropertyService } from 'src/app/service/property.service';
   styleUrls: ['./property-own-list.page.scss'],
 })
 export class PropertyOwnListPage implements OnInit {
+
   constructor(
     public http: HttpClient,
     public dataService: DataService,

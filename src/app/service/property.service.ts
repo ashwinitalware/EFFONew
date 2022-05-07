@@ -18,14 +18,13 @@ export class PropertyService {
 
   constructor(public http: HttpClient, public dataService: DataService) {}
   getData(pager = undefined, firstTime = true) {
+    this.noPropertyFound = false;
     if (firstTime) {
       this.filters.currentPage = 1;
-    }
-    this.noPropertyFound = false;
-
-    if (firstTime) {
       this.data = [];
     }
+
+ 
     if (pager) {
       pager.target.complete();
     }
