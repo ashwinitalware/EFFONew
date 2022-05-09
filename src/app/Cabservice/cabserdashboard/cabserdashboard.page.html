@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button class="text-white"></ion-back-button>
     </ion-buttons>
-    <ion-title class="text-white">
+    <ion-title slot="end" class="text-white text-sm">
       <ion-icon name="location"></ion-icon>Amravati
     </ion-title>
   </ion-toolbar>
@@ -25,17 +25,20 @@
     </ion-segment>
   </div> -->
 
-  <ion-segment mode="ios" value="local" class="parent-border-radius p-1" (ionChange)='segmentChanged($event)'>
-    <ion-segment-button value="local">Local</ion-segment-button>
-    <ion-segment-button value="rental">Rentals</ion-segment-button>
-    <ion-segment-button value="out">Outstation</ion-segment-button>
-  </ion-segment>
+  <div class="p-2">
+    <ion-segment mode="ios" value="local" class="parent-border-radius p-1  rounded-md shadow-md"
+      (ionChange)='segmentChanged($event)'>
+      <ion-segment-button value="local">Local</ion-segment-button>
+      <ion-segment-button value="rental">Rentals</ion-segment-button>
+      <ion-segment-button value="out">Outstation</ion-segment-button>
+    </ion-segment>
+  </div>
 
   <div *ngIf="switchTab == 'local'" class=" pt-2 p-2"></div>
   <div *ngIf="switchTab == 'rental'" class=" pt-2 p-2"></div>
   <div *ngIf="switchTab == 'out'" class=" pt-2 p-2"></div>
 
-  <div class="p-2 pt-2">
+  <div class="p-2 -mt-2">
 
     <div class="bg-white  flex justify-start p-2 border-2 border-gray-300 rounded-md shadow-md -mt-3">
       <ion-icon class="flex items-center  text-base " color="primary" name="pin"></ion-icon><span class="text-sm">Pick
@@ -48,13 +51,17 @@
     </div>
   </div>
 
-  <div class="p-2" style="margin-top: 80%;">
+  <!-- <div class="flex items-end">
     <ion-button expand="block" color="primary" routerLink="/ridedetails">
       Book
     </ion-button>
-  </div>
+  </div> -->
 </ion-content>
-
+<div class="pl-2 pr-2 bg-gray-300">
+  <ion-button expand="block" color="primary" routerLink="/ridedetails">
+    Book
+  </ion-button>
+</div>
 <ion-tab-bar slot="bottom">
 
   <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600" routerLink="/cabserdashboard">
