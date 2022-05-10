@@ -88,8 +88,8 @@ export class DashboardPage implements OnInit {
     {
       name: 'Restaurant ',
       image: '',
-      link: '',
       icon: 'restaurant',
+      link: 'food-dashboard',
     },
     {
       name: '24/7 ',

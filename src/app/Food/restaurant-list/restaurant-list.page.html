@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons color="light" slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Restaurant List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="flex m-3 justify-start">
+    <ion-label class="text-black text-base border-dashed border-b-2 border-gray-500 ">All Restaurants Delivering
+      Healthy Food</ion-label>
+  </div>
+
+  <div *ngFor="let item of items" class="m-3 bg-white rounded-xl overflow-hidden">
+    <!-- <img src="https://picsum.photos/400/200" alt=""> -->
+    <ion-slides #slider loop="true" pager="true" [options]="slideOptions" (ionSlideTouchEnd)="slideChanged()">
+      <ion-slide>
+        <div routerLink="/addorder">
+          <img src="assets/{{item}}" alt="">
+          <a href="#!">
+            <div
+              class="absolute  bottom-2 text-white  left-0 bg-indigo-600 px-4 py-2 bg-gray-200 text-xs hover:bg-gray-200 hover:text-white transition duration-500 ease-in-out">
+              50% OFF
+            </div>
+          </a>
+          <a href="!#">
+            <div class="text-sm absolute top-0 right-0 bg-white px-4 text-white 
+              rounded-full h-10 w-10 flex flex-col items-center justify-center mt-3 mr-3 
+              hover:bg-white hover:text-white transition duration-500 ease-in-out">
+              <ion-icon class="text-sm text-black" name="bookmark-outline"></ion-icon>
+              <!-- <ion-icon class="text-2xl text-white" name="heart-outline"></ion-icon> -->
+              <!-- <span class="font-bold">27</span>
+                <small>March</small> -->
+            </div>
+          </a>
+        </div>
+
+      </ion-slide>
+
+      <ion-slide>
+        <div routerLink="/addorder">
+          <img src="assets/{{item}}" alt="">
+          <a href="#!">
+            <div
+              class="absolute bottom-2 text-white left-0 bg-indigo-600 px-4 py-2 bg-gray-600 text-xs hover:bg-gray-600 hover:text-white transition duration-500 ease-in-out">
+              50% OFF
+            </div>
+          </a>
+          <a href="!#">
+            <div class="text-sm absolute top-0 right-0 bg-gray-200 px-4 text-grbg-gray-200 
+             h-5 w-21 flex flex-col items-center justify-center mt-3 mr-3 rounded-md
+            hover:bg-gray-200 hover:text-grbg-gray-200 transition duration-500 ease-in-out">
+              <ion-label class="text-black text-xs">Paneer Tikka</ion-label>
+            </div>
+          </a>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div routerLink="/addorder">
+          <img src="assets/{{item}}" alt="">
+          <a href="#!">
+            <div
+              class="absolute bottom-2 text-white  left-0 bg-indigo-600 px-4 py-2 bg-gray-200 text-xs hover:bg-gray-200 hover:text-white transition duration-500 ease-in-out">
+              50% OFF
+            </div>
+          </a>
+          <a href="!#">
+            <div class="text-sm absolute top-0 right-0 bg-gray-200 px-4 text-gray-200 
+             h-5 w-21 flex flex-col items-center justify-center mt-3 mr-3 rounded-md
+            hover:bg-gray-200 hover:text-gray-200 transition duration-500 ease-in-out">
+              <ion-label class="text-black text-xs">Veg Manchurian</ion-label>
+            </div>
+          </a>
+        </div>
+      </ion-slide>
+    </ion-slides>
+
+    <div class="flex  p-4">
+      <div class=" flex-grow ">
+        <!-- <div>
+          <ion-icon class="text-red-600 text-lg" name="radio-button-on-outline"></ion-icon>
+        </div> -->
+        <div class="text-base text-gray-600">
+          <ion-icon class="text-green-600 text-sm" name="radio-button-on-outline"></ion-icon>
+          <b> Hotel Abdulla</b>
+        </div>
+        <div class="text-sm text-gray-400">North Indian, Biryani</div>
+        <div class="font-bold text-gray-600 text-sm">₹249 /-</div>
+      </div>
+
+      <div>
+        <ion-button size="small" class="text-white" color="success" style="margin-left: 5%;">
+          4.1 &nbsp; <ion-icon class="text-xs" name="star"></ion-icon>
+        </ion-button>
+        <!-- <div class="  flex rounded-md">
+          <span class="px-4 py-1 bg-gray-100 border-md rounded-md text-red-600">
+            -
+          </span>
+          <span class="px-2 py-1  ">
+            2
+          </span>
+          <span class="px-4 py-1 bg-gray-100 border-md rounded-md text-red-600">
+            +
+          </span>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,232 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="light" class="bg-gray-100">
+    <ion-buttons slot="start" class="ion-padding" routerLink="/dashboard">
+      <img class="man" src="assets/Food/iconmenu.png" alt="">
+    </ion-buttons>
+    <ion-title class="text-center">
+      <ion-icon color="danger" class="text-lg" name="location"></ion-icon>
+      <span class="border-dashed border-b-2 border-gray-300 text-lg text-black">Railway Station</span>
+    </ion-title>
+    <ion-buttons slot="end" class="ion-padding" routerLink="/cart">
+      <ion-icon name="cart" color="danger" class="text-2xl"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row class="p-2 pl-2 pr-2">
+    <div class="bg-white rounded-lg border-gray-100" style="width: 100%;">
+      <ion-input class="text-gray-500 text-sm p-1" placeholder="Restaurant name,cuisine, or a dish.." id="search">
+        <ion-icon name="search" class="text-xl text-red-600" style="margin-left: 7px;"></ion-icon>
+      </ion-input>
+    </div>
+  </ion-row>
+
+  <div class="flex justify-between pl-2 pr-2 pt-1">
+    <div class="p-1 border-2 border-gray-400 rounded-lg w-3/4 text-center text-gray-500  ui-sans-serif font-thin"
+      routerLink="/scan">Dine
+      In</div>&nbsp;
+    <div class="p-1 border-2 border-gray-400 rounded-lg w-3/4 text-center text-gray-500 ui-sans-serif font-thin"
+      routerLink="/restrolist">Reserve
+    </div>
+  </div>
+
+  <!-- <div class="flex justify-evenly p-1" >
+    <div class="bg-white text-center w-20 p-2 rounded-2xl content-center" routerLink="/yourorders">
+      <span class="inline-block align-middle"><img class="w-11" src="assets/dinein.png"></span>
+      <p class="text-xs text-center">Dine In</p>
+
+    </div>
+
+    <div class="bg-white text-center w-20 p-2 rounded-2xl" routerLink="/selectoutlate">
+      <span class="inline-block align-middle"><img  class="w-10" src="assets/takeaway.png"></span>
+      <ion-label class="text-xs text-center">TakeAway</ion-label>
+    </div>
+
+    <div class="bg-white text-center w-20  p-2 rounded-2xl" routerLink="/delivery">
+      <span class="inline-block align-middle"><img  class="w-10" src="assets/delivery.png"></span>
+      <ion-label class="text-xs text-center">Delivery</ion-label>
+    </div>
+
+    <div class="bg-white text-center w-20 p-2 rounded-2xl" routerLink="/reserve">
+      <span class="inline-block align-middle"><img  class="w-10" src="assets/reserve.png"></span>
+      <ion-label class="text-xs text-center">Reserve</ion-label>
+    </div>
+  </div> -->
+  <ion-card>
+    <ion-slides #slider loop="true" pager="true" [options]="slideOptions" (ionSlideTouchEnd)="slideChanged()">
+      <ion-slide>
+        <img src="assets/Food/s1.jpg" alt="">
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/Food/s2.jpg" alt="">
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/Food/s3.jpg" alt="">
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+
+  <div class="flex pl-3 justify-start">
+    <ion-label class="text-black text-lg font-bold">Eat What Makes you Happy</ion-label>
+  </div>
+
+  <div class="flex justify-between pl-2 pr-2 -pt-4">
+    <div>
+      <img src="assets/Food/healthy.png" routerLink="/restaurant-list">
+      <p class="text-center text-xs"> Healthy </p>
+      <!-- <ion-label class="text-center text-xs text-gray-600 ui-sans-serif font-thin">Healthy</ion-label> -->
+    </div>
+    <div>
+      <img src="assets/Food/homestyle.png" routerLink="/restaurant-list">
+      <p class="text-center text-xs"> Home Style </p>
+      <!-- <ion-label class="text-xs text-gray-600 ui-sans-serif font-thin">Healthy</ion-label> -->
+    </div>
+    <div>
+      <img src="assets/Food/pizadish.png" routerLink="/restaurant-list">
+      <p class="text-center text-xs"> Pizza </p>
+    </div>
+
+    <div>
+      <img src="assets/Food/chaat.png" routerLink="/restaurant-list">
+      <p class="text-center text-xs"> Chaat </p>
+    </div>
+  </div>
+
+
+  <div class="flex justify-between pl-2 pr-2 -pt-4">
+    <div>
+      <img src="assets/Food/samosa.png" routerLink="/restaurant-list">
+      <p class="text-center text-xs"> Samosa </p>
+      <!-- <ion-label class="text-center text-xs text-gray-600 ui-sans-serif font-thin">Healthy</ion-label> -->
+    </div>
+    <div>
+      <img src="assets/Food/biryani.png" routerLink="/restaurant-list">
+      <p class="text-center text-xs"> Biryani </p>
+      <!-- <ion-label class="text-xs text-gray-600 ui-sans-serif font-thin">Healthy</ion-label> -->
+    </div>
+    <div>
+      <img src="assets/Food/cake.png" routerLink="/restaurant-list">
+      <p class="text-center text-xs"> Cake </p>
+    </div>
+
+    <div>
+      <img src="assets/Food/f1.png" routerLink="/restaurant-list">
+      <p class="text-center text-xs"> Vada </p>
+    </div>
+  </div>
+
+  <div class="flex pl-2 pr-2">
+    <div
+      class="p-1 border-2 border-gray-400 rounded-lg w-full text-center text-sm text-gray-500 ui-sans-serif font-thin">
+      See More <ion-icon style="font-size: 15px;" name="chevron-down-outline"></ion-icon>
+    </div>
+  </div>
+
+  <div class="flex pl-3 pt-1 justify-start">
+    <ion-label class="text-black text-lg font-bold">Restaurant around you</ion-label>
+  </div>
+
+  <div *ngFor="let item of items" class="m-2 bg-white rounded-xl overflow-hidden">
+    <!-- <img src="https://picsum.photos/400/200" alt=""> -->
+    <ion-slides #slider loop="true" pager="true" [options]="slideOptions" (ionSlideTouchEnd)="slideChanged()">
+      <ion-slide>
+        <div routerLink="/addorder">
+          <img src="assets/{{item}}" alt="">
+          <a href="#!">
+            <div
+              class="absolute  bottom-2 text-white  left-0 bg-indigo-600 px-4 py-2 bg-gray-200 text-xs hover:bg-gray-200 hover:text-white transition duration-500 ease-in-out">
+              50% OFF
+            </div>
+          </a>
+          <a href="!#">
+            <div class="text-sm absolute top-0 right-0 bg-white px-4 text-white 
+              rounded-full h-10 w-10 flex flex-col items-center justify-center mt-3 mr-3 
+              hover:bg-white hover:text-white transition duration-500 ease-in-out">
+              <ion-icon class="text-sm text-black" name="bookmark-outline"></ion-icon>
+              <!-- <ion-icon class="text-2xl text-white" name="heart-outline"></ion-icon> -->
+              <!-- <span class="font-bold">27</span>
+                <small>March</small> -->
+            </div>
+          </a>
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div routerLink="/addorder">
+          <img src="assets/{{item}}" alt="">
+          <a href="#!">
+            <div
+              class="absolute bottom-2 text-white left-0 bg-indigo-600 px-4 py-2 bg-gray-600 text-xs hover:bg-gray-600 hover:text-white transition duration-500 ease-in-out">
+              50% OFF
+            </div>
+          </a>
+          <a href="!#">
+            <div class="text-sm absolute top-0 right-0 bg-gray-200 px-4 text-grbg-gray-200 
+             h-5 w-21 flex flex-col items-center justify-center mt-3 mr-3 rounded-md
+            hover:bg-gray-200 hover:text-grbg-gray-200 transition duration-500 ease-in-out">
+              <ion-label class="text-black text-xs">Paneer Tikka</ion-label>
+            </div>
+          </a>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div routerLink="/addorder">
+          <img src="assets/{{item}}" alt="">
+          <a href="#!">
+            <div
+              class="absolute bottom-2 text-white  left-0 bg-indigo-600 px-4 py-2 bg-gray-200 text-xs hover:bg-gray-200 hover:text-white transition duration-500 ease-in-out">
+              50% OFF
+            </div>
+          </a>
+          <a href="!#">
+            <div class="text-sm absolute top-0 right-0 bg-gray-200 px-4 text-gray-200 
+             h-5 w-21 flex flex-col items-center justify-center mt-3 mr-3 rounded-md
+            hover:bg-gray-200 hover:text-gray-200 transition duration-500 ease-in-out">
+              <ion-label class="text-black text-xs">Veg Manchurian</ion-label>
+            </div>
+          </a>
+        </div>
+      </ion-slide>
+    </ion-slides>
+
+    <div class="flex  p-4">
+      <div class=" flex-grow ">
+        <!-- <div>
+          <ion-icon class="text-red-600 text-lg" name="radio-button-on-outline"></ion-icon>
+        </div> -->
+        <div class="text-base text-gray-600">
+          <ion-icon class="text-green-600 text-sm" name="radio-button-on-outline"></ion-icon>
+          <b> Hotel Abdulla</b>
+        </div>
+        <div class="text-sm text-gray-400">North Indian, Biryani</div>
+        <div class="font-bold text-gray-600 text-sm">₹249 /-</div>
+      </div>
+
+      <div>
+        <ion-button size="small" class="text-white" color="success" style="margin-left: 5%;">
+          4.1 &nbsp; <ion-icon class="text-xs" name="star"></ion-icon>
+        </ion-button>
+        <!-- <div class="  flex rounded-md">
+          <span class="px-4 py-1 bg-gray-100 border-md rounded-md text-red-600">
+            -
+          </span>
+          <span class="px-2 py-1  ">
+            2
+          </span>
+          <span class="px-4 py-1 bg-gray-100 border-md rounded-md text-red-600">
+            +
+          </span>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="flex justify-center p-4">
+    <ion-button expand="block" color="danger" shape="round" routerLink="/menu">
+      Menu
+    </ion-button>
+  </div> -->
+
+
+</ion-content>

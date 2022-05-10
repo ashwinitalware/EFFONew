@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons color="light" slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Add Order</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="flex  justify-start pt-2">
+    <ion-label class="text-gray-800 pl-3  ui-sans-serif font-thin"><b>Gauri Inn Restaurant</b><br>
+      <span class="text-xs text-gray-500  ui-sans-serif font-thin"> <b>NH 6, Rahatgoan New by-pass Nagpur
+          Road</b></span>
+    </ion-label>
+
+  </div>
+
+  <ion-row class="pl-3 pr-3 pt-4">
+    <div class="bg-white rounded-lg border-gray-100" style="width: 100%; margin-top: -5%;">
+      <ion-input class="text-gray-500 text-sm" placeholder="Restaurant name,cuisine, or a dish.." id="search">
+        <ion-icon name="search" class="text-xl text-red-600" style="margin-left: 7px;"></ion-icon>
+      </ion-input>
+    </div>
+  </ion-row>
+
+  <div class="flex justify-start">
+    <div>
+      <ion-item lines="none">
+        <ion-label class="text-sm text-gray-400  ui-sans-serif ">Veg</ion-label>
+        <ion-toggle slot="start" color="success" name="veg"></ion-toggle>
+      </ion-item>
+    </div>
+    <div>
+      <ion-item lines="none">
+        <ion-label class="text-sm text-gray-400  ui-sans-serif ">Non-Veg</ion-label>
+        <ion-toggle slot="start" color="danger" name="nonveg"></ion-toggle>
+      </ion-item>
+    </div>
+  </div>
+
+  <div class="flex pl-3 justify-start">
+    <ion-label class="text-black  ui-sans-serif font-thin"><b>Home Style Foods</b></ion-label>
+  </div>
+
+  <!-- Second Card -->
+
+  <div class="flex p-4 border-b-2 border-gray-200" *ngFor="let restro of [1,13,2,1];let i=index">
+    <div class="" routerLink="/cart">
+      <img class="rounded-lg w-24 h-20" src="assets/Food/food2.jpg" alt="">
+    </div>
+
+    <div class="flex-grow px-4">
+      <div class="text-xs text-gray-800">
+        <ion-icon class="text-green-600 text-xs" name="radio-button-on-outline"></ion-icon>
+        <b>Veg Pizza {{restro}}</b><br>
+        <p class="text-xs">Hot and Spicy pizza</p>
+      </div>
+      <div class="font-bold text-xs">₹249.00 INR</div>
+    </div>
+    <div class="w-24">
+      <div class="flex rounded-md  " *ngIf="add" (click)="add=false">
+        <div class=" flex-grow  bg-white border-md rounded-md text-red-600 text-center py-1">
+          -
+        </div>
+        <div class="flex-grow text-center py-1 ">
+          1
+        </div>
+        <div class=" flex-grow  bg-white border-md rounded-md text-red-600 text-center py-1">
+          +
+        </div>
+      </div>
+      <div class=" rounded-md text-center" (click)="add=true" *ngIf="!add">
+        <div class="px-4 py-1 bg-white border-md rounded-md text-red-600">
+          ADD
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Second Card End -->
+
+  <!-- Third Card -->
+
+  <!-- Third Card End -->
+
+
+  <!-- Fourth Card -->
+
+
+  <!-- Fourth Card End -->
+
+
+
+</ion-content>
+
+<ion-footer>
+  <!-- <ion-toolbar class="bg-red-600">
+    <ion-title>Footer</ion-title>
+  </ion-toolbar> -->
+
+  <div class="flex justify-between bg-gray-300 rounded-tr-xl rounded-tl-xl">
+    <div class="p-3 ">
+      <ion-label class="flex justify-start pt-3 pl-3 text-black text-sm"><b>Number of items 4</b></ion-label>
+    </div>
+    <div class="p-3">
+      <ion-button color="danger" expand="block" shape="round" routerLink="/addtocart">
+        Add to Cart <ion-icon class="shake-horizontal ml-3" color="light" name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-footer>

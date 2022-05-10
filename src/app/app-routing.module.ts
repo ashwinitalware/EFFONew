@@ -423,10 +423,27 @@ const routes: Routes = [
   {
     path: 'cabhistory',
     loadChildren: () => import('./Cabservice/cabhistory/cabhistory.module').then(m => m.CabhistoryPageModule)
-  },  {
-    path: 'ridestatus',
-    loadChildren: () => import('./Cabservice/ridestatus/ridestatus.module').then( m => m.RidestatusPageModule)
   },
+  {
+    path: 'ridestatus',
+    loadChildren: () => import('./Cabservice/ridestatus/ridestatus.module').then(m => m.RidestatusPageModule)
+  },  {
+    path: 'food-dashboard',
+    loadChildren: () => import('./Food/food-dashboard/food-dashboard.module').then( m => m.FoodDashboardPageModule)
+  },
+  {
+    path: 'restaurant-list',
+    loadChildren: () => import('./Food/restaurant-list/restaurant-list.module').then( m => m.RestaurantListPageModule)
+  },
+  {
+    path: 'addorder',
+    loadChildren: () => import('./Food/addorder/addorder.module').then( m => m.AddorderPageModule)
+  },
+  {
+    path: 'addtocart',
+    loadChildren: () => import('./Food/addtocart/addtocart.module').then( m => m.AddtocartPageModule)
+  },
+
 
 
 

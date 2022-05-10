@@ -1,0 +1,257 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons color="light" slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Add Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="mx-auto max-w-sm">
+    <div class="flex justify-center pt-4">
+
+      <div class="flex items-center mr-4 mb-4">
+        <input id="radio1" type="radio" name="radio" class="hidden" checked />
+        <label for="radio1" class="flex items-center cursor-pointer text-xl">
+          <span class="w-4 h-4 inline-block mr-2 rounded-full border border-grey flex-no-shrink"></span>
+          Delivery</label>
+      </div>
+
+
+      <div class="flex items-center mr-4 mb-4">
+        <input id="radio2" type="radio" name="radio" class="hidden" />
+        <label for="radio2" class="flex items-center cursor-pointer text-xl">
+          <span class="w-4 h-4 inline-block mr-2 rounded-full border border-grey flex-no-shrink"></span>
+          Pickup</label>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="flex justify-between p-2">
+    <div>
+      <ion-title>Items</ion-title>
+    </div>
+    <div>
+      <ion-title>Qty</ion-title>
+    </div>
+    <div class="">
+      <ion-title>Price</ion-title>
+    </div>
+  </div>
+
+  <div class="flex justify-between pl-3 pr-3 pb-2 border-b-2 ">
+    <div>
+      <p>Chees Pizza</p>
+    </div>
+
+    <div>
+      <div class="  flex rounded-md">
+        <span class="px-4 py-1 bg-white border-md rounded-md text-red-600">
+          -
+        </span>
+        <span class="px-2 py-1  ">
+          1
+        </span>
+        <span class="px-4 py-1 bg-white border-md rounded-md text-red-600">
+          +
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <p>Rs. 70<ion-icon color="danger" name="trash"></ion-icon>
+      </p>
+    </div>
+  </div>
+
+  <div class="flex justify-between pl-3 pt-2 pr-3 pb-4 border-b-2 ">
+    <div>
+      <p>Chees Pizza</p>
+    </div>
+    <div>
+      <div class="  flex rounded-md">
+        <span class="px-4 py-1 bg-white border-md rounded-md text-red-600">
+          -
+        </span>
+        <span class="px-2 py-1  ">
+          1
+        </span>
+        <span class="px-4 py-1 bg-white border-md rounded-md text-red-600">
+          +
+        </span>
+      </div>
+    </div>
+    <div>
+      <p>Rs. 70<ion-icon color="danger" name="trash"></ion-icon>
+      </p>
+    </div>
+  </div>
+
+
+  <!-- <div class="flex m-4 justify-start">
+    <ion-label class="text-gray-500  ui-sans-serif font-thin"><b>Your Cart</b>
+      <ion-icon style="font-size: 15px;" name="cart-outline"></ion-icon>
+    </ion-label>
+  </div> -->
+
+  <!-- <div class="p-4">
+    <div class="border-gray-200 border-2 rounded-xl p-2">
+      <ion-label class="text-sm text-gray-400">Your Total Savings </ion-label><span class="text-left text-sm text-gray-400" style="margin-left: 45%;">₹20.00</span>
+    </div>
+  </div> -->
+
+
+  <div class="flex justify-between bg-white pt-4">
+    <div class="p-3">
+      <p class="text-sm ">Item Total<br> Delivery Charge <br>Donate ₹1 to Feeding India</p><br>
+      <p class="text-sm "> <b>Grand Total</b></p>
+    </div>
+    <div class="p-3">
+      <p class="text-sm ">
+        <b>₹149.00</b> <br> &nbsp; &nbsp; &nbsp; &nbsp;Free <br>&nbsp; &nbsp; &nbsp;<b>₹1.00</b>
+      </p><br>
+      <p class="text-sm "> <b> ₹ 140.00</b></p>
+    </div>
+  </div>
+  <div class="flex justify-between bg-gray-100 p-4"></div>
+  <div class="flex justify-between bg-white pt-2">
+    <div class="p-3">
+      <p class="text-sm text-gray-600 "> <b>Your Details</b></p>
+      <p class="text-sm ">Ashwini Talware, +9138765645</p>
+
+    </div>
+    <div class="p-3">
+      <p class="text-sm text-red-600 "> <b>Change</b></p>
+    </div>
+  </div>
+
+  <div class="flex justify-between bg-gray-100 p-4"></div>
+  <div class=" p-4 pt-2">
+    <ion-button class="w-full mt-15" expand="block" color="danger" routerLink="/placeorder">
+
+      Place Order <ion-icon class="shake-horizontal ml-3" color="light" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+
+  <!-- <div class="flex pl-4  justify-start">
+    <ion-label class="text-gray-500 text-MD font-bold pt-5">Saved Cards</ion-label>
+  </div>
+
+  <ion-card class="bg-white p-4">
+    <div class="flex justify-between">
+      <div class="flex items-center p-1">
+        <div class="flex items-center mt-1">
+          <div class="md:w-1/3"></div>
+          <label class="md:w-2/3 block text-gray-500 font-bold">
+            <input class="mr-2 leading-tight"  id="two"  type="checkbox">
+          </label>
+        </div>
+      </div>
+
+      <div class="flex flex-grow">
+        <ion-label><b>HDFC Bank Debit Card *******3456</b><br>
+        Suridar Kumar<br>
+      Expires 05/05/2024</ion-label>
+      </div>
+    </div>
+  </ion-card>
+
+
+  <ion-card class="bg-white p-4">
+    <div class="flex justify-between">
+      <div class="flex items-center p-1">
+        <div class="flex items-center mt-1">
+          <div class="md:w-1/3"></div>
+          <label class="md:w-2/3 block text-gray-500 font-bold">
+            <input class="mr-2 leading-tight" id="two" type="checkbox">
+          </label>
+        </div>
+      </div>
+
+      <div class="flex flex-grow">
+        <ion-label><b>HDFC Bank Debit Card *******3456</b><br>
+        Suridar Kumar<br>
+      Expires 05/05/2024</ion-label>
+      </div>
+    </div>
+  </ion-card>
+
+  <div class="flex pl-4  justify-start">
+    <ion-label class="text-gray-500 text-MD font-bold pt-5">Other Payment Option</ion-label>
+  </div>
+
+  <ion-card class="bg-white p-4">
+    <div class="flex justify-between">
+      <div class="flex items-center p-1">
+        <div class="flex items-center mt-1">
+          <div class="md:w-1/3"></div>
+          <label class="md:w-2/3 block text-gray-500 font-bold">
+            <input class="mr-2 leading-tight" id="two" type="checkbox">
+            <span class="text-sm">
+              UPI Apps
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+
+  <ion-card class="bg-white p-4">
+    <div class="flex justify-between">
+      <div class="flex items-center p-1">
+        <div class="flex items-center mt-1">
+          <div class="md:w-1/3"></div>
+          <label class="md:w-2/3 block text-gray-500 font-bold">
+            <input class="mr-2 leading-tight" id="two" type="checkbox">
+            <span class="text-sm">
+              Add Debit/ Credit /ATM Card
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+
+  <ion-card class="bg-white p-4">
+    <div class="flex justify-between">
+      <div class="flex items-center p-1">
+        <div class="flex items-center mt-1">
+          <div class="md:w-1/3"></div>
+          <label class="md:w-2/3 block text-gray-500 font-bold">
+            <input class="mr-2 leading-tight" id="two" type="checkbox">
+            <span class="text-sm">
+              Net Banking
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+
+  <ion-card class="bg-white p-4">
+    <div class="flex justify-between">
+      <div class="flex items-center p-1">
+        <div class="flex items-center mt-1">
+          <div class="md:w-1/3"></div>
+          <label class="md:w-2/3 block text-gray-500 font-bold">
+            <input class="mr-2 leading-tight" id="two" type="checkbox">
+            <span class="text-sm">
+              Cash On Delivery
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+
+
+  <div class="mt-15 p-4">
+    <ion-button class="mt-1" expand="block" color="danger" shape="round" routerLink="/Payment">
+      Next
+    </ion-button>
+  </div> -->
+
+</ion-content>
