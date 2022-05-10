@@ -39,21 +39,21 @@ const routes: Routes = [
   {
     path: 'jobdashboard',
     loadChildren: () =>
-      import('./job/jobdashboard/jobdashboard.module').then(
+      import('./Job/jobdashboard/jobdashboard.module').then(
         (m) => m.JobdashboardPageModule
       ),
   },
   {
     path: 'alljoblist',
     loadChildren: () =>
-      import('./job/alljoblist/alljoblist.module').then(
+      import('./Job/alljoblist/alljoblist.module').then(
         (m) => m.AlljoblistPageModule
       ),
   },
   {
     path: 'jobdetails/:jobId',
     loadChildren: () =>
-      import('./job/jobdetails/jobdetails.module').then(
+      import('./Job/jobdetails/jobdetails.module').then(
         (m) => m.JobdetailsPageModule
       ),
   },
@@ -275,11 +275,11 @@ const routes: Routes = [
         (m) => m.ConfirmationpopupPageModule
       ),
   },
-  {
-    path: 'job-home',
-    loadChildren: () =>
-      import('./job/job-home/job-home.module').then((m) => m.JobHomePageModule),
-  },
+  // {
+  //   path: 'job-home',
+  //   loadChildren: () =>
+  //     import('./job/job-home/job-home.module').then((m) => m.JobHomePageModule),
+  // },
   {
     path: 'service-dashboard',
     loadChildren: () =>
