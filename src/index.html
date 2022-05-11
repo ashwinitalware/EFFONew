@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Ionic App</title>
+    <title>Effo</title>
     <meta name="color-scheme" content="light dark" />
 
     <base href="/" />
@@ -46,6 +46,13 @@
     <script>
       function initFreshChat() {
         window.fcWidget.init({
+
+
+          "config": {
+     "cssNames": {
+        "widget": "custom_fc_frame"
+     }
+  },
           token: "80609d47-ccb7-4f01-af7d-95c49baa94df",
           host: "https://wchat.in.freshchat.com"
         });
@@ -57,6 +64,10 @@
         font-family: "Nunito", sans-serif;
         outline: none !important;
       }
+      .custom_fc_frame {
+
+bottom: 4rem !important;
+}
       .button {
         filter: drop-shadow(0px 4px 4px rgba(56, 43, 43, 0.25));
 
