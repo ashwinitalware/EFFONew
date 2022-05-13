@@ -17,6 +17,8 @@ declare const Swal: any;
   providedIn: 'root',
 })
 export class DataService {
+  homeSliders=[]
+  homeSlidersSecond=[]
   // DIRECT CONFIGS
   appName="Effo"
   directNavigate='/dashboard'
@@ -387,4 +389,19 @@ export class DataService {
   _delete(endpoint, params={}, body={}): Observable<any> {
     return this.http.delete(this.apiUrl + endpoint, body);
   }
+
+  slideClicked(slide){
+    if(slide.attributes.onclick=='redirect'){
+      this.router.navigate([slide.attributes.link])
+    }
+    else if(slide.attributes.onclick=='web'){
+      window.open(
+        slide.attributes.link,
+        '_system'
+      );
+    }
+
+  }
+
+
 }

@@ -6,7 +6,7 @@ import { SplashScreen } from '@capacitor/splash-screen';
 import { NavController, Platform, PopoverController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 import { JobService } from '../services/job.service';
-
+import qs from 'qs'
 // import { IonSlides } from '@ionic/angular';
 
 @Component({
@@ -48,12 +48,6 @@ export class DashboardPage implements OnInit {
       // available:true,
       icon: 'swap-horizontal',
     },
-    // {
-    //   name: 'Shopping',
-    //   image: '',
-    //   icon: 'bag-handle',
-    //   link: '',
-    // },
     {
       name: 'Property',
       image: '',
@@ -61,6 +55,12 @@ export class DashboardPage implements OnInit {
       icon: 'home',
       // available:true
     },
+    // {
+    //   name: 'Shopping',
+    //   image: '',
+    //   icon: 'bag-handle',
+    //   link: '',
+    // },
 
     // {
     //   name: 'Ticket Booking',
@@ -122,6 +122,30 @@ export class DashboardPage implements OnInit {
     // this.dataService.auth.canLoad = false;
     this.dataService.syncFCMToken();
     this.getPopupImage();
+    this.getSliders()
+    this.getSlidersSecond()
+  }
+  getSliders(){
+    let query=qs.stringify({
+      filters:{
+        position:'homeTop'
+      },
+      populate:'*'
+    })
+    this.dataService._get('sliders',query).subscribe(data=>{
+      this.dataService.homeSliders=data.data
+    })
+  }
+  getSlidersSecond(){
+    let query=qs.stringify({
+      filters:{
+        position:'homeSecond'
+      },
+      populate:'*'
+    })
+    this.dataService._get('sliders',query).subscribe(data=>{
+      this.dataService.homeSlidersSecond=data.data
+    })
   }
   search() {
     this.noSuggesions = false;

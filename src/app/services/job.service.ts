@@ -6,6 +6,26 @@ import qs from 'qs';
   providedIn: 'root',
 })
 export class JobService {
+  sections = [
+    {
+      title: 'New Jobs',
+      subtitle: 'Handpicked jobs by our experts especially for you',
+      color: 'black',
+      jobs: [],
+    },
+    {
+      title: 'Jobs Near Me',
+      subtitle: 'Nearby Jobs On EFFO App',
+      color: 'blue',
+      jobs: [],
+    },
+    {
+      title: 'High Salary Jobs',
+      subtitle: 'High salary jobs in your desired category',
+      color: 'green',
+      jobs: [],
+    },
+  ];
   noJobsFound = false;
 
   categories = [];
@@ -28,16 +48,18 @@ export class JobService {
 
   constructor(public http: HttpClient, public dataService: DataService) {}
   getCategories() {
+
+    if(this.categories.length) return false;
     // this.http.get(this.dataService.apiUrl + 'service-categories').subscribe(
     this.http.get(this.dataService.apiUrl + 'job-categories').subscribe(
       (data: any) => {
         this.categories = data.data;
-        for (let i = 0; i < this.categories.length; i++) {
+        // for (let i = 0; i < this.categories.length; i++) {
           // this.categories[i].jobs = [];
-          setTimeout(() => {
-            // this.getJobs(true, i);
-          }, 100 * i);
-        }
+          // setTimeout(() => {
+          //   // this.getJobs(true, i);
+          // }, 100 * i);
+        // }
       },
       (err) => {
         alert('Connection Error');
@@ -108,7 +130,7 @@ export class JobService {
 
   getAllJobs(jobCategoryIdOrQuery) {
     // let jobCategoryId=
-    this.jobs = [];
+    // this.jobs = [];
     this.http
       .post(this.dataService.domainUrl + 'graphql', {
         query: `query{

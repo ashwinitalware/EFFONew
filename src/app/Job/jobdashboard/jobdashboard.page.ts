@@ -79,12 +79,12 @@ export class JobdashboardPage implements OnInit {
     public http: HttpClient,
     public dataService: DataService
   ) {
-    this.jobService.resetFilters();
-    this.jobService.getCategories();
-    this.getNewJobs();
-    this.getNearJobs();
-    this.getHighSalaryJobs();
-    this.getJobProfileData();
+    // this.jobService.resetFilters();
+    // this.jobService.getCategories();
+    // this.getNewJobs();
+    // this.getNearJobs();
+    // this.getHighSalaryJobs();
+    // this.getJobProfileData();
   }
 
   getJobProfileData() {

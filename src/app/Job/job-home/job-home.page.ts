@@ -36,26 +36,7 @@ export class JobHomePage implements OnInit {
     jobCategory: '*',
   };
 
-  sections = [
-    {
-      title: 'New Jobs',
-      subtitle: 'Handpicked jobs by our experts especially for you',
-      color: 'black',
-      jobs: [],
-    },
-    {
-      title: 'Jobs Near Me',
-      subtitle: 'Nearby Jobs On EFFO App',
-      color: 'blue',
-      jobs: [],
-    },
-    {
-      title: 'High Salary Jobs',
-      subtitle: 'High salary jobs in your desired category',
-      color: 'green',
-      jobs: [],
-    },
-  ];
+ 
   // bookride = false;
   showAll = false;
   selectedLeave = '';
@@ -90,7 +71,7 @@ export class JobHomePage implements OnInit {
     this.getHighSalaryJobs();
   }
   getSuggesions() {
-    if (this.selectedTitleSuggesion == this.jobService.jobFilters.title) return;
+    if (this.selectedTitleSuggesion == this.jobService.jobFilters.title) return false;
     // alert(this.jobService.jobFilters.title);
     if (!this.jobService.jobFilters.title) return (this.titleSuggestions = []);
     this.http
@@ -230,6 +211,11 @@ export class JobHomePage implements OnInit {
     // this.router.navigate(['/joblist/' + query]);
   }
   getNewJobs() {
+
+    if(this.jobService.sections[0].jobs.length)
+    return false;
+    console.log('getNewJobs');
+    
     let query = qs.stringify({
       ...this.commonQuery,
      
@@ -248,10 +234,14 @@ export class JobHomePage implements OnInit {
         
       })
       .subscribe((data: any) => {
-        this.sections[0].jobs = data.data;
+        this.jobService.sections[0].jobs = data.data;
       });
   }
   getNearJobs() {
+    if(this.jobService.sections[1].jobs.length)
+    return false;
+    console.log('getNearJobs');
+    
     let query = qs.stringify({
       ...this.commonQuery,
       sort: ['createdAt:desc'],
@@ -269,10 +259,14 @@ export class JobHomePage implements OnInit {
     this.http
       .get(this.dataService.apiUrl + 'job-posts?' + query, {})
       .subscribe((data: any) => {
-        this.sections[1].jobs = data.data;
+        this.jobService.sections[1].jobs = data.data;
       });
   }
   getHighSalaryJobs() {
+    if(this.jobService.sections[2].jobs.length)
+    return false;
+    console.log('getHighSalaryJobs');
+    
     let query = qs.stringify({
       ...this.commonQuery,
       sort: ['salaryUpto:desc'],
@@ -290,13 +284,11 @@ export class JobHomePage implements OnInit {
     this.http
       .get(this.dataService.apiUrl + 'job-posts?' + query, {})
       .subscribe((data: any) => {
-        this.sections[2].jobs = data.data;
+        this.jobService.sections[2].jobs = data.data;
       });
   }
 
-  // slideChanged() {
-  //   this.slider.stopAutoplay();
-  // }
+
 
   ngOnInit() {}
   jobDetails(job) {
