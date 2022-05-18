@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>shoppingHistory</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row *ngFor="let product of allOrders; let i=index">
+    <ion-col size="12" (click)="orderDetails(product.id)">
+      <ion-card>
+      <div class="my-4" *ngIf="allOrders">
+        <ion-row *ngIf="allOrders" class="my-2">
+          <p class="text-sm mx-2">{{product?.attributes?.createdAt | date:'mediumDate'}}</p>
+          <ion-col size="12" class="my-2.5 -mt-1.5">
+            <ion-item lines="none" class="-ml-3">
+              <img style="width: 22%; margin-top: -24px;" src="{{product?.attributes?.image}}" (error)="onImgError($event)" alt="">
+              <ion-label class="mx-2 ">
+                <p style="font-weight: bold;">{{product?.attributes?.vendor?.data?.attributes?.fullName}}</p>
+                <p>
+                  <span>Quantity: 1</span>
+                </p>
+                <p>
+                  <span>OrderId: 123434343</span>
+                </p>
+                <p>
+                  <span style="font-weight: bold;">Order Total</span>
+                  <span style="font-weight: bold; float: right;">Status</span><br>
+                  <span style="font-weight: 600; float: right;">{{product?.attributes?.status}}</span>
+                   <span>&#8377;</span> {{product?.attributes?.total}}
+                </p>
+              </ion-label>
+              <ion-row>
+              </ion-row>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

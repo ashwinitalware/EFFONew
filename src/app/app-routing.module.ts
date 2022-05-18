@@ -368,6 +368,20 @@ const routes: Routes = [
     path: 'shopping-cart',
     loadChildren: () => import('./shopping/shopping-cart/shopping-cart.module').then( m => m.ShoppingCartPageModule)
   },
+  {
+    path: 'shoping-add-cart-modal',
+    loadChildren: () => import('./shopping/modals/shoping-add-cart-modal/shoping-add-cart-modal.module').then( m => m.ShopingAddCartModalPageModule)
+  },
+  {
+    path: 'shopping-history/:id',
+    loadChildren: () => import('./shopping/shopping-history/shopping-history.module').then( m => m.ShoppingHistoryPageModule)
+  },
+  {
+    path: 'shopping-order-details/:id',
+    loadChildren: () => import('./shopping/shopping-order-details/shopping-order-details.module').then( m => m.ShoppingOrderDetailsPageModule)
+  },
+
+
 
   // {
   //   path: 'job-profile',

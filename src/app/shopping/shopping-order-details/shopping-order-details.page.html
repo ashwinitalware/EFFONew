@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>shoppingOrderDetails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="ion-no-padding" class="ion-no-margin">
+    <ion-label>
+      <h5 class="m-2" style="font-weight: bold;" *ngIf="ordDate">
+        Order Date: {{ordDate | date:'mediumDate'}}
+        <span *ngIf="orderDetails" style="float: right;">Total: {{orderDetails?.data?.attributes?.total}}</span>
+      </h5>
+    </ion-label>
+  </ion-item>
+
+  <ion-row>
+    <ion-col size="12" *ngFor="let product of allOrders; let i=index">
+      <div class="my-4" *ngIf="allOrders">
+        <ion-row *ngIf="allOrders" class="my-2">
+          <ion-col size="12" class="my-2.5 -mt-1.5">
+            <ion-item lines="none" class="-ml-3">
+              <img style="width: 14%; margin-top: 0; border: solid 0.5px darkgray; border-radius: 10px;"
+                src="{{product?.attributes?.image}}" (error)="onImgError($event)" alt="">
+              <ion-label class="mx-2 ">
+                <p style="font-weight: bold;">{{product?.attributes?.productName}}</p>
+                <p>
+                  <span>Quantity: {{product?.attributes?.quantity}}</span>
+                  <span *ngIf="product?.attributes?.variation?.data">
+                    <span *ngFor="let variation of product?.attributes?.variation?.data">
+                      {{variation.name}}
+                    </span>
+                  </span>
+                  <span style="font-weight: bold; float: right;">Price: <span>&#8377;</span>
+                    {{product?.attributes?.price}}</span>
+                </p>
+              </ion-label>
+              <ion-row>
+              </ion-row>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-col>
+  </ion-row>
+  <hr style="border: solid 0.5px darkgray;" class="mx-2">
+  <ion-item *ngIf="orderDetails">
+    <ion-label>Delivery address: 
+    <p>
+      {{orderDetails?.data?.attributes?.address}}
+    </p>
+    </ion-label>
+   
+  </ion-item>
+</ion-content>

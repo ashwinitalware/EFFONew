@@ -1,9 +1,52 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>shoppingHome</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Shopping Home</div>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
+  <div class="px-4 pt-2 pb-1">
+    <ion-label><b>Shopping Categories</b></ion-label>
+  </div>
+    <div style="background-color: white; margin-bottom: 7px">
+      <div style="background-color: white; border-radius: 5px; margin-top: 3%">
+        <ion-grid fixed>
+          <ion-row class="small_text">
+            <ion-col (click)="categorySelected(category)"
+              *ngFor="let category  of categories?.slice(0,sliceValue)" size="3" align="center"
+              class="flex justify-center flex-col">
+              <div class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center">
+                <ion-icon name="{{category.icon}}" class="text-xl"></ion-icon>
+              </div>
+              <div class="truncate mt-2 text-xs">
+                {{category.attributes.name}}
+              </div>
+            </ion-col>
+    
+            <ion-col size="3" align="center" class="flex justify-center flex-col" (click)="sliceValue=100"
+              *ngIf="sliceValue==3">
+              <div class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center">
+                <ion-icon name="chevron-down-outline" class="text-xl shake-bottom"></ion-icon>
+              </div>
+              <div class="truncate mt-2 text-xs">Show More</div>
+            </ion-col>
+    
+            <ion-col size="3" align="center" class="flex justify-center flex-col" (click)="sliceValue=3"
+              *ngIf="sliceValue==100">
+              <div class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center">
+                <ion-icon name="chevron-up-outline" class="text-xl shake-top"></ion-icon>
+              </div>
+              <div class="truncate mt-2 text-xs">Show Less</div>
+            </ion-col>
+          </ion-row>
+          <!-- <div class="text-center red py-2 bg-gray-100">
+              <div (click)="sliceValue=100" *ngIf="sliceValue==3">Show More</div>
+              <div (click)="sliceValue=3" *ngIf="sliceValue==100">Show Less</div>
+            </div> -->
+        </ion-grid>
+      </div>
+    </div>
 
 </ion-content>

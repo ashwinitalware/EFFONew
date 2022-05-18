@@ -84,8 +84,8 @@ export class DataService {
     public menu: MenuController,
     public photoViewer: PhotoViewer
   ) {
-    this.domainUrl = 'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
-    this.apiUrl = this.domainUrl + 'api/';
+    // this.domainUrl = 'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
+    // this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
   }
   async present(content = 'Loading Data...', duration = 10000) {
