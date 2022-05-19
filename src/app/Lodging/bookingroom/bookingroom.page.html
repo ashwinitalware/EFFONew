@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white">Booking Room</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="pl-2 pr-2 pt-3">
+    <div style="width: 100%; background-color: white; border-radius: 10px; border: 1px solid rgb(211, 211, 211);">
+      <ion-input placeholder="Search In All India" id="search">
+        <ion-icon name="search" style="margin-left: 7px;"></ion-icon>
+      </ion-input>
+    </div>
+  </ion-row>
+
+  <div class="mt-2 pl-2">
+    <p class="ml-2">Popular Locations</p>
+  </div>
+
+
+  <ion-chip color="primary">
+    <ion-label>All of Gurgaon</ion-label>
+  </ion-chip>
+
+  <ion-chip color="primary">
+    <ion-label>Sector 14</ion-label>
+  </ion-chip>
+
+  <ion-chip color="primary">
+    <ion-label>Medanta Hospital</ion-label>
+  </ion-chip>
+
+  <ion-chip color="primary">
+    <ion-label>Sector 38</ion-label>
+  </ion-chip>
+
+  <ion-chip color="primary">
+    <ion-label>Huda City center Metro</ion-label>
+  </ion-chip>
+
+  <ion-chip color="primary">
+    <ion-label>Golf course road</ion-label>
+  </ion-chip>
+
+
+  <div>
+    <div class="mt-2">
+      <p class="ml-2">Discover EFFO - First Booking Offer</p>
+    </div>
+
+    <div class="slider -mt-4 bg-white">
+      <ion-slides class="slider" [options]="slideOptions11" pager="false" #slider
+        (ionSlidesDidLoad)="slidesDidLoad(slider)">
+        <ion-slide *ngFor="let item of [1,1,1,1]">
+          <ion-card class="bg-white">
+            <img class="image-size" src="assets/Lodging/slidesmall.webp" />
+            <ion-icon class="text-white"
+              style="font-size: x-large; z-index: 1000; position:absolute; margin-top:-80px; right:3px;"
+              name="heart-outline"></ion-icon>
+
+            <button class="bg-green-700 text-white pl-50  py-1 px-1  text-xs"
+              style="z-index: 1000; position:absolute; margin-top:-20px; left:0;">4.4<span>
+                <ion-icon name="star"></ion-icon>
+              </span>
+            </button>
+            <p class=" text-sm mt-2 text-left pl-1 text-black font-semibold"><b>The Lions Hot</b><br>
+              <span class="text-xs text-gray-700">Near Mahadula Bus stop</span><br>
+              <span>₹628 <span style="text-decoration: line-through;" class="text-gray-500">₹1020</span></span>
+              <span class="text-yellow-500"> 61% off</span>
+            </p>
+            <!-- <p class=" text-xs mt-2 text-left pl-1 text-black"><b>OYO 46114 The Lions Hot</b></p>
+            <p class="text-xs text-left pl-1">Near Mahadula Bus stop</p>
+            <p class=" text-xs mb-5 text-left pl-1">₹628 <span style="text-decoration: line-through;">₹1020</span> 61%
+              off </p> -->
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+
+  <div>
+    <div class="mt-2">
+      <p class="ml-2">Trending </p>
+    </div>
+
+    <div class="slider -mt-4 bg-white">
+      <ion-slides class="slider" [options]="slideOptions11" pager="false" #slider
+        (ionSlidesDidLoad)="slidesDidLoad(slider)">
+        <ion-slide *ngFor="let item of [1,1,1,1]">
+          <ion-card class="bg-white">
+            <img class="image-size" src="assets/Lodging/slidesmall.webp" />
+            <ion-icon class="text-white"
+              style="font-size: x-large; z-index: 1000; position:absolute; margin-top:-80px; right:3px;"
+              name="heart-outline"></ion-icon>
+
+            <button class="bg-green-700 text-white pl-50  py-1 px-1  text-xs"
+              style="z-index: 1000; position:absolute; margin-top:-20px; left:0;">4.4<span>
+                <ion-icon name="star"></ion-icon>
+              </span>
+            </button>
+            <p class=" text-sm mt-2 text-left pl-1 text-black font-semibold"><b>The Lions Hot</b><br>
+              <span class="text-xs text-gray-700">Near Mahadula Bus stop</span><br>
+              <span>₹628 <span style="text-decoration: line-through;" class="text-gray-500">₹1020</span></span>
+              <span class="text-yellow-500"> 61% off</span>
+            </p>
+            <!-- <p class=" text-xs mt-2 text-left pl-1 text-black"><b>OYO 46114 The Lions Hot</b></p>
+            <p class="text-xs text-left pl-1">Near Mahadula Bus stop</p>
+            <p class=" text-xs mb-5 text-left pl-1">₹628 <span style="text-decoration: line-through;">₹1020</span> 61%
+              off </p> -->
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+
+</ion-content>

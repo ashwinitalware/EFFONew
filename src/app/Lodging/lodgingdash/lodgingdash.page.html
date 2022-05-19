@@ -1,0 +1,232 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lodging Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <!-- <div class="p-2">
+    <ion-segment mode="ios" class="bg-red-600" (ionChange)='segmentChanged($event)' scrollable value="civil"
+      class="ion-no-padding" class="ion-no-margin">
+      <ion-segment-button class="ion-no-padding " value="civil">
+        <div>
+          <img src="assets/lodging/iconmenu.png" alt="">
+        </div>
+        <ion-label class="p-1">AC Repair</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label class="p-1">Chimney </ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label class="p-1">Microwave</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label class="p-1">Geyser</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label class="p-1">Plumbers</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div *ngIf="switchTab == 'civil'" class=" pt-2"></div> -->
+
+  <div class="bg-white -mt-2">
+    <div class="pt-4 p-2 ">
+      <ion-slides class="slider " [options]="slideOptions1" pager="false" #slider
+        (ionSlidesDidLoad)="slidesDidLoad1(slider)">
+        <ion-slide class="pr-2" routerLink="/bookingroom">
+          <div>
+            <img class="rounded-full img2" src="assets/Lodging/nearby.jpg" />
+            <p class="text-xs pt-1 ">Nearby</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2" routerLink="/bookingroom">
+          <div>
+            <img class="rounded-full img2" src="assets/Lodging/s1.jpg" />
+            <p class="text-xs pt-1">Bangalore</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2" routerLink="/bookingroom">
+          <div>
+            <img class="rounded-full img2" src="assets/Lodging/s2.jpg" />
+            <p class="text-xs pt-1">Chennai</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2" routerLink="/bookingroom">
+          <div>
+            <img class="rounded-full img2" src="assets/Lodging/s3.jpg" />
+            <p class="text-xs pt-1">Delhi</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2" routerLink="/bookingroom">
+          <div>
+            <img class="rounded-full img2" src="assets/Lodging/s4.jpg" />
+            <p class="text-xs pt-1">Gurgaon</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2" routerLink="/bookingroom">
+          <div>
+            <img class="rounded-full img2" src="assets/Lodging/s5.jpg" />
+            <p class="text-xs pt-1">Hyderabad</p>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+
+  <!-- <div class="bg-white mt-2">
+    <div class="mt-2">
+      <p class="ml-2">Recommended For You</p>
+    </div>
+
+    <div class="p-2 ">
+      <ion-slides class="slider " [options]="slideOptions" pager="false" #slider
+        (ionSlidesDidLoad)="slidesDidLoad(slider)">
+        <ion-slide>
+          <div>
+            <img class="rounded-t-md img3" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1 ">Buying a home</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide>
+          <div>
+            <img class="rounded-t-md img3" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">Renting a home</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide>
+          <div>
+            <img class="rounded-t-md img3" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">Sell your property</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide>
+          <div>
+            <img class="rounded-t-md img3" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">PG and co-living</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide>
+          <div>
+            <img class="rounded-t-md img3" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">Renting a home</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide>
+          <div>
+            <img class="rounded-t-md img3" src="assets/property/h6.jpg" />
+            <p class="text-xs pt-1">Sell your property</p>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div> -->
+
+  <div>
+    <div class="mt-2">
+      <p class="ml-2">Recommended For You</p>
+    </div>
+
+    <div class="slider -mt-4 bg-white">
+      <ion-slides class="slider" [options]="slideOptions11" pager="false" #slider
+        (ionSlidesDidLoad)="slidesDidLoad(slider)">
+        <ion-slide *ngFor="let item of [1,1,1,1]">
+          <ion-card class="bg-white" routerLink="/hoteldetails">
+            <img class="image-size" src="assets/Lodging/slidesmall.webp" />
+            <ion-icon class="text-white"
+              style="font-size: x-large; z-index: 1000; position:absolute; margin-top:-90px; right:3px;"
+              name="heart-outline"></ion-icon>
+
+            <button class="bg-green-700 text-white pl-50  py-1 px-1  text-xs"
+              style="z-index: 1000; position:absolute; margin-top:-20px; left:0;">4.4<span>
+                <ion-icon name="star"></ion-icon>
+              </span>
+            </button>
+            <p class=" text-sm mt-2 text-left pl-1 text-black font-semibold"><b>The Lions Hot</b><br>
+              <span class="text-xs text-gray-700">Near Mahadula Bus stop</span><br>
+              <span>₹628 <span style="text-decoration: line-through;" class="text-gray-500">₹1020</span></span>
+              <span class="text-yellow-500"> 61% off</span>
+            </p>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+
+  <div class="mb-3">
+
+    <div class="mt-2">
+      <p class="ml-2">Your Kinda Stay</p>
+    </div>
+
+    <div class="slider -mt-4 bg-white">
+      <ion-slides class="slider" [options]="slideOptions11" pager="false" #slider
+        (ionSlidesDidLoad)="slidesDidLoad(slider)">
+        <ion-slide>
+          <ion-card class="bg-white">
+            <img class="image-size" src="assets/Lodging/slidesmall.webp" />
+            <p class=" text-sm mt-2 pl-1 text-black font-semibold text-center"><b>Family-friendly-stays</b>
+            </p>
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-card class="bg-white">
+            <img class="image-size" src="assets/Lodging/slidesmall.webp" />
+            <p class=" text-sm mt-2 pl-1 text-black font-semibold text-center"><b>Couple-friendly stays</b>
+            </p>
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-card class="bg-white">
+            <img class="image-size" src="assets/Lodging/slidesmall.webp" />
+            <p class=" text-sm mt-2 pl-1 text-black font-semibold text-center"><b>Premium stays</b>
+            </p>
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-card class="bg-white">
+            <img class="image-size" src="assets/Lodging/slidesmall.webp" />
+            <p class=" text-sm mt-2 pl-1 text-black font-semibold text-center"><b>Leisure stays</b>
+            </p>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+</ion-content>
+
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600">
+    <ion-label>Home</ion-label>
+    <ion-icon name="home"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button tab="product" class="text-gray-600 hover:text-red-600" routerLink="/booking">
+    <ion-label>Bookings</ion-label>
+    <ion-icon name="briefcase"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button tab="favorite" class="text-gray-600 hover:text-red-600">
+    <ion-label>Shortlisted</ion-label>
+    <ion-icon name="heart"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button tab="profile" class="text-gray-600 hover:text-red-600" routerLink="/lodgingprofile">
+    <ion-label>Profile</ion-label>
+    <ion-icon name="person"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>

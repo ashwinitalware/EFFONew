@@ -82,8 +82,8 @@ export class DashboardPage implements OnInit {
     {
       name: 'Lodging',
       image: '',
-      link: '',
       icon: 'bed',
+      link: 'lodgingdash',
     },
     {
       name: 'Restaurant ',

@@ -1,0 +1,39 @@
+.img-responsive{
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    overflow: hidden;
+    display:block;
+}
+
+// .background-image{
+//     --background: url(/assets/sdd.png) 0 0/100% 100% no-repeat;
+//     -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//     background-size: cover;
+
+// }
+
+// .scroll-content{
+//     background: url("../media/images/background.jpg") no-repeat center center fixed; 
+//     -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//     background-size: cover;
+
+// }
+
+.img2 {
+    height: 8vh;
+    width: 8vh;
+    object-fit: cover;
+    overflow: hidden;
+    padding: 3px;
+}
+
+.img3 {
+    height: 22vh;
+    width: 22vh;
+    object-fit: fill;
+    overflow: hidden;
+}
+

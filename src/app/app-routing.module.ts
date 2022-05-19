@@ -427,26 +427,51 @@ const routes: Routes = [
   {
     path: 'ridestatus',
     loadChildren: () => import('./Cabservice/ridestatus/ridestatus.module').then(m => m.RidestatusPageModule)
-  },  {
+  },
+  {
     path: 'food-dashboard',
-    loadChildren: () => import('./Food/food-dashboard/food-dashboard.module').then( m => m.FoodDashboardPageModule)
+    loadChildren: () => import('./Food/food-dashboard/food-dashboard.module').then(m => m.FoodDashboardPageModule)
   },
   {
     path: 'restaurant-list',
-    loadChildren: () => import('./Food/restaurant-list/restaurant-list.module').then( m => m.RestaurantListPageModule)
+    loadChildren: () => import('./Food/restaurant-list/restaurant-list.module').then(m => m.RestaurantListPageModule)
   },
   {
     path: 'addorder',
-    loadChildren: () => import('./Food/addorder/addorder.module').then( m => m.AddorderPageModule)
+    loadChildren: () => import('./Food/addorder/addorder.module').then(m => m.AddorderPageModule)
   },
   {
     path: 'addtocart',
-    loadChildren: () => import('./Food/addtocart/addtocart.module').then( m => m.AddtocartPageModule)
+    loadChildren: () => import('./Food/addtocart/addtocart.module').then(m => m.AddtocartPageModule)
   },
-
-
-
-
+  {
+    path: 'lodgingdash',
+    loadChildren: () => import('./Lodging/lodgingdash/lodgingdash.module').then(m => m.LodgingdashPageModule)
+  },
+  {
+    path: 'booking',
+    loadChildren: () => import('./Lodging/booking/booking.module').then(m => m.BookingPageModule)
+  },
+  {
+    path: 'bookingroom',
+    loadChildren: () => import('./Lodging/bookingroom/bookingroom.module').then(m => m.BookingroomPageModule)
+  },
+  {
+    path: 'hoteldetails',
+    loadChildren: () => import('./Lodging/hoteldetails/hoteldetails.module').then(m => m.HoteldetailsPageModule)
+  },
+  {
+    path: 'lodgingprofile',
+    loadChildren: () => import('./Lodging/lodgingprofile/lodgingprofile.module').then(m => m.LodgingprofilePageModule)
+  },
+  {
+    path: 'lodgingeditprofile',
+    loadChildren: () => import('./Lodging/lodgingeditprofile/lodgingeditprofile.module').then(m => m.LodgingeditprofilePageModule)
+  },
+  {
+    path: 'lodgingshortlisted',
+    loadChildren: () => import('./Lodging/lodgingshortlisted/lodgingshortlisted.module').then(m => m.LodgingshortlistedPageModule)
+  },
 
 
 
