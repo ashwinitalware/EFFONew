@@ -34,6 +34,22 @@ const routes: Routes = [
         // component: JobProfilePage,
       },
       {
+        path: 'shopping-vendor-listing',
+        loadChildren: () =>
+          import('./../shopping-vendor-listing/shopping-vendor-listing.module').then(
+            (m) => m.ShoppingVendorListingPageModule
+          ),
+        // component: JobProfilePage,
+      },
+      {
+        path: 'my-profile',
+        loadChildren: () =>
+          import('./../../Job/editprofile/editprofile.module').then(
+            (m) => m.EditprofilePageModule
+          ),
+        // component: JobProfilePage,
+      },
+      {
         path: '',
         redirectTo: 'home',
         // component: HistoryPage,

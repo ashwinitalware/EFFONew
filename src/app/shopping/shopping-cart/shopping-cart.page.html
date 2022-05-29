@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>shoppingCart</ion-title>
+    <ion-title>Shopping Cart</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -34,7 +34,7 @@
               </ion-button>
               <span class="mx-3 my-1.5">{{product?.quantity}}</span>
               <ion-button (click)="remove(product, i)" color="danger" mode="ios">
-                <ion-icon name="close"></ion-icon>
+                <ion-icon name="remove"></ion-icon>
               </ion-button>
             </div>
           </ion-row>
@@ -68,9 +68,9 @@
 
 </ion-content>
 <ion-footer>
-  <ion-toolbar>
-    <ion-button (click)="placeOrder()" expand="block">
-      Place Order Now
+  <ion-toolbar color="light">
+    <ion-button class="mx-4" (click)="placeOrder()" expand="block">
+      Place Order
     </ion-button>
   </ion-toolbar>
 </ion-footer>

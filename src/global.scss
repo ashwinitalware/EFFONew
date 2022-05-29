@@ -27,6 +27,13 @@
 
 
 ion-toolbar {
+  ion-buttons{
+    color: white;
+  }
+  ion-title{
+      color: white;
+      font-weight: 600;
+  }
   ion-label {
     font-size: 0.9em;
   }

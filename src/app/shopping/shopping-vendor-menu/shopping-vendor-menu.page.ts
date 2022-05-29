@@ -31,6 +31,7 @@ export class ShoppingVendorMenuPage implements OnInit {
   getVendorShoppingProducts(id: any) {
     this.http.get(this.ds.apiUrl + 'shopping-products', {
         params: {
+          sort: ['createdAt:desc'],
           populate: '*',
           'filters[vendor][id][$eq]':id,
           'pagination[page]': this.pageNo,
@@ -60,6 +61,7 @@ export class ShoppingVendorMenuPage implements OnInit {
     }else{
       this.http.get(this.ds.apiUrl + 'shopping-products', {
         params: {
+          sort: ['createdAt:desc'],
           populate: '*',
           'filters[vendor][id][$eq]': this.activatedRoute.snapshot.params.id,
           'pagination[page]': this.pageNo,

@@ -46,6 +46,7 @@ export class DashboardPage implements OnInit {
       image: '',
       icon: 'bag-handle',
       link: 'shopping-dashboard',
+      available: true,
     },
     {
       name: 'Property',

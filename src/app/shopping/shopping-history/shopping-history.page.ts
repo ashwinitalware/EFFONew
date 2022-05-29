@@ -20,6 +20,7 @@ export class ShoppingHistoryPage implements OnInit {
   getUserOrders(id){
     this.http.get(this.ds.apiUrl + 'shopping-orders', {
       params: {
+        sort: ['createdAt:desc'],
         populate: '*',
         'filters[user][id][$eq]': id,
         'pagination[page]': this.pageNo,

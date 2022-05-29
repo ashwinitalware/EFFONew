@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{title}} Vendor List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar placeholder="Search" inputmode="text" type="text" (ionChange)="onSearchChange($event)" [debounce]="250" showCancelButton="never"></ion-searchbar>
+
+  <div *ngIf="vendorList">
+    <ion-row>
+      <ion-col size="12" *ngFor="let vendor of vendorList; let i=index">
+        <ion-card class="bg-white p-1 rounded-sm">
+          <!-- <div class="flex justify-between px-2 mb-1">
+            <div class="text-black">
+                <b> {{vendor?.attributes?.vendor?.data?.attributes?.fullname}}</b>
+            </div>
+          </div> -->
+          <div (click)="getProductByVendor(vendor)" class="flex justify-start pr-2 pl-2 mb-1">
+            <div>
+              <div class="border-2 w-20 border-gray-200">
+                <img class="img_thumb" src="{{vendor?.attributes?.vendor?.data?.attributes?.profileImage}}" (error)="onImgError($event)" alt="">
+              </div>
+            </div>
+            <div class="pl-2">
+              <p class="text-black"><b>{{vendor?.attributes?.vendor?.data?.attributes?.fullName}}</b></p>
+              <p>{{vendor?.attributes?.vendor?.data?.attributes?.email}}</p>
+              <p>{{vendor?.attributes?.vendor?.data?.attributes?.phone}} </p>              
+              <p>{{vendor?.attributes?.vendor?.data?.attributes?.city}}</p>
+            </div>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div align="center" *ngIf="vendorList.length == 0">
+    <h3 style="margin-top: 50%;">No data found yet.</h3>
+  </div>
+  
+  <ion-infinite-scroll threshold="25%" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

@@ -1,6 +1,8 @@
 import { DataService } from 'src/app/services/data.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-shopping-home',
@@ -16,7 +18,7 @@ export class ShoppingHomePage implements OnInit {
   selectedCitySuggesion = '';
   sliceValue = 3;
   categories
-  constructor(public http: HttpClient, public ds: DataService) { }
+  constructor(public http: HttpClient, public ds: DataService, public router: Router, public navCtrl: NavController) { }
 
   ngOnInit() {
     this.getAllShoppingCategories();
@@ -27,11 +29,15 @@ export class ShoppingHomePage implements OnInit {
       .subscribe((data: any) => {
         this.categories = data.data;
         this.categories?.forEach(cat => {
-         cat.icon = 'close';
+        cat.icon = 'close';
         });
       });
   }
 
-  categorySelected(ev){}
+  categorySelected(catId, name){
+    this.router.navigate(['vendor-by-category/'+catId+'/'+name]);
+    console.info("cat presssed")
+    // this.navCtrl.navigateForward('shopping-vendor-listing')
+  }
 
 }

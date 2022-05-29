@@ -22,8 +22,8 @@
 
   <ion-row *ngIf="variations">
     <ion-col class="mx-3 my-1.5" size="3" *ngFor="let variation of variations; let i=index">
-      <ion-button size="small" fill="{{variation?.selected ? 'solid' : 'outline'}}" color="danger" (click)="selectedSize(variation, i)">
-       {{variation?.attributes?.name}}
+      <ion-button size="small" fill="outline" color="danger" (click)="selectedSize(variation, i)">
+      {{variation?.attributes?.name}}
     </ion-button></ion-col>
   </ion-row>
 

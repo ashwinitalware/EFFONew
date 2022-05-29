@@ -31,7 +31,7 @@ export class ShoppingOrderDetailsPage implements OnInit {
       .subscribe((data: any) => {
 
         this.allOrders = data.data;
-               
+              
         if(data.data){
           this.ordDate = data.data[0]?.attributes?.createdAt;
           this.orderDetails = data.data[0]?.attributes?.order;

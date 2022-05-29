@@ -380,6 +380,11 @@ const routes: Routes = [
     path: 'shopping-order-details/:id',
     loadChildren: () => import('./shopping/shopping-order-details/shopping-order-details.module').then( m => m.ShoppingOrderDetailsPageModule)
   },
+  {
+    path: 'vendor-by-category/:id/:name',
+    loadChildren: () => import('./shopping/vendor-by-category/vendor-by-category.module').then( m => m.VendorByCategoryPageModule)
+  },
+
 
 
 

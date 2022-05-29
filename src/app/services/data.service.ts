@@ -84,7 +84,7 @@ export class DataService {
     public menu: MenuController,
     public photoViewer: PhotoViewer
   ) {
-    // this.domainUrl = 'http://strapiapi-env.eba-dtmmqzaa.ap-south-1.elasticbeanstalk.com/';
+    // this.domainUrl = 'https://api.effoapp.com/';
     // this.apiUrl = this.domainUrl + 'api/';
     this.syncProfileFromLs();
   }

@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>shoppingVendorMenu</ion-title>
+    <ion-title>Products</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -34,7 +34,7 @@
             </ion-button>
             <span class="mx-3 my-1.5">{{product?.quantity}}</span>
             <ion-button (click)="remove(product, i)" color="danger" mode="ios">
-              <ion-icon name="close"></ion-icon>
+              <ion-icon name="remove"></ion-icon>
             </ion-button>
           </div>
         </ion-row>
@@ -49,8 +49,8 @@
 </ion-content>
 
 <ion-footer *ngIf="cart.cartProducts.length">
-  <ion-toolbar>
-    <ion-button color="danger" (click)="goToCartPage()" expand="block" fill="solid">
+  <ion-toolbar color="light">
+    <ion-button class="mx-4" color="danger" (click)="goToCartPage()" expand="block" fill="solid">
       Buy Now
     </ion-button>
   </ion-toolbar>
