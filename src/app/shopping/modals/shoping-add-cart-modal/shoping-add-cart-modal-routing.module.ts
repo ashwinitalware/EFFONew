@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ShoppingCartPage } from './shopping-cart.page';
+import { ShopingAddCartModalPage } from './shoping-add-cart-modal.page';
 
 const routes: Routes = [
   {
-    path: ':vendorId',
-    component: ShoppingCartPage
+    path: '',
+    component: ShopingAddCartModalPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ShoppingCartPageRoutingModule {}
+export class ShopingAddCartModalPageRoutingModule {}

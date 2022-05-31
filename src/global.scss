@@ -27,6 +27,13 @@
 
 
 ion-toolbar {
+  ion-buttons{
+    color: white;
+  }
+  ion-title{
+      color: white;
+      font-weight: 600;
+  }
   ion-label {
     font-size: 0.9em;
   }
@@ -44,4 +51,10 @@ ion-toolbar {
 
 .my-custom-class {
   --background: #ffffff;
+}
+
+
+.add-shopping-cart{
+  position: absolute;
+  top: 50%;
 }

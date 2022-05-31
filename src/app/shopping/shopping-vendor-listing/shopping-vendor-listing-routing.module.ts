@@ -5,7 +5,7 @@ import { ShoppingVendorListingPage } from './shopping-vendor-listing.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: ShoppingVendorListingPage
   }
 ];

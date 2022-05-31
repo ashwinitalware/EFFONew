@@ -47,6 +47,7 @@ export class DashboardPage implements OnInit {
       link: 'oldex-dashboard',
       available:true,
       icon: 'swap-horizontal',
+ 
     },
     {
       name: 'Property',
@@ -55,12 +56,13 @@ export class DashboardPage implements OnInit {
       icon: 'home',
       available:true
     },
-    // {
-    //   name: 'Shopping',
-    //   image: '',
-    //   icon: 'bag-handle',
-    //   link: '',
-    // },
+    {
+      name: 'Shopping',
+      image: '',
+      icon: 'bag-handle',
+      link: 'shopping-dashboard',
+      available: true,
+    },
 
     // {
     //   name: 'Ticket Booking',

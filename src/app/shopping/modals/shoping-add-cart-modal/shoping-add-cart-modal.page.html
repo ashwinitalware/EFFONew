@@ -1,0 +1,31 @@
+<!-- <ion-header>
+  <ion-toolbar style="height: 12%;">
+    <ion-icon size="large" name="close" (click)="modalCtrl.dismiss()"> </ion-icon>
+    <ion-title>Select variations</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <!-- <ion-row *ngIf="productObj"  class="my-2">
+    <ion-col size="12">
+      <ion-item class="-ml-3">
+        <img style="width: 22%;" [src]="productObj?.attributes?.image" (error)="onImgError($event)" alt="">
+        <ion-label class="mx-2"><p>{{productObj?.attributes?.name}}</p> <p> <span>&#8377;</span>{{price}}</p></ion-label>
+        <ion-row>
+         <ion-button color="danger" mode="ios"><ion-icon name="add" (click)="addToCart()"></ion-icon></ion-button>
+         <span class="mx-3">0</span>
+          <ion-button color="danger" mode="ios"><ion-icon name="close" (click)="removeFromCart()"></ion-icon></ion-button>
+        </ion-row>
+      </ion-item>
+    </ion-col>
+  </ion-row> -->
+
+  <ion-row *ngIf="variations">
+    <ion-col class="mx-3 my-1.5" size="3" *ngFor="let variation of variations; let i=index">
+      <ion-button size="small" fill="outline" color="danger" (click)="selectedSize(variation, i)">
+      {{variation?.attributes?.name}}
+    </ion-button></ion-col>
+  </ion-row>
+
+  
+</ion-content>

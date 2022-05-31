@@ -477,6 +477,25 @@ const routes: Routes = [
     path: 'oldex-listing',
     loadChildren: () => import('./oldex/oldex-listing/oldex-listing.module').then( m => m.OldexListingPageModule)
   },
+  {
+    path: 'shoping-add-cart-modal',
+    loadChildren: () => import('./shopping/modals/shoping-add-cart-modal/shoping-add-cart-modal.module').then( m => m.ShopingAddCartModalPageModule)
+  },
+  {
+    path: 'shopping-history/:id',
+    loadChildren: () => import('./shopping/shopping-history/shopping-history.module').then( m => m.ShoppingHistoryPageModule)
+  },
+  {
+    path: 'shopping-order-details/:id',
+    loadChildren: () => import('./shopping/shopping-order-details/shopping-order-details.module').then( m => m.ShoppingOrderDetailsPageModule)
+  },
+  {
+    path: 'vendor-by-category/:id/:name',
+    loadChildren: () => import('./shopping/vendor-by-category/vendor-by-category.module').then( m => m.VendorByCategoryPageModule)
+  },
+
+
+
 
   // {
   //   path: 'job-profile',

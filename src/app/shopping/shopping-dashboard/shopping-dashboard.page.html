@@ -1,9 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>shoppingDashboard</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Effo Sopping</div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-tabs color="">
+  <ion-tab-bar slot="bottom" class="border-t-2">
+    <ion-tab-button tab="home">
+      <ion-icon name="apps"></ion-icon>
+      <ion-label>Shopping</ion-label>
+      <!-- <ion-badge>6</ion-badge> -->
+    </ion-tab-button>
 
-</ion-content>
+    <ion-tab-button tab="orders">
+      <ion-icon name="checkbox"></ion-icon>
+      <ion-label>Orders</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="my-profile">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+
+    <!-- <ion-tab-button tab="about">
+      <ion-icon name="information-circle"></ion-icon>
+      <ion-label>About</ion-label>
+    </ion-tab-button> -->
+  </ion-tab-bar>
+</ion-tabs>

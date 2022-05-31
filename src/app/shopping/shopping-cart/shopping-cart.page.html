@@ -1,9 +1,76 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>shoppingCart</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Shopping Cart</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="my-4" *ngIf="cart.cartProducts">
+    <ion-row *ngIf="cart.cartProducts" class="my-2">
+      <ion-col size="12" class="my-2.5" *ngFor="let product of cart.cartProducts; let i=index">
+        <ion-item class="-ml-3">
+          <img style="width: 22%;" src="{{product?.attributes?.image}}" (error)="onImgError($event)" alt="">
+          <ion-label class="mx-2">
+            <p>{{product?.attributes?.name}}</p>
+            <p>
+              <span>per {{product?.attributes?.unit}}</span>
+            </p>
+            <p> &#8377;{{product?.price}}</p>
+          </ion-label>
+          <ion-row>
+<!--   
+            <div *ngIf="product?.isVariationAvailable">
+              <ion-button (click)="addToCart(product, i)" fill="clear">
+                <ion-icon name="add"></ion-icon> Add Item
+              </ion-button>
+            </div>
+   -->
+            <div>
+              <ion-button (click)="add(product, i)" color="danger" mode="ios">
+                <ion-icon name="add"></ion-icon>
+              </ion-button>
+              <span class="mx-3 my-1.5">{{product?.quantity}}</span>
+              <ion-button (click)="remove(product, i)" color="danger" mode="ios">
+                <ion-icon name="remove"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-row>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+       <ion-item>
+          <ion-label>Total - <span style="float: right;">&#8377; {{total}}</span></ion-label>
+       </ion-item>
+        <ion-item>
+          <ion-label>Discount - <span style="float: right;">&#8377; {{discount}}</span></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Grand Total - <span style="float: right;">&#8377; {{grandTotal}}</span></ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="mx-2">
+          <ion-textarea [(ngModel)]="address" placeholder="Enter Address" rows="auto" ></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+  </div>
 
 </ion-content>
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-button class="mx-4" (click)="placeOrder()" expand="block">
+      Place Order
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

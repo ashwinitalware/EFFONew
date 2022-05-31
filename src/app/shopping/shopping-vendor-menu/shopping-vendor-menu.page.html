@@ -1,9 +1,57 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>shoppingVendorMenu</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Products</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<div class="my-4" *ngIf="cart.shoppingProducts">
+  <ion-row *ngIf="cart.shoppingProducts" class="my-2">
+    <ion-col size="12"  class="my-2.5" *ngFor="let product of cart.shoppingProducts; let i=index">
+      <ion-item class="-ml-3">
+        <img style="width: 22%;" src="{{product?.attributes?.image}}" (error)="onImgError($event)" alt="">
+        <ion-label class="mx-2">
+          <p>{{product?.attributes?.name}}</p>
+          <p>
+            <span>per {{product?.attributes?.unit}}</span>
+          </p>
+          <p> <span>&#8377;</span>{{product?.price}}</p>
+        </ion-label>
+        <ion-row>
 
+          <div *ngIf="product?.isVariationAvailable">
+            <ion-button (click)="addToCart(product, i)" fill="clear">
+              <ion-icon name="add"></ion-icon> Add Item
+            </ion-button>
+          </div>
+
+          <div *ngIf="!product?.isVariationAvailable">
+            <ion-button (click)="add(product, i)" color="danger" mode="ios">
+              <ion-icon name="add"></ion-icon>
+            </ion-button>
+            <span class="mx-3 my-1.5">{{product?.quantity}}</span>
+            <ion-button (click)="remove(product, i)" color="danger" mode="ios">
+              <ion-icon name="remove"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-row>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</div>
+  <ion-infinite-scroll threshold="25%" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
+
+<ion-footer *ngIf="cart.cartProducts.length">
+  <ion-toolbar color="light">
+    <ion-button class="mx-4" color="danger" (click)="goToCartPage()" expand="block" fill="solid">
+      Buy Now
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
