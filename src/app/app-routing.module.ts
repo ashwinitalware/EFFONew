@@ -471,7 +471,19 @@ const routes: Routes = [
   {
     path: 'lodgingshortlisted',
     loadChildren: () => import('./Lodging/lodgingshortlisted/lodgingshortlisted.module').then(m => m.LodgingshortlistedPageModule)
+  },  {
+    path: 'selectcity',
+    loadChildren: () => import('./Lodging/selectcity/selectcity.module').then( m => m.SelectcityPageModule)
   },
+  {
+    path: 'pickup',
+    loadChildren: () => import('./Cabservice/pickup/pickup.module').then( m => m.PickupPageModule)
+  },
+  {
+    path: 'bookany',
+    loadChildren: () => import('./Cabservice/bookany/bookany.module').then( m => m.BookanyPageModule)
+  },
+
 
 
 

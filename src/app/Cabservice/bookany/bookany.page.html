@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar class="pl-2" routerLink="/pickup">
+    <ion-icon class="text-3xl" name="arrow-back-circle"></ion-icon>
+    <!-- <ion-icon slot="start" class="pl-2 bg-white rounded-md shadow-md" name="arrow-back"></ion-icon> -->
+    <!-- <ion-title>bookany</ion-title> -->
+  </ion-toolbar>
+  <div class=" relative w-full">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4462.545006700458!2d77.7579908696288!3d20.927027352893656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6a5cb93bfb1bb%3A0x22f9cdeb559d0b7e!2sWEBMEDIA!5e0!3m2!1sen!2sin!4v1651837275873!5m2!1sen!2sin"
+      width="600" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+</ion-header>
+
+<ion-content>
+
+  <div class="bg-white p-2">
+    <div class=" flex justify-start p-1">
+      <div class="flex items-center flex-grow border-b-2 border-gray-200">
+        <ion-icon style="color: green; font-size: small;" name="ellipse"></ion-icon>&nbsp; Your
+        Location
+      </div>
+    </div>
+
+    <div class=" flex justify-start p-1">
+      <div class="flex flex-grow items-center">
+        <ion-icon class="flex items-center" style="color: red;  font-size: small;" name="ellipse"></ion-icon>&nbsp;
+        Badnera Amravati
+      </div>
+    </div>
+
+    <div
+      class="flex justify-between bg-gray-100 border-2 border-gray-300 hover:border-green-400 rounded-md shadow-md mt-4 p-2">
+      <div class="flex items-center">
+        <img width="50" height="50" src="assets/cabservices/sedan.png" alt="">
+      </div>
+      <div>
+        <ion-label>Book Any</ion-label><br>
+        <p class="text-sm">Mini, prime Sedan</p>
+      </div>
+      <div>
+        ₹ 290 - 249
+      </div>
+    </div>
+
+    <div
+      class=" flex justify-between bg-gray-100 border-2 border-gray-300 hover:border-green-400 rounded-md shadow-md mt-4 p-2">
+      <div class="flex items-center">
+        <img width="50" height="50" src="assets/cabservices/sedan.png" alt="">
+      </div>
+      <div>
+        <ion-label>Auto</ion-label><br>
+        <p class="text-sm">Get autos at your doorstep</p>
+      </div>
+      <div>
+        ₹ 128
+      </div>
+    </div>
+
+    <div
+      class=" flex justify-between bg-gray-100 border-2 border-gray-300 hover:border-green-400 rounded-md shadow-md mt-4 p-2">
+      <div class="flex items-center">
+        <img width="50" height="50" src="assets/cabservices/sedan.png" alt="">
+      </div>
+      <div>
+        <ion-label>Prime Sedan </ion-label><br>
+        <p class="text-sm">Spacious sedan</p>
+      </div>
+      <div>
+        ₹ 128
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="light">
+    <div class="p-2">
+      <ion-button (click)="presentModal()" expand="block" color="primary">
+        Book
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

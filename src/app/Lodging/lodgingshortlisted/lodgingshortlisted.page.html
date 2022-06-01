@@ -1,20 +1,68 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Shortlisted</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white">Shortlisted</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- <div class="p-2">
-    <div class="bg-white flex justify-between">
-      <div>
-        <img src="assets/Lodging/s1.jpg" alt="">
-      </div>
-      <div>
-        <ion-label></ion-label>
-      </div>
-    </div>
-  </div> -->
 
-  <div class="p-2"> </div>
+  <ion-grid fixed>
+    <ion-row class="bg-white rounded-md shadow-md">
+      <ion-col size="4">
+        <img class="h-full" src="assets/Lodging/d1.jpg" alt="">
+      </ion-col>
+      <ion-col size="8">
+        <b>The Lions Hot</b>
+        <p class="text-gray-700 text-xs">Near Mahadula Bus stop<br>
+          <span>₹628 <span style="text-decoration: line-through;" class="text-gray-500">₹1020</span></span></p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="bg-white rounded-md shadow-md mt-2">
+      <ion-col size="4">
+        <img class="h-full" src="assets/Lodging/d2.jpg" alt="">
+      </ion-col>
+      <ion-col size="8">
+        <b>The Lions Hot</b>
+        <p class="text-gray-700 text-xs">Near Mahadula Bus stop<br>
+          <span>₹628 <span style="text-decoration: line-through;" class="text-gray-500">₹1020</span></span></p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="bg-white rounded-md shadow-md mt-2">
+      <ion-col size="4">
+        <img class="h-full" src="assets/Lodging/d1.jpg" alt="">
+      </ion-col>
+      <ion-col size="8">
+        <b>The Lions Hot</b>
+        <p class="text-gray-700 text-xs">Near Mahadula Bus stop<br>
+          <span>₹628 <span style="text-decoration: line-through;" class="text-gray-500">₹1020</span></span></p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
+
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600" routerLink="/lodgingdash">
+    <ion-label>Home</ion-label>
+    <ion-icon name="home"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button tab="product" class="text-gray-600 hover:text-red-600" routerLink="/booking">
+    <ion-label>Bookings</ion-label>
+    <ion-icon name="briefcase"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button tab="favorite" class="text-gray-600 hover:text-red-600" routerLink="/lodgingshortlisted">
+    <ion-label>Shortlisted</ion-label>
+    <ion-icon name="heart"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button tab="profile" class="text-gray-600 hover:text-red-600" routerLink="/lodgingprofile">
+    <ion-label>Profile</ion-label>
+    <ion-icon name="person"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>

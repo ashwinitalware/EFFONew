@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white">Pick Up</ion-title>
+    <ion-button slot="end" size="small" fill="clear" color="light" shape="round">
+      <!-- For Me -->
+      <ion-select value="dog">
+        <ion-select-option value="cat"> For Me</ion-select-option>
+        <ion-select-option value="dog"> For Other</ion-select-option>
+      </ion-select>
+    </ion-button>
+  </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+  <div class="p-1">
+    <div class="border-2 p-1 border-gray-300 bg-white rounded-md flex justify-between">
+      <div class="flex flex-grow items-center">
+        <ion-icon style="color: green;" name="ellipse"></ion-icon>
+        <ion-input placeholder="Current location"></ion-input>
+      </div>
+      <div class="flex items-center">
+        <ion-icon style="color: gray; font-size: large;" name="close"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="p-2">
+    <div class="border-2 bg-white border-gray-300 rounded-md shadow-sm">
+      <ion-item lines="none">
+        <ion-input placeholder="Current location"></ion-input>
+      </ion-item>
+    </div>
+    <div class="border-2 border-gray-300 rounded-md shadow-sm">
+      <ion-item lines="none">
+        <ion-input placeholder="Current location"></ion-input>
+      </ion-item>
+    </div>
+    <div class="mt-2 border-2 border-gray-300 rounded-md shadow-sm">
+      <ion-item lines="none">
+        <ion-input placeholder="Where to ?"></ion-input>
+      </ion-item>
+    </div>
+  </div> -->
+  <div class=" relative w-full">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4462.545006700458!2d77.7579908696288!3d20.927027352893656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6a5cb93bfb1bb%3A0x22f9cdeb559d0b7e!2sWEBMEDIA!5e0!3m2!1sen!2sin!4v1651837275873!5m2!1sen!2sin"
+      width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+</ion-content>
+<div class="p-2" routerLink="/bookany">
+  <ion-button expand="block" color="primary">
+    Confirm Location
+  </ion-button>
+</div>

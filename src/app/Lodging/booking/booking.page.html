@@ -8,7 +8,116 @@
 </ion-header>
 
 <ion-content>
-  <div style="margin-top: 50%; padding:10px;" class="pr-5 pl-5 pb-5">
+  <div style="padding-left:0.8em ;" class="pt-3 pb-2">
+    <ion-label>Review Your Booking</ion-label>
+  </div>
+
+  <div class="p-2">
+    <div class="bg-white p-2 rounded-md shadow-md">
+      <ion-label><b>Corbett Woods Resort</b></ion-label>
+      <div class="flex justify-between pt-1">
+        <div align="center">
+          <p class="text-gray-600 text-xm">Check In<br>
+            <span class="text-black font-semibold text-sm">Jun 1, 2022</span></p>
+        </div>
+        <div align="center">
+          <p class="text-gray-600 text-xm">Check Out<br>
+            <span class="text-black font-semibold text-sm">Jun 1, 2022</span></p>
+        </div>
+        <div align="center">
+          <p class="text-gray-600 text-xm">Days<br>
+            <span class="text-black font-semibold text-sm">3 Days</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white p-2 rounded-md shadow-md mt-2">
+      <ion-label><b>Guest Details 1</b></ion-label>
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="12">
+            <ion-input type="text" placeholder="Name" class=" border-2 border-gray-200"></ion-input>
+          </ion-col>
+          <ion-col size="12">
+            <ion-input type="number" placeholder="Phone Number" class=" border-2 border-gray-200"></ion-input>
+          </ion-col>
+          <ion-col size="12">
+            <ion-input type="email" placeholder="Email ID" class="border-2 border-gray-200"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="flex justify-end pr-2">
+        <ion-button expand="block" color="primary" size="small">
+          Add Guest
+        </ion-button>
+      </div>
+    </div>
+
+    <div align="center" class="bg-white p-2 rounded-md shadow-md mt-2 border-dashed border-2 border-green-400">
+      <ion-label class="text-gray-500">Add More Guest</ion-label>
+    </div>
+
+    <div class="bg-white p-2 rounded-md shadow-md mt-2">
+      <ion-label><b>Booking Summary</b></ion-label>
+      <div class="flex justify-between p-2">
+        <div>
+          <ion-label>Canvas</ion-label>
+        </div>
+        <div>
+          <p><span class="text-black font-semibold text-sm">1 Jun - ₹8000/-</span></p>
+        </div>
+      </div>
+      <div class="flex justify-between p-2">
+        <div>
+          <ion-label>Room</ion-label>
+        </div>
+        <div>
+          <p><span class="text-black font-semibold text-sm">2</span></p>
+        </div>
+      </div>
+
+      <div class="flex justify-between p-2">
+        <div>
+          <ion-label>Total Room Prices</ion-label>
+        </div>
+        <div>
+          <p><span class="text-black font-semibold text-sm">
+              ₹ 16000
+            </span></p>
+        </div>
+      </div>
+
+      <div class="flex justify-between p-2">
+        <div>
+          <ion-label>Total Tax</ion-label>
+        </div>
+        <div>
+          <p><span class="text-black font-semibold text-sm">
+              +₹ 10.76
+            </span></p>
+        </div>
+      </div>
+
+      <div class="flex justify-between p-2">
+        <div>
+          <ion-label>Final Price</ion-label>
+        </div>
+        <div>
+          <p><span class="text-black font-semibold text-sm">
+              +₹ 16010
+            </span></p>
+        </div>
+      </div>
+      <div class=" pr-2">
+        <ion-button expand="block" color="primary">
+          Booked
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div style="margin-top: 50%; padding:10px;" class="pr-5 pl-5 pb-5">
     <div class="bg-white rounded-md p-2 slide-top">
       <div align="center">
         <div class="p-3">
@@ -27,5 +136,25 @@
 
       </div>
     </div>
-  </div>
+  </div> -->
 </ion-content>
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600" routerLink="/lodgingdash">
+    <ion-label>Home</ion-label>
+    <ion-icon name="home"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button tab="product" class="text-gray-600 hover:text-red-600" routerLink="/booking">
+    <ion-label>Bookings</ion-label>
+    <ion-icon name="briefcase"></ion-icon>
+  </ion-tab-button>
+  <!-- <ion-tab-button tab="favorite" class="text-gray-600 hover:text-red-600" routerLink="/lodgingshortlisted">
+    <ion-label>Shortlisted</ion-label>
+    <ion-icon name="heart"></ion-icon>
+  </ion-tab-button> -->
+  <ion-tab-button tab="profile" class="text-gray-600 hover:text-red-600" routerLink="/lodgingprofile">
+    <ion-label>Profile</ion-label>
+    <ion-icon name="person"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>

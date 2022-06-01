@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hoteldetails.page.scss'],
 })
 export class HoteldetailsPage implements OnInit {
+  add = false
+  add1 = false
 
   constructor() { }
 

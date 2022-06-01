@@ -5,8 +5,6 @@
 </ion-header>
 
 <ion-content>
-
-
   <!-- <div class="p-2">
     <ion-segment mode="ios" class="bg-red-600" (ionChange)='segmentChanged($event)' scrollable value="civil"
       class="ion-no-padding" class="ion-no-margin">
@@ -36,12 +34,6 @@
     <div class="pt-4 p-2 ">
       <ion-slides class="slider " [options]="slideOptions1" pager="false" #slider
         (ionSlidesDidLoad)="slidesDidLoad1(slider)">
-        <ion-slide class="pr-2" routerLink="/bookingroom">
-          <div>
-            <img class="rounded-full img2" src="assets/Lodging/nearby.jpg" />
-            <p class="text-xs pt-1 ">Nearby</p>
-          </div>
-        </ion-slide>
 
         <ion-slide class="pr-2" routerLink="/bookingroom">
           <div>
@@ -75,6 +67,13 @@
           <div>
             <img class="rounded-full img2" src="assets/Lodging/s5.jpg" />
             <p class="text-xs pt-1">Hyderabad</p>
+          </div>
+        </ion-slide>
+
+        <ion-slide class="pr-2" routerLink="/selectcity">
+          <div>
+            <img class="rounded-full img2" src="assets/Lodging/nearby.jpg" />
+            <p class="text-xs pt-1 ">Select City</p>
           </div>
         </ion-slide>
       </ion-slides>
@@ -145,10 +144,9 @@
         <ion-slide *ngFor="let item of [1,1,1,1]">
           <ion-card class="bg-white" routerLink="/hoteldetails">
             <img class="image-size" src="assets/Lodging/slidesmall.webp" />
-            <ion-icon class="text-white"
+            <!-- <ion-icon class="text-white"
               style="font-size: x-large; z-index: 1000; position:absolute; margin-top:-90px; right:3px;"
-              name="heart-outline"></ion-icon>
-
+              name="heart-outline"></ion-icon> -->
             <button class="bg-green-700 text-white pl-50  py-1 px-1  text-xs"
               style="z-index: 1000; position:absolute; margin-top:-20px; left:0;">4.4<span>
                 <ion-icon name="star"></ion-icon>
@@ -166,7 +164,6 @@
   </div>
 
   <div class="mb-3">
-
     <div class="mt-2">
       <p class="ml-2">Your Kinda Stay</p>
     </div>
@@ -212,19 +209,21 @@
 
 
 <ion-tab-bar slot="bottom">
-  <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600">
+  <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600" routerLink="/lodgingdash">
     <ion-label>Home</ion-label>
     <ion-icon name="home"></ion-icon>
+    <!-- <img width="35" height="35" src="assets/food.gif" alt=""> -->
   </ion-tab-button>
 
   <ion-tab-button tab="product" class="text-gray-600 hover:text-red-600" routerLink="/booking">
     <ion-label>Bookings</ion-label>
     <ion-icon name="briefcase"></ion-icon>
+    <!-- <img width="35" height="35" src="assets/location.gif" alt=""> -->
   </ion-tab-button>
-  <ion-tab-button tab="favorite" class="text-gray-600 hover:text-red-600">
+  <!-- <ion-tab-button tab="favorite" class="text-gray-600 hover:text-red-600" routerLink="/lodgingshortlisted">
     <ion-label>Shortlisted</ion-label>
     <ion-icon name="heart"></ion-icon>
-  </ion-tab-button>
+  </ion-tab-button> -->
   <ion-tab-button tab="profile" class="text-gray-600 hover:text-red-600" routerLink="/lodgingprofile">
     <ion-label>Profile</ion-label>
     <ion-icon name="person"></ion-icon>

@@ -1,34 +1,22 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button class="text-white"></ion-back-button>
     </ion-buttons>
-    <ion-title slot="end" class="text-white text-sm">
-      <ion-icon name="location"></ion-icon>Amravati
-    </ion-title>
+    <ion-title>EFFO Cab</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content class="class-name">
-  <div class="p-2">
-    <ion-segment mode="ios" color="dark" class="bg-red-600 parent-border-radius" (ionChange)='segmentChanged($event)'
-      scrollable value="local" class="ion-no-padding" class="ion-no-margin">
-      <ion-segment-button color="primary" class="ion-no-padding bg-red-600" value="local">
-        <ion-label class="p-1">Local</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="rental">
-        <ion-label class="p-1">Rentals </ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="out">
-        <ion-label class="p-1">Outstation </ion-label>
-      </ion-segment-button>
+<!-- <ion-content class="class-name">
+  <div class="p-2 rounded-sm">
+    <ion-segment mode="ios" value="local" class="parent-border-radius1" (ionChange)='segmentChanged($event)'>
+      <ion-segment-button value="local"> Local</ion-segment-button>
+      <ion-segment-button value="rental"> Rentals</ion-segment-button>
+      <ion-segment-button value="out">Outstation</ion-segment-button>
     </ion-segment>
   </div>
 
-  <div *ngIf="switchTab == 'rental'" class=" pt-2 p-2"></div>
-  <div *ngIf="switchTab == 'out'" class=" pt-2 p-2"></div>
-
-  <div class="p-2 -mt-2">
+  <div class="p-2 pt-1">
     <div class="bg-white  flex justify-start p-2 border-2 border-gray-300 rounded-md shadow-md -mt-3">
       <ion-icon class="flex items-center  text-base " color="primary" name="pin"></ion-icon><span class="text-sm">Pick
         up </span>
@@ -40,12 +28,9 @@
     </div>
   </div>
 
-  <!-- <div class="flex items-end">
-    <ion-button expand="block" color="primary" routerLink="/ridedetails">
-      Book
-    </ion-button>
-  </div> -->
 </ion-content>
+
+
 <div class="pl-2 pr-2 bg-gray-300">
   <ion-button expand="block" color="primary" routerLink="/ridedetails">
     Book
@@ -54,7 +39,7 @@
 <ion-tab-bar slot="bottom">
 
   <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600" routerLink="/cabserdashboard">
-    <ion-label>Home</ion-label>
+    <ion-label>Book</ion-label>
     <ion-icon name="home"></ion-icon>
   </ion-tab-button>
 
@@ -63,26 +48,138 @@
     <ion-icon name="briefcase"></ion-icon>
   </ion-tab-button>
 
-</ion-tab-bar>
+</ion-tab-bar> -->
 
-<!-- <ion-content>
+<div class="p-2 bg-transparent bg-opacity-0">
+  <div class="flex justify-between bg-white rounded-md shadow-md p-2">
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h8m-8 6h16" />
+      </svg>
+    </div>
+    <div routerLink="/pickup">
+      <ion-label class="text-gray-600">Your Loaction</ion-label>
+    </div>
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- <ion-header>
+  <ion-toolbar translucent>
+    <ion-title>Header</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="bg">
+  <div class=" relative w-full">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4462.545006700458!2d77.7579908696288!3d20.927027352893656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6a5cb93bfb1bb%3A0x22f9cdeb559d0b7e!2sWEBMEDIA!5e0!3m2!1sen!2sin!4v1651837275873!5m2!1sen!2sin"
+      width="600" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
   <div class="p-2">
-    <ion-slides class="slider" [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+    <!-- <ion-slides class="slider mt-2" [options]="slideOptions" pager="true" #slider
+      (ionSlidesDidLoad)="slidesDidLoad(slider)">
       <ion-slide>
         <img class="rounded-md" src="assets/cabservices/cab1.jpg" />
       </ion-slide>
       <ion-slide>
         <img class="rounded-md" src="assets/cabservices/cab2.jpg" />
       </ion-slide>
-    </ion-slides><br>
-
+    </ion-slides><br> -->
+    <!-- 
     <div align="center" class=" bg-gradient-to-r from-blue-400 to-purple-400  p-2 rounded-md">
       <ion-label>Ready ? Then let's Roll<br><span class="text-sm font-bold">
           Ride with EFFO
         </span></ion-label>
+    </div> -->
+
+
+    <div class="bg-white -mt-2">
+      <div class="pt-4 pl-2 pr-2">
+        <ion-slides class="slider " [options]="slideOptions1" pager="false" #slider
+          (ionSlidesDidLoad)="slidesDidLoad1(slider)">
+
+          <ion-slide class="pr-2">
+            <div align="center" class="border-b-2 border-gray-300 hover:border-red-600">
+              <img class="rounded-full img2" src="assets/cabservices/daily.png" />
+              <p class="text-xs ">Daily</p>
+            </div>
+          </ion-slide>
+
+          <ion-slide class="pr-2">
+            <div align="center" class="border-b-2 border-gray-300 hover:border-red-600">
+              <img class="rounded-full img2" src="assets/cabservices/insure.png" />
+              <p class="text-xs">Insure</p>
+            </div>
+          </ion-slide>
+
+          <ion-slide class="pr-2">
+            <div align="center" class="border-b-2 border-gray-300 hover:border-red-600">
+              <img class="rounded-full img2" src="assets/cabservices/rentals.png" />
+              <p class="text-xs">Rentals</p>
+            </div>
+          </ion-slide>
+
+          <ion-slide class="pr-2">
+            <div align="center" class="border-b-2 border-gray-300 hover:border-red-600">
+              <img class="rounded-full img2" src="assets/cabservices/out.png" />
+              <p class="text-xs">Outstation</p>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </div>
     </div>
 
-    <ion-grid fixed>
+    <ion-card class="p-2">
+      <div
+        style="width: 100%; background-color: rgb(238, 238, 238); border-radius: 10px; border: 1px solid rgb(211, 211, 211);">
+        <ion-input placeholder="Search In All India" id="search">
+          <ion-icon name="search" style="margin-left: 7px;"></ion-icon>
+        </ion-input>
+      </div>
+      <div class="flex justify-start mt-1">
+        <div>
+          <ion-icon name="location-outline"></ion-icon>&nbsp;
+        </div>
+        <div>
+          <p>Badnera Railway Station Parking, Qurater</p>
+        </div>
+      </div>
+
+      <div class="flex justify-start pt-1">
+        <div>
+          <ion-icon name="location-outline"></ion-icon>&nbsp;
+        </div>
+        <div>
+          <p>Busyland Commercial City, Amravati</p>
+        </div>
+      </div>
+
+      <div class="flex justify-start">
+        <div>
+          <ion-icon name="location-outline"></ion-icon>&nbsp;
+        </div>
+        <div>
+          <p>Badnera Railway Station platform No. 1</p>
+        </div>
+      </div>
+    </ion-card>
+
+    <ion-card class="p-2">
+      <ion-label>Invite Your friends to try EFFO.</ion-label><br>
+      <ion-label class="bg-gray-200 p-1 rounded-md shadow-md">G6KCTYI</ion-label><br>
+      <ion-label class="text-blue-900">Share Invite code</ion-label>
+    </ion-card>
+
+    <!-- <ion-grid fixed>
       <ion-row>
         <ion-col size="4">
           <div align="center" class="bg-gray-300 rounded-lg" routerLink="/daily">
@@ -104,7 +201,7 @@
           </div>
         </ion-col>
       </ion-row>
-    </ion-grid>
+    </ion-grid> -->
 
     <div class="pl-2 pr-2">
       <div align="center" class="bg-gradient-to-r from-gray-300 to-gray-300  p-2 rounded-md">
@@ -131,8 +228,24 @@
       </div>
     </div>
   </div>
+</ion-content>
 
-</ion-content> -->
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600" routerLink="/cabserdashboard">
+    <ion-label>Home</ion-label>
+    <ion-icon name="home"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button tab="product" class="text-gray-600 hover:text-red-600" routerLink="/bookany">
+    <ion-label>Bookings</ion-label>
+    <ion-icon name="briefcase"></ion-icon>
+  </ion-tab-button>
+  <ion-tab-button tab="profile" class="text-gray-600 hover:text-red-600" routerLink="/cabhistory">
+    <ion-label>History</ion-label>
+    <ion-icon name="document-text"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>
+
 
 <!-- <ion-fab horizontal="end" vertical="bottom">
   <ion-fab-button color="dark">

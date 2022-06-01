@@ -4,7 +4,7 @@
       <ion-back-button class="text-white"></ion-back-button>
     </ion-buttons>
     <ion-title class="text-white">Hotel Name</ion-title>
-    <ion-icon slot="end" class="pr-1 text-2xl" name="heart-circle-outline"></ion-icon>
+    <!-- <ion-icon slot="end" class="pr-1 text-2xl" name="heart-circle-outline"></ion-icon> -->
     <ion-icon slot="end" class="pr-2 text-2xl" name="arrow-redo-circle-outline"></ion-icon>
   </ion-toolbar>
 </ion-header>
@@ -125,14 +125,101 @@
     </div>
 
   </div>
+
+  <div class="mt-2">
+    <p class="ml-2">Select Rooms</p>
+  </div>
+
+
+  <ion-grid fixed style="margin-top: -5%;">
+    <ion-row class="bg-white rounded-md shadow-md mt-2 p-2">
+      <ion-col size="4">
+        <img class="h-full rounded-md" src="assets/Lodging/d1.jpg" alt="">
+      </ion-col>
+      <ion-col size="8">
+        <b>The Lions Hot</b>
+        <p class="text-gray-700 text-xs">
+          <ion-icon name="person" class="text-gray-500"></ion-icon>&nbsp; Max Guests : 4<br>
+          <span>
+            3 ROOMS LEFT
+          </span>
+        </p>
+      </ion-col>
+      <ion-col size="12">
+        <div class="flex justify-between ">
+          <div class="pt-1"><b>₹ 1088</b></div>
+          <div class="w-24">
+            <div class="flex rounded-md  " *ngIf="add" (click)="add=false">
+              <div class=" flex-grow bg-gray-400 border-md rounded-md text-red-600 text-center py-1 px-2">
+                -
+              </div>
+              <div class="flex-grow text-center py-1 px-2">
+                1
+              </div>
+              <div class=" flex-grow bg-gray-400 border-md rounded-md text-red-600 text-center py-1 px-2">
+                +
+              </div>
+            </div>
+
+            <div class=" rounded-md text-center" (click)="add=true" *ngIf="!add">
+              <div class="px-4 py-1 bg-gray-300 border-md rounded-md text-red-600">
+                Room
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="bg-white rounded-md shadow-md mt-2 p-2">
+      <ion-col size="4">
+        <img class="h-full rounded-md" src="assets/Lodging/d1.jpg" alt="">
+      </ion-col>
+      <ion-col size="8">
+        <b>The Lions Hot</b>
+        <p class="text-gray-700 text-xs">
+          <ion-icon name="person" class="text-gray-500"></ion-icon>&nbsp; Max Guests : 4<br>
+          <span>
+            3 ROOMS LEFT
+          </span>
+        </p>
+      </ion-col>
+      <ion-col size="12">
+        <div class="flex justify-between ">
+          <div class="pt-1"><b>₹ 1088</b></div>
+          <div class="w-24">
+            <div class="flex rounded-md  " *ngIf="add1" (click)="add1=false">
+              <div class=" flex-grow bg-gray-400 border-md rounded-md text-red-600 text-center py-1 px-2">
+                -
+              </div>
+              <div class="flex-grow text-center py-1 px-2">
+                1
+              </div>
+              <div class=" flex-grow bg-gray-400 border-md rounded-md text-red-600 text-center py-1 px-2">
+                +
+              </div>
+            </div>
+
+            <div class=" rounded-md text-center" (click)="add1=true" *ngIf="!add1">
+              <div class="px-4 py-1 bg-gray-300 border-md rounded-md text-red-600">
+                Room
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 </ion-content>
 
-<div class="flex justify-between p-2">
-  <div>
+<div class="flex justify-center p-2">
+  <!-- <div>
     <ion-label>₹ 899</ion-label><br>
     <p class="text-xs" style="color: gray;">Total Amount</p>
-  </div>
-  <div>
+  </div> -->
+  <div routerLink="/bookingroom">
     <ion-button expand="block" color="success">
       <span class="text-white"> Book Now</span><br>&nbsp;
       <span class="text-xs p-2" style="color: rgb(255, 255, 255);">
