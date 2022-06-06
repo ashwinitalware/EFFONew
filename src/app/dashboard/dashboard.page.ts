@@ -35,12 +35,13 @@ export class DashboardPage implements OnInit {
       link: 'service-dashboard',
       available: true,
     },
-    // {
-    //   name: 'Cab Services',
-    //   image: '',
-    //   icon: 'car',
-    //   link: '',
-    // },
+    {
+      name: 'Cab Services',
+      image: '',
+      icon: 'car',
+      link: 'cab-home',
+      available:true
+    },
     {
       name: 'Old EX',
       image: '',

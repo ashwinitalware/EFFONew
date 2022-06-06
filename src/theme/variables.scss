@@ -77,6 +77,9 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+
+
 }
 
 @media (prefers-color-scheme: dark) {}
@@ -88,6 +91,9 @@ ion-content {
 ion-toolbar {
   --background: linear-gradient(90deg, rgb(255, 0, 0) 0%, #af0000 100%) !important;
 }
+
+
+
 
 // .background-image {
 //   --background: url(assets/jobtitle.png) 0 0/100% 100% no-repeat;

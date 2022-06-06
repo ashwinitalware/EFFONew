@@ -493,6 +493,22 @@ const routes: Routes = [
     path: 'vendor-by-category/:id/:name',
     loadChildren: () => import('./shopping/vendor-by-category/vendor-by-category.module').then( m => m.VendorByCategoryPageModule)
   },
+  {
+    path: 'cab-home',
+    loadChildren: () => import('./cab-home/cab-home.module').then( m => m.CabHomePageModule)
+  },
+  {
+    path: 'cab-cities',
+    loadChildren: () => import('./cab/cab-cities/cab-cities.module').then( m => m.CabCitiesPageModule)
+  },
+  {
+    path: 'cab-confirm-booking',
+    loadChildren: () => import('./cab/cab-confirm-booking/cab-confirm-booking.module').then( m => m.CabConfirmBookingPageModule)
+  },
+  {
+    path: 'cab-history',
+    loadChildren: () => import('./cab/cab-history/cab-history.module').then( m => m.CabHistoryPageModule)
+  },
 
 
 

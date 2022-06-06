@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-4">
+    <!-- mode="ios"  -->
+    <!-- <ion-segment mode="ios" [(ngModel)]="type">
+      <ion-segment-button value="local">
+        <ion-label>Local</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="rental">
+        <ion-label>Rental</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="outstation">
+        <ion-label>Outstation</ion-label>
+      </ion-segment-button>
+    </ion-segment> -->
+
+
+    <div *ngFor="let item of [1,2,3]" class="rounded-md bg-white my-2 p-4 ">
+
+      <div class="flex">
+        <div class="w-12">
+          <img
+            src="https://effo.s3.ap-south-1.amazonaws.com/ic_prime_2x_639c1ed045.png?updated_at=2022-06-04T10:40:06.201Z"
+            alt="" class="w-full h-auto">
+        </div>
+        <div class=" flex-1 pl-2">
+          <div class="font-bold flex justify-between">
+
+            <div>
+              2nd Feb 2020
+            </div>
+
+            <div class="text-sm text-red-800">
+              <!-- STATUS -->
+              Cancelled
+            </div>
+
+          </div>
+          <div class="text-sm">
+            Ride ID : 123 | Local 
+          </div>
+
+
+
+       
+        </div>
+      </div>
+      <div>
+        <div class="text-blue-800 flex items-center">
+
+          <div>
+          <img src="assets/cab/fromPin.png" class="w-4" alt="">
+        </div>
+        <div class="pl-2">
+          From Location address
+        </div>
+        </div>
+        <div class="text-blue-800 flex items-center">
+
+          <div>
+          <img src="assets/cab/toPin.png" class="w-4" alt="">
+        </div>
+        <div class="pl-2">
+          To Location address
+        </div>
+        </div>
+ 
+      </div>
+
+
+      <div class="flex justify-end">
+        <ion-button fill="clear" color="dark">
+        View  Details
+        </ion-button>
+        <ion-button color="dark">
+          Track
+        </ion-button>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</ion-content>

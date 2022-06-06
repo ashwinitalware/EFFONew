@@ -18,6 +18,7 @@ import { SmsRetriever } from '@awesome-cordova-plugins/sms-retriever/ngx';
 import { PhotoViewer } from '@awesome-cordova-plugins/photo-viewer/ngx';
 import { ServiceService } from './services/service.service';
 import { OldExService } from './services/old-ex.service';
+import { CabService } from './services/cab.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +39,7 @@ import { OldExService } from './services/old-ex.service';
     ServiceService,
     OldExService,
     InAppBrowser,
+    CabService,
     LoginGuard,
   ],
   bootstrap: [AppComponent],

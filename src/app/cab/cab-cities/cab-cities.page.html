@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Select Your City</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="bg-white h-full">
+  <ion-list class="bg-white" >
+
+    <!-- (ngModelChange)="selected($event)"  -->
+    <ion-radio-group   class="bg-white" [(ngModel)]="this.cabService.selectedCityId">
+      <!-- <ion-list-header>
+        <ion-label>Name</ion-label>
+      </ion-list-header> -->
+
+      <ion-item (click)="selected(city)"  class="bg-white" *ngFor="let city of this.cabService.cities">
+        
+        <ion-label>{{city.attributes.name|titlecase}}</ion-label>
+        <ion-radio slot="start" value="{{city.id}}"></ion-radio>
+      </ion-item>
+  
+    
+    </ion-radio-group>
+  </ion-list>
+</div>
+</ion-content>
