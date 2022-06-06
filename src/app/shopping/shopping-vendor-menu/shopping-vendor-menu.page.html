@@ -8,6 +8,29 @@
 </ion-header>
 
 <ion-content>
+
+  <div class="mt-3" *ngIf="vendorDetails != undefined">
+    <h4 class="p-2 font-bold">{{vendorDetails?.fullName}}
+      <br> <span class="text-xs font-medium text-slate-400" >{{vendorDetails?.phone}} | {{vendorDetails?.email}}</span> <br>
+      <span class="text-xs font-medium text-slate-400">City: {{vendorDetails?.city}}</span>
+    </h4>
+    <h5 >
+      
+    </h5>
+    <!-- <ion-label class="ion-padding ion-margin">
+      
+      <p class="text-sm">
+        <span>{{vendorDetails?.phone}} | </span>  
+        <span>{{vendorDetails?.email}} | </span> 
+      </p>
+      <p class="text-sm">
+        City: {{vendorDetails?.city}}
+      </p>
+    </ion-label> -->
+    
+  </div>
+
+
 <div class="my-4" *ngIf="cart.shoppingProducts">
   <ion-row *ngIf="cart.shoppingProducts" class="my-2">
     <ion-col size="12"  class="my-2.5" *ngFor="let product of cart.shoppingProducts; let i=index">

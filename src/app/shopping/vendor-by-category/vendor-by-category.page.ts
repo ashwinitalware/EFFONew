@@ -121,6 +121,7 @@ export class VendorByCategoryPage implements OnInit {
 
   getProductByVendor(vendor){
     console.log(vendor);
+    this.cart.cartProducts = [];
     this.router.navigate(['shopping-vendor-menu/'+vendor?.attributes.vendor.data.id])
   }
 

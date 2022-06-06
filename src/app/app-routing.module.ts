@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginGuard } from './guards/login.guard';
+import { CartGuard } from './guards/shopping/cart.guard';
 
 const routes: Routes = [
   {
@@ -366,7 +367,8 @@ const routes: Routes = [
   },
   {
     path: 'shopping-cart',
-    loadChildren: () => import('./shopping/shopping-cart/shopping-cart.module').then( m => m.ShoppingCartPageModule)
+    loadChildren: () => import('./shopping/shopping-cart/shopping-cart.module').then( m => m.ShoppingCartPageModule),
+    canActivate: [CartGuard]
   },
   {
     path: 'shoping-add-cart-modal',

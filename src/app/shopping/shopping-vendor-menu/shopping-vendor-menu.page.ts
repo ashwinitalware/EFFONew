@@ -15,13 +15,14 @@ export class ShoppingVendorMenuPage implements OnInit {
   pageNo = 1;
   pageSize = 15;
   isLoadMore = true;
+  vendorDetails:any;
   constructor(public activatedRoute: ActivatedRoute, public http: HttpClient, public ds: DataService, public modalCtrl: ModalController, public cart: ShoppingCartService, public router: Router) {
     console.info(this.activatedRoute.snapshot.params.id)
   }
 
   ngOnInit() {
     this.cart.shoppingProducts = [];
-    this.getVendorShoppingProducts(this.activatedRoute.snapshot.params.id)
+    this.getVendorShoppingProducts(this.activatedRoute.snapshot.params.id);
   }
 
   ionViewWillEnter(){
@@ -40,6 +41,10 @@ export class ShoppingVendorMenuPage implements OnInit {
       })
       .subscribe((data: any) => {
         this.cart.shoppingProducts = data.data;
+        if(data.data.length > 0){
+          this.vendorDetails = data.data[0]?.attributes?.vendor?.data?.attributes;
+          console.log(this.vendorDetails)
+        }
         this.cart.shoppingProducts?.forEach(prod => {
           prod.quantity = 0;
           if (prod?.attributes?.variations?.data?.length == 0) {
@@ -57,6 +62,7 @@ export class ShoppingVendorMenuPage implements OnInit {
   loadMore(ev){
     console.log(this.isLoadMore);
     if(!this.isLoadMore){
+      ev?.target?.complete();
       return true;
     }else{
       this.http.get(this.ds.apiUrl + 'shopping-products', {
@@ -87,6 +93,8 @@ export class ShoppingVendorMenuPage implements OnInit {
           }
           ev?.target?.complete();
           this.pageNo++;
+        }, (err) =>{
+          ev?.target?.complete();
         });
     }
 

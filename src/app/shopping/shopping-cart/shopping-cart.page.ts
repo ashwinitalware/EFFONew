@@ -192,7 +192,7 @@ export class ShoppingCartPage implements OnInit {
 
   placeOrder(){
     if(this.address == '' || this.address == undefined){
-     return this.ds.presentToast('Please enter address first.');
+      return this.ds.presentToast('Please enter address first.');
     }
     var payload = {
       user: this.userDetails?.id,
@@ -222,10 +222,10 @@ export class ShoppingCartPage implements OnInit {
             } }).subscribe((res: any) => {
               console.log(res);
               if (this.cart.cartProducts.length == (i + 1)) {
-                this.navCtrl.back();
+                this.router.navigate(['shopping-dashboard/orders']);
                 this.cart.cartProducts = [];
                 this.ds.dismiss();
-               return this.ds.presentToast('Order place successfully.');
+                return this.ds.presentToast('Order place successfully.');
               }
             }, e =>{
               this.ds.dismiss();
