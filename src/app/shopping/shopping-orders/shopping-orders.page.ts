@@ -33,7 +33,7 @@ export class ShoppingOrdersPage implements OnInit {
   getOrders(type){
     const query = qs.stringify({
       sort: ['createdAt:desc'],
-      'filters[user][id][$eq]': this.userDetails?.id,
+      'filters[user][id][$eq]': this.ds.profile.id,
       'filters[status][$eq]': type,
       populate: {
         user: {

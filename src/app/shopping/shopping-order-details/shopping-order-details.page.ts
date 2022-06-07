@@ -2,6 +2,7 @@ import { DataService } from 'src/app/services/data.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import qs from 'qs';
 @Component({
   selector: 'app-shopping-order-details',
   templateUrl: './shopping-order-details.page.html',
@@ -29,9 +30,8 @@ export class ShoppingOrderDetailsPage implements OnInit {
       },
     })
       .subscribe((data: any) => {
-
         this.allOrders = data.data;
-              
+        console.log(this.allOrders);       
         if(data.data){
           this.ordDate = data.data[0]?.attributes?.createdAt;
           this.orderDetails = data.data[0]?.attributes?.order;
