@@ -4,12 +4,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
+import qs from 'qs';
 @Component({
   selector: 'app-shopping-home',
   templateUrl: './shopping-home.page.html',
   styleUrls: ['./shopping-home.page.scss'],
 })
 export class ShoppingHomePage implements OnInit {
+
+  vendors=[]
   showTitleSuggestions = false;
   showCitySuggesionts = false;
   titleSuggestions = [];
@@ -18,7 +21,26 @@ export class ShoppingHomePage implements OnInit {
   selectedCitySuggesion = '';
   sliceValue = 3;
   categories
-  constructor(public http: HttpClient, public ds: DataService, public router: Router, public navCtrl: NavController) { }
+  slides=[
+    
+    {
+    url:'assets/shopping/ad1.jpg'
+  },
+    {
+    url:'assets/shopping/ad2.jpg'
+  },
+
+]
+  slideOpts = {
+    initialSlide: 0,
+    slidesPerView: 1,
+    autoplay: true,
+  };
+  constructor(public http: HttpClient, public ds: DataService, public router: Router, public navCtrl: NavController) { 
+
+    this.getVendors()
+
+  }
 
   ngOnInit() {
     this.getAllShoppingCategories();
@@ -40,4 +62,23 @@ export class ShoppingHomePage implements OnInit {
     // this.navCtrl.navigateForward('shopping-vendor-listing')
   }
 
+
+  getVendors() {
+
+    const query = qs.stringify({
+      populate: {
+        vendor: {
+          shoppingCategories: {
+            populate:'*'
+          },
+        },
+      },
+    });
+    this.http
+      .get(this.ds.apiUrl + 'shopping-profiles?'+query, )
+      .subscribe((data: any) => {
+        this.vendors = data.data;
+      
+      });
+  }
 }
