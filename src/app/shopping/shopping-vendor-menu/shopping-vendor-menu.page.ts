@@ -43,17 +43,20 @@ export class ShoppingVendorMenuPage implements OnInit {
         this.cart.shoppingProducts = data.data;
         if(data.data.length > 0){
           this.vendorDetails = data.data[0]?.attributes?.vendor?.data?.attributes;
-          console.log(this.vendorDetails)
+          // console.log(this.vendorDetails)
+        }
+        else{
+          
         }
         this.cart.shoppingProducts?.forEach(prod => {
           prod.quantity = 0;
-          if (prod?.attributes?.variations?.data?.length == 0) {
+          // if (prod?.attributes?.variations?.data?.length == 0) {
             prod.isVariationAvailable = false
-            prod.price = 50;
-          } else {
-            prod.isVariationAvailable = true;
-            prod.price = prod?.attributes?.variations.data[0]?.attributes?.price;
-          }
+            // prod.price = 50;
+          // } else {
+          //   prod.isVariationAvailable = true;
+          //   prod.price = prod?.attributes?.variations.data[0]?.attributes?.price;
+          // }
         });
         this.pageNo++;
       });
@@ -82,13 +85,13 @@ export class ShoppingVendorMenuPage implements OnInit {
             this.cart.shoppingProducts.push(...data.data);
             this.cart.shoppingProducts?.forEach(prod => {
               prod.quantity = 0;
-              if (prod?.attributes?.variations?.data?.length == 0) {
+              // if (prod?.attributes?.variations?.data?.length == 0) {
                 prod.isVariationAvailable = false
-                prod.price = 50;
-              } else {
-                prod.isVariationAvailable = true;
-                prod.price = prod?.attributes?.variations.data[0]?.attributes?.price;
-              }
+                // prod.price = 50;
+              // } else {
+              //   prod.isVariationAvailable = true;
+              //   prod.price = prod?.attributes?.variations.data[0]?.attributes?.price;
+              // }
             });
           }
           ev?.target?.complete();
@@ -128,7 +131,7 @@ export class ShoppingVendorMenuPage implements OnInit {
             prod.quantity += 1;
             prod.baseValue = variation?.variationPrice;
             prod.variationId = variation?.variationId;
-            prod.price = variation?.variationPrice * prod.quantity;
+            // prod.price = variation?.variationPrice * prod.quantity;
           }
         });
 
@@ -175,14 +178,16 @@ export class ShoppingVendorMenuPage implements OnInit {
             if (prod?.attributes?.variations?.data?.length > 0) {
               prod.isVariationAvailable = true;
             }
-            prod.price = (prod?.baseValue == undefined ? 50 : prod?.baseValue);
+            // prod.price = (prod?.baseValue == undefined ? 50 : prod?.baseValue);
+            prod.price = product.attributes.price
             var index = this.cart.cartProducts?.findIndex(x => x.id == prod.id);
             if (index != -1) {
               this.cart.cartProducts.splice(index, 1);
             }
             console.log(index);
           } else {
-            prod.price = prod.price - (prod?.baseValue == undefined ? 50 : prod?.baseValue);
+            // prod.price = prod.price - (prod?.baseValue == undefined ? 50 : prod?.baseValue);
+            prod.price = product.attributes.price
             this.cart.cartProducts.forEach(cartProd => {
               if (prod.id == product.id) {
                 cartProd = this.cart.shoppingProducts[i];
@@ -203,7 +208,8 @@ export class ShoppingVendorMenuPage implements OnInit {
     this.cart.shoppingProducts.forEach(prod => {
       if (prod.id == product.id) {
         prod.quantity++;
-        prod.price = (prod?.baseValue == undefined ? 50 : prod?.baseValue) * prod.quantity;
+        // prod.price = (prod?.baseValue == undefined ? 50 : prod?.baseValue) * prod.quantity;
+        prod.price = product.attributes.price
       }
     });
 

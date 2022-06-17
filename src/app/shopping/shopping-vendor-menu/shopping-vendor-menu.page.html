@@ -3,17 +3,18 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Products</ion-title>
+    <ion-title>Shopping Menu</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="bg-white">
 
-  <div class="mt-3" *ngIf="vendorDetails != undefined">
-    <h4 class="p-2 font-bold">{{vendorDetails?.fullName}}
+  <div class="" *ngIf="vendorDetails != undefined">
+    <div class="p-2 font-bold">{{vendorDetails?.fullName|titlecase}}
       <br> <span class="text-xs font-medium text-slate-400" >{{vendorDetails?.phone}} | {{vendorDetails?.email}}</span> <br>
       <span class="text-xs font-medium text-slate-400">City: {{vendorDetails?.city}}</span>
-    </h4>
+    </div>
     <h5 >
       
     </h5>
@@ -38,27 +39,41 @@
         <img style="width: 22%;" src="{{product?.attributes?.image}}" (error)="onImgError($event)" alt="">
         <ion-label class="mx-2">
           <p>{{product?.attributes?.name}}</p>
-          <p>
-            <span>per {{product?.attributes?.unit}}</span>
-          </p>
-          <p> <span>&#8377;</span>{{product?.price}}</p>
+          <p>{{product?.attributes?.description}}</p>
+         
+          <p> <span>&#8377;</span>{{product?.attributes.price}} per {{product?.attributes?.unit}}</p>
         </ion-label>
         <ion-row>
 
-          <div *ngIf="product?.isVariationAvailable">
-            <ion-button (click)="addToCart(product, i)" fill="clear">
-              <ion-icon name="add"></ion-icon> Add Item
+          <!-- <div *ngIf="product?.isVariationAvailable">
+            <ion-button (click)="addToCart(product, i)" color="dark" fill="outline">
+              Add Item
             </ion-button>
+          </div> -->
+
+          <!-- *ngIf="!product?.isVariationAvailable" -->
+          <div>
+            <div *ngIf="!product.quantity">
+            <ion-button  (click)="add(product, i)" color="dark" fill="outline">
+              Add Item
+            </ion-button>
+
           </div>
 
-          <div *ngIf="!product?.isVariationAvailable">
-            <ion-button (click)="add(product, i)" color="danger" mode="ios">
-              <ion-icon name="add"></ion-icon>
+          <div  *ngIf="product.quantity">
+            <ion-button  color="dark">
+            <span (click)="remove(product, i)" class="w-6">  <ion-icon name="remove" ></ion-icon>
+            
+            
+            </span>  
+            
+            <span class="w-6">
+            {{product?.quantity}}</span><span (click)="add(product, i)" class="w-6">   <ion-icon  name="add"></ion-icon></span>  
             </ion-button>
-            <span class="mx-3 my-1.5">{{product?.quantity}}</span>
-            <ion-button (click)="remove(product, i)" color="danger" mode="ios">
-              <ion-icon name="remove"></ion-icon>
-            </ion-button>
+           
+          </div>
+
+            
           </div>
         </ion-row>
       </ion-item>
@@ -68,7 +83,7 @@
   <ion-infinite-scroll threshold="25%" (ionInfinite)="loadMore($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
     </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+  </ion-infinite-scroll></div>
 </ion-content>
 
 <ion-footer *ngIf="cart.cartProducts.length">

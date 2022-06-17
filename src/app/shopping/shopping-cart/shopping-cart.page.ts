@@ -24,11 +24,24 @@ export class ShoppingCartPage implements OnInit {
     var data = localStorage.getItem('effoProfile');
     this.userDetails = JSON.parse(data);
     console.log(this.userDetails);
-    this.cart.cartProducts.forEach(cartProd => {
-      this.total += cartProd?.price;
-      this.grandTotal += cartProd?.price;
-    });
+ 
+    this.calculateCost()
   }
+
+  calculateCost(){
+
+    this.total=0
+    this.grandTotal=0
+
+    this.cart.cartProducts.forEach(cartProd => {
+      console.log('calcu',cartProd);
+      
+      this.total += cartProd.price*cartProd.quantity;
+     
+    });
+    this.grandTotal += this.total;
+  }
+
   onImgError(event) {
     event.target.src = './assets/noProducts.jpg'
     //Do other stuff with the event.target
@@ -103,14 +116,14 @@ export class ShoppingCartPage implements OnInit {
             if (prod?.attributes?.variations?.data?.length > 0) {
               prod.isVariationAvailable = true;
             }
-            prod.price = (prod?.baseValue == undefined ? 50 : prod?.baseValue);
+            // prod.price = (prod?.baseValue == undefined ? 50 : prod?.baseValue);
             var index = this.cart.cartProducts?.findIndex(x => x.id == prod.id);
             if (index != -1) {
               this.cart.cartProducts.splice(index, 1);
             }
             console.log(index);
           } else {
-            prod.price = prod.price - (prod?.baseValue == undefined ? 50 : prod?.baseValue);
+            // prod.price = prod.price - (prod?.baseValue == undefined ? 50 : prod?.baseValue);
             // this.cart.cartProducts.forEach(cartProd => {
             //   if (prod.id == product.id) {
             //     cartProd = this.shoppingProducts[i];
@@ -128,13 +141,14 @@ export class ShoppingCartPage implements OnInit {
       this.navCtrl.back();
     }
     console.log(this.cart.cartProducts);
+    this.calculateCost()
   }
 
   add(product, i) {
     this.cart.cartProducts.forEach(prod => {
       if (prod.id == product.id) {
         prod.quantity++;
-        prod.price = (prod?.baseValue == undefined ? 50 : prod?.baseValue) * prod.quantity;
+        // prod.price = (prod?.baseValue == undefined ? 50 : prod?.baseValue) * prod.quantity;
       }
     });
 
@@ -157,6 +171,7 @@ export class ShoppingCartPage implements OnInit {
     //   }
     // }
     console.log(this.cart.cartProducts)
+    this.calculateCost()
   }
 
   goToCartPage() {
@@ -177,13 +192,13 @@ export class ShoppingCartPage implements OnInit {
     }else{
       this.cart.shoppingProducts?.forEach(prod => {
         prod.quantity = 0;
-        if (prod?.attributes?.variations?.data?.length == 0) {
-          prod.isVariationAvailable = false
-          prod.price = 50;
-        } else {
-          prod.isVariationAvailable = true;
-          prod.price = prod?.attributes?.variations.data[0]?.attributes?.price;
-        }
+        // if (prod?.attributes?.variations?.data?.length == 0) {
+        //   prod.isVariationAvailable = false
+        //   prod.price = 50;
+        // } else {
+        //   prod.isVariationAvailable = true;
+        //   prod.price = prod?.attributes?.variations.data[0]?.attributes?.price;
+        // }
       });
     }
     console.log('leaving cart page')
@@ -195,7 +210,7 @@ export class ShoppingCartPage implements OnInit {
       return this.ds.presentToast('Please enter address first.');
     }
     var payload = {
-      user: this.userDetails?.id,
+      user: this.ds.profile.id,
       vendor: parseInt(this.activatedRoute.snapshot.params.vendorId),
       total: this.grandTotal,
       address: this.address,
@@ -215,10 +230,10 @@ export class ShoppingCartPage implements OnInit {
           setTimeout(() => {
             this.http.post(this.ds.apiUrl + 'shopping-order-products', { data: {
               quantity: cartPRod?.quantity,
-              variation: cartPRod?.variationId,
+              // variation: cartPRod?.variationId,
               order: orderId,
               price: cartPRod?.price,
-              productName: cartPRod?.attributes?.name
+              name: cartPRod?.attributes?.name
             } }).subscribe((res: any) => {
               console.log(res);
               if (this.cart.cartProducts.length == (i + 1)) {

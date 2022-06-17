@@ -28,7 +28,20 @@
               </ion-button>
             </div>
    -->
-            <div>
+
+   <div  >
+    <ion-button  color="dark">
+    <span (click)="remove(product, i)" class="w-6">  <ion-icon name="remove" ></ion-icon>
+    
+    
+    </span>  
+    
+    <span class="w-6">
+    {{product?.quantity}}</span><span (click)="add(product, i)" class="w-6">   <ion-icon  name="add"></ion-icon></span>  
+    </ion-button>
+   
+  </div>
+            <!-- <div>
               <ion-button (click)="add(product, i)" color="danger" mode="ios">
                 <ion-icon name="add"></ion-icon>
               </ion-button>
@@ -36,7 +49,7 @@
               <ion-button (click)="remove(product, i)" color="danger" mode="ios">
                 <ion-icon name="remove"></ion-icon>
               </ion-button>
-            </div>
+            </div> -->
           </ion-row>
         </ion-item>
       </ion-col>
