@@ -5,7 +5,7 @@
     </ion-buttons>
     <ion-title class="text-center">
       <ion-icon color="danger" class="text-lg" name="location"></ion-icon>
-      <span class="border-dashed border-b-2 border-gray-300 text-lg text-black">Railway Station</span>
+      <span class="border-dashed border-b-2 border-gray-300 text-lg text-black">Amravati</span>
     </ion-title>
     <ion-buttons slot="end" class="ion-padding" routerLink="/addtocart">
       <ion-icon name="cart" color="danger" class="text-2xl"></ion-icon>
@@ -22,14 +22,14 @@
     </div>
   </ion-row>
 
-  <div class="flex justify-between pl-2 pr-2 pt-1">
+  <!-- <div class="flex justify-between pl-2 pr-2 pt-1">
     <div class="p-1 border-2 border-gray-400 rounded-lg w-3/4 text-center text-gray-600  ui-sans-serif font-thin"
       routerLink="/scan">Dine
       In</div>&nbsp;
     <div class="p-1 border-2 border-gray-400 rounded-lg w-3/4 text-center text-gray-600 ui-sans-serif font-thin"
       routerLink="/restrolist">Reserve
     </div>
-  </div>
+  </div> -->
 
   <!-- <div class="flex justify-evenly p-1" >
     <div class="bg-white text-center w-20 p-2 rounded-2xl content-center" routerLink="/yourorders">
@@ -230,3 +230,15 @@
 
 
 </ion-content>
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600" routerLink="/food-dashboard">
+    <ion-label>Restaurant</ion-label>
+    <ion-icon name="home"></ion-icon>
+  </ion-tab-button>
+
+
+  <ion-tab-button tab="profile" class="text-gray-600 hover:text-red-600" routerLink="/foodhistroy">
+    <ion-label>History</ion-label>
+    <ion-icon name="document-text"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>

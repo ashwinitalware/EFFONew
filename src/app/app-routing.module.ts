@@ -483,6 +483,10 @@ const routes: Routes = [
     path: 'bookany',
     loadChildren: () => import('./Cabservice/bookany/bookany.module').then( m => m.BookanyPageModule)
   },
+  {
+    path: 'foodhistroy',
+    loadChildren: () => import('./Food/foodhistroy/foodhistroy.module').then( m => m.FoodhistroyPageModule)
+  },
 
 
 
