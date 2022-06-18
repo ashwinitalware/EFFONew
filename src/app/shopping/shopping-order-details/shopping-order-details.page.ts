@@ -9,36 +9,31 @@ import qs from 'qs';
   styleUrls: ['./shopping-order-details.page.scss'],
 })
 export class ShoppingOrderDetailsPage implements OnInit {
-  public allOrders: any = [];
-  public orderDetails:any;
-  ordDate:any;
-  pageNo = 1;
-  pageSize = 10;
+  order = undefined
   constructor(public activatedRoute: ActivatedRoute, public http: HttpClient, public ds: DataService, public router: Router) { }
 
   ngOnInit() {
-    this.getOrderDetails(this.activatedRoute.snapshot.params.id);
+    this.getOrderDetails()
   }
 
-  getOrderDetails(id) {
-    this.http.get(this.ds.apiUrl + 'shopping-order-products', {
-      params: {
-        populate: '*',
-        'filters[order][id][$eq]': id,
-        'pagination[page]': this.pageNo,
-        'pagination[pageSize]': this.pageSize
-      },
-    })
-      .subscribe((data: any) => {
-        this.allOrders = data.data;
-        console.log(this.allOrders);       
-        if(data.data){
-          this.ordDate = data.data[0]?.attributes?.createdAt;
-          this.orderDetails = data.data[0]?.attributes?.order;
+  getOrderDetails() {
+    this.http.get(this.ds.apiUrl + 'shopping-orders/' + this.activatedRoute.snapshot.params.orderId, {
+        params: {
+          populate: '*'
         }
-        // this.allOrders?.forEach(cat => {
-        //  cat.icon = 'close';
-        // });
+        // params: {
+        //   populate: '*',
+        //   'filters[order][id][$eq]': this.activatedRoute.snapshot.params.id,
+        //   'pagination[page]': this.pageNo,
+        //   'pagination[pageSize]': this.pageSize
+        // },
+      })
+      .subscribe((data: any) => {
+        this.order = data.data;
+        // if(data.data){
+        //   this.ordDate = data.data[0]?.attributes?.createdAt;
+        //   this.orderDetails = data.data[0]?.attributes?.order;
+        // }
       });
   }
 

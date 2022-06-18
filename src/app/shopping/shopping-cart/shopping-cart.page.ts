@@ -18,8 +18,15 @@ export class ShoppingCartPage implements OnInit {
   discount = 0;
   address = '';
   userDetails;
-  constructor(public activatedRoute: ActivatedRoute, public http: HttpClient, public ds: DataService, public modalCtrl: ModalController, public cart: ShoppingCartService, public router: Router, public navCtrl: NavController) { }
+  constructor(public activatedRoute: ActivatedRoute, public http: HttpClient, public ds: DataService, public modalCtrl: ModalController, public cart: ShoppingCartService, public router: Router, public navCtrl: NavController) { 
 
+
+    this.address=localStorage.getItem('shoppingAddress')
+  }
+  addressEntered(event){
+    console.log(event);
+    localStorage.setItem('shoppingAddress',event)
+  }
   ngOnInit() {
     var data = localStorage.getItem('effoProfile');
     this.userDetails = JSON.parse(data);
@@ -238,6 +245,7 @@ export class ShoppingCartPage implements OnInit {
               console.log(res);
               if (this.cart.cartProducts.length == (i + 1)) {
                 this.router.navigate(['shopping-dashboard/orders']);
+                this.cart.getOrders()
                 this.cart.cartProducts = [];
                 this.ds.dismiss();
                 return this.ds.presentToast('Order place successfully.');

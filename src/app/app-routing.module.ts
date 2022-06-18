@@ -490,7 +490,7 @@ const routes: Routes = [
     loadChildren: () => import('./shopping/shopping-history/shopping-history.module').then( m => m.ShoppingHistoryPageModule)
   },
   {
-    path: 'shopping-order-details/:id',
+    path: 'shopping-order-details/:orderId',
     loadChildren: () => import('./shopping/shopping-order-details/shopping-order-details.module').then( m => m.ShoppingOrderDetailsPageModule)
   },
   {

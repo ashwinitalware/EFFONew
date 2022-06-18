@@ -19,6 +19,28 @@
   </ion-slides>
 
 
+  <div class="px-4 ">
+  <div class="flex items-center bg-white rounded-md shadow-md">
+    <ion-input 
+    (ngModelChange)="getVendorsByQuery($event)"
+    [(ngModel)]="searchQuery"
+      class="flex-1"
+      placeholder="Search by vendor name"
+      id="search"
+    >
+      <ion-icon name="search" style="margin-left: 7px"></ion-icon>
+    </ion-input>
+
+    <ion-icon
+    *ngIf="searchQuery"
+    (click)="clear()"
+
+      name="close"
+      class="px-4"
+      style="margin-left: 7px"
+    ></ion-icon>
+  </div>
+</div>
   <div>
 
 
@@ -132,5 +154,9 @@
       </ion-grid>
     </div>
   </div> -->
+
+  <div *ngIf="this.notFound" class="text-center font-bold ">
+    No Vendor Found
+  </div>
 
 </ion-content>

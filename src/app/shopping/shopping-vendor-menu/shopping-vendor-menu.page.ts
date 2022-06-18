@@ -5,19 +5,21 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-
+import qs from 'qs'
 @Component({
   selector: 'app-shopping-vendor-menu',
   templateUrl: './shopping-vendor-menu.page.html',
   styleUrls: ['./shopping-vendor-menu.page.scss'],
 })
 export class ShoppingVendorMenuPage implements OnInit {
+  shoppingProfile
   pageNo = 1;
   pageSize = 15;
   isLoadMore = true;
   vendorDetails:any;
   constructor(public activatedRoute: ActivatedRoute, public http: HttpClient, public ds: DataService, public modalCtrl: ModalController, public cart: ShoppingCartService, public router: Router) {
     console.info(this.activatedRoute.snapshot.params.id)
+    this.getShoppingProfile()
   }
 
   ngOnInit() {
@@ -237,6 +239,28 @@ export class ShoppingVendorMenuPage implements OnInit {
   goToCartPage(){
     this.router.navigateByUrl('shopping-cart/' + this.activatedRoute.snapshot.params.id);
   }
+
+  getShoppingProfile(){
+    let query=qs.stringify({
+      populate:'*',
+      filters:{
+        vendor:{
+          id:{
+            $eq:this.activatedRoute.snapshot.params.id
+          }
+        }
+      }
+    })
+
+    this.http.get(this.ds.apiUrl+'shopping-profiles?'+query,{
+      
+    }).subscribe((data:any)=>{
+      this.shoppingProfile=data.data[0]
+
+    })
+
+  }
+
 
 
 }

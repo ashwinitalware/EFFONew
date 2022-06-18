@@ -8,58 +8,45 @@
 </ion-header>
 
 <ion-content>
-  <!-- <div>
-    <ion-segment (ionChange)="segmentChanged($event)">
-      <ion-segment-button value="pending">
-        <ion-label>Pending</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="accepted">
-        <ion-label>Accepted</ion-label>
-      </ion-segment-button>
- 
-      <ion-segment-button value="rejected">
-        <ion-label>Rejected</ion-label>
-      </ion-segment-button>
-    </ion-segment>  
-  </div> -->
 
 
-  <div *ngIf="orders">
-    <ion-row>
-      <ion-col size="12" *ngFor="let product of orders; let i=index">
-        <ion-card class="bg-white p-1 rounded-sm">
-          <div class="flex justify-between px-2 mb-1">
-            <div class="text-black">
-                <b style="float: left;">{{product?.attributes?.status}}</b><br>
-                <p>{{product?.attributes?.updatedAt | date: 'MMMM d, y'}}</p>
-                <b> {{product?.attributes?.category?.data?.attributes?.name}}</b>
-            </div> 
-            <!-- <div>
-              <ion-icon *ngIf="product?.attributes?.status == 'pending'" size="medium" color="success" name="checkmark-circle-outline" (click)="updateOrderStatusById(product.id, 'accepted')"></ion-icon>
-              <ion-icon *ngIf="product?.attributes?.status == 'pending' || product?.attributes?.status == 'accepted' " size="medium" color="danger" name="close-circle-outline" (click)="updateOrderStatusById(product.id, 'rejected')"></ion-icon>
-            </div> -->
-          </div>
-          <div (click)="goToOrderDetials(product.id)" class="flex justify-start pr-2 pl-2 mb-1">
-            <div>
-              <div class="border-2 w-20 border-gray-200">
-                <img class="img_thumb" src="{{product?.productImg}}" (error)="onImgError($event)" alt="">
-              </div>
-            </div>
-            <div class="pl-2">
-              <p class="text-black"><b>{{product?.productName}}</b></p>
-              <p>{{product?.productDescrip?.length > 40 ? product?.productDescrip?.slice(0, 25) :
-                product?.productDescrip}}</p>
-              <p class="text-blue-600">Total Items: {{product?.attributes?.orderProducts?.data?.length}} </p>              
-              <p> Total: <span>₹</span>{{product?.attributes?.total}}</p>
-            </div>
-          </div>
-        </ion-card>
-      </ion-col>
-    </ion-row>
+
+  <div class="p-2">
+    <ion-card *ngFor="let order of  shoppingService.orders" class="bg-white mb-4">
+      <div class="flex justify-between p-2">
+        <ion-label class="text-lg text-black font-bold">Order #{{order.id}}</ion-label>
+        <p class="text-blue-800 text-sm font-bold ">{{order.attributes.createdAt|date :"MMMM, dd, yyyy"}}</p>
+      </div>
+
+      <div *ngFor="let orderedProduct of order.attributes.orderProducts.data" class="flex justify-start pr-2 pl-2 mb-1">
+        <div class="pt-1 text-gray-400">
+          <ion-icon style="font-size: 18px;" name="cube"></ion-icon>
+        </div>
+        <div class="pl-2">
+          <p class="text-black text-base "><b>{{orderedProduct.attributes.name|titlecase}}</b></p>
+
+
+          <span>
+      Quantity :       {{orderedProduct.attributes.quantity}}
+          </span>
+
+        </div>
+      </div>
+
+      <div class="flex justify-between p-2">
+        <ion-button class="flex-1 rounded-sm" expand=" block" fill="outline" [color]="statusToColor(order.attributes.status)">
+          {{order.attributes.status}}
+        </ion-button>
+        <ion-button [routerLink]="['/shopping-order-details/'+order.id]" routerLinkActive="router-link-active"  class="flex-1" expand="block" color="dark">
+          Details
+        </ion-button>
+      </div>
+    </ion-card>
   </div>
 
 
-  <div align="center" *ngIf="orders.length == 0">
+
+  <div align="center" *ngIf="this.shoppingService.notFound">
     <h3 style="margin-top: 50%;">No data found yet.</h3>
   </div>
 </ion-content>
