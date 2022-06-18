@@ -10,80 +10,159 @@
 <ion-content>
   <div class="bg-white">
 
-  <div class="" *ngIf="vendorDetails != undefined">
-    <div class="p-2 font-bold">{{vendorDetails?.fullName|titlecase}}
-      <br> <span class="text-xs font-medium text-slate-400" >{{vendorDetails?.phone}} | {{vendorDetails?.email}}</span> <br>
-      <span class="text-xs font-medium text-slate-400">City: {{vendorDetails?.city}}</span>
-    </div>
-    <h5 >
-      
-    </h5>
-    <!-- <ion-label class="ion-padding ion-margin">
-      
-      <p class="text-sm">
-        <span>{{vendorDetails?.phone}} | </span>  
-        <span>{{vendorDetails?.email}} | </span> 
-      </p>
-      <p class="text-sm">
-        City: {{vendorDetails?.city}}
-      </p>
-    </ion-label> -->
-    
-  </div>
+    <div class="p-2">
+      <div class="p-2 border-b-2 border-gray-300">
+        <ion-label class="text-lg text-black font-bold">{{vendorDetails?.fullName|titlecase}}</ion-label><br>
+        <p class="">
+          <ion-icon slot="start" class="text-blue-600 text-xs" name="call"></ion-icon>
+          &nbsp;<span class="text-sm text-gray-600 pt-2">{{vendorDetails?.phone}}</span> |
+          <ion-icon slot="start" class="text-blue-600 text-xs" name="mail"></ion-icon>
+          &nbsp;<span>{{vendorDetails?.email}}</span><br>
+          <span class="text-sm font-medium text-slate-400"><b>City : </b>{{vendorDetails?.city}}</span>
+        </p>
+      </div>
 
+      <!-- <div *ngIf="cart.shoppingProducts">
+        <div class="flex justify-between p-2" *ngFor="let product of cart.shoppingProducts; let i=index">
+          <img width="40" height="10" src="{{product?.attributes?.image}}" (error)="onImgError($event)" alt="">
+          <div>
+            <ion-label class="mx-2">
+              <p>{{product?.attributes?.name}}</p>
+              <p>{{product?.attributes?.description}}</p>
 
-<div class="my-4" *ngIf="cart.shoppingProducts">
-  <ion-row *ngIf="cart.shoppingProducts" class="my-2">
-    <ion-col size="12"  class="my-2.5" *ngFor="let product of cart.shoppingProducts; let i=index">
-      <ion-item class="-ml-3">
-        <img style="width: 22%;" src="{{product?.attributes?.image}}" (error)="onImgError($event)" alt="">
-        <ion-label class="mx-2">
-          <p>{{product?.attributes?.name}}</p>
-          <p>{{product?.attributes?.description}}</p>
-         
-          <p> <span>&#8377;</span>{{product?.attributes.price}} per {{product?.attributes?.unit}}</p>
-        </ion-label>
-        <ion-row>
-
-          <!-- <div *ngIf="product?.isVariationAvailable">
-            <ion-button (click)="addToCart(product, i)" color="dark" fill="outline">
-              Add Item
-            </ion-button>
-          </div> -->
-
-          <!-- *ngIf="!product?.isVariationAvailable" -->
+              <p> <span>&#8377;</span>{{product?.attributes.price}} per {{product?.attributes?.unit}}</p>
+            </ion-label>
+          </div>
           <div>
             <div *ngIf="!product.quantity">
-            <ion-button  (click)="add(product, i)" color="dark" fill="outline">
-              Add Item
-            </ion-button>
+              <ion-button (click)="add(product, i)" color="dark" fill="outline">
+                Add Item
+              </ion-button>
+
+            </div>
+
+            <div *ngIf="product.quantity">
+              <ion-button color="dark">
+                <span (click)="remove(product, i)" class="w-6">
+                  <ion-icon name="remove"></ion-icon>
+
+
+                </span>
+
+                <span class="w-6">
+                  {{product?.quantity}}</span><span (click)="add(product, i)" class="w-6">
+                  <ion-icon name="add"></ion-icon>
+                </span>
+              </ion-button>
+
+            </div>
+
 
           </div>
 
-          <div  *ngIf="product.quantity">
-            <ion-button  color="dark">
-            <span (click)="remove(product, i)" class="w-6">  <ion-icon name="remove" ></ion-icon>
-            
-            
-            </span>  
-            
-            <span class="w-6">
-            {{product?.quantity}}</span><span (click)="add(product, i)" class="w-6">   <ion-icon  name="add"></ion-icon></span>  
-            </ion-button>
-           
-          </div>
+        </div>
+      </div> -->
 
-            
+      <!-- <div *ngIf="cart.shoppingProducts">
+        <div class="flex  p-2 bg-white rounded-sm shadow-md mt-2"
+          *ngFor="let product of cart.shoppingProducts; let i=index">
+          <img width="25%" height="10%" class="rounded-md" src="{{product?.attributes?.image}}"
+            (error)="onImgError($event)" alt="">
+          <div class="flex-1">
+            <ion-label class="mx-2">
+              <p class="text-lg text-black font-bold">{{product?.attributes?.name}}</p>
+              <p>{{product?.attributes?.description}}</p>
+
+              <p class="text-green-300 text-sm font-bold"> <span>&#8377;</span>{{product?.attributes.price}} per
+                {{product?.attributes?.unit}}</p>
+            </ion-label>
           </div>
-        </ion-row>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-</div>
-  <ion-infinite-scroll threshold="25%" (ionInfinite)="loadMore($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll></div>
+          <div class="">
+            <div *ngIf=" !product.quantity">
+              <ion-button (click)="add(product, i)" color="tertiary" fill="outline">
+                Add Item
+              </ion-button>
+            </div>
+
+            <div *ngIf="product.quantity">
+              <ion-button color="dark">
+                <span (click)="remove(product, i)" class="w-6">
+                  <ion-icon name="remove"></ion-icon>
+                </span>
+
+                <span class="w-6">
+                  {{product?.quantity}}</span><span (click)="add(product, i)" class="w-6">
+                  <ion-icon name="add"></ion-icon>
+                </span>
+              </ion-button>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+
+    <!-- <div class="" *ngIf="vendorDetails != undefined">
+      <div class="p-2 font-bold">{{vendorDetails?.fullName|titlecase}}
+        <br> <span class="text-xs font-medium text-slate-400">{{vendorDetails?.phone}} | {{vendorDetails?.email}}</span>
+        <br>
+        <span class="text-xs font-medium text-slate-400">City: {{vendorDetails?.city}}</span>
+      </div>
+    </div> -->
+
+
+    <div class="my-4" *ngIf="cart.shoppingProducts">
+      <ion-row class="my-2">
+        <ion-col size="12" class="my-2.5" *ngFor="let product of cart.shoppingProducts; let i=index">
+          <ion-item class="">
+            <img class="w-16 rounded-md" src="{{product?.attributes?.image}}" (error)="onImgError($event)" alt="">
+            <div class="mx-2 ">
+              <p>{{product?.attributes?.name}}</p>
+              <p>{{product?.attributes?.description}}</p>
+
+              <p> <span>&#8377;</span>{{product?.attributes.price}} per {{product?.attributes?.unit}}</p>
+            </div>
+            <ion-row>
+
+              <div>
+                <div *ngIf="!product.quantity">
+                  <ion-button (click)="add(product, i)" color="dark" fill="outline">
+                    Add Item
+                  </ion-button>
+
+                </div>
+
+                <div *ngIf="product.quantity">
+                  <ion-button color="dark">
+                    <span (click)="remove(product, i)" class="w-6">
+                      <ion-icon name="remove"></ion-icon>
+
+
+                    </span>
+
+                    <span class="w-6">
+                      {{product?.quantity}}</span><span (click)="add(product, i)" class="w-6">
+                      <ion-icon name="add"></ion-icon>
+                    </span>
+                  </ion-button>
+
+                </div>
+
+
+              </div>
+            </ion-row>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
+    <ion-infinite-scroll threshold="25%" (ionInfinite)="loadMore($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
 </ion-content>
 
 <ion-footer *ngIf="cart.cartProducts.length">
