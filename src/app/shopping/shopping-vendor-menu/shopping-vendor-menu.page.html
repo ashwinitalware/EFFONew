@@ -12,13 +12,24 @@
 
     <div class="p-2">
       <div class="p-2 border-b-2 border-gray-300" *ngIf="shoppingProfile">
-        <ion-label class="text-lg text-black font-bold">{{shoppingProfile.attributes.companyName|titlecase}}</ion-label><br>
-        <a class="" href="tel:91{{vendorDetails?.phone}}">
+        <ion-label class="text-lg text-black font-bold">
+          
+          {{shoppingProfile.attributes.companyName|titlecase}}</ion-label><br>
+        <ion-button  color="dark" (click)="this.ds.contact('call','91'+vendorDetails?.phone)">
+          <ion-icon slot="start"  name="call"></ion-icon>
+          Call Now
+          <!-- {{vendorDetails?.phone}} -->
+        </ion-button>
+        <ion-button  color="success"  (click)="this.ds.contact('whatsapp','91'+vendorDetails?.phone)">
+          <ion-icon slot="start" name="logo-whatsapp"></ion-icon>
+          Whatsapp
+        </ion-button>
+        <!-- <a class="" href="tel:91{{vendorDetails?.phone}}">
           <ion-icon slot="start" class="text-blue-600 text-xs" name="call"></ion-icon>
           &nbsp;<span class="text-sm text-gray-600 pt-2">{{vendorDetails?.phone}}</span>
     <br>
           <span class="text-sm text-black font-medium text-slate-400"><b>City : </b>{{vendorDetails?.city}}</span>
-        </a>
+        </a> -->
       </div>
 
       <!-- <div *ngIf="cart.shoppingProducts">
