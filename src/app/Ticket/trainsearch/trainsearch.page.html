@@ -1,0 +1,86 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white">Train Search </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="padding-left:0.8em ;" class="pt-3 pb-2">
+    <ion-label><b>Book Trains Tickets</b></ion-label>
+  </div>
+
+  <div class="p-2">
+    <div class="border-2 border-gray-400 bg-white rounded-md shadow-md pl-2 pt-2">
+      <p class="text-black font-bold text-sm">
+        <ion-icon name="arrow-forward-outline"></ion-icon>&nbsp;FROM
+        <ion-input type="text" placeholder="Enter City, Station Name"></ion-input>
+      </p>
+    </div>
+  </div>
+
+  <div class="p-2 mt-1">
+    <div class="border-2 border-gray-400 bg-white rounded-md shadow-md pl-2 pr-2 pt-2">
+      <p class="text-black font-bold text-sm">
+        <ion-icon name="arrow-back-outline"></ion-icon>&nbsp;TO
+        <ion-input type="text" placeholder="Enter City, Station Name"></ion-input>
+      </p>
+    </div>
+  </div>
+
+  <div class="p-2 mt-1">
+    <div class="border-2 border-gray-400 bg-white rounded-md shadow-md pl-2 pt-2 flex justify-between">
+      <div>
+        <p class="text-black font-bold text-sm">
+          <ion-icon name="calendar-outline"></ion-icon>&nbsp;DATE
+          <br>
+          <ion-label style="color:#8f8f8f">29 June 2022</ion-label>
+        </p>
+      </div>
+      <div class="pr-2">
+        <ion-badge color="primary" fill="outline">Today</ion-badge>&nbsp;
+        <ion-badge color="primary">Day After</ion-badge>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-between p-2">
+    <div
+      class="border-2 border-gray-500 hover:border-blue-400 rounded-md shadow-md bg-white p-1 w-full text-center mr-2">
+      All</div>
+    <div
+      class="border-2 border-gray-500 hover:border-blue-400 rounded-md shadow-md bg-white p-1 w-full text-center mr-2">
+      2S</div>
+    <div
+      class="border-2 border-gray-500 hover:border-blue-400 rounded-md shadow-md bg-white p-1 w-full text-center mr-2">
+      5L</div>
+    <div
+      class="border-2 border-gray-500 hover:border-blue-400 rounded-md shadow-md bg-white p-1 w-full text-center mr-2">
+      3A</div>
+    <div
+      class="border-2 border-gray-500 hover:border-blue-400 rounded-md shadow-md bg-white p-1 w-full text-center mr-2">
+      2A</div>
+  </div>
+
+  <div class="p-2" routerLink="/viewtrain">
+    <ion-button expand="block" color="primary">
+      Search
+    </ion-button>
+  </div>
+
+
+
+
+  <!-- <div class="p-2">
+    <div class="flex justify-start" style="border: 1px solid gray; ">
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+      <p class="text-gray-600 text-sm">FROM</p>
+      <input type="text" placeholder="Enter City, Station Name">
+    </div>
+  </div> -->
+
+</ion-content>

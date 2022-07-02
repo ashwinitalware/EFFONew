@@ -1,0 +1,195 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-label class="text-lg pl-2">
+      <ion-icon slot="start" name="location"></ion-icon>Amravati
+    </ion-label>
+    <!-- <ion-title>ticketdash</ion-title> -->
+    <ion-icon slot="end" class="pr-2 text-lg" name="notifications"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-2 pl-1">
+    <ion-label class="font-bold text-lg">
+      Hii
+    </ion-label>
+    <p>Let's discover a new adventure.</p>
+
+    <div class="sliders">
+
+      <div routerLink="/trainsearch" class="categoryIcon">
+        <div class="imgs bg-red-600">
+          <ion-icon class="text-xl text-white" name="train"></ion-icon>
+        </div>
+        <ion-label class="name text-4xl">Trains</ion-label>
+      </div>
+
+
+      <!-- <div routerLink="/trainsearch" class="categoryIcon" *ngFor="let item of [1,1,1,1,1]"> -->
+      <div routerLink="/trainsearch" class="categoryIcon">
+        <div class="imgs bg-red-600">
+          <ion-icon class="text-xl text-white" name="airplane"></ion-icon>
+          <!-- <img src="assets/Lodging/nearby.jpg"> -->
+          <!-- <img [src]="api.mediaURL + item.cover" class="icon"> -->
+        </div>
+        <ion-label class="name text-4xl">Flights</ion-label>
+      </div>
+
+
+
+      <div routerLink="/trainsearch" class="categoryIcon">
+        <div class="imgs bg-red-600">
+          <ion-icon class="text-xl text-white" name="bus"></ion-icon>
+        </div>
+        <ion-label class="name text-2xl">Bus</ion-label>
+      </div>
+
+      <div routerLink="/trainsearch" class="categoryIcon">
+        <div class="imgs bg-red-600">
+          <ion-icon class="text-xl text-white" name="subway"></ion-icon>
+        </div>
+        <ion-label class="name text-2xl">Travel</ion-label>
+      </div>
+
+      <div routerLink="/trainsearch" class="categoryIcon">
+        <div class="imgs bg-red-600">
+          <ion-icon class="text-xl text-white" name="grid"></ion-icon>
+        </div>
+        <ion-label class="name text-2xl">All</ion-label>
+      </div>
+
+
+      <div style="margin: 0px 10px;">
+        <ion-skeleton-text animated style="width: 35px;height: 35px;border-radius: 50%;"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 100%;height:10px;"></ion-skeleton-text>
+      </div>
+    </div>
+
+
+    <div class="rounded-md bg-white mt-2">
+      <ion-slides #slider loop="true" [options]="slideOpts" (ionSlideTouchEnd)="slideChanged()">
+        <ion-slide>
+          <ion-card style="border-radius: 5px;">
+            <img src="assets/TicketBooking/s6-min.png" />
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-card style="border-radius: 5px;">
+            <img src="assets/TicketBooking/s4-min.png" />
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-card style="border-radius: 5px;">
+            <img src="assets/TicketBooking/s1-min.png" />
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-card style="border-radius: 5px;">
+            <img src="assets/TicketBooking/s2-min.png" />
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-card style="border-radius: 5px;">
+            <img class="h-30" src="assets/TicketBooking/s5-min.png" />
+          </ion-card>
+        </ion-slide>
+
+        <ion-slide>
+          <ion-card style="border-radius: 5px;">
+            <img src="assets/TicketBooking/s3-min.png" />
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+    <div class="pt-2">
+      <ion-label><b>Latest Activity </b></ion-label>
+    </div>
+
+    <div class="bg-white">
+      <div class=" flex justify-between">
+        <div>
+          <ion-item color="none" lines="none">
+            <ion-icon class="text-white text-center bg-red-600 p-2 rounded" t name="ticket"></ion-icon>
+            <ion-label class="pl-2"><span class="text-gray-500 text-sm">Ticket code</span><br><b>OV3412V</b></ion-label>
+          </ion-item>
+        </div>
+
+        <div class="flex items-center">
+          <ion-chip color="success">
+            <ion-label>Completed</ion-label>
+          </ion-chip>
+        </div>
+      </div>
+
+      <div class=" flex justify-between">
+        <div>
+          <ion-item color="none" lines="none">
+            <ion-label class="pl-2"><span class="text-gray-500 text-sm">FROM</span><br><b>Amravati</b></ion-label>
+          </ion-item>
+        </div>
+
+        <div class="flex items-center">
+          <ion-chip color="tertiary">
+            <ion-label>3h 43min</ion-label>
+          </ion-chip>
+        </div>
+
+        <div>
+          <ion-item color="none" lines="none">
+            <ion-label class="pl-2"><span class="text-gray-500 text-sm">TO</span><br><b>Pune City</b></ion-label>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-2">
+      <ion-label><b>Popular Destinations </b></ion-label>
+    </div>
+
+
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6">
+          <div class="p-2 bg-white">
+            <img class="rounded-md" src="assets/TicketBooking/ban.jfif" alt="">
+            <ion-label class="p-2 text-lg text-black pt-1 text-center font-semibold">Pune City</ion-label>
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div class="p-2 bg-white">
+            <img class="rounded-md" src="assets/TicketBooking/ban.jfif" alt="">
+            <ion-label class="p-2 text-lg text-black pt-1 text-center font-semibold">Bangalore City</ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+  </div>
+
+</ion-content>
+
+<!-- <ion-tabs> -->
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="schedule">
+    <ion-icon name="home"></ion-icon>
+    <ion-label>Home</ion-label>
+    <!-- <ion-badge>6</ion-badge> -->
+  </ion-tab-button>
+
+  <ion-tab-button tab="speakers" routerLink="/bookingdetails">
+    <ion-icon name="compass"></ion-icon>
+    <ion-label>History</ion-label>
+  </ion-tab-button>
+
+  <!-- <ion-tab-button tab="map">
+    <ion-icon name="layers"></ion-icon>
+    <ion-label>Trips</ion-label>
+  </ion-tab-button> -->
+</ion-tab-bar>
+<!-- </ion-tabs> -->

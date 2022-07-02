@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white">Bharat Gas </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="padding-left:0.8em ;" class="pt-3 pb-2">
+    <ion-label><b>Select Booking Method</b></ion-label>
+  </div>
+
+  <div class="p-4">
+    <div>
+      <ion-label position="stacked">Book Using</ion-label>
+      <ion-item>
+        <ion-label>Select</ion-label>
+        <ion-select class="custom-options" interface="popover">
+          <ion-select-option value="brown" class="brown-option">Registerd Contact Number</ion-select-option>
+          <ion-select-option value="blonde">LPG ID</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label position="stacked">Registerd Contact Number</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </div>
+
+    <div>
+      <ion-button expand="block" color="primary">
+        Confirm
+      </ion-button>
+    </div>
+  </div>
+
+
+</ion-content>

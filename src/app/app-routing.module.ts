@@ -487,6 +487,50 @@ const routes: Routes = [
     path: 'foodhistroy',
     loadChildren: () => import('./Food/foodhistroy/foodhistroy.module').then( m => m.FoodhistroyPageModule)
   },
+  {
+    path: 'utilitiesdash',
+    loadChildren: () => import('./Utility/utilitiesdash/utilitiesdash.module').then( m => m.UtilitiesdashPageModule)
+  },
+  {
+    path: 'selectcylinder',
+    loadChildren: () => import('./Utility/selectcylinder/selectcylinder.module').then( m => m.SelectcylinderPageModule)
+  },
+  {
+    path: 'bookinggas',
+    loadChildren: () => import('./Utility/bookinggas/bookinggas.module').then( m => m.BookinggasPageModule)
+  },
+  {
+    path: 'selectpipedgas',
+    loadChildren: () => import('./Utility/selectpipedgas/selectpipedgas.module').then( m => m.SelectpipedgasPageModule)
+  },
+  {
+    path: 'bookingpipedgas',
+    loadChildren: () => import('./Utility/bookingpipedgas/bookingpipedgas.module').then( m => m.BookingpipedgasPageModule)
+  },
+  {
+    path: 'ticketdash',
+    loadChildren: () => import('./Ticket/ticketdash/ticketdash.module').then( m => m.TicketdashPageModule)
+  },
+  {
+    path: 'trainsearch',
+    loadChildren: () => import('./Ticket/trainsearch/trainsearch.module').then( m => m.TrainsearchPageModule)
+  },
+  {
+    path: 'viewtrain',
+    loadChildren: () => import('./Ticket/viewtrain/viewtrain.module').then( m => m.ViewtrainPageModule)
+  },
+  {
+    path: 'bookticket',
+    loadChildren: () => import('./Ticket/bookticket/bookticket.module').then( m => m.BookticketPageModule)
+  },
+  {
+    path: 'details',
+    loadChildren: () => import('./Ticket/details/details.module').then( m => m.DetailsPageModule)
+  },
+  {
+    path: 'bookingdetails',
+    loadChildren: () => import('./Ticket/bookingdetails/bookingdetails.module').then( m => m.BookingdetailsPageModule)
+  },
 
 
 

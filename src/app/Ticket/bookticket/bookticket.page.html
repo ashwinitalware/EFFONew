@@ -1,0 +1,231 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white">Book Ticket</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="bg-white rounded-tl-2xl rounded-tr-2xl">
+    <ion-segment mode="ios" class="bg-red-600" (ionChange)='segmentChanged($event)' scrollable value="civil"
+      class="ion-no-padding" class="ion-no-margin">
+      <ion-segment-button class="ion-no-padding " value="civil">
+        <ion-label class="p-1">General Quota</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="tatkal">
+        <ion-label class="p-1">Tatkal Quota </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="ladies">
+        <ion-label class="p-1">Ladies Quota</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div *ngIf="switchTab == 'civil'" class=" pt-2">
+    <div class="flex justify-between p-2 border-t-2 border-b-2 bg-white">
+      <div>
+        <ion-label class="text-xs text-black font-semibold border-r-2 border-gray-400 rounded-sm p-2 bg-white">
+          1st Class
+          AC
+        </ion-label>
+      </div>
+      <div>
+        <ion-label class="text-xs text-black font-semibold border-r-2 border-gray-400 rounded-sm p-2 bg-white">2 Tier AC
+        </ion-label>
+      </div>
+      <div>
+        <ion-label class="text-xs text-black font-semibold border-r-2 border-gray-400 rounded-sm p-2 bg-white">3 Tier AC
+          AC
+        </ion-label>
+      </div>
+      <div>
+        <ion-label class="text-xs text-black font-semibold  border-gray-400 rounded-sm p-2 bg-white">Sleeper
+          AC
+        </ion-label>
+      </div>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label class="text-sm text-black">01 Jul, Fri</ion-label>
+        <span class="text-xs">Booking not allowed</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-sm  text-black">02 Jul, Sat</ion-label>
+        <span class="text-xs">GNWL3</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-sm  text-black">03 Jul, Sun</ion-label>
+        <span class="text-xs">GNWL4</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-sm  text-black">04 Jul, Mon</ion-label>
+        <span class="text-xs">GNWL2</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-sm  text-black">05 Jul, Tue</ion-label>
+        <span class="text-xs">GNWL2</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-sm  text-black">06 Jul, Wed</ion-label>
+        <span class="text-xs text-red-600">RLWL20</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+    </div>
+
+    <div class="p-2" routerLink="/bookingdetails">
+      <ion-button expand="block" color="primary">
+        Book Ticket
+      </ion-button>
+    </div>
+  </div>
+
+  <div *ngIf="switchTab == 'tatkal'" class=" pt-2">
+    <div class="flex justify-between p-2 border-t-2 border-b-2 bg-white">
+      <div>
+        <ion-label class="text-xs text-black font-semibold border-r-2 border-gray-400 rounded-sm p-2 bg-white">
+          1st Class
+          AC
+        </ion-label>
+      </div>
+      <div>
+        <ion-label class="text-xs text-black font-semibold border-r-2 border-gray-400 rounded-sm p-2 bg-white">2 Tier AC
+        </ion-label>
+      </div>
+      <div>
+        <ion-label class="text-xs text-black font-semibold border-r-2 border-gray-400 rounded-sm p-2 bg-white">3 Tier AC
+          AC
+        </ion-label>
+      </div>
+      <div>
+        <ion-label class="text-xs text-black font-semibold  border-gray-400 rounded-sm p-2 bg-white">Sleeper
+          AC
+        </ion-label>
+      </div>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label class="text-xs text-black">01 Jul, Fri</ion-label>
+        <span class="text-xs">Booking not allowed</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-xs  text-black">02 Jul, Sat</ion-label>
+        <span class="text-xs">GNWL3</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-xs  text-black">03 Jul, Sun</ion-label>
+        <span class="text-xs">GNWL4</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-xs  text-black">04 Jul, Mon</ion-label>
+        <span class="text-xs">Booking not allowed</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-xs  text-black">05 Jul, Tue</ion-label>
+        <span class="text-xs">Booking not allowed</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-xs  text-black">06 Jul, Wed</ion-label>
+        <span class="text-xs text-red-600">RLWL20</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+    </div>
+
+    <div class="p-2" routerLink="/bookingdetails">
+      <ion-button expand="block" color="primary">
+        Book Ticket
+      </ion-button>
+    </div>
+  </div>
+
+  <div *ngIf="switchTab == 'ladies'" class=" pt-2">
+    <div class="flex justify-between p-2 border-t-2 border-b-2 bg-white">
+      <div>
+        <ion-label class="text-xs text-black font-semibold border-r-2 border-gray-400 rounded-sm p-2 bg-white">
+          1st Class
+          AC
+        </ion-label>
+      </div>
+      <div>
+        <ion-label class="text-xs text-black font-semibold border-r-2 border-gray-400 rounded-sm p-2 bg-white">2 Tier AC
+        </ion-label>
+      </div>
+      <div>
+        <ion-label class="text-xs text-black font-semibold border-r-2 border-gray-400 rounded-sm p-2 bg-white">3 Tier AC
+          AC
+        </ion-label>
+      </div>
+      <div>
+        <ion-label class="text-xs text-black font-semibold  border-gray-400 rounded-sm p-2 bg-white">Sleeper
+          AC
+        </ion-label>
+      </div>
+    </div>
+
+    <div>
+      <ion-item>
+        <ion-label class="text-xs text-black">01 Jul, Fri</ion-label>
+        <span class="text-xs">GNWL2</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-xs  text-black">02 Jul, Sat</ion-label>
+        <span class="text-xs">GNWL4</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-xs  text-black">03 Jul, Sun</ion-label>
+        <span class="text-xs">GNWL3</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-xs  text-black">04 Jul, Mon</ion-label>
+        <span class="text-xs">GNWL3</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-xs  text-black">05 Jul, Tue</ion-label>
+        <span class="text-xs">GNWL3</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="text-xs  text-black">06 Jul, Wed</ion-label>
+        <span class="text-xs text-red-600">RLWL20</span>
+        <ion-icon class="text-sm" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+    </div>
+
+    <div class="p-2" routerLink="/bookingdetails">
+      <ion-button expand="block" color="primary">
+        Book Ticket
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

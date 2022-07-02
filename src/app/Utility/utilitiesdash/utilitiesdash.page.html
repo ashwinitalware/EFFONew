@@ -1,0 +1,142 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white">Utilities</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="pl-2 pr-2 pt-3">
+    <div style="width: 100%; background-color: white; border-radius: 10px; border: 1px solid rgb(211, 211, 211);">
+      <ion-input placeholder="Search In All India" id="search">
+        <ion-icon name="search" style="margin-left: 7px;"></ion-icon>
+      </ion-input>
+    </div>
+  </ion-row>
+
+  <div style="background-color: white; border-radius: 5px; margin-top: 2%; padding: 5px;">
+    <ion-slides #slider loop="true" [options]="slideOpts" (ionSlideTouchEnd)="slideChanged()">
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/Utility/slider1.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/Utility/slider2.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/Utility/slider3.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/Utility/slider1.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/Utility/slider2.png" />
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div style="padding-left:0.8em ;" class="pt-3 pb-2">
+    <ion-label><b>Explore Our Services</b></ion-label>
+  </div>
+
+  <div class="p-1" style="background-color: white; border-radius: 5px; margin-top: 3%">
+    <ion-grid fixed>
+      <ion-row class="small_text">
+        <ion-col (click)="navigate(category)" *ngFor="let category  of categories" size="3" align="center"
+          class="flex justify-center flex-col">
+          <!-- <div class="m-auto bg-red-600 p-3 text-white rounded-md flex items-center justify-center">
+            <ion-icon name="{{category.icon}}" class="text-xl"></ion-icon>
+          </div> -->
+          <div class="m-auto bg-red-600 p-2 text-white rounded-md flex items-center justify-center">
+            <img src="{{category.image}}" alt="" />
+          </div>
+          <!-- <img src="{{category.image}}" alt="" /><br /> -->
+          <div class="truncate mt-2 text-xs">{{category.name}}</div>
+          <!-- <div class="red" [ngStyle]="{'color': category.available?'white':'red'}">
+                    Coming Soon
+                </div> -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+  <!-- 
+  <div style="padding-left:0.7em ;" class="pt-3 pb-1">
+    <ion-label><b>Paid Advertisements</b></ion-label>
+  </div>
+
+  <div style="background-color: white; border-radius: 5px; margin-top: 2%; padding: 5px;">
+    <ion-slides #slider loop="true" [options]="slideOpts" (ionSlideTouchEnd)="slideChanged()">
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-3.jpg" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-2.jpg" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-1.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-4.jpg" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/slider-3.jpg" />
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div><br>
+
+  <div style="padding-left:0.8em ;" class="pt-1 pb-2">
+    <ion-label>Top Service Providers</ion-label>
+  </div>
+
+  <div class="bg-white border-b-4 border-gray-300" routerLink="/civilcontractor" *ngFor="let item of [1,1,1,1]">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">
+          <img class="img_class rounded-md" src="assets/services/cc1.jpg" />
+        </ion-col>
+        <ion-col size="8">
+          <p>
+            <span class="font-medium text-base">Civil Contractor</span><br>
+            <span class="text-sm text-gray-500">
+              <ion-icon name="location-outline"></ion-icon>Dhayari phata,Dhayari,Pune.
+            </span>
+            <ion-button size="small" color="success" class="text-xs">Call Now</ion-button>
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div> -->
+
+
+</ion-content>

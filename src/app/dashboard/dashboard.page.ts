@@ -64,7 +64,7 @@ export class DashboardPage implements OnInit {
       name: 'Ticket Booking',
       image: '',
       icon: 'ticket',
-      link: '',
+      link: 'ticketdash',
     },
     {
       name: 'Old EX',
@@ -75,7 +75,7 @@ export class DashboardPage implements OnInit {
     {
       name: 'Utility',
       image: '',
-      link: '',
+      link: 'utilitiesdash',
       icon: 'podium',
     },
 

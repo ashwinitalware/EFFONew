@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button class="text-white"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white">Select Gas Provider</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="background-color: white; border-radius: 5px; margin-top: 2%; padding: 5px;">
+    <ion-slides #slider loop="true" [options]="slideOpts" (ionSlideTouchEnd)="slideChanged()">
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/Utility/s2.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/Utility/s3.png" />
+        </ion-card>
+      </ion-slide>
+
+      <!-- <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/Utility/s4.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/Utility/s1.png" />
+        </ion-card>
+      </ion-slide> -->
+    </ion-slides>
+  </div>
+
+  <div style="padding-left:0.8em ;" class="pt-3 pb-2">
+    <ion-label><b>Select your Gas Provider</b></ion-label>
+  </div>
+
+
+  <div class="bg-white mt-2" routerLink="/bookinggas">
+    <ion-item class="p-2" color="none" lines="none">
+      <img src="assets/Utility/Bharatgas.png" alt="">
+      <ion-label class="pl-2">
+        Bharat Gas
+      </ion-label>
+    </ion-item>
+  </div>
+
+  <div class="bg-white mt-2">
+    <ion-item class="p-2" color="none" lines="none">
+      <img src="assets/Utility/HP.png" alt="">
+      <ion-label class="pl-2">
+        HP Gas
+      </ion-label>
+    </ion-item>
+  </div>
+
+  <div class="bg-white mt-2">
+    <ion-item class="p-2" color="none" lines="none">
+      <img src="assets/Utility/indiaoil.png" alt="">
+      <ion-label class="pl-2">
+        Indane Gas(Indian Oil)
+      </ion-label>
+    </ion-item>
+  </div>
+</ion-content>
