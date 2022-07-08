@@ -5,152 +5,101 @@
 </ion-header>
 
 <ion-content class="p-4">
-
   <div class="bg-white p-2 flex mt-2">
+    <div class="flex-none font-bold">Pick Location :</div>
 
-
-    <div class="flex-none font-bold">
-      Pick Location :
-    </div>
-
-    <div class="pl-4">
-      Lorem ipsum dolor sit amet , adipisicing elit.
-    </div>
-
+    <div class="pl-4">{{cabService.from}}</div>
   </div>
-  <div class="bg-white p-2 flex ">
+  <div class="bg-white p-2 flex">
+    <div class="flex-none font-bold">Drop Location:</div>
 
-
-    <div class="flex-none  font-bold ">
-      Drop Location:
-    </div>
-
-    <div class="pl-4">
-      Lorem ipsum dolor sit amet , adipisicing elit.
-    </div>
-
+    <div class="pl-4">{{cabService.to}}</div>
   </div>
 
   <div class="bg-white mt-2 p-4">
-    <div *ngFor="let cabType of this.cabService.cabTypes" class="flex mb-2">
-      <img src="{{cabType.attributes.icon}}" class="w-14" alt="">
+    <div
+      *ngFor="let cabType of this.cabService.cabTypes;let i=index"
+      class="flex mb-2"
+      (click)="selectCabType(i)"
+    >
+      <img src="{{cabType.attributes.icon}}" class="w-14" alt="" />
       <div class="flex-1 pl-4 text-lg">
         <div class="flex items-center">
-          {{cabType.attributes.name|titlecase}}
-          &nbsp;
+          {{cabType.attributes.name|titlecase}} &nbsp;
 
-          <ion-icon class="text-green-700 text-xl" name="checkmark-circle"></ion-icon>
-
-
+          <ion-icon
+            *ngIf="cabType.selected"
+            class="text-green-700 text-xl"
+            name="checkmark-circle"
+          ></ion-icon>
         </div>
         <div class="text-sm text-gray-800">
           *minimum price is ₹ {{cabType.attributes.minimumPrice}}
         </div>
       </div>
       <div class="font-bold">
-
-        <div> ₹{{cabType.attributes.pricePerKm}}/km</div>
-        <div class="text-right">
-
+        <div>₹{{cabType.attributes.pricePerKm}}/km</div>
+        <div class="text-right"></div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showPrices">
+    <div class="bg-white p-2 flex mt-2">
+      <div class="flex-1">
+        <div class="font-bold">Distance in km</div>
+        <div class="text-gray-800 text-sm">
+          <!-- Approximate distance  -->
         </div>
-
       </div>
 
+      <div class="pl-4 font-bold">{{this.cabService.distance}} km</div>
     </div>
-  </div>
-
-  <div class="bg-white p-2 flex mt-2">
-
-
-    <div class="flex-1 ">
-      <div class="font-bold">
-        Distance in km</div>
-      <div class="text-gray-800 text-sm">
-        <!-- Approximate distance  -->
+    <div class="bg-white p-2 flex">
+      <div class="flex-1">
+        <div class="font-bold">Base Fare</div>
+        <div class="text-gray-800 text-sm">
+          Description about how fare is calculated
+        </div>
       </div>
+
+      <div class="pl-4 font-bold">₹ {{this.cabService.baseFare|number}}</div>
     </div>
-
-    <div class="pl-4  font-bold">
-      10 km
-    </div>
-
-  </div>
-  <div class="bg-white p-2 flex ">
-
-
-    <div class="flex-1 ">
-      <div class="font-bold">
-        Base Fare</div>
-      <div class="text-gray-800 text-sm">
-        Description about how fare is calculated
+    <div class="bg-white p-2 flex">
+      <div class="flex-1">
+        <div class="font-bold">Taxes & Fees</div>
+        <div class="text-gray-800 text-sm">18% GST & Toll Tax Applicable</div>
       </div>
+
+      <div class="pl-4 font-bold">₹ {{this.cabService.tax|number}}</div>
     </div>
-
-    <div class="pl-4 font-bold">
-      ₹ 200
-    </div>
-
-  </div>
-  <div class="bg-white p-2 flex ">
-
-
-    <div class="flex-1 ">
-      <div class="font-bold">
-        Taxes & Fees</div>
-      <div class="text-gray-800 text-sm">
-        18% GST & Toll Tax Applicable
+    <div class="bg-white p-2 flex">
+      <div class="flex-1">
+        <div class="font-bold">Estimated Total Fare</div>
+        <div class="text-red-800 text-sm">*Actual fare may vary</div>
       </div>
+
+      <div class="pl-4 font-bold">₹ {{this.cabService.total|number}}</div>
     </div>
 
-    <div class="pl-4 font-bold">
-      ₹ 200
-    </div>
+    <div class="bg-white mt-2 p-2">
+      <div class=" ">Terms & Conditions</div>
 
-  </div>
-  <div class="bg-white p-2 flex ">
-
-
-    <div class="flex-1 ">
-      <div class="font-bold">
-        Estimated Total Fare</div>
-      <div class="text-red-800 text-sm">
-        *Actual fare may vary
-      </div>
-    </div>
-
-    <div class="pl-4 font-bold">
-      ₹ 200
-    </div>
-
-
-
-  </div>
-
-  <div class="bg-white mt-2 p-2">
-    <div class=" ">
-      Terms & Conditions
-
-
-    </div>
-
-    <div class="text-sm ">    <br>
-      <div>
-        1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quae temporibus exercitationem quidem minus
-        doloribus,
-
-      </div>
-      <br>
-      <div>
-        2. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-
+      <div class="text-sm">
+        <br />
+        <div>
+          1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quae
+          temporibus exercitationem quidem minus doloribus,
+        </div>
+        <br />
+        <div>2. Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
       </div>
     </div>
   </div>
-
 </ion-content>
-<ion-footer>
+<ion-footer *ngIf="showPrices">
   <div class="p-2">
-    <ion-button color="dark" size="block">Confirm Booking</ion-button>
+    <ion-button color="dark" (click)="book()" size="block"
+      >Confirm Booking</ion-button
+    >
   </div>
-
 </ion-footer>

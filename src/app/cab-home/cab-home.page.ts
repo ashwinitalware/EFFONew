@@ -1,15 +1,6 @@
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild
-} from '@angular/core';
-import {
-  Router
-} from '@angular/router';
-import {
-  CabService
-} from '../services/cab.service';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { CabService } from '../services/cab.service';
 
 declare var google;
 @Component({
@@ -18,35 +9,29 @@ declare var google;
   styleUrls: ['./cab-home.page.scss'],
 })
 export class CabHomePage implements OnInit {
-  pinImage = 'fromPin'
+  pinImage = 'fromPin';
   // pickAddress =''
   // dropAddress =''
-  fromPinMarker
-  toPinMarker
+  fromPinMarker;
+  toPinMarker;
 
   fromPinLocation = undefined;
   toPinLocation = undefined;
-  @ViewChild("map") mapRef: ElementRef;
-  map
-  fromLocationText = ""
-  toLocationText = ""
-  @ViewChild("pickSearch") public pickSearchElementRef: ElementRef;
-  @ViewChild("search") public searchElementRef: ElementRef;
+  @ViewChild('map') mapRef: ElementRef;
+  map;
+  @ViewChild('pickSearch') public pickSearchElementRef: ElementRef;
+  @ViewChild('search') public searchElementRef: ElementRef;
   pickAutocomplete;
   autocomplete;
-  constructor(public cabService: CabService, public router: Router) {
+  constructor(public cabService: CabService, public router: Router) {}
 
-  }
-
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
   ionViewDidEnter() {
     // alert(this.cabService.selectedCityObj.lat)
     console.log('ref', this.mapRef);
     const location = new google.maps.LatLng(
-      this.cabService.selectedCityObj.lat, this.cabService.selectedCityObj.lng
-
+      this.cabService.selectedCityObj.lat,
+      this.cabService.selectedCityObj.lng
     );
     const options = {
       center: location,
@@ -55,43 +40,39 @@ export class CabHomePage implements OnInit {
       mapTypeControl: false,
       streetViewControl: false,
       zoomControl: false,
-
     };
-
-
 
     this.map = new google.maps.Map(this.mapRef.nativeElement, options);
 
     this.autocomplete = new google.maps.places.Autocomplete(
-      this.searchElementRef.nativeElement, {
+      this.searchElementRef.nativeElement,
+      {
         types: [],
       }
     );
     this.pickAutocomplete = new google.maps.places.Autocomplete(
-      this.pickSearchElementRef.nativeElement, {
+      this.pickSearchElementRef.nativeElement,
+      {
         types: [],
       }
     );
 
-    this.autocomplete.bindTo("bounds", this.map);
-    this.pickAutocomplete.bindTo("bounds", this.map);
-
-
+    this.autocomplete.bindTo('bounds', this.map);
+    this.pickAutocomplete.bindTo('bounds', this.map);
 
     //THIS IS EXECUTED WHEN THE LOCATION FROM PICK BOX IS SELECTED #PICKINPUT
-    this.pickAutocomplete.addListener("place_changed", () => {
-
-      this.fromLocationText = this.pickSearchElementRef.nativeElement.value;
-      this.toLocationText = "";
+    this.pickAutocomplete.addListener('place_changed', () => {
+      this.cabService.from = this.pickSearchElementRef.nativeElement.value;
+      this.cabService.to = '';
       // this.dropAddress = this.searchElementRef.nativeElement.value;
 
       // first change the pin image
-      this.pinImage = "fromPin";
+      this.pinImage = 'fromPin';
       // then remove the fromPinMarker]
       console.log(this.fromPinMarker);
 
       if (this.fromPinMarker != undefined) this.fromPinMarker.setMap(null);
-      this.fromPinMarker = undefined
+      this.fromPinMarker = undefined;
       // move the user to the location entered in the pick location input box autocomplete
       this.map.panTo(
         new google.maps.LatLng(
@@ -148,11 +129,10 @@ export class CabHomePage implements OnInit {
       // }
     });
 
-
     // THIS IS EXECUTED WHEN A LOCATION IS SELECTED FROM THE INPUT BOX OF DROP LOCATION #DROPINPUT
-    this.autocomplete.addListener("place_changed", () => {
+    this.autocomplete.addListener('place_changed', () => {
       // first change the pin image
-      this.pinImage = "toPin";
+      this.pinImage = 'toPin';
 
       // mark the location with the frompin location only if its not marked previously
 
@@ -160,14 +140,14 @@ export class CabHomePage implements OnInit {
       this.fromPinLocation = this.map.getCenter();
       // if(this.fromPinMarker)
       // this.fromPinMarker.setMap(null);
-      // this.dataService.local.fromLatLngObject = this.map.getCenter();
+      this.cabService.fromLatLngObject = this.map.getCenter();
       // alert(this.fromPinMarker)
       if (!this.fromPinMarker)
         this.fromPinMarker = new google.maps.Marker({
-          position: this.fromPinLocation,
+          position: this.cabService.from,
           map: this.map,
           icon: {
-            url: "assets/cab/fromPin.png",
+            url: 'assets/cab/fromPin.png',
           },
         });
 
@@ -179,26 +159,20 @@ export class CabHomePage implements OnInit {
       );
 
       // alert(autocomplete.getPlace()+"placechanged")
-      console.log("autocomplete address", this.autocomplete.getPlace());
+      console.log('autocomplete address', this.autocomplete.getPlace());
       // this.dropAddress = this.autocomplete.getPlace().name;
-      this.toLocationText = this.autocomplete.getPlace().formatted_address;
-
-
+      this.cabService.to = this.autocomplete.getPlace().formatted_address;
     });
   }
 
-  segmentChanged() {
-
-  }
+  segmentChanged() {}
   book() {
+    // this.cabService.from;
+    this.cabService.toLatLngObject = this.map.getCenter();
     if (this.cabService.type == 'local' || this.cabService.type == 'outstation')
-      if (!this.fromLocationText || !this.toLocationText)
-        return
-    else
-    if (!this.fromLocationText)
-      return
+      if (!this.cabService.from || !this.cabService.to) return;
+      else if (!this.cabService.from) return;
 
-
-      this.router.navigate(['/cab-confirm-booking'])
+    this.router.navigate(['/cab-confirm-booking']);
   }
 }

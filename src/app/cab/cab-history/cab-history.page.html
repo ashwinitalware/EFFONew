@@ -19,73 +19,55 @@
       </ion-segment-button>
     </ion-segment> -->
 
-
-    <div *ngFor="let item of [1,2,3]" class="rounded-md bg-white my-2 p-4 ">
-
+    <div
+      *ngFor="let ride of this.cabService.historyRides"
+      class="rounded-md bg-white my-2 p-4"
+    >
       <div class="flex">
         <div class="w-12">
           <img
             src="https://effo.s3.ap-south-1.amazonaws.com/ic_prime_2x_639c1ed045.png?updated_at=2022-06-04T10:40:06.201Z"
-            alt="" class="w-full h-auto">
+            alt=""
+            class="w-full h-auto"
+          />
         </div>
-        <div class=" flex-1 pl-2">
+        <div class="flex-1 pl-2">
           <div class="font-bold flex justify-between">
+            <div>{{ride.attributes.createdAt|date:"MMM d, y"}}</div>
 
-            <div>
-              2nd Feb 2020
+            <div
+              class="text-sm {{this.dataService.statusToClassCab(ride.attributes.status)}}"
+            >
+              {{ride.attributes.status|titlecase}}
             </div>
-
-            <div class="text-sm text-red-800">
-              <!-- STATUS -->
-              Cancelled
-            </div>
-
           </div>
           <div class="text-sm">
-            Ride ID : 123 | Local 
+            Ride ID : {{ride.id}} | {{ride.attributes.type|titlecase}}
           </div>
-
-
-
-       
         </div>
       </div>
       <div>
         <div class="text-blue-800 flex items-center">
-
           <div>
-          <img src="assets/cab/fromPin.png" class="w-4" alt="">
-        </div>
-        <div class="pl-2">
-          From Location address
-        </div>
+            <img src="assets/cab/fromPin.png" style="width: 1rem" alt="" />
+          </div>
+          <div class="pl-2">{{ride.attributes.from|titlecase}}</div>
         </div>
         <div class="text-blue-800 flex items-center">
-
           <div>
-          <img src="assets/cab/toPin.png" class="w-4" alt="">
+            <img src="assets/cab/toPin.png" style="width: 1rem" alt="" />
+          </div>
+          <div class="pl-2">{{ride.attributes.to|titlecase}}</div>
         </div>
-        <div class="pl-2">
-          To Location address
-        </div>
-        </div>
- 
       </div>
 
-
-      <div class="flex justify-end">
-        <ion-button fill="clear" color="dark">
-        View  Details
-        </ion-button>
-        <ion-button color="dark">
-          Track
-        </ion-button>
+      <div
+        class="flex justify-end"
+        (click)="this.navCtrl.navigateForward(['/cab-history-details/'+ride.id])"
+      >
+        <ion-button fill="clear" color="dark"> View Details </ion-button>
+        <!-- <ion-button color="dark"> Track </ion-button> -->
       </div>
-
     </div>
-
   </div>
-
-
-
 </ion-content>

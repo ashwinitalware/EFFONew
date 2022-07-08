@@ -1,21 +1,15 @@
 <ion-header>
   <ion-toolbar color="dark">
-    <ion-title>Effo Cab Services
-
-
-
-    </ion-title>
+    <ion-title>Effo Cab Services </ion-title>
     <ion-buttons slot="end" (click)="this.router.navigate(['/cab-cities'])">
       <ion-icon name="pin-outline"></ion-icon>
-      {{this.cabService.selectedCity|titlecase}}
-      &nbsp;
+      {{this.cabService.selectedCity|titlecase}} &nbsp;
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="relative">
-
-  <div class="fixed  w-full p-4">
+  <div class="fixed w-full p-4">
     <div>
       <!-- mode="ios"  -->
       <ion-segment mode="ios" [(ngModel)]="this.cabService.type">
@@ -32,53 +26,68 @@
     </div>
 
     <div class="w-full mt-2 flex bg-white py-2 rounded-lg">
+      <img src="assets/cab/fromPin.png" alt="" class="h-6" />
 
-      <img src="assets/cab/fromPin.png" alt="" class="h-6">
-
-      <input [(ngModel)]="fromLocationText" #pickSearch type="text" class="ml-2 flex-1  w-full"
-        placeholder="Enter You Pick Location">
-
+      <input
+        [(ngModel)]="cabService.from"
+        #pickSearch
+        type="text"
+        class="ml-2 flex-1 w-full"
+        placeholder="Enter You Pick Location"
+      />
 
       <div class="px-2 flex items-center">
-        <ion-icon *ngIf="fromLocationText" (click)="fromLocationText=''" name="close-outline"></ion-icon>
+        <ion-icon
+          *ngIf="cabService.from"
+          (click)="cabService.from=''"
+          name="close-outline"
+        ></ion-icon>
       </div>
 
       <!-- <img src="assets/cab/fromPin.png" alt="" class="h-6"> -->
-
     </div>
-    <div class="w-full mt-2 flex bg-white py-2 rounded-lg" *ngIf="this.cabService.type!='rental'">
+    <div
+      class="w-full mt-2 flex bg-white py-2 rounded-lg"
+      *ngIf="this.cabService.type!='rental'"
+    >
+      <img src="assets/cab/toPin.png" alt="" class="h-6" />
 
-      <img src="assets/cab/toPin.png" alt="" class="h-6">
-
-      <input [(ngModel)]="toLocationText" #search type="text" class="ml-2 flex-1 w-full"
-        placeholder="Enter You Drop Location">
+      <input
+        [(ngModel)]="cabService.to"
+        #search
+        type="text"
+        class="ml-2 flex-1 w-full"
+        placeholder="Enter You Drop Location"
+      />
       <div class="px-2 flex items-center">
-        <ion-icon *ngIf="toLocationText" (click)="toLocationText=''" name="close-outline"></ion-icon>
+        <ion-icon
+          *ngIf="cabService.to"
+          (click)="cabService.to=''"
+          name="close-outline"
+        ></ion-icon>
       </div>
     </div>
-
   </div>
-  <div class="fixed" style="
-  
-  top: 50%;
-  left: 50%;
-  margin-top: -20px;
-  margin-left: -10px;
-">
+  <div
+    class="fixed"
+    style="top: 50%; left: 50%; margin-top: -20px; margin-left: -10px"
+  >
     <img class="animate-bounce" src="assets/cab/{{pinImage}}.png" alt="" />
   </div>
 
+  <div style="height: 100%; z-index: -1" #map id="map_canvas"></div>
 
-  <div style="height:100%;z-index: -1;" #map id="map_canvas">
-  </div>
-
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="flex flex-col items-end">
+  <ion-fab
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed"
+    class="flex flex-col items-end"
+  >
     <ion-fab-button size="small" color="dark">
       <ion-icon name="locate"></ion-icon>
     </ion-fab-button>
-    <ion-button color="dark" (click)="book()" shape="round">Book Now <ion-icon name="arrow-forward"></ion-icon>
+    <ion-button color="dark" (click)="book()" shape="round"
+      >Book Now <ion-icon name="arrow-forward"></ion-icon>
     </ion-button>
-
   </ion-fab>
-
 </ion-content>

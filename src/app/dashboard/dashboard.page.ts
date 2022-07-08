@@ -6,7 +6,7 @@ import { SplashScreen } from '@capacitor/splash-screen';
 import { NavController, Platform, PopoverController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 import { JobService } from '../services/job.service';
-import qs from 'qs'
+import qs from 'qs';
 // import { IonSlides } from '@ionic/angular';
 
 @Component({
@@ -39,23 +39,23 @@ export class DashboardPage implements OnInit {
       name: 'Cab Services',
       image: '',
       icon: 'car',
-      link: 'cab-home',
-      available:true
+      // link: 'cab-home',
+      link: 'cab-tabs',
+      available: true,
     },
     {
       name: 'Old EX',
       image: '',
       link: 'oldex-dashboard',
-      available:true,
+      available: true,
       icon: 'swap-horizontal',
- 
     },
     {
       name: 'Property',
       image: '',
       link: 'property-dashboard',
       icon: 'home',
-      available:true
+      available: true,
     },
     {
       name: 'Shopping',
@@ -71,7 +71,7 @@ export class DashboardPage implements OnInit {
     //   icon: 'ticket',
     //   link: '',
     // },
-    
+
     // {
     //   name: 'Utility',
     //   image: '',
@@ -125,30 +125,30 @@ export class DashboardPage implements OnInit {
     // this.dataService.auth.canLoad = false;
     this.dataService.syncFCMToken();
     this.getPopupImage();
-    this.getSliders()
-    this.getSlidersSecond()
+    this.getSliders();
+    this.getSlidersSecond();
   }
-  getSliders(){
-    let query=qs.stringify({
-      filters:{
-        position:'homeTop'
+  getSliders() {
+    let query = qs.stringify({
+      filters: {
+        position: 'homeTop',
       },
-      populate:'*'
-    })
-    this.dataService._get('sliders',query).subscribe(data=>{
-      this.dataService.homeSliders=data.data
-    })
+      populate: '*',
+    });
+    this.dataService._get('sliders', query).subscribe((data) => {
+      this.dataService.homeSliders = data.data;
+    });
   }
-  getSlidersSecond(){
-    let query=qs.stringify({
-      filters:{
-        position:'homeSecond'
+  getSlidersSecond() {
+    let query = qs.stringify({
+      filters: {
+        position: 'homeSecond',
       },
-      populate:'*'
-    })
-    this.dataService._get('sliders',query).subscribe(data=>{
-      this.dataService.homeSlidersSecond=data.data
-    })
+      populate: '*',
+    });
+    this.dataService._get('sliders', query).subscribe((data) => {
+      this.dataService.homeSlidersSecond = data.data;
+    });
   }
   search() {
     this.noSuggesions = false;

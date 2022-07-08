@@ -393,8 +393,11 @@ const routes: Routes = [
   },
   {
     path: 'shopping-cart',
-    loadChildren: () => import('./shopping/shopping-cart/shopping-cart.module').then( m => m.ShoppingCartPageModule),
-    canActivate: [CartGuard]
+    loadChildren: () =>
+      import('./shopping/shopping-cart/shopping-cart.module').then(
+        (m) => m.ShoppingCartPageModule
+      ),
+    canActivate: [CartGuard],
     // loadChildren: () =>
     //   import('./shopping/shopping-cart/shopping-cart.module').then(
     //     (m) => m.ShoppingCartPageModule
@@ -458,64 +461,112 @@ const routes: Routes = [
   },
   {
     path: 'add-old-product',
-    loadChildren: () => import('./oldex/add-old-product/add-old-product.module').then( m => m.AddOldProductPageModule)
+    loadChildren: () =>
+      import('./oldex/add-old-product/add-old-product.module').then(
+        (m) => m.AddOldProductPageModule
+      ),
   },
   {
     path: 'add-old-product/:id',
-    loadChildren: () => import('./oldex/add-old-product/add-old-product.module').then( m => m.AddOldProductPageModule)
+    loadChildren: () =>
+      import('./oldex/add-old-product/add-old-product.module').then(
+        (m) => m.AddOldProductPageModule
+      ),
   },
   {
     path: 'oldex-home',
-    loadChildren: () => import('./oldex/oldex-home/oldex-home.module').then( m => m.OldexHomePageModule)
+    loadChildren: () =>
+      import('./oldex/oldex-home/oldex-home.module').then(
+        (m) => m.OldexHomePageModule
+      ),
   },
   {
     path: 'oldex-my-products',
-    loadChildren: () => import('./oldex/oldex-my-products/oldex-my-products.module').then( m => m.OldexMyProductsPageModule)
+    loadChildren: () =>
+      import('./oldex/oldex-my-products/oldex-my-products.module').then(
+        (m) => m.OldexMyProductsPageModule
+      ),
   },
   {
     path: 'oldex-details/:id',
-    loadChildren: () => import('./oldex/oldex-details/oldex-details.module').then( m => m.OldexDetailsPageModule)
+    loadChildren: () =>
+      import('./oldex/oldex-details/oldex-details.module').then(
+        (m) => m.OldexDetailsPageModule
+      ),
   },
   {
     path: 'oldex-listing',
-    loadChildren: () => import('./oldex/oldex-listing/oldex-listing.module').then( m => m.OldexListingPageModule)
-  
+    loadChildren: () =>
+      import('./oldex/oldex-listing/oldex-listing.module').then(
+        (m) => m.OldexListingPageModule
+      ),
   },
   {
     path: 'shoping-add-cart-modal',
-    loadChildren: () => import('./shopping/modals/shoping-add-cart-modal/shoping-add-cart-modal.module').then( m => m.ShopingAddCartModalPageModule)
+    loadChildren: () =>
+      import(
+        './shopping/modals/shoping-add-cart-modal/shoping-add-cart-modal.module'
+      ).then((m) => m.ShopingAddCartModalPageModule),
   },
   {
     path: 'shopping-history/:id',
-    loadChildren: () => import('./shopping/shopping-history/shopping-history.module').then( m => m.ShoppingHistoryPageModule)
+    loadChildren: () =>
+      import('./shopping/shopping-history/shopping-history.module').then(
+        (m) => m.ShoppingHistoryPageModule
+      ),
   },
   {
     path: 'shopping-order-details/:orderId',
-    loadChildren: () => import('./shopping/shopping-order-details/shopping-order-details.module').then( m => m.ShoppingOrderDetailsPageModule)
+    loadChildren: () =>
+      import(
+        './shopping/shopping-order-details/shopping-order-details.module'
+      ).then((m) => m.ShoppingOrderDetailsPageModule),
   },
   {
     path: 'vendor-by-category/:id/:name',
-    loadChildren: () => import('./shopping/vendor-by-category/vendor-by-category.module').then( m => m.VendorByCategoryPageModule)
+    loadChildren: () =>
+      import('./shopping/vendor-by-category/vendor-by-category.module').then(
+        (m) => m.VendorByCategoryPageModule
+      ),
   },
   {
     path: 'cab-home',
-    loadChildren: () => import('./cab-home/cab-home.module').then( m => m.CabHomePageModule)
+    loadChildren: () =>
+      import('./cab-home/cab-home.module').then((m) => m.CabHomePageModule),
   },
   {
     path: 'cab-cities',
-    loadChildren: () => import('./cab/cab-cities/cab-cities.module').then( m => m.CabCitiesPageModule)
+    loadChildren: () =>
+      import('./cab/cab-cities/cab-cities.module').then(
+        (m) => m.CabCitiesPageModule
+      ),
   },
   {
     path: 'cab-confirm-booking',
-    loadChildren: () => import('./cab/cab-confirm-booking/cab-confirm-booking.module').then( m => m.CabConfirmBookingPageModule)
+    loadChildren: () =>
+      import('./cab/cab-confirm-booking/cab-confirm-booking.module').then(
+        (m) => m.CabConfirmBookingPageModule
+      ),
   },
   {
     path: 'cab-history',
-    loadChildren: () => import('./cab/cab-history/cab-history.module').then( m => m.CabHistoryPageModule)
+    loadChildren: () =>
+      import('./cab/cab-history/cab-history.module').then(
+        (m) => m.CabHistoryPageModule
+      ),
   },
-
-
-
+  {
+    path: 'cab-tabs',
+    loadChildren: () =>
+      import('./cab/cab-tabs/cab-tabs.module').then((m) => m.CabTabsPageModule),
+  },
+  {
+    path: 'cab-history-details/:id',
+    loadChildren: () =>
+      import('./cab/cab-history-details/cab-history-details.module').then(
+        (m) => m.CabHistoryDetailsPageModule
+      ),
+  },
 
   // {
   //   path: 'job-profile',

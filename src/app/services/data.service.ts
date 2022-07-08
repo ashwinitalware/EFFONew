@@ -11,38 +11,40 @@ import { LocalNotifications } from '@capacitor/local-notifications';
 import { PhotoViewer } from '@awesome-cordova-plugins/photo-viewer/ngx';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Observable } from 'rxjs';
-
+import qs from 'qs';
 declare const Swal: any;
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  homeSliders=[]
-  homeSlidersSecond=[]
+  homeSliders = [];
+  homeSlidersSecond = [];
   // DIRECT CONFIGS
-  appName="Effo"
-  directNavigate='/dashboard'
-  localStorageName='effoProfilev2'
-  logoName="textW.png"
+  appName = 'Effo';
+  directNavigate = '/dashboard';
+  localStorageName = 'effoProfilev2';
+  logoName = 'textW.png';
   // appName="AISA"
   // directNavigate='/jobdashboard'
   // localStorageName='aisaJobProfileLS'
   // logoName='aisaLogo.png'
-  contacts={
-    reportEmail:"support@vendorclub.com"
+  contacts = {
+    reportEmail: 'support@vendorclub.com',
     // reportEmail:"report@aisaindiajobs.com"
-  }
+  };
   // DIRECT CONFIGS
   // DIRECT CONFIGS
   // DIRECT CONFIGS
 
-  shareContent='I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life.'
-  
-  playStoreLinks={
-    customer:'https://play.google.com/store/apps/details?id=ionic.effo.starter',
-    vendor:'https://play.google.com/store/apps/details?id=io.effo.vendor'
-  }
-  
+  shareContent =
+    'I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life.';
+
+  playStoreLinks = {
+    customer:
+      'https://play.google.com/store/apps/details?id=ionic.effo.starter',
+    vendor: 'https://play.google.com/store/apps/details?id=io.effo.vendor',
+  };
+
   drawer = [
     {
       icon: 'apps',
@@ -74,7 +76,6 @@ export class DataService {
       active: false,
       role: 'privacy',
     },
-   
   ];
 
   auth = {
@@ -105,35 +106,33 @@ export class DataService {
 
     ///MAIN CONFIGS
 
-
     // this.shareContent='Download the App Now !'
     // this.playStoreLinks={
     //   customer:'',
     //   vendor:''
     // }
-    
 
     // this.domainUrl = 'http://strapiapi-env-1.ap-south-1.elasticbeanstalk.com/';
     // this.apiUrl = this.domainUrl + 'api/';
 
-    this.drawer.push(...[ 
-      
-   {
-      icon: 'call',
-      title: 'Contact Us',
-      active: false,
-      role: 'contact',
-    },
-    {
-      icon: 'log-out',
-      title: 'Logout',
-      active: false,
-      role: 'logout',
-    },])
-
+    this.drawer.push(
+      ...[
+        {
+          icon: 'call',
+          title: 'Contact Us',
+          active: false,
+          role: 'contact',
+        },
+        {
+          icon: 'log-out',
+          title: 'Logout',
+          active: false,
+          role: 'logout',
+        },
+      ]
+    );
 
     this.syncProfileFromLs();
-
   }
   async present(content = 'Loading Data...', duration = 10000) {
     this.isLoading = true;
@@ -186,7 +185,9 @@ export class DataService {
     this.photoViewer.show(image);
   }
   syncProfileFromLs() {
-    const tempStringProfile = window.localStorage.getItem(this.localStorageName);
+    const tempStringProfile = window.localStorage.getItem(
+      this.localStorageName
+    );
     if (tempStringProfile) {
       this.profile = JSON.parse(tempStringProfile);
       // this.auth.canLoad = false;
@@ -215,7 +216,12 @@ export class DataService {
   }
   report(subject = 'Report', body = 'I want to report  ....') {
     window.open(
-      'mailto:'+this.contacts.reportEmail + '?subject=' + subject + '&body=' + body,
+      'mailto:' +
+        this.contacts.reportEmail +
+        '?subject=' +
+        subject +
+        '&body=' +
+        body,
       '_system'
     );
   }
@@ -386,22 +392,47 @@ export class DataService {
   _put(endpoint, params, body): Observable<any> {
     return this.http.put(this.apiUrl + endpoint, body);
   }
-  _delete(endpoint, params={}, body={}): Observable<any> {
+  _delete(endpoint, params = {}, body = {}): Observable<any> {
     return this.http.delete(this.apiUrl + endpoint, body);
   }
 
-  slideClicked(slide){
-    if(slide.attributes.onclick=='redirect'){
-      this.router.navigate([slide.attributes.link])
+  slideClicked(slide) {
+    if (slide.attributes.onclick == 'redirect') {
+      this.router.navigate([slide.attributes.link]);
+    } else if (slide.attributes.onclick == 'web') {
+      window.open(slide.attributes.link, '_system');
     }
-    else if(slide.attributes.onclick=='web'){
-      window.open(
-        slide.attributes.link,
-        '_system'
-      );
-    }
-
   }
+  statusToClassCab(status) {
+    switch (status) {
+      case 'pending':
+        return 'text-blue-600 ';
+        break;
 
+      default:
+        break;
+    }
+  }
+  statusToClass(status) {
+    switch (status) {
+      case 'pending':
+        return 'bg-blue-600 text-white';
+        break;
+      case 'accepted':
+        return 'bg-green-600 text-white';
+        break;
+      case 'selected':
+        return 'bg-green-600 text-white';
+        break;
+      case 'shortlisted':
+        return 'bg-yellow-600 text-white';
+        break;
+      case 'rejected':
+        return 'bg-red-600 text-white';
+        break;
 
+      default:
+        break;
+    }
+  }
 }

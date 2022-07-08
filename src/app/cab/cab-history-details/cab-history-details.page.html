@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Booking Details</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-4" *ngIf="data">
+    <div class="text-right">
+      Ride Status :
+      <span
+        class="font-bold {{this.dataService.statusToClassCab(data.attributes.status)}}"
+        >{{data.attributes.status|titlecase}}</span
+      >
+    </div>
+    <br />
+
+    <div class="flex mb-2 bg-white p-2 rounded-md">
+      <img
+        src="{{data.attributes.cab.data.attributes.icon}}"
+        class="w-14"
+        alt=""
+      />
+      <div class="flex-1 pl-4 text-lg flex items-center">
+        <div class="flex items-center">
+          {{data.attributes.cab.data.attributes.name|titlecase}} &nbsp;
+
+          <ion-icon
+            class="text-green-700 text-xl"
+            name="checkmark-circle"
+          ></ion-icon>
+        </div>
+        <div class="text-sm text-gray-800">
+          <!-- *minimum price is ₹ {{data.attributes.cab.data.attributes.minimumPrice}} -->
+        </div>
+      </div>
+      <!-- <div class="font-bold">
+      <div>₹{{data.attributes.cab.data.attributes.pricePerKm}}/km</div>
+      <div class="text-right"></div>
+    </div> -->
+    </div>
+    <br />
+    <div class="bg-white p-2 rounded-md flex">
+      <b> From :</b>
+      <div class="flex-1 px-4">
+        <div>{{data.attributes.from}}</div>
+      </div>
+    </div>
+    <br />
+    <div class="bg-white p-2 rounded-md flex">
+      <b> To :</b>
+      <div class="flex-1 px-4">
+        <div>{{data.attributes.to}}</div>
+      </div>
+    </div>
+    <br />
+
+    <div class="bg-white p-4 rounded-md">
+      <div class="flex">
+        <b> Distance :</b>
+        <div class="flex-1 px-4 text-right">
+          <div>{{data.attributes.distance}} km</div>
+        </div>
+      </div>
+      <br />
+      <div class="flex">
+        <b> Base Fare :</b>
+        <div class="flex-1 px-4 text-right">
+          <div>{{data.attributes.baseFare}} /-</div>
+        </div>
+      </div>
+      <br />
+      <div class="flex">
+        <b>Total Tax :</b>
+        <div class="flex-1 px-4 text-right">
+          <div>{{data.attributes.tax}} /-</div>
+        </div>
+      </div>
+      <br />
+      <div class="flex">
+        <b> Total Fare :</b>
+        <div class="flex-1 px-4 text-right">
+          <div>{{data.attributes.total}} /-</div>
+        </div>
+      </div>
+      <br />
+    </div>
+
+    <!-- <div
+      class="font-bold bg-white p-2 rounded-md"
+      *ngIf="data.attributes.status=='completed'"
+    >
+      <div>Rating / Review</div>
+
+      <div class="flex">
+        [(ngModel)]="this.data.attributes.rating"
+        <ngx-star-rating [id]="'rating'"></ngx-star-rating>
+      </div>
+      <div>
+        <textarea
+        [(ngModel)]="this.data.attributes.review"
+          class="border border-1 rounded-md w-full p-4"
+          placeholder="Your Review "
+          name=""
+          id=""
+          rows="2"
+        ></textarea>
+      </div>
+      <ion-button size="block">Submit Review</ion-button>
+    </div> -->
+    <ion-button
+      (click)="cancel()"
+      size="block"
+      *ngIf="this.data.attributes.status=='pending'"
+    >
+      Cancel Ride
+    </ion-button>
+  </div>
+</ion-content>
