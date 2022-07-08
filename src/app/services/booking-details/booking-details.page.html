@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-back-button color="light"></ion-back-button>
     </ion-buttons>
@@ -25,11 +25,19 @@
 
         <div class="flex justify-around">
           <!-- [routerLink]="['/vendor-details/'+vendor.id]" -->
-          <ion-button (click)="this.dataService.contact('whatsapp','91'+data.attributes.vendor.data.attributes.phone)" color="success" class="flex-1 mt-2 ">
-            <ion-icon slot="start" name="logo-whatsapp"></ion-icon>   Whatsapp
+          <ion-button
+            (click)="this.dataService.contact('whatsapp','91'+data.attributes.vendor.data.attributes.phone)"
+            color="success"
+            class="flex-1 mt-2"
+          >
+            <ion-icon slot="start" name="logo-whatsapp"></ion-icon> Whatsapp
           </ion-button>
-          <ion-button color="tertiary" (click)="this.dataService.contact('call','91'+data.attributes.vendor.data.attributes.phone)"  class="flex-1 mt-2 ">
-            <ion-icon  slot="start" name="call"></ion-icon>    Call 
+          <ion-button
+            color="tertiary"
+            (click)="this.dataService.contact('call','91'+data.attributes.vendor.data.attributes.phone)"
+            class="flex-1 mt-2"
+          >
+            <ion-icon slot="start" name="call"></ion-icon> Call
           </ion-button>
         </div>
       </div>
@@ -37,7 +45,7 @@
 
     <br />
     <div class="bg-white p-2 rounded-md flex">
-      <b>   Services :</b>
+      <b> Services :</b>
       <div class="flex-1 px-4">
         <div *ngFor="let service of data.attributes.services.data;let i=index">
           {{i+1}}. {{service.attributes.name|titlecase}}
@@ -46,11 +54,12 @@
     </div>
     <br />
     <div class="bg-white p-2 rounded-md">
-     <b> Date Time :</b> <span> {{data.attributes.dateTime|date:'short'}} </span>
+      <b> Date Time :</b>
+      <span> {{data.attributes.dateTime|date:'short'}} </span>
     </div>
     <br />
     <div class="bg-white p-2 rounded-md">
-      <b>   Description :</b> <span> {{data.attributes.description}}</span>
+      <b> Description :</b> <span> {{data.attributes.description}}</span>
     </div>
     <br />
     <div class="font-bold bg-white p-2 rounded-md">

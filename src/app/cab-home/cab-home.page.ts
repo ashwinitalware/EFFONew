@@ -15,16 +15,26 @@ export class CabHomePage implements OnInit {
   fromPinMarker;
   toPinMarker;
 
-  fromPinLocation = undefined;
-  toPinLocation = undefined;
+  // fromPinLocation = undefined;
+  // toPinLocation = undefined;
   @ViewChild('map') mapRef: ElementRef;
   map;
   @ViewChild('pickSearch') public pickSearchElementRef: ElementRef;
   @ViewChild('search') public searchElementRef: ElementRef;
+
   pickAutocomplete;
   autocomplete;
-  constructor(public cabService: CabService, public router: Router) {}
-
+  constructor(public cabService: CabService, public router: Router) {
+    //reset everything
+    this.resetEverything();
+  }
+  resetEverything() {
+    this.pinImage = 'fromPin';
+    this.cabService.from = '';
+    this.cabService.to = '';
+    this.cabService.fromLatLngObject = undefined;
+    this.cabService.toLatLngObject = undefined;
+  }
   ngOnInit() {}
   ionViewDidEnter() {
     // alert(this.cabService.selectedCityObj.lat)
@@ -43,7 +53,7 @@ export class CabHomePage implements OnInit {
     };
 
     this.map = new google.maps.Map(this.mapRef.nativeElement, options);
-
+    this.addDragEndEvent();
     this.autocomplete = new google.maps.places.Autocomplete(
       this.searchElementRef.nativeElement,
       {
@@ -71,7 +81,10 @@ export class CabHomePage implements OnInit {
       // then remove the fromPinMarker]
       console.log(this.fromPinMarker);
 
-      if (this.fromPinMarker != undefined) this.fromPinMarker.setMap(null);
+      // eslint-disable-next-line eqeqeq
+      if (this.fromPinMarker != undefined) {
+        this.fromPinMarker.setMap(null);
+      }
       this.fromPinMarker = undefined;
       // move the user to the location entered in the pick location input box autocomplete
       this.map.panTo(
@@ -137,12 +150,12 @@ export class CabHomePage implements OnInit {
       // mark the location with the frompin location only if its not marked previously
 
       // if (this.fromPinMarker == undefined) {
-      this.fromPinLocation = this.map.getCenter();
+      // this.fromPinLocation = this.map.getCenter();
       // if(this.fromPinMarker)
       // this.fromPinMarker.setMap(null);
       this.cabService.fromLatLngObject = this.map.getCenter();
       // alert(this.fromPinMarker)
-      if (!this.fromPinMarker)
+      if (!this.fromPinMarker) {
         this.fromPinMarker = new google.maps.Marker({
           position: this.cabService.from,
           map: this.map,
@@ -150,6 +163,7 @@ export class CabHomePage implements OnInit {
             url: 'assets/cab/fromPin.png',
           },
         });
+      }
 
       this.map.panTo(
         new google.maps.LatLng(
@@ -165,14 +179,142 @@ export class CabHomePage implements OnInit {
     });
   }
 
-  segmentChanged() {}
   book() {
     // this.cabService.from;
     this.cabService.toLatLngObject = this.map.getCenter();
-    if (this.cabService.type == 'local' || this.cabService.type == 'outstation')
-      if (!this.cabService.from || !this.cabService.to) return;
-      else if (!this.cabService.from) return;
+    if (
+      // eslint-disable-next-line eqeqeq
+      this.cabService.type == 'local' ||
+      // eslint-disable-next-line eqeqeq
+      this.cabService.type == 'outstation'
+    ) {
+      if (!this.cabService.from || !this.cabService.to) {
+        return;
+      } else if (!this.cabService.from) {
+        return;
+      }
+    }
 
     this.router.navigate(['/cab-confirm-booking']);
+  }
+
+  addDragEndEvent() {
+    this.map.addListener('dragend', () => {
+      // dont show if the category  is outstaion
+      if (this.cabService.type === 'outstation') {
+        // eslint-disable-next-line eqeqeq
+        if (this.pinImage == 'fromPin') {
+          // console.log(this.map.getCenter());
+          // this.dataService.outstation.from_lat = this.map.getCenter().lat();
+          // this.dataService.outstation.from_lng = this.map.getCenter().lng();
+        }
+        return;
+      }
+
+      if (this.pinImage === 'fromPin') {
+        this.fillPickAddress();
+      } else {
+        this.fillDropAddress();
+      }
+    });
+  }
+  fillPickAddress(resp = undefined) {
+    let locationCord;
+    // eslint-disable-next-line eqeqeq
+    if (resp != undefined) {
+      locationCord = new google.maps.LatLng(
+        resp.coords.latitude,
+        resp.coords.longitude
+      );
+    } else {
+      locationCord = this.map.getCenter();
+    }
+
+    // alert(this.map.getCenter());
+
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode(
+      {
+        location: locationCord,
+      },
+      (results, status) => {
+        if (!results.length) {
+          return;
+        }
+
+        this.cabService.from = results[0].formatted_address;
+
+        // now get the city from the result
+        // TODO will add the remaining logic later of if the city is acceptable or not
+
+        // results.forEach((element) => {
+        //   if (element.types[0] == 'locality') {
+        //     console.log(
+        //       'found city in the response',
+        //       element.address_components[0].long_name
+        //     );
+
+        //     this.dataService.fromPickCity =
+        //       element.address_components[0].long_name;
+
+        //     this.checkLocationAvailability(
+        //       element.address_components[0].long_name,
+        //       locationCord
+        //     );
+        //   }
+        // });
+
+        console.log('other time pick address geocoder result', results);
+        //also clear the to input location. the user will enter it again
+        // this.clearToInputLocation();
+        this.cabService.to = '';
+      }
+    );
+  }
+  segmentChanged(ev) {
+    // reset everything
+    this.resetEverything();
+    // this.pinImage = 'fromPin';
+    // this.cabService.from = '';
+    // this.cabService.to = '';
+    // console.log(ev);
+  }
+  clear(type = 'from') {
+    if (type === 'from') {
+      this.cabService.from = '';
+      this.cabService.to = '';
+    } else {
+      this.cabService.to = '';
+    }
+  }
+  fillDropAddress() {
+    // alert(this.map.getCenter());
+
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode(
+      {
+        location: this.map.getCenter(),
+      },
+      (results, status) => {
+        if (!results.length) {
+          return;
+        }
+
+        this.cabService.to = results[0].formatted_address;
+        // TODO will add the remaining logic later of if the city is acceptable or not
+
+        // results.forEach((element) => {
+        //   if (element.types[0] == "locality") {
+        //     console.log(
+        //       "found city in the response",
+        //       element.address_components[0].long_name
+        //     );
+        //     this.dataService.toPickCity =
+        //       element.address_components[0].long_name;
+        //     this.checkLocationAvailability();
+        //   }
+        // });
+      }
+    );
   }
 }

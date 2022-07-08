@@ -36,7 +36,7 @@
             <div>{{ride.attributes.createdAt|date:"MMM d, y"}}</div>
 
             <div
-              class="text-sm {{this.dataService.statusToClassCab(ride.attributes.status)}}"
+              class=" flex text-sm {{this.dataService.statusToClassCab(ride.attributes.status)}}"
             >
               {{ride.attributes.status|titlecase}}
             </div>

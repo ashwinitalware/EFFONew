@@ -34,6 +34,7 @@ export class CabService {
 
   cities = [];
   cabTypes = [];
+  driverInterval;
   constructor(public dataService: DataService) {}
 
   getCities() {

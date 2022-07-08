@@ -567,6 +567,11 @@ const routes: Routes = [
         (m) => m.CabHistoryDetailsPageModule
       ),
   },
+  {
+    path: 'track/:rideId',
+    loadChildren: () =>
+      import('./cab/track/track.module').then((m) => m.TrackPageModule),
+  },
 
   // {
   //   path: 'job-profile',

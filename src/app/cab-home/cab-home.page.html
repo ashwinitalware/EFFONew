@@ -12,7 +12,11 @@
   <div class="fixed w-full p-4">
     <div>
       <!-- mode="ios"  -->
-      <ion-segment mode="ios" [(ngModel)]="this.cabService.type">
+      <ion-segment
+        (ngModelChange)="segmentChanged($event)"
+        mode="ios"
+        [(ngModel)]="this.cabService.type"
+      >
         <ion-segment-button value="local">
           <ion-label>Local</ion-label>
         </ion-segment-button>
@@ -39,17 +43,15 @@
       <div class="px-2 flex items-center">
         <ion-icon
           *ngIf="cabService.from"
-          (click)="cabService.from=''"
+          (click)="clear()"
           name="close-outline"
         ></ion-icon>
       </div>
 
       <!-- <img src="assets/cab/fromPin.png" alt="" class="h-6"> -->
     </div>
-    <div
-      class="w-full mt-2 flex bg-white py-2 rounded-lg"
-      *ngIf="this.cabService.type!='rental'"
-    >
+    <div class="w-full mt-2 flex bg-white py-2 rounded-lg">
+      <!-- *ngIf="this.cabService.type!='rental'" -->
       <img src="assets/cab/toPin.png" alt="" class="h-6" />
 
       <input

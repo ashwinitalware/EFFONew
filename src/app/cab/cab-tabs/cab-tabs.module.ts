@@ -9,12 +9,7 @@ import { CabTabsPageRoutingModule } from './cab-tabs-routing.module';
 import { CabTabsPage } from './cab-tabs.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    CabTabsPageRoutingModule
-  ],
-  declarations: [CabTabsPage]
+  imports: [CommonModule, FormsModule, IonicModule, CabTabsPageRoutingModule],
+  declarations: [CabTabsPage],
 })
 export class CabTabsPageModule {}

@@ -63,6 +63,7 @@ export class CabConfirmBookingPage implements OnInit {
   }
   ngOnInit() {}
   book() {
+    this.dataService.present();
     this.dataService
       ._post(
         'cab-rides',
@@ -78,7 +79,7 @@ export class CabConfirmBookingPage implements OnInit {
             otp: Math.floor(1000 + Math.random() * 9000) + '',
             fromLat: this.cabService.fromLatLngObject.lat(),
             fromLng: this.cabService.fromLatLngObject.lng(),
-            toLat: this.cabService.toLatLngObject.lng(),
+            toLat: this.cabService.toLatLngObject.lat(),
             toLng: this.cabService.toLatLngObject.lng(),
             // eslint-disable-next-line radix
             baseFare: parseInt(this.cabService.baseFare + ''),
@@ -88,6 +89,14 @@ export class CabConfirmBookingPage implements OnInit {
           },
         }
       )
-      .subscribe((data) => {});
+      .subscribe(
+        (data) => {
+          this.dataService.dismiss();
+          this.router.navigate(['/cab-tabs/history']);
+        },
+        (err) => {
+          this.dataService.dismiss();
+        }
+      );
   }
 }

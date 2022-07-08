@@ -1,22 +1,31 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-back-button color="light"></ion-back-button>
     </ion-buttons>
-    <div class="px-4 text-white text-lg">Booking Details</div>
+    <ion-title>Booking Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="p-4" *ngIf="data">
-    <div class="text-right">
-      Ride Status :
-      <span
-        class="font-bold {{this.dataService.statusToClassCab(data.attributes.status)}}"
-        >{{data.attributes.status|titlecase}}</span
+    <div class="flex justify-between items-center">
+      <div>
+        Ride Status :
+        <span
+          class="font-bold {{this.dataService.statusToClassCab(data.attributes.status)}}"
+          >{{data.attributes.status|titlecase}}</span
+        >
+      </div>
+      <ion-button
+        [routerLink]="['/track/'+data.id]"
+        routerLinkActive="router-link-active"
+        fill="clear"
+        *ngIf="data.attributes.status=='accepted'"
       >
+        Track Ride
+      </ion-button>
     </div>
-    <br />
 
     <div class="flex mb-2 bg-white p-2 rounded-md">
       <img

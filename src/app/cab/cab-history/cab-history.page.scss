@@ -1,9 +1,141 @@
 ion-segment {
-    --background: rgb(255, 255, 255);
- 
-  }
- ion-segment-button {
+  --background: rgb(255, 255, 255);
+}
+ion-segment-button {
+  --color-checked: white;
+  --indicator-color: black;
+}
 
- --color-checked:white;
-    --indicator-color	: black
+div.ring {
+  display: block;
+  float: left;
+  position: absolute;
+  border-radius: 55px;
+  padding: 50px;
+  transform: scale(0.25);
+  -ms-transform: scale(0.25);
+  /* IE 9 */
+  -webkit-transform: scale(0.25);
+  /* Safari and Chrome */
+  -o-transform: scale(0.25);
+  /* Opera */
+  -moz-transform: scale(0.25);
+  /* Firefox */
+  -webkit-transform-origin: center;
+  animation-iteration-count: infinite;
+  /* W3C and Opera */
+  -moz-animation-iteration-count: infinite;
+  /* Firefox */
+  -webkit-animation-iteration-count: infinite;
+  /*Safari and Chrome*/
+  -webkit-transform-origin: center;
+}
+.ping {
+  top: -35px;
+  left: -35px;
+  border: solid #fff 3px;
+  -moz-animation-duration: 3s;
+  -webkit-animation-duration: 3s;
+  -moz-animation-name: ping;
+  -webkit-animation-name: ping;
+}
+.small-ping {
+  top: -42px;
+  left: -42px;
+  border: double #77d2ff 10px;
+  -moz-animation-duration: 0.75s;
+  -webkit-animation-duration: 0.75s;
+  -moz-animation-name: smallping;
+  -webkit-animation-name: smallping;
+}
+@-webkit-keyframes ping {
+  from {
+    transform: scale(0.25);
+    -ms-transform: scale(0.25);
+    /* IE 9 */
+    -webkit-transform: scale(0.25);
+    /* Safari and Chrome */
+    -o-transform: scale(0.25);
+    /* Opera */
+    -moz-transform: scale(0.25);
+    /* Firefox */
+    opacity: 1;
   }
+  to {
+    transform: scale(1);
+    -ms-transform: scale(1);
+    /* IE 9 */
+    -webkit-transform: scale(1);
+    /* Safari and Chrome */
+    -o-transform: scale(1);
+    /* Opera */
+    -moz-transform: scale(1);
+    /* Firefox */
+    opacity: 0;
+  }
+}
+@-webkit-keyframes smallping {
+  from {
+    transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    /* IE 9 */
+    -webkit-transform: scale(0.1);
+    /* Safari and Chrome */
+    -o-transform: scale(0.1);
+    /* Opera */
+    -moz-transform: scale(0.1);
+    /* Firefox */
+    opacity: 1;
+  }
+  to {
+    color: white;
+    transform: scale(0.55);
+    -ms-transform: scale(0.55);
+    /* IE 9 */
+    -webkit-transform: scale(0.55);
+    /* Safari and Chrome */
+    -o-transform: scale(0.55);
+    /* Opera */
+    -moz-transform: scale(0.55);
+    /* Firefox */
+    opacity: 0;
+  }
+}
+a {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  text-decoration: none;
+  background-color: #77d2ff;
+  border-radius: 55px;
+  border: dotted 3px;
+
+  animation-iteration-count: infinite;
+  /* W3C and Opera */
+  -moz-animation-iteration-count: infinite;
+  /* Firefox */
+  -webkit-animation-iteration-count: infinite;
+  /*Safari and Chrome*/
+  animation-direction: alternate;
+  /* W3C and Opera */
+  -moz-animation-direction: alternate;
+  /* Firefox */
+  -webkit-animation-direction: alternate;
+  /* Safari and Chrome */
+  animation-delay: 0s;
+  /* W3C and Opera */
+  -moz-animation-delay: 0s;
+  /* Firefox */
+  -webkit-animation-delay: 0s;
+  /* Safari and Chrome */
+}
+@-webkit-keyframes breathe {
+  from {
+    border-color: #68b9e2;
+    background-color: #77d2ff;
+  }
+  to {
+    border-color: #68b9e2;
+    background-color: #6dc1ec;
+  }
+}
