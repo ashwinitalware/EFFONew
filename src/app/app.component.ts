@@ -1,38 +1,17 @@
-import {
-  Component
-} from '@angular/core';
-import {
-  Router
-} from '@angular/router';
-import {
-  NavController,
-  Platform
-} from '@ionic/angular';
-import {
-  DataService
-} from './services/data.service';
-import {
-  InAppBrowser
-} from '@awesome-cordova-plugins/in-app-browser/ngx';
-import {
-  HttpClient
-} from '@angular/common/http';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavController, Platform } from '@ionic/angular';
+import { DataService } from './services/data.service';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { HttpClient } from '@angular/common/http';
 import {
   AppUpdate,
   AppUpdateAvailability,
 } from '@robingenz/capacitor-app-update';
-import {
-  FCM
-} from '@capacitor-community/fcm';
-import {
-  PushNotifications
-} from '@capacitor/push-notifications';
-import {
-  RateApp
-} from 'capacitor-rate-app';
-import {
-  App
-} from '@capacitor/app';
+import { FCM } from '@capacitor-community/fcm';
+import { PushNotifications } from '@capacitor/push-notifications';
+import { RateApp } from 'capacitor-rate-app';
+import { App } from '@capacitor/app';
 
 // import { PushNotifications } from "@capacitor/push-notifications";
 
@@ -62,12 +41,18 @@ export class AppComponent {
       App.addListener('backButton', () => {
         if (
           (window.location + '').includes('localhost/dashboard') ||
-          (window.location + '').includes('localhost' + this.dataService.directNavigate) ||
+          (window.location + '').includes(
+            'localhost' + this.dataService.directNavigate
+          ) ||
           (window.location + '').includes('localhost/login')
         )
           App.exitApp();
-        else if ((window.location + '').includes('localhost/service-dashboard')||(window.location + '').includes('localhost/jobdashboard')) {
-          this.navCtrl.pop()
+        else if (
+          (window.location + '').includes('localhost/service-dashboard') ||
+          (window.location + '').includes('localhost/jobdashboard') ||
+          (window.location + '').includes('localhost/cab-tabs')
+        ) {
+          this.navCtrl.pop();
         } else {
           // alert(window.location)
 
@@ -78,16 +63,13 @@ export class AppComponent {
           this.dataService.dismiss();
         } catch (error) {}
       });
-   
 
       try {
-
-
-
-    
         AppUpdate.getAppUpdateInfo().then((data) => {
           console.log('UPDATE INFO');
-          if (data.updateAvailability == AppUpdateAvailability.UPDATE_AVAILABLE) {
+          if (
+            data.updateAvailability == AppUpdateAvailability.UPDATE_AVAILABLE
+          ) {
             // this.dataService.presentToast('Update Available');
             if (data.flexibleUpdateAllowed) {
               AppUpdate.startFlexibleUpdate();
@@ -96,12 +78,8 @@ export class AppComponent {
               AppUpdate.performImmediateUpdate();
             }
           }
-        });  
-
-
-      } catch (error) {
-
-      }
+        });
+      } catch (error) {}
     });
   }
 
@@ -114,13 +92,15 @@ export class AppComponent {
   itemClicked(item) {
     this.dataService.menu.close();
     // if (item.role == 'home') this.router.navigate(['/dashboard']);
-    if (item.role == 'home') this.router.navigate(['' + this.dataService.directNavigate]);
+    if (item.role == 'home')
+      this.router.navigate(['' + this.dataService.directNavigate]);
     if (item.role == 'privacy') this.router.navigate(['/privacypolicy']);
     if (item.role == 'contact') this.router.navigate(['/contactus']);
     if (item.role == 'share') {
       this.dataService.share(
         'Download ' + this.dataService.appName + ' App',
-        this.dataService.shareContent, this.dataService.playStoreLinks.customer
+        this.dataService.shareContent,
+        this.dataService.playStoreLinks.customer
       );
 
       // navigator.share({
@@ -135,10 +115,7 @@ export class AppComponent {
       // window.open(
       //   `https://play.google.com/store/apps/details?id=io.effo.vendor`
       // );
-      window.open(
-        this.dataService.playStoreLinks.vendor,
-        '_system'
-      );
+      window.open(this.dataService.playStoreLinks.vendor, '_system');
     }
     if (item.role == 'rate') {
       // RateApp.requestReview()
@@ -149,10 +126,7 @@ export class AppComponent {
       //     console.log(err);
       //   });
 
-      window.open(
-        this.dataService.playStoreLinks.customer,
-        '_system'
-      );
+      window.open(this.dataService.playStoreLinks.customer, '_system');
     }
   }
   handleFileInput(files: any) {
@@ -169,7 +143,8 @@ export class AppComponent {
       .subscribe((data: any) => {
         this.http
           .put(
-            this.dataService.apiUrl + 'users/' + this.dataService.profile.id, {
+            this.dataService.apiUrl + 'users/' + this.dataService.profile.id,
+            {
               profileImage: data[0].url,
             }
           )
