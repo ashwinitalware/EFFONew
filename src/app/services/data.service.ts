@@ -101,8 +101,8 @@ export class DataService {
     public menu: MenuController,
     public photoViewer: PhotoViewer
   ) {
-    // this.domainUrl = 'https://strapi.effoapp.com/';
-    // this.apiUrl = this.domainUrl + 'api/';
+    this.domainUrl = 'https://strapi.effoapp.com/';
+    this.apiUrl = this.domainUrl + 'api/';
 
     ///MAIN CONFIGS
 

@@ -614,6 +614,30 @@ const routes: Routes = [
         (m) => m.LodgingBookingsDetailsPageModule
       ),
   },
+  {
+    path: 'restaurant-dashboard',
+    loadChildren: () => import('./restaurant/restaurant-dashboard/restaurant-dashboard.module').then( m => m.RestaurantDashboardPageModule)
+  },
+  {
+    path: 'restaurant-orders',
+    loadChildren: () => import('./restaurant/restaurant-orders/restaurant-orders.module').then( m => m.RestaurantOrdersPageModule)
+  },
+  {
+    path: 'restaurant-home',
+    loadChildren: () => import('./restaurant/restaurant-home/restaurant-home.module').then( m => m.RestaurantHomePageModule)
+  },
+  {
+    path: 'restaurant-menu/:id',
+    loadChildren: () => import('./restaurant/restaurant-menu/restaurant-menu.module').then( m => m.RestaurantMenuPageModule)
+  },
+  {
+    path: 'restaurant-cart',
+    loadChildren: () => import('./restaurant/restaurant-cart/restaurant-cart.module').then( m => m.RestaurantCartPageModule)
+  },
+  {
+    path: 'restaurant-order-details',
+    loadChildren: () => import('./restaurant/restaurant-order-details/restaurant-order-details.module').then( m => m.RestaurantOrderDetailsPageModule)
+  },
 
   // {
   //   path: 'job-profile',

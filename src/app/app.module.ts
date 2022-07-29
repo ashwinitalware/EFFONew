@@ -20,6 +20,7 @@ import { ServiceService } from './services/service.service';
 import { OldExService } from './services/old-ex.service';
 import { CabService } from './services/cab.service';
 import { LodgingService } from './lodging/lodging.service';
+import { RestaurantService } from './restaurant/restaurant.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +39,7 @@ import { LodgingService } from './lodging/lodging.service';
     JobService,
     DataService,
     ServiceService,
+    RestaurantService,
     OldExService,
     InAppBrowser,
     LodgingService,
