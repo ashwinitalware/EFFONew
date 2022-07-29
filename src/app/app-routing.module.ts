@@ -572,6 +572,48 @@ const routes: Routes = [
     loadChildren: () =>
       import('./cab/track/track.module').then((m) => m.TrackPageModule),
   },
+  {
+    path: 'lodging-dashboard',
+    loadChildren: () =>
+      import('./lodging-dashboard/lodging-dashboard.module').then(
+        (m) => m.LodgingDashboardPageModule
+      ),
+  },
+  {
+    path: 'lodging-home',
+    loadChildren: () =>
+      import('./lodging-home/lodging-home.module').then(
+        (m) => m.LodgingHomePageModule
+      ),
+  },
+  {
+    path: 'lodging-bookings',
+    loadChildren: () =>
+      import('./lodging-bookings/lodging-bookings.module').then(
+        (m) => m.LodgingBookingsPageModule
+      ),
+  },
+  {
+    path: 'lodging-listing',
+    loadChildren: () =>
+      import('./lodging-listing/lodging-listing.module').then(
+        (m) => m.LodgingListingPageModule
+      ),
+  },
+  {
+    path: 'lodging-details/:lodgeId',
+    loadChildren: () =>
+      import('./lodging-details/lodging-details.module').then(
+        (m) => m.LodgingDetailsPageModule
+      ),
+  },
+  {
+    path: 'lodging-bookings-details',
+    loadChildren: () =>
+      import('./lodging-bookings-details/lodging-bookings-details.module').then(
+        (m) => m.LodgingBookingsDetailsPageModule
+      ),
+  },
 
   // {
   //   path: 'job-profile',

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="data">{{data.attributes.lodgeName}}</div>
+
+  checkin
+  <input [(ngModel)]="checkIn" type="date" />
+
+  checkout
+  <input [(ngModel)]="checkOut" type="date" />
+
+  <div
+    *ngFor="let room of rooms; let i=index"
+    class="flex p-2 border rounded-md mb-2"
+  >
+    <div
+      class="w-16 h-16 rounded-md overflow-hidden flex items-center justify-center"
+    >
+      <!-- <img class="" src="{{product?.attributes?.image}}" (error)="onImgError($event)" alt=""> -->
+    </div>
+    <div class="mx-2 flex-1">
+      {{room.attributes.name}}
+      <!-- <p class="text-blue-900 font-bold">{{product?.attributes?.name|titlecase}}</p> -->
+      <!-- <p class="text-sm">{{product?.attributes?.description|titlecase}}</p> -->
+
+      <!-- <p class="text-sm"> <span>&#8377;</span> <span class="font-bold text-black">{{product?.attributes.price}}</span>  per {{product?.attributes?.unit}}</p> -->
+    </div>
+
+    <div class="flex items-center">
+      <div *ngIf="!room.quantity">
+        <ion-button size="small" color="dark" fill="outline" (click)="add(i)">
+          Add Room
+        </ion-button>
+      </div>
+
+      <div *ngIf="room.quantity">
+        <ion-button size="small" color="dark">
+          <span class="w-6" (click)="remove(i)">
+            <ion-icon name="remove"></ion-icon>
+          </span>
+
+          <span class="w-6"> {{room?.quantity}}</span
+          ><span class="w-6" (click)="add(i)">
+            <ion-icon name="add"></ion-icon>
+          </span>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-button size="block" color="success" (click)="book()">
+    Confirm Booking
+  </ion-button>
+</ion-footer>

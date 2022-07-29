@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- TO-DO -->
+  <ion-slides #slider loop="true" [options]="slideOpts">
+    <ion-slide *ngFor="let slider of sliders">
+      <ion-card style="border-radius: 5px">
+        <img src="{{slider.attributes.file.data.attributes.url}}" />
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  <div [routerLink]="['/lodging-listing']">Show All</div>
+  <div *ngFor="let lodge of lodges">{{lodge.attributes.lodgeName}}</div>
+</ion-content>

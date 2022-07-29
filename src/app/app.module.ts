@@ -19,6 +19,7 @@ import { PhotoViewer } from '@awesome-cordova-plugins/photo-viewer/ngx';
 import { ServiceService } from './services/service.service';
 import { OldExService } from './services/old-ex.service';
 import { CabService } from './services/cab.service';
+import { LodgingService } from './lodging/lodging.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,6 +40,7 @@ import { CabService } from './services/cab.service';
     ServiceService,
     OldExService,
     InAppBrowser,
+    LodgingService,
     CabService,
     LoginGuard,
   ],
