@@ -1,53 +1,90 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Lodge Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div *ngIf="data">{{data.attributes.lodgeName}}</div>
+  <div *ngIf="data" class="bg-white">
+    <img src="{{data.attributes.image}}" class="w-full" alt="" />
 
-  checkin
-  <input [(ngModel)]="checkIn" type="date" />
+    <div class="p-4">
+      <div class="font-bold text-xl text-gray-800">
+        {{data.attributes.lodgeName}}
+      </div>
+      <div class="text-gray-600">{{data.attributes.address}}</div>
+      <div class="h-4 border-t mt-4 border-gray-400"></div>
 
-  checkout
-  <input [(ngModel)]="checkOut" type="date" />
-
-  <div
-    *ngFor="let room of rooms; let i=index"
-    class="flex p-2 border rounded-md mb-2"
-  >
-    <div
-      class="w-16 h-16 rounded-md overflow-hidden flex items-center justify-center"
-    >
-      <!-- <img class="" src="{{product?.attributes?.image}}" (error)="onImgError($event)" alt=""> -->
-    </div>
-    <div class="mx-2 flex-1">
-      {{room.attributes.name}}
-      <!-- <p class="text-blue-900 font-bold">{{product?.attributes?.name|titlecase}}</p> -->
-      <!-- <p class="text-sm">{{product?.attributes?.description|titlecase}}</p> -->
-
-      <!-- <p class="text-sm"> <span>&#8377;</span> <span class="font-bold text-black">{{product?.attributes.price}}</span>  per {{product?.attributes?.unit}}</p> -->
-    </div>
-
-    <div class="flex items-center">
-      <div *ngIf="!room.quantity">
-        <ion-button size="small" color="dark" fill="outline" (click)="add(i)">
-          Add Room
-        </ion-button>
+      <div class="flex items-center justify-between">
+        <div class="font-medium">Check-IN :</div>
+        <div>
+          <input
+            class="border px-4 py-2 rounded-md"
+            #checkIn1
+            [(ngModel)]="checkIn"
+            type="date"
+          />
+        </div>
+      </div>
+      <div class="flex items-center justify-between mt-4">
+        <div>Check-OUT :</div>
+        <div>
+          <input
+            class="border px-4 py-2 rounded-md"
+            [(ngModel)]="checkOut"
+            type="date"
+          />
+        </div>
       </div>
 
-      <div *ngIf="room.quantity">
-        <ion-button size="small" color="dark">
-          <span class="w-6" (click)="remove(i)">
-            <ion-icon name="remove"></ion-icon>
-          </span>
+      <div
+        *ngFor="let room of rooms; let i=index"
+        class="flex p-2 border rounded-md mt-4"
+      >
+        <div
+          style="background-image: url('{{room.attributes.image}}')"
+          class="w-16 h-16 rounded-md overflow-hidden flex items-center justify-center bg-cover bg-center"
+        ></div>
+        <div class="mx-2 flex-1 font-bold">
+          <div>{{room.attributes.name}}</div>
+          <div class="text-gray-600">
+            <span class="font-bold text-black"> {{room.attributes.price}} </span
+            >/- per night
+          </div>
+          <!-- <p class="text-blue-900 font-bold">{{product?.attributes?.name|titlecase}}</p> -->
+          <!-- <p class="text-sm">{{product?.attributes?.description|titlecase}}</p> -->
 
-          <span class="w-6"> {{room?.quantity}}</span
-          ><span class="w-6" (click)="add(i)">
-            <ion-icon name="add"></ion-icon>
-          </span>
-        </ion-button>
+          <!-- <p class="text-sm"> <span>&#8377;</span> <span class="font-bold text-black">{{product?.attributes.price}}</span>  per {{product?.attributes?.unit}}</p> -->
+        </div>
+
+        <div class="flex items-center">
+          <div *ngIf="!room.quantity">
+            <ion-button
+              size="small"
+              color="dark"
+              fill="outline"
+              (click)="add(i)"
+            >
+              Add Room
+            </ion-button>
+          </div>
+
+          <div *ngIf="room.quantity">
+            <ion-button size="small" color="dark">
+              <span class="w-6" (click)="remove(i)">
+                <ion-icon name="remove"></ion-icon>
+              </span>
+
+              <span class="w-6"> {{room?.quantity}}</span
+              ><span class="w-6" (click)="add(i)">
+                <ion-icon name="add"></ion-icon>
+              </span>
+            </ion-button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

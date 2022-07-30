@@ -9,7 +9,16 @@ import qs from 'qs';
 })
 export class LodgingHomePage implements OnInit {
   sliders = [];
+  slides = [
+    {
+      url: 'assets/shopping/ad1.jpg',
+    },
+    {
+      url: 'assets/shopping/ad2.jpg',
+    },
+  ];
   lodges = [];
+  searchQuery = '';
   constructor(public http: HttpClient, public dataService: DataService) {
     this.getSliders();
     this.getLodges();
@@ -22,9 +31,16 @@ export class LodgingHomePage implements OnInit {
     autoplay: true,
   };
 
-  getLodges() {
+  clear() {
+    this.searchQuery = '';
+    this.getLodges('');
+  }
+  getLodges(event = '') {
     let query = qs.stringify({
       filters: {
+        lodgeName: {
+          $contains: event || '',
+        },
         vendor: {
           // id: {
           //   $eq:this.dataService.profile.city

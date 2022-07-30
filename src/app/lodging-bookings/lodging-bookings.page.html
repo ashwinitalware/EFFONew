@@ -5,5 +5,63 @@
 </ion-header>
 
 <ion-content>
-
+  <!--  -->
+  <!-- [routerLink]="['/lodging-bookings-details/'+booking.id]" -->
+  <div
+    *ngFor="let booking of bookings"
+    class="bg-white rounded-md mt-4 overflow-hidden"
+  >
+    <div
+      class="h-48 overflow-hidden bg-cover bg-center"
+      style="background-image: url('{{booking.attributes.vendor.data.attributes.lodging_profile.data.attributes.image}}')"
+    >
+      <!-- <img src="{{lodge.attributes.image}}" alt="" /> -->
+    </div>
+    <div class="p-4">
+      <div class="flex justify-between">
+        <div class="font-bold">
+          {{booking.attributes.vendor.data.attributes.lodging_profile.data.attributes.lodgeName}}
+        </div>
+        <button
+          class="  p-2 rounded-md  {{this.dataService.statusToClass(booking.attributes.status)}}"
+        >
+          {{booking.attributes.status|titlecase}}
+          <!-- {{booking.attributes.vendor.data.attributes.lodging_profile.data.attributes.address}} -->
+        </button>
+      </div>
+      <div class="flex justify-between items-center">
+        <div>
+          <div class="">
+            Booked :
+            <span class="font-bold">{{booking.attributes.createdAt|date}}</span>
+            <!-- {{booking.attributes.rooms.length}} Rooms -->
+          </div>
+          <div class="">
+            Booking ID :
+            <span class="font-bold">{{booking.id}}</span>
+            <!-- {{booking.attributes.rooms.length}} Rooms -->
+          </div>
+          <div class="">
+            Selected Rooms :
+            <div
+              *ngFor="let room of booking.attributes.rooms.data;let i=index"
+              class="font-bold"
+            >
+              {{i+1}}. {{room.attributes.roomName}} (
+              {{room.attributes.quantity}} rooms)
+            </div>
+            <!-- <span class="font-bold">{{booking.id}}</span> -->
+            <!-- {{booking.attributes.rooms.length}} Rooms -->
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <ion-button
+          fill="clear"
+          (click)="this.dataService.contact('call','91'+booking.attributes.vendor.data.attributes.phone)"
+          >Call Now</ion-button
+        >
+      </div>
+    </div>
+  </div>
 </ion-content>

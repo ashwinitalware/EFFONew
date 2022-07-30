@@ -6,12 +6,67 @@
 
 <ion-content>
   <ion-slides #slider loop="true" [options]="slideOpts">
+    <ion-slide *ngFor="let slide of slides">
+      <ion-card style="border-radius: 5px">
+        <img src="{{slide.url}}" />
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <!-- <ion-slides #slider loop="true" [options]="slideOpts">
     <ion-slide *ngFor="let slider of sliders">
       <ion-card style="border-radius: 5px">
         <img src="{{slider.attributes.file.data.attributes.url}}" />
       </ion-card>
     </ion-slide>
-  </ion-slides>
-  <div [routerLink]="['/lodging-listing']">Show All</div>
-  <div *ngFor="let lodge of lodges">{{lodge.attributes.lodgeName}}</div>
+  </ion-slides> -->
+  <!-- <div>Show All</div> -->
+  <div class="px-4">
+    <div class="flex items-center bg-white rounded-md shadow-md">
+      <ion-input
+        (ngModelChange)="getLodges($event)"
+        [(ngModel)]="searchQuery"
+        class="flex-1"
+        placeholder="Search by Lodge Name"
+        id="search"
+      >
+        <ion-icon name="search" style="margin-left: 7px"></ion-icon>
+      </ion-input>
+
+      <ion-icon
+        *ngIf="searchQuery"
+        (click)="clear()"
+        name="close"
+        class="px-4"
+        style="margin-left: 7px"
+      ></ion-icon>
+    </div>
+
+    <div
+      [routerLink]="['/lodging-details/'+lodge.id]"
+      *ngFor="let lodge of lodges"
+      class="bg-white rounded-md mt-4 overflow-hidden"
+    >
+      <div
+        class="h-48 overflow-hidden bg-cover bg-center"
+        style="background-image: url('{{lodge.attributes.image}}')"
+      >
+        <!-- <img src="{{lodge.attributes.image}}" alt="" /> -->
+      </div>
+      <div class="p-4">
+        <div class="font-bold">{{lodge.attributes.lodgeName}}</div>
+        <div class="">{{lodge.attributes.address}}</div>
+
+        <div class="flex justify-between items-center">
+          <ion-button>Book Now</ion-button>
+          <div>
+            <div class="text-lg font-bold">
+              Rs {{lodge.attributes.startsFrom}}
+            </div>
+            <div>per night</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>
