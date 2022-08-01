@@ -1,18 +1,226 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>restaurantMenu</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Restaurant Menu</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="bg-white">
 
-  TO-DO
-  <br>
-  get restro details
-  <br>
-  get restro food
-  <br>
-  
-  {{this.activatedRoute.snapshot.params.id}}
+    <div class="p-2">
+      <div class="p-2 border-b-2 border-gray-300" *ngIf="shoppingProfile">
+        <ion-label class="text-lg text-black font-bold">
+          
+          {{shoppingProfile.attributes.companyName|titlecase}}</ion-label><br>
+        <ion-button  color="dark" (click)="this.ds.contact('call','91'+vendorDetails?.phone)">
+          <ion-icon slot="start"  name="call"></ion-icon>
+          Call Now
+          <!-- {{vendorDetails?.phone}} -->
+        </ion-button>
+        <ion-button  color="success"  (click)="this.ds.contact('whatsapp','91'+vendorDetails?.phone)">
+          <ion-icon slot="start" name="logo-whatsapp"></ion-icon>
+          Whatsapp
+        </ion-button>
+        <!-- <a class="" href="tel:91{{vendorDetails?.phone}}">
+          <ion-icon slot="start" class="text-blue-600 text-xs" name="call"></ion-icon>
+          &nbsp;<span class="text-sm text-gray-600 pt-2">{{vendorDetails?.phone}}</span>
+    <br>
+          <span class="text-sm text-black font-medium text-slate-400"><b>City : </b>{{vendorDetails?.city}}</span>
+        </a> -->
+      </div>
 
+      <!-- <div *ngIf="cart.shoppingProducts">
+        <div class="flex justify-between p-2" *ngFor="let product of cart.shoppingProducts; let i=index">
+          <img width="40" height="10" src="{{product?.attributes?.image}}" (error)="onImgError($event)" alt="">
+          <div>
+            <ion-label class="mx-2">
+              <p>{{product?.attributes?.name}}</p>
+              <p>{{product?.attributes?.description}}</p>
+
+              <p> <span>&#8377;</span>{{product?.attributes.price}} per {{product?.attributes?.unit}}</p>
+            </ion-label>
+          </div>
+          <div>
+            <div *ngIf="!product.quantity">
+              <ion-button (click)="add(product, i)" color="dark" fill="outline">
+                Add Item
+              </ion-button>
+
+            </div>
+
+            <div *ngIf="product.quantity">
+              <ion-button color="dark">
+                <span (click)="remove(product, i)" class="w-6">
+                  <ion-icon name="remove"></ion-icon>
+
+
+                </span>
+
+                <span class="w-6">
+                  {{product?.quantity}}</span><span (click)="add(product, i)" class="w-6">
+                  <ion-icon name="add"></ion-icon>
+                </span>
+              </ion-button>
+
+            </div>
+
+
+          </div>
+
+        </div>
+      </div> -->
+
+      <!-- <div *ngIf="cart.shoppingProducts">
+        <div class="flex  p-2 bg-white rounded-sm shadow-md mt-2"
+          *ngFor="let product of cart.shoppingProducts; let i=index">
+          <img width="25%" height="10%" class="rounded-md" src="{{product?.attributes?.image}}"
+            (error)="onImgError($event)" alt="">
+          <div class="flex-1">
+            <ion-label class="mx-2">
+              <p class="text-lg text-black font-bold">{{product?.attributes?.name}}</p>
+              <p>{{product?.attributes?.description}}</p>
+
+              <p class="text-green-300 text-sm font-bold"> <span>&#8377;</span>{{product?.attributes.price}} per
+                {{product?.attributes?.unit}}</p>
+            </ion-label>
+          </div>
+          <div class="">
+            <div *ngIf=" !product.quantity">
+              <ion-button (click)="add(product, i)" color="tertiary" fill="outline">
+                Add Item
+              </ion-button>
+            </div>
+
+            <div *ngIf="product.quantity">
+              <ion-button color="dark">
+                <span (click)="remove(product, i)" class="w-6">
+                  <ion-icon name="remove"></ion-icon>
+                </span>
+
+                <span class="w-6">
+                  {{product?.quantity}}</span><span (click)="add(product, i)" class="w-6">
+                  <ion-icon name="add"></ion-icon>
+                </span>
+              </ion-button>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+
+    <!-- <div class="" *ngIf="vendorDetails != undefined">
+      <div class="p-2 font-bold">{{vendorDetails?.fullName|titlecase}}
+        <br> <span class="text-xs font-medium text-slate-400">{{vendorDetails?.phone}} | {{vendorDetails?.email}}</span>
+        <br>
+        <span class="text-xs font-medium text-slate-400">City: {{vendorDetails?.city}}</span>
+      </div>
+    </div> -->
+
+
+
+
+    <div class="px-2" *ngIf="cart.shoppingProducts">
+
+
+        <div *ngFor="let product of cart.shoppingProducts; let i=index" class="flex p-2 border rounded-md mb-2">
+          <div class="w-16 h-16 rounded-md overflow-hidden flex items-center justify-center">
+          <img class="" src="{{product?.attributes?.image}}" (error)="onImgError($event)" alt="">
+        </div>
+          <div class="mx-2 flex-1 ">
+            <p class="text-blue-900 font-bold">{{product?.attributes?.name|titlecase}}</p>
+            <p class="text-sm">{{product?.attributes?.description|titlecase}}</p>
+
+            <p class="text-sm"> <span>&#8377;</span> <span class="font-bold text-black">{{product?.attributes.price}}</span>  per {{product?.attributes?.unit}}</p>
+          </div>
+
+          <div class="flex items-center">
+            <div *ngIf="!product.quantity">
+              <ion-button size="small" (click)="add(product, i)" color="dark" fill="outline">
+                Add Item
+              </ion-button>
+
+            </div>
+
+            <div *ngIf="product.quantity">
+              <ion-button size="small"  color="dark">
+                <span (click)="remove(product, i)" class="w-6">
+                  <ion-icon name="remove"></ion-icon>
+
+
+                </span>
+
+                <span class="w-6">
+                  {{product?.quantity}}</span><span (click)="add(product, i)" class="w-6">
+                  <ion-icon name="add"></ion-icon>
+                </span>
+              </ion-button>
+
+            </div>
+
+
+          </div>
+        </div>
+
+
+        <!-- <ion-col size="12" class="my-2.5" *ngFor="let product of cart.shoppingProducts; let i=index">
+          <ion-item class="">
+            <img class="w-16 rounded-md" src="{{product?.attributes?.image}}" (error)="onImgError($event)" alt="">
+            <div class="mx-2 ">
+              <p>{{product?.attributes?.name}}</p>
+              <p>{{product?.attributes?.description}}</p>
+
+              <p> <span>&#8377;</span>{{product?.attributes.price}} per {{product?.attributes?.unit}}</p>
+            </div>
+            <ion-row>
+
+              <div>
+                <div *ngIf="!product.quantity">
+                  <ion-button (click)="add(product, i)" color="dark" fill="outline">
+                    Add Item
+                  </ion-button>
+
+                </div>
+
+                <div *ngIf="product.quantity">
+                  <ion-button color="dark">
+                    <span (click)="remove(product, i)" class="w-6">
+                      <ion-icon name="remove"></ion-icon>
+
+
+                    </span>
+
+                    <span class="w-6">
+                      {{product?.quantity}}</span><span (click)="add(product, i)" class="w-6">
+                      <ion-icon name="add"></ion-icon>
+                    </span>
+                  </ion-button>
+
+                </div>
+
+
+              </div>
+            </ion-row>
+          </ion-item>
+        </ion-col> -->
+    </div>
+    <ion-infinite-scroll threshold="25%" (ionInfinite)="loadMore($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
 </ion-content>
+
+<ion-footer *ngIf="cart.cartProducts.length">
+  <ion-toolbar color="light">
+    <ion-button class="mx-4" color="danger" (click)="goToCartPage()" expand="block" fill="solid">
+     Go To Cart
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

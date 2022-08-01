@@ -1,15 +1,119 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  DataService
+} from 'src/app/services/data.service';
+import {
+  HttpClient
+} from '@angular/common/http';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  Router
+} from '@angular/router';
+import {
+  NavController
+} from '@ionic/angular';
 
+import qs from 'qs';
 @Component({
   selector: 'app-restaurant-home',
   templateUrl: './restaurant-home.page.html',
   styleUrls: ['./restaurant-home.page.scss'],
 })
 export class RestaurantHomePage implements OnInit {
+  notFound=false
+  searchQuery = ''
+  vendors = []
+  showTitleSuggestions = false;
+  showCitySuggesionts = false;
+  titleSuggestions = [];
+  selectedTitleSuggesion = '';
+  citySuggestions = [];
+  selectedCitySuggesion = '';
+  sliceValue = 3;
+  categories
+  slides = [
 
-  constructor() { }
+    {
+      url: 'assets/shopping/ad1.jpg'
+    },
+    {
+      url: 'assets/shopping/ad2.jpg'
+    },
 
-  ngOnInit() {
+  ]
+  slideOpts = {
+    initialSlide: 0,
+    slidesPerView: 1,
+    autoplay: true,
+  };
+  constructor(public http: HttpClient, public ds: DataService, public router: Router, public navCtrl: NavController) {
+
+    this.getVendors()
+
   }
 
+  ngOnInit() {
+    this.getAllShoppingCategories();
+  }
+
+  getAllShoppingCategories() {
+    this.http.get(this.ds.apiUrl + 'shopping-categories')
+      .subscribe((data: any) => {
+        this.categories = data.data;
+        this.categories?.forEach(cat => {
+          cat.icon = 'close';
+        });
+      });
+  }
+
+  getVendorsByQuery(event){
+    console.log(event);
+    this.searchQuery=event
+    this.getVendors()
+    
+
+  }
+  categorySelected(catId, name) {
+    this.router.navigate(['vendor-by-category/' + catId + '/' + name]);
+    console.info("cat presssed")
+    // this.navCtrl.navigateForward('shopping-vendor-listing')
+  }
+
+clear(){
+  this.searchQuery=''
+  this.getVendors()
+}
+  getVendors() {
+    this.notFound=false
+
+    const query = qs.stringify({
+      filters: {
+        companyName:{
+          '$contains':this.searchQuery||''
+        },
+        vendor: {
+          city: {
+            // '$eq': 'pune'
+          }
+        }
+      },
+      populate: {
+        vendor: {
+          shoppingCategories: {
+            populate: '*'
+          },
+        },
+      },
+    });
+    this.http
+      .get(this.ds.apiUrl + 'shopping-profiles?' + query, )
+      .subscribe((data: any) => {
+        this.vendors = data.data;
+        if(data.data.length==0)
+        this.notFound=true
+
+      });
+  }
 }

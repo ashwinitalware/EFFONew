@@ -86,12 +86,13 @@ export class DashboardPage implements OnInit {
       available: true,
       icon: 'bed',
     },
-    // {
-    //   name: 'Restaurant ',
-    //   image: '',
-    //   link: '',
-    //   icon: 'restaurant',
-    // },
+    {
+      name: 'Restaurant ',
+      image: '',
+      link: 'restaurant-dashboard',
+      available: true,
+      icon: 'restaurant',
+    },
     // {
     //   name: '24/7 ',
     //   image: '',
