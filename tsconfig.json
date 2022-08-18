@@ -12,9 +12,8 @@
     "importHelpers": true,
     "target": "es5",
     "module": "es2020",
-    "lib": ["es2018", "dom"]
-    , 
-    "allowSyntheticDefaultImports" : true
+    "lib": ["es2018", "dom"],
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

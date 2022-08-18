@@ -1,9 +1,95 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>restaurantCart</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Restaurant Cart</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="my-4 px-2" *ngIf="cart.cartProducts">
+    <div
+      *ngFor="let product of cart.cartProducts; let i=index"
+      class="flex p-2 border bg-white rounded-md mb-2"
+    >
+      <div
+        class="w-16 h-16 rounded-md overflow-hidden flex items-center justify-center"
+      >
+        <img
+          class=""
+          src="{{product?.attributes?.image}}"
+          (error)="onImgError($event)"
+          alt=""
+        />
+      </div>
+      <div class="mx-2 flex-1">
+        <p class="text-blue-900 font-bold">
+          {{product?.attributes?.name|titlecase}}
+        </p>
 
+        <p class="text-sm">
+          <span>&#8377;</span>
+          <span class="font-bold text-black">{{product?.price}}</span> per
+          {{product?.attributes?.unit}}
+        </p>
+      </div>
+
+      <div class="flex items-center">
+        <div>
+          <ion-button size="small" color="dark">
+            <span (click)="remove(product, i)" class="w-6">
+              <ion-icon name="remove"></ion-icon>
+            </span>
+
+            <span class="w-6"> {{product?.quantity}}</span
+            ><span (click)="add(product, i)" class="w-6">
+              <ion-icon name="add"></ion-icon>
+            </span>
+          </ion-button>
+        </div>
+      </div>
+    </div>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label
+            >Total -
+            <span style="float: right">&#8377; {{total}}</span></ion-label
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label
+            >Discount -
+            <span style="float: right">&#8377; {{discount}}</span></ion-label
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label
+            >Grand Total -
+            <span style="float: right">&#8377; {{grandTotal}}</span></ion-label
+          >
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <div class="bg-white shadow-md p-2">
+      <div class="font-bold">Enter Address :</div>
+      <ion-textarea
+        (ngModelChange)="addressEntered($event)"
+        class="rounded-md border border-md w-full"
+        [(ngModel)]="address"
+        placeholder="Full Address"
+        rows="2"
+      ></ion-textarea>
+    </div>
+  </div>
 </ion-content>
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-button class="mx-4" (click)="placeOrder()" expand="block">
+      Place Order
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

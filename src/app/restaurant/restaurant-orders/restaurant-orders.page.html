@@ -1,9 +1,66 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>restaurantOrders</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Orders</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="p-2">
+    <ion-card
+      *ngFor="let order of  restaurantService.orders"
+      class="bg-white mb-4"
+    >
+      <div class="flex justify-between p-2">
+        <ion-label class="text-lg text-black font-bold"
+          >Order #{{order.id}}</ion-label
+        >
+        <p class="text-blue-800 text-sm font-bold">
+          {{order.attributes.createdAt|date :"MMMM, dd, yyyy"}}
+        </p>
+      </div>
 
+      <div
+        *ngFor="let orderedProduct of order.attributes.orderFoods.data"
+        class="flex justify-start pr-2 pl-2 mb-1"
+      >
+        <div class="pt-1 text-gray-400">
+          <ion-icon style="font-size: 18px" name="cube"></ion-icon>
+        </div>
+        <div class="pl-2">
+          <p class="text-black text-base">
+            <b>{{orderedProduct.attributes.name|titlecase}}</b>
+          </p>
+
+          <span> Quantity : {{orderedProduct.attributes.quantity}} </span>
+        </div>
+      </div>
+
+      <div class="flex justify-between p-2">
+        <ion-button
+          class="flex-1 rounded-sm"
+          expand=" block"
+          fill="outline"
+          [color]="statusToColor(order.attributes.status)"
+        >
+          {{order.attributes.status}}
+        </ion-button>
+        <ion-button
+          [routerLink]="['/shopping-order-details/'+order.id]"
+          routerLinkActive="router-link-active"
+          class="flex-1"
+          expand="block"
+          color="dark"
+        >
+          Details
+        </ion-button>
+      </div>
+    </ion-card>
+  </div>
+
+  <div align="center" *ngIf="this.restaurantService.notFound">
+    <h3 style="margin-top: 50%">No data found yet.</h3>
+  </div>
 </ion-content>

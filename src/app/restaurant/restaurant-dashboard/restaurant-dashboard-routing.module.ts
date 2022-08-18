@@ -16,19 +16,18 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'order',
+        path: 'orders',
         loadChildren: () =>
           import('../restaurant-orders/restaurant-orders.module').then(
             (m) => m.RestaurantOrdersPageModule
           ),
       },
       {
-        path:"",
-        redirectTo:'home'
-      }
-      
+        path: '',
+        redirectTo: 'home',
+      },
     ],
-  }
+  },
 ];
 
 @NgModule({
