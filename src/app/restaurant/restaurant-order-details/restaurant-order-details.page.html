@@ -1,9 +1,127 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>restaurantOrderDetails</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Order Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div *ngIf="order">
+    <ion-card class="bg-white p-2 rounded-md mb-4">
+      <div class="flex justify-between px-2 mb-1">
+        <div>
+          <ion-label class="text-lg text-black font-bold"
+            >Order #{{order.id}}</ion-label
+          ><br />
+          <p>
+            {{order.attributes.createdAt|date:'shortTime'}} |
+            {{order.attributes.orderFoods.data.length}} Item
+          </p>
+        </div>
+        <div>
+          <p class="text-blue-600 text-base">
+            {{order.attributes.createdAt|date:'MMMM dd yyyy'}}
+          </p>
+        </div>
+      </div>
 
+      <div
+        *ngFor="let orderedProduct of order.attributes.orderFoods.data"
+        class="flex justify-start pr-2 pl-2 pt-2 mb-2"
+      >
+        <div>
+          <div class="border-2 w-16 border-gray-200">
+            <img class="img_thumb" src="assets/noProducts.jpg" alt="" />
+          </div>
+        </div>
+
+        <div class="pl-2">
+          <p class="text-black text-base font-bold">
+            {{orderedProduct.attributes.name|titlecase}}
+          </p>
+          <p class="text-sm">
+            <span class="text-blue-600"
+              >Quantity: {{orderedProduct.attributes.quantity}}</span
+            >
+          </p>
+          <p>
+            Total:
+            <span>₹ </span
+            >{{orderedProduct.attributes.price*orderedProduct.attributes.quantity}}
+          </p>
+        </div>
+      </div>
+
+      <div class="border-b-2 border-gray-300 pr-2 pl-2"></div>
+
+      <div class="flex justify-between pr-3 pl-3 mb-2">
+        <ion-label class="text-gray-600 font-bold text-base"
+          >Delivery
+        </ion-label>
+        <p>Free</p>
+      </div>
+
+      <div class="flex justify-between pr-2 pl-2 mb-2">
+        <ion-label class="text-black font-bold text-base"
+          >Grand Total
+        </ion-label>
+        <p>₹ {{order.attributes.total}}</p>
+      </div>
+    </ion-card>
+
+    <ion-card class="bg-white p-2 rounded-md">
+      <div>
+        <ion-label class="text-lg text-black font-bold pl-2"
+          >Other Details :
+        </ion-label>
+      </div>
+
+      <div class="flex justify-between p-1">
+        <ion-label class="text-gray-600 text-lg">Vendor Name :</ion-label>
+        <p>{{order.attributes.vendor.data.attributes.fullName|titlecase}}</p>
+      </div>
+      <a href="tel:91{{order.attributes.vendor.data.attributes.phone}}">
+        <div class="flex justify-between p-1">
+          <ion-label class="text-gray-600 text-lg">Vendor Contact :</ion-label>
+          <p>+91 {{order.attributes.vendor.data.attributes.phone}}</p>
+        </div>
+      </a>
+
+      <!-- <div class="flex justify-between p-1">
+        <ion-label class="text-gray-600 text-lg">City :</ion-label>
+        <p> Amravati</p>
+      </div> -->
+      <!--
+      <div class="flex justify-between p-1">
+        <ion-label class="text-gray-600 text-lg">Pin Code :</ion-label>
+        <p> 444607</p>
+      </div> -->
+
+      <div class="flex justify-between p-1">
+        <ion-label class="text-gray-600 text-lg">Order Payment :</ion-label>
+        <p>Cash on Delivery</p>
+      </div>
+
+      <!-- <div class="p-1">
+        <ion-label class="text-gray-600 text-lg flex justify-start">Address :</ion-label>
+        <p class="flex justify-end"> "Ahilya" 39 B, Horiom Colony, Sai Nagar Amravati</p>
+      </div> -->
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-label class="text-gray-600 text-lg">Order Address :</ion-label>
+        </ion-col>
+        <ion-col size="6">
+          <p>{{order.attributes.address|titlecase}}</p>
+        </ion-col>
+      </ion-row>
+
+      <!-- <div class="flex justify-between p-1">
+        <ion-label class="text-gray-600 text-lg ">Address :</ion-label>
+        <p>"Ahilya" 39 B, Horiom Colony, Sai Nagar Amravati</p>
+      </div> -->
+    </ion-card>
+  </div>
 </ion-content>

@@ -90,7 +90,7 @@ export class DataService {
   //   // id: 1,
   // };
   profile: any;
-  domainUrl = 'http://localhost:1337/';
+  domainUrl = 'https://strapi.effoapp.com/';
   apiUrl = this.domainUrl + 'api/';
   isLoading = false;
   constructor(
@@ -101,8 +101,8 @@ export class DataService {
     public menu: MenuController,
     public photoViewer: PhotoViewer
   ) {
-    // this.domainUrl = 'https://strapi.effoapp.com/';
-    // this.apiUrl = this.domainUrl + 'api/';
+    this.domainUrl = 'http://localhost:1337/';
+    this.apiUrl = this.domainUrl + 'api/';
 
     ///MAIN CONFIGS
 

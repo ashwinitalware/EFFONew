@@ -650,7 +650,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'restaurant-order-details',
+    path: 'restaurant-order-details/:orderId',
     loadChildren: () =>
       import(
         './restaurant/restaurant-order-details/restaurant-order-details.module'
