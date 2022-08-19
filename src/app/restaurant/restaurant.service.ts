@@ -9,7 +9,7 @@ import { DataService } from '../services/data.service';
 export class RestaurantService {
   public cartProducts: any = [];
   public shoppingProducts: any = [];
-
+  selectedVendor
   orders: any = [];
 
   notFound = false;

@@ -37,12 +37,11 @@ export class RestaurantMenuPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    // console.log(this.cart.shoppingProducts)
   }
 
   getVendorShoppingProducts(id: any) {
     this.http
-      .get(this.ds.apiUrl + 'shopping-products', {
+      .get(this.ds.apiUrl + 'restaurant-foods', {
         params: {
           sort: ['createdAt:desc'],
           populate: '*',
@@ -80,7 +79,7 @@ export class RestaurantMenuPage implements OnInit {
       return true;
     } else {
       this.http
-        .get(this.ds.apiUrl + 'shopping-products', {
+        .get(this.ds.apiUrl + 'restaurant-foods', {
           params: {
             sort: ['createdAt:desc'],
             populate: '*',
@@ -252,8 +251,7 @@ export class RestaurantMenuPage implements OnInit {
 
   goToCartPage() {
     this.router.navigateByUrl(
-      'restaurant-cart'
-      // 'shopping-cart/' + this.activatedRoute.snapshot.params.id
+      'restaurant-cart/' + this.activatedRoute.snapshot.params.id
     );
   }
 

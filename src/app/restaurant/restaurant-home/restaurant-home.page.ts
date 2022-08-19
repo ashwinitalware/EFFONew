@@ -108,7 +108,7 @@ clear(){
       },
     });
     this.http
-      .get(this.ds.apiUrl + 'shopping-profiles?' + query, )
+      .get(this.ds.apiUrl + 'restaurant-profiles?' + query, )
       .subscribe((data: any) => {
         this.vendors = data.data;
         if(data.data.length==0)

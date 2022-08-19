@@ -643,7 +643,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'restaurant-cart',
+    path: 'restaurant-cart/:vendorId',
     loadChildren: () =>
       import('./restaurant/restaurant-cart/restaurant-cart.module').then(
         (m) => m.RestaurantCartPageModule
