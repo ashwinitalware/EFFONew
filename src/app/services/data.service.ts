@@ -435,4 +435,27 @@ export class DataService {
         break;
     }
   }
+
+  getSliders() {
+    let query = qs.stringify({
+      filters: {
+        position: 'homeTop',
+      },
+      populate: '*',
+    });
+    this._get('sliders', query).subscribe((data) => {
+      this.homeSliders = data.data;
+    });
+  }
+  getSlidersSecond() {
+    let query = qs.stringify({
+      filters: {
+        position: 'homeSecond',
+      },
+      populate: '*',
+    });
+    this._get('sliders', query).subscribe((data) => {
+      this.homeSlidersSecond = data.data;
+    });
+  }
 }

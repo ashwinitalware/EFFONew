@@ -127,31 +127,10 @@ export class DashboardPage implements OnInit {
     // this.dataService.auth.canLoad = false;
     this.dataService.syncFCMToken();
     this.getPopupImage();
-    this.getSliders();
-    this.getSlidersSecond();
+    this.dataService.getSliders();
+    this.dataService.getSlidersSecond();
   }
-  getSliders() {
-    let query = qs.stringify({
-      filters: {
-        position: 'homeTop',
-      },
-      populate: '*',
-    });
-    this.dataService._get('sliders', query).subscribe((data) => {
-      this.dataService.homeSliders = data.data;
-    });
-  }
-  getSlidersSecond() {
-    let query = qs.stringify({
-      filters: {
-        position: 'homeSecond',
-      },
-      populate: '*',
-    });
-    this.dataService._get('sliders', query).subscribe((data) => {
-      this.dataService.homeSlidersSecond = data.data;
-    });
-  }
+
   search() {
     this.noSuggesions = false;
     // alert(this.textQuery);
