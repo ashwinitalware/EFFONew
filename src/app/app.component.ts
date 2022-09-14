@@ -38,31 +38,31 @@ export class AppComponent {
   }
   initializeApp() {
     this.platform.ready().then(async () => {
-      App.addListener('backButton', () => {
-        if (
-          (window.location + '').includes('localhost/dashboard') ||
-          (window.location + '').includes(
-            'localhost' + this.dataService.directNavigate
-          ) ||
-          (window.location + '').includes('localhost/login')
-        )
-          App.exitApp();
-        else if (
-          (window.location + '').includes('localhost/service-dashboard') ||
-          (window.location + '').includes('localhost/jobdashboard') ||
-          (window.location + '').includes('localhost/cab-tabs')
-        ) {
-          this.navCtrl.pop();
-        } else {
-          // alert(window.location)
+      // App.addListener('backButton', () => {
+      //   if (
+      //     (window.location + '').includes('localhost/dashboard') ||
+      //     (window.location + '').includes(
+      //       'localhost' + this.dataService.directNavigate
+      //     ) ||
+      //     (window.location + '').includes('localhost/login')
+      //   )
+      //     App.exitApp();
+      //   else if (
+      //     (window.location + '').includes('localhost/service-dashboard') ||
+      //     (window.location + '').includes('localhost/jobdashboard') ||
+      //     (window.location + '').includes('localhost/cab-tabs')
+      //   ) {
+      //     this.navCtrl.pop();
+      //   } else {
+      //     // alert(window.location)
 
-          this.navCtrl.back();
-        }
+      //     this.navCtrl.back();
+      //   }
 
-        try {
-          this.dataService.dismiss();
-        } catch (error) {}
-      });
+      //   try {
+      //     this.dataService.dismiss();
+      //   } catch (error) {}
+      // });
 
       try {
         AppUpdate.getAppUpdateInfo().then((data) => {
