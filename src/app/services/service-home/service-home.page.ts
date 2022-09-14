@@ -127,18 +127,40 @@ export class ServiceHomePage implements OnInit {
     this.searchQuery = '';
   }
   getTopVendors() {
-    this.http
-      .get(this.dataService.apiUrl + 'service-profiles', {
-        params: {
-          populate: '*',
-          'filters[vendor][city][$containsi]': this.dataService.profile.city,
-          sort: ['rating:desc'],
-          'pagination[pageSize]': '10',
-        },
-      })
-      .subscribe((data: any) => {
-        this.topVendors = data.data;
-      });
+
+    this.dataService._get(this.dataService.apiUrl,qs.stringify({
+      populate:"*",
+      filters:{
+        vendor:{
+          city:{
+            $containsi:this.dataService.profile.city,
+          }
+        }
+      },
+      sort: ['rating:desc'],
+      pagination:{
+        pageSize: '20',
+      }
+    })).subscribe(data=>{
+      this.topVendors = data.data;
+    })
+
+    // this.http
+    //   .get(this.dataService.apiUrl + 'service-profiles',
+      
+    //   {
+
+
+    //     params: {
+    //       populate: '*',
+    //       'filters[vendor][city][$containsi]': this.dataService.profile.city,
+    //       sort: ['rating:desc'],
+    //       'pagination[pageSize]': '10',
+    //     },
+    //   })
+    //   .subscribe((data: any) => {
+    //     this.topVendors = data.data;
+    //   });
   }
   segmentChanged(ev: any) {
     this.switchTab = ev.detail.value;

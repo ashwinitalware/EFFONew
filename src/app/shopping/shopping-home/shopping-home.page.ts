@@ -90,9 +90,18 @@ clear(){
 
     const query = qs.stringify({
       filters: {
-        companyName:{
-          '$contains':this.searchQuery||''
-        },
+        $or:[
+          {
+            companyName:{
+              '$contains':this.searchQuery||''
+            }
+          },
+          {
+            companyAddress:{
+              '$contains':this.searchQuery||''
+            }
+          },
+        ],
         vendor: {
           city: {
             // '$eq': 'pune'
