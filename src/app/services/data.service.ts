@@ -227,7 +227,9 @@ export class DataService {
   }
   async share(
     title = 'Download Effo App',
-    text = 'I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life.',
+    text = `I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life. Use Referral Code : ${
+      this.profile.id || 16
+    } and get 10 Points.`,
     url = 'https://play.google.com/store/apps/details?id=ionic.effo.starter'
   ) {
     await Share.share({
