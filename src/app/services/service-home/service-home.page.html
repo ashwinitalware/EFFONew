@@ -29,14 +29,14 @@
         ></ion-icon>
       </div>
     </div>
-
+    <!-- {{this.noSuggesionsFound}} -->
     <div>
       <div
         class="bg-white rounded-md w-full mt-2"
         style="z-index: 10; left: 0px"
       >
         <div class="flex px-4 p-2" *ngIf="this.noSuggesionsFound">
-          No Suggesion Found
+          No Service Found
         </div>
         <div
           (click)="suggestionClicked(suggestion)"

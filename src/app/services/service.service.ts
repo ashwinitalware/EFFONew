@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DataService } from './data.service';
+import qs from 'qs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,11 +14,22 @@ export class ServiceService {
   getCategories() {
     // this.http.get(this.dataService.apiUrl + 'service-categories').subscribe(
     this.http
-      .get(this.dataService.apiUrl + 'service-categories', {
-        params: {
-          populate: '*',
-        },
-      })
+      .get(
+        this.dataService.apiUrl +
+          'service-categories?' +
+          qs.stringify({
+            populate: '*',
+            pagination: {
+              pageSize: '100',
+            },
+            sort: ['name:asc'],
+          }),
+        {
+          // params: {
+          //   populate: '*',
+          // },
+        }
+      )
       .subscribe(
         (data: any) => {
           this.categories = data.data;

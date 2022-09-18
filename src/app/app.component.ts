@@ -38,6 +38,17 @@ export class AppComponent {
   }
   initializeApp() {
     this.platform.ready().then(async () => {
+      this.platform.backButton.subscribeWithPriority(-1, () => {
+        if (
+          (window.location + '').includes('localhost/dashboard') ||
+          (window.location + '').includes(
+            'localhost' + this.dataService.directNavigate
+          ) ||
+          (window.location + '').includes('localhost/login')
+        ) {
+          App.exitApp();
+        }
+      });
       // App.addListener('backButton', () => {
       //   if (
       //     (window.location + '').includes('localhost/dashboard') ||

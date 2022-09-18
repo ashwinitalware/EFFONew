@@ -1,9 +1,14 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { App } from '@capacitor/app';
 import { SplashScreen } from '@capacitor/splash-screen';
-import { NavController, Platform, PopoverController } from '@ionic/angular';
+import {
+  IonRouterOutlet,
+  NavController,
+  Platform,
+  PopoverController,
+} from '@ionic/angular';
 import { DataService } from '../services/data.service';
 import { JobService } from '../services/job.service';
 import qs from 'qs';
@@ -80,7 +85,7 @@ export class DashboardPage implements OnInit {
     // },
 
     {
-      name: 'Lodging',
+      name: 'Hotel & Lodging',
       image: '',
       link: 'lodging-dashboard',
       available: true,
@@ -122,8 +127,15 @@ export class DashboardPage implements OnInit {
     public navCtrl: NavController,
     public http: HttpClient,
     public jobService: JobService,
-    public popoverController: PopoverController
+    public popoverController: PopoverController,
+    public routerOutlet: IonRouterOutlet
   ) {
+    // this.platform.backButton.subscribeWithPriority(-1, () => {
+    //   if (!this.routerOutlet.canGoBack()) {
+    //     alert('will exit');
+    //     // App.exitApp();
+    //   }
+    // });
     // this.dataService.auth.canLoad = false;
     this.dataService.syncFCMToken();
     this.getPopupImage();

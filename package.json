@@ -5,7 +5,7 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -o",
     "build": "ionic capacitor copy android",
     "build-prod": "ionic capacitor copy android --prod",
     "test": "ng test",

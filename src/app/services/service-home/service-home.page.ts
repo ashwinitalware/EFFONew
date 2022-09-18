@@ -100,10 +100,11 @@ export class ServiceHomePage implements OnInit {
     if (!event.detail.value) {
       return;
     }
-    this.serviceService.categories.forEach((categories) => {
-      console.log(categories);
+    this.serviceService.categories.forEach((category) => {
+      // console.log(categories);
 
-      categories.attributes.subCategories.data.forEach((subCategory) => {
+      category.attributes.subCategories.data.forEach((subCategory) => {
+        if (this.suggestions.length > 5) return;
         console.log(subCategory.attributes.name);
         if (
           subCategory.attributes.name
@@ -116,9 +117,9 @@ export class ServiceHomePage implements OnInit {
           });
         }
       });
-
-      if (!this.suggestions.length) this.noSuggesionsFound = true;
     });
+    // eslint-disable-next-line curly
+    if (!this.suggestions.length) this.noSuggesionsFound = true;
     // alert(this.searchQuery);
   }
 
@@ -127,29 +128,32 @@ export class ServiceHomePage implements OnInit {
     this.searchQuery = '';
   }
   getTopVendors() {
-
-    this.dataService._get(this.dataService.apiUrl,qs.stringify({
-      populate:"*",
-      filters:{
-        vendor:{
-          city:{
-            $containsi:this.dataService.profile.city,
-          }
-        }
-      },
-      sort: ['rating:desc'],
-      pagination:{
-        pageSize: '20',
-      }
-    })).subscribe(data=>{
-      this.topVendors = data.data;
-    })
+    this.dataService
+      ._get(
+        'service-profiles',
+        qs.stringify({
+          populate: '*',
+          filters: {
+            vendor: {
+              city: {
+                $containsi: this.dataService.profile.city,
+              },
+            },
+          },
+          sort: ['rating:desc'],
+          pagination: {
+            pageSize: '20',
+          },
+        })
+      )
+      .subscribe((data) => {
+        this.topVendors = data.data;
+      });
 
     // this.http
     //   .get(this.dataService.apiUrl + 'service-profiles',
-      
-    //   {
 
+    //   {
 
     //     params: {
     //       populate: '*',
