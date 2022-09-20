@@ -134,7 +134,7 @@ export class DataService {
 
     this.syncProfileFromLs();
   }
-  async present(content = 'Loading Data...', duration = 10000) {
+  async present(content = 'Loading Data...', duration = 4000) {
     this.isLoading = true;
     return await this.loadingCtrl
       .create({

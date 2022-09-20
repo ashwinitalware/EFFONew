@@ -27,7 +27,6 @@ export class ServiceBookingsPage implements OnInit {
 
   ngOnInit() {}
   book() {
-    this.dataService.present('Booking...');
     console.log(this.service.selectedServices);
 
     if (this.form.invalid) return this.dataService.presentToast('Invalid Form');
@@ -36,6 +35,7 @@ export class ServiceBookingsPage implements OnInit {
     this.service.selectedServices.forEach((service) => {
       services.push(service.id);
     });
+    this.dataService.present('Booking...');
 
     this.http
       .post(this.dataService.apiUrl + 'service-bookings', {
