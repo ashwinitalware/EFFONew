@@ -41,7 +41,7 @@ export class ShoppingHomePage implements OnInit {
     {
       url: 'assets/shopping/ad2.jpg'
     },
-
+    
   ]
   slideOpts = {
     initialSlide: 0,

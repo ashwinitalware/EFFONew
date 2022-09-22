@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="dark">
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button color="light"></ion-back-button>
     </ion-buttons>
@@ -120,12 +120,20 @@
       </div>
       <ion-button size="block">Submit Review</ion-button>
     </div> -->
-    <ion-button
+    <div class="flex justify-end mt-2" >
+
+      <!-- <ion-button
       (click)="cancel()"
       size="block"
       *ngIf="this.data.attributes.status=='pending'"
     >
       Cancel Ride
-    </ion-button>
+    </ion-button> -->
+    <button class="btn-grad mt-4"  (click)="cancel()"  *ngIf="this.data.attributes.status=='pending'">
+      <span style="float:left;font-weight: bold;font-size: 0.9rem;"> Cancel Ride</span>
+      <span style="float:right;font-size: 0.9rem;"> <ion-icon name="close"></ion-icon></span>
+    </button>
+  
+  </div>
   </div>
 </ion-content>

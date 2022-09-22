@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar color="dark">
-    <ion-title>Effo Cab Services </ion-title>
+  <ion-toolbar>
+    <ion-title>RushGo Cab Services </ion-title>
     <ion-buttons slot="end" (click)="this.router.navigate(['/cab-cities'])">
       <ion-icon name="pin-outline"></ion-icon>
       {{this.cabService.selectedCity|titlecase}} &nbsp;
@@ -9,8 +9,22 @@
 </ion-header>
 
 <ion-content class="relative">
-  <div class="fixed w-full p-4">
-    <div>
+
+
+  <div class="fixed w-full">
+
+    <div class="bg-white rounded-bl-md rounded-br-md" style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
+      <ion-slides #slider loop="true" [options]="slideOpts">
+        <ion-slide *ngFor="let slide of slides">
+          <ion-card class="card1 bg-white" style="border-radius: 5px">
+            <img src="{{slide.url}}" />
+            <ion-label>{{slide.label}}</ion-label>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+    <div class="mt-2 p-2">
       <!-- mode="ios"  -->
       <ion-segment
         (ngModelChange)="segmentChanged($event)"
@@ -28,6 +42,8 @@
         </ion-segment-button>
       </ion-segment>
     </div>
+
+  
 
     <div class="w-full mt-2 flex bg-white py-2 rounded-lg">
       <img src="assets/cab/fromPin.png" alt="" class="h-6" />

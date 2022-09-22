@@ -89,9 +89,37 @@ ion-content {
 }
 
 ion-toolbar {
-  --background: linear-gradient(90deg, rgb(255, 0, 0) 0%, #af0000 100%) !important;
+  --background: linear-gradient(90deg, #FCA311 0%, #f49600 100%);
 }
 
+
+.btn-grad {
+  // background-image: linear-gradient(to right, #fe0002 10%, #e40607  51%, #fe0002  100%) !important;
+
+  // background-image: linear-gradient(to right, #6a52d3 10%, #5944b4  51%, #6a52d3  100%) !important;
+  // box-shadow: rgb(124, 95, 211) 3px 3px 6px 0px inset, rgba(104, 60, 160, 0.5) -3px -3px 6px 1px inset;
+  background-image: linear-gradient(to right,  #FCA311 10%, #e78f03  51%, #FCA311  100%) !important;
+  box-shadow: rgb(254, 182, 27) 3px 3px 6px 0px inset, rgba(255, 161, 9, 0.5) -3px -3px 6px 1px inset;
+  width: 100%;
+  padding: 15px 45px !important;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 5px;
+  display: block;
+}
+.btn-grad:hover{
+  background-image: linear-gradient(to right,  #FCA311 10%, #e78f03  51%, #FCA311  100%);
+  box-shadow: rgb(254, 182, 27) 3px 3px 6px 0px inset, rgba(255, 161, 9, 0.5) -3px -3px 6px 1px inset;
+
+}
+.btn-grad:hover {
+  background-position: right center; 
+  color: #fff;
+  text-decoration: none;
+}
 
 
 

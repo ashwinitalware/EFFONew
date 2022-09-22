@@ -24,6 +24,39 @@ export class CabHomePage implements OnInit {
 
   pickAutocomplete;
   autocomplete;
+
+  slides = [
+
+    {
+      url: 'assets/rushgocab/cab4.png',
+      label:'Auto'
+    },
+    {
+      url: 'assets/rushgocab/cab1.png',
+      label:'Local Ride'
+    },
+    {
+      url: 'assets/rushgocab/cab3.png',
+      label:'Outstation'
+    },
+    {
+      url: 'assets/rushgocab/cab2.png',
+      label:'Rental'
+    },
+    {
+      url: 'assets/rushgocab/cab5.png',
+      label:'Transport'
+      // label:'Transport(Goods Delivery)'
+    },
+
+  ]
+  slideOpts = {
+    initialSlide: 0,
+    slidesPerView: 3,
+    autoplay: true,
+  };
+
+
   constructor(public cabService: CabService, public router: Router) {
     //reset everything
     this.resetEverything();

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="dark">
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button color="light"></ion-back-button>
     </ion-buttons>
@@ -101,8 +101,12 @@
 </ion-content>
 <ion-footer *ngIf="showPrices">
   <div class="p-2">
-    <ion-button color="dark" (click)="book()" size="block"
+    <!-- <ion-button color="dark" (click)="book()" size="block"
       >Confirm Booking</ion-button
-    >
+    > -->
+    <button class="btn-grad mt-4" (click)="book()" >
+      <span style="float:left;font-weight: bold;font-size: 0.9rem;">Confirm Booking</span>
+      <span style="float:right;font-size: 0.9rem;"> <ion-icon name="arrow-forward-outline"></ion-icon></span>
+    </button>
   </div>
 </ion-footer>
