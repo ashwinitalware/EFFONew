@@ -113,8 +113,8 @@ export class LoginPage implements OnInit {
             ) {
               this.navCtrl.navigateForward(['/editprofile']);
             } else {
-              // this.navCtrl.navigateForward(['/dashboard']);
-              this.navCtrl.navigateForward([''+this.dataService.directNavigate]);
+              this.navCtrl.navigateForward(['/cab-home']);
+              // this.navCtrl.navigateForward([''+this.dataService.directNavigate]);
               
             }
           }

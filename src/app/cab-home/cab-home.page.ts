@@ -28,31 +28,36 @@ export class CabHomePage implements OnInit {
   slides = [
 
     {
-      url: 'assets/rushgocab/cab4.png',
-      label:'Auto'
+      url: 'assets/rushgocab/auto.png',
+      label:'Auto',
+      link:'autohome',
     },
     {
-      url: 'assets/rushgocab/cab1.png',
-      label:'Local Ride'
+      url: 'assets/rushgocab/local.png',
+      label:'Local'
+      // link:''
     },
     {
-      url: 'assets/rushgocab/cab3.png',
-      label:'Outstation'
+      url: 'assets/rushgocab/outstation.png',
+      label:'Outstation',
+      link:'outstation'
     },
     {
-      url: 'assets/rushgocab/cab2.png',
-      label:'Rental'
+      url: 'assets/rushgocab/renatl.png',
+      label:'Rental',
+      link:'rental'
     },
     {
-      url: 'assets/rushgocab/cab5.png',
-      label:'Transport'
+      url: 'assets/rushgocab/transport.png',
+      label:'Transport',
+      link:'transporttype'
       // label:'Transport(Goods Delivery)'
     },
 
   ]
   slideOpts = {
     initialSlide: 0,
-    slidesPerView: 3,
+    slidesPerView: 5,
     autoplay: true,
   };
 
@@ -69,6 +74,17 @@ export class CabHomePage implements OnInit {
     this.cabService.toLatLngObject = undefined;
   }
   ngOnInit() {}
+
+  navigate(slide) {
+    if (slide.link) {
+      this.router.navigate(['/' + slide.link])
+    }
+
+    else {
+      alert('Coming Soon')
+    }
+  }
+
   ionViewDidEnter() {
     // alert(this.cabService.selectedCityObj.lat)
     console.log('ref', this.mapRef);

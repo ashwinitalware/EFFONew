@@ -24,7 +24,7 @@
       *ngFor="let cabType of this.cabService.cabTypes;let i=index"
       class="flex mb-2"
       (click)="selectCabType(i)"
-    >
+           >
       <img src="{{cabType.attributes.icon}}" class="w-14" alt="" />
       <div class="flex-1 pl-4 text-lg">
         <div class="flex items-center">

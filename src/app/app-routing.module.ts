@@ -655,7 +655,59 @@ const routes: Routes = [
       import(
         './restaurant/restaurant-order-details/restaurant-order-details.module'
       ).then((m) => m.RestaurantOrderDetailsPageModule),
+  },  {
+    path: 'rental',
+    loadChildren: () => import('./cab/rental/rental.module').then( m => m.RentalPageModule)
   },
+  {
+    path: 'vehicletype',
+    loadChildren: () => import('./cab/vehicletype/vehicletype.module').then( m => m.VehicletypePageModule)
+  },
+  {
+    path: 'outstation',
+    loadChildren: () => import('./cab/outstation/outstation.module').then( m => m.OutstationPageModule)
+  },
+  {
+    path: 'confirm-booking',
+    loadChildren: () => import('./cab/confirm-booking/confirm-booking.module').then( m => m.ConfirmBookingPageModule)
+  },
+  {
+    path: 'autohome',
+    loadChildren: () => import('./cab/autohome/autohome.module').then( m => m.AutohomePageModule)
+  },
+  {
+    path: 'autochange',
+    loadChildren: () => import('./cab/autochange/autochange.module').then( m => m.AutochangePageModule)
+  },
+  {
+    path: 'autotype',
+    loadChildren: () => import('./cab/autotype/autotype.module').then( m => m.AutotypePageModule)
+  },
+  {
+    path: 'autohistory',
+    loadChildren: () => import('./cab/autohistory/autohistory.module').then( m => m.AutohistoryPageModule)
+  },
+  {
+    path: 'transporthome',
+    loadChildren: () => import('./cab/transporthome/transporthome.module').then( m => m.TransporthomePageModule)
+  },
+  {
+    path: 'transporttype',
+    loadChildren: () => import('./cab/transporttype/transporttype.module').then( m => m.TransporttypePageModule)
+  },
+  {
+    path: 'transporthistory',
+    loadChildren: () => import('./cab/transporthistory/transporthistory.module').then( m => m.TransporthistoryPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./cab/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'location',
+    loadChildren: () => import('./cab/location/location.module').then( m => m.LocationPageModule)
+  },
+
 
   // {
   //   path: 'job-profile',

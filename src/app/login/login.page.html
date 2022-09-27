@@ -1,20 +1,18 @@
 <ion-content class="fondologin">
-  <div class="flex flex-col h-full">
-    <!-- <div align="center" style="margin-top: 10%">
-    <img src="assets/v1.png" alt="" width="30%" height="30%" />
-  </div> -->
-
-    <!--   <div class="login_title">
- <ion-title>Login</ion-title>
-    <p class="text-p text-gray-600">Enter your phone number to continue</p>
+  <div class="bg-white">
+    <img src="assets/rushgocab/loginbg.png" alt="">
   </div>
- -->
-    <div class="bg-primary flex items-center text h-1/3">
+  <div class="flex flex-col h-full">
+    <!-- <div class="bg-primary flex items-center text h-1/3">
       <img src="assets/{{this.dataService.logoName}}" class="w-1/2 m-auto" />
-    </div>
-    <!-- <div class="bg-red flex items-center text h-1/3">
-      <img src="assets/textW.png" class="w-1/2 m-auto" />
     </div> -->
+
+   <!-- <div class="">
+    <div class="label-float bg-white">
+      <input type="text" placeholder=" "/>
+      <label>Phone Number</label>
+    </div>
+   </div> -->
 
     <div class="bg-white p-8 flex-1">
       <div class="text-sm font-bold">Phone Number :</div>
@@ -24,7 +22,7 @@
         [ngClass]="{'bg-gray-200': this.dataService.auth.otpSent}"
         type="number"
         placeholder="Ex : 86056500xx"
-        class="bg-white w-full rounded-md h-14 px-2 border border-gray-300 mt-4"
+        class="bg-white w-full rounded-md h-12 px-2 border border-gray-300 mt-4"
       />
 
       <div class="mt-4" *ngIf="this.dataService.auth.otpSent">
@@ -44,15 +42,19 @@
         </p>
       </div>
 
-      <button
+      <!-- <button
         *ngIf="this.dataService.auth.otpSent"
         expand="block"
         color="light"
         class="bg-primary h-12 mt-4 w-full text-white"
         (click)="verify()"
       >
-        <!-- routerLink="/dashboard" -->
         Verify OTP
+      </button> -->
+
+      <button class="btn-grad mt-4"  *ngIf="this.dataService.auth.otpSent" (click)="verify()">
+        <span style="float:left;font-weight: bold;font-size: 0.9rem;">Verify OTP</span>
+        <span style="float:right;font-size: 0.9rem;"> <ion-icon class="text-white" name="arrow-forward"></ion-icon></span>
       </button>
 
       <p
@@ -62,7 +64,7 @@
       >
         OR CHANGE PHONE NUMBER
       </p>
-      <button
+      <!-- <button
         *ngIf="!this.dataService.auth.otpSent"
         expand="block"
         color="light  "
@@ -70,11 +72,11 @@
         (click)="login()"
       >
         Login
+      </button> -->
+      <button class="btn-grad mt-4"   *ngIf="!this.dataService.auth.otpSent"  (click)="login()">
+        <span style="float:left;font-weight: bold;font-size: 0.9rem;"> Login</span>
+        <span style="float:right;font-size: 0.9rem;"> <ion-icon class="text-white" name="arrow-forward"></ion-icon></span>
       </button>
-      <!-- <p class="text-p pt-2">
-        Don't have an account?
-        <span style="color: red" routerLink="/signin"><b>Sign up</b></span>
-      </p> -->
     </div>
 
     <!-- <p

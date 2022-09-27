@@ -4,19 +4,25 @@
       <ion-back-button color="light"></ion-back-button>
     </ion-buttons>
     <div class="px-4 text-white text-lg">RushGo Cab</div>
+    <div class="text-white" slot="end">Beed <ion-icon name="location"></ion-icon></div>
   </ion-toolbar>
 </ion-header>
 
 <ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="home" class="text-gray-600 hover:text-red-600">
+  <ion-tab-bar color="warning" slot="bottom">
+    <ion-tab-button tab="home" class="text-white-600 hover:text-white">
       <ion-label>Book</ion-label>
       <ion-icon name="car"></ion-icon>
     </ion-tab-button>
 
-    <ion-tab-button tab="history" class="text-gray-600 hover:text-red-600">
+    <ion-tab-button tab="history" class="text-white-600 hover:text-white">
       <ion-label>History</ion-label>
       <ion-icon name="list"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile" class="text-white-600 hover:text-white">
+      <ion-label>Profile</ion-label>
+      <ion-icon name="person"></ion-icon>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

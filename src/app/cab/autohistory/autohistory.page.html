@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>History</ion-title>
+  </ion-toolbar>
+  <ion-segment (ionChange)='segmentChanged($event)' value="ride" scrollable value="onewaytrip" class="bg-yellow-500">
+    <ion-segment-button value="ride">
+      <ion-label color="light">Rides</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="delivery">
+      <ion-label color="light">Delivery</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="switchTab == 'ride'" class="p-2">
+    <div class="p-3">
+      <div class="bg-white rounded-md shadow-md">
+       <div class="flex justify-between border-b border-gray-200">
+         <div class="p-2">
+          <p>Auto . 56minutes ago<br>
+            <span class="text-red-600 text-sm">Cancelled</span></p>
+         </div>
+         <div class="p-2">
+          <span>₹ 100</span>
+         </div>
+       </div>
+  
+       <div class="flex justify-start p-2"> 
+        <div><p class="text-sm "><ion-icon class="text-green-600 text-xs" name="ellipse"></ion-icon>&nbsp; Rathi Nagar amravati</p></div>
+  
+       </div>
+       <div class="flex justify-start pl-2 pr-2 pb-2"> 
+        <div><p class="text-sm "><ion-icon class="text-red-600 text-xs" name="ellipse"></ion-icon>&nbsp; Dastr nagar Nagar amravati</p></div>
+  
+       </div>
+      </div>
+  
+    </div>
+  </div>
+
+  <div *ngIf="switchTab == 'delivery'" class="p-2">
+    <div class="p-3">
+      <div class="bg-white rounded-md shadow-md">
+       <div class="flex justify-between border-b border-gray-200">
+         <div class="p-2">
+          <p>Auto . 1 Hour<br>
+            <span class="text-green-600 text-sm">Completed</span></p>
+         </div>
+         <div class="p-2">
+          <span>₹ 150</span>
+         </div>
+       </div>
+  
+       <div class="flex justify-start p-2"> 
+        <div><p class="text-sm "><ion-icon class="text-green-600 text-xs" name="ellipse"></ion-icon>&nbsp; Rathi Nagar amravati</p></div>
+  
+       </div>
+       <div class="flex justify-start pl-2 pr-2"> 
+        <div><p class="text-sm "><ion-icon class="text-red-600 text-xs" name="ellipse"></ion-icon>&nbsp; Dastr nagar Nagar amravati</p></div>
+  
+       </div>
+       <div class="flex justify-center p-2 pt-2 text-sm">
+            View Details &nbsp;<ion-icon name="chevron-down"></ion-icon>
+       </div>
+      </div>
+  
+    </div>
+  </div>
+
+
+</ion-content>
