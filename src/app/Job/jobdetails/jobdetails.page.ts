@@ -104,7 +104,7 @@ data:{
     );
   }
   errorImage() {
-    alert('asdf');
+    // alert('asdf');
   }
   report() {
     window.open(

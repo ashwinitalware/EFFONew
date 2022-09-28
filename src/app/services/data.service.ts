@@ -12,6 +12,7 @@ import { PhotoViewer } from '@awesome-cordova-plugins/photo-viewer/ngx';
 import { Haptics, ImpactStyle } from '@capacitor/haptics';
 import { Observable } from 'rxjs';
 import qs from 'qs';
+import { App } from '@capacitor/app';
 declare const Swal: any;
 @Injectable({
   providedIn: 'root',
@@ -21,6 +22,7 @@ export class DataService {
   homeSlidersSecond = [];
   // DIRECT CONFIGS
   appName = 'Effo';
+  appVersion="0.0.0"
   directNavigate = '/dashboard';
   localStorageName = 'effoProfilev2';
   logoName = 'textW.png';
@@ -101,6 +103,10 @@ export class DataService {
     public menu: MenuController,
     public photoViewer: PhotoViewer
   ) {
+    App.getInfo().then(data=>{
+      this.appVersion=data.version	
+    })
+
     // this.domainUrl = 'http://192.168.1.24:1337/';
     // this.apiUrl = this.domainUrl + 'api/';
 
