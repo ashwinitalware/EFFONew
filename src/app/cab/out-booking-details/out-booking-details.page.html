@@ -1,0 +1,146 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Booking Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-2">
+    <div class="flex justify-between p-2">
+      <ion-label class="text-xl font-bold text-black">One Way Trip to Aurangabad</ion-label>
+      <img src="assets/cab/car.png" alt="" width="70" height="70">
+    </div>
+    <div class="p-2">
+      <ul>
+        <li class="first">Ward No 57, Amravati Mc
+          AMRAVATI, Maharashtra
+          PIN Code: 444606 (INDIA) </li>
+        <li class="sec">House No 11, Pune Mc
+          Pune, Maharashtra
+          PIN Code: 444909 (INDIA)</li>
+      </ul>
+    </div>
+
+    <div class="flex justify-start mt-2 p-2">
+      <ion-icon class="text-yellow-600" name="calendar"></ion-icon> &nbsp;<span class="pl-3">29 Sep, 3:30 PM</span>
+    </div>
+
+    <div class="p-2">
+      <ion-label class="text-2xl font-bold text-black">Mini</ion-label>
+      <p>4 Seater - WagonR, Indica,Ritz</p>
+    </div>
+
+    <div class="p-2">
+      <div class="flex justify-between p-1">
+        <ion-label class="text-black font-bold text-xl">Estimated fare<br><span class="text-gray-600 text-sm">About 324 Km, 7.23 Hour</span></ion-label>
+        <p>₹2227</p>
+      </div>
+      <div class="flex justify-between p-1">
+        <ion-label class="text-black">Base fare</ion-label>
+        <p>₹6142</p>
+      </div>
+      <div class="flex justify-between p-1">
+        <ion-label class="text-black">Driver allowance</ion-label>
+        <p>₹250</p>
+      </div>
+      <div class="flex justify-between p-1">
+        <ion-label class="text-black">Booking Fee</ion-label>
+        <p>₹20</p>
+      </div>
+      <div class="flex justify-between p-1">
+        <ion-label class="text-black">Taxes</ion-label>
+        <p>₹428</p>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="light">
+    <div class="flex justify-between p-2">
+      <div class="pl-2" id="open-modal"><ion-icon class="text-green-800" name="cash"></ion-icon>&nbsp; Cash</div>
+
+      <div><ion-icon class="text-green-800" name="pricetags"></ion-icon>&nbsp; Coupon</div>
+      <div class="pr-2"><ion-icon class="text-green-800" name="person-circle"></ion-icon>&nbsp; Myself</div>
+          </div>
+    
+   <div class="p-2">
+    <button class="btn-grad" routerLink="/out-booking-details">
+      <span style="float:left;font-weight: bold;font-size: 0.9rem;">Confirm Booking</span>
+      <span style="float:right;font-size: 0.9rem;">
+        <ion-icon class="text-white" name="arrow-forward"></ion-icon>
+      </span>
+    </button>
+   </div>
+  </ion-toolbar>
+</ion-footer>
+
+<ion-modal #modal trigger="open-modal" [canDismiss]="canDismiss" [presentingElement]="presentingElement">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Payment Method</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-radio-group value="cash">
+        <ion-list-header>
+          <ion-label class="text-xl text-black font-bold">Payment</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-label>Google Pay</ion-label>
+          <ion-radio slot="start" color="warning" value="google"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>PhonePe</ion-label>
+          <ion-radio slot="start" color="warning" value="phone"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Cash</ion-label>
+          <ion-radio slot="start" color="warning" value="cash"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+
+
+      <ion-radio-group value="">
+        <ion-list-header>
+          <ion-label class="text-xl text-black font-bold">Add Payment Method</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-label>Add Paytm Wallet</ion-label>
+          <ion-icon name="chevron-forward"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Add Phonepe Wallet</ion-label>
+          <ion-icon name="chevron-forward"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Add Amazon Pay</ion-label>
+          <ion-icon name="chevron-forward"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-label>Add a Credit / Debit Card</ion-label>
+          <ion-icon name="chevron-forward"></ion-icon>
+        </ion-item>
+      </ion-radio-group>
+
+      <div class="p-2">
+        <button class="btn-grad" routerLink="/out-booking-details">
+          <span style="float:left;font-weight: bold;font-size: 0.9rem;">Book Now</span>
+          <span style="float:right;font-size: 0.9rem;">
+            <ion-icon class="text-white" name="arrow-forward"></ion-icon>
+          </span>
+        </button>
+      </div>
+    </ion-content>
+
+    
+  </ng-template>
+</ion-modal>

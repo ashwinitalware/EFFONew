@@ -707,6 +707,10 @@ const routes: Routes = [
     path: 'location',
     loadChildren: () => import('./cab/location/location.module').then( m => m.LocationPageModule)
   },
+  {
+    path: 'out-booking-details',
+    loadChildren: () => import('./cab/out-booking-details/out-booking-details.module').then( m => m.OutBookingDetailsPageModule)
+  },
 
 
   // {

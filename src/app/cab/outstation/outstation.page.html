@@ -5,148 +5,267 @@
 </ion-header>
 
 <ion-content>
-  <ion-segment (ionChange)='segmentChanged($event)' mode="ios" scrollable value="onewaytrip" class="bg-gray-400">
+  <!-- <ion-segment (ionChange)='segmentChanged($event)' mode="ios" scrollable value="onewaytrip" class="bg-gray-400">
     <ion-segment-button value="onewaytrip">
       <ion-label color="light">One way trip</ion-label>
     </ion-segment-button>
     <ion-segment-button value="roundedtrip">
       <ion-label color="light">Rounded trip</ion-label>
     </ion-segment-button>
-  </ion-segment>
-
-  <div *ngIf="switchTab == 'onewaytrip'" class="p-2">
-    
-        <div class="p-2">
-          <div class="w-full mt-2 flex bg-white border border-white hover:border-yellow-500 py-2 rounded-lg drop-shadow-md shadow-md">
-            <img src="assets/cab/fromPin.png" alt="" class="h-6" />
-
-            <input
-              #pickSearch
-              type="text"
-              class="ml-2 flex-1 w-full bg-white"
-              placeholder="Enter You Pick Location"
-            />
-
-            <div class="px-2 flex items-center">
-              <ion-icon
-                name="close-outline"
-              ></ion-icon>
-            </div>
-
-            <!-- <img src="assets/cab/fromPin.png" alt="" class="h-6"> -->
-          </div>
-
-          <div class="w-full mt-2 flex bg-white border border-white hover:border-yellow-500 py-2 rounded-lg drop-shadow-md shadow-md">
-            <!-- *ngIf="this.cabService.type!='rental'" -->
-            <img src="assets/cab/toPin.png" alt="" class="h-6" />
-
-            <input
-              #search
-              type="text"
-              class="ml-2 flex-1 w-full bg-white"
-              placeholder="Enter You Drop Location"
-            />
-            <div class="px-2 flex items-center">
-              <ion-icon
-                name="close-outline"
-              ></ion-icon>
-            </div>
-          </div>
-        </div>
-        <ion-card class="bg-white">
-          <div class="flex justify-between p-2">
-            <div class="pl-2 pt-2">
-              <img src="assets/cab/car.png" alt="" width="90" height="90">
-            </div>
-            <div class="flex items-center"><span class="text-cente font-bold text-xl text-black pr-3 pt-3"> MiniCar</span></div>
-          </div>
-          
-          <div class="p-3" >
-            <button class="btn-grad mt-4" routerLink="/vehicletype">
-              <span style="float:left;font-weight: bold;font-size: 0.9rem;">Change Vehicle</span>
-              <span style="float:right;font-size: 0.9rem;"> <ion-icon class="text-white" name="arrow-forward"></ion-icon></span>
-            </button>
-          </div>
-        </ion-card>
+  </ion-segment> -->
+  <div>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d3726.621519709274!2d77.75552866493095!3d20.9275415360533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d20.9244664!2d77.7566516!4m5!1s0x3bd6a5cb93bfb1bb%3A0x22f9cdeb559d0b7e!2swebmedia%20map!3m2!1d20.9306111!2d77.7587831!5e0!3m2!1sen!2sin!4v1664368709178!5m2!1sen!2sin"
+      width="600" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 
-  <div *ngIf="switchTab == 'roundedtrip'" class="p-2">
+  <div>
+    <ion-segment (ionChange)='segmentChanged($event)' mode="ios" scrollable value="onewaytrip" class="bg-yellow-400">
+      <ion-segment-button value="onewaytrip">
+        <ion-label color="light">One way trip</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="roundedtrip">
+        <ion-label color="light">Rounded trip</ion-label>
+      </ion-segment-button>
+    </ion-segment>
 
-    <div class="p-2">
-      <div class="w-full mt-2 flex bg-white border border-white hover:border-yellow-500 py-2 rounded-lg drop-shadow-md shadow-md">
-        <img src="assets/cab/fromPin.png" alt="" class="h-6" />
+    <div *ngIf="switchTab == 'onewaytrip'"></div>
+    <div *ngIf="switchTab == 'roundedtrip'"></div>
+  </div>
 
-        <input
-          #pickSearch
-          type="text"
-          class="ml-2 flex-1 w-full bg-white"
-          placeholder="Enter You Pick Location"
-        />
 
-        <div class="px-2 flex items-center">
-          <ion-icon
-            name="close-outline"
-          ></ion-icon>
-        </div>
 
-        <!-- <img src="assets/cab/fromPin.png" alt="" class="h-6"> -->
+
+  <!-- <div>
+    <ul>
+      <li>
+        <input type="checkbox" id="myCheckbox1" />
+        <label for="myCheckbox1" class="pl-5">One Way Trip</label>
+      </li>
+      <li>
+        <input type="checkbox" id="myCheckbox2" />
+        <label for="myCheckbox2" class="pl-5">Rounded Trip</label>
+      </li>
+    </ul>
+  </div> -->
+
+  <div class="pl-2 pr-2 pt-1">
+    <div
+      class="w-full mt-2 flex bg-white border border-white hover:border-yellow-500 py-2 rounded-lg drop-shadow-md shadow-md">
+      <img src="assets/cab/fromPin.png" alt="" class="h-6" />
+
+      <input #pickSearch type="text" class="ml-2 flex-1 w-full bg-white" placeholder="Enter You Pick Location" />
+
+      <div class="px-2 flex items-center">
+        <ion-icon name="close-outline"></ion-icon>
       </div>
-
-      <div class="w-full mt-2 flex bg-white border border-white hover:border-yellow-500 py-2 rounded-lg drop-shadow-md shadow-md">
-        <!-- *ngIf="this.cabService.type!='rental'" -->
-        <img src="assets/cab/toPin.png" alt="" class="h-6" />
-
-        <input
-          #search
-          type="text"
-          class="ml-2 flex-1 w-full bg-white"
-          placeholder="Enter You Drop Location"
-        />
-        <div class="px-2 flex items-center">
-          <ion-icon
-            name="close-outline"
-          ></ion-icon>
-        </div>
-      </div>
-
-      <ion-card class="bg-white">
-        <div class="flex justify-between p-2">
-          <div class="pl-2 pt-2">
-            <img src="assets/cab/car.png" alt="" width="90" height="90">
-          </div>
-          <div class="flex items-center"><span class="text-cente font-bold text-xl text-black pr-3 pt-3"> MiniCar</span></div>
-        </div>
-        
-        <div class="p-3" >
-          <button class="btn-grad mt-4" routerLink="/vehicletype">
-            <span style="float:left;font-weight: bold;font-size: 0.9rem;">Change Vehicle</span>
-            <span style="float:right;font-size: 0.9rem;"> <ion-icon class="text-white" name="arrow-forward"></ion-icon></span>
-          </button>
-        </div>
-      </ion-card>
     </div>
-    <!-- <ion-card class="bg-white mt-2">
-      <div class="flex justify-between">
+
+    <div
+      class="w-full mt-2 flex bg-white border border-white hover:border-yellow-500 py-2 rounded-lg drop-shadow-md shadow-md">
+      <img src="assets/cab/toPin.png" alt="" class="h-6" />
+
+      <input #search type="text" class="ml-2 flex-1 w-full bg-white" placeholder="Enter You Drop Location" />
+      <div class="px-2 flex items-center">
+        <ion-icon name="close-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <ion-card class="bg-white">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <a class="card education">
+              <div class="overlay"></div>
+              <div class="circle">
+                <img style="z-index: 10000;" src="assets/cab/car.png" alt="" width="180" height="180">
+              </div>
+            </a>
+          </ion-col>
+          <ion-col size="5">
+            <p class="font-bold text-black">Mini<br><span class="text-gray-500 text-xs">
+                Comfy, economical cars
+              </span></p>
+          </ion-col>
+          <ion-col size="3" class="flex items-center">
+            <ion-icon id="open-modal" class="text-black shadow-md text-xl" name="alert-circle-outline"></ion-icon>&nbsp;
+            ₹2227
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+    <ion-card class="bg-white">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <a class="card education">
+              <div class="overlay"></div>
+              <div class="circle">
+                <img style="z-index: 10000;" src="assets/cab/car.png" alt="" width="180" height="180">
+              </div>
+            </a>
+          </ion-col>
+          <ion-col size="5">
+            <p class="font-bold text-black">Mini<br><span class="text-gray-500 text-xs">
+                Comfy, economical cars
+              </span></p>
+          </ion-col>
+          <ion-col size="3" class="flex items-center">
+            <ion-icon id="open-modal" class="text-black shadow-md text-xl" name="alert-circle-outline"></ion-icon>&nbsp;
+            ₹2227
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+
+    <ion-card class="bg-white">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <a class="card education">
+              <div class="overlay"></div>
+              <div class="circle">
+                <img style="z-index: 10000;" src="assets/cab/car.png" alt="" width="180" height="180">
+              </div>
+            </a>
+          </ion-col>
+          <ion-col size="5">
+            <p class="font-bold text-black">Mini<br><span class="text-gray-500 text-xs">
+                Comfy, economical cars
+              </span></p>
+          </ion-col>
+          <ion-col size="3" class="flex items-center">
+            <ion-icon id="open-modal" class="text-black shadow-md text-xl" name="alert-circle-outline"></ion-icon>&nbsp;
+            ₹2227
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+
+    <ion-modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]"
+      handleBehavior="cycle">
+      <ng-template>
+        <ion-content>
+          <div class="bg-yellow-600 p-2 rounded-tr-md rounded-tl-md"></div>
+          <div class="ion-margin-top" class="ion-padding">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="8">
+                  <ion-label class="font-bold text-lg">MiniCar</ion-label>
+                  <p class="text-gray-500 text-sm">A regular comfortable hatchback that becomes your everyday ride</p>
+                </ion-col>
+                <ion-col size="4">
+                  <img src="assets/cab/car.png" alt="">
+                </ion-col>
+
+              </ion-row>
+            </ion-grid>
+            <div class="flex justify-between p-1">
+              <ion-label class="text-black">Estimated fare</ion-label>
+              <p>₹2227</p>
+            </div>
+            <div class="flex justify-between p-1">
+              <ion-label class="text-black">Base fare</ion-label>
+              <p>₹6142</p>
+            </div>
+            <div class="flex justify-between p-1">
+              <ion-label class="text-black">Driver allowance</ion-label>
+              <p>₹250</p>
+            </div>
+            <div class="flex justify-between p-1">
+              <ion-label class="text-black">Booking Fee</ion-label>
+              <p>₹20</p>
+            </div>
+            <div class="flex justify-between p-1">
+              <ion-label class="text-black">Taxes</ion-label>
+              <p>₹428</p>
+            </div>
+            <p class="text-gray-600 text-xs">Excludes toll costs, parking, permits and state tax
+              <span id="open-custom-dialog" class="font-bold text-yellow-500 text-xs">Terms and Conditions</span>
+            </p>
+
+              <button class="btn-grad mt-3">
+                <span style="float:left;font-weight: bold;font-size: 0.9rem;">Done</span>
+                <span style="float:right;font-size: 0.9rem;">
+                  <ion-icon class="text-white text-lg wobble-hor-bottom" name="thumbs-up"></ion-icon>
+                </span>
+              </button>
+          </div>
+
+          <ion-modal id="example-modal" #modal trigger="open-custom-dialog">
+            <ng-template class="p-4">
+              <div class="wrapper">
+                <h1>Terms and Conditions</h1>
+                <p align="justify" class="p-4" (click)="modal.dismiss()">
+                  RushGo | RushGo Cabs
+
+
+                  Updated effective from 08th September, 2021
+
+
+                  This Site/ Application/ Services is/are operated /provided by RushGo.
+
+
+                  These terms and conditions (“User Terms”) apply to Your visit to and use, of the Site whether through
+                  a computer or a mobile phone, the Service and the Application, as well as to all information,
+                  recommendations and or services provided to You on or through the Site, the Service and the
+                  Application. This document is an electronic record in terms of Information Technology Act, 2000 and
+                  rules thereunder as applicable and the provisions pertaining to electronic records in various statutes
+                  as amended by the Information Technology Act, 2000. This electronic record is generated by a computer
+                  system and does not require any physical or digital signatures.
+                </p>
+
+                <!-- <ion-list lines="none">
+                  <ion-item button="true" detail="false" (click)="modal.dismiss()">
+                    <ion-label>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi placeat, officia inventore
+                      eaque odio quae impedit, vitae reprehenderit ipsum asperiores sapiente nam, a adipisci maxime
+                      dignissimos ratione saepe beatae natus?</ion-label>
+                  </ion-item>
+                </ion-list> -->
+              </div>
+            </ng-template>
+          </ion-modal>
+
+
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </div>
+
+  <!-- <ion-card class="bg-white">
+      <div class="flex justify-between p-2">
         <div class="pl-2 pt-2">
           <img src="assets/cab/car.png" alt="" width="90" height="90">
         </div>
-        <div class="flex items-center"><span class="text-cente font-bold text-xl text-black pr-3 pt-3"> MiniCar</span></div>
+        <div class="flex items-center"><span class="text-cente font-bold text-xl text-black pr-3 pt-3"> MiniCar</span>
+        </div>
       </div>
-      
-      <div align="right" class="pr-1">
-        <ion-button routerLink="/vehicletype" color="warning" class="text-white pb-2"  shape="round"
-        ><span class="text-white">Change Vehicle</span> <ion-icon class="text-white" name="arrow-forward"></ion-icon>
-      </ion-button>
+
+      <div class="p-3">
+        <button class="btn-grad mt-4" routerLink="/vehicletype">
+          <span style="float:left;font-weight: bold;font-size: 0.9rem;">Change Vehicle</span>
+          <span style="float:right;font-size: 0.9rem;">
+            <ion-icon class="text-white" name="arrow-forward"></ion-icon>
+          </span>
+        </button>
       </div>
-    </ion-card> -->
-  </div>
+    </ion-card>
+   -->
 
- 
-
+  <!-- <div *ngIf="switchTab == 'roundedtrip'" class="p-2"> </div> -->
 </ion-content>
 <div class="p-3">
-  <button class="btn-grad" routerLink="/confirm-booking">
+  <button class="btn-grad" routerLink="/out-booking-details">
     <span style="float:left;font-weight: bold;font-size: 0.9rem;">Book Now</span>
-    <span style="float:right;font-size: 0.9rem;"> <ion-icon class="text-white" name="arrow-forward"></ion-icon></span>
+    <span style="float:right;font-size: 0.9rem;">
+      <ion-icon class="text-white" name="arrow-forward"></ion-icon>
+    </span>
   </button>
 </div>

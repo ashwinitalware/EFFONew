@@ -20,6 +20,26 @@
 
 <ion-content class="relative">
   <div class="fixed w-full">
+   <div class="bg-white">
+    <ion-slides #slider loop="true" [options]="slideOptss">
+      <ion-slide>
+        <div class="pl-2 pt-2 pr-2">
+          <div align="center" >
+            <img class="rounded-md" src="assets/cab/cab1.png"  />
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="pl-2 pt-2 pr-2">
+          <div align="center" >
+            <img  class="rounded-md" src="assets/cab/cab2.png"  />
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+   </div>
+
+
     <div class="bg-white rounded-bl-md rounded-br-md" style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
       <ion-slides #slider loop="true" [options]="slideOpts">
         <ion-slide (click)="navigate(slide)"  *ngFor="let slide of slides">
@@ -33,7 +53,7 @@
       </ion-slides>
     </div>
 
-    <div class="mt-2 p-2">
+    <div class="p-2">
       <!-- <ion-segment
         (ngModelChange)="segmentChanged($event)"
         mode="ios"
@@ -73,7 +93,6 @@
       </div>
 
       <div class="w-full mt-2 flex bg-white border border-white hover:border-yellow-500 py-2 rounded-lg drop-shadow-md shadow-md">
-        <!-- *ngIf="this.cabService.type!='rental'" -->
         <img src="assets/cab/toPin.png" alt="" class="h-6" />
   
         <input

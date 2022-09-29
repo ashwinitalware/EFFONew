@@ -34,8 +34,8 @@ export class CabHomePage implements OnInit {
     },
     {
       url: 'assets/rushgocab/local.png',
-      label:'Local'
-      // link:''
+      label:'Local',
+      link:'cab-home'
     },
     {
       url: 'assets/rushgocab/outstation.png',
@@ -57,9 +57,16 @@ export class CabHomePage implements OnInit {
   ]
   slideOpts = {
     initialSlide: 0,
-    slidesPerView: 5,
+    slidesPerView: 4.5,
     autoplay: true,
   };
+
+  slideOptss = {
+    initialSlide: 0,
+    slidesPerView: 1,
+    autoplay: true,
+  };
+
 
 
   constructor(public cabService: CabService, public router: Router) {
