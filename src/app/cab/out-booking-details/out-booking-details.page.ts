@@ -8,7 +8,6 @@ import { CheckboxCustomEvent } from '@ionic/angular';
 })
 export class OutBookingDetailsPage implements OnInit {
   canDismiss = false;
-
   presentingElement = null;
 
   constructor() { }
@@ -22,4 +21,9 @@ export class OutBookingDetailsPage implements OnInit {
     this.canDismiss = ev.detail.checked;
   }
 
+  // Swal.fire(
+  //   'Good job!',
+  //   'You clicked the button!',
+  //   'success'
+  // )
 }

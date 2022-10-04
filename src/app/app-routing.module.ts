@@ -30,12 +30,19 @@ const routes: Routes = [
     loadChildren: () =>
       import('./signin/signin.module').then((m) => m.SigninPageModule),
   },
+  // {
+  //   path: 'dashboard',
+  //   // canDeactivate: [LoginGuard],
+  //   canActivate: [LoginGuard],
+  //   loadChildren: () =>
+  //     import('./dashboard/dashboard.module').then((m) => m.DashboardPageModule),
+  // },
   {
     path: 'dashboard',
     // canDeactivate: [LoginGuard],
     canActivate: [LoginGuard],
     loadChildren: () =>
-      import('./dashboard/dashboard.module').then((m) => m.DashboardPageModule),
+      import('./cab-home/cab-home.module').then((m) => m.CabHomePageModule),
   },
   {
     path: 'jobdashboard',
@@ -655,7 +662,8 @@ const routes: Routes = [
       import(
         './restaurant/restaurant-order-details/restaurant-order-details.module'
       ).then((m) => m.RestaurantOrderDetailsPageModule),
-  },  {
+  },
+  {
     path: 'rental',
     loadChildren: () => import('./cab/rental/rental.module').then( m => m.RentalPageModule)
   },

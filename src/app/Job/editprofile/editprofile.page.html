@@ -6,12 +6,12 @@
 
   </header> -->
 
-  <div align="center" style="margin-top: 10%">
+  <!-- <div align="center" style="margin-top: 10%">
     <img src="assets/{{this.dataService.logoName}}" alt="" width="30%" height="30%" />
-  </div>
+  </div> -->
 
-  <div class="login_title" style="margin-top: 3%">
-    <ion-title>Update Profile</ion-title>
+  <div class="login_title" style="margin-top: 5%">
+    <ion-title class="mt-10">Update Profile</ion-title>
     <p style="font-size: small; color: rgb(184, 184, 184)">
       Fill all the required fields
     </p>
@@ -47,8 +47,7 @@
       <div class="flex items-end">
         <button
           (click)="checkPinCode()"
-          class="bg-primary px-4 py-2 rounded-md text-white"
-        >
+          class="bg-yellow-500 px-4 py-2 rounded-md text-white">
           Check
         </button>
       </div>
@@ -68,15 +67,17 @@
         type="email"
       ></ion-input>
     </ion-item>
+    <!-- class="button_login" -->
+    <!-- <div align="center">
+      <button class="btn-grad mt-4" class="bg-class" (click)="updateProfile()">
+        <span style="float:left;font-weight: bold;font-size: 0.9rem;">   Update Profile</span>
+        <span style="float:right;font-size: 0.9rem;"> <ion-icon class="text-white" name="arrow-forward"></ion-icon></span>
+      </button>
+    </div> -->
 
-    <div align="center" class="button_login">
-      <ion-button
-      color="primary"
-        expand="block"
-        (click)="updateProfile()"
-      >
-        Update Profile
-      </ion-button>
-    </div>
+    <button class="btn-grad mt-4" (click)="updateProfile()">
+      <span style="float:left;font-weight: bold;font-size: 0.9rem;">  Update Profile</span>
+      <span style="float:right;font-size: 0.9rem;"> <ion-icon class="text-white" name="arrow-forward"></ion-icon></span>
+    </button>
   </div>
 </ion-content>

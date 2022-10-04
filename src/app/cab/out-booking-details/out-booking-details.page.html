@@ -75,7 +75,9 @@
   </ion-toolbar>
 </ion-footer>
 
-<ion-modal #modal trigger="open-modal" [canDismiss]="canDismiss" [presentingElement]="presentingElement">
+<!-- <ion-modal #modal trigger="open-modal" [canDismiss]="canDismiss" [presentingElement]="presentingElement"> -->
+<ion-modal #modal trigger="open-modal"  [presentingElement]="presentingElement">
+
   <ng-template>
     <ion-header>
       <ion-toolbar>
@@ -130,17 +132,6 @@
           <ion-icon name="chevron-forward"></ion-icon>
         </ion-item>
       </ion-radio-group>
-
-      <div class="p-2">
-        <button class="btn-grad" routerLink="/out-booking-details">
-          <span style="float:left;font-weight: bold;font-size: 0.9rem;">Book Now</span>
-          <span style="float:right;font-size: 0.9rem;">
-            <ion-icon class="text-white" name="arrow-forward"></ion-icon>
-          </span>
-        </button>
-      </div>
     </ion-content>
-
-    
   </ng-template>
 </ion-modal>
