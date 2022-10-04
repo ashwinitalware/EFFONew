@@ -101,7 +101,7 @@ export class DataService {
     public menu: MenuController,
     public photoViewer: PhotoViewer
   ) {
-    // this.domainUrl = 'http://localhost:1337/';
+    // this.domainUrl = 'http://192.168.1.24:1337/';
     // this.apiUrl = this.domainUrl + 'api/';
 
     ///MAIN CONFIGS

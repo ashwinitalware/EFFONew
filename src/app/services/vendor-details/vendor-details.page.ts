@@ -14,7 +14,7 @@ export class VendorDetailsPage implements OnInit {
   add = false;
   add1 = false;
   data;
-  descriptions=[]
+  descriptions = [];
   constructor(
     public navCtrl: NavController,
     public http: HttpClient,
@@ -36,16 +36,12 @@ export class VendorDetailsPage implements OnInit {
         if (data.data) this.data = data.data[0];
         this.service.selectedVendorId = this.data.attributes.vendor.data.id;
         try {
-          let tempDescription=JSON.parse(this.data.attributes.descriptionJson)
-          tempDescription.forEach(element => {
-
-            
-          });
-          this.descriptions=tempDescription
-          
-        } catch (error) {
-          
-        }
+          let tempDescription = JSON.parse(
+            this.data.attributes.descriptionJson
+          );
+          tempDescription.forEach((element) => {});
+          this.descriptions = tempDescription;
+        } catch (error) {}
       });
   }
 
@@ -65,5 +61,15 @@ export class VendorDetailsPage implements OnInit {
       return this.dataService.presentToast('Select A Service First');
 
     this.navCtrl.navigateForward(['/service-bookings']);
+  }
+  showDirection() {
+    // console.log(
+    //   `https://www.google.com/maps/search/?api=1&query=18.517238336308125,73.87826212583717`
+    // );
+
+    window.open(
+      `https://www.google.com/maps/search/?api=1&query=${this.data.attributes.businessLat},${this.data.attributes.businessLng}`,
+      '_blank'
+    );
   }
 }
