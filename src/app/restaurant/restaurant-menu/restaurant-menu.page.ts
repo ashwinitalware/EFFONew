@@ -52,12 +52,7 @@ export class RestaurantMenuPage implements OnInit {
       })
       .subscribe((data: any) => {
         this.cart.shoppingProducts = data.data;
-        if (data.data.length > 0) {
-          this.vendorDetails =
-            data.data[0]?.attributes?.vendor?.data?.attributes;
-          // console.log(this.vendorDetails)
-        } else {
-        }
+     
         this.cart.shoppingProducts?.forEach((prod) => {
           prod.quantity = 0;
           // if (prod?.attributes?.variations?.data?.length == 0) {
@@ -271,6 +266,10 @@ export class RestaurantMenuPage implements OnInit {
       .get(this.ds.apiUrl + 'shopping-profiles?' + query, {})
       .subscribe((data: any) => {
         this.shoppingProfile = data.data[0];
+          this.vendorDetails =
+            data.data[0]?.attributes?.vendor?.data?.attributes;
+          // console.log(this.vendorDetails)
+       
       });
   }
 }
