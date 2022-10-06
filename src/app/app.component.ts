@@ -105,14 +105,15 @@ export class AppComponent {
     // if (item.role == 'home') this.router.navigate(['/dashboard']);
     if (item.role == 'home')
       this.router.navigate(['' + this.dataService.directNavigate]);
-    if (item.role == 'privacy') this.router.navigate(['/privacypolicy']);
-    if (item.role == 'contact') this.router.navigate(['/contactus']);
+    // if (item.role == 'privacy') this.router.navigate(['/privacypolicy']);
+    // if (item.role == 'contact') this.router.navigate(['/contactus']);
+    if (item.role == 'history') this.router.navigate(['/history']);
     if (item.role == 'share') {
-      this.dataService.share(
-        'Download ' + this.dataService.appName + ' App',
-        this.dataService.shareContent,
-        this.dataService.playStoreLinks.customer
-      );
+      // this.dataService.share(
+      //   'Download ' + this.dataService.appName + ' App',
+      //   this.dataService.shareContent,
+      //   this.dataService.playStoreLinks.customer
+      // );
 
       // navigator.share({
       //   title: 'Download Effo App',
@@ -126,7 +127,7 @@ export class AppComponent {
       // window.open(
       //   `https://play.google.com/store/apps/details?id=io.effo.vendor`
       // );
-      window.open(this.dataService.playStoreLinks.vendor, '_system');
+      // window.open(this.dataService.playStoreLinks.vendor, '_system');
     }
     if (item.role == 'rate') {
       // RateApp.requestReview()
@@ -137,7 +138,7 @@ export class AppComponent {
       //     console.log(err);
       //   });
 
-      window.open(this.dataService.playStoreLinks.customer, '_system');
+      // window.open(this.dataService.playStoreLinks.customer, '_system');
     }
   }
   handleFileInput(files: any) {

@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'ionic.effo.starter',
-  appName: 'EFFO',
+  appName: 'RushGO Cab',
   webDir: 'www',
   bundledWebRuntime: false,
   server: {

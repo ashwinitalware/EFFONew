@@ -50,7 +50,7 @@ export class CabHomePage implements OnInit {
     {
       url: 'assets/rushgocab/transport.png',
       label:'Transport',
-      link:'transporttype'
+      link:'transporthome'
       // label:'Transport(Goods Delivery)'
     },
 
@@ -58,7 +58,7 @@ export class CabHomePage implements OnInit {
   slideOpts = {
     initialSlide: 0,
     slidesPerView: 4.5,
-    autoplay: true,
+    autoplay: false,
   };
 
   slideOptss = {

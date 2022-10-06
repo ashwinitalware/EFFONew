@@ -59,6 +59,12 @@ export class DataService {
       role: 'business',
     },
     {
+      icon: 'newspaper',
+      title: 'History',
+      active: false,
+      role: 'history',
+    },
+    {
       icon: 'star-half',
       title: 'Rate Us',
       active: false,

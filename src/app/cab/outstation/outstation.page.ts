@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./outstation.page.scss'],
 })
 export class OutstationPage implements OnInit {
+  isModalOpen = false;
 
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
 
   switchTab = 'onewaytrip'
 

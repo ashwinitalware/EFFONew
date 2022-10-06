@@ -99,14 +99,24 @@
     </div>
   </div>
 </ion-content>
-<ion-footer *ngIf="showPrices">
+<!-- <ion-footer *ngIf="showPrices">
   <div class="p-2">
-    <!-- <ion-button color="dark" (click)="book()" size="block"
-      >Confirm Booking</ion-button
-    > -->
     <button class="btn-grad mt-4" (click)="book()" >
       <span style="float:left;font-weight: bold;font-size: 0.9rem;">Confirm Booking</span>
       <span style="float:right;font-size: 0.9rem;"> <ion-icon name="arrow-forward-outline"></ion-icon></span>
     </button>
   </div>
+</ion-footer> -->
+
+<ion-footer  *ngIf="showPrices">
+  <ion-toolbar color="light">    
+   <div class="p-2">
+    <button class="btn-grad" (click)="book()">
+      <span style="float:left;font-weight: bold;font-size: 0.9rem;">Confirm Booking</span>
+      <span style="float:right;font-size: 0.9rem;">
+        <ion-icon class="text-white" name="arrow-forward"></ion-icon>
+      </span>
+    </button>
+   </div>
+  </ion-toolbar>
 </ion-footer>
