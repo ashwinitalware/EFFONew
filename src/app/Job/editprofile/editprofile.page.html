@@ -6,8 +6,13 @@
 
   </header> -->
 
-  <div align="center" style="margin-top: 10%">
-    <img src="assets/{{this.dataService.logoName}}" alt="" width="30%" height="30%" />
+  <div align="center" style="margin-top: 10%" class="bg-red-600 py-16">
+    <img
+      src="assets/{{this.dataService.logoName}}"
+      alt=""
+      width="30%"
+      height="30%"
+    />
   </div>
 
   <div class="login_title" style="margin-top: 3%">
@@ -15,7 +20,6 @@
     <p style="font-size: small; color: rgb(184, 184, 184)">
       Fill all the required fields
     </p>
-    <!-- <p class="small_text">All you need to do is register below</p> -->
   </div>
 
   <div style="padding: 6%">
@@ -44,22 +48,37 @@
           type="number"
         ></ion-input>
       </ion-item>
-      <div class="flex items-end">
+      <!-- <div class="flex items-end">
         <button
           (click)="checkPinCode()"
           class="bg-primary px-4 py-2 rounded-md text-white"
         >
           Check
         </button>
-      </div>
+      </div> -->
     </div>
     <div class="text-blue-800 font-bold text-sm px-4 pt-2">{{pinAddress}}</div>
     <ion-item>
-      <ion-label class="text" position="floating">City</ion-label>
-      <ion-input
+      <ion-select
+        position="floating"
+        class="w-full"
+        [(ngModel)]="this.dataService.profile.city"
+        interface="popover"
+        placeholder="Select City"
+      >
+        <ion-select-option
+          *ngFor="let city of this.dataService.cities"
+          value="{{city.attributes.name}}"
+        >
+          <!-- <span *ngIf="this.dataService.profile.city">City : </span> -->
+          {{city.attributes.name|titlecase}}</ion-select-option
+        >
+      </ion-select>
+      <!-- <ion-label class="text" position="floating">City</ion-label> -->
+      <!-- <ion-input
         [(ngModel)]="this.dataService.profile.city"
         type="text"
-      ></ion-input>
+      ></ion-input> -->
     </ion-item>
     <ion-item>
       <ion-label class="text" position="floating">Email ID</ion-label>
@@ -70,11 +89,7 @@
     </ion-item>
 
     <div align="center" class="button_login">
-      <ion-button
-      color="primary"
-        expand="block"
-        (click)="updateProfile()"
-      >
+      <ion-button color="primary" expand="block" (click)="updateProfile()">
         Update Profile
       </ion-button>
     </div>

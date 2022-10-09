@@ -18,11 +18,13 @@ declare const Swal: any;
   providedIn: 'root',
 })
 export class DataService {
+  selectedCity;
+  cities = [];
   homeSliders = [];
   homeSlidersSecond = [];
   // DIRECT CONFIGS
   appName = 'Effo';
-  appVersion="0.0.0"
+  appVersion = '0.0.0';
   directNavigate = '/dashboard';
   localStorageName = 'effoProfilev2';
   logoName = 'textW.png';
@@ -92,7 +94,7 @@ export class DataService {
   //   // id: 1,
   // };
   profile: any;
-  domainUrl = 'https://strapi.effoapp.com/';
+  domainUrl = 'https://api.effoapp.com/';
   apiUrl = this.domainUrl + 'api/';
   isLoading = false;
   constructor(
@@ -103,12 +105,12 @@ export class DataService {
     public menu: MenuController,
     public photoViewer: PhotoViewer
   ) {
-    App.getInfo().then(data=>{
-      this.appVersion=data.version	
-    })
-
-    // this.domainUrl = 'http://192.168.1.24:1337/';
-    // this.apiUrl = this.domainUrl + 'api/';
+    App.getInfo().then((data) => {
+      this.appVersion = data.version;
+    });
+    this.domainUrl = 'http://localhost:1337/';
+    this.apiUrl = this.domainUrl + 'api/';
+    this.getCities();
 
     ///MAIN CONFIGS
 
@@ -139,6 +141,11 @@ export class DataService {
     );
 
     this.syncProfileFromLs();
+  }
+  getCities() {
+    this._get('cities', '').subscribe((data) => {
+      this.cities = data.data;
+    });
   }
   async present(content = 'Loading Data...', duration = 4000) {
     this.isLoading = true;
@@ -196,6 +203,7 @@ export class DataService {
     );
     if (tempStringProfile) {
       this.profile = JSON.parse(tempStringProfile);
+      this.selectedCity = this.profile.city;
       // this.auth.canLoad = false;
     }
   }

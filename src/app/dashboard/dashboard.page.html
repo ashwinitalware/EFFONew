@@ -3,17 +3,18 @@
     <div slot="start">
       <ion-menu-button class="text-white"> </ion-menu-button>
     </div>
-    <div align="center">
+    <div class="flex justify-between">
       <img src="assets/textW.png" width="35%" height="35%" alt="" />
+      <div class="text-white flex items-center px-4 text-lg">
+        <ion-icon name="location"></ion-icon>
+        {{this.dataService.selectedCity|titlecase}}
+      </div>
     </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <div>
-    
-  </div>
+  <div></div>
   <div
     id="myModal"
     class="modal flex items-center justify-center {{modalClass}}"
@@ -89,19 +90,15 @@
       padding: 5px;
     "
   >
-    <ion-slides
-      #slider
-      loop="true"
-      [options]="slideOpts"
-     
-    >
-  
-      <ion-slide (click)="this.dataService.slideClicked(slide)" *ngFor="let slide of this.dataService.homeSliders">
+    <ion-slides #slider loop="true" [options]="slideOpts">
+      <ion-slide
+        (click)="this.dataService.slideClicked(slide)"
+        *ngFor="let slide of this.dataService.homeSliders"
+      >
         <ion-card style="border-radius: 5px">
           <img src="{{slide.attributes.file.data.attributes.url}}" />
         </ion-card>
       </ion-slide>
-
     </ion-slides>
   </div>
 
@@ -112,7 +109,7 @@
   <div style="background-color: white; border-radius: 5px; margin-top: 3%">
     <ion-grid fixed>
       <ion-row class="small_text">
-        <ion-col 
+        <ion-col
           *ngFor="let category  of categories"
           size="3"
           align="center"
@@ -120,7 +117,7 @@
           class="flex justify-center flex-col"
         >
           <div
-            class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center "
+            class="m-auto primary-red p-3 text-white rounded-md flex items-center justify-center"
           >
             <ion-icon
               *ngIf="category.icon"
@@ -155,19 +152,19 @@
       [options]="slideOpts"
       (ionSlideTouchEnd)="slideChanged()"
     >
-    <ion-slide (click)="this.dataService.slideClicked(slide)" *ngFor="let slide of this.dataService.homeSlidersSecond">
-      <ion-card style="border-radius: 5px">
-        <img src="{{slide.attributes.file.data.attributes.url}}" />
-      </ion-card>
-    </ion-slide>
-
+      <ion-slide
+        (click)="this.dataService.slideClicked(slide)"
+        *ngFor="let slide of this.dataService.homeSlidersSecond"
+      >
+        <ion-card style="border-radius: 5px">
+          <img src="{{slide.attributes.file.data.attributes.url}}" />
+        </ion-card>
+      </ion-slide>
     </ion-slides>
   </div>
-<br>
-<br>
-<br>
-
-
+  <br />
+  <br />
+  <br />
 
   <div align="center" class="pt-12">
     <img src="assets/ft.png" alt="" width="35%" height="35%" />
