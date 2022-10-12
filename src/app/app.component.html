@@ -9,13 +9,26 @@
         <div>
           <div class="flex py-4">
             <input
-              type="file"
-              class="hidden"
-              #fileUpload2
-              (change)="handleFileInput($event)"
-            />
+            type="file"            class="hidden"
+
+            accept="image/*"
+
+            #fileUpload
+            (change)="handleFileInput($event)"
+          />
+          <input
+            type="file"
+            class="hidden"
+
+            accept="image/*"
+            capture="environment" 
+            #fileUploadCamera
+            (change)="handleFileInput($event)"
+          />
+
+            <!-- (click)="fileUpload2.click()" -->
             <div
-              (click)="fileUpload2.click()"
+            (click)="capture()"
               *ngIf="!this.dataService.profile.profileImage"
               class="bg-gray-300 w-16 h-16 rounded-full flex items-center justify-center text-gray-500"
             >
@@ -25,8 +38,9 @@
               class="w-16 h-16 rounded-full"
               *ngIf="this.dataService.profile.profileImage"
             >
+            <!-- (click)="fileUpload2.click()" -->
               <img
-                (click)="fileUpload2.click()"
+              (click)="capture()"
                 src="{{ this.dataService.profile.profileImage }}"
                 alt=""
               />

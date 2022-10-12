@@ -11,10 +11,10 @@
   <div class="bg-white">
 
     <div class="p-2">
-      <div class="p-2 border-b-2 border-gray-300" *ngIf="shoppingProfile">
+      <div class="p-2 border-b-2 border-gray-300" *ngIf="restaurantProfile">
         <ion-label class="text-lg text-black font-bold">
           
-          {{shoppingProfile.attributes.companyName|titlecase}}</ion-label><br>
+          {{restaurantProfile.attributes.companyName|titlecase}}</ion-label><br>
         <ion-button  color="dark" (click)="this.ds.contact('call','91'+vendorDetails?.phone)">
           <ion-icon slot="start"  name="call"></ion-icon>
           Call Now

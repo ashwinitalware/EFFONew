@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController, Platform } from '@ionic/angular';
 import { DataService } from './services/data.service';
@@ -24,6 +24,8 @@ export class AppComponent {
   version = '0.0.1';
   fileToUpload: File | null = null;
 
+  @ViewChild('fileUpload') fileUpload: ElementRef;
+  @ViewChild('fileUploadCamera') fileUploadCamera: ElementRef;
   constructor(
     private router: Router,
     public platform: Platform,
@@ -94,6 +96,9 @@ export class AppComponent {
     });
   }
 
+  capture() {
+    this.dataService.capture(this.fileUpload, this.fileUploadCamera);
+  }
   businessRegistration() {}
 
   edit() {
