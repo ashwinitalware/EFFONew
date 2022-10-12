@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { ElementRef, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController, MenuController } from '@ionic/angular';
+import { ActionSheetController, LoadingController, MenuController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { Share } from '@capacitor/share';
 import { HttpClient } from '@angular/common/http';
@@ -97,6 +97,7 @@ export class DataService {
   isLoading = false;
   constructor(
     public http: HttpClient,
+    public actionSheet: ActionSheetController,
     public router: Router,
     public loadingCtrl: LoadingController,
     public toastController: ToastController,
@@ -156,6 +157,36 @@ export class DataService {
           }
         });
       });
+  }
+  async capture(galleryInput: ElementRef, cameraInput: ElementRef) {
+    const actionSheet = await this.actionSheet.create({
+      header: 'Select Option',
+      cssClass: 'my-custom-class',
+      buttons: [
+        {
+          text: 'Camera',
+          handler: () => {
+            cameraInput.nativeElement.click();
+          },
+        },
+        {
+          text: 'Gallery',
+          handler: () => {
+            galleryInput.nativeElement.click();
+            // console.log('Play clicked');
+          },
+        },
+        {
+          text: 'Cancel',
+          icon: 'close',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          },
+        },
+      ],
+    });
+    await actionSheet.present();
   }
   confirmSwal(title = '', text = '') {
     Swal.fire({

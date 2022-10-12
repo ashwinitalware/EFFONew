@@ -90,6 +90,8 @@ clear(){
 
     const query = qs.stringify({
       filters: {
+        status:'accepted'
+        ,
         $or:[
           {
             companyName:{

@@ -13,7 +13,7 @@ import { RestaurantService } from '../restaurant.service';
   styleUrls: ['./restaurant-menu.page.scss'],
 })
 export class RestaurantMenuPage implements OnInit {
-  shoppingProfile;
+  restaurantProfile;
   pageNo = 1;
   pageSize = 15;
   isLoadMore = true;
@@ -28,7 +28,7 @@ export class RestaurantMenuPage implements OnInit {
     public router: Router
   ) {
     console.log(this.activatedRoute.snapshot.params.id);
-    this.getShoppingProfile();
+    this.getRestaurantProfile();
   }
 
   ngOnInit() {
@@ -250,7 +250,7 @@ export class RestaurantMenuPage implements OnInit {
     );
   }
 
-  getShoppingProfile() {
+  getRestaurantProfile() {
     let query = qs.stringify({
       populate: '*',
       filters: {
@@ -263,9 +263,9 @@ export class RestaurantMenuPage implements OnInit {
     });
 
     this.http
-      .get(this.ds.apiUrl + 'shopping-profiles?' + query, {})
+      .get(this.ds.apiUrl + 'restaurant-profiles?' + query, {})
       .subscribe((data: any) => {
-        this.shoppingProfile = data.data[0];
+        this.restaurantProfile = data.data[0];
           this.vendorDetails =
             data.data[0]?.attributes?.vendor?.data?.attributes;
           // console.log(this.vendorDetails)
