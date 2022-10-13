@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CabService } from '../services/cab.service';
+import { AlertController } from '@ionic/angular';
 
 declare var google;
 @Component({
@@ -69,7 +70,7 @@ export class CabHomePage implements OnInit {
 
 
 
-  constructor(public cabService: CabService, public router: Router) {
+  constructor(public cabService: CabService, public router: Router,private alertController: AlertController) {
     //reset everything
     this.resetEverything();
   }
@@ -80,6 +81,26 @@ export class CabHomePage implements OnInit {
     this.cabService.fromLatLngObject = undefined;
     this.cabService.toLatLngObject = undefined;
   }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Are you sure?',
+      cssClass: 'custom-alert',
+      buttons: [
+        {
+          text: 'No',
+          cssClass: 'alert-button-cancel',
+        },
+        {
+          text: 'Yes',
+          cssClass: 'alert-button-confirm',
+        },
+      ],
+    });
+
+    await alert.present();
+  }
+  
   ngOnInit() {}
 
   navigate(slide) {
