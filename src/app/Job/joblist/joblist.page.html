@@ -99,7 +99,8 @@
         <span
           *ngIf="job.attributes.author.data && job.attributes.author.data.attributes.job_profile.data"
         >
-          {{(job.attributes.author.data.attributes.job_profile.data.attributes.companyName||"Company Name")|titlecase}}
+          {{(job.attributes.author.data.attributes.job_profile.data.attributes.companyName||"Company
+          Name")|titlecase}}
         </span>
       </div>
 
@@ -340,7 +341,7 @@
                 </ion-radio-group>
               </ion-list>
             </div>
-            <div *ngIf="selectedFilterSection=='location'">
+            <!-- <div *ngIf="selectedFilterSection=='location'">
               <ion-list>
                 <ion-radio-group [(ngModel)]="this.jobService.jobFilters.city">
                   <ion-item>
@@ -369,7 +370,7 @@
                   </ion-item>
                 </ion-radio-group>
               </ion-list>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="absolute bottom-0 left-0 w-full p-4">

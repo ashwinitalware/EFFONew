@@ -19,11 +19,10 @@ export class JobHomePage implements OnInit {
   selectedCitySuggesion = '';
   sliceValue = 3;
   temp = 'IT Industry';
-  commonQuery={
-    userId:this.dataService.profile?this.dataService.profile.id:'0'
-  }
+  commonQuery = {
+    userId: this.dataService.profile ? this.dataService.profile.id : '0',
+  };
   commonFilter = {
-    
     expiry: {
       $gt: new Date().toISOString(),
     },
@@ -36,7 +35,6 @@ export class JobHomePage implements OnInit {
     jobCategory: '*',
   };
 
- 
   // bookride = false;
   showAll = false;
   selectedLeave = '';
@@ -71,7 +69,8 @@ export class JobHomePage implements OnInit {
     this.getHighSalaryJobs();
   }
   getSuggesions() {
-    if (this.selectedTitleSuggesion == this.jobService.jobFilters.title) return false;
+    if (this.selectedTitleSuggesion == this.jobService.jobFilters.title)
+      return false;
     // alert(this.jobService.jobFilters.title);
     if (!this.jobService.jobFilters.title) return (this.titleSuggestions = []);
     this.http
@@ -211,14 +210,12 @@ export class JobHomePage implements OnInit {
     // this.router.navigate(['/joblist/' + query]);
   }
   getNewJobs() {
-
-    if(this.jobService.sections[0].jobs.length)
-    return false;
+    if (this.jobService.sections[0].jobs.length) return false;
     console.log('getNewJobs');
-    
+
     let query = qs.stringify({
       ...this.commonQuery,
-     
+
       filters: {
         ...this.commonFilter,
       },
@@ -230,18 +227,15 @@ export class JobHomePage implements OnInit {
     });
 
     this.http
-      .get(this.dataService.apiUrl + 'job-posts?' + query, {
-        
-      })
+      .get(this.dataService.apiUrl + 'job-posts?' + query, {})
       .subscribe((data: any) => {
         this.jobService.sections[0].jobs = data.data;
       });
   }
   getNearJobs() {
-    if(this.jobService.sections[1].jobs.length)
-    return false;
+    if (this.jobService.sections[1].jobs.length) return false;
     console.log('getNearJobs');
-    
+
     let query = qs.stringify({
       ...this.commonQuery,
       sort: ['createdAt:desc'],
@@ -252,7 +246,7 @@ export class JobHomePage implements OnInit {
       filters: {
         ...this.commonFilter,
         city: {
-          $eq: this.dataService.profile.city + '',
+          $eq: this.dataService.selectedCity || 'pune',
         },
       },
     });
@@ -263,10 +257,9 @@ export class JobHomePage implements OnInit {
       });
   }
   getHighSalaryJobs() {
-    if(this.jobService.sections[2].jobs.length)
-    return false;
+    if (this.jobService.sections[2].jobs.length) return false;
     console.log('getHighSalaryJobs');
-    
+
     let query = qs.stringify({
       ...this.commonQuery,
       sort: ['salaryUpto:desc'],
@@ -276,9 +269,9 @@ export class JobHomePage implements OnInit {
       },
       filters: {
         ...this.commonFilter,
-        city: {
-          $eq: this.dataService.profile.city + '',
-        },
+        // city: {
+        //   $eq: this.dataService.profile.city + '',
+        // },
       },
     });
     this.http
@@ -288,12 +281,9 @@ export class JobHomePage implements OnInit {
       });
   }
 
-
-
   ngOnInit() {}
   jobDetails(job) {
-    job.viewed=true
+    job.viewed = true;
     this.navCtrl.navigateForward(['/jobdetails/' + job.id]);
-    
   }
 }

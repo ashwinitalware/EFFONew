@@ -655,7 +655,11 @@ const routes: Routes = [
       import(
         './restaurant/restaurant-order-details/restaurant-order-details.module'
       ).then((m) => m.RestaurantOrderDetailsPageModule),
+  },  {
+    path: 'select-city',
+    loadChildren: () => import('./select-city/select-city.module').then( m => m.SelectCityPageModule)
   },
+
 
   // {
   //   path: 'job-profile',

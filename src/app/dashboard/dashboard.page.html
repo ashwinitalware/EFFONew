@@ -5,7 +5,10 @@
     </div>
     <div class="flex justify-between">
       <img src="assets/textW.png" width="35%" height="35%" alt="" />
-      <div class="text-white flex items-center px-4 text-lg">
+      <div
+        class="text-white flex items-center px-4 text-lg"
+        (click)="this.router.navigate(['/select-city'])"
+      >
         <ion-icon name="location"></ion-icon>
         {{this.dataService.selectedCity|titlecase}}
       </div>

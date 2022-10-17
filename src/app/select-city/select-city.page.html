@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Select City</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-white">
+  <div class="text-center py-4">
+    We are currently serving limited cities only.
+  </div>
+  <ion-list>
+    <ion-radio-group [(ngModel)]="this.ds.selectedCity">
+      <ion-item *ngFor="let city of this.ds.cities">
+        <ion-label>{{city.attributes.name|titlecase}}</ion-label>
+        <ion-radio slot="end" value="{{city.attributes.name}}"></ion-radio>
+      </ion-item>
+      <ion-item disabled="">
+        <ion-label>Others ( coming soon )</ion-label>
+        <ion-radio slot="end" value=""></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>

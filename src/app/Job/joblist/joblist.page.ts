@@ -34,11 +34,11 @@ export class JoblistPage implements OnInit {
       icon: 'cellular',
       tag: 'experience',
     },
-    {
-      name: 'Location',
-      icon: 'location',
-      tag: 'location',
-    },
+    // {
+    //   name: 'Location',
+    //   icon: 'location',
+    //   tag: 'location',
+    // },
   ];
   totalJobs = 0;
   currentPage = 0;
@@ -328,7 +328,7 @@ export class JoblistPage implements OnInit {
 
   ngOnInit() {}
   jobDetails(job) {
-    job.viewed=true
+    job.viewed = true;
     this.navCtrl.navigateForward(['/jobdetails/' + job.id]);
   }
   loadData(event) {

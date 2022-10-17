@@ -136,7 +136,8 @@ export class ServiceHomePage implements OnInit {
           filters: {
             vendor: {
               city: {
-                $containsi: this.dataService.profile.city,
+                // $containsi: this.dataService.profile.ci'ty,
+                $containsi: this.dataService.selectedCity,
               },
             },
           },
