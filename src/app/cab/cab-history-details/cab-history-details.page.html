@@ -8,97 +8,101 @@
 </ion-header>
 
 <ion-content>
-  <div class="p-4" *ngIf="data">
-    <div class="flex justify-between items-center">
-      <div>
-        Ride Status :
-        <span
-          class="font-bold {{this.dataService.statusToClassCab(data.attributes.status)}}"
-          >{{data.attributes.status|titlecase}}</span
-        >
-      </div>
-      <ion-button
-        [routerLink]="['/track/'+data.id]"
-        routerLinkActive="router-link-active"
-        fill="clear"
-        *ngIf="data.attributes.status=='accepted'"
-      >
-        Track Ride
-      </ion-button>
+  <div class="bg-white h-full overflow-y-scroll">
+    <div *ngIf="!data">
+      <img src="assets/loading.gif" alt="" />
     </div>
-
-    <div class="flex mb-2 bg-white p-2 rounded-md">
-      <img
-        src="{{data.attributes.cab.data.attributes.icon}}"
-        class="w-14"
-        alt=""
-      />
-      <div class="flex-1 pl-4 text-lg flex items-center">
-        <div class="flex items-center">
-          {{data.attributes.cab.data.attributes.name|titlecase}} &nbsp;
-
-          <ion-icon
-            class="text-green-700 text-xl"
-            name="checkmark-circle"
-          ></ion-icon>
+    <div class="p-4" *ngIf="data">
+      <div class="flex justify-between items-center">
+        <div>
+          Ride Status :
+          <span
+            class="font-bold {{this.dataService.statusToClassCab(data.attributes.status)}}"
+            >{{data.attributes.status|titlecase}}</span
+          >
         </div>
-        <div class="text-sm text-gray-800">
-          <!-- *minimum price is ₹ {{data.attributes.cab.data.attributes.minimumPrice}} -->
-        </div>
+        <ion-button
+          [routerLink]="['/track/'+data.id]"
+          routerLinkActive="router-link-active"
+          fill="clear"
+          *ngIf="data.attributes.status=='accepted'"
+        >
+          Track Ride
+        </ion-button>
       </div>
-      <!-- <div class="font-bold">
+
+      <div class="flex mb-2 bg-white p-2 rounded-md border">
+        <img
+          src="{{data.attributes.cab.data.attributes.icon}}"
+          class="w-14"
+          alt=""
+        />
+        <div class="flex-1 pl-4 text-lg flex items-center">
+          <div class="flex items-center">
+            {{data.attributes.cab.data.attributes.name|titlecase}} &nbsp;
+
+            <ion-icon
+              class="text-green-700 text-xl"
+              name="checkmark-circle"
+            ></ion-icon>
+          </div>
+          <div class="text-sm text-gray-800">
+            <!-- *minimum price is ₹ {{data.attributes.cab.data.attributes.minimumPrice}} -->
+          </div>
+        </div>
+        <!-- <div class="font-bold">
       <div>₹{{data.attributes.cab.data.attributes.pricePerKm}}/km</div>
       <div class="text-right"></div>
     </div> -->
-    </div>
-    <br />
-    <div class="bg-white p-2 rounded-md flex">
-      <b> From :</b>
-      <div class="flex-1 px-4">
-        <div>{{data.attributes.from}}</div>
       </div>
-    </div>
-    <br />
-    <div class="bg-white p-2 rounded-md flex">
-      <b> To :</b>
-      <div class="flex-1 px-4">
-        <div>{{data.attributes.to}}</div>
+      <br />
+      <div class="bg-white p-2 rounded-md flex border">
+        <b> From :</b>
+        <div class="flex-1 px-4">
+          <div>{{data.attributes.from}}</div>
+        </div>
       </div>
-    </div>
-    <br />
+      <br />
+      <div class="bg-white p-2 rounded-md flex border">
+        <b> To :</b>
+        <div class="flex-1 px-4">
+          <div>{{data.attributes.to}}</div>
+        </div>
+      </div>
+      <br />
 
-    <div class="bg-white p-4 rounded-md">
-      <div class="flex">
-        <b> Distance :</b>
-        <div class="flex-1 px-4 text-right">
-          <div>{{data.attributes.distance}} km</div>
+      <div class="bg-white p-4 rounded-md border">
+        <div class="flex">
+          <b> Distance :</b>
+          <div class="flex-1 px-4 text-right">
+            <div>{{data.attributes.distance}} km</div>
+          </div>
         </div>
-      </div>
-      <br />
-      <div class="flex">
-        <b> Base Fare :</b>
-        <div class="flex-1 px-4 text-right">
-          <div>{{data.attributes.baseFare}} /-</div>
+        <br />
+        <div class="flex">
+          <b> Base Fare :</b>
+          <div class="flex-1 px-4 text-right">
+            <div>{{data.attributes.baseFare}} /-</div>
+          </div>
         </div>
-      </div>
-      <br />
-      <div class="flex">
-        <b>Total Tax :</b>
-        <div class="flex-1 px-4 text-right">
-          <div>{{data.attributes.tax}} /-</div>
+        <br />
+        <div class="flex">
+          <b>Total Tax :</b>
+          <div class="flex-1 px-4 text-right">
+            <div>{{data.attributes.tax}} /-</div>
+          </div>
         </div>
-      </div>
-      <br />
-      <div class="flex">
-        <b> Total Fare :</b>
-        <div class="flex-1 px-4 text-right">
-          <div>{{data.attributes.total}} /-</div>
+        <br />
+        <div class="flex">
+          <b> Total Fare :</b>
+          <div class="flex-1 px-4 text-right">
+            <div>{{data.attributes.total}} /-</div>
+          </div>
         </div>
+        <br />
       </div>
-      <br />
-    </div>
 
-    <!-- <div
+      <!-- <div
       class="font-bold bg-white p-2 rounded-md"
       *ngIf="data.attributes.status=='completed'"
     >
@@ -120,20 +124,27 @@
       </div>
       <ion-button size="block">Submit Review</ion-button>
     </div> -->
-    <div class="flex justify-end mt-2" >
-
-      <!-- <ion-button
+      <div class="flex justify-end mt-2">
+        <!-- <ion-button
       (click)="cancel()"
       size="block"
       *ngIf="this.data.attributes.status=='pending'"
     >
       Cancel Ride
     </ion-button> -->
-    <button class="btn-grad mt-4"  (click)="cancel()"  *ngIf="this.data.attributes.status=='pending'">
-      <span style="float:left;font-weight: bold;font-size: 0.9rem;"> Cancel Ride</span>
-      <span style="float:right;font-size: 0.9rem;"> <ion-icon name="close"></ion-icon></span>
-    </button>
-  
-  </div>
+        <button
+          class="btn-grad mt-4"
+          (click)="cancel()"
+          *ngIf="this.data.attributes.status=='pending'"
+        >
+          <span style="float: left; font-weight: bold; font-size: 0.9rem">
+            Cancel Ride</span
+          >
+          <span style="float: right; font-size: 0.9rem">
+            <ion-icon name="close"></ion-icon
+          ></span>
+        </button>
+      </div>
+    </div>
   </div>
 </ion-content>

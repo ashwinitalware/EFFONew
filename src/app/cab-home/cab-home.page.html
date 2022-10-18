@@ -13,13 +13,18 @@
       <ion-menu-button class="text-white"> </ion-menu-button>
     </div>
     <div class="px-4 text-white text-lg">RushGo Cab</div>
-    <div class="text-white pr-2" routerLink="/location" slot="end">Beed <ion-icon name="location"></ion-icon></div>
+    <div
+      class="text-white pr-2 flex items-center"
+      routerLink="/location"
+      slot="end"
+    >
+      {{this.cabService.selectedCityObj?.attributes.name|titlecase}} &nbsp;
+      <ion-icon name="location"></ion-icon>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content class="relative">
-
   <!-- //button -->
   <!-- <div class="p-2 flex justify-between">
     <ion-button expand="block" (click)="presentAlert()">
@@ -34,41 +39,62 @@
       </div>
     </div>
   </div>
-  
+
     <div class="neumorphism-1"></div>
     <div class="neumorphism-2"></div>
     <div class="neumorphism-3"></div> -->
 
   <div class="fixed w-full">
-   <div class="bg-white">
-    <ion-slides #slider loop="true" [options]="slideOptss">
-      <ion-slide>
-        <div class="pl-2 pt-2 pr-2">
-          <div align="center" >
-            <img class="rounded-md" src="assets/cab/cab1.png"  />
+    <div class="bg-white">
+      <ion-slides #slider loop="true" [options]="slideOptss">
+        <ion-slide>
+          <div class="pl-2 pt-2 pr-2">
+            <div align="center">
+              <img class="rounded-md" src="assets/cab/cab1.png" />
+            </div>
           </div>
-        </div>
-      </ion-slide>
-      <ion-slide>
-        <div class="pl-2 pt-2 pr-2">
-          <div align="center" >
-            <img  class="rounded-md" src="assets/cab/cab2.png"  />
+        </ion-slide>
+        <ion-slide>
+          <div class="pl-2 pt-2 pr-2">
+            <div align="center">
+              <img class="rounded-md" src="assets/cab/cab2.png" />
+            </div>
           </div>
-        </div>
-      </ion-slide>
-    </ion-slides>
-   </div>
-
-
-    <div class="bg-white rounded-bl-md rounded-br-md" style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-      <ion-slides #slider loop="true" [options]="slideOpts">
-        <ion-slide (click)="navigate(slide)"  *ngFor="let slide of slides">
-         <div class="p-2">
-          <div align="center" class="card1 bg-white border border-gray-100 hover:border-yellow-500 slide-fwd-center" style="border-radius: 5px">
-            <img class="imgstyle" src="{{slide.url}}"  />
-            <ion-label class="text-xs">{{slide.label}}</ion-label>
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <!-- {{this.cabService.featureSelected}} -->
+    <div
+      class="bg-white rounded-bl-md rounded-br-md"
+      style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px"
+    >
+      <ion-slides
+        class="slide-center"
+        #slider
+        loop="true"
+        [options]="slideOpts"
+      >
+        <ion-slide
+          *ngFor="let feature of  this.cabService.features;let i=index"
+        >
+          <div class="p-2">
+            <div
+              (click)="featureChange(i)"
+              align="center"
+              class="border rounded-lg border-yellow-500 p-2"
+              [ngClass]="{'border-2 shadow-lg': this.cabService.featureSelected==feature.attributes.name}"
+            >
+              <div
+                class="rounded-full w-1/2 m-auto"
+                [ngClass]="{'bg-black text-white': this.cabService.featureSelected==feature.attributes.name}"
+              >
+                <img src="{{feature.attributes.image}}" />
+              </div>
+              <ion-label class="font-medium text-base"
+                >{{feature.attributes.name|titlecase}}</ion-label
+              >
+            </div>
           </div>
-         </div>
         </ion-slide>
       </ion-slides>
     </div>
@@ -90,9 +116,11 @@
         </ion-segment-button>
       </ion-segment> -->
 
-      <div class="w-full mt-2 flex bg-white border border-white hover:border-yellow-500 py-2 rounded-lg drop-shadow-md shadow-md">
+      <div
+        class="w-full mt-2 flex bg-white border border-white hover:border-yellow-500 py-2 rounded-lg drop-shadow-md shadow-md"
+      >
         <img src="assets/cab/fromPin.png" alt="" class="h-6" />
-  
+
         <input
           [(ngModel)]="cabService.from"
           #pickSearch
@@ -100,7 +128,7 @@
           class="ml-2 flex-1 w-full bg-white"
           placeholder="Enter You Pick Location"
         />
-  
+
         <div class="px-2 flex items-center">
           <ion-icon
             *ngIf="cabService.from"
@@ -108,13 +136,15 @@
             name="close-outline"
           ></ion-icon>
         </div>
-  
+
         <!-- <img src="assets/cab/fromPin.png" alt="" class="h-6"> -->
       </div>
 
-      <div class="w-full mt-2 flex bg-white border border-white hover:border-yellow-500 py-2 rounded-lg drop-shadow-md shadow-md">
+      <div
+        class="w-full mt-2 flex bg-white border border-white hover:border-yellow-500 py-2 rounded-lg drop-shadow-md shadow-md"
+      >
         <img src="assets/cab/toPin.png" alt="" class="h-6" />
-  
+
         <input
           [(ngModel)]="cabService.to"
           #search
@@ -130,13 +160,7 @@
           ></ion-icon>
         </div>
       </div>
-
     </div>
-
-  
-
-   
-    
   </div>
   <div
     class="fixed"
@@ -153,13 +177,16 @@
     slot="fixed"
     class="flex flex-col items-end"
   >
-    <ion-fab-button size="small"  color="warning">
+    <ion-fab-button size="small" color="warning">
       <ion-icon class="text-white" name="locate"></ion-icon>
     </ion-fab-button>
-    <ion-button color="warning" class="text-white" (click)="book()" shape="round"
-      ><span class="text-white">Book Now</span> <ion-icon class="text-white" name="arrow-forward"></ion-icon>
+    <ion-button
+      color="warning"
+      class="text-white"
+      (click)="book()"
+      shape="round"
+      ><span class="text-white">Book Now</span>
+      <ion-icon class="text-white" name="arrow-forward"></ion-icon>
     </ion-button>
   </ion-fab>
-
-
 </ion-content>

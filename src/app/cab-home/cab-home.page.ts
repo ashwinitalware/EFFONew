@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CabService } from '../services/cab.service';
 import { AlertController } from '@ionic/angular';
+import { DataService } from '../services/data.service';
 
 declare var google;
 @Component({
@@ -26,39 +27,36 @@ export class CabHomePage implements OnInit {
   pickAutocomplete;
   autocomplete;
 
-  slides = [
-
-    {
-      url: 'assets/rushgocab/auto.png',
-      label:'Auto',
-      link:'autohome',
-    },
-    {
-      url: 'assets/rushgocab/local.png',
-      label:'Local',
-      link:'cab-home'
-    },
-    {
-      url: 'assets/rushgocab/outstation.png',
-      label:'Outstation',
-      link:'outstation'
-    },
-    {
-      url: 'assets/rushgocab/renatl.png',
-      label:'Rental',
-      link:'rental'
-    },
-    {
-      url: 'assets/rushgocab/transport.png',
-      label:'Transport',
-      link:'transporthome'
-      // label:'Transport(Goods Delivery)'
-    },
-
-  ]
+  // slides = [
+  //   {
+  //     url: 'assets/rushgocab/auto.png',
+  //     label: 'Auto',
+  //     link: 'autohome',
+  //   },
+  //   {
+  //     url: 'assets/rushgocab/local.png',
+  //     label: 'Local',
+  //     link: 'cab-home',
+  //   },
+  //   {
+  //     url: 'assets/rushgocab/outstation.png',
+  //     label: 'Outstation',
+  //     link: 'outstation',
+  //   },
+  //   {
+  //     url: 'assets/rushgocab/renatl.png',
+  //     label: 'Rental',
+  //     link: 'rental',
+  //   },
+  //   {
+  //     url: 'assets/rushgocab/transport.png',
+  //     label: 'Transport',
+  //     link: 'transporthome',
+  //   },
+  // ];
   slideOpts = {
     initialSlide: 0,
-    slidesPerView: 4.5,
+    slidesPerView: 3.5,
     autoplay: false,
   };
 
@@ -68,11 +66,18 @@ export class CabHomePage implements OnInit {
     autoplay: true,
   };
 
-
-
-  constructor(public cabService: CabService, public router: Router,private alertController: AlertController) {
+  constructor(
+    public dataService: DataService,
+    public cabService: CabService,
+    public router: Router,
+    private alertController: AlertController
+  ) {
     //reset everything
     this.resetEverything();
+  }
+  featureChange(index) {
+    this.cabService.featureSelected =
+      this.cabService.features[index].attributes.name;
   }
   resetEverything() {
     this.pinImage = 'fromPin';
@@ -100,25 +105,30 @@ export class CabHomePage implements OnInit {
 
     await alert.present();
   }
-  
+
   ngOnInit() {}
 
   navigate(slide) {
     if (slide.link) {
-      this.router.navigate(['/' + slide.link])
-    }
-
-    else {
-      alert('Coming Soon')
+      this.router.navigate(['/' + slide.link]);
+    } else {
+      alert('Coming Soon');
     }
   }
 
+  checkIfCityIsSelected() {
+    if (!this.cabService.selectedCityObj) {
+      // this.dataService.presentToast('Select Your City First');
+      this.router.navigate(['/location']);
+    }
+  }
   ionViewDidEnter() {
+    this.checkIfCityIsSelected();
     // alert(this.cabService.selectedCityObj.lat)
     console.log('ref', this.mapRef);
     const location = new google.maps.LatLng(
-      this.cabService.selectedCityObj.lat,
-      this.cabService.selectedCityObj.lng
+      this.cabService.selectedCityObj.attributes.lat,
+      this.cabService.selectedCityObj.attributes.lng
     );
     const options = {
       center: location,

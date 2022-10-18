@@ -49,31 +49,6 @@ export class AppComponent {
           App.exitApp();
         }
       });
-      // App.addListener('backButton', () => {
-      //   if (
-      //     (window.location + '').includes('localhost/dashboard') ||
-      //     (window.location + '').includes(
-      //       'localhost' + this.dataService.directNavigate
-      //     ) ||
-      //     (window.location + '').includes('localhost/login')
-      //   )
-      //     App.exitApp();
-      //   else if (
-      //     (window.location + '').includes('localhost/service-dashboard') ||
-      //     (window.location + '').includes('localhost/jobdashboard') ||
-      //     (window.location + '').includes('localhost/cab-tabs')
-      //   ) {
-      //     this.navCtrl.pop();
-      //   } else {
-      //     // alert(window.location)
-
-      //     this.navCtrl.back();
-      //   }
-
-      //   try {
-      //     this.dataService.dismiss();
-      //   } catch (error) {}
-      // });
 
       try {
         AppUpdate.getAppUpdateInfo().then((data) => {
@@ -114,7 +89,6 @@ export class AppComponent {
       //   this.dataService.shareContent,
       //   this.dataService.playStoreLinks.customer
       // );
-
       // navigator.share({
       //   title: 'Download Effo App',
       //   // eslint-disable-next-line max-len
@@ -137,7 +111,6 @@ export class AppComponent {
       //   .catch((err) => {
       //     console.log(err);
       //   });
-
       // window.open(this.dataService.playStoreLinks.customer, '_system');
     }
   }

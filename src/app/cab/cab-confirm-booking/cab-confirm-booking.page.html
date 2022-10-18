@@ -23,8 +23,8 @@
     <div
       *ngFor="let cabType of this.cabService.cabTypes;let i=index"
       class="flex mb-2"
-      (click)="selectCabType(i)"
-           >
+      (click)="this.cabService.selectCabType(i)"
+    >
       <img src="{{cabType.attributes.icon}}" class="w-14" alt="" />
       <div class="flex-1 pl-4 text-lg">
         <div class="flex items-center">
@@ -46,7 +46,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="showPrices">
+  <div *ngIf="this.cabService.showPrices">
     <div class="bg-white p-2 flex mt-2">
       <div class="flex-1">
         <div class="font-bold">Distance in km</div>
@@ -108,15 +108,17 @@
   </div>
 </ion-footer> -->
 
-<ion-footer  *ngIf="showPrices">
-  <ion-toolbar color="light">    
-   <div class="p-2">
-    <button class="btn-grad" (click)="book()">
-      <span style="float:left;font-weight: bold;font-size: 0.9rem;">Confirm Booking</span>
-      <span style="float:right;font-size: 0.9rem;">
-        <ion-icon class="text-white" name="arrow-forward"></ion-icon>
-      </span>
-    </button>
-   </div>
+<ion-footer *ngIf="this.cabService.showPrices">
+  <ion-toolbar color="light">
+    <div class="p-2">
+      <button class="btn-grad" (click)="book()">
+        <span style="float: left; font-weight: bold; font-size: 0.9rem"
+          >Confirm Booking</span
+        >
+        <span style="float: right; font-size: 0.9rem">
+          <ion-icon class="text-white" name="arrow-forward"></ion-icon>
+        </span>
+      </button>
+    </div>
   </ion-toolbar>
 </ion-footer>

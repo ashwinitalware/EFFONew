@@ -329,12 +329,19 @@ export class TrackPage {
     // return;
   }
 
-  animatedMove(marker, t, current, moveto) {
+  async animatedMove(marker, t, current, moveto) {
     console.log('animating...');
+
+    // const data = await this.http
+    //   .get(
+    //     `https://roads.googleapis.com/v1/nearestRoads?points=${moveto.lat()}|${moveto.lng()}&key=AIzaSyD6d0aNvUiSWaENoQ1UuqCOzfMg0Wmq7Do`
+    //   )
+    //   .toPromise();
+
+    // console.log('neared road', data);
 
     const deltalat = (moveto.lat() - current.lat()) / 100;
     const deltalng = (moveto.lng() - current.lng()) / 100;
-
     const delay = 10 * t;
     for (let i = 0; i < 100; i++) {
       (function (i) {

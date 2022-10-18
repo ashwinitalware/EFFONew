@@ -11,7 +11,6 @@ declare let google: any;
 })
 export class CabConfirmBookingPage implements OnInit {
   selectCabTypeIndex;
-  showPrices = false;
   constructor(
     public dataService: DataService,
     public cabService: CabService,
@@ -23,22 +22,7 @@ export class CabConfirmBookingPage implements OnInit {
     console.log(this.cabService.toLatLngObject);
     this.calculateDistance();
   }
-  selectCabType(index) {
-    this.cabService.selectedCabId = this.cabService.cabTypes[index].id;
-    this.cabService.cabTypes.forEach((cabType) => {
-      cabType.selected = false;
-    });
-    this.cabService.cabTypes[index].selected = true;
-    // this.calculatePrices()
-    // calculate Prices
 
-    this.cabService.baseFare =
-      this.cabService.distance *
-      this.cabService.cabTypes[index].attributes.pricePerKm;
-    this.cabService.tax = this.cabService.baseFare * 0.18;
-    this.cabService.total = this.cabService.baseFare + this.cabService.tax;
-    this.showPrices = true;
-  }
   calculateDistance() {
     const directionsService = new google.maps.DirectionsService();
 
@@ -54,6 +38,7 @@ export class CabConfirmBookingPage implements OnInit {
             response.routes[0].legs[0].distance.value / 1000 +
             ''
           );
+          this.cabService.autoSelectCabType();
         } else {
           alert('Failed to calcualate Distance');
           this.navCtrl.back();
@@ -70,6 +55,7 @@ export class CabConfirmBookingPage implements OnInit {
         {},
         {
           data: {
+            city: this.cabService.selectedCityObj.attributes.name,
             user: this.dataService.profile.id,
             type: this.cabService.type,
             from: this.cabService.from,

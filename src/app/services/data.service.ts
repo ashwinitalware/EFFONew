@@ -22,7 +22,7 @@ export class DataService {
   // DIRECT CONFIGS
   appName = 'Effo';
   directNavigate = '/dashboard';
-  localStorageName = 'effoProfilev2';
+  localStorageName = 'rushGoV1';
   logoName = 'textW.png';
   // appName="AISA"
   // directNavigate='/jobdashboard'
@@ -56,14 +56,14 @@ export class DataService {
       icon: 'car',
       title: 'My Rides',
       active: false,
-      role: 'business',
-    },
-    {
-      icon: 'person',
-      title: 'Profile Settings',
-      active: false,
       role: 'history',
     },
+    // {
+    //   icon: 'person',
+    //   title: 'Profile Settings',
+    //   active: false,
+    //   role: 'history',
+    // },
     {
       icon: 'wallet',
       title: 'Wallet',
@@ -126,7 +126,9 @@ export class DataService {
   //   // id: 1,
   // };
   profile: any;
-  domainUrl = 'https://strapi.effoapp.com/';
+  // domainUrl = 'https://strapi.effoapp.com/';
+  // apiUrl = this.domainUrl + 'api/';
+  domainUrl = 'https://rush-go.webmediaindia.com/';
   apiUrl = this.domainUrl + 'api/';
   isLoading = false;
   constructor(
@@ -138,7 +140,8 @@ export class DataService {
     public photoViewer: PhotoViewer
   ) {
     // this.domainUrl = 'http://192.168.1.24:1337/';
-    // this.apiUrl = this.domainUrl + 'api/';
+    this.domainUrl = 'http://localhost:1337/';
+    this.apiUrl = this.domainUrl + 'api/';
 
     ///MAIN CONFIGS
 

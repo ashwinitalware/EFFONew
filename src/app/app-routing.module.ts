@@ -221,11 +221,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./Job/joblist/joblist.module').then((m) => m.JoblistPageModule),
   },
-  // {
-  //   path: 'history',
-  //   loadChildren: () =>
-  //     import('./Job/history/history.module').then((m) => m.HistoryPageModule),
-  // },
+  {
+    path: 'history',
+    loadChildren: () =>
+      import('./cab/cab-history/cab-history.module').then(
+        (m) => m.CabHistoryPageModule
+      ),
+  },
   {
     path: 'profile',
     loadChildren: () =>
@@ -665,61 +667,98 @@ const routes: Routes = [
   },
   {
     path: 'rental',
-    loadChildren: () => import('./cab/rental/rental.module').then( m => m.RentalPageModule)
+    loadChildren: () =>
+      import('./cab/rental/rental.module').then((m) => m.RentalPageModule),
   },
   {
     path: 'vehicletype',
-    loadChildren: () => import('./cab/vehicletype/vehicletype.module').then( m => m.VehicletypePageModule)
+    loadChildren: () =>
+      import('./cab/vehicletype/vehicletype.module').then(
+        (m) => m.VehicletypePageModule
+      ),
   },
   {
     path: 'outstation',
-    loadChildren: () => import('./cab/outstation/outstation.module').then( m => m.OutstationPageModule)
+    loadChildren: () =>
+      import('./cab/outstation/outstation.module').then(
+        (m) => m.OutstationPageModule
+      ),
   },
   {
     path: 'confirm-booking',
-    loadChildren: () => import('./cab/confirm-booking/confirm-booking.module').then( m => m.ConfirmBookingPageModule)
+    loadChildren: () =>
+      import('./cab/confirm-booking/confirm-booking.module').then(
+        (m) => m.ConfirmBookingPageModule
+      ),
   },
   {
     path: 'autohome',
-    loadChildren: () => import('./cab/autohome/autohome.module').then( m => m.AutohomePageModule)
+    loadChildren: () =>
+      import('./cab/autohome/autohome.module').then(
+        (m) => m.AutohomePageModule
+      ),
   },
   {
     path: 'autochange',
-    loadChildren: () => import('./cab/autochange/autochange.module').then( m => m.AutochangePageModule)
+    loadChildren: () =>
+      import('./cab/autochange/autochange.module').then(
+        (m) => m.AutochangePageModule
+      ),
   },
   {
     path: 'autotype',
-    loadChildren: () => import('./cab/autotype/autotype.module').then( m => m.AutotypePageModule)
+    loadChildren: () =>
+      import('./cab/autotype/autotype.module').then(
+        (m) => m.AutotypePageModule
+      ),
   },
   {
     path: 'autohistory',
-    loadChildren: () => import('./cab/autohistory/autohistory.module').then( m => m.AutohistoryPageModule)
+    loadChildren: () =>
+      import('./cab/autohistory/autohistory.module').then(
+        (m) => m.AutohistoryPageModule
+      ),
   },
   {
     path: 'transporthome',
-    loadChildren: () => import('./cab/transporthome/transporthome.module').then( m => m.TransporthomePageModule)
+    loadChildren: () =>
+      import('./cab/transporthome/transporthome.module').then(
+        (m) => m.TransporthomePageModule
+      ),
   },
   {
     path: 'transporttype',
-    loadChildren: () => import('./cab/transporttype/transporttype.module').then( m => m.TransporttypePageModule)
+    loadChildren: () =>
+      import('./cab/transporttype/transporttype.module').then(
+        (m) => m.TransporttypePageModule
+      ),
   },
   {
     path: 'transporthistory',
-    loadChildren: () => import('./cab/transporthistory/transporthistory.module').then( m => m.TransporthistoryPageModule)
+    loadChildren: () =>
+      import('./cab/transporthistory/transporthistory.module').then(
+        (m) => m.TransporthistoryPageModule
+      ),
   },
   {
     path: 'login',
-    loadChildren: () => import('./cab/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () =>
+      import('./cab/login/login.module').then((m) => m.LoginPageModule),
   },
   {
     path: 'location',
-    loadChildren: () => import('./cab/location/location.module').then( m => m.LocationPageModule)
+    loadChildren: () =>
+      import('./cab/location/location.module').then(
+        (m) => m.LocationPageModule
+      ),
   },
   {
     path: 'out-booking-details',
-    loadChildren: () => import('./cab/out-booking-details/out-booking-details.module').then( m => m.OutBookingDetailsPageModule)
+    loadChildren: () =>
+      import('./cab/out-booking-details/out-booking-details.module').then(
+        (m) => m.OutBookingDetailsPageModule
+      ),
   },
-
 
   // {
   //   path: 'job-profile',
