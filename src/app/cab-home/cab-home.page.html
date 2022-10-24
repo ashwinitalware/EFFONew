@@ -1,12 +1,3 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>RushGo Cab Services </ion-title>
-    <ion-buttons slot="end" (click)="this.router.navigate(['/cab-cities'])">
-      <ion-icon name="pin-outline"></ion-icon>
-      {{this.cabService.selectedCity|titlecase}} &nbsp;
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header> -->
 <ion-header>
   <ion-toolbar>
     <div slot="start">
@@ -25,45 +16,34 @@
 </ion-header>
 
 <ion-content class="relative">
-  <!-- //button -->
-  <!-- <div class="p-2 flex justify-between">
-    <ion-button expand="block" (click)="presentAlert()">
-      Call
-    </ion-button>
-    <div class="flex justify-between">
-      <div class="neumorphism-3 ">
-        <img src="assets/cab/phone-call.png" alt="" width="20" height="20">
-      </div>&nbsp;
-      <div class="neumorphism-3">
-        <img src="assets/cab/whatsapp.png" alt="" width="25" height="25">
+  <div class="h-full flex flex-col">
+    <!-- {{dynamicClass}} -->
+    <div
+      class="transition-all overflow-hidden {{dynamicClass}}"
+      #top
+      style="height: {{dynamicHeight}}"
+    >
+      <!-- style="height: {{dynamicHeight}}" -->
+      <div class="bg-white">
+        <ion-slides #slider loop="true" [options]="slideOptss">
+          <ion-slide>
+            <div class="pl-2 pt-2 pr-2">
+              <div align="center">
+                <img class="rounded-md" src="assets/cab/cab1.png" />
+              </div>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="pl-2 pt-2 pr-2">
+              <div align="center">
+                <img class="rounded-md" src="assets/cab/cab2.png" />
+              </div>
+            </div>
+          </ion-slide>
+        </ion-slides>
       </div>
     </div>
-  </div>
 
-    <div class="neumorphism-1"></div>
-    <div class="neumorphism-2"></div>
-    <div class="neumorphism-3"></div> -->
-
-  <div class="fixed w-full">
-    <div class="bg-white">
-      <ion-slides #slider loop="true" [options]="slideOptss">
-        <ion-slide>
-          <div class="pl-2 pt-2 pr-2">
-            <div align="center">
-              <img class="rounded-md" src="assets/cab/cab1.png" />
-            </div>
-          </div>
-        </ion-slide>
-        <ion-slide>
-          <div class="pl-2 pt-2 pr-2">
-            <div align="center">
-              <img class="rounded-md" src="assets/cab/cab2.png" />
-            </div>
-          </div>
-        </ion-slide>
-      </ion-slides>
-    </div>
-    <!-- {{this.cabService.featureSelected}} -->
     <div
       class="bg-white rounded-bl-md rounded-br-md"
       style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px"
@@ -100,28 +80,14 @@
     </div>
 
     <div class="p-2">
-      <!-- <ion-segment
-        (ngModelChange)="segmentChanged($event)"
-        mode="ios"
-        [(ngModel)]="this.cabService.type"
-         >
-        <ion-segment-button value="local" routerLink="/autohome">
-          <ion-label>Local</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="rental"  routerLink="/rental">
-          <ion-label>Rental</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="outstation" routerLink="/outstation">
-          <ion-label routerLink="/outstation">Outstation</ion-label >
-        </ion-segment-button>
-      </ion-segment> -->
-
       <div
         class="w-full mt-2 flex bg-white border border-white hover:border-yellow-500 py-2 rounded-lg drop-shadow-md shadow-md"
       >
         <img src="assets/cab/fromPin.png" alt="" class="h-6" />
 
         <input
+          (focus)="this.dynamicClass = 'zero-height'"
+          (blur)="this.dynamicClass = ''"
           [(ngModel)]="cabService.from"
           #pickSearch
           type="text"
@@ -146,6 +112,8 @@
         <img src="assets/cab/toPin.png" alt="" class="h-6" />
 
         <input
+          (focus)="this.dynamicClass = 'zero-height'"
+          (blur)="this.dynamicClass = ''"
           [(ngModel)]="cabService.to"
           #search
           type="text"
@@ -161,32 +129,37 @@
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="fixed"
-    style="top: 70%; left: 50%; margin-top: -20px; margin-left: -10px"
-  >
-    <img class="animate-bounce" src="assets/cab/{{pinImage}}.png" alt="" />
-  </div>
+    <div
+      class="fixed"
+      style="
+        top: 70%;
+        left: 50%;
+        margin-top: -20px;
+        margin-left: -10px;
+        z-index: 1;
+      "
+    >
+      <img class="animate-bounce" src="assets/cab/{{pinImage}}.png" alt="" />
+    </div>
 
-  <div style="height: 100%; z-index: -1" #map id="map_canvas"></div>
+    <div class="flex-1" #map id="map_canvas"></div>
 
-  <ion-fab
-    vertical="bottom"
-    horizontal="end"
-    slot="fixed"
-    class="flex flex-col items-end"
-  >
-    <ion-fab-button size="small" color="warning">
-      <ion-icon class="text-white" name="locate"></ion-icon>
-    </ion-fab-button>
-    <ion-button
-      color="warning"
-      class="text-white"
-      (click)="book()"
-      shape="round"
-      ><span class="text-white">Book Now</span>
-      <ion-icon class="text-white" name="arrow-forward"></ion-icon>
-    </ion-button>
-  </ion-fab>
-</ion-content>
+    <ion-fab
+      vertical="bottom"
+      horizontal="end"
+      slot="fixed"
+      class="flex flex-col items-end"
+    >
+      <ion-fab-button size="small" color="warning">
+        <ion-icon class="text-white" name="locate"></ion-icon>
+      </ion-fab-button>
+      <ion-button
+        color="warning"
+        class="text-white"
+        (click)="book()"
+        shape="round"
+        ><span class="text-white">Book Now</span>
+        <ion-icon class="text-white" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-fab></div
+></ion-content>

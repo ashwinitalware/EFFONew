@@ -11,6 +11,8 @@ declare var google;
   styleUrls: ['./cab-home.page.scss'],
 })
 export class CabHomePage implements OnInit {
+  dynamicHeight = 'auto';
+  dynamicClass = '';
   pinImage = 'fromPin';
   // pickAddress =''
   // dropAddress =''
@@ -23,6 +25,7 @@ export class CabHomePage implements OnInit {
   map;
   @ViewChild('pickSearch') public pickSearchElementRef: ElementRef;
   @ViewChild('search') public searchElementRef: ElementRef;
+  @ViewChild('top') top: ElementRef;
 
   pickAutocomplete;
   autocomplete;
@@ -74,6 +77,9 @@ export class CabHomePage implements OnInit {
   ) {
     //reset everything
     this.resetEverything();
+    // setTimeout(() => {
+    //   this.dynamicClass = 'zero-height';
+    // }, 5000);
   }
   featureChange(index) {
     this.cabService.featureSelected =
@@ -123,8 +129,8 @@ export class CabHomePage implements OnInit {
     }
   }
   ionViewDidEnter() {
+    this.dynamicHeight = this.top.nativeElement.offsetHeight + 'px';
     this.checkIfCityIsSelected();
-    // alert(this.cabService.selectedCityObj.lat)
     console.log('ref', this.mapRef);
     const location = new google.maps.LatLng(
       this.cabService.selectedCityObj.attributes.lat,
@@ -286,6 +292,12 @@ export class CabHomePage implements OnInit {
   }
 
   addDragEndEvent() {
+    this.map.addListener('dragstart', () => {
+      this.pickSearchElementRef.nativeElement.blur();
+      this.searchElementRef.nativeElement.blur();
+      // this.cabService.from = '';
+      // this.cabService.to = '';
+    });
     this.map.addListener('dragend', () => {
       // dont show if the category  is outstaion
       if (this.cabService.type === 'outstation') {
