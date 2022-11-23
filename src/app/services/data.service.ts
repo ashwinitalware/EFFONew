@@ -1,6 +1,10 @@
 import { ElementRef, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { ActionSheetController, LoadingController, MenuController } from '@ionic/angular';
+import {
+  ActionSheetController,
+  LoadingController,
+  MenuController,
+} from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { Share } from '@capacitor/share';
 import { HttpClient } from '@angular/common/http';
@@ -14,6 +18,7 @@ import { Observable } from 'rxjs';
 import qs from 'qs';
 import { App } from '@capacitor/app';
 declare const Swal: any;
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
@@ -109,8 +114,8 @@ export class DataService {
     App.getInfo().then((data) => {
       this.appVersion = data.version;
     });
-    this.domainUrl = 'http://localhost:1337/';
-    this.apiUrl = this.domainUrl + 'api/';
+    // this.domainUrl = 'http://localhost:1337/';
+    // this.apiUrl = this.domainUrl + 'api/';
     this.getCities();
 
     ///MAIN CONFIGS
@@ -270,6 +275,12 @@ export class DataService {
       '_system'
     );
   }
+  showDirection(lat, lng) {
+    window.open(
+      `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`,
+      '_blank'
+    );
+  }
   async share(
     title = 'Download Effo App',
     text = `I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life. Use Referral Code : ${
@@ -300,7 +311,7 @@ export class DataService {
   }
   timeSince(date) {
     try {
-      let seconds = Math.floor(
+      const seconds = Math.floor(
         (new Date().valueOf() - new Date(date).valueOf()) / 1000
       );
 
@@ -431,16 +442,44 @@ export class DataService {
   }
 
   _get(endpoint, params): Observable<any> {
-    return this.http.get(this.apiUrl + endpoint + '?' + params);
+    return this.http.get(this.apiUrl + endpoint + '?' + params).pipe(
+      map((data) => {
+        // console.log("got data to handle", data);
+        this.handleResponse(data);
+
+        return data;
+      })
+    );
   }
   _post(endpoint, params, body): Observable<any> {
-    return this.http.post(this.apiUrl + endpoint, body);
+    return this.http.post(this.apiUrl + endpoint, body).pipe(
+      map((data) => {
+        // console.log("got data to handle", data);
+        this.handleResponse(data);
+
+        return data;
+      })
+    );
   }
   _put(endpoint, params, body): Observable<any> {
-    return this.http.put(this.apiUrl + endpoint, body);
+    return this.http.put(this.apiUrl + endpoint, body).pipe(
+      map((data) => {
+        // console.log("got data to handle", data);
+        this.handleResponse(data);
+
+        return data;
+      })
+    );
   }
   _delete(endpoint, params = {}, body = {}): Observable<any> {
-    return this.http.delete(this.apiUrl + endpoint, body);
+    return this.http.delete(this.apiUrl + endpoint, body).pipe(
+      map((data) => {
+        // console.log("got data to handle", data);
+        this.handleResponse(data);
+
+        return data;
+      })
+    );
   }
 
   slideClicked(slide) {
@@ -484,7 +523,7 @@ export class DataService {
   }
 
   getSliders() {
-    let query = qs.stringify({
+    const query = qs.stringify({
       filters: {
         position: 'homeTop',
       },
@@ -495,7 +534,7 @@ export class DataService {
     });
   }
   getSlidersSecond() {
-    let query = qs.stringify({
+    const query = qs.stringify({
       filters: {
         position: 'homeSecond',
       },
@@ -504,5 +543,44 @@ export class DataService {
     this._get('sliders', query).subscribe((data) => {
       this.homeSlidersSecond = data.data;
     });
+  }
+
+  handleResponse(body) {
+    if (body.logout) {
+      this.logout();
+    }
+    if (body.toast) {
+      this.presentToast(
+        body.toast.title,
+
+        body.toast.type,
+        body.toast.duration
+      );
+    }
+    if (body.navigation) {
+      this.router.navigate([body.navigation.link], {
+        ...body.navigation.params,
+      });
+    }
+    if (body.swal) {
+      this.swal(
+        body.swal.title,
+        body.swal.body,
+        body.swal.type,
+        body.swal.timer
+      );
+
+      // this.navCtrl.push(body.navigation.link,body.navigation.params)
+    }
+    if (body.webview) {
+      // TO-DO ADD WEBVIEW
+      // this.eventEmitters.navigation.emit({
+      //   link: "CommonWebPage",
+      //   params: {
+      //     title: body.webview.title,
+      //     url: body.webview.url,
+      //   },
+      // });
+    }
   }
 }

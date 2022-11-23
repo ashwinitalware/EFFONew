@@ -7,74 +7,76 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-
   <ion-slides #slider loop="true" [options]="slideOpts">
-
     <ion-slide *ngFor="let slide of slides">
       <ion-card style="border-radius: 5px">
         <img src="{{slide.url}}" />
       </ion-card>
     </ion-slide>
-
   </ion-slides>
 
+  <div class="px-4">
+    <div class="flex items-center bg-white rounded-md shadow-md">
+      <ion-input
+        (ngModelChange)="getVendorsByQuery($event)"
+        [(ngModel)]="searchQuery"
+        class="flex-1"
+        placeholder="Search : Shop Name , Address , Pin code"
+        id="search"
+      >
+        <ion-icon name="search" style="margin-left: 7px"></ion-icon>
+      </ion-input>
 
-  <div class="px-4 ">
-  <div class="flex items-center bg-white rounded-md shadow-md">
-    <ion-input 
-    (ngModelChange)="getVendorsByQuery($event)"
-    [(ngModel)]="searchQuery"
-      class="flex-1"
-      placeholder="Search by vendor name"
-      id="search"
-    >
-      <ion-icon name="search" style="margin-left: 7px"></ion-icon>
-    </ion-input>
-
-    <ion-icon
-    *ngIf="searchQuery"
-    (click)="clear()"
-
-      name="close"
-      class="px-4"
-      style="margin-left: 7px"
-    ></ion-icon>
+      <ion-icon
+        *ngIf="searchQuery"
+        (click)="clear()"
+        name="close"
+        class="px-4"
+        style="margin-left: 7px"
+      ></ion-icon>
+    </div>
   </div>
-</div>
   <div>
-
-
-
-
     <div class="p-4">
-
-      <div class="bg-white p-4 mt-2 rounded-md " style="width: 100%" *ngFor="let shoppingProfile of vendors">
+      <div
+        class="bg-white p-4 mt-2 rounded-md"
+        style="width: 100%"
+        *ngFor="let shoppingProfile of vendors"
+      >
         <div class="flex">
-          <div *ngIf="shoppingProfile.attributes.logo"
+          <div
+            *ngIf="shoppingProfile.attributes.logo"
             class="flex w-10 h-10 bg-red-100 rounded-full bg-contain bg-no-repeat bg-center"
-            style="background-image: url({{shoppingProfile.attributes.bannerImage}});"></div>
+            style="background-image: url({{shoppingProfile.attributes.bannerImage}});"
+          ></div>
 
-
-          <div *ngIf="!shoppingProfile.attributes.logo"
-            class="flex w-10 h-10 bg-gray-200 rounded-full bg-contain bg-no-repeat bg-center items-center justify-center  ">
-
+          <div
+            *ngIf="!shoppingProfile.attributes.logo"
+            class="flex w-10 h-10 bg-gray-200 rounded-full bg-contain bg-no-repeat bg-center items-center justify-center"
+          >
             <ion-icon class="text-xl text-black" name="apps"></ion-icon>
           </div>
 
           <div class="px-4 flex-1">
-            <div class="flex ">
-              <div class="font-bold flex-1">{{shoppingProfile.attributes.companyName|titlecase}}</div>
-              <div class="bg-yellow-500 text-white text-xs flex items-center rounded-md p-1 ">
+            <div class="flex">
+              <div class="font-bold flex-1">
+                {{shoppingProfile.attributes.companyName|titlecase}}
+              </div>
+              <div
+                class="bg-yellow-500 text-white text-xs flex items-center rounded-md p-1"
+              >
                 4.5 <ion-icon name="star"></ion-icon>
               </div>
             </div>
             <div class="text-gray-700 flex items-center">
               <!-- <ion-icon name="location" class="text-red-600 text-sm"></ion-icon>
               &nbsp; -->
-              <div>{{shoppingProfile.attributes.companyAddress |titlecase}}</div>
+              <div>
+                {{shoppingProfile.attributes.companyAddress |titlecase}}
+              </div>
             </div>
 
-            <div class="flex  justify-around">
+            <div class="flex justify-around">
               <!-- <ion-button
             [routerLink]="['/vendor-details/'+vendor.id]"
             color="tertiary"
@@ -92,17 +94,20 @@
           </ion-button> -->
             </div>
           </div>
-
         </div>
         <div class="text-right">
-   
-          <ion-button shape="round"   color="dark" class="flex-1 mt-2 text-sm" [routerLink]="['/shopping-vendor-menu/'+shoppingProfile.attributes.vendor.data.id]" routerLinkActive="router-link-active" >
+          <ion-button
+            shape="round"
+            color="dark"
+            class="flex-1 mt-2 text-sm"
+            [routerLink]="['/shopping-vendor-menu/'+shoppingProfile.attributes.vendor.data.id]"
+            routerLinkActive="router-link-active"
+          >
             <b>Shop Now </b><ion-icon name="arrow-forward-outline"></ion-icon>
           </ion-button>
         </div>
       </div>
     </div>
-
   </div>
   <!-- <div>
     <ion-button fill="clear" color="dark" class="flex-1 mt-2 bg-white text-sm">
@@ -150,13 +155,10 @@
             <div class="truncate mt-2 text-xs">Show Less</div>
           </ion-col>
         </ion-row>
-       
+
       </ion-grid>
     </div>
   </div> -->
 
-  <div *ngIf="this.notFound" class="text-center font-bold ">
-    No Vendor Found
-  </div>
-
+  <div *ngIf="this.notFound" class="text-center font-bold">No Vendor Found</div>
 </ion-content>

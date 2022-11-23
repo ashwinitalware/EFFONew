@@ -8,6 +8,27 @@
 </ion-header>
 
 <ion-content>
+  <div class="px-4 mt-4">
+    <div class="flex items-center bg-white rounded-md shadow-md">
+      <ion-input
+        (ngModelChange)="getVendors($event)"
+        [(ngModel)]="searchQuery"
+        class="flex-1"
+        placeholder="Search : Shop Name , Address , Pin code"
+        id="search"
+      >
+        <ion-icon name="search" style="margin-left: 7px"></ion-icon>
+      </ion-input>
+
+      <ion-icon
+        *ngIf="searchQuery"
+        (click)="clear()"
+        name="close"
+        class="px-4"
+        style="margin-left: 7px"
+      ></ion-icon>
+    </div>
+  </div>
 
   <div *ngIf="notFound">
     <div align="center" style="margin-top: 20%">
@@ -23,21 +44,20 @@
       class="bg-white p-4 mt-2 rounded-md flex"
       style="width: 100%"
       *ngFor="let vendor of data"
-    > 
-      <div  *ngIf="vendor.attributes.logo"
+    >
+      <div
+        *ngIf="vendor.attributes.logo"
         class="flex w-16 h-16 bg-red-100 rounded-full bg-contain bg-no-repeat bg-center"
         style="background-image: url({{vendor.attributes.bannerImage}});"
       ></div>
 
+      <div
+        *ngIf="!vendor.attributes.logo"
+        class="flex w-16 h-16 bg-gray-300 rounded-full bg-contain bg-no-repeat bg-center items-center justify-center text-gray-500"
+      >
+        <ion-icon class="text-3xl" name="briefcase"></ion-icon>
+      </div>
 
-      <div *ngIf="!vendor.attributes.logo"
-      class="flex w-16 h-16  bg-gray-300 rounded-full bg-contain bg-no-repeat bg-center items-center justify-center  text-gray-500"
-     
-    >
-   
-    <ion-icon class="text-3xl" name="briefcase"></ion-icon>
-  </div>
-      
       <div class="px-4 flex-1">
         <div class="font-bold">{{vendor.attributes.companyName|titlecase}}</div>
         <div class="text-gray-700 flex items-center">
@@ -54,7 +74,8 @@
           >
             <b> Details</b>
           </ion-button>
-          <ion-button (click)="this.dataService.contact( 'call','91'+vendor.attributes.vendor.data.attributes.phone)"
+          <ion-button
+            (click)="this.dataService.contact( 'call','91'+vendor.attributes.vendor.data.attributes.phone)"
             color="success"
             class="flex-1 mt-2 bg-white text-sm"
           >

@@ -104,7 +104,9 @@ export class ServiceHomePage implements OnInit {
       // console.log(categories);
 
       category.attributes.subCategories.data.forEach((subCategory) => {
-        if (this.suggestions.length > 5) return;
+        if (this.suggestions.length > 5) {
+          return;
+        }
         console.log(subCategory.attributes.name);
         if (
           subCategory.attributes.name
@@ -134,6 +136,7 @@ export class ServiceHomePage implements OnInit {
         qs.stringify({
           populate: '*',
           filters: {
+            status: 'accepted',
             vendor: {
               city: {
                 // $containsi: this.dataService.profile.ci'ty,

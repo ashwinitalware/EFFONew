@@ -70,10 +70,12 @@
           <ion-icon class="text-gray-600 text-sm" name="location"></ion-icon>
           {{data.attributes.companyAddress|titlecase}} </span
         ><br />
-        <span class="text-sm">
-          <ion-icon class="text-gray-600 text-sm" name="time"></ion-icon>
-          {{data.attributes.businessTimings}} </span
-        ><br />
+        <div *ngIf="data.attributes.businessTimings">
+          <span class="text-sm">
+            <ion-icon class="text-gray-600 text-sm" name="time"></ion-icon>
+            {{data.attributes.businessTimings}}
+          </span>
+        </div>
         <span class="text-sm">
           <ion-icon class="text-gray-600 text-sm" name="call"></ion-icon> +91
           {{data.attributes.vendor.data.attributes.phone}} </span
