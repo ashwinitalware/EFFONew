@@ -357,88 +357,93 @@ export class DataService {
     }
   }
   async syncFCMToken() {
-    await PushNotifications.requestPermissions();
-    await PushNotifications.register();
-    if (this.profile) {
-      if (this.profile.id) {
-        await PushNotifications.addListener('registration', (token) => {
-          // console.info('Registration token: ', token.value);
-          console.log(token.value);
-          // alert(token.value);
-
-          this.http
-            .put(this.apiUrl + 'users/' + this.profile.id, {
-              token: token.value,
-            })
-            .subscribe((data) => {});
-        });
-
-        // FCM.getToken()
-        //   .then((token) => {})
-        //   .catch((err) => console.log(err));
-      }
-    }
-
-    PushNotifications.addListener(
-      'pushNotificationReceived',
-      async (notification) => {
-        const toast = await this.toastController.create({
-          header: notification.title,
-          message: notification.body,
-          // icon: 'information-circle',
-          // position: 'top',
-          buttons: [
-            {
-              side: 'end',
-              // icon: 'star',
-              cssClass: 'toastText',
-              text: 'View',
-              handler: () => {
-                this.router.navigate([notification.data.route]);
-                // console.log('Favorite clicked');
-              },
-            },
-            {
-              text: 'Cancel',
-              role: 'cancel',
-              handler: () => {
-                console.log('Cancel clicked');
-              },
-            },
-          ],
-        });
-        await toast.present();
-
-        // alert(JSON.stringify(notification.data.))
-        // alert('local'+notification.data.link)
-        // LocalNotifications.schedule({
-        //   notifications: [
-        //     {
-        //       id: 1,
-        //       title: notification.title,
-        //       body: notification.body,
-        //     },
-        //   ],
-        // }
-        // ,);
-      }
-    ).then((data) => {});
-
-    PushNotifications.addListener('pushNotificationActionPerformed', (data) => {
-      // alert(data)
-      // only navigate if logged in
+    try {
+      await PushNotifications.requestPermissions();
+      await PushNotifications.register();
       if (this.profile) {
-        this.router.navigate([data.notification.data.route]);
+        if (this.profile.id) {
+          await PushNotifications.addListener('registration', (token) => {
+            // console.info('Registration token: ', token.value);
+            console.log(token.value);
+            // alert(token.value);
+
+            this.http
+              .put(this.apiUrl + 'users/' + this.profile.id, {
+                token: token.value,
+              })
+              .subscribe((data) => {});
+          });
+
+          // FCM.getToken()
+          //   .then((token) => {})
+          //   .catch((err) => console.log(err));
+        }
       }
 
-      // data.notification.data.
-    })
-      .then((data2) => {
-        // alert('data2'+data2)
-      })
-      .catch((err) => {
-        // alert('error'+err)
-      });
+      PushNotifications.addListener(
+        'pushNotificationReceived',
+        async (notification) => {
+          const toast = await this.toastController.create({
+            header: notification.title,
+            message: notification.body,
+            // icon: 'information-circle',
+            // position: 'top',
+            buttons: [
+              {
+                side: 'end',
+                // icon: 'star',
+                cssClass: 'toastText',
+                text: 'View',
+                handler: () => {
+                  this.router.navigate([notification.data.route]);
+                  // console.log('Favorite clicked');
+                },
+              },
+              {
+                text: 'Cancel',
+                role: 'cancel',
+                handler: () => {
+                  console.log('Cancel clicked');
+                },
+              },
+            ],
+          });
+          await toast.present();
+
+          // alert(JSON.stringify(notification.data.))
+          // alert('local'+notification.data.link)
+          // LocalNotifications.schedule({
+          //   notifications: [
+          //     {
+          //       id: 1,
+          //       title: notification.title,
+          //       body: notification.body,
+          //     },
+          //   ],
+          // }
+          // ,);
+        }
+      ).then((data) => {});
+
+      PushNotifications.addListener(
+        'pushNotificationActionPerformed',
+        (data) => {
+          // alert(data)
+          // only navigate if logged in
+          if (this.profile) {
+            this.router.navigate([data.notification.data.route]);
+          }
+
+          // data.notification.data.
+        }
+      )
+        .then((data2) => {
+          // alert('data2'+data2)
+        })
+        .catch((err) => {
+          // alert('error'+err)
+        });
+    } catch (error) {}
   }
 
   _get(endpoint, params): Observable<any> {
