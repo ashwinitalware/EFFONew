@@ -2,6 +2,7 @@ import { ElementRef, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   ActionSheetController,
+  isPlatform,
   LoadingController,
   MenuController,
 } from '@ionic/angular';
@@ -171,6 +172,10 @@ export class DataService {
       });
   }
   async capture(galleryInput: ElementRef, cameraInput: ElementRef) {
+    if (isPlatform('ios') || isPlatform('ipad') || isPlatform('ipad')) {
+      galleryInput.nativeElement.click();
+      return;
+    }
     const actionSheet = await this.actionSheet.create({
       header: 'Select Option',
       cssClass: 'my-custom-class',

@@ -25,7 +25,7 @@
     "@awesome-cordova-plugins/in-app-browser": "^5.40.0",
     "@awesome-cordova-plugins/photo-viewer": "^5.40.0",
     "@awesome-cordova-plugins/sms-retriever": "^5.40.0",
-    "@capacitor-community/fcm": "^2.0.2",
+    "@capacitor-community/fcm": "^3.0.1",
     "@capacitor/android": "3.5.0",
     "@capacitor/app": "1.1.1",
     "@capacitor/core": "^3.4.3",
