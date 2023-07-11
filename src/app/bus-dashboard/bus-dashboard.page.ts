@@ -12,11 +12,12 @@ export class BusDashboardPage implements OnInit {
     
   }
 dev(){
-  this.busService.inputs.fromCityId="4135"
-  this.busService.inputs.toCityId="4327"
-  this.busService.inputs.date="2023-07-13"
-  this.busService.inputs.passenger="1"
-  this.busService.getBuses()
+  // this.busService.inputs.fromCityId="4135"
+  // this.busService.inputs.toCityId="4327"
+  // this.busService.inputs.date="2023-07-13"
+  // this.busService.inputs.passenger="1"
+  // this.busService.getBuses()
+  this.busService.getAllBookings()
 
 
 }

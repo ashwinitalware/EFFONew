@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class BusService {
+  bookings=[]
   key
   itinKey=undefined
   tempSingleSeat
@@ -104,12 +105,14 @@ export class BusService {
     })
   }
   getBusReview(key, seatNo, pickId, dropId) {
+    this.dataService.present()
     console.log(key, seatNo, pickId, dropId);
 
     // this.dataService.present()
 
 
     this.dataService._get('bus-cities-custom/busReview', `key=${key}&seatNo=${seatNo}&pickId=${pickId}&dropId=${dropId}`).subscribe(d => {
+      this.dataService.dismiss()
       // this.busReviewDetails = d
       this.itinKey=d.itinKey
       // alert(this.itinKey)
@@ -120,6 +123,7 @@ this.blockBooking()
     })
   };
   blockBooking(){
+    this.dataService.present()
     this.dataService._post('bus-cities-custom/blockSeats', ``,{
       "itinKey":this.itinKey,
       "seatNo":this.tempSingleSeat,
@@ -128,6 +132,7 @@ this.blockBooking()
       "dropId":this.selectedDrop,
       "dropName":this.getStopName('drop',this.selectedPick)
   }).subscribe(d => {
+    this.dataService.dismiss()
       // this.busReviewDetails = d
       // this.itinKey=d.itinKey
       // alert(this.itinKey)
@@ -140,15 +145,18 @@ this.bookTicket()
     })
   }
   bookTicket(){
+    this.dataService.present()
     this.dataService._post('bus-cities-custom/bookSeats', ``,{
       "itinKey":this.itinKey,
      
   }).subscribe(d => {
+    this.dataService.dismiss()
       // this.busReviewDetails = d
       // this.itinKey=d.itinKey
       // alert(this.itinKey)
       console.log('booking ',d);
       // alert('Ticket Booked :  '+this.itinKey)
+      this.dataService.present()
       this.dataService._post('bus-bookings','',{
         data:{
           user:this.dataService.profile.id,
@@ -156,10 +164,11 @@ this.bookTicket()
           viaStatus:'confirmed'
         }
       }).subscribe(d=>{
-
+        this.dataService.dismiss()
 
         this.dataService.confirmSwal('Booking Confirmed : '+this.itinKey)
 
+        this.getAllBookings()
         this.navCtrl.back()
       })
 
@@ -182,6 +191,26 @@ this.bookTicket()
 // }
 confirmBooking(){
   this.getBusReview(this.key,this.tempSingleSeat,this.selectedPick,this.selectedDrop)
+}
+getAllBookings(){
+  this.bookings=[]
+  this.dataService._get('bus-bookings','').subscribe(d=>{
+    this.bookings=d.data
+    let i=0
+    this.bookings.forEach(booking => {
+      this.getViaBookingDetails(i++,booking.attributes.itinKey)
+    });
+  })
+  // this.dataService._get('bus-cities-custom/getBooking/'+)
+  
+}
+getViaBookingDetails(index,id){
+  this.dataService._get('bus-cities-custom/getBooking/'+id,'').subscribe(d=>{
+    this.bookings[index].data=d
+    console.log(d);
+    
+  })
+
 }
 searchCity(city, source) {
 
