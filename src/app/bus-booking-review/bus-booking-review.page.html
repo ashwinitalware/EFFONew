@@ -1,9 +1,40 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>busBookingReview</ion-title>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start" color="light">
+      <ion-back-button style="color: white;"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Review Booking</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content><div class="p-4">
 
+
+  <div class="font-bold text-sm">Select Pick Point</div>
+  <ion-list>
+    <ion-radio-group [(ngModel)]="this.busService.selectedPick">
+      <ion-item *ngFor="let stop of this.busService.pick">
+        <ion-label>{{stop.name}}</ion-label>
+        <ion-radio slot="end" value="{{stop.id}}"></ion-radio>
+      </ion-item>
+  
+    </ion-radio-group>
+  </ion-list>
+  <div class="font-bold  text-sm ">Select Drop Point</div>
+  <ion-list>
+    <ion-radio-group  [(ngModel)]="this.busService.selectedDrop">
+      <ion-item *ngFor="let stop of this.busService.drop">
+        <ion-label>{{stop.name}}</ion-label>
+        <ion-radio slot="end" value="{{stop.id}}"></ion-radio>
+      </ion-item>
+  
+     
+    </ion-radio-group>
+  </ion-list>
+
+  <br>
+<div (click)="this.busService.confirmBooking()" *ngIf="(this.busService.selectedPick&&this.busService.selectedDrop)" class="w-full bg-black text-white text-center rounded-md py-2 shadow-md">
+    Book & Pay {{this.busService.charges.total}} /-
+  </div>
+</div>
 </ion-content>

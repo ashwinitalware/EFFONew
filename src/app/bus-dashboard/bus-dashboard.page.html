@@ -1,6 +1,10 @@
 <ion-header>
   <ion-toolbar color="dark" no-border>
-    <ion-title> Bus Booking</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>My Bookings</ion-button>
+    </ion-buttons>
+    <ion-title> Effo Travel</ion-title>
+   
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +18,17 @@
       Explore - Journey - Discover - Adventure
     </div>
   </div>
+ 
+
   <div class="px-8 -mt-16">
+    <!-- <ion-segment [mode]="'ios'" [color]="'light'" value="default">
+      <ion-segment-button value="default">
+        <ion-label>Default</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="segment">
+        <ion-label>Segment</ion-label>
+      </ion-segment-button>
+   </ion-segment> -->
     <div class="bg-white rounded-xl p-4">
       <div class="bg-gray-100 rounded-md">
         <div class="text-gray-800 text-sm p-2">
@@ -139,5 +153,7 @@
         <button class="text-white bg-black rounded-md p-2 w-full">Book</button>
       </div>
     </div>
+    
   </div>
+
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BusService } from '../bus.service';
 
 @Component({
   selector: 'app-bus-booking-review',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusBookingReviewPage implements OnInit {
 
-  constructor() { }
+  constructor(public busService:BusService) { }
 
   ngOnInit() {
   }
