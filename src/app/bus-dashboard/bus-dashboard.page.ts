@@ -8,9 +8,20 @@ import { BusService } from '../bus.service';
 })
 export class BusDashboardPage implements OnInit {
 
-  constructor(public busService: BusService) { }
+  constructor(public busService: BusService) { 
+    
+  }
+dev(){
+  this.busService.inputs.fromCityId="4135"
+  this.busService.inputs.toCityId="4327"
+  this.busService.inputs.date="2023-07-13"
+  this.busService.inputs.passenger="1"
+  this.busService.getBuses()
 
+
+}
   ngOnInit() {
+    this.dev()
   }
 
   clearInput(source) {

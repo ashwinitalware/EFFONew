@@ -4,6 +4,7 @@
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
+    "ionic": "ionic",
     "ng": "ng",
     "start": "ng serve -o --host 0.0.0.0",
     "build": "ionic capacitor copy android",

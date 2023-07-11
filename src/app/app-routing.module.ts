@@ -667,6 +667,10 @@ const routes: Routes = [
     path: 'bus-select-city',
     loadChildren: () => import('./bus-select-city/bus-select-city.module').then( m => m.BusSelectCityPageModule)
   },
+  {
+    path: 'bus-booking-review',
+    loadChildren: () => import('./bus-booking-review/bus-booking-review.module').then( m => m.BusBookingReviewPageModule)
+  },
 
 
   // {

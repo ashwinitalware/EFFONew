@@ -112,24 +112,31 @@
       </button>
     </div>
 
-    <div
+    <div (click)="this.busService.busSelected(bus)"
       *ngFor="let bus of this.busService.buses"
-      class="p-4 bg-white rounded-md shadow-md flex"
+      class="p-4 bg-white rounded-md shadow-md flex  my-2"
     >
       <div class="flex-1">
         <div>{{bus.buses[0].operatorName}}</div>
-        <div>{{bus.buses[0].busType}}</div>
+        <div class="text-xs text-gray-500">{{bus.buses[0].busType}}</div>
         <div class="flex">
-          <div>time</div>
-          <div>Hours</div>
-          <div>Seats</div>
+          <div>
+             <div> Departure 
+            </div>
+            <div>
+
+            {{bus.buses[0].depDetail.time.split(" ")[1].slice(0,5)}}</div>
+          </div>
+          <div> <div>&nbsp; Arrival </div> <div>&nbsp; {{bus.buses[0].arrDetail.time.split(" ")[1].slice(0,5)}}</div>
+        </div>
         </div>
       </div>
-      <div>
+      <div class="flex flex-col">
         <div>Starting From</div>
-        <div class="text-red-600">
-          {{bus.fares[0].paxFares.adt.total.amount}}
+        <div class="text-red-600 font-bold flex-1">
+          {{bus.fares[0].paxFares.adt.total.amount}} /-
         </div>
+        <button class="text-white bg-black rounded-md p-2 w-full">Book</button>
       </div>
     </div>
   </div>
