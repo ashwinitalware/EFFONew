@@ -115,8 +115,8 @@ export class DataService {
     App.getInfo().then((data) => {
       this.appVersion = data.version;
     });
-    // this.domainUrl = 'http://localhost:1337/';
-    // this.apiUrl = this.domainUrl + 'api/';
+    this.domainUrl = 'http://localhost:1337/';
+    this.apiUrl = this.domainUrl + 'api/';
     this.getCities();
 
     ///MAIN CONFIGS
@@ -154,7 +154,7 @@ export class DataService {
       this.cities = data.data;
     });
   }
-  async present(content = 'Loading Data...', duration = 4000) {
+  async present(content = 'Loading Data...', duration = 5000) {
     this.isLoading = true;
     return await this.loadingCtrl
       .create({
@@ -233,7 +233,7 @@ export class DataService {
       return await this.loadingCtrl
         .dismiss()
         .then(() => console.log('dismissed'));
-    } catch (error) {}
+    } catch (error) { }
   }
   viewImage(image) {
     this.photoViewer.show(image);
@@ -272,11 +272,11 @@ export class DataService {
   report(subject = 'Report', body = 'I want to report  ....') {
     window.open(
       'mailto:' +
-        this.contacts.reportEmail +
-        '?subject=' +
-        subject +
-        '&body=' +
-        body,
+      this.contacts.reportEmail +
+      '?subject=' +
+      subject +
+      '&body=' +
+      body,
       '_system'
     );
   }
@@ -288,9 +288,8 @@ export class DataService {
   }
   async share(
     title = 'Download Effo App',
-    text = `I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life. Use Referral Code : ${
-      this.profile.id || 16
-    } and get 10 Points.`,
+    text = `I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life. Use Referral Code : ${this.profile.id || 16
+      } and get 10 Points.`,
     url = 'https://play.google.com/store/apps/details?id=ionic.effo.starter'
   ) {
     await Share.share({
@@ -376,7 +375,7 @@ export class DataService {
               .put(this.apiUrl + 'users/' + this.profile.id, {
                 token: token.value,
               })
-              .subscribe((data) => {});
+              .subscribe((data) => { });
           });
 
           // FCM.getToken()
@@ -428,7 +427,7 @@ export class DataService {
           // }
           // ,);
         }
-      ).then((data) => {});
+      ).then((data) => { });
 
       PushNotifications.addListener(
         'pushNotificationActionPerformed',
@@ -448,7 +447,7 @@ export class DataService {
         .catch((err) => {
           // alert('error'+err)
         });
-    } catch (error) {}
+    } catch (error) { }
   }
 
   _get(endpoint, params): Observable<any> {

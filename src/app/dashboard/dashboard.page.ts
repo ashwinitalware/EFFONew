@@ -40,12 +40,20 @@ export class DashboardPage implements OnInit {
       link: 'service-dashboard',
       available: true,
     },
+    // {
+    //   name: 'Cab Services',
+    //   image: '',
+    //   icon: 'car',
+    //   // link: 'cab-home',
+    //   link: 'cab-tabs',
+    //   available: true,
+    // },
     {
-      name: 'Cab Services',
+      name: 'Bus Bookings',
       image: '',
       icon: 'car',
       // link: 'cab-home',
-      link: 'cab-tabs',
+      link: 'bus-dashboard',
       available: true,
     },
     {
@@ -62,13 +70,13 @@ export class DashboardPage implements OnInit {
       icon: 'home',
       available: true,
     },
-    {
-      name: 'Shopping',
-      image: '',
-      icon: 'bag-handle',
-      link: 'shopping-dashboard',
-      available: true,
-    },
+    // {
+    //   name: 'Shopping',
+    //   image: '',
+    //   icon: 'bag-handle',
+    //   link: 'shopping-dashboard',
+    //   available: true,
+    // },
 
     // {
     //   name: 'Ticket Booking',
@@ -91,13 +99,13 @@ export class DashboardPage implements OnInit {
       available: true,
       icon: 'bed',
     },
-    {
-      name: 'Restaurant ',
-      image: '',
-      link: 'restaurant-dashboard',
-      available: true,
-      icon: 'restaurant',
-    },
+    // {
+    //   name: 'Restaurant ',
+    //   image: '',
+    //   link: 'restaurant-dashboard',
+    //   available: true,
+    //   icon: 'restaurant',
+    // },
     // {
     //   name: '24/7 ',
     //   image: '',
@@ -219,12 +227,12 @@ export class DashboardPage implements OnInit {
 
     this.router.navigate(['/' + category.link]);
   }
-  ngOnInit() {}
+  ngOnInit() { }
 
   async ionViewDidEnter() {
     await SplashScreen.hide();
   }
-  ionViewWillEnter() {}
+  ionViewWillEnter() { }
 
   getPopupImage() {
     this.http

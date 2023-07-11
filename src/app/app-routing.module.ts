@@ -659,6 +659,14 @@ const routes: Routes = [
     path: 'select-city',
     loadChildren: () => import('./select-city/select-city.module').then( m => m.SelectCityPageModule)
   },
+  {
+    path: 'bus-dashboard',
+    loadChildren: () => import('./bus-dashboard/bus-dashboard.module').then( m => m.BusDashboardPageModule)
+  },
+  {
+    path: 'bus-select-city',
+    loadChildren: () => import('./bus-select-city/bus-select-city.module').then( m => m.BusSelectCityPageModule)
+  },
 
 
   // {

@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar color="dark" no-border>
+    <ion-title> Bus Booking</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div
+    style="background-color: #222529; border-radius: 0 0 4rem 4rem"
+    class="p-4 pb-32 rounded-b-3xl"
+  >
+    <div class="text-white text-2xl">Discover New Places</div>
+    <div class="text-gray-200 text-sm">
+      Explore - Journey - Discover - Adventure
+    </div>
+  </div>
+  <div class="px-8 -mt-16">
+    <div class="bg-white rounded-xl p-4">
+      <div class="bg-gray-100 rounded-md">
+        <div class="text-gray-800 text-sm p-2">
+          From (Location) {{this.busService.inputs.fromCityId}}
+          <div class="flex">
+            <input
+              [(ngModel)]="this.busService.inputs.from"
+              [disabled]="!!this.busService.inputs.fromCityId"
+              (ngModelChange)="this.busService.searchCity($event,'from')"
+              type="text"
+              class="font-bold text-lg w-full bg-transparent flex-1"
+            />
+            <span
+              (click)="clearInput('from')"
+              *ngIf="!!this.busService.inputs.fromCityId"
+              >X</span
+            >
+          </div>
+          <!-- <div class="font-bold text-lg">
+            {{this.busService.inputs.from}}
+
+          </div> -->
+        </div>
+      </div>
+      <div>
+        <div
+          *ngFor="let city of this.busService.fromSuggestions"
+          class="py-2"
+          (click)="citySelected(city,'from')"
+        >
+          {{city.attributes.name|titlecase}}
+        </div>
+      </div>
+      <br />
+      <div class="bg-gray-100 rounded-md">
+        <div class="text-gray-800 text-sm p-2">
+          To (Destination)
+          <div class="flex">
+            <input
+              [disabled]="!!this.busService.inputs.toCityId"
+              [(ngModel)]="this.busService.inputs.to"
+              (ngModelChange)="this.busService.searchCity($event,'to')"
+              type="text"
+              class="font-bold text-lg w-full bg-transparent flex-1"
+            />
+            <span
+              (click)="clearInput('to')"
+              *ngIf="!!this.busService.inputs.toCityId"
+              >X</span
+            >
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          *ngFor="let city of this.busService.toSuggestions"
+          class="py-2"
+          (click)="citySelected(city,'to')"
+        >
+          {{city.attributes.name|titlecase}}
+        </div>
+      </div>
+      <br />
+      <div class="bg-gray-100 rounded-md">
+        <div class="text-gray-800 text-sm p-2">
+          Departure
+          <div class="font-bold text-lg">
+            <input
+              class="w-full bg-transparent"
+              [(ngModel)]="this.busService.inputs.date"
+              type="date"
+            />
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="bg-gray-100 rounded-md">
+        <div class="text-gray-800 text-sm p-2">
+          Passengers
+          <div class="font-bold text-lg">
+            <input
+              class="w-full bg-transparent"
+              [(ngModel)]="this.busService.inputs.passenger"
+              type="number"
+            />
+          </div>
+        </div>
+      </div>
+      <br />
+      <button
+        (click)="this.busService.getBuses()"
+        class="bg-black rounded-md bg-black text-white py-4 w-full font-bold"
+      >
+        Search Bus
+      </button>
+    </div>
+
+    <div
+      *ngFor="let bus of this.busService.buses"
+      class="p-4 bg-white rounded-md shadow-md flex"
+    >
+      <div class="flex-1">
+        <div>{{bus.buses[0].operatorName}}</div>
+        <div>{{bus.buses[0].busType}}</div>
+        <div class="flex">
+          <div>time</div>
+          <div>Hours</div>
+          <div>Seats</div>
+        </div>
+      </div>
+      <div>
+        <div>Starting From</div>
+        <div class="text-red-600">
+          {{bus.fares[0].paxFares.adt.total.amount}}
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
