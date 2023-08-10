@@ -11,6 +11,12 @@ export class BusDashboardPage implements OnInit {
   constructor(public busService: BusService) { 
     
   }
+  slider: any;
+  slideOpts = {
+    initialSlide: 0,
+    slidesPerView: 1,
+    autoplay: true,
+  };
 dev(){
   // this.busService.inputs.fromCityId="4135"
   // this.busService.inputs.toCityId="4327"

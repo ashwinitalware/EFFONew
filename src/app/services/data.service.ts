@@ -50,8 +50,7 @@ export class DataService {
     'I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life.';
 
   playStoreLinks = {
-    customer:
-      'https://play.google.com/store/apps/details?id=ionic.effo.starter',
+    customer:'https://play.google.com/store/apps/details?id=ionic.effo.starter',
     vendor: 'https://play.google.com/store/apps/details?id=io.effo.vendor',
   };
 
@@ -115,8 +114,8 @@ export class DataService {
     App.getInfo().then((data) => {
       this.appVersion = data.version;
     });
-    this.domainUrl = 'http://localhost:1337/';
-    this.apiUrl = this.domainUrl + 'api/';
+    // this.domainUrl = 'http://localhost:1337/';
+    // this.apiUrl = this.domainUrl + 'api/';
     this.getCities();
 
     ///MAIN CONFIGS
