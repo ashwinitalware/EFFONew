@@ -1,7 +1,11 @@
 <ion-header>
   <ion-toolbar color="dark" no-border>
     <ion-buttons slot="end">
-      <ion-button [routerLink]="['/bus-bookings']" routerLinkActive="router-link-active">My Bookings</ion-button>
+      <ion-button
+        [routerLink]="['/bus-bookings']"
+        routerLinkActive="router-link-active"
+        >My Bookings</ion-button
+      >
     </ion-buttons>
     <ion-title> Effo Travel</ion-title>
   </ion-toolbar>
@@ -40,19 +44,30 @@
   </div>
 
   <div class="px-2 -mt-1">
-
     <div class="text-gray-800 text-sm p-2">
-      <p class="pl-1"> From (Location) {{this.busService.inputs.fromCityId}}</p>
+      <p class="pl-1">From (Location)</p>
       <div class="flex bg-white rounded-md p-2">
-        <input [(ngModel)]="this.busService.inputs.from" [disabled]="!!this.busService.inputs.fromCityId"
-          (ngModelChange)="this.busService.searchCity($event,'from')" type="text"
-          class="font-bold text-lg w-full bg-transparent flex-1" />
-        <span (click)="clearInput('from')" *ngIf="!!this.busService.inputs.fromCityId">X</span>
+        <input
+          [(ngModel)]="this.busService.inputs.from"
+          [disabled]="!!this.busService.inputs.fromCityId"
+          (ngModelChange)="this.busService.searchCity($event,'from')"
+          type="text"
+          class="font-bold text-lg w-full bg-transparent flex-1"
+        />
+        <span
+          (click)="clearInput('from')"
+          *ngIf="!!this.busService.inputs.fromCityId"
+          >X</span
+        >
       </div>
     </div>
 
     <div>
-      <div *ngFor="let city of this.busService.fromSuggestions" class="py-2" (click)="citySelected(city,'from')">
+      <div
+        *ngFor="let city of this.busService.fromSuggestions"
+        class="p-2"
+        (click)="citySelected(city,'from')"
+      >
         {{city.attributes.name|titlecase}}
       </div>
     </div>
@@ -60,18 +75,30 @@
     <br />
 
     <div class="text-gray-800 text-sm p-2 -mt-5">
-      <p class="pl-1"> To (Destination)</p>
+      <p class="pl-1">To (Destination)</p>
 
       <div class="flex bg-white rounded-md p-2">
-        <input [disabled]="!!this.busService.inputs.toCityId" [(ngModel)]="this.busService.inputs.to"
-          (ngModelChange)="this.busService.searchCity($event,'to')" type="text"
-          class="font-bold text-lg w-full bg-transparent flex-1" />
-        <span (click)="clearInput('to')" *ngIf="!!this.busService.inputs.toCityId">X</span>
+        <input
+          [disabled]="!!this.busService.inputs.toCityId"
+          [(ngModel)]="this.busService.inputs.to"
+          (ngModelChange)="this.busService.searchCity($event,'to')"
+          type="text"
+          class="font-bold text-lg w-full bg-transparent flex-1"
+        />
+        <span
+          (click)="clearInput('to')"
+          *ngIf="!!this.busService.inputs.toCityId"
+          >X</span
+        >
       </div>
     </div>
 
     <div>
-      <div *ngFor="let city of this.busService.toSuggestions" class="py-2" (click)="citySelected(city,'to')">
+      <div
+        *ngFor="let city of this.busService.toSuggestions"
+        class="p-2"
+        (click)="citySelected(city,'to')"
+      >
         {{city.attributes.name|titlecase}}
       </div>
     </div>
@@ -79,26 +106,41 @@
     <br />
 
     <div class="text-gray-800 text-sm p-2 -mt-5">
-      <p class="pl-1"> Departure</p>
+      <p class="pl-1">Departure</p>
 
-      <div class="font-bold text-lg  bg-white rounded-md p-2">
-        <input class="w-full bg-transparent" [(ngModel)]="this.busService.inputs.date" type="date" />
+      <div class="font-bold text-lg bg-white rounded-md p-2">
+        <input
+          class="w-full bg-transparent"
+          [(ngModel)]="this.busService.inputs.date"
+          type="date"
+          min="{{ todayDate }}"
+        />
       </div>
     </div>
     <br />
 
     <div class="text-gray-800 text-sm p-2 -mt-5">
-      <p class="pl-1"> Passengers</p>
+      <p class="pl-1">
+        Passengers :
+        <span class="text-red-600">Disabled for testing purpose</span>
+      </p>
 
-      <div class="font-bold text-lg  bg-white rounded-md p-2">
-        <input class="w-full bg-transparent" [(ngModel)]="this.busService.inputs.passenger" type="number" />
+      <div class="font-bold text-lg bg-white rounded-md p-2">
+        <input
+          disabled=""
+          class="w-full bg-transparent"
+          [(ngModel)]="this.busService.inputs.passenger"
+          type="number"
+        />
       </div>
     </div>
     <br />
 
     <div class="p-2 -mt-5">
-      <button (click)="this.busService.getBuses()"
-        class="bg-black rounded-md bg-black text-white py-4 w-full font-bold">
+      <button
+        (click)="this.busService.getBuses()"
+        class="bg-black rounded-md bg-black text-white py-4 w-full font-bold"
+      >
         Search Bus
       </button>
     </div>
@@ -162,45 +204,60 @@
     </div> -->
 
     <div class="p-2">
-
-      <div (click)="this.busService.busSelected(bus)" *ngFor="let bus of this.busService.buses" class="p-4 bg-white rounded-md shadow-md my-2 border-b border-black">
+      <div
+        (click)="this.busService.busSelected(bus)"
+        *ngFor="let bus of this.busService.buses"
+        class="p-4 bg-white rounded-md shadow-md my-2 border-b border-black"
+      >
         <div class="flex justify-between">
           <div>
-            <p class="text-black text-sm font-bold">{{bus.buses[0].operatorName}}</p>
+            <p class="text-black text-sm font-bold">
+              {{bus.buses[0].operatorName}}
+            </p>
             <div class="text-xs text-gray-500">{{bus.buses[0].busType}}</div>
           </div>
-          <p>BusID <span class="text-red-600 font-semibold rounded-sm text-sm">{{bus.buses[0].busId}}
-          </span>
+          <p>
+            BusID
+            <span class="text-red-600 font-semibold rounded-sm text-sm"
+              >{{bus.buses[0].busId}}
+            </span>
           </p>
         </div>
         <div class="border-b border-dashed border-b-2 my-2"></div>
         <div class="flex justify-between">
           <div>
-            <div class="text-xs"> Departure</div>
-            <div class="text-black font-bold text-black">{{bus.buses[0].depDetail.time.split(" ")[1].slice(0,5)}}</div>
+            <div class="text-xs">Departure</div>
+            <div class="text-black font-bold text-black">
+              {{bus.buses[0].depDetail.time.split(" ")[1].slice(0,5)}}
+            </div>
           </div>
           <div>
-            <div class="text-xs">&nbsp; Arrival </div>
-            <div class="text-black font-bold text-black">&nbsp; {{bus.buses[0].arrDetail.time.split("
-              ")[1].slice(0,5)}}</div>
+            <div class="text-xs">&nbsp; Arrival</div>
+            <div class="text-black font-bold text-black">
+              &nbsp; {{bus.buses[0].arrDetail.time.split(" ")[1].slice(0,5)}}
+            </div>
           </div>
           <div>
-            <div class="text-xs">&nbsp; Available Seats </div>
-            <div class="text-black font-bold text-black">&nbsp; {{bus.buses[0].availableSeats}}</div>
+            <div class="text-xs">&nbsp; Available Seats</div>
+            <div class="text-black font-bold text-black">
+              &nbsp; {{bus.buses[0].availableSeats}}
+            </div>
           </div>
         </div>
         <div class="border-b border-dashed border-b-2 my-2"></div>
         <div class="flex justify-between">
           <div>
-            <div class="text-xs">&nbsp; Starting From </div>
-            <div class="text-black font-bold text-black">&nbsp;  {{bus.fares[0].paxFares.adt.total.amount}} /-</div>
+            <div class="text-xs">&nbsp; Starting From</div>
+            <div class="text-black font-bold text-black">
+              &nbsp; {{bus.fares[0].paxFares.adt.total.amount}} /-
+            </div>
           </div>
           <button class="text-white bg-black rounded-md p-2 w-24">Book</button>
         </div>
       </div>
-
-     
-
+      <br />
+      <br />
+      <br />
       <!-- <div (click)="this.busService.busSelected(bus)" *ngFor="let bus of this.busService.buses"
         class="p-4 bg-white rounded-md shadow-md flex my-2">
         <div class="flex-1">
@@ -229,17 +286,16 @@
         </div>
       </div> -->
     </div>
-
   </div>
 
   <div>
     <ion-fab class="scrollable-fab" horizontal="end" vertical="bottom">
       <ion-fab-button color="primary">
-        <ion-icon style="font-size: 1.5em;" name="headset"></ion-icon>
+        <ion-icon style="font-size: 1.5em" name="headset"></ion-icon>
       </ion-fab-button>
-      <ion-fab-list side="top" style="margin-bottom: 100%;">
+      <ion-fab-list side="top" style="margin-bottom: 100%">
         <ion-fab-button data-desc="Call" color="dark">
-          <ion-icon  name="call"></ion-icon>
+          <ion-icon name="call"></ion-icon>
         </ion-fab-button>
         <ion-fab-button data-desc="Support" color="dark">
           <ion-icon name="headset"></ion-icon>
@@ -247,5 +303,4 @@
       </ion-fab-list>
     </ion-fab>
   </div>
-
 </ion-content>

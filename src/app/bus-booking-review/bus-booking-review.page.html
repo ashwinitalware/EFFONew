@@ -1,53 +1,84 @@
 <ion-header>
   <ion-toolbar color="dark">
     <ion-buttons slot="start" color="light">
-      <ion-back-button style="color: white;"></ion-back-button>
+      <ion-back-button style="color: white"></ion-back-button>
     </ion-buttons>
     <ion-title>Review Booking</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="bg-white">
-  
-<div class="p-4">
-  <ion-accordion-group>
-    <ion-accordion  class="mt-2 bg-white  border border-black rounded-md">
-      <ion-item slot="header" class="bg-white" >
-        <ion-label>Select Pick Point</ion-label>
-      </ion-item>
-      <div slot="content" class="bg-red-50">
-        <ion-list>
-          <ion-radio-group [(ngModel)]="this.busService.selectedPick">
-            <ion-item *ngFor="let stop of this.busService.pick">
-              <ion-label>{{stop.name}}</ion-label>
-              <ion-radio slot="end" value="{{stop.id}}"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
-        </ion-list>
+  <div class="p-4">
+    <div class="rounded-md bg-white p-4">
+      <div *ngFor="let passenger of this.busService.passengers;let i=index">
+        <div class="font-bold text-sm">Passenger : {{i+1}} Details</div>
+        <br />
+        <input
+          [(ngModel)]="passenger.name"
+          type="text"
+          placeholder="Full Name"
+          class="w-full rounded-md border-2 px-2"
+        />
+        <br />
+        <br />
+        <input
+          [(ngModel)]="passenger.phone"
+          type="number"
+          placeholder="Phone Number"
+          class="w-full rounded-md border-2 px-2"
+        />
       </div>
-    </ion-accordion>
+    </div>
+  </div>
+  <div class="p-4">
+    <div class="rounded-md bg-white p-4">
+      <div class="font-bold text-sm">Select Pickup & Drop</div>
+      <ion-accordion-group>
+        <ion-accordion class="mt-2 bg-white border border-black rounded-md">
+          <ion-item slot="header" class="bg-white">
+            <ion-label>Select Pick Point</ion-label>
+          </ion-item>
+          <div slot="content" class="bg-red-50">
+            <ion-list>
+              <ion-radio-group [(ngModel)]="this.busService.selectedPick">
+                <ion-item *ngFor="let stop of this.busService.pick">
+                  <ion-label>{{stop.name}}</ion-label>
+                  <ion-radio slot="end" value="{{stop.id}}"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
+            </ion-list>
+          </div>
+        </ion-accordion>
 
-    <ion-accordion  class="mt-3 bg-white border border-black rounded-md">
-      <ion-item slot="header" class="bg-white">
-        <ion-label>Select Drop Point</ion-label>
-      </ion-item>
-      <div slot="content" class="bg-red-50">
-        <ion-list>
-          <ion-radio-group  [(ngModel)]="this.busService.selectedDrop">
-            <ion-item *ngFor="let stop of this.busService.drop">
-              <ion-label>{{stop.name}}</ion-label>
-              <ion-radio slot="end" value="{{stop.id}}"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
-        </ion-list>
-      </div>
-    </ion-accordion>
+        <ion-accordion class="mt-3 bg-white border border-black rounded-md">
+          <ion-item slot="header" class="bg-white">
+            <ion-label>Select Drop Point</ion-label>
+          </ion-item>
+          <div slot="content" class="bg-red-50">
+            <ion-list>
+              <ion-radio-group [(ngModel)]="this.busService.selectedDrop">
+                <ion-item *ngFor="let stop of this.busService.drop">
+                  <ion-label>{{stop.name}}</ion-label>
+                  <ion-radio slot="end" value="{{stop.id}}"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
+            </ion-list>
+          </div>
+        </ion-accordion>
 
-      <div (click)="this.busService.confirmBooking()" *ngIf="(this.busService.selectedPick&&this.busService.selectedDrop)" class="mt-3 w-full bg-black text-white text-center rounded-md py-2 shadow-md">
-        Book & Pay {{this.busService.charges.total}} /-
-      </div>
-  </ion-accordion-group>
-</div>
+        <div
+          (click)="this.busService.confirmBooking()"
+          *ngIf="(this.busService.selectedPick&&this.busService.selectedDrop)"
+          class="mt-3 w-full bg-black text-white text-center rounded-md py-2 shadow-md"
+        >
+          <!-- Book & Pay {{this.busService.charges.total}} /- -->
+          Confirm and Book
+        </div>
+      </ion-accordion-group>
+    </div>
+  </div>
+
+  <div class="px-4"></div>
 
   <!-- <ion-row>
     <ion-col size="6">
@@ -79,7 +110,6 @@
     </ion-col>
   </ion-row> -->
 
-
   <!-- <div class="font-bold text-sm">Select Pick Point</div>
   <ion-list>
     <ion-radio-group [(ngModel)]="this.busService.selectedPick">
@@ -87,7 +117,7 @@
         <ion-label>{{stop.name}}</ion-label>
         <ion-radio slot="end" value="{{stop.id}}"></ion-radio>
       </ion-item>
-  
+
     </ion-radio-group>
   </ion-list>
   <div class="font-bold  text-sm ">Select Drop Point</div>
@@ -97,8 +127,8 @@
         <ion-label>{{stop.name}}</ion-label>
         <ion-radio slot="end" value="{{stop.id}}"></ion-radio>
       </ion-item>
-  
-     
+
+
     </ion-radio-group>
   </ion-list> -->
 

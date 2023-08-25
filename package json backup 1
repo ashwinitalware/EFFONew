@@ -1,5 +1,5 @@
 {
-  "name": "SuperApp",
+  "name": "EffoCustomer",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -11,9 +11,7 @@
     "build-prod": "ionic capacitor copy android --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "add-android": "cap add android",
-    "sync-android": "cap sync android"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +26,7 @@
     "@awesome-cordova-plugins/in-app-browser": "^5.40.0",
     "@awesome-cordova-plugins/photo-viewer": "^5.40.0",
     "@awesome-cordova-plugins/sms-retriever": "^5.40.0",
+    "@capacitor-community/fcm": "^3.0.2",
     "@capacitor/android": "3.5.0",
     "@capacitor/app": "1.1.1",
     "@capacitor/core": "^3.4.3",
@@ -45,7 +44,7 @@
     "capacitor-rate-app": "^2.0.0",
     "com-sarriaroman-photoviewer": "^1.2.5",
     "cordova-android": "9.1.0",
-    "cordova-browser": "6.0.0",
+    "cordova-browser": "^7.0.0",
     "cordova-plugin-sms-retriever-manager": "^1.0.3",
     "ionic-selectable": "^4.8.0",
     "ngx-star-rating": "^2.1.0",
@@ -60,17 +59,16 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~13.0.1",
-    "@angular-eslint/builder": "~13.0.1",
+    "@angular-devkit/build-angular": "^16.1.4",
+    "@angular-eslint/builder": "^16.0.3",
     "@angular-eslint/eslint-plugin": "~13.0.1",
     "@angular-eslint/eslint-plugin-template": "~13.0.1",
     "@angular-eslint/template-parser": "~13.0.1",
-    "@angular/cli": "13.0.4",
+    "@angular/cli": "^16.1.4",
     "@angular/compiler": "~13.0.0",
     "@angular/compiler-cli": "~13.0.0",
     "@angular/language-service": "~13.0.0",
-    "@capacitor/assets": "^2.0.4",
-    "@capacitor/cli": "^3.4.3",
+    "@capacitor/cli": "^5.1.1",
     "@ionic/angular-toolkit": "^5.0.0",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
@@ -96,7 +94,7 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "protractor": "~7.0.0",
+    "protractor": "^3.3.0",
     "ts-node": "~8.3.0",
     "typescript": "~4.4.4"
   },

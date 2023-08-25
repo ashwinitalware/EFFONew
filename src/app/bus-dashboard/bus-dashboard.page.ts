@@ -8,8 +8,9 @@ import { BusService } from '../bus.service';
 })
 export class BusDashboardPage implements OnInit {
 
-  constructor(public busService: BusService) { 
-    
+  todayDate = new Date().toISOString().split('T')[0]
+  constructor(public busService: BusService) {
+
   }
   slider: any;
   slideOpts = {
@@ -17,16 +18,16 @@ export class BusDashboardPage implements OnInit {
     slidesPerView: 1,
     autoplay: true,
   };
-dev(){
-  // this.busService.inputs.fromCityId="4135"
-  // this.busService.inputs.toCityId="4327"
-  // this.busService.inputs.date="2023-07-13"
-  // this.busService.inputs.passenger="1"
-  // this.busService.getBuses()
-  this.busService.getAllBookings()
+  dev() {
+    // this.busService.inputs.fromCityId="4135"
+    // this.busService.inputs.toCityId="4327"
+    // this.busService.inputs.date="2023-07-13"
+    // this.busService.inputs.passenger="1"
+    // this.busService.getBuses()
+    this.busService.getAllBookings()
 
 
-}
+  }
   ngOnInit() {
     this.dev()
   }

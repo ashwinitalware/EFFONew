@@ -17,6 +17,7 @@ ios
 /ios
 /android
 android
+android1
 *.log
 log.txt
 npm-debug.log*

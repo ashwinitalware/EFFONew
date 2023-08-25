@@ -145,7 +145,7 @@ export class DashboardPage implements OnInit {
     //   }
     // });
     // this.dataService.auth.canLoad = false;
-    this.dataService.syncFCMToken();
+    // this.dataService.syncFCMToken();
     this.getPopupImage();
     this.dataService.getSliders();
     this.dataService.getSlidersSecond();

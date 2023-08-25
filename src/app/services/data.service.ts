@@ -10,7 +10,7 @@ import { ToastController } from '@ionic/angular';
 import { Share } from '@capacitor/share';
 import { HttpClient } from '@angular/common/http';
 import { AppUpdate } from '@robingenz/capacitor-app-update';
-import { FCM } from '@capacitor-community/fcm';
+// import { FCM } from '@capacitor-community/fcm';
 import { PushNotifications } from '@capacitor/push-notifications';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { PhotoViewer } from '@awesome-cordova-plugins/photo-viewer/ngx';
@@ -24,6 +24,886 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class DataService {
+  seatMap = {
+    "deckData": [
+      {
+        "busConfig": {
+          "x": 5,
+          "y": 4
+        },
+        "seats": [
+          {
+            "seatNo": "3L",
+            "seatPos": {
+              "x": 3,
+              "y": 0
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "2L",
+            "seatPos": {
+              "x": 1,
+              "y": 0
+            },
+            "booked": true,
+            "seatType": "SLEEPER",
+            "isVertical": false
+          },
+          {
+            "seatNo": "1L",
+            "seatPos": {
+              "x": 0,
+              "y": 0
+            },
+            "booked": true,
+            "seatType": "SLEEPER",
+            "isVertical": false
+          },
+          {
+            "seatNo": "9L",
+            "seatPos": {
+              "x": 3,
+              "y": 1
+            },
+            "booked": true,
+            "seatType": "SLEEPER",
+            "isVertical": false
+          },
+          {
+            "seatNo": "8L",
+            "seatPos": {
+              "x": 1,
+              "y": 1
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "7L",
+            "seatPos": {
+              "x": 0,
+              "y": 1
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "15L",
+            "seatPos": {
+              "x": 3,
+              "y": 2
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "14L",
+            "seatPos": {
+              "x": 1,
+              "y": 2
+            },
+            "booked": true,
+            "overrideTypes": [
+              "FEMALE"
+            ],
+            "seatType": "SLEEPER",
+            "isVertical": false
+          },
+          {
+            "seatNo": "13L",
+            "seatPos": {
+              "x": 0,
+              "y": 2
+            },
+            "booked": true,
+            "overrideTypes": [
+              "FEMALE"
+            ],
+            "seatType": "SLEEPER",
+            "isVertical": false
+          },
+          {
+            "seatNo": "21L",
+            "seatPos": {
+              "x": 3,
+              "y": 3
+            },
+            "booked": true,
+            "overrideTypes": [
+              "FEMALE"
+            ],
+            "seatType": "SLEEPER",
+            "isVertical": false
+          },
+          {
+            "seatNo": "20L",
+            "seatPos": {
+              "x": 1,
+              "y": 3
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "19L",
+            "seatPos": {
+              "x": 0,
+              "y": 3
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "27L",
+            "seatPos": {
+              "x": 3,
+              "y": 4
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "26L",
+            "seatPos": {
+              "x": 1,
+              "y": 4
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "25L",
+            "seatPos": {
+              "x": 0,
+              "y": 4
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          }
+        ]
+      },
+      {
+        "busConfig": {
+          "x": 5,
+          "y": 4
+        },
+        "seats": [
+          {
+            "seatNo": "4U",
+            "seatPos": {
+              "x": 3,
+              "y": 0
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "5U",
+            "seatPos": {
+              "x": 1,
+              "y": 0
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "6U",
+            "seatPos": {
+              "x": 0,
+              "y": 0
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "10U",
+            "seatPos": {
+              "x": 3,
+              "y": 1
+            },
+            "booked": true,
+            "seatType": "SLEEPER",
+            "isVertical": false
+          },
+          {
+            "seatNo": "11U",
+            "seatPos": {
+              "x": 1,
+              "y": 1
+            },
+            "booked": true,
+            "seatType": "SLEEPER",
+            "isVertical": false
+          },
+          {
+            "seatNo": "12U",
+            "seatPos": {
+              "x": 0,
+              "y": 1
+            },
+            "booked": true,
+            "seatType": "SLEEPER",
+            "isVertical": false
+          },
+          {
+            "seatNo": "16U",
+            "seatPos": {
+              "x": 3,
+              "y": 2
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "17U",
+            "seatPos": {
+              "x": 1,
+              "y": 2
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "18U",
+            "seatPos": {
+              "x": 0,
+              "y": 2
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "22U",
+            "seatPos": {
+              "x": 3,
+              "y": 3
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "23U",
+            "seatPos": {
+              "x": 1,
+              "y": 3
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "24U",
+            "seatPos": {
+              "x": 0,
+              "y": 3
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "28U",
+            "seatPos": {
+              "x": 3,
+              "y": 4
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "29U",
+            "seatPos": {
+              "x": 1,
+              "y": 4
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          },
+          {
+            "seatNo": "30U",
+            "seatPos": {
+              "x": 0,
+              "y": 4
+            },
+            "booked": false,
+            "seatType": "SLEEPER",
+            "fareDetails": {
+              "paxFares": {
+                "adt": {
+                  "tax": {
+                    "amount": 0
+                  },
+                  "comm": {
+                    "amount": 0
+                  },
+                  "base": {
+                    "amount": 1045.8
+                  },
+                  "GST": {
+                    "amount": 49.8
+                  },
+                  "disc": {
+                    "amount": 0
+                  },
+                  "total": {
+                    "amount": 1045.8
+                  }
+                }
+              }
+            },
+            "isVertical": false
+          }
+        ]
+      }
+    ],
+    "busStops": {
+      "pick": [
+        {
+          "id": 59710,
+          "name": "Panchvati Square",
+          "contact": "07212553868",
+          "landmark": "Panchvati Square",
+          "address": "Panchvati Square Amravati Maharashtra 07212553868 8668322815 9326418519",
+          "time": "05:30 AM"
+        }
+      ],
+      "drop": [
+        {
+          "id": 59702,
+          "name": "Wadi Khadgaon Road Turning ",
+          "contact": "07122550701",
+          "landmark": "Wadi ",
+          "address": "Opp Payal Hotel Chouhan Travels",
+          "time": "07:31 AM"
+        },
+        {
+          "id": 59706,
+          "name": "Ravi Nagar Opp Agrasen Chhatravas ",
+          "contact": "07122558822",
+          "landmark": "Sanjay Travels Opp Agrasen Chhatravas",
+          "address": "Sanjay Travels Opp Agrasen Chhtravas Ravi Nagar Nagpur Maharashtra 07122558822 9604699240",
+          "time": "07:41 AM"
+        },
+        {
+          "id": 33630,
+          "name": "DHARAMPETH ",
+          "contact": "07122558822",
+          "landmark": "Dharampeth",
+          "address": "Dharampeth",
+          "time": "07:51 AM"
+        },
+        {
+          "id": 71775,
+          "name": "Sita Wadi Sqaure Near Police Station ",
+          "contact": "07314099696",
+          "landmark": "Sita Wadi Sqaure Near Police Station",
+          "address": "Sita Wadi Sqaure Near Police Station ",
+          "time": "08:01 AM"
+        }
+      ]
+    },
+    "dropPointRequired": true
+  }
   selectedCity;
   cities = [];
   homeSliders = [];
@@ -50,7 +930,7 @@ export class DataService {
     'I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life.';
 
   playStoreLinks = {
-    customer:'https://play.google.com/store/apps/details?id=ionic.effo.starter',
+    customer: 'https://play.google.com/store/apps/details?id=ionic.effo.starter',
     vendor: 'https://play.google.com/store/apps/details?id=io.effo.vendor',
   };
 
@@ -114,8 +994,8 @@ export class DataService {
     App.getInfo().then((data) => {
       this.appVersion = data.version;
     });
-    // this.domainUrl = 'http://localhost:1337/';
-    // this.apiUrl = this.domainUrl + 'api/';
+    this.domainUrl = 'http://localhost:1337/';
+    this.apiUrl = this.domainUrl + 'api/';
     this.getCities();
 
     ///MAIN CONFIGS

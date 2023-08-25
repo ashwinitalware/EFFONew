@@ -8,7 +8,7 @@ import {
   AppUpdate,
   AppUpdateAvailability,
 } from '@robingenz/capacitor-app-update';
-import { FCM } from '@capacitor-community/fcm';
+// import { FCM } from '@capacitor-community/fcm';
 import { PushNotifications } from '@capacitor/push-notifications';
 import { RateApp } from 'capacitor-rate-app';
 import { App } from '@capacitor/app';
@@ -78,28 +78,28 @@ export class AppComponent {
       // });
 
       try {
-        AppUpdate.getAppUpdateInfo().then((data) => {
-          console.log('UPDATE INFO');
-          if (
-            data.updateAvailability == AppUpdateAvailability.UPDATE_AVAILABLE
-          ) {
-            // this.dataService.presentToast('Update Available');
-            if (data.flexibleUpdateAllowed) {
-              AppUpdate.startFlexibleUpdate();
-            }
-            if (data.immediateUpdateAllowed) {
-              AppUpdate.performImmediateUpdate();
-            }
-          }
-        });
-      } catch (error) {}
+        // AppUpdate.getAppUpdateInfo().then((data) => {
+        //   console.log('UPDATE INFO');
+        //   if (
+        //     data.updateAvailability == AppUpdateAvailability.UPDATE_AVAILABLE
+        //   ) {
+        //     // this.dataService.presentToast('Update Available');
+        //     if (data.flexibleUpdateAllowed) {
+        //       AppUpdate.startFlexibleUpdate();
+        //     }
+        //     if (data.immediateUpdateAllowed) {
+        //       AppUpdate.performImmediateUpdate();
+        //     }
+        //   }
+        // });
+      } catch (error) { }
     });
   }
 
   capture() {
     this.dataService.capture(this.fileUpload, this.fileUploadCamera);
   }
-  businessRegistration() {}
+  businessRegistration() { }
 
   edit() {
     this.dataService.menu.close();
