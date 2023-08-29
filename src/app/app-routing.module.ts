@@ -675,6 +675,10 @@ const routes: Routes = [
     path: 'bus-bookings',
     loadChildren: () => import('./bus-bookings/bus-bookings.module').then( m => m.BusBookingsPageModule)
   },
+  {
+    path: 'select-bus-seat',
+    loadChildren: () => import('./select-bus-seat/select-bus-seat.module').then( m => m.SelectBusSeatPageModule)
+  },
 
 
   // {

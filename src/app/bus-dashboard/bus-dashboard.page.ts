@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BusService } from '../bus.service';
+import { IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-bus-dashboard',
@@ -7,9 +8,12 @@ import { BusService } from '../bus.service';
   styleUrls: ['./bus-dashboard.page.scss'],
 })
 export class BusDashboardPage implements OnInit {
+  @ViewChild(IonContent) content: IonContent;
+
 
   todayDate = new Date().toISOString().split('T')[0]
   constructor(public busService: BusService) {
+    // this.busService.payment()
 
   }
   slider: any;
@@ -30,6 +34,15 @@ export class BusDashboardPage implements OnInit {
   }
   ngOnInit() {
     this.dev()
+  }
+
+  inputChange(ev) {
+    this.busService.filterBus()
+
+  }
+  clearSearch() {
+    this.busService.filters.name = ""
+    this.busService.filterBus()
   }
 
   clearInput(source) {

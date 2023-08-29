@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" color="light">
+      <ion-back-button
+        style="color: white"
+        defaultHref="/bus-dashboard"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Select Seat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-4">
+    <div>Lower Deck</div>
+
+    <div>
+      <div
+        *ngFor="let row of this.lowerSeatsArray;let i=index"
+        class="flex justify-around mb-4"
+      >
+        <span *ngFor="let seat of row;let j=index">
+          <div>
+            <div
+              class="flex flex-col w-16 h-24 p-2 border-2 {{seat.booked?'bg-gray-400':'bg-white'}} {{seat.selected?'bg-green-500':'bg-white'}}"
+              *ngIf="seat.seat"
+              (click)="selectSeat('lowerSeatsArray',i,j)"
+            >
+              <div class="w-full h-4 rounded-md border-2"></div>
+              <div class="flex-1 flex justify-center items-center flex-col">
+                <div>{{seat.seatNo}}</div>
+                <div
+                  *ngIf="seat.overrideTypes && seat.overrideTypes.length && seat.overrideTypes[0]=='FEMALE'"
+                >
+                  Ladies
+                </div>
+              </div>
+            </div>
+            <!-- <div>{{seat?.fareDetails?.paxFares|json}}</div> -->
+            <div
+              *ngIf="seat.fareDetails"
+              class="font-bold text-sm text-blue-900 text-center"
+            >
+              ₹ {{seat?.fareDetails?.paxFares?.adt?.total?.amount}}
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+    <div>Upper Deck</div>
+
+    <div>
+      <div
+        *ngFor="let row of this.upperSeatsArray;let i=index"
+        class="flex justify-around mb-4"
+      >
+        <span *ngFor="let seat of row;let j=index">
+          <div *ngIf="seat.seat">
+            <div>
+              <div
+                class="flex flex-col w-16 h-24 p-2 border-2 {{seat.booked?'bg-gray-400':'bg-white'}} {{seat.selected?'bg-green-500':'bg-white'}}"
+                *ngIf="seat.seat"
+                (click)="selectSeat('upperSeatsArray',i,j)"
+              >
+                <div class="w-full h-4 rounded-md border-2"></div>
+                <div class="flex-1 flex justify-center items-center">
+                  {{seat.seatNo}}
+                </div>
+              </div>
+              <div
+                *ngIf="seat.fareDetails"
+                class="font-bold text-sm text-blue-900 text-center"
+              >
+                ₹ {{seat?.fareDetails?.paxFares?.adt?.total?.amount}}
+              </div>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+</ion-content>
+<ion-footer
+  *ngIf="+this.busService.inputs.passenger == this.busService.seatsSelected.length"
+>
+  <button
+    class="bg-black text-center py-4 w-full text-white"
+    (click)="confirmSeats()"
+  >
+    Confirm Seats
+  </button>
+</ion-footer>

@@ -1,5 +1,6 @@
 <ion-header>
   <ion-toolbar color="dark" no-border>
+    <!-- <ion-back-button style="color: white" defaultHref="/"></ion-back-button> -->
     <ion-buttons slot="end">
       <ion-button
         [routerLink]="['/bus-bookings']"
@@ -138,7 +139,7 @@
 
     <div class="p-2 -mt-5">
       <button
-        (click)="this.busService.getBuses()"
+        (click)="this.busService.getBuses(content)"
         class="bg-black rounded-md bg-black text-white py-4 w-full font-bold"
       >
         Search Bus
@@ -204,9 +205,34 @@
     </div> -->
 
     <div class="p-2">
+      <div *ngIf="this.busService.buses.length" class="flex">
+        <div
+          class="flex flex-1 rounded-md w-full shadow-md bg-white text-black px-4 py-2"
+        >
+          <input
+            [(ngModel)]="this.busService.filters.name"
+            (ngModelChange)="inputChange($event)"
+            placeholder="Search by bus"
+            type="text"
+            class="flex-1"
+          />
+          <div (click)="clearSearch()">X</div>
+        </div>
+
+        &nbsp;
+        <select
+          class="rounded-md bg-white text-black"
+          (ngModelChange)="inputChange($event)"
+          [(ngModel)]="this.busService.filters.sort"
+        >
+          <option value="">Sort</option>
+          <option value="low">Low to High</option>
+          <option value="high">High to Low</option>
+        </select>
+      </div>
       <div
         (click)="this.busService.busSelected(bus)"
-        *ngFor="let bus of this.busService.buses"
+        *ngFor="let bus of this.busService.filteredBuses"
         class="p-4 bg-white rounded-md shadow-md my-2 border-b border-black"
       >
         <div class="flex justify-between">
