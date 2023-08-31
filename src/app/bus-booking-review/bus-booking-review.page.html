@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="dark">
+  <ion-toolbar>
     <ion-buttons slot="start" color="light">
       <ion-back-button style="color: white"></ion-back-button>
     </ion-buttons>
@@ -8,33 +8,60 @@
 </ion-header>
 
 <ion-content class="bg-white">
-  <div class="p-4">
+  <div class="p-2">
     <div class="rounded-md bg-white p-4">
       <div *ngFor="let passenger of this.busService.passengers;let i=index">
         <div class="font-bold text-sm">Passenger : {{i+1}} Details</div>
         <br />
-        <input
-          [(ngModel)]="passenger.name"
-          type="text"
-          placeholder="Full Name"
-          class="w-full rounded-md border-2 px-2"
-        />
+        <input [(ngModel)]="passenger.name" type="text" placeholder="Full Name"
+          class="w-full rounded-md border-2 px-2 py-3" />
         <br />
         <br />
-        <input
-          [(ngModel)]="passenger.phone"
-          type="number"
-          placeholder="Phone Number"
-          class="w-full rounded-md border-2 px-2"
-        />
+        <input [(ngModel)]="passenger.phone" type="number" placeholder="Phone Number"
+          class="w-full rounded-md border-2 px-2 py-3" />
       </div>
     </div>
   </div>
-  <div class="p-4">
-    <div class="rounded-md bg-white p-4">
+
+  <div class="p-2">
+    <div class="rounded-md bg-white p-3">
+      <div class="font-bold text-sm">Price details</div>
+
+      <div class="flex justify-between p-1">
+        <p class="text-gray-400 text-md">
+          Base Fare
+        </p>
+        <p class="font-bold text-black text-lg">
+          ₹ 799
+        </p>
+      </div>
+
+      <div class="flex justify-between p-1">
+        <p class="text-gray-400 text-md">
+          Tax
+        </p>
+        <p class="font-bold text-black text-lg">
+          ₹ 40
+        </p>
+      </div>
+      <div class="border border-dashed "></div>
+      <div class="flex justify-between p-1">
+        <p class="text-gray-400 text-md">
+          Total Amount
+        </p>
+        <p class="font-bold text-black text-lg">
+          ₹839
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="p-2">
+    <div class="rounded-md bg-white p-3">
       <div class="font-bold text-sm">Select Pickup & Drop</div>
       <ion-accordion-group>
-        <ion-accordion class="mt-2 bg-white border border-black rounded-md">
+        <ion-accordion class="mt-2 bg-white border border-gray-100 rounded-md">
           <ion-item slot="header" class="bg-white">
             <ion-label>Select Pick Point</ion-label>
           </ion-item>
@@ -50,7 +77,7 @@
           </div>
         </ion-accordion>
 
-        <ion-accordion class="mt-3 bg-white border border-black rounded-md">
+        <ion-accordion class="mt-2 bg-white border border-gray-100 rounded-md">
           <ion-item slot="header" class="bg-white">
             <ion-label>Select Drop Point</ion-label>
           </ion-item>
@@ -66,17 +93,17 @@
           </div>
         </ion-accordion>
 
-        <div
-          (click)="this.busService.confirmBooking()"
+        <div (click)="this.busService.confirmBooking()"
           *ngIf="(this.busService.selectedPick&&this.busService.selectedDrop)"
-          class="mt-3 w-full bg-black text-white text-center rounded-md py-2 shadow-md"
-        >
+          class="mt-3 w-full bg-red-600 text-white text-center rounded-md py-2 shadow-md">
           <!-- Book & Pay {{this.busService.charges.total}} /- -->
           Confirm and Book
         </div>
       </ion-accordion-group>
     </div>
   </div>
+
+  
 
   <div class="px-4"></div>
 

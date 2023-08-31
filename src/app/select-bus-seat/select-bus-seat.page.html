@@ -1,96 +1,195 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start" color="light">
-      <ion-back-button
-        style="color: white"
-        defaultHref="/bus-dashboard"
-      ></ion-back-button>
+      <ion-back-button style="color: white" defaultHref="/bus-dashboard"></ion-back-button>
     </ion-buttons>
     <ion-title>Select Seat</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="p-4">
-    <div>Lower Deck</div>
+  <div class="p-4 bg-white  border-b border-red-500">
 
-    <div>
-      <div
-        *ngFor="let row of this.lowerSeatsArray;let i=index"
-        class="flex justify-around mb-4"
-      >
-        <span *ngFor="let seat of row;let j=index">
-          <div>
-            <div
-              class="flex flex-col w-16 h-24 p-2 border-2 {{seat.booked?'bg-gray-400':'bg-white'}} {{seat.selected?'bg-green-500':'bg-white'}}"
-              *ngIf="seat.seat"
-              (click)="selectSeat('lowerSeatsArray',i,j)"
-            >
-              <div class="w-full h-4 rounded-md border-2"></div>
-              <div class="flex-1 flex justify-center items-center flex-col">
-                <div>{{seat.seatNo}}</div>
+    <div class="flex justify-between">
+      <div>
+        <p class="text-black text-sm font-bold">
+          Hyderabad
+        </p>
+      </div>
+
+      <div>
+        <img src="assets/linered.png" alt="">
+      </div>
+      
+     <div>
+      <p class="text-black text-sm font-bold">
+        Amravati
+       </p>
+     </div>
+    </div>
+
+    
+    <!-- <div class="flex justify-between">
+      <div>
+        <p class="text-black text-sm font-bold">
+         Sanjay Travels 
+        </p>
+        <div class="text-xs text-gray-500">2+2 seater , AC</div>
+      </div>
+      <p class="text-sm">
+        BusID
+        <span class="text-red-600 font-semibold rounded-sm text-sm">#23456
+        </span>
+      </p>
+    </div> -->
+
+    <div class="border-b border-dashed border-b-2 my-2"></div>
+    <div class="flex justify-between">
+      <div>
+        <div class="text-xs">Departure</div>
+        <div class="text-black font-bold text-black">
+          16:00
+        </div>
+      </div>
+      <div>
+        <div class="text-xs">&nbsp; Arrival</div>
+        <div class="text-black font-bold text-black">
+          &nbsp;19:00
+        </div>
+      </div>
+      <div>
+        <div class="text-xs">&nbsp; Available Seats</div>
+        <div class="text-black font-bold text-black">
+          &nbsp; 18
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-between mt-3">
+      <div>
+        <div class="text-xs"><ion-icon class="text-white  border border-gray-300" name="square"></ion-icon>&nbsp; Available</div>
+      </div>
+      <div>
+        <div class="text-xs"><ion-icon class="text-green-600 border border-green-600" name="square"></ion-icon>&nbsp; Selected</div>
+      </div>
+      <div>
+        <div class="text-xs"><ion-icon class="text-red-600  border border-red-600" name="square"></ion-icon>&nbsp; Booked</div>
+      </div>
+    </div>
+    
+  </div>
+
+
+  <div class="p-1 mt-1">
+
+  
+
+    <div class="flex p-2">
+      <div class="flex-1 p-1">
+        <div align="center" class="font-bold text-black bg-white rounded-lg shadow-sm p-1">Lower Deck</div>
+        <div class="bg-white rounded-lg p-2 mt-4 border border-gray-200">
+          <div *ngFor="let row of this.lowerSeatsArray;let i=index" class="flex justify-around mb-3">
+            <span *ngFor="let seat of row;let j=index">
+              <div>
                 <div
-                  *ngIf="seat.overrideTypes && seat.overrideTypes.length && seat.overrideTypes[0]=='FEMALE'"
-                >
-                  Ladies
-                </div>
-              </div>
-            </div>
-            <!-- <div>{{seat?.fareDetails?.paxFares|json}}</div> -->
-            <div
-              *ngIf="seat.fareDetails"
-              class="font-bold text-sm text-blue-900 text-center"
-            >
-              ₹ {{seat?.fareDetails?.paxFares?.adt?.total?.amount}}
-            </div>
-          </div>
-        </span>
-      </div>
-    </div>
-    <div>Upper Deck</div>
+                  class="flex flex-col w-8 h-20 p-2 border-2 rounded-lg {{seat.booked?'bg-red-600 border border-red-300':'bg-white'}} {{seat.selected?'border border-green-500 bg-green-600':'bg-white'}}"
+                  *ngIf="seat.seat" (click)="selectSeat('lowerSeatsArray',i,j)">
 
-    <div>
-      <div
-        *ngFor="let row of this.upperSeatsArray;let i=index"
-        class="flex justify-around mb-4"
-      >
-        <span *ngFor="let seat of row;let j=index">
-          <div *ngIf="seat.seat">
-            <div>
-              <div
-                class="flex flex-col w-16 h-24 p-2 border-2 {{seat.booked?'bg-gray-400':'bg-white'}} {{seat.selected?'bg-green-500':'bg-white'}}"
-                *ngIf="seat.seat"
-                (click)="selectSeat('upperSeatsArray',i,j)"
-              >
-                <div class="w-full h-4 rounded-md border-2"></div>
-                <div class="flex-1 flex justify-center items-center">
-                  {{seat.seatNo}}
+                  <div class="w-full h-2 rounded-md border-2 border-gray-300"></div>
+
+                  <div class="flex-1 flex justify-center items-center flex-col">
+                    <div class="text-xs text-gray-300">{{seat.seatNo}}</div>
+                    <div *ngIf="seat.overrideTypes && seat.overrideTypes.length && seat.overrideTypes[0]=='FEMALE'">
+
+                      <img width="12" height="12" class="mt-3" src="assets/woman_3.png" alt="">
+                    </div>
+                  </div>
+
+                </div>
+                <!-- <div>{{seat?.fareDetails?.paxFares|json}}</div> -->
+                <!-- <div *ngIf="seat.fareDetails" style="font-size: xx-small;" class="text-xs text-blue-900 text-center">
+                     ₹ {{seat?.fareDetails?.paxFares?.adt?.total?.amount}}
+                </div> -->
+              </div>
+
+
+              <!-- <div>
+            <div
+              class="flex flex-col w-10 h-24 p-2 border-2 rounded-lg {{seat.booked?'bg-red-100 border border-red-300':'bg-white'}} {{seat.selected?'border border-green-500 bg-green-100':'bg-white'}}"
+              *ngIf="seat.seat" (click)="selectSeat('lowerSeatsArray',i,j)">
+
+              <div class="w-full h-2 rounded-md border-2 border-gray-300"></div>
+
+              <div class="flex-1 flex justify-center items-center flex-col">
+                <div class="text-sm">{{seat.seatNo}}</div>
+                <div *ngIf="seat.overrideTypes && seat.overrideTypes.length && seat.overrideTypes[0]=='FEMALE'" class="mt-2">
+              
+                  <img width="20" height="20" src="assets/woman_1.png" alt="">
                 </div>
               </div>
-              <div
-                *ngIf="seat.fareDetails"
-                class="font-bold text-sm text-blue-900 text-center"
-              >
-                ₹ {{seat?.fareDetails?.paxFares?.adt?.total?.amount}}
-              </div>
+              
             </div>
+          </div> -->
+            </span>
           </div>
-        </span>
+        </div>
+      </div>
+
+      <div class="flex-1 p-1">
+        <div align="center" class="font-bold text-black bg-white rounded-lg shadow-sm p-1">Upper Deck</div>
+
+        <div class="bg-white rounded-lg p-2 mt-4 border border-gray-200">
+          <div *ngFor="let row of this.upperSeatsArray;let i=index" class="flex justify-around mb-3">
+            <span *ngFor="let seat of row;let j=index">
+              <div *ngIf="seat.seat">
+                <div>
+                  <div
+                    class="flex flex-col w-8 h-20 p-2 border-2 rounded-lg {{seat.booked?'bg-red-600 border border-red-600':'bg-white'}} {{seat.selected?'border border-green-600 bg-green-600':'bg-white'}}"
+                    *ngIf="seat.seat" (click)="selectSeat('upperSeatsArray',i,j)">
+
+                    <div class="w-full h-2 rounded-md border-2 border-gray-300"></div>
+
+                    <div class="flex-1 flex justify-center items-center flex-col">
+                      <div class="text-xs text-gray-300">{{seat.seatNo}}</div>
+                      <div *ngIf="seat.overrideTypes && seat.overrideTypes.length && seat.overrideTypes[0]=='FEMALE'">
+                        <img width="12" height="12" class="mt-3" src="assets/woman_3.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div *ngIf="seat.fareDetails" class="font-bold text-sm text-blue-900 text-center">
+                       ₹ {{seat?.fareDetails?.paxFares?.adt?.total?.amount}}
+                       </div> -->
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
+
+
   </div>
   <br />
   <br />
   <br />
   <br />
 </ion-content>
-<ion-footer
-  *ngIf="+this.busService.inputs.passenger == this.busService.seatsSelected.length"
->
-  <button
-    class="bg-black text-center py-4 w-full text-white"
-    (click)="confirmSeats()"
-  >
+<ion-footer *ngIf="+this.busService.inputs.passenger == this.busService.seatsSelected.length">
+  <button style="background-color: #f90101;" class="text-center py-4 w-full text-white" (click)="confirmSeats()">
     Confirm Seats
   </button>
 </ion-footer>
+
+
+<!-- <div class="flex justify-center items-center">
+  <div class="w-20 h-24 bg-gray-700 p-2 rounded-lg mx-1 my-1 flex flex-col justify-between">
+    <div class="w-full h-2 bg-gray-500 rounded-md"></div>
+    <div class="flex justify-center items-center flex-col">
+      <div class="text-sm text-white">A1</div>
+      <div class="mt-2">
+        <img class="w-6 h-6" src="assets/woman_1.png" alt="">
+      </div>
+    </div>
+    <div class="w-full h-2 bg-gray-500 rounded-md"></div>
+  </div>
+</div> -->

@@ -1,12 +1,8 @@
 <ion-header>
-  <ion-toolbar color="dark" no-border>
+  <ion-toolbar no-border>
     <!-- <ion-back-button style="color: white" defaultHref="/"></ion-back-button> -->
     <ion-buttons slot="end">
-      <ion-button
-        [routerLink]="['/bus-bookings']"
-        routerLinkActive="router-link-active"
-        >My Bookings</ion-button
-      >
+      <ion-button [routerLink]="['/bus-bookings']" routerLinkActive="router-link-active">My Bookings</ion-button>
     </ion-buttons>
     <ion-title> Effo Travel</ion-title>
   </ion-toolbar>
@@ -37,69 +33,123 @@
     </ion-slides>
   </div>
 
-  <div class="pl-5 pr-5 pb-4">
+  <div class="pl-5 pr-5">
     <div class="text-black text-xl">Discover New Places</div>
     <div class="text-gray-400 text-sm">
       Explore - Journey - Discover - Adventure
     </div>
   </div>
 
+  <div class="p-4">
+    <ion-grid class="bg-white rounded-lg">
+      <ion-row>
+        <ion-col size="5.5" align="left">
+          <div>
+            <p class="pl-1 text-xs">From (Location)</p>
+            <div class="flex bg-white border border-gray-200 rounded-md p-2 mt-1">
+              <input [(ngModel)]="this.busService.inputs.from" [disabled]="!!this.busService.inputs.fromCityId"
+                (ngModelChange)="this.busService.searchCity($event,'from')" type="text"
+                class="font-bold text-sm w-full bg-transparent flex-1" />
+              <span class="text-xs" (click)="clearInput('from')" *ngIf="!!this.busService.inputs.fromCityId">X</span>
+            </div>
+    
+            <div>
+              <div *ngFor="let city of this.busService.fromSuggestions" class="p-2" (click)="citySelected(city,'from')">
+                {{city.attributes.name|titlecase}}
+              </div>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="1">
+          <ion-icon class="bg-red-600 p-1 rounded-full text-white" name="swap-horizontal"></ion-icon>
+        </ion-col>
+
+        <ion-col size="5.5" align="right">
+          <p class="pl-1 text-xs">To (Destination)</p>
+  
+          <div class="flex bg-white border border-gray-200 rounded-md p-2 mt-1">
+            <input [disabled]="!!this.busService.inputs.toCityId" [(ngModel)]="this.busService.inputs.to"
+              (ngModelChange)="this.busService.searchCity($event,'to')" type="text"
+              class="font-bold text-sm w-full bg-transparent flex-1" />
+            <span class="text-xs" (click)="clearInput('to')" *ngIf="!!this.busService.inputs.toCityId">X</span>
+          </div>
+  
+          <div>
+            <div *ngFor="let city of this.busService.toSuggestions" class="p-2" (click)="citySelected(city,'to')">
+              {{city.attributes.name|titlecase}}
+            </div>
+          </div>
+        </ion-col>
+
+      <ion-col size="12" >
+        <div class="text-gray-800 text-sm p-2">
+          <p class="pl-1">Departure</p>
+    
+          <div class="font-bold text-sm bg-white border border-gray-200 rounded-md p-2 mt-1">
+            <input class="w-full bg-transparent" [(ngModel)]="this.busService.inputs.date" type="date"
+              min="{{ todayDate }}" />
+          </div>
+        </div>
+      </ion-col>
+
+      <ion-col size="12">
+        <div class="text-gray-800 text-sm p-2">
+          <p class="pl-1">
+            Passengers :
+            <span class="text-red-600">Disabled for testing purpose</span>
+          </p>
+    
+          <div class="font-bold text-lg bg-white border border-gray-200 rounded-md p-2 mt-1">
+            <input disabled="" class="w-full bg-transparent" [(ngModel)]="this.busService.inputs.passenger" type="number" />
+          </div>
+        </div>
+      </ion-col>
+      
+      <ion-col size="12">
+        <button (click)="this.busService.getBuses(content)" style="background-color: #f90101;"
+        class="bg-red-600 rounded-md text-white py-4 w-full font-bold">
+        Search Bus
+      </button>
+      </ion-col>
+      </ion-row>
+    </ion-grid> 
+  </div>
+
+  
+
   <div class="px-2 -mt-1">
-    <div class="text-gray-800 text-sm p-2">
+    <!-- <div class="text-gray-800 text-sm p-2">
       <p class="pl-1">From (Location)</p>
       <div class="flex bg-white rounded-md p-2">
-        <input
-          [(ngModel)]="this.busService.inputs.from"
-          [disabled]="!!this.busService.inputs.fromCityId"
-          (ngModelChange)="this.busService.searchCity($event,'from')"
-          type="text"
-          class="font-bold text-lg w-full bg-transparent flex-1"
-        />
-        <span
-          (click)="clearInput('from')"
-          *ngIf="!!this.busService.inputs.fromCityId"
-          >X</span
-        >
+        <input [(ngModel)]="this.busService.inputs.from" [disabled]="!!this.busService.inputs.fromCityId"
+          (ngModelChange)="this.busService.searchCity($event,'from')" type="text"
+          class="font-bold text-lg w-full bg-transparent flex-1" />
+        <span (click)="clearInput('from')" *ngIf="!!this.busService.inputs.fromCityId">X</span>
       </div>
     </div>
 
     <div>
-      <div
-        *ngFor="let city of this.busService.fromSuggestions"
-        class="p-2"
-        (click)="citySelected(city,'from')"
-      >
+      <div *ngFor="let city of this.busService.fromSuggestions" class="p-2" (click)="citySelected(city,'from')">
         {{city.attributes.name|titlecase}}
       </div>
     </div>
 
-    <br />
+    <br/>
 
     <div class="text-gray-800 text-sm p-2 -mt-5">
       <p class="pl-1">To (Destination)</p>
 
       <div class="flex bg-white rounded-md p-2">
-        <input
-          [disabled]="!!this.busService.inputs.toCityId"
-          [(ngModel)]="this.busService.inputs.to"
-          (ngModelChange)="this.busService.searchCity($event,'to')"
-          type="text"
-          class="font-bold text-lg w-full bg-transparent flex-1"
-        />
-        <span
-          (click)="clearInput('to')"
-          *ngIf="!!this.busService.inputs.toCityId"
-          >X</span
-        >
+        <input [disabled]="!!this.busService.inputs.toCityId" [(ngModel)]="this.busService.inputs.to"
+          (ngModelChange)="this.busService.searchCity($event,'to')" type="text"
+          class="font-bold text-lg w-full bg-transparent flex-1" />
+        <span (click)="clearInput('to')" *ngIf="!!this.busService.inputs.toCityId">X</span>
       </div>
     </div>
 
     <div>
-      <div
-        *ngFor="let city of this.busService.toSuggestions"
-        class="p-2"
-        (click)="citySelected(city,'to')"
-      >
+      <div *ngFor="let city of this.busService.toSuggestions" class="p-2" (click)="citySelected(city,'to')">
         {{city.attributes.name|titlecase}}
       </div>
     </div>
@@ -110,12 +160,8 @@
       <p class="pl-1">Departure</p>
 
       <div class="font-bold text-lg bg-white rounded-md p-2">
-        <input
-          class="w-full bg-transparent"
-          [(ngModel)]="this.busService.inputs.date"
-          type="date"
-          min="{{ todayDate }}"
-        />
+        <input class="w-full bg-transparent" [(ngModel)]="this.busService.inputs.date" type="date"
+          min="{{ todayDate }}" />
       </div>
     </div>
     <br />
@@ -127,24 +173,18 @@
       </p>
 
       <div class="font-bold text-lg bg-white rounded-md p-2">
-        <input
-          disabled=""
-          class="w-full bg-transparent"
-          [(ngModel)]="this.busService.inputs.passenger"
-          type="number"
-        />
+        <input disabled="" class="w-full bg-transparent" [(ngModel)]="this.busService.inputs.passenger" type="number" />
       </div>
     </div>
     <br />
 
     <div class="p-2 -mt-5">
-      <button
-        (click)="this.busService.getBuses(content)"
-        class="bg-black rounded-md bg-black text-white py-4 w-full font-bold"
-      >
+      <button (click)="this.busService.getBuses(content)" style="background-color: #f90101;"
+        class="bg-red-600 rounded-md text-white py-4 w-full font-bold">
         Search Bus
       </button>
-    </div>
+    </div> -->
+
     <!-- <div class="bg-white rounded-xl p-4">
       <div class="bg-gray-100 rounded-md">
         <div class="text-gray-800 text-sm p-2">
@@ -205,36 +245,25 @@
     </div> -->
 
     <div class="p-2">
-      <div *ngIf="this.busService.buses.length" class="flex">
-        <div
-          class="flex flex-1 rounded-md w-full shadow-md bg-white text-black px-4 py-2"
-        >
-          <input
-            [(ngModel)]="this.busService.filters.name"
-            (ngModelChange)="inputChange($event)"
-            placeholder="Search by bus"
-            type="text"
-            class="flex-1"
-          />
-          <div (click)="clearSearch()">X</div>
+      <div *ngIf="this.busService.buses.length" class="flex pr-2">
+        <div class="flex flex-1 rounded-md w-full shadow-md bg-white text-black px-3 py-2">
+          <input [(ngModel)]="this.busService.filters.name" (ngModelChange)="inputChange($event)"
+            placeholder="Search by bus" type="text" class="flex-1" />
+          <div (click)="clearSearch()" class="text-sm">X</div>
         </div>
 
         &nbsp;
-        <select
-          class="rounded-md bg-white text-black"
-          (ngModelChange)="inputChange($event)"
-          [(ngModel)]="this.busService.filters.sort"
-        >
-          <option value="">Sort</option>
-          <option value="low">Low to High</option>
-          <option value="high">High to Low</option>
+        <select class="rounded-md shadow-md border border-red-600 text-xs text-red-600 font-bold"
+          (ngModelChange)="inputChange($event)" [(ngModel)]="this.busService.filters.sort">
+          <option value="" class="text-xs font-bold text-red-600">Sort</option>
+          <option value="low" class="text-xs font-bold text-red-600">Low to High</option>
+          <option value="high" class="text-xs font-bold text-red-600">High to Low</option>
         </select>
       </div>
-      <div
-        (click)="this.busService.busSelected(bus)"
-        *ngFor="let bus of this.busService.filteredBuses"
-        class="p-4 bg-white rounded-md shadow-md my-2 border-b border-black"
-      >
+
+
+      <div (click)="this.busService.busSelected(bus)" *ngFor="let bus of this.busService.filteredBuses"
+        class="p-4 bg-white rounded-md shadow-md my-2 border-b-2 border-red-600">
         <div class="flex justify-between">
           <div>
             <p class="text-black text-sm font-bold">
@@ -242,14 +271,15 @@
             </p>
             <div class="text-xs text-gray-500">{{bus.buses[0].busType}}</div>
           </div>
-          <p>
+          <p class="text-sm">
             BusID
-            <span class="text-red-600 font-semibold rounded-sm text-sm"
-              >{{bus.buses[0].busId}}
+            <span class="text-red-600 font-semibold rounded-sm text-sm">{{bus.buses[0].busId}}
             </span>
           </p>
         </div>
-        <div class="border-b border-dashed border-b-2 my-2"></div>
+
+        <div class="border-b border-dashed border-red-600 border-b-2 my-2"></div>
+
         <div class="flex justify-between">
           <div>
             <div class="text-xs">Departure</div>
@@ -270,7 +300,9 @@
             </div>
           </div>
         </div>
+
         <div class="border-b border-dashed border-b-2 my-2"></div>
+
         <div class="flex justify-between">
           <div>
             <div class="text-xs">&nbsp; Starting From</div>
@@ -278,9 +310,10 @@
               &nbsp; {{bus.fares[0].paxFares.adt.total.amount}} /-
             </div>
           </div>
-          <button class="text-white bg-black rounded-md p-2 w-24">Book</button>
+          <button style="border: 1px solid red;" class="text-red-600 rounded-md p-2 w-24">Book</button>
         </div>
       </div>
+
       <br />
       <br />
       <br />
