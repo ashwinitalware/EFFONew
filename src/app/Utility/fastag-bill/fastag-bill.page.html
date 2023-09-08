@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Recharge FASTag</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="p-2">
+
+
+    <div class="p-3">
+      <div class="p-1 border border-gray-300 rounded-lg">
+        <ion-input type="text" label="State" label-placement="floating" fill="outline"
+          placeholder="FASTag Issuing Bank"></ion-input>
+      </div>
+    </div>
+
+    <div class="p-3">
+      <div class="p-1 border border-gray-300 rounded-lg">
+        <ion-input type="text" label="Electricity Board" label-placement="floating" fill="outline"
+          placeholder="Vehicle Registration Number"></ion-input>
+      </div>
+      <p class="text-xs p-1 mt-1">
+        Please enter Vehicle Number (linked to FASTag) without spaces.<br>
+        E.g: UP01AB1234
+      </p>
+    </div>
+
+    <div class="p-3">
+      
+      <div  class="mt-1 pr-2">
+        <p class="p-1">Save this bill as (Optional)</p>
+        <ion-chip color="primary">Home</ion-chip>
+        <ion-chip color="primary">Mom</ion-chip>
+        <ion-chip color="primary">Dad</ion-chip>
+        <ion-chip color="primary">Other</ion-chip>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar align="center" class="bg-red-500 text-white text-lg " >
+    Proceed To Pay
+  </ion-toolbar>
+</ion-footer>
+

@@ -655,7 +655,8 @@ const routes: Routes = [
       import(
         './restaurant/restaurant-order-details/restaurant-order-details.module'
       ).then((m) => m.RestaurantOrderDetailsPageModule),
-  },  {
+  },
+  {
     path: 'select-city',
     loadChildren: () => import('./select-city/select-city.module').then( m => m.SelectCityPageModule)
   },
@@ -676,9 +677,93 @@ const routes: Routes = [
     loadChildren: () => import('./bus-bookings/bus-bookings.module').then( m => m.BusBookingsPageModule)
   },
   {
+    path: 'bus-checkout',
+    loadChildren: () => import('./bus-checkout/bus-checkout.module').then( m => m.BusCheckoutPageModule)
+  },
+  {
+    path: 'utility-dashboard',
+    loadChildren: () => import('./Utility/utility-dashboard/utility-dashboard.module').then( m => m.UtilityDashboardPageModule)
+  },
+  {
+    path: 'utility-mobile',
+    loadChildren: () => import('./Utility/utility-mobile/utility-mobile.module').then( m => m.UtilityMobilePageModule)
+  },
+  {
+    path: 'utility-dth',
+    loadChildren: () => import('./Utility/utility-dth/utility-dth.module').then( m => m.UtilityDTHPageModule)
+  },
+  {
+    path: 'utility-selectplan',
+    loadChildren: () => import('./Utility/utility-selectplan/utility-selectplan.module').then( m => m.UtilitySelectplanPageModule)
+  },
+  {
+    path: 'utility-pay',
+    loadChildren: () => import('./utility-pay/utility-pay.module').then( m => m.UtilityPayPageModule)
+  },
+  // {
+  //   path: 'dth-operator',
+  //   loadChildren: () => import('./dth-operator/dth-operator.module').then( m => m.DthOperatorPageModule)
+  // },
+  {
+    path: 'dth-operator',
+    loadChildren: () => import('./utility/dth-operator/dth-operator.module').then( m => m.DthOperatorPageModule)
+  },  {
+    path: 'dth-pay',
+    loadChildren: () => import('./utility/dth-pay/dth-pay.module').then( m => m.DthPayPageModule)
+  },
+  {
     path: 'select-bus-seat',
     loadChildren: () => import('./select-bus-seat/select-bus-seat.module').then( m => m.SelectBusSeatPageModule)
   },
+  {
+    path: 'utility-electricity',
+    loadChildren: () => import('./Utility/utility-electricity/utility-electricity.module').then( m => m.UtilityElectricityPageModule)
+  },
+  {
+    path: 'utility-electricity-bill',
+    loadChildren: () => import('./Utility/utility-electricity-bill/utility-electricity-bill.module').then( m => m.UtilityElectricityBillPageModule)
+  },
+  {
+    path: 'broadband-dashboard',
+    loadChildren: () => import('./Utility/broadband-dashboard/broadband-dashboard.module').then( m => m.BroadbandDashboardPageModule)
+  },
+  {
+    path: 'broadband-bill',
+    loadChildren: () => import('./Utility/broadband-bill/broadband-bill.module').then( m => m.BroadbandBillPageModule)
+  },
+  {
+    path: 'gas-dashboard',
+    loadChildren: () => import('./Utility/gas-dashboard/gas-dashboard.module').then( m => m.GasDashboardPageModule)
+  },
+  {
+    path: 'gas-bill',
+    loadChildren: () => import('./Utility/gas-bill/gas-bill.module').then( m => m.GasBillPageModule)
+  },
+  {
+    path: 'fastag-dashboard',
+    loadChildren: () => import('./Utility/fastag-dashboard/fastag-dashboard.module').then( m => m.FastagDashboardPageModule)
+  },
+  {
+    path: 'fastag-bill',
+    loadChildren: () => import('./Utility/fastag-bill/fastag-bill.module').then( m => m.FastagBillPageModule)
+  },
+  {
+    path: 'hotel-dashboard',
+    loadChildren: () => import('./Hotel/hotel-dashboard/hotel-dashboard.module').then( m => m.HotelDashboardPageModule)
+  },
+  {
+    path: 'select-room',
+    loadChildren: () => import('./Hotel/select-room/select-room.module').then( m => m.SelectRoomPageModule)
+  },
+  {
+    path: 'hotel-checkout',
+    loadChildren: () => import('./Hotel/hotel-checkout/hotel-checkout.module').then( m => m.HotelCheckoutPageModule)
+  },
+  {
+    path: 'hotel-booking',
+    loadChildren: () => import('./Hotel/hotel-booking/hotel-booking.module').then( m => m.HotelBookingPageModule)
+  },
+
 
 
   // {

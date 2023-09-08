@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Pay</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="pl-2 pr-3 mt-2">
+   
+
+    <ion-row class="mt-2">
+      <ion-col size="12">
+        <div class="bg-white rounded-lg shadow-md border-b border-dashed border-gray-300 p-1">
+          <ion-row>
+            <ion-col size="1.5">
+              <img class="rounded-full" src="assets/uicon1.png" alt="">
+            </ion-col>
+            <ion-col size="9.5" class="pl-4">
+              <p class="text-gray-400 text-xs ">Ashwini Talware</p>
+              <p class="text-black font-bold text-xs mt-1">+91 8668543490</p>
+            </ion-col>
+           
+           </ion-row>
+         
+          <div class="border border-dashed border-gray-200"></div>
+          <div class="flex justify-between p-2">
+            <div class="flex justify-start">
+              <p class="text-black text-lg font-bold pl-2">
+                ₹239<span class="text-gray-400 text-xs">paln</span></p>
+            </div>
+            <p routerLink="/utility-selectplan" class="border border-red-500 p-1 text-red-500 text-sm font-bold rounded-full">Change Plan</p>
+
+            <!-- <p clas="text-white bg-indigo-500 rounded-full p-2">Change Plan</p> -->
+          </div>
+
+             
+        </div>
+      </ion-col>
+
+    
+    </ion-row>
+  </div>
+</ion-content>
+<ion-footer>
+<ion-toolbar align="center" class="bg-red-500 text-white text-lg ">
+  Proceed to pay
+
+</ion-toolbar>
+</ion-footer>

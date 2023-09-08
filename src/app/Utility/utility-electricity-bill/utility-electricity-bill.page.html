@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Adani Electricity</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="p-2">
+
+  <div class="p-3">
+    <div class="p-2 bg-white rounded-md shadow-sm flex justify-between">
+      <ion-icon class="text-red-600" name="receipt-outline"></ion-icon>
+      <p class="text-red-600 font-semibold text-sm">View Sample Bill</p>
+    </div>
+  </div>
+
+    <div class="p-3">
+      <div class="p-1 border border-gray-300 rounded-lg">
+        <ion-input type="text" label="State" label-placement="floating" fill="outline"
+          placeholder="Enter State"></ion-input>
+      </div>
+    </div>
+
+    <div class="p-3">
+      <div class="p-1 border border-gray-300 rounded-lg">
+        <ion-input type="text" label="Electricity Board" label-placement="floating" fill="outline"
+          placeholder="Enter Electricity Board"></ion-input>
+      </div>
+    </div>
+
+    <div class="p-3">
+      <div class="p-1 border border-gray-300 rounded-lg">
+        <ion-input type="text" label="Consumer Number" label-placement="floating" fill="outline"
+          placeholder="Enter Consumer Number"></ion-input>
+      </div>
+      <p class="text-xs p-1 mt-1">Please enter your valid consumer number</p>
+    </div>
+
+    <div class="p-3">
+      
+      <div  class="mt-1 pr-2">
+        <p class="p-1">Save this bill as (Optional)</p>
+        <ion-chip color="primary">Home</ion-chip>
+        <ion-chip color="primary">Mom</ion-chip>
+        <ion-chip color="primary">Office</ion-chip>
+        <ion-chip color="primary">Other</ion-chip>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar align="center" class="bg-red-500 text-white text-lg " >
+    Proceed To Pay
+  </ion-toolbar>
+</ion-footer>

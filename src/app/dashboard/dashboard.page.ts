@@ -85,13 +85,6 @@ export class DashboardPage implements OnInit {
     //   link: '',
     // },
 
-    // {
-    //   name: 'Utility',
-    //   image: '',
-    //   icon: 'hammer',
-    //   link: '',
-    // },
-
     {
       name: 'Hotel & Lodging',
       image: '',
@@ -99,6 +92,27 @@ export class DashboardPage implements OnInit {
       available: true,
       icon: 'bed',
     },
+    {
+      name: 'Utility',
+      image: '',
+      link: 'utility-dashboard',
+      icon: 'receipt',      
+      available: true,
+    },
+    //  {
+    //   name: 'Mobile',
+    //   image: '',
+    //   link: 'utility-mobile',
+    //   icon: 'phone-portrait',      
+    //   available: true,
+    // }, 
+    // {
+    //   name: 'DTH',
+    //   image: '',
+    //   link: 'utility-dth',
+    //   icon: 'easel',      
+    //   available: true,
+    // },
     // {
     //   name: 'Restaurant ',
     //   image: '',

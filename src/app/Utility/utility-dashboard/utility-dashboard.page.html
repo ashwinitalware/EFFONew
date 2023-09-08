@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Utility Payment</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="border-radius: 5px; margin-top: 2%;">
+    <ion-slides #slider loop="true" [options]="slideOpts">
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/U1.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px">
+          <img src="assets/U2.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px">
+          <img src="assets/U3.png" />
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="pl-2 pr-3">
+    <div  class="pt-3 pl-1">
+      <ion-label><b>Recharge & Pay Bills</b></ion-label>
+    </div>
+
+    <ion-row class="mt-2">
+      <ion-col size="4" routerLink="/utility-mobile">
+        <div align="center" class="bg-white rounded-lg shadow-md p-2" style=" border: 1px solid #bd0101;">
+          <img src="assets/mobile.png" alt="">
+          <ion-label class="text-xs mt-1">Mobile</ion-label>
+        </div>
+      </ion-col>
+
+      <ion-col size="4" routerLink="/utility-dth">
+        <div align="center" class="bg-white rounded-lg shadow-md p-2" style=" border: 1px solid #bd0101;">
+          <img src="assets/dth.png" alt="">
+          <ion-label class="text-xs mt-1">DTH</ion-label>
+        </div>
+      </ion-col>
+
+      <ion-col size="4" routerLink="/utility-electricity">
+        <div align="center" class="bg-white rounded-lg shadow-md p-2" style=" border: 1px solid #bd0101;">
+          <img src="assets/electricity.png" alt="">
+          <ion-label class="text-xs mt-1">
+            Electricity</ion-label>
+        </div>  
+      </ion-col>
+
+      
+      <ion-col size="4" routerLink="/broadband-dashboard" >
+        <div align="center" class="bg-white rounded-lg shadow-md p-2" style=" border: 1px solid #bd0101;">
+          <img src="assets/landline.png" alt="">
+          <ion-label class="text-xs mt-1">
+            Landline/Broadband</ion-label>
+        </div>
+      </ion-col> 
+
+      <!-- <ion-col size="4" routerLink="/utility-DTH">
+        <div align="center" class="bg-white rounded-lg shadow-md p-2" style=" border: 1px solid #bd0101;">
+          <img src="assets/M6.png" alt="">
+          <ion-label class="text-sm mt-1">
+            Broadband</ion-label>
+        </div>
+      </ion-col> -->
+
+      <ion-col size="4" routerLink="/gas-dashboard" >
+        <div align="center" class="bg-white rounded-lg shadow-md p-2" style=" border: 1px solid #bd0101;">
+          <img src="assets/gas.png" alt="">
+          <div class="pb-6">
+            <ion-label class="text-xs mt-5 mb-1">
+              Gas</ion-label>
+          </div>
+        </div>
+      </ion-col>
+
+      <ion-col size="4" routerLink="/fastag-dashboard" >
+        <div align="center" class="bg-white rounded-lg shadow-md p-2 mb-2" style=" border: 1px solid #bd0101;">
+          <img src="assets/fastag.png" alt="">
+          <div class="pb-6">
+            <ion-label class="text-xs mt-1 mb-5 pb-2">
+              FASTag</ion-label>
+          </div>
+        </div>
+      </ion-col>
+
+      <!-- <ion-col size="4" routerLink="/utility-DTH">
+        <div align="center" class="bg-white rounded-lg shadow-md p-2" style=" border: 1px solid #bd0101;">
+          <img src="assets/M8.png" alt="">
+          <ion-label class="text-sm mt-1">
+            Water</ion-label>
+        </div>
+      </ion-col>
+
+      <ion-col size="4" routerLink="/utility-DTH">
+        <div align="center" class="bg-white rounded-lg shadow-md p-2" style=" border: 1px solid #bd0101;">
+          <img src="assets/M10.png" alt="">
+          <ion-label class="text-sm mt-1">
+            Insurance</ion-label>
+        </div>
+      </ion-col>
+
+      <ion-col size="4" routerLink="/utility-DTH">
+        <div align="center" class="bg-white rounded-lg shadow-md p-2" style=" border: 1px solid #bd0101;">
+          <img src="assets/M11.png" alt="">
+          <ion-label class="text-sm mt-1">
+            Education</ion-label>
+        </div>
+      </ion-col> -->
+      
+
+    </ion-row>
+  </div>
+</ion-content>

@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Mobile Recharge</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="border-radius: 5px; margin-top: 2%;">
+    <ion-slides #slider loop="true" [options]="slideOpts">
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/U1.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px">
+          <img src="assets/U2.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px">
+          <img src="assets/U3.png" />
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="pl-2 pr-3">
+
+   <div class="p-1">
+    <div class="bg-white rounded-lg shadow-md p-1">
+      <div class="flex items-center">
+        <ion-input class="flex-1" placeholder="Search Mobile Number or Name" id="search">
+          <ion-icon name="search" style="margin-left: 7px"></ion-icon>
+        </ion-input>
+        <ion-icon name="close" class="px-4" style="margin-left: 7px"></ion-icon>
+      </div>
+    </div>
+   </div>
+
+    <!-- <div  class="pt-3 pl-1">
+      <ion-label><b>Recharge & Pay Bills</b></ion-label>
+    </div> -->
+
+    <ion-row class="mt-2">
+      <ion-col size="12" routerLink="/utility-selectplan">
+        <div class="p-2 border-b border-dashed border-gray-300 p-2">
+         <ion-row>
+          <ion-col size="1.5">
+            <img class="rounded-full" src="assets/uicon1.png" alt="">
+          </ion-col>
+          <ion-col size="9.5" class="pl-4">
+            <p class="text-gray-400 text-xs ">Ashwini Talware</p>
+            <p class="text-black font-bold text-xs mt-1">+91 8668543490</p>
+          </ion-col>
+          <ion-col size="1" class="flex items-center">
+            <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
+          </ion-col>
+         </ion-row>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" routerLink="/utility-selectplan">
+        <div class="p-2 border-b border-dashed border-gray-300 p-2">
+          <ion-row>
+            <ion-col size="1.5">
+              <img class="rounded-full" src="assets/uicon2.png" alt="">
+            </ion-col>
+            <ion-col size="9.5" class="pl-4">
+              <p class="text-gray-400 text-xs ">Shiba Khan</p>
+              <p class="text-black font-bold text-xs mt-1">+91 9865324578</p>
+            </ion-col>
+            <ion-col size="1" class="flex items-center">
+              <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" routerLink="/utility-selectplan">
+        <div class="p-2 border-b border-dashed border-gray-300 p-2">
+         <ion-row>
+          <ion-col size="1.5">
+            <img class="rounded-full" src="assets/uicon3.png" alt="">
+          </ion-col>
+          <ion-col size="9.5" class="pl-4">
+            <p class="text-gray-400 text-xs ">Pawan Patil</p>
+            <p class="text-black font-bold text-xs mt-1">+91 8596526325</p>
+          </ion-col>
+          <ion-col size="1" class="flex items-center">
+            <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
+          </ion-col>
+         </ion-row>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" routerLink="/utility-selectplan">
+        <div class="p-2 border-b border-dashed border-gray-300 p-2">
+         <ion-row>
+          <ion-col size="1.5">
+            <img class="rounded-full" src="assets/uicon3.png" alt="">
+          </ion-col>
+          <ion-col size="9.5" class="pl-4">
+            <p class="text-gray-400 text-xs ">Neha Patil</p>
+            <p class="text-black font-bold text-xs mt-1">+91 7845125623</p>
+          </ion-col>
+          <ion-col size="1" class="flex items-center">
+            <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
+          </ion-col>
+         </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

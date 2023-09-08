@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">FASTag Recharge</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+<div class="p-2">
+
+  <div style="border-radius: 5px; margin-top: 2%;">
+    <ion-slides #slider loop="true" [options]="slideOpts">
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/U1.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px">
+          <img src="assets/U2.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px">
+          <img src="assets/U3.png" />
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+
+  <div class="p-1">
+    <div class="bg-white rounded-lg shadow-md p-1">
+      <div class="flex items-center">
+        <ion-input class="flex-1" placeholder="Search FASTag Issuing Bank" id="search">
+          <ion-icon name="search" style="margin-left: 7px"></ion-icon>
+        </ion-input>
+        <ion-icon name="close" class="px-4" style="margin-left: 7px"></ion-icon>
+      </div>
+    </div>
+   </div>
+
+
+
+
+ <div class="p-2">
+  <div class="rounded-lg bg-white shadow-sm p-3">
+    <div  class="pt-3 pl-1">
+      <ion-label><b>Top FASTag Issuing Banks</b></ion-label>
+    </div>
+
+    <ion-grid >
+      <ion-row class="mt-1 ">
+        <ion-col size="12" routerLink="/fastag-bill">
+          <div class="p-2 border-b border-dashed border-gray-300 p-2">
+           <ion-row>
+            <ion-col size="1.5">
+              <img class="rounded-full" src="assets/elogo1.jpg" alt="">
+            </ion-col>
+            <ion-col size="9.5" class="pl-4">
+              <p class="text-black font-bold text-xs mt-1">Paytm Payments Bank</p>
+            </ion-col>
+            <ion-col size="1" class="flex items-center">
+              <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
+            </ion-col>
+           </ion-row>
+          </div>
+        </ion-col>
+  
+        <ion-col size="12" routerLink="/fastag-bill">
+          <div class="p-2 border-b border-dashed border-gray-300 p-2">
+            <ion-row>
+              <ion-col size="1.5">
+                <img class="rounded-full" src="assets/elogo2.png" alt="">
+              </ion-col>
+              <ion-col size="9.5" class="pl-4">
+                <p class="text-black font-bold text-xs mt-1">IDFC First Bank</p>
+              </ion-col>
+              <ion-col size="1" class="flex items-center">
+                <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-col>
+  
+        <ion-col size="12" routerLink="/fastag-bill">
+          <div class="p-2 border-b border-dashed border-gray-300 p-2">
+           <ion-row>
+            <ion-col size="1.5">
+              <img class="rounded-full" src="assets/elogo3.png" alt="">
+            </ion-col>
+            <ion-col size="9.5" class="pl-4">
+              <p class="text-black font-bold text-xs mt-1">ICICI Bank</p>
+            </ion-col>
+            <ion-col size="1" class="flex items-center">
+              <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
+            </ion-col>
+           </ion-row>
+          </div>
+        </ion-col>
+  
+        <ion-col size="12" routerLink="/fastag-bill">
+          <div class="p-2 border-b border-dashed border-gray-300 p-2">
+           <ion-row>
+            <ion-col size="1.5">
+              <img class="rounded-full" src="assets/elogo4.jpg" alt="">
+            </ion-col>
+            <ion-col size="9.5" class="pl-4">
+              <p class="text-black font-bold text-xs mt-1">Kotak Mahindra Bank</p>
+            </ion-col>
+            <ion-col size="1" class="flex items-center">
+              <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
+            </ion-col>
+           </ion-row>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" routerLink="/fastag-bill">
+          <div class="p-2 border-b border-dashed border-gray-300 p-2">
+           <ion-row>
+            <ion-col size="1.5">
+              <img class="rounded-full" src="assets/elogo4.jpg" alt="">
+            </ion-col>
+            <ion-col size="9.5" class="pl-4">
+              <p class="text-black font-bold text-xs mt-1">HDFC Bank</p>
+            </ion-col>
+            <ion-col size="1" class="flex items-center">
+              <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
+            </ion-col>
+           </ion-row>
+          </div>
+        </ion-col>
+  
+      
+      </ion-row>
+    </ion-grid>
+  </div>
+ </div>
+</div>
+</ion-content>
+

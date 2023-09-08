@@ -1,0 +1,138 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <div class="px-4 text-white text-lg">Book LPG Gas Cylinder</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+<div class="p-2">
+
+  <p class="text-sm text-gray-400 pl-3 mt-1">
+Book Instantly | 2cr+ Cylinders Delivered
+
+  </p>
+  <div style="border-radius: 5px; margin-top: 2%;">
+    <ion-slides #slider loop="true" [options]="slideOpts">
+      <ion-slide>
+        <ion-card style="border-radius: 5px;">
+          <img src="assets/U1.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px">
+          <img src="assets/U2.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 5px">
+          <img src="assets/U3.png" />
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+<div class="p-4">
+  <div class="radio-buttons-container">
+    <div class="radio-button">
+      <input name="radio-group" id="radio2" class="radio-button__input" type="radio">
+      <label for="radio2" class="radio-button__label">
+        <span class="radio-button__custom"></span>
+            
+            Pay Gas Bill
+      </label>
+    </div>
+    <div class="radio-button">
+      <input name="radio-group" id="radio1" class="radio-button__input" type="radio">
+      <label for="radio1" class="radio-button__label">
+        <span class="radio-button__custom"></span>
+        Book a Gas Cylinder
+      </label>
+    </div>
+    </div>
+</div>
+
+
+ <div class="p-2">
+  <div class="rounded-lg bg-white shadow-sm p-3">
+    <div  class="pt-3 pl-1">
+      <ion-label><b>Select Gas Provider</b></ion-label>
+    </div>
+
+    <ion-grid >
+      <ion-row class="mt-1 ">
+        <ion-col size="12" routerLink="/gas-bill">
+          <div class="p-2 border-b border-dashed border-gray-300 p-2">
+           <ion-row>
+            <ion-col size="1.5">
+              <img class="rounded-full" src="assets/elogo1.jpg" alt="">
+            </ion-col>
+            <ion-col size="9.5" class="pl-4">
+              <p class="text-black font-bold text-xs mt-1">HP Gas</p>
+            </ion-col>
+            <ion-col size="1" class="flex items-center">
+              <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
+            </ion-col>
+           </ion-row>
+          </div>
+        </ion-col>
+  
+        <ion-col size="12" routerLink="/gas-bill">
+          <div class="p-2 border-b border-dashed border-gray-300 p-2">
+            <ion-row>
+              <ion-col size="1.5">
+                <img class="rounded-full" src="assets/elogo2.png" alt="">
+              </ion-col>
+              <ion-col size="9.5" class="pl-4">
+                <p class="text-black font-bold text-xs mt-1">Bharatgas</p>
+              </ion-col>
+              <ion-col size="1" class="flex items-center">
+                <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-col>
+  
+        <ion-col size="12" routerLink="/gas-bill">
+          <div class="p-2 border-b border-dashed border-gray-300 p-2">
+           <ion-row>
+            <ion-col size="1.5">
+              <img class="rounded-full" src="assets/elogo3.png" alt="">
+            </ion-col>
+            <ion-col size="9.5" class="pl-4">
+              <p class="text-black font-bold text-xs mt-1">Bharat Gas(BPCL) - Commercial</p>
+            </ion-col>
+            <ion-col size="1" class="flex items-center">
+              <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
+            </ion-col>
+           </ion-row>
+          </div>
+        </ion-col>
+  
+        <ion-col size="12" routerLink="/gas-bill">
+          <div class="p-2 border-b border-dashed border-gray-300 p-2">
+           <ion-row>
+            <ion-col size="1.5">
+              <img class="rounded-full" src="assets/elogo4.jpg" alt="">
+            </ion-col>
+            <ion-col size="9.5" class="pl-4">
+              <p class="text-black font-bold text-xs mt-1">Indane</p>
+            </ion-col>
+            <ion-col size="1" class="flex items-center">
+              <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
+            </ion-col>
+           </ion-row>
+          </div>
+        </ion-col>
+  
+      
+      </ion-row>
+    </ion-grid>
+  </div>
+ </div>
+</div>
+</ion-content>
