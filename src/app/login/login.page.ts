@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
       .catch((error: any) => console.error(error));
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   // autoLogin() {
   //   this.dataService.present('Syncing Profile...', 200);
@@ -111,11 +111,12 @@ export class LoginPage implements OnInit {
               data.profile.email == 'email@gmail.com' ||
               !data.profile.city
             ) {
+              this.dataService.showReferral = true
               this.navCtrl.navigateForward(['/editprofile']);
             } else {
               // this.navCtrl.navigateForward(['/dashboard']);
-              this.navCtrl.navigateForward([''+this.dataService.directNavigate]);
-              
+              this.navCtrl.navigateForward(['' + this.dataService.directNavigate]);
+
             }
           }
           if (data.status == false) {
@@ -134,11 +135,11 @@ export class LoginPage implements OnInit {
   google() {
     this.dataService.presentToast('Coming Soon..', 'danger');
   }
-  
-   ionViewDidEnter(){
-setTimeout(async() => {
-  
-  await SplashScreen.hide()
-}, 100);
+
+  ionViewDidEnter() {
+    setTimeout(async () => {
+
+      await SplashScreen.hide()
+    }, 100);
   }
 }

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 declare const Swal: any;
 
 @Component({
@@ -22,6 +23,7 @@ export class ApplyPage implements OnInit {
     public router: Router,
     public http: HttpClient,
     public dataService: DataService,
+    public iab: InAppBrowser,
     public activatedRoute: ActivatedRoute
   ) {
     this.jobAppliedCheck();
@@ -82,9 +84,9 @@ export class ApplyPage implements OnInit {
           );
       });
   }
-  ngOnInit() {}
+  ngOnInit() { }
   viewResume() {
-    window.open(this.dataService.profile.resume, '_blank');
+    this.iab.create(this.dataService.profile.resume, '_system');
   }
 
   confirmOrder() {

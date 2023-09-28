@@ -5,14 +5,6 @@
 </ion-header>
 
 <ion-content>
-  
-
-  <!-- <div class="p-4">
-  <div class=" bg-yellow-300 border rounded-md p-2">
-    Report any bugs at <a href="mailto:support@vendorclub.com">support@vendorclub.com </a>
-  </div>
-</div> -->
-
   <div class="px-4 mt-4">
     <div class="bg-white rounded-lg shadow-md">
       <div class="flex items-center">
@@ -21,7 +13,7 @@
           placeholder="Search by product name"
           id="search"
           [(ngModel)]="this.oldExService.filters.query"
-          >
+        >
           <!-- [(ngModel)]="searchQuery"
           (ionChange)="getSuggesions($event)" -->
           <ion-icon name="search" style="margin-left: 7px"></ion-icon>
@@ -108,74 +100,61 @@
                 class="text-xl"
               ></ion-icon>
             </div>
-            <div class="mt-2 text-xs">{{category.attributes.name|titlecase}}</div>
+            <div class="mt-2 text-xs">
+              {{category.attributes.name|titlecase}}
+            </div>
           </ion-col>
-
-        
         </ion-row>
-       
       </ion-grid>
     </div>
   </div>
 
-  <div class="px-4 pt-2 pb-1" *ngIf="this.oldExService.newNearbyProducts.length">
+  <div
+    class="px-4 pt-2 pb-1"
+    *ngIf="this.oldExService.newNearbyProducts.length"
+  >
     <ion-label><b>New Nearby Products</b></ion-label>
   </div>
 
-
   <div class="p-4">
-
-
-
-    <div *ngFor="let product of this.oldExService.newNearbyProducts" class="bg-white p-4 mt-2 rounded-md" style="width: 100%">
-
+    <div
+      *ngFor="let product of this.oldExService.newNearbyProducts"
+      class="bg-white p-4 mt-2 rounded-md"
+      style="width: 100%"
+    >
       <div class="flex">
-        <div class="w-10 h-10 bg-blue-100 rounded-md bg-cover bg-center"
-        *ngIf="product.attributes.images.data"
-        
+        <div
+          class="w-10 h-10 bg-blue-100 rounded-md bg-cover bg-center"
+          *ngIf="product.attributes.images.data"
+          style="background-image: url('{{product.attributes.images.data[0].attributes.url}}');"
+        ></div>
 
-        style="background-image: url('{{product.attributes.images.data[0].attributes.url}}');"
-        >
-          
-        </div>
-
-      <div class="flex-1 pl-2">
-
-
-      <div class="flex ">
-        <div class="flex-1 text-black text-left text-base font-bold">
-          <!-- {{job.id}} -->{{product.attributes.title}}
-        </div>
-
-
-      </div>
-      <div class="text-sm text-blue-800 font-bold">
-        ₹ {{product.attributes.price}}
-      </div>
-    </div>
-
-  </div>
-
-      <div class="flex justify-start">
-
-        <div>
-          <div class="text-sm flex items-center">
-            <ion-icon name="location" class="text-red-600"></ion-icon>&nbsp;
-            {{product.attributes.city|titlecase}} | {{product.attributes.category.data.attributes.name|titlecase}}
+        <div class="flex-1 pl-2">
+          <div class="flex">
+            <div class="flex-1 text-black text-left text-base font-bold">
+              <!-- {{job.id}} -->{{product.attributes.title}}
+            </div>
+          </div>
+          <div class="text-sm text-blue-800 font-bold">
+            ₹ {{product.attributes.price}}
           </div>
         </div>
       </div>
 
-      <div class="text-sm  items-center mt-2">
+      <div class="flex justify-start">
+        <div>
+          <div class="text-sm flex items-center">
+            <ion-icon name="location" class="text-red-600"></ion-icon>&nbsp;
+            {{product.attributes.city|titlecase}} |
+            {{product.attributes.category.data.attributes.name|titlecase}}
+          </div>
+        </div>
+      </div>
 
-
+      <div class="text-sm items-center mt-2">
         <b>Description :</b>
         {{product.attributes.description|titlecase}}
       </div>
-
-
-
-
 
       <div class="flex justify-between items-center">
         <div>
@@ -186,7 +165,13 @@
           <!-- <div *ngIf="job.applied">Viewed</div> -->
         </div>
         <div class="text-right">
-          <ion-button [routerLink]="['/oldex-details/'+product.id]" routerLinkActive="router-link-active"  color="dark" fill="clear" class="flex-1 mt-2 bg-white text-sm">
+          <ion-button
+            [routerLink]="['/oldex-details/'+product.id]"
+            routerLinkActive="router-link-active"
+            color="dark"
+            fill="clear"
+            class="flex-1 mt-2 bg-white text-sm"
+          >
             <b>View Details</b>
           </ion-button>
         </div>

@@ -5,6 +5,7 @@ import { DataService } from 'src/app/services/data.service';
 import { JobService } from 'src/app/services/job.service';
 import qs from 'qs';
 import { NavController } from '@ionic/angular';
+import { InAppBrowser } from "@awesome-cordova-plugins/in-app-browser/ngx";
 
 @Component({
   selector: 'app-jobdetails',
@@ -23,10 +24,10 @@ export class JobdetailsPage implements OnInit {
     public dataService: DataService,
     public jobService: JobService,
     public http: HttpClient,
-    public activatedRoute: ActivatedRoute
+    public activatedRoute: ActivatedRoute, public iab: InAppBrowser
   ) {
     this.getJobDetails();
-    
+
     // this.jobAppliedCheck();
   }
   ionViewWillEnter() {
@@ -71,16 +72,17 @@ export class JobdetailsPage implements OnInit {
     this.dataService.contact('call', '91' + job.attributes.contactNumber);
   }
   whatsapp(job) {
+
     this.dataService.contact('whatsapp', '91' + job.attributes.contactNumber);
   }
 
-  jobSeen(){
-    this.http.post(this.dataService.apiUrl+'job-post-views',{
-data:{
-  user:this.dataService.profile.id,
-  job_post:this.data.id
-}
-    }).subscribe(data=>{
+  jobSeen() {
+    this.http.post(this.dataService.apiUrl + 'job-post-views', {
+      data: {
+        user: this.dataService.profile.id,
+        job_post: this.data.id
+      }
+    }).subscribe(data => {
 
     })
   }
@@ -108,11 +110,11 @@ data:{
   }
   report() {
     window.open(
-      'mailto:'+this.dataService.contacts.reportEmail +
-        '?subject=Job Report | Job ID : ' +
-        this.data.id +
-        '&body=I want to report this job because ....',
-      '_system'
+      'mailto:' + this.dataService.meta.supportEmail +
+      '?subject=Job Report | Job ID : ' +
+      this.data.id +
+      '&body=I want to report this job because ....',
+      '_blank'
     );
   }
   apply() {
@@ -134,10 +136,10 @@ data:{
     this.http
       .get(
         this.dataService.apiUrl +
-          'job-posts/' +
-          this.activatedRoute.snapshot.params.jobId +
-          '?' +
-          query,
+        'job-posts/' +
+        this.activatedRoute.snapshot.params.jobId +
+        '?' +
+        query,
         {
           // params: {
           //   populate: '*',
@@ -145,6 +147,11 @@ data:{
         }
       )
       .subscribe((data: any) => {
+
+        data.data.attributes.description = data.data.attributes.description.replace("\n", '<br>')
+        data.data.attributes.description = data.data.attributes.description.replace(/(?:\r\n|\r|\n)/g, "<br>")
+        console.log(data.data);
+
         this.data = data.data;
         this.calculateSkills(this.data.attributes.skillsByComma);
 
@@ -222,5 +229,5 @@ data:{
       });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

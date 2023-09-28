@@ -16,19 +16,19 @@
       <br />
       <ion-item>
         <ion-label>Category</ion-label>
-        <ion-select formControlName="category"
-          interface="popover"
-          placeholder="Select One"
-        >
-          <ion-select-option *ngFor="let category of this.oldExService.categories"  value="{{category.id}}">{{category.attributes.name|titlecase}}</ion-select-option>
-         
+        <ion-select formControlName="category" placeholder="Select One">
+          <ion-select-option
+            *ngFor="let category of this.oldExService.categories"
+            value="{{category.id}}"
+            >{{category.attributes.name|titlecase}}</ion-select-option
+          >
         </ion-select>
       </ion-item>
       <br />
-    
+
       <ion-item class="">
         <ion-label position="floating"> City</ion-label>
-        <ion-input  formControlName="city"></ion-input>
+        <ion-input formControlName="city"></ion-input>
       </ion-item>
       <br />
       <ion-item class="">
@@ -37,16 +37,13 @@
       </ion-item>
       <br />
 
- 
       <ion-item class="">
         <ion-label position="floating">Description</ion-label>
         <ion-textarea formControlName="description"></ion-textarea>
       </ion-item>
       <br />
 
-      <div class="text-right" *ngIf="!images.length">
-        No Images Uploaded
-      </div>
+      <div class="text-right" *ngIf="!images.length">No Images Uploaded</div>
       <input
         type="file"
         class="hidden"
@@ -75,16 +72,10 @@
       <ion-button (click)="submit()" size="block" color="primary"
         >Submit</ion-button
       >
-      
-      <ion-button
-        *ngIf="id"
-        (click)="remove()"
-        size="block"
-        color="primary"
+
+      <ion-button *ngIf="id" (click)="remove()" size="block" color="primary"
         >Remove Product</ion-button
       >
-
-      
     </form>
   </div>
 </ion-content>

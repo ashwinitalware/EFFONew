@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BusService } from '../bus.service';
 import { IonContent } from '@ionic/angular';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-bus-dashboard',
@@ -12,8 +13,27 @@ export class BusDashboardPage implements OnInit {
 
 
   todayDate = new Date().toISOString().split('T')[0]
-  constructor(public busService: BusService) {
+  constructor(public busService: BusService, public ds: DataService) {
     // this.busService.payment()
+
+  }
+  checkValue(type) {
+    console.log('tuype', type);
+    setTimeout(() => {
+      if (type == 'from') {
+        if (!this.busService.inputs.fromCityId) {
+          this.busService.inputs.from = ""
+          this.ds.presentToast("Select City from suggestions")
+        }
+      }
+      else {
+        if (!this.busService.inputs.toCityId) {
+          this.busService.inputs.to = ""
+          this.ds.presentToast("Select City from suggestions")
+        }
+      }
+    }, 500);
+
 
   }
   slider: any;
@@ -59,18 +79,5 @@ export class BusDashboardPage implements OnInit {
     }
 
   }
-  citySelected(city, source) {
-    this.busService.fromSuggestions = []
-    this.busService.toSuggestions = []
-    if (source == 'from') {
-      this.busService.inputs.from = city.attributes.name
-      this.busService.inputs.fromCityId = city.attributes.cityId
-    }
-    else {
-      this.busService.inputs.to = city.attributes.name
-      this.busService.inputs.toCityId = city.attributes.cityId
-    }
 
-
-  }
 }

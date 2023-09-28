@@ -16,7 +16,6 @@ export class SelectBusSeatPage implements OnInit {
 
     this.busService.seatsSelected = []
 
-
     for (let x = 0; x < this.busService.seatMap.deckData[0].busConfig.x; x++) {
       this.lowerSeatsArray.push([])
       for (let y = 0; y < this.busService.seatMap.deckData[0].busConfig.y; y++) {
@@ -27,28 +26,27 @@ export class SelectBusSeatPage implements OnInit {
         })
       }
     }
-
-
-    for (let x = 0; x < this.busService.seatMap.deckData[1].busConfig.x; x++) {
-      this.upperSeatsArray.push([])
-      for (let y = 0; y < this.busService.seatMap.deckData[1].busConfig.y; y++) {
-        this.upperSeatsArray[x].push({
-          isDeck: false,
-          // forX: x,
-          // forY: y
-        })
-      }
-    }
     this.busService.seatMap.deckData[0].seats.forEach(seat => {
       this.lowerSeatsArray[seat.seatPos.y][seat.seatPos.x] = { seat: true, ...seat }
     });
-    this.busService.seatMap.deckData[1].seats.forEach(seat => {
-      this.upperSeatsArray[seat.seatPos.y][seat.seatPos.x] = { seat: true, ...seat }
-    });
 
+    if (this.busService.seatMap.deckData[1]) {
+      for (let x = 0; x < this.busService.seatMap.deckData[1].busConfig.x; x++) {
+        this.upperSeatsArray.push([])
+        for (let y = 0; y < this.busService.seatMap.deckData[1].busConfig.y; y++) {
+          this.upperSeatsArray[x].push({
+            isDeck: false,
+            // forX: x,
+            // forY: y
+          })
+        }
+      }
+
+      this.busService.seatMap.deckData[1].seats.forEach(seat => {
+        this.upperSeatsArray[seat.seatPos.y][seat.seatPos.x] = { seat: true, ...seat }
+      });
+    }
     console.log(this.lowerSeatsArray);
-
-
 
 
 

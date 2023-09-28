@@ -5,10 +5,8 @@
     </div>
     <div class="flex justify-between">
       <img src="assets/textW.png" width="35%" height="35%" alt="" />
-      <div
-        class="text-white flex items-center px-4 text-lg"
-        (click)="this.router.navigate(['/select-city'])"
-      >
+      <div class="text-white flex items-center px-4 text-lg">
+        <!-- (click)="this.router.navigate(['/select-city'])" -->
         <ion-icon name="location"></ion-icon>
         {{this.dataService.selectedCity|titlecase}}
       </div>
@@ -37,11 +35,11 @@
     </div>
   </div>
 
-  <div class="p-3">
+  <!-- <div class="p-3">
     <ion-label>How can we<br /><b>Help You Today?</b></ion-label>
-  </div>
+  </div> -->
   <ion-row class="px-2 relative">
-    <div
+    <!-- <div
       class="flex items-center"
       style="
         width: 100%;
@@ -65,7 +63,7 @@
         class="px-4"
         style="margin-left: 7px"
       ></ion-icon>
-    </div>
+    </div> -->
     <!-- class="bg-white rounded-md w-full mt-2 absolute mt-16" -->
     <div class="bg-white rounded-md w-full mt-2" style="z-index: 10; left: 0px">
       <div
@@ -86,10 +84,11 @@
   </ion-row>
 
   <div
+    class="rounded-lg"
     style="
       background-color: white;
-      border-radius: 5px;
-      margin-top: 2%;
+      border-radius: 1.5rem;
+      /* margin-top: 2%; */
       padding: 5px;
     "
   >
@@ -98,7 +97,7 @@
         (click)="this.dataService.slideClicked(slide)"
         *ngFor="let slide of this.dataService.homeSliders"
       >
-        <ion-card style="border-radius: 5px">
+        <ion-card style="border-radius: 1.5rem">
           <img src="{{slide.attributes.file.data.attributes.url}}" />
         </ion-card>
       </ion-slide>
@@ -106,7 +105,7 @@
   </div>
 
   <div style="padding-left: 0.8em" class="pt-3">
-    <ion-label><b>All Categories</b></ion-label>
+    <ion-label><b>Services We Offer !</b></ion-label>
   </div>
 
   <div style="background-color: white; border-radius: 5px; margin-top: 3%">

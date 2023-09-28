@@ -11,6 +11,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class EditprofilePage implements OnInit {
   pinAddress = '';
+  // showReferral = false;
   constructor(
     public dataService: DataService,
     public http: HttpClient,
@@ -18,6 +19,8 @@ export class EditprofilePage implements OnInit {
     public navCtrl: NavController,
     public activateRoute: ActivatedRoute
   ) {
+    // if (this.activateRoute.snapshot.queryParams.source == 'login')
+    //   this.showReferral = true;
     console.log(this.activateRoute.snapshot);
 
     if (this.dataService.profile) {
@@ -35,8 +38,8 @@ export class EditprofilePage implements OnInit {
     this.http
       .get(
         'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-          this.dataService.profile.pinCode +
-          '&sensor=true&key=AIzaSyD6d0aNvUiSWaENoQ1UuqCOzfMg0Wmq7Do'
+        this.dataService.profile.pinCode +
+        '&sensor=true&key=AIzaSyD6d0aNvUiSWaENoQ1UuqCOzfMg0Wmq7Do'
       )
       .subscribe((data: any) => {
         if (data.results && data.results.length) {
@@ -44,27 +47,27 @@ export class EditprofilePage implements OnInit {
           try {
             this.dataService.profile.city =
               data.results[0].address_components[1].long_name;
-          } catch (error) {}
+          } catch (error) { }
         } else {
           this.dataService.presentToast('Invalid Pin Code', 'danger');
           // alert('Invalid Pin Code');
         }
       });
   }
-  ngOnInit() {}
+  ngOnInit() { }
   async updateProfile() {
     // check for validations
     let tempProfile = this.dataService.profile;
     if (
       !tempProfile.fullName ||
-      !tempProfile.pinCode ||
+      // !tempProfile.pinCode ||
       !tempProfile.city ||
       !tempProfile.email
     )
       return this.dataService.presentToast('Invalid Form', 'danger');
 
-    if ((tempProfile.pinCode + '').length != 6)
-      return this.dataService.presentToast('Invalid Pin Code', 'danger');
+    // if ((tempProfile.pinCode + '').length != 6)
+    //   return this.dataService.presentToast('Invalid Pin Code', 'danger');
 
     if (!this.validateEmail(tempProfile.email))
       return this.dataService.presentToast('Invalid Email Address', 'danger');
@@ -73,8 +76,8 @@ export class EditprofilePage implements OnInit {
     const pinResult: any = await this.http
       .get(
         'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-          this.dataService.profile.pinCode +
-          '&sensor=true&key=AIzaSyD6d0aNvUiSWaENoQ1UuqCOzfMg0Wmq7Do'
+        this.dataService.profile.pinCode +
+        '&sensor=true&key=AIzaSyD6d0aNvUiSWaENoQ1UuqCOzfMg0Wmq7Do'
       )
       .toPromise();
 
@@ -94,10 +97,12 @@ export class EditprofilePage implements OnInit {
         city: this.dataService.profile.city,
         email: this.dataService.profile.email,
         pinCode: this.dataService.profile.pinCode,
+        referral: this.dataService.profile.referral,
       })
       .subscribe((data: any) => {
         if (data.status) {
           this.dataService.confirmSwal('', 'Profile Updated');
+          this.dataService.showReferral = false
         }
         if (data.profile) {
           this.dataService.saveProfileObject(data.profile);
@@ -106,7 +111,8 @@ export class EditprofilePage implements OnInit {
           this.navCtrl.back();
         } else {
           // this.navCtrl.navigateRoot(['/dashboard']);
-          this.navCtrl.navigateRoot([''+this.dataService.directNavigate]);
+          this.navCtrl.navigateRoot(['' + this.dataService.directNavigate]);
+
         }
       });
   }

@@ -13,63 +13,88 @@
       <div *ngFor="let passenger of this.busService.passengers;let i=index">
         <div class="font-bold text-sm">Passenger : {{i+1}} Details</div>
         <br />
-        <input [(ngModel)]="passenger.name" type="text" placeholder="Full Name"
-          class="w-full rounded-md border-2 px-2 py-3" />
+        <select
+          class="w-full rounded-md border-2 px-2 py-3"
+          [(ngModel)]="passenger.title"
+        >
+          <option value="Mr">Mr</option>
+          <option value="Mrs">Mrs</option>
+          <option value="Miss">Miss</option>
+        </select>
+
         <br />
         <br />
-        <input [(ngModel)]="passenger.phone" type="number" placeholder="Phone Number"
-          class="w-full rounded-md border-2 px-2 py-3" />
+        <input
+          [(ngModel)]="passenger.name"
+          type="text"
+          placeholder="Full Name"
+          class="w-full rounded-md border-2 px-2 py-3"
+        />
+        <br />
+        <br />
+        <!-- (ngModelChange)="this.busService.verifyAge($event,i)" -->
+        <input
+          (blur)="this.busService.verifyAge(i)"
+          [(ngModel)]="passenger.age"
+          min="1"
+          max="99"
+          type="number"
+          placeholder="Age"
+          class="w-full rounded-md border-2 px-2 py-3"
+        />
       </div>
     </div>
   </div>
 
-  <div class="p-2">
+  <div class="p-2" *ngIf="this.busService.busReviewDetails">
     <div class="rounded-md bg-white p-3">
       <div class="font-bold text-sm">Price details</div>
 
       <div class="flex justify-between p-1">
-        <p class="text-gray-400 text-md">
-          Base Fare
-        </p>
+        <p class="text-gray-400 text-md">Base Fare</p>
         <p class="font-bold text-black text-lg">
-          ₹ 799
+          ₹ {{this.busService.busReviewDetails.fares.paxFares.adt.base.amount}}
         </p>
       </div>
 
       <div class="flex justify-between p-1">
-        <p class="text-gray-400 text-md">
-          Tax
-        </p>
+        <p class="text-gray-400 text-md">Tax</p>
         <p class="font-bold text-black text-lg">
-          ₹ 40
+          ₹ {{this.busService.busReviewDetails.fares.paxFares.adt.tax.amount}}
         </p>
       </div>
-      <div class="border border-dashed "></div>
+      <div class="border border-dashed"></div>
       <div class="flex justify-between p-1">
-        <p class="text-gray-400 text-md">
-          Total Amount
-        </p>
+        <p class="text-gray-400 text-md">Total Amount</p>
         <p class="font-bold text-black text-lg">
-          ₹839
+          ₹ {{this.busService.busReviewDetails.fares.paxFares.adt.total.amount}}
         </p>
       </div>
     </div>
   </div>
 
-
   <div class="p-2">
     <div class="rounded-md bg-white p-3">
       <div class="font-bold text-sm">Select Pickup & Drop</div>
-      <ion-accordion-group>
-        <ion-accordion class="mt-2 bg-white border border-gray-100 rounded-md">
+      <ion-accordion-group #accordionGroup>
+        <ion-accordion
+          value="pick"
+          class="mt-2 bg-white border border-gray-100 rounded-md"
+        >
           <ion-item slot="header" class="bg-white">
-            <ion-label>Select Pick Point</ion-label>
+            <ion-label
+              >{{this.busService.selectedPickupName|| 'Select Pick
+              Point'}}</ion-label
+            >
           </ion-item>
           <div slot="content" class="bg-red-50">
             <ion-list>
-              <ion-radio-group [(ngModel)]="this.busService.selectedPick">
+              <ion-radio-group
+                (ngModelChange)="this.toggleAccordion($event)"
+                [(ngModel)]="this.busService.selectedPick"
+              >
                 <ion-item *ngFor="let stop of this.busService.pick">
-                  <ion-label>{{stop.name}}</ion-label>
+                  <ion-label>{{stop.time}} - {{stop.name}} </ion-label>
                   <ion-radio slot="end" value="{{stop.id}}"></ion-radio>
                 </ion-item>
               </ion-radio-group>
@@ -77,15 +102,26 @@
           </div>
         </ion-accordion>
 
-        <ion-accordion class="mt-2 bg-white border border-gray-100 rounded-md">
+        <ion-accordion
+          value="drop"
+          class="mt-2 bg-white border border-gray-100 rounded-md"
+        >
           <ion-item slot="header" class="bg-white">
-            <ion-label>Select Drop Point</ion-label>
+            <ion-label>
+              {{this.busService.selectedDropName|| 'Select Drop
+              Point'}}</ion-label
+            >
           </ion-item>
           <div slot="content" class="bg-red-50">
             <ion-list>
-              <ion-radio-group [(ngModel)]="this.busService.selectedDrop">
+              <ion-radio-group
+                (ngModelChange)="this.toggleAccordion($event)"
+                [(ngModel)]="this.busService.selectedDrop"
+              >
                 <ion-item *ngFor="let stop of this.busService.drop">
-                  <ion-label>{{stop.name}}</ion-label>
+                  <ion-label
+                    >{{stop.time}} - {{stop.name}} {{stop.time}}</ion-label
+                  >
                   <ion-radio slot="end" value="{{stop.id}}"></ion-radio>
                 </ion-item>
               </ion-radio-group>
@@ -93,17 +129,17 @@
           </div>
         </ion-accordion>
 
-        <div (click)="this.busService.confirmBooking()"
+        <div
+          (click)="this.busService.confirmBooking()"
           *ngIf="(this.busService.selectedPick&&this.busService.selectedDrop)"
-          class="mt-3 w-full bg-red-600 text-white text-center rounded-md py-2 shadow-md">
+          class="mt-3 w-full bg-red-600 text-white text-center rounded-md py-2 shadow-md"
+        >
           <!-- Book & Pay {{this.busService.charges.total}} /- -->
           Confirm and Book
         </div>
       </ion-accordion-group>
     </div>
   </div>
-
-  
 
   <div class="px-4"></div>
 

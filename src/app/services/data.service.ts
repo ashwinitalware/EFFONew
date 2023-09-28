@@ -20,12 +20,17 @@ import qs from 'qs';
 import { App } from '@capacitor/app';
 declare const Swal: any;
 import { map } from 'rxjs/operators';
+import { InAppBrowser } from "@awesome-cordova-plugins/in-app-browser/ngx";
+
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-
-
+  showReferral = false
+  meta = {
+    supportPhone: '919004101004',
+    supportEmail: 'contact@effoapp.com'
+  }
   selectedCity;
   cities = [];
   homeSliders = [];
@@ -40,10 +45,10 @@ export class DataService {
   // directNavigate='/jobdashboard'
   // localStorageName='aisaJobProfileLS'
   // logoName='aisaLogo.png'
-  contacts = {
-    reportEmail: 'support@vendorclub.com',
-    // reportEmail:"report@aisaindiajobs.com"
-  };
+  // contacts = {
+  //   reportEmail: 'contact@effoapp.com',
+  //   // reportEmail:"report@aisaindiajobs.com"
+  // };
   // DIRECT CONFIGS
   // DIRECT CONFIGS
   // DIRECT CONFIGS
@@ -111,7 +116,7 @@ export class DataService {
     public loadingCtrl: LoadingController,
     public toastController: ToastController,
     public menu: MenuController,
-    public photoViewer: PhotoViewer
+    public photoViewer: PhotoViewer, public iab: InAppBrowser
   ) {
     App.getInfo().then((data) => {
       this.appVersion = data.version;
@@ -155,7 +160,7 @@ export class DataService {
       this.cities = data.data;
     });
   }
-  async present(content = 'Loading Data...', duration = 5000) {
+  async present(content = 'Loading Data...', duration = 10000) {
     this.isLoading = true;
     return await this.loadingCtrl
       .create({
@@ -273,18 +278,18 @@ export class DataService {
   report(subject = 'Report', body = 'I want to report  ....') {
     window.open(
       'mailto:' +
-      this.contacts.reportEmail +
+      this.meta.supportEmail +
       '?subject=' +
       subject +
       '&body=' +
       body,
-      '_system'
+      '_blank'
     );
   }
   showDirection(lat, lng) {
-    window.open(
+    this.iab.create(
       `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`,
-      '_blank'
+      '_system'
     );
   }
   async share(
@@ -307,13 +312,20 @@ export class DataService {
     this.auth.otpSent = false;
     this.router.navigate(['/login']);
   }
-  contact(type = 'call', contact) {
+  contact(type = 'call', contact = this.meta.supportPhone) {
     if (type == 'call') {
-      window.open('tel:+' + contact);
+      window.open('tel:+' + contact, "_blank");
     } else {
-      window.open('https://api.whatsapp.com/send?phone=' + contact);
+      let browser = this.iab.create('https://api.whatsapp.com/send?phone=' + contact, "_system")
+
     }
   }
+  mail(mail = 'contact@effoapp.com') {
+
+    window.open('mailto:' + mail + '?subject=Help Needed', '_blank')
+  }
+
+
   timeSince(date) {
     try {
       const seconds = Math.floor(
@@ -496,7 +508,8 @@ export class DataService {
     if (slide.attributes.onclick == 'redirect') {
       this.router.navigate([slide.attributes.link]);
     } else if (slide.attributes.onclick == 'web') {
-      window.open(slide.attributes.link, '_system');
+
+      this.iab.create(slide.attributes.link, '_system');
     }
   }
   statusToClassCab(status) {

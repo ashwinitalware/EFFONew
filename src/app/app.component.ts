@@ -12,6 +12,7 @@ import {
 import { PushNotifications } from '@capacitor/push-notifications';
 import { RateApp } from 'capacitor-rate-app';
 import { App } from '@capacitor/app';
+import Echo from 'src/customPlugins/echo';
 
 // import { PushNotifications } from "@capacitor/push-notifications";
 
@@ -40,6 +41,15 @@ export class AppComponent {
   }
   initializeApp() {
     this.platform.ready().then(async () => {
+
+
+
+      // const { value } = await Echo.echo({ value: 'Hello World!' });
+      // alert('Response from native:' + value);
+      // const { value } = await Echo.checkPackage({ value: 'Hello World!' });
+      // alert('Response from native:' + value);
+
+
       this.platform.backButton.subscribeWithPriority(-1, () => {
         if (
           (window.location + '').includes('localhost/dashboard') ||
@@ -78,20 +88,20 @@ export class AppComponent {
       // });
 
       try {
-        // AppUpdate.getAppUpdateInfo().then((data) => {
-        //   console.log('UPDATE INFO');
-        //   if (
-        //     data.updateAvailability == AppUpdateAvailability.UPDATE_AVAILABLE
-        //   ) {
-        //     // this.dataService.presentToast('Update Available');
-        //     if (data.flexibleUpdateAllowed) {
-        //       AppUpdate.startFlexibleUpdate();
-        //     }
-        //     if (data.immediateUpdateAllowed) {
-        //       AppUpdate.performImmediateUpdate();
-        //     }
-        //   }
-        // });
+        AppUpdate.getAppUpdateInfo().then((data) => {
+          console.log('UPDATE INFO');
+          if (
+            data.updateAvailability == AppUpdateAvailability.UPDATE_AVAILABLE
+          ) {
+            // this.dataService.presentToast('Update Available');
+            if (data.flexibleUpdateAllowed) {
+              AppUpdate.startFlexibleUpdate();
+            }
+            // if (data.immediateUpdateAllowed) {
+            //   AppUpdate.performImmediateUpdate();
+            // }
+          }
+        });
       } catch (error) { }
     });
   }
@@ -128,10 +138,8 @@ export class AppComponent {
     }
     if (item.role == 'logout') this.dataService.logout();
     if (item.role == 'business') {
-      // window.open(
-      //   `https://play.google.com/store/apps/details?id=io.effo.vendor`
-      // );
-      window.open(this.dataService.playStoreLinks.vendor, '_system');
+
+      this.iab.create(this.dataService.playStoreLinks.vendor, '_system');
     }
     if (item.role == 'rate') {
       // RateApp.requestReview()
@@ -142,7 +150,7 @@ export class AppComponent {
       //     console.log(err);
       //   });
 
-      window.open(this.dataService.playStoreLinks.customer, '_system');
+      this.iab.create(this.dataService.playStoreLinks.customer, '_system');
     }
   }
   handleFileInput(files: any) {

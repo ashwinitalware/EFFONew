@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { DataService } from '../data.service';
 import { ServiceService } from '../service.service';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @Component({
   selector: 'app-vendor-details',
@@ -20,7 +21,7 @@ export class VendorDetailsPage implements OnInit {
     public http: HttpClient,
     public dataService: DataService,
     public activatedRoute: ActivatedRoute,
-    public service: ServiceService
+    public service: ServiceService, public iab: InAppBrowser
   ) {
     this.getData();
   }
@@ -39,13 +40,13 @@ export class VendorDetailsPage implements OnInit {
           let tempDescription = JSON.parse(
             this.data.attributes.descriptionJson
           );
-          tempDescription.forEach((element) => {});
+          tempDescription.forEach((element) => { });
           this.descriptions = tempDescription;
-        } catch (error) {}
+        } catch (error) { }
       });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
   book() {
     let canBook = false;
     this.service.selectedServices = [];
@@ -67,9 +68,9 @@ export class VendorDetailsPage implements OnInit {
     //   `https://www.google.com/maps/search/?api=1&query=18.517238336308125,73.87826212583717`
     // );
 
-    window.open(
+    this.iab.create(
       `https://www.google.com/maps/search/?api=1&query=${this.data.attributes.businessLat},${this.data.attributes.businessLng}`,
-      '_blank'
+      '_system'
     );
   }
 }

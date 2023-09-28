@@ -9,6 +9,13 @@ import { InAppBrowser } from "@awesome-cordova-plugins/in-app-browser/ngx";
   providedIn: 'root'
 })
 export class BusService {
+  selectedPickupName
+  selectedDropName
+  cancellationPolicy
+  departureTime
+  arrivalTime
+  busReviewDetails
+  selectedBusDetails
   filters = {
     name: "",
     sort: ""
@@ -902,8 +909,9 @@ export class BusService {
     total: 0
   }
   passengers = [{
+    title: 'Mr',
     name: "",
-    phone: ""
+    age: ""
   }]
   selectedPick
   selectedDrop
@@ -927,44 +935,92 @@ export class BusService {
   constructor(public dataService: DataService, public navCtrl: NavController, public router: Router, public iab: InAppBrowser) { }
   async payment() {
 
-    let browser = this.iab.create('https://effoapp.com/payment/payment.html?order_id=123&amount=1')
+    // this.blockBooking()
+
+
+    let browser = this.iab.create(`https://effoapp.com/payment/payment_v1.html?billing_email=${this.dataService.profile.email}&billing_tel=${this.dataService.profile.phone}&order_id=123&amount=${this.busReviewDetails.fares.paxFares.adt.total.amount}`)
     browser.on('loadstop').subscribe(d => {
       console.log('loadstop', d);
-      if (d.url.includes('ccavResponseHandler')) {
+      // if (d.url.includes('ccavResponseHandler')) {
+      if (d.url.includes('api/payments/success')) {
         browser.close()
         // alert("Payment")
         this.dataService.presentToast("Payment Successfull, We are confirming booking !")
         // this.navCtrl.navigateForward(['/'])
-
-        this.getBusReview(this.key, this.seatsSelected, this.selectedPick, this.selectedDrop)
-      }
-      if (d.url.includes('cancel')) {
+        this.blockBooking()
+        // this.getBusReview(this.key, this.seatsSelected, this.selectedPick, this.selectedDrop)
+      } else if (d.url.includes('cancel') || d.url.includes('api/payments/fail')) {
         browser.close()
         // alert("Payment")
-        this.dataService.presentToast("Payment Cancelled")
-        // this.navCtrl.navigateForward(['/'])
+        this.dataService.presentToast("Payment Failed . Please contact us !")
       }
+      // if (d.url.includes('cancel')) {
+      //   browser.close()
+      //   // alert("Payment")
+      //   this.dataService.presentToast("Payment Cancelled")
+      //   // this.navCtrl.navigateForward(['/'])
+      // }
 
     })
-    // cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    // const browser = Browser
-    // await browser.open({ url: 'https://effoapp.com/payment/payment.html?order_id=123&amount=1' });
-    // browser.addListener("browserPageLoaded", () => { }).then(d => {
-    //   alert("browser browserPageLoaded")
-    //   console.log('browserPageLoaded', d);
-    // })
-    // browser.addListener("browserFinished", () => { }).then(d => {
-    //   alert("browser closed")
-    //   console.log('close', d);
-    // })
+
+  }
+  cancelReview(booking) {
+    console.log(booking);
+    this.dataService.present()
+    this.dataService._post('bus-cities-custom/cancel', ``, {
+      "itinKey": "FMNAB1IQRFDJH",
+      "seats": [
+        {
+          "seatNo": "L2"
+        }
+      ]
+
+    }).subscribe(d => {
+      this.dataService.dismiss()
+      booking.cancellationPolicy = d.orderItemsData.segments.ONEWAY.busData.cancellationText
+      booking.cancellationId = d.cancellationId
+      console.log(booking);
+
+      // this.dataService.dismiss()
+      // this.busReviewDetails = d
+      // // this.busReviewDetails = d
+      // this.itinKey = d.itinKey
+      // alert(this.itinKey)
+
+      // this.blockBooking()
+    }, err => {
+      this.dataService.dismiss()
+    })
+  }
+  cancelConfirm(booking) {
+    this.dataService.present()
+    console.log(booking);
 
 
+    this.dataService._post('bus-cities-custom/cancelConfirm', ``, {
+      "itinKey": booking.data.refId,
+      "cancellationId": booking.cancellationId
 
-
-    // https://effoapp.com/payment/ccavResponseHandler.php
+    }).subscribe(d => {
+      this.dataService.dismiss()
+      if (d.status) {
+        this.dataService.presentToast('Cancellation Request Send!')
+        this.navCtrl.back()
+        this.getAllBookings()
+      }
+      else
+        this.dataService.presentToast('Something Went Wrong. Please contact us. ')
+      // booking.cancellationPolicy = d.orderItemsData.segments.ONEWAY.busData.cancellationText
+      // booking.cancellationId = d.cancellationId
+      // console.log(booking);
+      // this.dataService.dismiss()
+    }, err => {
+      this.dataService.presentToast('Something Went Wrong. Please contact us.. ')
+      this.dataService.dismiss()
+    })
   }
   getBuses(pageContent) {
-    this.dataService.present()
+    this.dataService.present("Getting buses.", undefined)
     console.log('1..', this.inputs.date);
     console.log(new Date(this.inputs.date).toISOString().slice(0, 10));
 
@@ -1015,11 +1071,29 @@ export class BusService {
 
     this.filteredBuses = this.buses.filter(bus => {
       // Your condition here, for example:
-      return bus.buses[0].operatorName.includes(this.filters.name) // Filtering buses with capacity greater than or equal to 50
+      return bus.buses[0].operatorName.toLowerCase().includes(this.filters.name.toLowerCase()) // Filtering buses with capacity greater than or equal to 50
     });
   }
 
   busSelected(bus) {
+
+    this.selectedBusDetails = bus.buses[0]
+    this.departureTime = this.convertTo12HourFormat(this.selectedBusDetails.depDetail.time)
+    this.arrivalTime = this.convertTo12HourFormat(this.selectedBusDetails.arrDetail.time)
+    console.log(this.selectedBusDetails);
+
+
+    //add objects in passengers
+    this.passengers = []
+    let numberOfPassengers = +this.inputs.passenger
+    while (numberOfPassengers--) {
+      this.passengers.push({
+        title: 'Mr',
+        name: "",
+        age: ""
+      })
+    }
+
     // on the basis of passengers
     this.key = bus.key
 
@@ -1070,7 +1144,7 @@ export class BusService {
       this.dataService.dismiss()
     })
   }
-  getBusReview(key, seatNos, pickId, dropId) {
+  getBusReview(key = this.key, seatNos = this.seatsSelected, pickId = this.selectedPick, dropId = this.selectedDrop) {
     this.dataService.present()
     console.log(key, seatNos, pickId, dropId);
 
@@ -1085,16 +1159,33 @@ export class BusService {
       dropId
     }).subscribe(d => {
       this.dataService.dismiss()
+      this.busReviewDetails = d
       // this.busReviewDetails = d
       this.itinKey = d.itinKey
       // alert(this.itinKey)
 
-      this.blockBooking()
+      // this.blockBooking()
     }, err => {
       this.dataService.dismiss()
     })
   };
   blockBooking() {
+    let travellers = []
+    let seatIndex = 0
+    this.passengers.forEach(passenger => {
+      travellers.push({
+
+        title: passenger.title,
+        name: passenger.name,
+        age: passenger.age,
+        seat: {
+          seatNo: this.seatsSelected[seatIndex],
+        },
+
+      })
+      seatIndex++
+
+    });
     this.dataService.present()
     this.dataService._post('bus-cities-custom/blockSeats', ``, {
       "itinKey": this.itinKey,
@@ -1104,16 +1195,17 @@ export class BusService {
       "dropId": this.selectedDrop,
       "dropName": this.getStopName('drop', this.selectedPick),
       mobile: this.dataService.profile.phone,
-      "travellers": [
-        {
-          title: "Mr",
-          name: this.passengers[0].name,
-          age: "22",
-          seat: {
-            seatNo: this.seatsSelected[0],
-          },
-        },
-      ]
+      "travellers": travellers
+      // "travellers": [
+      //   {
+      //     title: "Mr",
+      //     name: this.passengers[0].name,
+      //     age: "22",
+      //     seat: {
+      //       seatNo: this.seatsSelected[0],
+      //     },
+      //   },
+      // ]
     }).subscribe(d => {
       this.dataService.dismiss()
       // this.busReviewDetails = d
@@ -1168,6 +1260,7 @@ export class BusService {
 
     }, err => {
       this.dataService.dismiss()
+      this.dataService.presentToast("Something went wrong. Please contact us for booking !")
     })
   }
 
@@ -1186,7 +1279,7 @@ export class BusService {
     let validPassengerDetails = true
     this.passengers.forEach(passenger => {
 
-      if (!passenger.name || !passenger.phone)
+      if (!passenger.name || !passenger.age)
         validPassengerDetails = false
 
     });
@@ -1199,7 +1292,7 @@ export class BusService {
   }
   getAllBookings() {
     this.bookings = []
-    this.dataService._get('bus-bookings', 'sort=id:desc').subscribe(d => {
+    this.dataService._get('bus-bookings', 'sort=id:desc&filters[user][id]=' + this.dataService.profile.id).subscribe(d => {
       this.bookings = d.data
       let i = 0
       this.bookings.forEach(booking => {
@@ -1217,15 +1310,15 @@ export class BusService {
     })
 
   }
-  searchCity(city, source) {
+  searchCity(citySearchQuery, source) {
 
-    console.log(city);
+    console.log(citySearchQuery);
 
 
-    if (!city) return
-    if (city.length < 2) return
+    if (!citySearchQuery) return
+    if (citySearchQuery.length < 2) return
 
-    this.dataService._get('bus-cities', 'filters[name][$contains]=' + city + '&pagination[pageSize]=5').subscribe(d => {
+    this.dataService._get('bus-cities', 'filters[name][$contains]=' + citySearchQuery + '&pagination[pageSize]=5').subscribe(d => {
 
 
       if (source == 'from')
@@ -1234,6 +1327,9 @@ export class BusService {
         this.toSuggestions = d.data
 
 
+      if (d.data.length == 1) {
+        this.citySelected(d.data[0], source)
+      }
 
 
     })
@@ -1263,4 +1359,48 @@ export class BusService {
       });
     }
   }
+
+
+  convertTo12HourFormat(dateString) {
+    const date = new Date(dateString);
+    let hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+
+    if (hours > 12) {
+      hours -= 12;
+    }
+
+    if (hours === 0) {
+      hours = 12;
+    }
+
+    const formattedTime = `${hours}:${minutes < 10 ? '0' + minutes : minutes} ${ampm}`;
+    return formattedTime;
+  }
+
+  citySelected(city, source) {
+    this.fromSuggestions = []
+    this.toSuggestions = []
+    if (source == 'from') {
+      this.inputs.from = city.attributes.name
+      this.inputs.fromCityId = city.attributes.cityId
+    }
+    else {
+      this.inputs.to = city.attributes.name
+      this.inputs.toCityId = city.attributes.cityId
+    }
+
+
+  }
+  verifyAge(index) {
+    let value: any = this.passengers[index].age
+    if (+value < 1 || value > 99) {
+      this.dataService.presentToast("Please enter a valid age between 1-99", 'dark', 1000)
+      this.passengers[index].age = ""
+
+    }
+
+  }
 }
+

@@ -40,14 +40,14 @@
       ></ion-input>
     </ion-item>
     <div class="flex">
-      <ion-item class="flex-1">
+      <!-- <ion-item class="flex-1">
         <ion-label class="text" position="floating">Pin Code</ion-label>
 
         <ion-input
           [(ngModel)]="this.dataService.profile.pinCode"
           type="number"
         ></ion-input>
-      </ion-item>
+      </ion-item> -->
       <!-- <div class="flex items-end">
         <button
           (click)="checkPinCode()"
@@ -59,32 +59,39 @@
     </div>
     <div class="text-blue-800 font-bold text-sm px-4 pt-2">{{pinAddress}}</div>
     <ion-item>
-      <ion-select
+      <!-- <ion-select
         position="floating"
         class="w-full"
         [(ngModel)]="this.dataService.profile.city"
-        interface="popover"
         placeholder="Select City"
       >
         <ion-select-option
           *ngFor="let city of this.dataService.cities"
           value="{{city.attributes.name}}"
         >
-          <!-- <span *ngIf="this.dataService.profile.city">City : </span> -->
+
           {{city.attributes.name|titlecase}}</ion-select-option
         >
-      </ion-select>
-      <!-- <ion-label class="text" position="floating">City</ion-label> -->
-      <!-- <ion-input
+      </ion-select> -->
+      <ion-label class="text" position="floating">City</ion-label>
+      <ion-input
         [(ngModel)]="this.dataService.profile.city"
         type="text"
-      ></ion-input> -->
+      ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label class="text" position="floating">Email ID</ion-label>
       <ion-input
         [(ngModel)]="this.dataService.profile.email"
         type="email"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="this.dataService.showReferral">
+      <ion-label class="text" position="floating">Referral Code:</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="this.dataService.profile.referral"
       ></ion-input>
     </ion-item>
 

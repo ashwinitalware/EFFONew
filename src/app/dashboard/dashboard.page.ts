@@ -12,6 +12,9 @@ import {
 import { DataService } from '../services/data.service';
 import { JobService } from '../services/job.service';
 import qs from 'qs';
+import Echo from 'src/customPlugins/echo';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+
 // import { IonSlides } from '@ionic/angular';
 
 @Component({
@@ -34,12 +37,19 @@ export class DashboardPage implements OnInit {
       available: true,
     },
     {
-      name: 'Services',
+      name: 'Property',
       image: '',
-      icon: 'apps',
-      link: 'service-dashboard',
+      link: 'property-dashboard',
+      icon: 'home',
       available: true,
     },
+    // {
+    //   name: 'Services',
+    //   image: '',
+    //   icon: 'apps',
+    //   link: 'service-dashboard',
+    //   available: true,
+    // },
     // {
     //   name: 'Cab Services',
     //   image: '',
@@ -49,7 +59,7 @@ export class DashboardPage implements OnInit {
     //   available: true,
     // },
     {
-      name: 'Bus Bookings',
+      name: 'Bus Tickets',
       image: '',
       icon: 'car',
       // link: 'cab-home',
@@ -63,13 +73,13 @@ export class DashboardPage implements OnInit {
       available: true,
       icon: 'swap-horizontal',
     },
-    {
-      name: 'Property',
-      image: '',
-      link: 'property-dashboard',
-      icon: 'home',
-      available: true,
-    },
+    // {
+    //   name: 'Property',
+    //   image: '',
+    //   link: 'property-dashboard',
+    //   icon: 'home',
+    //   available: true,
+    // },
     // {
     //   name: 'Shopping',
     //   image: '',
@@ -85,33 +95,19 @@ export class DashboardPage implements OnInit {
     //   link: '',
     // },
 
-    {
-      name: 'Hotel & Lodging',
-      image: '',
-      link: 'lodging-dashboard',
-      available: true,
-      icon: 'bed',
-    },
-    {
-      name: 'Utility',
-      image: '',
-      link: 'utility-dashboard',
-      icon: 'receipt',      
-      available: true,
-    },
-    //  {
-    //   name: 'Mobile',
-    //   image: '',
-    //   link: 'utility-mobile',
-    //   icon: 'phone-portrait',      
-    //   available: true,
-    // }, 
     // {
-    //   name: 'DTH',
+    //   name: 'Utility',
     //   image: '',
-    //   link: 'utility-dth',
-    //   icon: 'easel',      
+    //   link: 'utility',
     //   available: true,
+    //   icon: 'phone-portrait',
+    // },
+    // {
+    //   name: 'Hotel & Lodging',
+    //   image: '',
+    //   link: 'lodging-dashboard',
+    //   available: true,
+    //   icon: 'bed',
     // },
     // {
     //   name: 'Restaurant ',
@@ -150,7 +146,7 @@ export class DashboardPage implements OnInit {
     public http: HttpClient,
     public jobService: JobService,
     public popoverController: PopoverController,
-    public routerOutlet: IonRouterOutlet
+    public routerOutlet: IonRouterOutlet, public iab: InAppBrowser
   ) {
     // this.platform.backButton.subscribeWithPriority(-1, () => {
     //   if (!this.routerOutlet.canGoBack()) {
@@ -231,10 +227,24 @@ export class DashboardPage implements OnInit {
   slideChanged() {
     this.slider.stopAutoplay(); //this code for slide after page change
   }
-  navigateCategory(category) {
+  async navigateCategory(category) {
     if (!category.link) {
       this.dataService.presentToast('Coming Soon', 'danger');
       return;
+    }
+
+    if (category.link == 'utility') {
+      const { value } = await Echo.checkPackage({ value: 'Hello World!' });
+      alert(value)
+      if (value) {
+        const abc = await Echo.echo({ value: 'Hello World!' });
+      }
+      else {
+        alert("To use utility services. Please install our partner application from playstore.")
+        this.iab.create('https://play.google.com/store/apps/details?id=com.masfplsdk', "_system");
+      }
+      // alert('Response from native:' + value);
+      return
     }
 
     // if its a job. then check if the profile is complete

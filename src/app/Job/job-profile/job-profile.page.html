@@ -116,7 +116,7 @@
         </div>
         <ion-item class="rounded-lg mt-4">
           <ion-label position="stacked">Highest Education</ion-label>
-          <ion-select formControlName="education" interface="popover">
+          <ion-select formControlName="education">
             <ion-select-option
               *ngFor="let education of educations"
               value="{{education.id}}"

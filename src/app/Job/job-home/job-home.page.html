@@ -134,7 +134,13 @@
               class="m-auto bg-primary p-3 text-white rounded-md flex items-center justify-center"
             >
               <ion-icon
+                *ngIf="category.attributes.icon"
                 name="{{category.attributes.icon}}"
+                class="text-xl"
+              ></ion-icon>
+              <ion-icon
+                *ngIf="!category.attributes.icon"
+                name="apps"
                 class="text-xl"
               ></ion-icon>
             </div>
@@ -179,42 +185,9 @@
             <div class="truncate mt-2 text-xs">Show Less</div>
           </ion-col>
         </ion-row>
-        <!-- <div class="text-center red py-2 bg-gray-100">
-          <div (click)="sliceValue=100" *ngIf="sliceValue==3">Show More</div>
-          <div (click)="sliceValue=3" *ngIf="sliceValue==100">Show Less</div>
-        </div> -->
       </ion-grid>
     </div>
   </div>
-
-  <!-- <div class="px-4 pt-2 pb-1">
-    <ion-label><b>Top Ads</b></ion-label>
-  </div>
-
-  <div
-    style="
-      background-color: white;
-      border-radius: 5px;
-      margin-top: 2%;
-      padding: 5px;
-    "
-  >
-    <ion-slides
-      #slider
-      loop="true"
-      [options]="slideOpts"
-      (ionSlideTouchEnd)="slideChanged()"
-    >
-   
-
-      <ion-slide>
-        <ion-card style="border-radius: 5px">
-          <img src="assets/jobs1.jpg" />
-        </ion-card>
-      </ion-slide>
-
-    </ion-slides>
-  </div> -->
 
   <div
     [ngClass]="{'hidden': section.jobs && !section.jobs.length}"
@@ -245,19 +218,25 @@
       >
         <div class="primary-card bg-white p-4" style="width: 100%">
           <div class="flex items-center">
-          <div class="text-black text-left text-base font-bold truncate flex-1">
-            {{job.attributes.title|titlecase}}
+            <div
+              class="text-black text-left text-base font-bold truncate flex-1"
+            >
+              {{job.attributes.title|titlecase}}
+            </div>
 
-            
+            <div
+              *ngIf="!job.applied && job.viewed"
+              class="text-xs bg-blue-700 text-white rounded-full px-2"
+            >
+              SEEN
+            </div>
+            <div
+              *ngIf="job.applied"
+              class="text-xs bg-green-700 text-white rounded-full px-2"
+            >
+              APPLIED
+            </div>
           </div>
-
-          <div *ngIf="!job.applied && job.viewed" class="text-xs bg-blue-700 text-white  rounded-full px-2">
-       SEEN
-          </div>
-          <div *ngIf="job.applied" class="text-xs bg-green-700 text-white rounded-full px-2">
-APPLIED
-          </div>
-        </div>
 
           <div class="text-sm text-gray-600">
             ₹ {{job.attributes.salaryFrom}} - ₹ {{job.attributes.salaryUpto}}
@@ -273,7 +252,7 @@ APPLIED
               *ngIf="job.attributes.author.data && job.attributes.author.data.attributes.job_profile.data"
             >
               {{(job.attributes.author.data.attributes.job_profile.data.attributes.companyName||"Company
-              Name")|titlecase}}
+              Name")}}
             </span>
             <span *ngIf="!job.attributes.author"> Company Name </span>
           </div>

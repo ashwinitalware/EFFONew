@@ -1,14 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-row style="padding-left: 2px; padding-right: 2px;">
+    <ion-row style="padding-left: 2px; padding-right: 2px">
       <ion-col size="2">
-        <div routerLink="/softwaredeveloper">&nbsp;&nbsp;
+        <div routerLink="/softwaredeveloper">
+          &nbsp;&nbsp;
           <!-- <ion-menu-button> -->
-          <svg xmlns="http://www.w3.org/2000/svg" style="color: #fff; width:40%; height:40%;" viewBox="0 0 20 20"
-            fill="currentColor">
-            <path fill-rule="evenodd"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style="color: #fff; width: 40%; height: 40%"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
               d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-              clip-rule="evenodd" />
+              clip-rule="evenodd"
+            />
           </svg>
           <!-- </ion-menu-button> -->
         </div>
@@ -16,7 +23,9 @@
 
       <ion-col size="8">
         <div align="center">
-          <ion-label style="color: #fff; font-size: large;"><b>Filter Your Job</b></ion-label>
+          <ion-label style="color: #fff; font-size: large"
+            ><b>Filter Your Job</b></ion-label
+          >
         </div>
       </ion-col>
 
@@ -31,14 +40,12 @@
       </ion-col> -->
     </ion-row>
   </ion-toolbar>
-
 </ion-header>
 <ion-content>
-
   <div class="p-3">
     <ion-item>
       <ion-label>Job Type</ion-label>
-      <ion-select interface="popover">
+      <ion-select>
         <ion-select-option value="full">Full Time</ion-select-option>
         <ion-select-option value="part">Part Time</ion-select-option>
         <ion-select-option value="home">Work From Home</ion-select-option>
@@ -51,13 +58,16 @@
       <ion-input type="text"></ion-input>
     </ion-item>
   </div>
-
 </ion-content>
 
 <ion-footer>
   <ion-toolbar color="light">
     <ion-row class="pl-5 pr-5">
-      <button style="width: 100%; font-size: 0.8em;" class="bg-class" routerLink="/softwaredeveloper">
+      <button
+        style="width: 100%; font-size: 0.8em"
+        class="bg-class"
+        routerLink="/softwaredeveloper"
+      >
         Apply
       </button>
     </ion-row>

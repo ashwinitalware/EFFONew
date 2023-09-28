@@ -154,7 +154,7 @@
 
       <div class="text-lg font-bold mt-2">Job Description</div>
 
-      <div>{{data.attributes.description }}</div>
+      <div [innerHTML]="data.attributes.description"></div>
 
       <div class="flex mt-2 border-t border-b py-2">
         <img
@@ -283,7 +283,8 @@
       [color]="jobApplied?'success':'primary'"
       (click)="apply()"
       [disabled]="jobApplied"
-      expand="block">
+      expand="block"
+    >
       {{jobApplied?"Already Applied":"APPLY NOW "}}
     </ion-button>
   </div>
