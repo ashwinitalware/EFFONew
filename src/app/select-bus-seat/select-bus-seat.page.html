@@ -215,7 +215,8 @@
                   style="font-size: xx-small"
                   class="text-xs text-blue-900 text-center"
                 >
-                  ₹ {{seat?.fareDetails?.paxFares?.adt?.total?.amount}}
+                  ₹
+                  {{seat?.fareDetails?.paxFares?.adt?.total?.amount/this.busService.meta.busTaxValueMultiplier|number}}
                 </div>
               </div>
 
@@ -294,7 +295,8 @@
                     style="font-size: xx-small"
                     class="text-xs text-blue-900 text-center"
                   >
-                    ₹ {{seat?.fareDetails?.paxFares?.adt?.total?.amount}}
+                    ₹
+                    {{seat?.fareDetails?.paxFares?.adt?.total?.amount/this.busService.meta.busTaxValueMultiplier|number}}
                   </div>
                 </div>
               </div>

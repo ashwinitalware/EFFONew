@@ -9,6 +9,15 @@ import { InAppBrowser } from "@awesome-cordova-plugins/in-app-browser/ngx";
   providedIn: 'root'
 })
 export class BusService {
+  meta = {
+    busTaxValueMultiplier: 1.05,
+    taxPercentage: 5
+  }
+  coupon = {
+    coupon: "",
+    couponDiscountedTotal: 0,
+    discountText: ""
+  }
   selectedPickupName
   selectedDropName
   cancellationPolicy
@@ -937,8 +946,11 @@ export class BusService {
 
     // this.blockBooking()
 
-
-    let browser = this.iab.create(`https://effoapp.com/payment/payment_v1.html?billing_email=${this.dataService.profile.email}&billing_tel=${this.dataService.profile.phone}&order_id=123&amount=${this.busReviewDetails.fares.paxFares.adt.total.amount}`)
+    let finalAmount = this.busReviewDetails.fares.paxFares.adt.total.amount
+    if (this.coupon.couponDiscountedTotal)
+      finalAmount = this.coupon.couponDiscountedTotal
+    // this.busService.coupon.couponDiscountedTotal
+    let browser = this.iab.create(`https://effoapp.com/payment/payment_v1.html?billing_email=${this.dataService.profile.email}&billing_tel=${this.dataService.profile.phone}&order_id=123&amount=${finalAmount}`)
     browser.on('loadstop').subscribe(d => {
       console.log('loadstop', d);
       // if (d.url.includes('ccavResponseHandler')) {
@@ -1401,6 +1413,23 @@ export class BusService {
 
     }
 
+  }
+  resetCoupon() {
+    this.coupon.coupon = ""
+    this.coupon.couponDiscountedTotal = 0
+    this.coupon.discountText = ""
+  }
+  applyCoupon() {
+    let amountBeforeTax = this.busReviewDetails.fares.paxFares.adt.total.amount / this.meta.busTaxValueMultiplier
+
+    this.dataService._get(`custom-coupons/search`, `coupon=${this.coupon.coupon}&user=${this.dataService.profile.id}&section=bus&amount=${amountBeforeTax}`).subscribe(data => {
+      if (data.discount)
+        this.coupon.couponDiscountedTotal = this.busReviewDetails.fares.paxFares.adt.total.amount - data.discount
+      else {
+        this.resetCoupon()
+      }
+
+    })
   }
 }
 

@@ -73,22 +73,22 @@ export class EditprofilePage implements OnInit {
       return this.dataService.presentToast('Invalid Email Address', 'danger');
 
     this.dataService.present();
-    const pinResult: any = await this.http
-      .get(
-        'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-        this.dataService.profile.pinCode +
-        '&sensor=true&key=AIzaSyD6d0aNvUiSWaENoQ1UuqCOzfMg0Wmq7Do'
-      )
-      .toPromise();
+    // const pinResult: any = await this.http
+    //   .get(
+    //     'https://maps.googleapis.com/maps/api/geocode/json?address=' +
+    //     this.dataService.profile.pinCode +
+    //     '&sensor=true&key=AIzaSyD6d0aNvUiSWaENoQ1UuqCOzfMg0Wmq7Do'
+    //   )
+    //   .toPromise();
 
-    this.dataService.dismiss();
+    // this.dataService.dismiss();
 
-    console.log(pinResult);
+    // console.log(pinResult);
 
-    if (pinResult.status != 'REQUEST_DENIED')
-      if (!pinResult.results.length) {
-        return this.dataService.presentToast('Invalid Pin Code', 'danger');
-      }
+    // if (pinResult.status != 'REQUEST_DENIED')
+    //   if (!pinResult.results.length) {
+    //     return this.dataService.presentToast('Invalid Pin Code', 'danger');
+    //   }
 
     this.http
       .put(this.dataService.apiUrl + 'custom/updateProfile', {
@@ -100,6 +100,7 @@ export class EditprofilePage implements OnInit {
         referral: this.dataService.profile.referral,
       })
       .subscribe((data: any) => {
+        this.dataService.dismiss()
         if (data.status) {
           this.dataService.confirmSwal('', 'Profile Updated');
           this.dataService.showReferral = false
@@ -114,6 +115,9 @@ export class EditprofilePage implements OnInit {
           this.navCtrl.navigateRoot(['' + this.dataService.directNavigate]);
 
         }
+      }, e => {
+        this.dataService.dismiss()
+        this.dataService.presentToast("Something went wrong while updating profile")
       });
   }
 

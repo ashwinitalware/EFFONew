@@ -11,6 +11,7 @@ export class BusBookingReviewPage implements OnInit {
   @ViewChild('accordionGroup', { static: true }) accordionGroup: IonAccordionGroup;
   constructor(public busService: BusService) {
 
+    this.busService.resetCoupon()
     this.busService.getBusReview()
     this.busService.selectedPickupName = ''
     this.busService.selectedDropName = ''

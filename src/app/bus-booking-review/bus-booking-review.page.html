@@ -53,14 +53,16 @@
       <div class="flex justify-between p-1">
         <p class="text-gray-400 text-md">Base Fare</p>
         <p class="font-bold text-black text-lg">
-          ₹ {{this.busService.busReviewDetails.fares.paxFares.adt.base.amount}}
+          ₹
+          {{this.busService.busReviewDetails.fares.paxFares.adt.total.amount/this.busService.meta.busTaxValueMultiplier|number}}
         </p>
       </div>
 
       <div class="flex justify-between p-1">
         <p class="text-gray-400 text-md">Tax</p>
         <p class="font-bold text-black text-lg">
-          ₹ {{this.busService.busReviewDetails.fares.paxFares.adt.tax.amount}}
+          ₹
+          {{(this.busService.busReviewDetails.fares.paxFares.adt.total.amount/this.busService.meta.busTaxValueMultiplier*this.busService.meta.taxPercentage/100)|number}}
         </p>
       </div>
       <div class="border border-dashed"></div>
@@ -70,6 +72,31 @@
           ₹ {{this.busService.busReviewDetails.fares.paxFares.adt.total.amount}}
         </p>
       </div>
+      <div
+        *ngIf="this.busService.coupon.couponDiscountedTotal"
+        class="flex justify-between p-1"
+      >
+        <p class="text-black font-bold text-md">Discounted Total Amount</p>
+        <p class="font-bold text-green-600 text-lg">
+          ₹ {{this.busService.coupon.couponDiscountedTotal|number}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="px-4 flex">
+    <input
+      class="flex-1 w-full px-2 rounded-md"
+      type="text"
+      [(ngModel)]="this.busService.coupon.coupon"
+      placeholder="Enter Coupon Code"
+    />
+    <div class="pl-4">
+      <button
+        class="text-white bg-red-600 p-2 rounded-md"
+        (click)="this.busService.applyCoupon()"
+      >
+        Apply
+      </button>
     </div>
   </div>
 

@@ -392,7 +392,9 @@
           <div>
             <div class="text-xs">&nbsp; Starting From</div>
             <div class="text-black font-bold text-black">
-              &nbsp; {{bus.fares[0].paxFares.adt.total.amount}} /-
+              &nbsp;
+              {{(bus.fares[0].paxFares.adt.total.amount/this.busService.meta.busTaxValueMultiplier)|number}}
+              /-
             </div>
           </div>
           <button
