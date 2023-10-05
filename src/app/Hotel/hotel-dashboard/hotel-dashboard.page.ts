@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HotelService } from 'src/app/hotel.service';
 
 @Component({
   selector: 'app-hotel-dashboard',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotelDashboardPage implements OnInit {
 
-  constructor() { }
+  constructor(public hotelService: HotelService) { }
 
   ngOnInit() {
   }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HotelService } from 'src/app/hotel.service';
 
 @Component({
   selector: 'app-select-room',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectRoomPage implements OnInit {
 
-  constructor() { }
+  constructor(public route: ActivatedRoute, public hotelService: HotelService) {
+    this.hotelService.getrooms(this.route.snapshot.params.searchId, this.route.snapshot.params.hotelId)
+  }
 
   ngOnInit() {
   }

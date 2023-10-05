@@ -658,47 +658,47 @@ const routes: Routes = [
   },
   {
     path: 'select-city',
-    loadChildren: () => import('./select-city/select-city.module').then( m => m.SelectCityPageModule)
+    loadChildren: () => import('./select-city/select-city.module').then(m => m.SelectCityPageModule)
   },
   {
     path: 'bus-dashboard',
-    loadChildren: () => import('./bus-dashboard/bus-dashboard.module').then( m => m.BusDashboardPageModule)
+    loadChildren: () => import('./bus-dashboard/bus-dashboard.module').then(m => m.BusDashboardPageModule)
   },
   {
     path: 'bus-select-city',
-    loadChildren: () => import('./bus-select-city/bus-select-city.module').then( m => m.BusSelectCityPageModule)
+    loadChildren: () => import('./bus-select-city/bus-select-city.module').then(m => m.BusSelectCityPageModule)
   },
   {
     path: 'bus-booking-review',
-    loadChildren: () => import('./bus-booking-review/bus-booking-review.module').then( m => m.BusBookingReviewPageModule)
+    loadChildren: () => import('./bus-booking-review/bus-booking-review.module').then(m => m.BusBookingReviewPageModule)
   },
   {
     path: 'bus-bookings',
-    loadChildren: () => import('./bus-bookings/bus-bookings.module').then( m => m.BusBookingsPageModule)
+    loadChildren: () => import('./bus-bookings/bus-bookings.module').then(m => m.BusBookingsPageModule)
   },
   {
     path: 'bus-checkout',
-    loadChildren: () => import('./bus-checkout/bus-checkout.module').then( m => m.BusCheckoutPageModule)
+    loadChildren: () => import('./bus-checkout/bus-checkout.module').then(m => m.BusCheckoutPageModule)
   },
   {
     path: 'utility-dashboard',
-    loadChildren: () => import('./Utility/utility-dashboard/utility-dashboard.module').then( m => m.UtilityDashboardPageModule)
+    loadChildren: () => import('./Utility/utility-dashboard/utility-dashboard.module').then(m => m.UtilityDashboardPageModule)
   },
   {
     path: 'utility-mobile',
-    loadChildren: () => import('./Utility/utility-mobile/utility-mobile.module').then( m => m.UtilityMobilePageModule)
+    loadChildren: () => import('./Utility/utility-mobile/utility-mobile.module').then(m => m.UtilityMobilePageModule)
   },
   {
     path: 'utility-dth',
-    loadChildren: () => import('./Utility/utility-dth/utility-dth.module').then( m => m.UtilityDTHPageModule)
+    loadChildren: () => import('./Utility/utility-dth/utility-dth.module').then(m => m.UtilityDTHPageModule)
   },
   {
     path: 'utility-selectplan',
-    loadChildren: () => import('./Utility/utility-selectplan/utility-selectplan.module').then( m => m.UtilitySelectplanPageModule)
+    loadChildren: () => import('./Utility/utility-selectplan/utility-selectplan.module').then(m => m.UtilitySelectplanPageModule)
   },
   {
     path: 'utility-pay',
-    loadChildren: () => import('./utility-pay/utility-pay.module').then( m => m.UtilityPayPageModule)
+    loadChildren: () => import('./utility-pay/utility-pay.module').then(m => m.UtilityPayPageModule)
   },
   // {
   //   path: 'dth-operator',
@@ -706,62 +706,63 @@ const routes: Routes = [
   // },
   {
     path: 'dth-operator',
-    loadChildren: () => import('./utility/dth-operator/dth-operator.module').then( m => m.DthOperatorPageModule)
-  },  {
+    loadChildren: () => import('./utility/dth-operator/dth-operator.module').then(m => m.DthOperatorPageModule)
+  },
+  {
     path: 'dth-pay',
-    loadChildren: () => import('./utility/dth-pay/dth-pay.module').then( m => m.DthPayPageModule)
+    loadChildren: () => import('./utility/dth-pay/dth-pay.module').then(m => m.DthPayPageModule)
   },
   {
     path: 'select-bus-seat',
-    loadChildren: () => import('./select-bus-seat/select-bus-seat.module').then( m => m.SelectBusSeatPageModule)
+    loadChildren: () => import('./select-bus-seat/select-bus-seat.module').then(m => m.SelectBusSeatPageModule)
   },
   {
     path: 'utility-electricity',
-    loadChildren: () => import('./Utility/utility-electricity/utility-electricity.module').then( m => m.UtilityElectricityPageModule)
+    loadChildren: () => import('./Utility/utility-electricity/utility-electricity.module').then(m => m.UtilityElectricityPageModule)
   },
   {
     path: 'utility-electricity-bill',
-    loadChildren: () => import('./Utility/utility-electricity-bill/utility-electricity-bill.module').then( m => m.UtilityElectricityBillPageModule)
+    loadChildren: () => import('./Utility/utility-electricity-bill/utility-electricity-bill.module').then(m => m.UtilityElectricityBillPageModule)
   },
   {
     path: 'broadband-dashboard',
-    loadChildren: () => import('./Utility/broadband-dashboard/broadband-dashboard.module').then( m => m.BroadbandDashboardPageModule)
+    loadChildren: () => import('./Utility/broadband-dashboard/broadband-dashboard.module').then(m => m.BroadbandDashboardPageModule)
   },
   {
     path: 'broadband-bill',
-    loadChildren: () => import('./Utility/broadband-bill/broadband-bill.module').then( m => m.BroadbandBillPageModule)
+    loadChildren: () => import('./Utility/broadband-bill/broadband-bill.module').then(m => m.BroadbandBillPageModule)
   },
   {
     path: 'gas-dashboard',
-    loadChildren: () => import('./Utility/gas-dashboard/gas-dashboard.module').then( m => m.GasDashboardPageModule)
+    loadChildren: () => import('./Utility/gas-dashboard/gas-dashboard.module').then(m => m.GasDashboardPageModule)
   },
   {
     path: 'gas-bill',
-    loadChildren: () => import('./Utility/gas-bill/gas-bill.module').then( m => m.GasBillPageModule)
+    loadChildren: () => import('./Utility/gas-bill/gas-bill.module').then(m => m.GasBillPageModule)
   },
   {
     path: 'fastag-dashboard',
-    loadChildren: () => import('./Utility/fastag-dashboard/fastag-dashboard.module').then( m => m.FastagDashboardPageModule)
+    loadChildren: () => import('./Utility/fastag-dashboard/fastag-dashboard.module').then(m => m.FastagDashboardPageModule)
   },
   {
     path: 'fastag-bill',
-    loadChildren: () => import('./Utility/fastag-bill/fastag-bill.module').then( m => m.FastagBillPageModule)
+    loadChildren: () => import('./Utility/fastag-bill/fastag-bill.module').then(m => m.FastagBillPageModule)
   },
   {
     path: 'hotel-dashboard',
-    loadChildren: () => import('./Hotel/hotel-dashboard/hotel-dashboard.module').then( m => m.HotelDashboardPageModule)
+    loadChildren: () => import('./Hotel/hotel-dashboard/hotel-dashboard.module').then(m => m.HotelDashboardPageModule)
   },
   {
-    path: 'select-room',
-    loadChildren: () => import('./Hotel/select-room/select-room.module').then( m => m.SelectRoomPageModule)
+    path: 'select-room/:searchId/:hotelId',
+    loadChildren: () => import('./Hotel/select-room/select-room.module').then(m => m.SelectRoomPageModule)
   },
   {
     path: 'hotel-checkout',
-    loadChildren: () => import('./Hotel/hotel-checkout/hotel-checkout.module').then( m => m.HotelCheckoutPageModule)
+    loadChildren: () => import('./Hotel/hotel-checkout/hotel-checkout.module').then(m => m.HotelCheckoutPageModule)
   },
   {
     path: 'hotel-booking',
-    loadChildren: () => import('./Hotel/hotel-booking/hotel-booking.module').then( m => m.HotelBookingPageModule)
+    loadChildren: () => import('./Hotel/hotel-booking/hotel-booking.module').then(m => m.HotelBookingPageModule)
   },
 
 
@@ -778,4 +779,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
