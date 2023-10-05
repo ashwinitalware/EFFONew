@@ -1,0 +1,154 @@
+{
+  "bKey": "420ff550-9e83-4456-ba56-8c993eff1bad$1323508$8d6d96c7-cf35-4a39-af9f-741a181f00fa",
+  "cur": "INR",
+  "hRes": {
+    "rmRes": [
+      {
+        "rName": "Super Deluxe Double Room Only",
+        "rPln": [
+          {
+            "rf": true,
+            "nm": "Refundable",
+            "nrf": false,
+            "rmn": 10,
+            "minNt": 1,
+            "inc": ["Unmarried Couples are not allowed. "],
+            "sId": 3,
+            "prc": {
+              "rnsp": 4284.0,
+              "rnt": 459.0,
+              "rnop": 4284.0,
+              "tsp": 4284.0,
+              "tt": 459.0,
+              "tst": 0.0,
+              "tec": 0.0,
+              "top": 4284.0,
+              "dl": {
+                "dt": "Save 10% on each night"
+              },
+              "tbp": 3825.0,
+              "rnbp": 3825.0,
+              "mrk": 0.0,
+              "gst": 0.0
+            },
+            "cnPl": [
+              {
+                "fDt": "2023-10-03 00:00:00.000",
+                "tDt": "2023-10-07 23:59:59.000",
+                "cTyp": "PERCENTAGE",
+                "chg": 0.0,
+                "cmt": "From: 03-Oct-2023 To: 07-Oct-2023 : No Charges."
+              },
+              {
+                "fDt": "2023-10-08 00:00:00.000",
+                "tDt": "2023-10-09 23:59:59.000",
+                "cTyp": "PERCENTAGE",
+                "chg": 100.0,
+                "cmt": "From: 08-Oct-2023 To: 09-Oct-2023 : 100.0% Charge."
+              },
+              {
+                "cTyp": "PERCENTAGE",
+                "chg": 0.0,
+                "cmt": "You might be charged upto the full cost of stay (including taxes &amp; service charge) if you do not check-in to the hotel."
+              },
+              {
+                "cTyp": "PERCENTAGE",
+                "chg": 0.0,
+                "cmt": "Guest must be over 18 years of age to check-in to this hotel."
+              },
+              {
+                "cTyp": "PERCENTAGE",
+                "chg": 0.0,
+                "cmt": "Failure to check-in to the hotel, will attract the full cost of stay or penalty as per the hotel cancellation policy."
+              },
+              {
+                "cTyp": "PERCENTAGE",
+                "chg": 0.0,
+                "cmt": "There might be seasonal variation in hotel tariff rates during Peak days, for example URS period in Ajmer or Lord Jagannath Rath Yatra in Puri, the room tariff differences if any will have to be borne and paid by the customer directly at the hotel, if the booking stay period falls during such dates."
+              },
+              {
+                "cTyp": "PERCENTAGE",
+                "chg": 0.0,
+                "cmt": "All additional charges other than the room charges and inclusions as mentioned in the booking voucher are to be borne and paid separately during check-out. Please make sure that you are aware of all such charges that may comes as extras. Some of them can be WiFi costs, Mini Bar, Laundry Expenses, Telephone calls, Room Service, Snacks etc."
+              },
+              {
+                "cTyp": "PERCENTAGE",
+                "chg": 0.0,
+                "cmt": "Any changes or booking modifications are subject to availability and charges may apply as per the hotel policies."
+              },
+              {
+                "cTyp": "PERCENTAGE",
+                "chg": 200.0,
+                "cmt": "An additional service charge of INR 200 will be applicable if you cancel or amend this booking."
+              },
+              {
+                "cTyp": "PERCENTAGE",
+                "chg": 100.0,
+                "cmt": "No Show : 100.0% charge."
+              }
+            ],
+            "grd": [
+              {
+                "rName": "Super Deluxe Double Room Only",
+                "shr": 2,
+                "adt": 2,
+                "chd": 1,
+                "cAges": [1]
+              }
+            ],
+            "payTypes": {
+              "PAY_NOW": {
+                "payFl": "VIA_HOTEL_FLOW"
+              }
+            },
+            "inf": [
+              "Guest will be responsible for any damages or incidentals at the hotel."
+            ],
+            "iKey": "420ff550-9e83-4456-ba56-8c993eff1bad$1323508$8d6d96c7-cf35-4a39-af9f-741a181f00fa",
+            "skuCode": "0001276026"
+          }
+        ]
+      }
+    ]
+  },
+  "sInf": {
+    "checkIn": "2023-10-10",
+    "checkOut": "2023-10-11",
+    "roomNights": 1,
+    "regionId": "5C271",
+    "regionName": "Mumbai,Maharashtra,India",
+    "rooms": [
+      {
+        "adults": [
+          {
+            "nameRequired": true
+          },
+          {
+            "nameRequired": false
+          }
+        ],
+        "children": [
+          {
+            "nameRequired": false,
+            "age": 1
+          }
+        ]
+      }
+    ],
+    "city": "Mumbai",
+    "country": "India",
+    "searchUrl": "hotels/search/5C271/10-10-2023/10-11-2023/1/2-1-1/137/137",
+    "state": 164938
+  },
+  "mRP": 0,
+  "refId": "FMNJH1IQS01QD",
+  "isStateGST": false,
+  "panEnabled": false,
+  "showHotelPolicy": false,
+  "cndtns": {
+    "voucherApplicable": true,
+    "isBlockable": false,
+    "showGST": false,
+    "showCorpDetails": false
+  }
+}

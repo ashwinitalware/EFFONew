@@ -1,0 +1,184 @@
+{
+  "refId": "FMNJH1IQS01QD",
+  "orderId": 91948609,
+  "status": "PAYMENTINPROGRESS",
+  "statusMessage": "Payment is yet to be done",
+  "bookDate": "2023-10-05 20:53:39.205",
+  "productType": "HOTEL",
+  "payDet": {
+    "fareDet": {
+      "base": {
+        "amount": 4284.0
+      },
+      "extraBedRate": {
+        "amount": 0.0
+      },
+      "tax": {
+        "amount": 0.0
+      },
+      "total": {
+        "amount": 4284.0
+      },
+      "points": {
+        "amount": 0.0
+      },
+      "paymentFee": {
+        "amount": 0.0
+      },
+      "voucher": {
+        "amount": 0.0
+      },
+      "GST": {
+        "amount": 0.0
+      },
+      "refundProtectAmount": {
+        "amount": 0.0
+      },
+      "addon": {
+        "amount": 0.0
+      },
+      "serviceFee": {
+        "amount": 0.0
+      }
+    },
+    "isDocReq": false
+  },
+  "delData": {
+    "mobile": "9350380960",
+    "isdCode": "",
+    "email": "vaibhav.fuke1999@gmail.com",
+    "street": "",
+    "city": "",
+    "pincode": "",
+    "state": "",
+    "country": "India",
+    "nationality": "India"
+  },
+  "items": {
+    "hotelData": {
+      "hInfo": {
+        "hId": 1323508,
+        "name": "Hotel Alfa International",
+        "star": 3,
+        "addr": "23/C Simac House Junction of S.V.Road ,Milan Subway Road,,Opp Milan Cinema ,Next to Gavedevi Mandir &Masjid,,400054,,Maharashtra,India",
+        "city": "",
+        "img": {
+          "mainImage": ""
+        },
+        "lat": 19.0905,
+        "lng": 72.842281,
+        "chkIn": "12:00",
+        "chkOut": "12:00",
+        "propType": 7,
+        "cont": {
+          "hotelContact": "02226100487",
+          "agentOrViaContact": "9876157823",
+          "viaContact": "080-41431000 - IVR 5 - Sub IVR -2"
+        }
+      },
+      "rooms": [
+        {
+          "nrf": false,
+          "canPlcy": [
+            {
+              "cmt": "From: 03-Oct-2023 To: 07-Oct-2023 : No Charges."
+            },
+            {
+              "cmt": "From: 08-Oct-2023 To: 09-Oct-2023 : 100.0% Charge."
+            },
+            {
+              "cmt": "You might be charged upto the full cost of stay (including taxes &amp; service charge) if you do not check-in to the hotel."
+            },
+            {
+              "cmt": "Guest must be over 18 years of age to check-in to this hotel."
+            },
+            {
+              "cmt": "Failure to check-in to the hotel, will attract the full cost of stay or penalty as per the hotel cancellation policy."
+            },
+            {
+              "cmt": "There might be seasonal variation in hotel tariff rates during Peak days, for example URS period in Ajmer or Lord Jagannath Rath Yatra in Puri, the room tariff differences if any will have to be borne and paid by the customer directly at the hotel, if the booking stay period falls during such dates."
+            },
+            {
+              "cmt": "All additional charges other than the room charges and inclusions as mentioned in the booking voucher are to be borne and paid separately during check-out. Please make sure that you are aware of all such charges that may comes as extras. Some of them can be WiFi costs, Mini Bar, Laundry Expenses, Telephone calls, Room Service, Snacks etc."
+            },
+            {
+              "cmt": "Any changes or booking modifications are subject to availability and charges may apply as per the hotel policies."
+            },
+            {
+              "cmt": "An additional service charge of INR 200 will be applicable if you cancel or amend this booking."
+            },
+            {
+              "cmt": "No Show : 100.0% charge."
+            }
+          ],
+          "alloc": [
+            {
+              "name": "Super Deluxe Double Room Only",
+              "shrngtype": "Twin Sharing",
+              "adt": 2,
+              "chd": 1,
+              "paxInfo": [
+                {
+                  "pType": "adt",
+                  "title": "Mr.",
+                  "name": "Mr. Amrit Vishni",
+                  "firstName": "Amrit",
+                  "lastName": "Vishni"
+                },
+                {},
+                {}
+              ],
+              "meal": "Not Applicable",
+              "incl": ["Unmarried Couples are not allowed. "]
+            }
+          ],
+          "impInfo": [
+            "Any blocked or booked hotel reservations may fall under the preview of respective Hotel's Group Rates & Cancellation policy. VIA & Hotel reserves the right to withdraw, change or cancel the offer without prior intimation and without assigning any reasons whatsoever."
+          ],
+          "amendments": [],
+          "confirmationId": ""
+        }
+      ],
+      "specialRequests": {},
+      "voucherHeader": "Pre-Paid Voucher",
+      "deal": {
+        "inclusions": [[]],
+        "dealText": []
+      },
+      "termsAndCondition": "<b>General: </b><br>City Tax/Tourism Fee should be paid directly at the property by the guest at the time of checkin.<br><b> Check In/Check out Timings: </b>Business Destination: Standard check in time of 12:00 PM Noon local time and above. Leisure Destination/ International: Standard Check in time 14:00 PM local time and above. Early check in and late checkout subject to availability and may be charged extra as per the hotel policy. Hotel Policy: The hotel reserves the right of admission for local residents. Accommodation can be denied to guests residing in the same city. We will not be responsible for any check-in denied by the hotel due to the aforesaid reason. Early check-in or late check-out is subject to availability and may be chargeable by the hotel. In keeping with our heightened security procedures we request you to provide your photo-identity proof while checking-in. Indian Nationals can present any of the following which is mandatory: Passport, Driving License, Voter ID Card. Foreign Nationals are required to present their passport and valid visa. The hotel reserves the right of admission. Accommodation can be denied to guests posing as a 'couple' if suitable proof of identification is not presented at check-in. Via Test Hotel Agent will not be responsible for any check-in denied by the hotel due to the aforesaid reason. In case of No-show, the entire amount will be charged made towards the booking Extra-person charges will apply and vary depending on hotel policy. Extra charge will be applicable for change in room category or upgrade, depending on hotel policy. The inclusion of 'extra bed' with a booking is facilitated with a folding cot or mattress or a bed roll, as an extra bed. If the rates does not include the mandatory Gala dinner and other mandatory inclusions during Christmas, New year and other events, these charges has to be paid by the guest directly at the hotel. If the guest/travel agent has done a hotel booking directly/through any other channels then, addition/new booking for the same hotel/same guest would be purely in the discretion of the hotelier.<br><b>HOTEL support: Hotels Terms Of Use</b><br> In absolutely remote cases and circumstances, if the Hotel where Via Test Hotel Agent has confirmed the accommodation to Customer, declines the availability at the time of check-in to the Customer for any reason whatsoever, Via Test Hotel Agent shall be liable for the following, which is in an all inclusive list for options/ remedy to be provided by Via Test Hotel Agent to the Customer in such cases:<br><b> Open General Terms Of Use </b>In such case where the hotel has declined to provide accommodation at the time of check in, although we provided the confirmation to the Customer, the same has to be brought to the notice immediately. Via Test Hotel Agent shall not charge any cancellation/ retention fee. The same would be adjusted towards providing an alternative accommodation if arranged by Via Test Hotel Agent. In case the customer does his own arrangements Via Test Hotel Agent would refund the entire charges without any deduction. To arrange alternate Hotel accommodation in the same vicinity/location of similar category. Further, if the alternate Hotel accommodation arranged by Via Test Hotel Agent is at a higher rate; than the original rate so paid by the Customer for the former Hotel accommodation; Via Test Hotel Agent shall bear the difference of amount to be paid to the latter Hotel. Travel from the former hotel to the latter shall be arranged by the Customer himself. Rest of the terms and conditions shall remain same as applicable, which may differ from hotel to hotel.",
+      "supInfo": "",
+      "showHotelPolicy": false
+    }
+  },
+  "srchQry": {
+    "checkInDate": "2023-10-10",
+    "checkOutDate": "2023-10-11",
+    "regionIds": ["5C271"],
+    "hotelIds": [1323508],
+    "rooms": [
+      {
+        "adt": 2,
+        "chd": 1,
+        "chAges": [1]
+      }
+    ]
+  },
+  "globalSrchQry": {
+    "hotelSrchQry": {
+      "regionId": "5C271",
+      "cityName": "Mumbai",
+      "hotelName": "Hotel Alfa International",
+      "checkInDate": "2023-10-10",
+      "checkOutDate": "2023-10-11",
+      "totalAdults": 2,
+      "totalChildren": 1,
+      "numRooms": 1
+    }
+  },
+  "upcoming": true,
+  "refreshTimeInSeconds": 360,
+  "restrictModifications": false,
+  "isGstInvoiceAvailable": false,
+  "refundProtectTotalAmount": 0.0,
+  "isTagged": false
+}
