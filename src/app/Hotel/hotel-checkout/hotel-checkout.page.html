@@ -8,124 +8,124 @@
 </ion-header>
 
 <ion-content>
-
-  <div class="p-2">
+  <div *ngIf="this.hotelService.repriceResponse" class="p-2">
     <ion-grid>
       <ion-row class="bg-white rounded-md p-1">
-        <ion-col size="4">
-          <div>
+        <!--   <ion-col size="4">
+        <div>
             <img class="rounded-md w-full h-full" src="assets/room2.jpg" alt="">
           </div>
-        </ion-col>
-        <ion-col size="8">
-          <p class="font-bold text-lg text-balck  line-clamp-1 ">
-            Aston Hotel
+        </ion-col> -->
+        <ion-col size="12">
+          <p class="font-bold text-lg text-balck line-clamp-1">
+            {{this.hotelService.repriceResponse.data.hotelResult.roomResults[0].roomName}}
           </p>
-          <p class="text-xs text-gray-500">Amravati, Maharashtra</p>
-          <p class="font-bold text-md text-balck text-red-600 line-clamp-1">
-            ₹ 1000/<span class="text-right mt-1 text-xs text-gray-400 line-clamp-1">perday</span>
+          <p class="text-xs text-gray-500">
+            {{this.hotelService.repriceResponse.data.searchInfo.regionName}}
           </p>
-
+          <!-- <p class="font-bold text-md text-balck text-red-600 line-clamp-1">
+            ₹ 1000/<span
+              class="text-right mt-1 text-xs text-gray-400 line-clamp-1"
+              >perday</span
+            >
+          </p> -->
         </ion-col>
-
       </ion-row>
     </ion-grid>
 
-
     <div class="p-2">
       <div class="rounded-md bg-white p-3">
-        <div class="font-bold text-sm">Room 1 Deatils </div>
-        <div class="rounded-md bg-white p-4">
-          <div >
-            <input  type="text" placeholder="Full Name"
-              class="w-full rounded-md border-2 px-2 py-3" />
+        <div *ngFor="let room of this.hotelService.roomPaxDetails">
+          <div *ngFor="let guest of room.paxDetails">
+            <div class="font-bold text-sm">{{guest.text}}</div>
+            <div class="rounded-md bg-white p-4">
+              <div>
+                <select
+                  class="w-full rounded-md border-2 px-2 py-3"
+                  [(ngModel)]="guest.title"
+                  placeholder="Select Title"
+                >
+                  <option value="">Select Title</option>
+                  <option value="Mr">Mr</option>
+                  <option value="Mrs">Mrs</option>
+                  <option value="Miss">Miss</option>
+                </select>
+                <br />
+                <br />
+                <input
+                  [(ngModel)]="guest.firstName"
+                  type="text"
+                  placeholder="First Name"
+                  class="w-full rounded-md border-2 px-2 py-3"
+                />
+                <br />
+                <br />
+                <input
+                  [(ngModel)]="guest.lastName"
+                  type="text"
+                  placeholder="Last Name"
+                  class="w-full rounded-md border-2 px-2 py-3"
+                />
+                <!-- <br />
             <br />
-            <br />
-            <input type="number" placeholder="Phone Number"
-              class="w-full rounded-md border-2 px-2 py-3" />
-          </div>
-        </div>
-        <ion-row>
-          <ion-col size="6" class="mt-2" align="left">
-            <div>
-              <p class="pl-1 text-black font-semibold">Check IN</p>
-              <div class="flex bg-white border border-gray-200 bg-gray-100 rounded-md p-2 mt-1">
-                <input  type="date"
-                  class="font-bold text-sm w-full bg-transparent flex-1" />
+            <input
+              type="number"
+              placeholder="Phone Number"
+              class="w-full rounded-md border-2 px-2 py-3"
+            /> -->
               </div>
             </div>
-          </ion-col>
-  
-          <ion-col size="6" class="mt-2" align="left">
-            <p class="pl-1 text-black font-semibold">Check Out</p>
-    
-            <div class="flex bg-white border border-gray-200 bg-gray-100 rounded-md p-2 mt-1">
-              <input type="date"
-                class="font-bold text-sm w-full bg-transparent flex-1" />
-            </div>
-          </ion-col>
-        </ion-row>
+          </div>
+        </div>
       </div>
-
     </div>
 
+    <div class="p-1">
+      <div class="bg-white rounded-md p-4">
+        <p class="border-gray-200 mb-2">Payment Details</p>
+        <!--
 
+        <div class="mt-3 flex justify-between">
+          <p class="text-sm text-gray-500">Rental Fee</p>
+          <p class="font-bold text-sm text-balck line-clamp-1">₹ 100.00</p>
+        </div>
 
+        <div class="mt-3 flex justify-between">
+          <p class="text-sm text-gray-500">Security Deposit</p>
+          <p class="font-bold text-sm text-balck line-clamp-1">₹ 100.00</p>
+        </div>
 
-   <div class="p-1">
-    <div class="bg-white rounded-md p-4">
+        <div class="mt-3 mb-2 flex justify-between">
+          <p class="text-sm text-gray-500">Service Charge</p>
+          <p class="font-bold text-sm text-balck line-clamp-1">₹ 150.00</p>
+        </div>
 
-      <p class="border-b  border-gray-200">Payment Details</p>
-
-      <div class="mt-3 flex justify-between">
-        <p class="text-sm text-gray-500">Rental Fee</p>
-        <p class="font-bold text-sm text-balck  line-clamp-1 ">
-          ₹ 100.00
-        </p>
+        -->
+        <!-- <div class="mt-3 mb-2 flex justify-between">
+          <p class="text-sm text-gray-500">Per </p>
+          <p class="font-bold text-sm text-balck line-clamp-1">₹ 150.00</p>
+        </div> -->
+        <div class="border border-gray-200"></div>
+        <div class="mt-4 flex justify-between">
+          <p class="text-sm text-gray-500">Total</p>
+          <p class="font-bold text-lg text-red-600 line-clamp-1">
+            ₹
+            {{this.hotelService.repriceResponse.data.hotelResult.roomResults[0].ratePlans[0].pricing.totalSellPrice}}
+          </p>
+        </div>
       </div>
-
-
-      <div class="mt-3 flex justify-between">
-        <p class="text-sm text-gray-500">Security Deposit</p>
-        <p class="font-bold text-sm text-balck  line-clamp-1 ">
-          ₹ 100.00
-        </p>
-      </div>
-
-
-
-      <div class="mt-3 mb-2 flex justify-between">
-        <p class="text-sm text-gray-500">Service Charge</p>
-        <p class="font-bold text-sm text-balck line-clamp-1 ">
-          ₹ 150.00
-        </p>
-      </div>
-
-      <div class="border border-gray-200 "></div>
-
-
-      <div class="mt-4 flex justify-between">
-        <p class="text-sm text-gray-500">Total</p>
-        <p class="font-bold text-lg text-red-600   line-clamp-1 ">
-          ₹ 1350.00
-        </p>
-      </div>
-
-
-      
-
     </div>
-   </div>
-
   </div>
-
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
-    <button  routerLink="/hotel-booking"
-          class=" text-white py-4 w-full font-bold">
-         Checkout
-        </button>
+    <!-- routerLink="/hotel-booking" -->
+    <button
+      (click)="this.hotelService.book()"
+      class="text-white py-4 w-full font-bold"
+    >
+      Pay & Confirm
+    </button>
   </ion-toolbar>
 </ion-footer>

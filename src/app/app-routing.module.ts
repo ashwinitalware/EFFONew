@@ -704,14 +704,14 @@ const routes: Routes = [
   //   path: 'dth-operator',
   //   loadChildren: () => import('./dth-operator/dth-operator.module').then( m => m.DthOperatorPageModule)
   // },
-  {
-    path: 'dth-operator',
-    loadChildren: () => import('./utility/dth-operator/dth-operator.module').then(m => m.DthOperatorPageModule)
-  },
-  {
-    path: 'dth-pay',
-    loadChildren: () => import('./utility/dth-pay/dth-pay.module').then(m => m.DthPayPageModule)
-  },
+  // {
+  //   path: 'dth-operator',
+  //   loadChildren: () => import('./utility/dth-operator/dth-operator.module').then(m => m.DthOperatorPageModule)
+  // },
+  // {
+  //   path: 'dth-pay',
+  //   loadChildren: () => import('./utility/dth-pay/dth-pay.module').then(m => m.DthPayPageModule)
+  // },
   {
     path: 'select-bus-seat',
     loadChildren: () => import('./select-bus-seat/select-bus-seat.module').then(m => m.SelectBusSeatPageModule)
@@ -757,11 +757,15 @@ const routes: Routes = [
     loadChildren: () => import('./Hotel/select-room/select-room.module').then(m => m.SelectRoomPageModule)
   },
   {
-    path: 'hotel-checkout',
+    path: 'hotel-checkout/:key',
     loadChildren: () => import('./Hotel/hotel-checkout/hotel-checkout.module').then(m => m.HotelCheckoutPageModule)
   },
   {
     path: 'hotel-booking',
+    loadChildren: () => import('./Hotel/hotel-booking/hotel-booking.module').then(m => m.HotelBookingPageModule)
+  },
+  {
+    path: 'hotel-booking/:id',
     loadChildren: () => import('./Hotel/hotel-booking/hotel-booking.module').then(m => m.HotelBookingPageModule)
   },
 

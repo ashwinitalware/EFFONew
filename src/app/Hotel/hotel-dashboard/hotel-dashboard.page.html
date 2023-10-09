@@ -1,12 +1,19 @@
 <ion-header>
   <ion-toolbar no-border>
     <ion-buttons slot="start">
-      <ion-back-button color="light"></ion-back-button>
+      <ion-back-button style="color: white" defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title> Effo Hotel</ion-title>
+    <!-- <ion-back-button style="color: white" defaultHref="/"></ion-back-button> -->
+    <ion-buttons slot="end">
+      <ion-button
+        [routerLink]="['/hotel-booking']"
+        routerLinkActive="router-link-active"
+        >My Bookings</ion-button
+      >
+    </ion-buttons>
+    <ion-title> Effo Hotels</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <div class="p-2">
     <div class="pl-2 pr-1 mt-2">
@@ -154,7 +161,7 @@
     <!-- All Hotels Card start -->
 
     <div class="p-4 -mt-2">
-      <div class="p-1 mt-1">
+      <!-- <div class="p-1 mt-1" >
         <div class="bg-white rounded-lg shadow-md p-1">
           <div class="flex items-center">
             <ion-input
@@ -171,14 +178,14 @@
             ></ion-icon>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div
         *ngFor="let hotel of this.hotelService.hotels"
         class="relative mx-auto w-full mt-2"
+        (click)="hotelSelected(hotel)"
       >
-        <a
-          href="#"
+        <div
           class="relative inline-block duration-300 ease-in-out transition-transform transform hover:-translate-y-2 w-full"
         >
           <div class="shadow p-2 rounded-lg bg-white">
@@ -293,7 +300,7 @@
               </div>
             </div>
           </div>
-        </a>
+        </div>
       </div>
     </div>
   </div>

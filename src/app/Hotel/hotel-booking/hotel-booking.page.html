@@ -3,123 +3,139 @@
     <ion-buttons slot="start" color="light">
       <ion-back-button style="color: white"></ion-back-button>
     </ion-buttons>
-    <ion-title>My Booking</ion-title>
+    <ion-title>My Bookings</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="bg-white">
+  <div class="text-center mt-4" *ngIf="this.notFound">No Bookings Found</div>
   <div class="p-2">
-    <ion-grid>
-      <ion-row class="bg-white rounded-md p-1 border-b border-red-600" >
-        <ion-col size="4">
-          <div>
-            <img class="rounded-md w-full h-full" src="assets/room2.jpg" alt="">
+    <div class="p-4" *ngFor="let booking of this.bookings">
+      <div
+        class="bg-white rounded-xl overflow-hidden shadow-md"
+        *ngIf="booking.data && booking.data.data"
+      >
+        <!-- *ngFor="let passenger of booking.data.items.segments.ONEWAY.travellers" -->
+        <div class="bg-gray-800 text-white p-2 text-center">
+          <!-- Test-Seat-B5 -->
+          {{booking.data.data.globalSearchQuery.hotelSearchRequest.hotelName}}
+          <br />
+          <div class="text-sm">
+            Address :
+            {{booking.data.data.itemsData.hotelData.hotelInfo.address}}
           </div>
-        </ion-col>
-        <ion-col size="8">
-          <p class="font-bold text-lg text-balck  line-clamp-1 ">
-          Ashwini Talware
-          </p>
-          <p class="text-sm text-gray-600">Hotel:  Aston Hotel</p>
-          <p class="text-xs text-gray-500">Amravati, Maharashtra
-          </p>
-       
-        </ion-col>
+        </div>
 
-
-        <ion-col size="12" class="border-t border-gray-300">
-          <div class="flex justify-between">
-            <div>
-              <p class="text-gray-400 text-sm">Chcek IN</p>
-              <p class="text-black text-lg font-semibold">08 Sep, 2023</p>
-            </div>
-
-            <div>
-              <p class="text-gray-400 text-sm">Chcek OUT</p>
-              <p class="text-black text-lg font-semibold">08 Sep, 2023</p>
-            </div>
+        <div class="flex justify-between px-4 pt-4">
+          <div class="items-center my-1">
+            <span class="shadow-md w-16 h-16 text-center">
+              <img
+                src="{{booking.data.data.itemsData.hotelData.hotelInfo.images.mainImage}}"
+                class="h-16 rounded-md"
+              />
+            </span>
+            <h2 class="font-medium"></h2>
           </div>
-        </ion-col>
-
-        <ion-col size="12"  class="border-t border-gray-300">
-          <div class="flex justify-between">
-            <div>
-              <p class="text-gray-400 text-sm">Room</p>
-              <p class="text-black text-lg font-semibold">01</p>
+          <div class="ml-auto text-sm text-blue-800 mt-1">
+            <div class="text-right">{{booking.data.data.referenceId}}</div>
+            <div class="text-right text-sm font-bold">
+              {{booking.data.data.status}}
+              <!-- {{booking.attributes?.viaStatus}} -->
             </div>
-
-            <div>
-              <p class="text-gray-400 text-sm">Guests</p>
-              <p class="text-black text-lg font-semibold">3</p>
-            </div>
-
-            <div>
-              <p class="text-gray-400 text-sm">Total</p>
-              <p class="text-black text-lg font-semibold"> ₹ 1000</p>
-            </div>
+            <!-- <div class="text-right font-bold text-black">
+              {{booking?.data?.globalSrchQry.busSrchQry.segments.ONEWAY.sectorInfo.date|date}}
+            </div> -->
           </div>
-        </ion-col>
+        </div>
+        <div class="text-center font-bold text-black">
+          Agent Contact :
+          {{booking.data.data.itemsData.hotelData.hotelInfo.contacts.agentOrViaContact}}
+        </div>
+        <div class="border-b border-dashed border-b-2 my-2"></div>
 
-      </ion-row>
-
-
-
-      <ion-row class="bg-white rounded-md p-1 mt-3 border-b border-red-600">
-        <ion-col size="4">
-          <div>
-            <img class="rounded-md w-full h-full" src="assets/room1.jpg" alt="">
-          </div>
-        </ion-col>
-        <ion-col size="8">
-          <p class="font-bold text-lg text-balck  line-clamp-1 ">
-         Neha Patil
-          </p>
-          <p class="text-sm text-gray-600">Hotel:  Aston Hotel</p>
-          <p class="text-xs text-gray-500">Amravati, Maharashtra
-          </p>
-       
-        </ion-col>
-
-
-        <ion-col size="12" class="border-t border-gray-300">
-          <div class="flex justify-between">
-            <div>
-              <p class="text-gray-400 text-sm">Chcek IN</p>
-              <p class="text-black text-lg font-semibold">08 Sep, 2023</p>
+        <div>
+          <div class="flex items-center -mt-3 pt-3 pl-3 pr-3">
+            <div class="flex flex-col flex-1">
+              <div class="flex-auto text-xs text-gray-400">
+                <span class="mr-1"></span>
+              </div>
+              <div
+                class="w-full flex-none text-blue-800 font-bold leading-none"
+              >
+                Check In
+              </div>
+              <!-- <div class="text-xs">Source</div> -->
+              <div class="text-sm text-red-700 mt-2">
+                {{booking.data.data.globalSearchQuery.hotelSearchRequest.checkInDate|date}}
+              </div>
+              <!-- <div class="text-sm text-black">123</div> -->
             </div>
+            <div class="flex flex-col mx-auto flex-1">
+              <!-- <img src="assets/linered.png" alt="" /> -->
+              <!-- <img src="https://image.winudf.com/v2/image1/Y29tLmJldHMuYWlyaW5kaWEudWlfaWNvbl8xNTU0NTM4MzcxXzA0Mw/icon.png?w=&amp;fakeurl=1"
+              class="w-20 p-1"> -->
+            </div>
+            <div class="flex flex-col flex-1">
+              <div class="flex-auto text-xs text-gray-400 my-1">
+                <span class="mr-1"> </span>
+              </div>
 
-            <div>
-              <p class="text-gray-400 text-sm">Chcek OUT</p>
-              <p class="text-black text-lg font-semibold">08 Sep, 2023</p>
+              <div
+                class="w-full flex-none text-blue-800 font-bold leading-none text-right"
+              >
+                Check Out
+              </div>
+              <!-- <div class="text-xs">Destination</div> -->
+              <div class="text-sm text-red-700 text-right mt-2">
+                {{booking.data.data.globalSearchQuery.hotelSearchRequest.checkOutDate|date}}
+              </div>
+              <!-- <div class="text-sm text-black text-right">123</div> -->
             </div>
           </div>
-        </ion-col>
-
-        <ion-col size="12"  class="border-t border-gray-300">
-          <div class="flex justify-between">
-            <div>
-              <p class="text-gray-400 text-sm">Room</p>
-              <p class="text-black text-lg font-semibold">01</p>
-            </div>
-
-            <div>
-              <p class="text-gray-400 text-sm">Guests</p>
-              <p class="text-black text-lg font-semibold">3</p>
-            </div>
-
-            <div>
-              <p class="text-gray-400 text-sm">Total</p>
-              <p class="text-black text-lg font-semibold"> ₹ 1000</p>
+          <div class="border-b border-dashed border-b-2 my-2"></div>
+          <div class="flex items-center mb-4 px-4">
+            <div class="flex flex-col mx-auto text-sm">
+              <span class="">Room Name</span>
+              <div class="font-bold text-black">
+                {{booking.data.data.itemsData.hotelData.roomResults[0].roomAllocation[0].roomName}}
+              </div>
             </div>
           </div>
-        </ion-col>
+          <div class="border-b border-dashed border-b-2 my-2"></div>
+          <div class="flex items-center px-4 pt-3 pb-4 text-sm">
+            <div class="flex flex-col">
+              <span class="">Number of Rooms</span>
+              <div class="font-bold text-black">
+                {{booking.data.data.globalSearchQuery.hotelSearchRequest.numRooms}}
+              </div>
+            </div>
+            <div class="flex flex-col mx-auto">
+              <span class="">Total Adults</span>
+              <div class="font-bold text-black">
+                {{booking.data.data.totalAdults||0}}
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <span class="">Total</span>
+              <div class="font-bold text-black">
+                {{booking.data.data.paymentDetail.fareDetails.TOTAL.A }}/-
+              </div>
+            </div>
+          </div>
+          <div
+            class="p-4"
+            *ngIf="booking.cancellationId"
+            [innerHTML]="booking.cancellationPolicy"
+          ></div>
 
-      </ion-row>
-    </ion-grid>
+          <div
+            (click)="this.ds.contact()"
+            class="text-red-700 text-center py-2"
+          >
+            Contact us to Cancel Ticket
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
- 
-
-
 </ion-content>
-

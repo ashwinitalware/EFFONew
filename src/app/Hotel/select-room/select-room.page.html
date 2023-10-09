@@ -12,6 +12,7 @@
     <ion-grid>
       <ion-row
         *ngFor="let room of this.hotelService.rooms"
+        (click)="this.roomSelected(room)"
         class="bg-white rounded-md p-2 mb-2"
       >
         <!-- <ion-col size="4">

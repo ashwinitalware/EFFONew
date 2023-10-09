@@ -121,8 +121,8 @@ export class DataService {
     App.getInfo().then((data) => {
       this.appVersion = data.version;
     });
-    this.domainUrl = 'http://localhost:1337/';
-    this.apiUrl = this.domainUrl + 'api/';
+    // this.domainUrl = 'http://localhost:1337/';
+    // this.apiUrl = this.domainUrl + 'api/';
     this.getCities();
 
     ///MAIN CONFIGS
