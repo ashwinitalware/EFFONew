@@ -19,25 +19,20 @@
   <div
     id="myModal"
     class="modal flex items-center justify-center {{modalClass}}"
-    style="z-index: 10"
-  >
+    style="z-index: 10">
     <div class="modal-content rounded-md overflow-hidden relative">
       <img
         src="{{popupImage}}"
         alt=""
-        (click)="this.dataService.viewImage(popupImage)"
-      />
+        (click)="this.dataService.viewImage(popupImage)"/>
       <span
         (click)="modalClass='hidden'"
         class="bg-red text-white w-8 h-8 flex items-center justify-center absolute right-0 top-0"
-        >X</span
-      >
+        >X</span>
     </div>
   </div>
 
-  <!-- <div class="p-3">
-    <ion-label>How can we<br /><b>Help You Today?</b></ion-label>
-  </div> -->
+  
   <ion-row class="px-2 relative">
     <!-- <div
       class="flex items-center"
