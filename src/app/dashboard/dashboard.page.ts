@@ -70,10 +70,9 @@ export class DashboardPage implements OnInit {
       name: 'Cab Services',
       image: '',
       icon: 'car',
-      // link: 'cab-home',
+      link: 'cab-home',
       // link: 'cab-tabs',
-      link: '',
-      available: false,
+      available: true,
     },
     // {
     //   name: 'Property',

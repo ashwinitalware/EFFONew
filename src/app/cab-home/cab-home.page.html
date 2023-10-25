@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="dark">
+  <ion-toolbar >
     <ion-title>Effo Cab Services </ion-title>
     <ion-buttons slot="end" (click)="this.router.navigate(['/cab-cities'])">
       <ion-icon name="pin-outline"></ion-icon>
@@ -9,28 +9,65 @@
 </ion-header>
 
 <ion-content class="relative">
-  <div class="fixed w-full p-4">
-    <div>
-      <!-- mode="ios"  -->
-      <ion-segment
-        (ngModelChange)="segmentChanged($event)"
-        mode="ios"
-        [(ngModel)]="this.cabService.type"
-      >
-        <ion-segment-button value="local">
-          <ion-label>Local</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="rental">
-          <ion-label>Rental</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="outstation">
-          <ion-label>Outstation</ion-label>
-        </ion-segment-button>
-      </ion-segment>
-    </div>
 
-    <div class="w-full mt-2 flex bg-white py-2 rounded-lg">
-      <img src="assets/cab/fromPin.png" alt="" class="h-6" />
+  <div class="bg-white  rounded-bl-xl  rounded-br-xl ">
+    <ion-slides #slider loop="true" [options]="slideOpts">
+      <ion-slide>
+        <ion-card style="border-radius: 0.5rem">
+          <img src="assets/cabslider1.png" />
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card style="border-radius: 0.5rem">
+          <img src="assets/cabslider2.png" />
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-slides #slider loop="true" [options]="slideOpts1" class="mt-2 pb-3">
+
+      <ion-slide>
+        <div routerLink="/cab-auto">
+        <img src="assets/auto2.png" alt="cab" class="slider-img" />
+        <p class="text-xs">Auto</p>
+      </div>
+      </ion-slide>
+      
+      <ion-slide>
+        <div  align="center">
+          <img src="assets/location1.png" alt="cab" class="slider-img" />
+          <p class="text-xs">Local</p>
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div routerLink="/cab-outstation"  align="center">
+          <img src="assets/outstation.png" alt="cab" class="slider-img" />
+          <p class="text-xs">Outstation</p>
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div routerLink="/cab-rental"  align="center"> 
+          <img src="assets/clock.png" alt="cab" class="slider-img" />
+          <p class="text-xs">Rental</p>
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div routerLink="/cab-transport"  align="center">
+          <img src="assets/transport.png" alt="cab" class="slider-img" />
+          <p class="text-xs">Transport</p>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="fixed w-full p-4">
+
+    <div class="w-full mt-2 flex bg-white py-4  rounded-lg">
+      <img src="assets/fromPin.png" alt="" class="h-6" />
 
       <input
         [(ngModel)]="cabService.from"
@@ -48,11 +85,10 @@
         ></ion-icon>
       </div>
 
-      <!-- <img src="assets/cab/fromPin.png" alt="" class="h-6"> -->
     </div>
-    <div class="w-full mt-2 flex bg-white py-2 rounded-lg">
-      <!-- *ngIf="this.cabService.type!='rental'" -->
-      <img src="assets/cab/toPin.png" alt="" class="h-6" />
+
+    <div class="w-full mt-2 flex bg-white py-4  rounded-lg">
+      <img src="assets/toPin.png" alt="" class="h-6" />
 
       <input
         [(ngModel)]="cabService.to"
@@ -69,15 +105,21 @@
         ></ion-icon>
       </div>
     </div>
+
+
+
   </div>
-  <div
+
+  <!-- <div
     class="fixed"
     style="top: 50%; left: 50%; margin-top: -20px; margin-left: -10px"
   >
     <img class="animate-bounce" src="assets/cab/{{pinImage}}.png" alt="" />
+  </div> -->
+  <!-- #map id="map_canvas" -->
+  <div style="height: 100%; z-index: -1" >
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24355.831177779874!2d77.77232888139483!3d20.928199419647743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1698226154728!5m2!1sen!2sin" width="600" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
-
-  <div style="height: 100%; z-index: -1" #map id="map_canvas"></div>
 
   <ion-fab
     vertical="bottom"
@@ -85,10 +127,10 @@
     slot="fixed"
     class="flex flex-col items-end"
   >
-    <ion-fab-button size="small" color="dark">
+    <ion-fab-button size="small" color="primary">
       <ion-icon name="locate"></ion-icon>
     </ion-fab-button>
-    <ion-button color="dark" (click)="book()" shape="round"
+    <ion-button color="primary"routerLink="/cab-out-booking" shape="round"
       >Book Now <ion-icon name="arrow-forward"></ion-icon>
     </ion-button>
   </ion-fab>

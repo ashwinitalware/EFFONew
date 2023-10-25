@@ -1,0 +1,11 @@
+ion-segment {
+    --background: rgb(255, 255, 255);
+  }
+  ion-segment-button {
+    --color-checked: white;
+    --indicator-color: red;
+  }
+    
+  ion-toolbar {
+    --background: linear-gradient(90deg, rgb(255, 0, 0) 0%, #bd0101 100%);
+  }

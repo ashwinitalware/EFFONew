@@ -767,7 +767,35 @@ const routes: Routes = [
   {
     path: 'hotel-booking/:id',
     loadChildren: () => import('./Hotel/hotel-booking/hotel-booking.module').then(m => m.HotelBookingPageModule)
+  },  {
+    path: 'cab-auto',
+    loadChildren: () => import('./cab/cab-auto/cab-auto.module').then( m => m.CabAutoPageModule)
   },
+  {
+    path: 'cab-outstation',
+    loadChildren: () => import('./cab/cab-outstation/cab-outstation.module').then( m => m.CabOutstationPageModule)
+  },
+  {
+    path: 'cab-out-booking',
+    loadChildren: () => import('./cab/cab-out-booking/cab-out-booking.module').then( m => m.CabOutBookingPageModule)
+  },
+  {
+    path: 'cab-rental',
+    loadChildren: () => import('./cab/cab-rental/cab-rental.module').then( m => m.CabRentalPageModule)
+  },
+  {
+    path: 'cab-all-vehicle',
+    loadChildren: () => import('./cab/cab-all-vehicle/cab-all-vehicle.module').then( m => m.CabAllVehiclePageModule)
+  },
+  {
+    path: 'cab-transport',
+    loadChildren: () => import('./cab/cab-transport/cab-transport.module').then( m => m.CabTransportPageModule)
+  },
+  {
+    path: 'cab-all-transport',
+    loadChildren: () => import('./cab/cab-all-transport/cab-all-transport.module').then( m => m.CabAllTransportPageModule)
+  },
+
 
 
 

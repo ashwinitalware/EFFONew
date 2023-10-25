@@ -1,0 +1,142 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Outstation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="rounded-bl-md rounded-br-md">
+
+    <iframe class="rounded-bl-md rounded-br-md"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.573798856734!2d77.7528096234513!3d20.92946004144013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6a4a5f034c999%3A0xfb029d973aa7f88e!2sAmravati%20Railway%20Station%20Platform%202%20%263!5e0!3m2!1sen!2sin!4v1663404120233!5m2!1sen!2sin"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+  <ion-segment mode="ios" value="one" (ionChange)='segmentChanged($event)'>
+    <ion-segment-button value="one">
+      <ion-label>One way trip </ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="rounded">
+      <ion-label>Rounded trip</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="switchTab === 'one'">
+    <div class="p-2">
+
+      <div class="w-full mt-2 flex bg-white py-4  rounded-lg">
+        <img src="assets/fromPin.png" alt="" class="h-6" />
+        <input #pickSearch type="text" class="ml-2 flex-1 w-full bg-white" placeholder="Enter You Pick Location" />
+        <div class="px-2 flex items-center"></div>
+      </div>
+
+      <div class="w-full mt-2 flex bg-white py-4  rounded-lg">
+        <img src="assets/toPin.png" alt="" class="h-6" />
+        <input #search type="text" class="ml-2 flex-1 w-full bg-white" placeholder="Enter You Drop Location" />
+        <div class="px-2 flex items-center"></div>
+      </div>
+
+      <div class="bg-white rounded-md mt-3"  routerLink="/cab-out-booking">
+        <ion-row>
+          <ion-col size="4">
+            <ion-card color="danger" class="c1">
+              <img src="assets/car4.png" alt="car" class="img1">
+            </ion-card>
+          </ion-col>
+
+          <ion-col size="8" class="pr-1">
+            <div class="flex justify-start mt-2">
+              <p class="font-bold text-black text-lg">Mini</p>
+            </div>
+
+            <div class="flex justify-between pr-1">
+              <p>comfy, economical cars</p>
+              <div>
+                <p> <ion-icon name="information-circle-outline" class="w-4 h-4 ml-1"></ion-icon> ₹2227</p>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div class="bg-white rounded-md mt-3">
+        <ion-row>
+          <ion-col size="4">
+            <ion-card color="danger" class="c1">
+              <img src="assets/car4.png" alt="car" class="img1">
+            </ion-card>
+          </ion-col>
+
+          <ion-col size="8" class="pr-1">
+            <div class="flex justify-start mt-2">
+              <p class="font-bold text-black text-lg">Mini</p>
+            </div>
+
+            <div class="flex justify-between pr-1">
+              <p>comfy, economical cars</p>
+              <div>
+                <p> <ion-icon name="information-circle-outline" class="w-4 h-4 ml-1"></ion-icon> ₹2227</p>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div class="bg-white rounded-md mt-3">
+        <ion-row>
+          <ion-col size="4">
+            <ion-card color="danger" class="c1">
+              <img src="assets/car4.png" alt="car" class="img1">
+            </ion-card>
+          </ion-col>
+
+          <ion-col size="8" class="pr-1">
+            <div class="flex justify-start mt-2">
+              <p class="font-bold text-black text-lg">Mini</p>
+            </div>
+
+            <div class="flex justify-between pr-1">
+              <p>comfy, economical cars</p>
+              <div>
+                <p> <ion-icon name="information-circle-outline" class="w-4 h-4 ml-1"></ion-icon> ₹2227</p>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div *ngIf="switchTab === 'rounded'">
+    <div>
+      <ion-card class="p-3">
+        <p class="m-3 text-red-500 text-lg border-b border-red-600 font-bold">Enter Location</p>
+
+        <div class="w-full mt-2 flex bg-white py-4  rounded-lg">
+          <img src="assets/fromPin.png" alt="" class="h-6" />
+          <input #pickSearch type="text" class="ml-2 flex-1 w-full bg-white" placeholder="Enter You Pick Location" />
+          <div class="px-2 flex items-center"></div>
+        </div>
+
+        <div class="w-full mt-2 flex bg-white py-4  rounded-lg">
+          <img src="assets/toPin.png" alt="" class="h-6" />
+          <input #search type="text" class="ml-2 flex-1 w-full bg-white" placeholder="Enter You Drop Location" />
+          <div class="px-2 flex items-center"></div>
+        </div>
+
+      </ion-card>
+
+
+
+    </div>
+  </div>
+
+
+</ion-content>

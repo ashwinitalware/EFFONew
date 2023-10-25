@@ -24,6 +24,21 @@ export class CabHomePage implements OnInit {
 
   pickAutocomplete;
   autocomplete;
+
+
+  slider: any;
+  slideOpts = {
+    initialSlide: 0,
+    slidesPerView: 1,
+    autoplay: true,
+  };
+
+  slideOpts1 = {
+    initialSlide: 0,
+    slidesPerView: 4.5,
+    autoplay: true,
+  };
+
   constructor(public cabService: CabService, public router: Router) {
     //reset everything
     this.resetEverything();
@@ -195,7 +210,7 @@ export class CabHomePage implements OnInit {
       }
     }
 
-    this.router.navigate(['/cab-confirm-booking']);
+    this.router.navigate(['/cab-out-booking']);
   }
 
   addDragEndEvent() {
