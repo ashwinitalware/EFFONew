@@ -21,6 +21,7 @@ import { OldExService } from './services/old-ex.service';
 import { CabService } from './services/cab.service';
 import { LodgingService } from './lodging/lodging.service';
 import { RestaurantService } from './restaurant/restaurant.service';
+import { UtilityService } from './utility.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -45,7 +46,8 @@ import { RestaurantService } from './restaurant/restaurant.service';
     LodgingService,
     CabService,
     LoginGuard,
+    UtilityService
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

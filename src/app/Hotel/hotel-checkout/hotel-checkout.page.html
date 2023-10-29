@@ -8,6 +8,50 @@
 </ion-header>
 
 <ion-content>
+  <div class="relative mx-auto w-full mt-2">
+    <div
+      class="relative inline-block duration-300 ease-in-out transition-transform transform hover:-translate-y-2 w-full"
+    >
+      <div class="shadow p-2 rounded-lg bg-white">
+        <div
+          class="flex justify-center relative rounded-lg overflow-hidden"
+        ></div>
+
+        <div class="mt-2 pl-2 flex">
+          <div>
+            <p class="font-bold text-lg text-balck text-gray-800 line-clamp-1">
+              {{this.hotelService.selectectedHotel.hotelInfo.name}}
+            </p>
+            <p
+              *ngIf="this.hotelService.selectectedHotel.hotelDetails"
+              class="text-xs text-gray-800"
+            >
+              {{this.hotelService.selectectedHotel.hotelDetails.address}}
+              <!-- <ion-icon
+              class="text-xs text-gray-400"
+              name="location"
+            ></ion-icon> {{this.hotelService.search.destination}} -->
+            </p>
+            <div
+              *ngIf="this.hotelService.selectectedHotel.hotelDetails&& this.hotelService.selectectedHotel.hotelDetails.reviewData?.numberOfReviews"
+              class="flex items-center text-green-600 font-bold text-sm my-2"
+            >
+              <!-- {{this.hotelService.hotelReviewImages[hotel.hotelDetails.starRating|
+            number: '1.1-1']}} -->
+              <img
+                src="https://{{this.hotelService.hotelReviewImages['3.0']}}"
+                alt=""
+              />
+              (
+              {{this.hotelService.selectectedHotel.hotelDetails.reviewData?.numberOfReviews}}
+              Reviews )
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div *ngIf="this.hotelService.repriceResponse" class="p-2">
     <ion-grid>
       <ion-row class="bg-white rounded-md p-1">
@@ -21,7 +65,7 @@
             {{this.hotelService.repriceResponse.data.hotelResult.roomResults[0].roomName}}
           </p>
           <p class="text-xs text-gray-500">
-            {{this.hotelService.repriceResponse.data.searchInfo.regionName}}
+            <!-- {{this.hotelService.repriceResponse.data.searchInfo.regionName}} -->
           </p>
           <!-- <p class="font-bold text-md text-balck text-red-600 line-clamp-1">
             ₹ 1000/<span
@@ -110,7 +154,7 @@
           <p class="text-sm text-gray-500">Total</p>
           <p class="font-bold text-lg text-red-600 line-clamp-1">
             ₹
-            {{this.hotelService.repriceResponse.data.hotelResult.roomResults[0].ratePlans[0].pricing.totalSellPrice}}
+            {{(this.hotelService.repriceResponse.data.hotelResult.roomResults[0].ratePlans[0].pricing.totalSellPrice*this.hotelService.charges.extraPercentage)|number:'1.2-2'}}
           </p>
         </div>
       </div>
@@ -122,7 +166,7 @@
   <ion-toolbar>
     <!-- routerLink="/hotel-booking" -->
     <button
-      (click)="this.hotelService.book()"
+      (click)="this.hotelService.payment()"
       class="text-white py-4 w-full font-bold"
     >
       Pay & Confirm

@@ -46,21 +46,23 @@
         <ion-input formControlName="city"></ion-input>
       </ion-item>
       <br />
-      <ion-item class="">
-        <ion-label position="floating">Bedrooms</ion-label>
-        <ion-input type="number" formControlName="bedrooms"> </ion-input>
-      </ion-item>
-      <br />
-      <ion-item class="">
-        <ion-label position="floating">BathRooms</ion-label>
-        <ion-input type="number" formControlName="bathrooms"></ion-input>
-      </ion-item>
-      <br />
-      <ion-item class="">
-        <ion-label position="floating">Balconies</ion-label>
-        <ion-input type="number" formControlName="balconies"></ion-input>
-      </ion-item>
-      <br />
+      <div *ngIf="this.form.value.type!='plot'">
+        <ion-item class="">
+          <ion-label position="floating">Bedrooms</ion-label>
+          <ion-input type="number" formControlName="bedrooms"> </ion-input>
+        </ion-item>
+        <br />
+        <ion-item class="">
+          <ion-label position="floating">BathRooms</ion-label>
+          <ion-input type="number" formControlName="bathrooms"></ion-input>
+        </ion-item>
+        <br />
+        <ion-item class="">
+          <ion-label position="floating">Balconies</ion-label>
+          <ion-input type="number" formControlName="balconies"></ion-input>
+        </ion-item>
+        <br />
+      </div>
       <ion-item class="">
         <ion-label position="floating">Area in sq/ft.</ion-label>
         <ion-input type="number" formControlName="area"></ion-input>

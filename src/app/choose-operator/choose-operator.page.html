@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Select Your Operator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-4">
+    <div
+      *ngFor="let item of this.utilityService.operators"
+      (click)="operatorSelected(item)"
+      class="flex items-center border rounded-md bg-white p-4 mb-4"
+    >
+      <img src="assets/utility/{{item.APICode}}.png" alt="" class="w-10" />
+      &nbsp; &nbsp;
+      <div class="font-bold text-sm">{{item.OperatorName|uppercase}}</div>
+    </div>
+  </div>
+</ion-content>

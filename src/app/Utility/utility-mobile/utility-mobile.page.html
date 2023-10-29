@@ -4,80 +4,215 @@
       <ion-back-button color="light"></ion-back-button>
     </ion-buttons>
     <div class="px-4 text-white text-lg">Mobile Recharge</div>
+    <ion-buttons slot="end">
+      <ion-button
+        [routerLink]="['/recharge-history']"
+        routerLinkActive="router-link-active"
+        >History</ion-button
+      >
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <div style="border-radius: 5px; margin-top: 2%;">
+  <div
+    class="rounded-lg"
+    style="
+      background-color: white;
+      border-radius: 1.5rem;
+      /* margin-top: 2%; */
+      padding: 5px;
+    "
+  >
     <ion-slides #slider loop="true" [options]="slideOpts">
-      <ion-slide>
-        <ion-card style="border-radius: 5px;">
-          <img src="assets/U1.png" />
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card style="border-radius: 5px">
-          <img src="assets/U2.png" />
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card style="border-radius: 5px">
-          <img src="assets/U3.png" />
+      <ion-slide
+        (click)="this.dataService.slideClicked(slide)"
+        *ngFor="let slide of this.sliders"
+      >
+        <ion-card style="border-radius: 1.5rem">
+          <img src="{{slide.attributes.file.data.attributes.url}}" />
         </ion-card>
       </ion-slide>
     </ion-slides>
   </div>
 
   <div class="pl-2 pr-3">
-
-   <div class="p-1">
-    <div class="bg-white rounded-lg shadow-md p-1">
-      <div class="flex items-center">
-        <ion-input class="flex-1" placeholder="Search Mobile Number or Name" id="search">
-          <ion-icon name="search" style="margin-left: 7px"></ion-icon>
-        </ion-input>
-        <ion-icon name="close" class="px-4" style="margin-left: 7px"></ion-icon>
+    <div class="p-1">
+      <div class="bg-white rounded-lg shadow-md p-1">
+        <div class="flex items-center">
+          <ion-input
+            [(ngModel)]="this.utilityService.phone"
+            type="number"
+            class="flex-1"
+            placeholder="Enter Mobile Number"
+            id="search"
+          >
+            <ion-icon name="search" style="margin-left: 7px"></ion-icon>
+          </ion-input>
+          <!-- <ion-icon
+            name="close"
+            class="px-4"
+            style="margin-left: 7px"
+          ></ion-icon> -->
+        </div>
+      </div>
+      <div
+        (click)="this.utilityService.fetchOperator()"
+        class="py-2 text-center bg-red-600 text-white rounded-md mt-4"
+      >
+        Search Plans
       </div>
     </div>
-   </div>
+    <br />
+
+    <div
+      *ngIf="this.utilityService.operatorName"
+      class="border shadow-md rounded-md p-4 flex"
+    >
+      <div class="flex-1">
+        <div>Operator Details</div>
+        <div class="text-blue-600 font-bold text-sm">
+          {{this.utilityService.operatorName}},
+          {{this.utilityService.operatorRegionName}}
+        </div>
+      </div>
+      <div
+        class="text-red-600 font-bold text-sm flex items-center"
+        (click)="changeOperator()"
+      >
+        CHANGE
+      </div>
+    </div>
+    <br />
+    <div *ngIf="this.utilityService.plans">
+      <ion-segment
+        [(ngModel)]="this.utilityService.segment"
+        color="dark"
+        mode="ios"
+        scrollable="true"
+        value="default"
+      >
+        <ion-segment-button value="FULLTT">
+          <ion-label>Talk time</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="TOPUP">
+          <ion-label>Topup</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="DATA">
+          <ion-label>Data</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="SMS">
+          <ion-label>SMS</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="Romaing">
+          <ion-label>Roaming</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <ion-row class="mt-2">
+        <ion-col
+          *ngFor="let item of this.utilityService.plans.data.Data[this.utilityService.segment]"
+          size="12"
+        >
+          <div
+            class="bg-white rounded-lg shadow-md border-b border-dashed border-gray-300"
+          >
+            <!-- <div
+              align="center"
+              style="background-color: #e0e0e0"
+              class="p-2 rounded-tl-lg rounded-tr-lg"
+            >
+              <p class="text-black font-semibold text-sm pl-3">
+                Mobile - 8668543490
+              </p>
+            </div> -->
+
+            <div class="flex justify-between p-2">
+              <div class="flex justify-start">
+                <img
+                  width="30"
+                  height="30"
+                  class="rounded-full"
+                  src="assets/utility/{{this.utilityService.operatorCode}}.png"
+                  alt=""
+                />
+                <p class="text-black text-lg font-bold pl-2">
+                  ₹{{item.rs}}<span class="text-gray-400 text-xs"> plan </span>
+                </p>
+              </div>
+
+              <!-- <p
+                clas="text-gray-400 font-bold"
+                style="color: #bd0101; font-size: small"
+              >
+                View Details
+              </p> -->
+            </div>
+            <div class="p-4 text-sm text-blue-800">{{item.desc}}</div>
+            <div class="border border-dashed border-gray-400"></div>
+            <ion-row class="p-2">
+              <ion-col size="12">
+                <div align="center">
+                  <ion-label style="color: black; font-size: small"
+                    >VALIDITY</ion-label
+                  >
+                  <p class="text-semibold text-gary-400 text-sm font-bold">
+                    {{item.validity}}
+                  </p>
+                </div>
+              </ion-col>
+              <!-- <ion-col size="2">
+                <div align="center" class="text-gray-500">|</div>
+              </ion-col>
+              <ion-col size="5" class="pl-4">
+                <div align="center">
+                  <ion-label style="color: black; font-size: small"
+                    >DATA</ion-label
+                  >
+                  <p class="text-semibold text-gary-400 text-sm">
+                    1.5 GB/Daily
+                  </p>
+                </div>
+              </ion-col> -->
+
+              <ion-col
+                size="12"
+                (click)="this.utilityService.recharge(item.rs)"
+              >
+                <div align="center">
+                  <p
+                    class="border border-red-600 p-2 text-red-600 text-sm font-bold rounded-sm"
+                  >
+                    Recharge
+                  </p>
+                </div>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
 
     <!-- <div  class="pt-3 pl-1">
       <ion-label><b>Recharge & Pay Bills</b></ion-label>
     </div> -->
 
-    <ion-row class="mt-2">
-      <ion-col size="12" routerLink="/utility-selectplan">
-        <div class="p-2 border-b border-dashed border-gray-300 p-2">
-         <ion-row>
-          <ion-col size="1.5">
-            <img class="rounded-full" src="assets/uicon1.png" alt="">
-          </ion-col>
-          <ion-col size="9.5" class="pl-4">
-            <p class="text-gray-400 text-xs ">Ashwini Talware</p>
-            <p class="text-black font-bold text-xs mt-1">+91 8668543490</p>
-          </ion-col>
-          <ion-col size="1" class="flex items-center">
-            <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
-          </ion-col>
-         </ion-row>
-        </div>
-      </ion-col>
-
+    <!-- <ion-row class="mt-2">
       <ion-col size="12" routerLink="/utility-selectplan">
         <div class="p-2 border-b border-dashed border-gray-300 p-2">
           <ion-row>
             <ion-col size="1.5">
-              <img class="rounded-full" src="assets/uicon2.png" alt="">
+              <img class="rounded-full" src="assets/uicon1.png" alt="" />
             </ion-col>
             <ion-col size="9.5" class="pl-4">
-              <p class="text-gray-400 text-xs ">Shiba Khan</p>
-              <p class="text-black font-bold text-xs mt-1">+91 9865324578</p>
+              <p class="text-gray-400 text-xs">Ashwini Talware</p>
+              <p class="text-black font-bold text-xs mt-1">+91 8668543490</p>
             </ion-col>
             <ion-col size="1" class="flex items-center">
-              <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
+              <ion-icon
+                class="text-md text-black"
+                name="chevron-forward"
+              ></ion-icon>
             </ion-col>
           </ion-row>
         </div>
@@ -85,37 +220,64 @@
 
       <ion-col size="12" routerLink="/utility-selectplan">
         <div class="p-2 border-b border-dashed border-gray-300 p-2">
-         <ion-row>
-          <ion-col size="1.5">
-            <img class="rounded-full" src="assets/uicon3.png" alt="">
-          </ion-col>
-          <ion-col size="9.5" class="pl-4">
-            <p class="text-gray-400 text-xs ">Pawan Patil</p>
-            <p class="text-black font-bold text-xs mt-1">+91 8596526325</p>
-          </ion-col>
-          <ion-col size="1" class="flex items-center">
-            <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
-          </ion-col>
-         </ion-row>
+          <ion-row>
+            <ion-col size="1.5">
+              <img class="rounded-full" src="assets/uicon2.png" alt="" />
+            </ion-col>
+            <ion-col size="9.5" class="pl-4">
+              <p class="text-gray-400 text-xs">Shiba Khan</p>
+              <p class="text-black font-bold text-xs mt-1">+91 9865324578</p>
+            </ion-col>
+            <ion-col size="1" class="flex items-center">
+              <ion-icon
+                class="text-md text-black"
+                name="chevron-forward"
+              ></ion-icon>
+            </ion-col>
+          </ion-row>
         </div>
       </ion-col>
 
       <ion-col size="12" routerLink="/utility-selectplan">
         <div class="p-2 border-b border-dashed border-gray-300 p-2">
-         <ion-row>
-          <ion-col size="1.5">
-            <img class="rounded-full" src="assets/uicon3.png" alt="">
-          </ion-col>
-          <ion-col size="9.5" class="pl-4">
-            <p class="text-gray-400 text-xs ">Neha Patil</p>
-            <p class="text-black font-bold text-xs mt-1">+91 7845125623</p>
-          </ion-col>
-          <ion-col size="1" class="flex items-center">
-            <ion-icon class="text-md text-black" name="chevron-forward"></ion-icon>
-          </ion-col>
-         </ion-row>
+          <ion-row>
+            <ion-col size="1.5">
+              <img class="rounded-full" src="assets/uicon3.png" alt="" />
+            </ion-col>
+            <ion-col size="9.5" class="pl-4">
+              <p class="text-gray-400 text-xs">Pawan Patil</p>
+              <p class="text-black font-bold text-xs mt-1">+91 8596526325</p>
+            </ion-col>
+            <ion-col size="1" class="flex items-center">
+              <ion-icon
+                class="text-md text-black"
+                name="chevron-forward"
+              ></ion-icon>
+            </ion-col>
+          </ion-row>
         </div>
       </ion-col>
-    </ion-row>
+
+      <ion-col size="12" routerLink="/utility-selectplan">
+        <div class="p-2 border-b border-dashed border-gray-300 p-2">
+          <ion-row>
+            <ion-col size="1.5">
+              <img class="rounded-full" src="assets/uicon3.png" alt="" />
+            </ion-col>
+            <ion-col size="9.5" class="pl-4">
+              <p class="text-gray-400 text-xs">Neha Patil</p>
+              <p class="text-black font-bold text-xs mt-1">+91 7845125623</p>
+            </ion-col>
+            <ion-col size="1" class="flex items-center">
+              <ion-icon
+                class="text-md text-black"
+                name="chevron-forward"
+              ></ion-icon>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row> -->
   </div>
 </ion-content>
+<ion-footer> </ion-footer>

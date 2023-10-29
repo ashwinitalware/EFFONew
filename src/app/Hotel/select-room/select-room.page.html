@@ -24,6 +24,12 @@
           <p class="font-bold text-md text-balck line-clamp-1">
             {{room.roomName}}
           </p>
+          <div
+            class="text-red-700 font-bold text-sm"
+            *ngIf="room.ratePlans[0].refundable==false"
+          >
+            NON REFUNDABLE
+          </div>
           <p class="text-xs text-gray-500 mt-2">
             Room Only (No meals are included)
           </p>
@@ -32,7 +38,8 @@
 
         <ion-col size="6">
           <p class="font-bold text-md text-balck text-red-600 line-clamp-1">
-            ₹ {{room.ratePlans[0].pricing.roomNightSellPrice}}
+            ₹
+            {{(room.ratePlans[0].pricing.roomNightSellPrice*this.hotelService.charges.extraPercentage)|number:'1.2-2'}}
           </p>
           <p class="text-left text-xs text-gray-400 line-clamp-1">
             Per room/night

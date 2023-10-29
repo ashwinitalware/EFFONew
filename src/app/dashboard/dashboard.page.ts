@@ -65,14 +65,30 @@ export class DashboardPage implements OnInit {
       link: 'oldex-dashboard',
       available: true,
       icon: 'swap-horizontal',
+    }, {
+      name: 'Hotels',
+      image: 'business',
+      link: 'hotel-dashboard',
+      // link: '',
+      available: true,
+      icon: 'business',
+    },
+    {
+      name: 'Utility ',
+      image: '',
+      link: 'utility-mobile',
+      // link: '',
+      available: true,
+      icon: 'phone-portrait',
     },
     {
       name: 'Cab Services',
       image: '',
       icon: 'car',
-      link: 'cab-home',
+      // link: 'cab-home',
+      link: '',
       // link: 'cab-tabs',
-      available: true,
+      available: false,
     },
     // {
     //   name: 'Property',
@@ -96,22 +112,8 @@ export class DashboardPage implements OnInit {
     //   link: '',
     // },
 
-    {
-      name: 'Utility ',
-      image: '',
-      // link: 'utility',
-      link: '',
-      available: false,
-      icon: 'phone-portrait',
-    },
-    {
-      name: 'Hotels',
-      image: 'business',
-      link: 'hotel-dashboard',
-      // link: '',
-      available: false,
-      icon: 'business',
-    },
+
+
     {
       name: 'Flights',
       image: 'airplane',

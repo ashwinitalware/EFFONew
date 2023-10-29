@@ -34,6 +34,9 @@ export class JobProfilePage implements OnInit {
         Validators.min(1980),
         Validators.max(2030),
       ]),
+      noticePeriod: new FormControl('', Validators.required),
+      currentSalary: new FormControl('', Validators.required),
+      expectedSalary: new FormControl('', Validators.required),
       educationField: new FormControl('', Validators.required),
       jobCategories: new FormControl('', Validators.required),
     });
@@ -123,7 +126,7 @@ export class JobProfilePage implements OnInit {
           );
       });
   }
-  ngOnInit() {}
+  ngOnInit() { }
   update() {
     // console.log(this.form.value);
     this.form.markAllAsTouched();
@@ -143,6 +146,6 @@ export class JobProfilePage implements OnInit {
           ...this.form.value,
         },
       }
-    ).subscribe((data) => {});
+    ).subscribe((data) => { });
   }
 }

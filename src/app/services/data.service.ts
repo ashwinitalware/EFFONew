@@ -53,8 +53,9 @@ export class DataService {
   // DIRECT CONFIGS
   // DIRECT CONFIGS
 
-  shareContent =
-    'I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life.';
+  // shareContent =
+  //   `I am inviting you to Download effo app , which provides Various services in one app, GET BUS ,FLIGHTS, JOBS and many more, Join with us because Effo hai toh life easy hai. Use Referral Code : ${this.profile.id || 16
+  //   } and get 10 Points. `;
 
   playStoreLinks = {
     customer: 'https://play.google.com/store/apps/details?id=ionic.effo.starter',
@@ -293,11 +294,14 @@ export class DataService {
     );
   }
   async share(
-    title = 'Download Effo App',
-    text = `I Am Inviting you to use EFFO app to fulfill all your daily requirements. It provides you best jobs and a variety of at home services. EFFO  was built  to ease your  life. Use Referral Code : ${this.profile.id || 16
+    title = 'EFFO ! ',
+    text = `I am inviting you to Download effo app , which provides Various services in one app, GET BUS ,FLIGHTS, JOBS and many more, Join with us because
+    Effo hai toh life easy hai . Use Referral Code : ${this.profile.id || 16
       } and get 10 Points.`,
     url = 'https://play.google.com/store/apps/details?id=ionic.effo.starter'
   ) {
+    console.log(title, text, url);
+
     await Share.share({
       title,
       text,

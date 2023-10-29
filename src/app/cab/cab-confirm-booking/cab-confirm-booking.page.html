@@ -65,7 +65,9 @@
         </div>
       </div>
 
-      <div class="pl-4 font-bold">₹ {{this.cabService.baseFare|number}}</div>
+      <div class="pl-4 font-bold">
+        ₹ {{this.cabService.baseFare|number:'1.2-2'}}
+      </div>
     </div>
     <div class="bg-white p-2 flex">
       <div class="flex-1">
@@ -73,7 +75,7 @@
         <div class="text-gray-800 text-sm">18% GST & Toll Tax Applicable</div>
       </div>
 
-      <div class="pl-4 font-bold">₹ {{this.cabService.tax|number}}</div>
+      <div class="pl-4 font-bold">₹ {{this.cabService.tax|number:'1.2-2'}}</div>
     </div>
     <div class="bg-white p-2 flex">
       <div class="flex-1">
@@ -81,7 +83,9 @@
         <div class="text-red-800 text-sm">*Actual fare may vary</div>
       </div>
 
-      <div class="pl-4 font-bold">₹ {{this.cabService.total|number}}</div>
+      <div class="pl-4 font-bold">
+        ₹ {{this.cabService.total|number:'1.2-2'}}
+      </div>
     </div>
 
     <div class="bg-white mt-2 p-2">

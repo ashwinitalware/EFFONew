@@ -10,129 +10,128 @@
 <ion-content class="bg-white">
   <div class="text-center mt-4" *ngIf="this.notFound">No Bookings Found</div>
   <div class="p-2">
-    <div class="p-4" *ngFor="let booking of this.bookings">
-      <div
-        class="bg-white rounded-xl overflow-hidden shadow-md"
-        *ngIf="booking.data && booking.data.data"
-      >
-        <!-- *ngFor="let passenger of booking.data.items.segments.ONEWAY.travellers" -->
-        <div class="bg-gray-800 text-white p-2 text-center">
-          <!-- Test-Seat-B5 -->
-          {{booking.data.data.globalSearchQuery.hotelSearchRequest.hotelName}}
-          <br />
-          <div class="text-sm">
-            Address :
-            {{booking.data.data.itemsData.hotelData.hotelInfo.address}}
-          </div>
-        </div>
-
-        <div class="flex justify-between px-4 pt-4">
-          <div class="items-center my-1">
-            <span class="shadow-md w-16 h-16 text-center">
-              <img
-                src="{{booking.data.data.itemsData.hotelData.hotelInfo.images.mainImage}}"
-                class="h-16 rounded-md"
-              />
-            </span>
-            <h2 class="font-medium"></h2>
-          </div>
-          <div class="ml-auto text-sm text-blue-800 mt-1">
-            <div class="text-right">{{booking.data.data.referenceId}}</div>
-            <div class="text-right text-sm font-bold">
-              {{booking.data.data.status}}
-              <!-- {{booking.attributes?.viaStatus}} -->
+    <div *ngFor="let booking of this.bookings">
+      <div class="p-4" *ngIf="booking.data && booking.data.data">
+        <div class="bg-white rounded-xl overflow-hidden shadow-md">
+          <!-- *ngFor="let passenger of booking.data.items.segments.ONEWAY.travellers" -->
+          <div class="bg-gray-800 text-white p-2 text-center">
+            <!-- Test-Seat-B5 -->
+            {{booking.data.data.globalSearchQuery.hotelSearchRequest.hotelName}}
+            <br />
+            <div class="text-sm">
+              Address :
+              {{booking.data.data.itemsData.hotelData.hotelInfo.address}}
             </div>
-            <!-- <div class="text-right font-bold text-black">
+          </div>
+
+          <div class="flex justify-between px-4 pt-4">
+            <div class="items-center my-1">
+              <span class="shadow-md w-16 h-16 text-center">
+                <img
+                  src="{{booking.data.data.itemsData.hotelData.hotelInfo.images.mainImage}}"
+                  class="h-16 rounded-md"
+                />
+              </span>
+              <h2 class="font-medium"></h2>
+            </div>
+            <div class="ml-auto text-sm text-blue-800 mt-1">
+              <div class="text-right">{{booking.data.data.referenceId}}</div>
+              <div class="text-right text-sm font-bold">
+                {{booking.data.data.status}}
+                <!-- {{booking.attributes?.viaStatus}} -->
+              </div>
+              <!-- <div class="text-right font-bold text-black">
               {{booking?.data?.globalSrchQry.busSrchQry.segments.ONEWAY.sectorInfo.date|date}}
             </div> -->
-          </div>
-        </div>
-        <div class="text-center font-bold text-black">
-          Agent Contact :
-          {{booking.data.data.itemsData.hotelData.hotelInfo.contacts.agentOrViaContact}}
-        </div>
-        <div class="border-b border-dashed border-b-2 my-2"></div>
-
-        <div>
-          <div class="flex items-center -mt-3 pt-3 pl-3 pr-3">
-            <div class="flex flex-col flex-1">
-              <div class="flex-auto text-xs text-gray-400">
-                <span class="mr-1"></span>
-              </div>
-              <div
-                class="w-full flex-none text-blue-800 font-bold leading-none"
-              >
-                Check In
-              </div>
-              <!-- <div class="text-xs">Source</div> -->
-              <div class="text-sm text-red-700 mt-2">
-                {{booking.data.data.globalSearchQuery.hotelSearchRequest.checkInDate|date}}
-              </div>
-              <!-- <div class="text-sm text-black">123</div> -->
             </div>
-            <div class="flex flex-col mx-auto flex-1">
-              <!-- <img src="assets/linered.png" alt="" /> -->
-              <!-- <img src="https://image.winudf.com/v2/image1/Y29tLmJldHMuYWlyaW5kaWEudWlfaWNvbl8xNTU0NTM4MzcxXzA0Mw/icon.png?w=&amp;fakeurl=1"
+          </div>
+          <div class="text-center font-bold text-black">
+            Agent Contact :
+            {{booking.data.data.itemsData.hotelData.hotelInfo.contacts.agentOrViaContact}}
+          </div>
+          <div class="border-b border-dashed border-b-2 my-2"></div>
+
+          <div>
+            <div class="flex items-center -mt-3 pt-3 pl-3 pr-3">
+              <div class="flex flex-col flex-1">
+                <div class="flex-auto text-xs text-gray-400">
+                  <span class="mr-1"></span>
+                </div>
+                <div
+                  class="w-full flex-none text-blue-800 font-bold leading-none"
+                >
+                  Check In
+                </div>
+                <!-- <div class="text-xs">Source</div> -->
+                <div class="text-sm text-red-700 mt-2">
+                  {{booking.data.data.globalSearchQuery.hotelSearchRequest.checkInDate|date}}
+                </div>
+                <!-- <div class="text-sm text-black">123</div> -->
+              </div>
+              <div class="flex flex-col mx-auto flex-1">
+                <!-- <img src="assets/linered.png" alt="" /> -->
+                <!-- <img src="https://image.winudf.com/v2/image1/Y29tLmJldHMuYWlyaW5kaWEudWlfaWNvbl8xNTU0NTM4MzcxXzA0Mw/icon.png?w=&amp;fakeurl=1"
               class="w-20 p-1"> -->
-            </div>
-            <div class="flex flex-col flex-1">
-              <div class="flex-auto text-xs text-gray-400 my-1">
-                <span class="mr-1"> </span>
               </div>
+              <div class="flex flex-col flex-1">
+                <div class="flex-auto text-xs text-gray-400 my-1">
+                  <span class="mr-1"> </span>
+                </div>
 
-              <div
-                class="w-full flex-none text-blue-800 font-bold leading-none text-right"
-              >
-                Check Out
-              </div>
-              <!-- <div class="text-xs">Destination</div> -->
-              <div class="text-sm text-red-700 text-right mt-2">
-                {{booking.data.data.globalSearchQuery.hotelSearchRequest.checkOutDate|date}}
-              </div>
-              <!-- <div class="text-sm text-black text-right">123</div> -->
-            </div>
-          </div>
-          <div class="border-b border-dashed border-b-2 my-2"></div>
-          <div class="flex items-center mb-4 px-4">
-            <div class="flex flex-col mx-auto text-sm">
-              <span class="">Room Name</span>
-              <div class="font-bold text-black">
-                {{booking.data.data.itemsData.hotelData.roomResults[0].roomAllocation[0].roomName}}
+                <div
+                  class="w-full flex-none text-blue-800 font-bold leading-none text-right"
+                >
+                  Check Out
+                </div>
+                <!-- <div class="text-xs">Destination</div> -->
+                <div class="text-sm text-red-700 text-right mt-2">
+                  {{booking.data.data.globalSearchQuery.hotelSearchRequest.checkOutDate|date}}
+                </div>
+                <!-- <div class="text-sm text-black text-right">123</div> -->
               </div>
             </div>
-          </div>
-          <div class="border-b border-dashed border-b-2 my-2"></div>
-          <div class="flex items-center px-4 pt-3 pb-4 text-sm">
-            <div class="flex flex-col">
-              <span class="">Number of Rooms</span>
-              <div class="font-bold text-black">
-                {{booking.data.data.globalSearchQuery.hotelSearchRequest.numRooms}}
+            <div class="border-b border-dashed border-b-2 my-2"></div>
+            <div class="flex items-center mb-4 px-4">
+              <div class="flex flex-col mx-auto text-sm">
+                <span class="">Room Name</span>
+                <div class="font-bold text-black">
+                  {{booking.data.data.itemsData.hotelData.roomResults[0].roomAllocation[0].roomName}}
+                </div>
               </div>
             </div>
-            <div class="flex flex-col mx-auto">
-              <span class="">Total Adults</span>
-              <div class="font-bold text-black">
-                {{booking.data.data.totalAdults||0}}
+            <div class="border-b border-dashed border-b-2 my-2"></div>
+            <div class="flex items-center px-4 pt-3 pb-4 text-sm">
+              <div class="flex flex-col">
+                <span class="">Number of Rooms</span>
+                <div class="font-bold text-black">
+                  {{booking.data.data.globalSearchQuery.hotelSearchRequest.numRooms}}
+                </div>
+              </div>
+              <div class="flex flex-col mx-auto">
+                <span class="">Total Adults</span>
+                <div class="font-bold text-black">
+                  {{booking.data.data.totalAdults||0}}
+                </div>
+              </div>
+              <div class="flex flex-col">
+                <span class="">Total</span>
+                <div class="font-bold text-black">
+                  {{booking.data.data.paymentDetail.fareDetails.TOTAL.A }}/-
+                </div>
               </div>
             </div>
-            <div class="flex flex-col">
-              <span class="">Total</span>
-              <div class="font-bold text-black">
-                {{booking.data.data.paymentDetail.fareDetails.TOTAL.A }}/-
-              </div>
-            </div>
-          </div>
-          <div
-            class="p-4"
-            *ngIf="booking.cancellationId"
-            [innerHTML]="booking.cancellationPolicy"
-          ></div>
+            <div
+              class="p-4"
+              *ngIf="booking.cancellationId"
+              [innerHTML]="booking.cancellationPolicy"
+            ></div>
 
-          <div
-            (click)="this.ds.contact()"
-            class="text-red-700 text-center py-2"
-          >
-            Contact us to Cancel Ticket
+            <div
+              (click)="this.ds.contact()"
+              class="text-red-700 text-center py-2"
+            >
+              Contact us to Cancel Ticket
+            </div>
           </div>
         </div>
       </div>

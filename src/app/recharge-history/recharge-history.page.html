@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>My Recharges</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="p-4">
+    <div
+      *ngFor="let recharge of history"
+      class="border rounded-md bg-white p-4 mb-4"
+    >
+      <div class="flex">
+        <div class="font-bold text-red-600 flex-1">
+          <span class="text-black text-black"> Reference : </span>
+          {{recharge.id}}
+        </div>
+        <div
+          class="text-red-600  font-bold {{recharge.attributes.status=='completed'?'text-green-600':''}}"
+        >
+          {{recharge.attributes.status|uppercase}}
+        </div>
+      </div>
+
+      <div class="flex">
+        <div class="font-bold text-blue-600 flex-1">
+          <span class="font-bold text-black"> Phone Number :</span>
+          {{recharge.attributes.phone||" -- "}}
+        </div>
+      </div>
+      <div>
+        <span class="font-bold text-black"> Date : </span>
+        {{recharge.attributes.createdAt|date:'medium'}}
+      </div>
+    </div>
+  </div>
+</ion-content>

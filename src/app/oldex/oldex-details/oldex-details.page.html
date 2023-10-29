@@ -11,13 +11,24 @@
 
 <ion-content>
   <div *ngIf="data" class="h-full overflow-y-scroll bg-white">
-    <div class="h-full ">
-      <img
+    <ion-slides #slider loop="true">
+      <ion-slide
+        (click)="this.dataService.slideClicked(slide)"
+        *ngFor="let slide of data.attributes.images.data"
+      >
+        <ion-card style="border-radius: 5px">
+          <img src="{{slide.attributes.url}}" />
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+    <div class="h-full">
+      <!-- <img
         class="w-full"
         *ngIf="data.attributes.images.data&&data.attributes.images.data.length"
         src="{{data.attributes.images.data[0].attributes.url}}"
         alt=""
-      />
+      /> -->
 
       <div class="p-4">
         <div class="flex justify-between items-center">
@@ -48,7 +59,6 @@
           </span>
         </div> -->
 
-     
         <!-- <div class="flex mt-2">
           <span class="flex items-center">
             <ion-icon name="home-outline"></ion-icon>
@@ -69,7 +79,6 @@
           </span>
         </div> -->
 
-        
         <div class="flex justify-between pt-3 border-t-2 border-gray-200">
           <div>
             <button
@@ -95,8 +104,6 @@
             >
               <ion-icon name="share-social"></ion-icon>
             </button>
-
-          
           </div>
 
           <div>
@@ -109,7 +116,6 @@
             </ion-button>
           </div>
         </div>
-       
 
         <div class="text-lg font-bold mt-2">Description</div>
 

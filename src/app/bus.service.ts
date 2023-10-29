@@ -9,6 +9,7 @@ import { InAppBrowser } from "@awesome-cordova-plugins/in-app-browser/ngx";
   providedIn: 'root'
 })
 export class BusService {
+  notFound = false
   meta = {
     busTaxValueMultiplier: 1.05,
     taxPercentage: 5
@@ -1032,6 +1033,7 @@ export class BusService {
     })
   }
   getBuses(pageContent) {
+    this.notFound = false
     this.dataService.present("Getting buses.", undefined)
     console.log('1..', this.inputs.date);
     console.log(new Date(this.inputs.date).toISOString().slice(0, 10));
@@ -1039,7 +1041,10 @@ export class BusService {
     this.dataService._get('bus-cities-custom/searchBus', `from=${this.inputs.fromCityId}&to=${this.inputs.toCityId}&date=${new Date(this.inputs.date).toISOString().slice(0, 10)}&adt=${this.inputs.passenger}`).subscribe(d => {
       this.dataService.dismiss()
       this.buses = []
-      if (!d.journeys.ONEWAY) return this.dataService.presentToast("No Bus Found")
+      if (!d.journeys.ONEWAY) {
+        this.notFound = true
+        return this.dataService.presentToast("No Bus Found")
+      }
       this.buses = d.journeys.ONEWAY
       this.filterBus()
       setTimeout(() => {

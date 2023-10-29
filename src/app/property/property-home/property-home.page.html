@@ -22,14 +22,14 @@
 
 <ion-content>
   <div class="p-3">
-    <div class="pt-2">
+    <!--   <div class="pt-2">
       <ion-label
-        ><b>Get started with</b><br />
-        <p class="text-xs">Exploring real estate options in top cities</p>
+        ><b>Discover Real Estate wonders in top cities</b><br />
+       <p class="text-xs">Exploring real estate options in top cities</p>
       </ion-label>
-    </div>
+    </div>-->
 
-    <div class="slider">
+    <!-- <div class="slider">
       <ion-slides
         class="slider"
         [options]="slideOptions"
@@ -48,14 +48,12 @@
           <img class="rounded-md ml-5" src="assets/property/slide3.jpg" />
         </ion-slide>
       </ion-slides>
-    </div>
+    </div> -->
 
     <div class="pt-2">
       <ion-label
-        ><b>Category</b><br />
-        <p class="text-xs">
-          Apartments, land, builder, floors, villas and more
-        </p>
+        ><b>Discover Real Estate wonders in top cities</b><br />
+        <!-- <p class="text-xs">Discover Real Estate wonders in top cities</p> -->
       </ion-label>
     </div>
   </div>
@@ -65,83 +63,106 @@
       <ion-grid fixed>
         <ion-row>
           <ion-col size="6" (click)="list('apartment')">
-           <div class="bg-white rounded-md shadow-md p-2">
-            <div class=" flex justify-center p-1 border-b border-gray-300 border-dashed">
-              <img width="40" height="40"
-                class="img-responsive mb-1"
-                src="assets/property/apartment-icon.png"
-                alt=""
-              />
+            <div class="bg-white rounded-md shadow-md p-2">
+              <div
+                class="flex justify-center p-1 border-b border-gray-300 border-dashed"
+              >
+                <img
+                  width="40"
+                  height="40"
+                  class="img-responsive mb-1"
+                  src="assets/property/apartment-icon.png"
+                  alt=""
+                />
+              </div>
+              <p class="text-center p-1 text-black font-semibold">Apartment</p>
             </div>
-            <p class="text-center p-1 text-black font-semibold">Apartment</p>
-           </div>
           </ion-col>
 
           <ion-col size="6" (click)="list('house')">
             <div class="bg-white rounded-md shadow-md p-2">
-             <div class=" flex justify-center p-1 border-b border-gray-300 border-dashed">
-               <img width="40" height="40"
-                 class="img-responsive mb-1"
-                 src="assets/property/house-icon.png"
-                 alt=""
-               />
-             </div>
-             <p class="text-center p-1 text-black font-semibold">House</p>
+              <div
+                class="flex justify-center p-1 border-b border-gray-300 border-dashed"
+              >
+                <img
+                  width="40"
+                  height="40"
+                  class="img-responsive mb-1"
+                  src="assets/property/house-icon.png"
+                  alt=""
+                />
+              </div>
+              <p class="text-center p-1 text-black font-semibold">House</p>
             </div>
-           </ion-col>
+          </ion-col>
 
-           <ion-col size="6" (click)="list('villa')">
+          <ion-col size="6" (click)="list('villa')">
             <div class="bg-white rounded-md shadow-md p-2">
-             <div class=" flex justify-center p-1 border-b border-gray-300 border-dashed">
-               <img width="50" height="50"
-                 class="img-responsive mb-1"
-                 src="assets/property/villa-icon.png"
-                 alt=""
-               />
-             </div>
-             <p class="text-center p-1 text-black font-semibold">Villa</p>
+              <div
+                class="flex justify-center p-1 border-b border-gray-300 border-dashed"
+              >
+                <img
+                  width="50"
+                  height="50"
+                  class="img-responsive mb-1"
+                  src="assets/property/villa-icon.png"
+                  alt=""
+                />
+              </div>
+              <p class="text-center p-1 text-black font-semibold">Villa</p>
             </div>
-           </ion-col>
+          </ion-col>
 
-           <ion-col size="6" (click)="list('penthouse')">
+          <ion-col size="6" (click)="list('penthouse')">
             <div class="bg-white rounded-md shadow-md p-2">
-             <div class=" flex justify-center p-1 border-b border-gray-300 border-dashed">
-               <img width="50" height="50"
-                 class="img-responsive mb-1"
-                 src="assets/property/penthouse-icon.png"
-                 alt=""
-               />
-             </div>
-             <p class="text-center p-1 text-black font-semibold">Penthouse</p>
+              <div
+                class="flex justify-center p-1 border-b border-gray-300 border-dashed"
+              >
+                <img
+                  width="50"
+                  height="50"
+                  class="img-responsive mb-1"
+                  src="assets/property/penthouse-icon.png"
+                  alt=""
+                />
+              </div>
+              <p class="text-center p-1 text-black font-semibold">Penthouse</p>
             </div>
-           </ion-col>
+          </ion-col>
 
-           <ion-col size="6" (click)="list('studio')">
+          <ion-col size="6" (click)="list('studio')">
             <div class="bg-white rounded-md shadow-md p-2">
-             <div class=" flex justify-center p-1 border-b border-gray-300 border-dashed">
-               <img width="40" height="40"
-                 class="img-responsive mb-1"
-                 src="assets/property/studio-icon.png"
-                 alt=""
-               />
-             </div>
-             <p class="text-center p-1 text-black font-semibold">Studio</p>
+              <div
+                class="flex justify-center p-1 border-b border-gray-300 border-dashed"
+              >
+                <img
+                  width="40"
+                  height="40"
+                  class="img-responsive mb-1"
+                  src="assets/property/studio-icon.png"
+                  alt=""
+                />
+              </div>
+              <p class="text-center p-1 text-black font-semibold">Studio</p>
             </div>
-           </ion-col>
+          </ion-col>
 
-
-           <ion-col size="6" (click)="list('plot')">
+          <ion-col size="6" (click)="list('plot')">
             <div class="bg-white rounded-md shadow-md p-2">
-             <div class=" flex justify-center p-1 border-b border-gray-300 border-dashed">
-               <img width="40" height="40"
-                 class="img-responsive mb-1"
-                 src="assets/property/plot-icon.png"
-                 alt=""
-               />
-             </div>
-             <p class="text-center p-1 text-black font-semibold">Plot</p>
+              <div
+                class="flex justify-center p-1 border-b border-gray-300 border-dashed"
+              >
+                <img
+                  width="40"
+                  height="40"
+                  class="img-responsive mb-1"
+                  src="assets/property/plot-icon.png"
+                  alt=""
+                />
+              </div>
+              <p class="text-center p-1 text-black font-semibold">Plot</p>
             </div>
-           </ion-col>
+          </ion-col>
         </ion-row>
       </ion-grid>
     </div>

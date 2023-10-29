@@ -54,7 +54,7 @@
         <p class="text-gray-400 text-md">Base Fare</p>
         <p class="font-bold text-black text-lg">
           ₹
-          {{this.busService.busReviewDetails.fares.paxFares.adt.total.amount/this.busService.meta.busTaxValueMultiplier|number}}
+          {{this.busService.busReviewDetails.fares.paxFares.adt.total.amount/this.busService.meta.busTaxValueMultiplier|number:'1.2-2'}}
         </p>
       </div>
 
@@ -62,7 +62,7 @@
         <p class="text-gray-400 text-md">Tax</p>
         <p class="font-bold text-black text-lg">
           ₹
-          {{(this.busService.busReviewDetails.fares.paxFares.adt.total.amount/this.busService.meta.busTaxValueMultiplier*this.busService.meta.taxPercentage/100)|number}}
+          {{(this.busService.busReviewDetails.fares.paxFares.adt.total.amount/this.busService.meta.busTaxValueMultiplier*this.busService.meta.taxPercentage/100)|number:'1.2-2'}}
         </p>
       </div>
       <div class="border border-dashed"></div>
@@ -78,7 +78,7 @@
       >
         <p class="text-black font-bold text-md">Discounted Total Amount</p>
         <p class="font-bold text-green-600 text-lg">
-          ₹ {{this.busService.coupon.couponDiscountedTotal|number}}
+          ₹ {{this.busService.coupon.couponDiscountedTotal|number:'1.2-2'}}
         </p>
       </div>
     </div>

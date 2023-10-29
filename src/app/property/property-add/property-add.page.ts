@@ -31,9 +31,9 @@ export class PropertyAddPage implements OnInit {
       sellRent: new FormControl('sell', Validators.required),
       address: new FormControl('', Validators.required),
       city: new FormControl('', Validators.required),
-      bedrooms: new FormControl('', Validators.required),
-      bathrooms: new FormControl('', Validators.required),
-      balconies: new FormControl('', Validators.required),
+      bedrooms: new FormControl(0),
+      bathrooms: new FormControl(0),
+      balconies: new FormControl(0),
       area: new FormControl('', Validators.required),
       price: new FormControl('', Validators.required),
       ageType: new FormControl('', Validators.required),
@@ -48,8 +48,8 @@ export class PropertyAddPage implements OnInit {
       this.http
         .get(
           this.dataService.apiUrl +
-            'properties/' +
-            this.activatedRoute.snapshot.params.id
+          'properties/' +
+          this.activatedRoute.snapshot.params.id
         )
         .subscribe((data: any) => {
           this.id = data.data.id;
@@ -60,7 +60,7 @@ export class PropertyAddPage implements OnInit {
         });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
   removeProperty() {
     this.http
       .delete(this.dataService.apiUrl + 'properties/' + (this.id || ''), {})
@@ -91,13 +91,13 @@ export class PropertyAddPage implements OnInit {
     this.dataService.present();
 
     console.log(this.form.value);
-    
+
     this.http[this.id ? 'put' : 'post'](
       this.dataService.apiUrl + 'properties/' + (this.id || ''),
       {
         data: {
           user: this.dataService.profile.id,
-        
+
           ...this.form.value,
         },
       }

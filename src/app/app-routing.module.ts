@@ -795,6 +795,18 @@ const routes: Routes = [
     path: 'cab-all-transport',
     loadChildren: () => import('./cab/cab-all-transport/cab-all-transport.module').then( m => m.CabAllTransportPageModule)
   },
+  {
+    path: 'choose-operator',
+    loadChildren: () => import('./choose-operator/choose-operator.module').then( m => m.ChooseOperatorPageModule)
+  },
+  {
+    path: 'choose-operator-region',
+    loadChildren: () => import('./choose-operator-region/choose-operator-region.module').then( m => m.ChooseOperatorRegionPageModule)
+  },
+  {
+    path: 'recharge-history',
+    loadChildren: () => import('./recharge-history/recharge-history.module').then( m => m.RechargeHistoryPageModule)
+  },
 
 
 

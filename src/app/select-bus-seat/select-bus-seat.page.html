@@ -216,7 +216,7 @@
                   class="text-xs text-blue-900 text-center"
                 >
                   ₹
-                  {{seat?.fareDetails?.paxFares?.adt?.total?.amount/this.busService.meta.busTaxValueMultiplier|number}}
+                  {{seat?.fareDetails?.paxFares?.adt?.total?.amount/this.busService.meta.busTaxValueMultiplier|number:'1.2-2'}}
                 </div>
               </div>
 
@@ -296,7 +296,7 @@
                     class="text-xs text-blue-900 text-center"
                   >
                     ₹
-                    {{seat?.fareDetails?.paxFares?.adt?.total?.amount/this.busService.meta.busTaxValueMultiplier|number}}
+                    {{seat?.fareDetails?.paxFares?.adt?.total?.amount/this.busService.meta.busTaxValueMultiplier|number:'1.2-2'}}
                   </div>
                 </div>
               </div>

@@ -62,39 +62,17 @@
           <!-- <ion-input type="number"></ion-input> -->
 
           <ion-select formControlName="experienceYears">
-            <ion-select-option value="0"
-              >Fresher 0-1 Year of Experience</ion-select-option
-            >
-            <ion-select-option value="1"
-              >1 Year of Experience</ion-select-option
-            >
-            <ion-select-option value="2"
-              >2 Years of Experience</ion-select-option
-            >
-            <ion-select-option value="3"
-              >3 Years of Experience</ion-select-option
-            >
-            <ion-select-option value="4"
-              >4 Years of Experience</ion-select-option
-            >
-            <ion-select-option value="5"
-              >5 Years of Experience</ion-select-option
-            >
-            <ion-select-option value="6"
-              >6 Years of Experience</ion-select-option
-            >
-            <ion-select-option value="7"
-              >7 Years of Experience</ion-select-option
-            >
-            <ion-select-option value="8"
-              >8 Years of Experience</ion-select-option
-            >
-            <ion-select-option value="9"
-              >9 Years of Experience</ion-select-option
-            >
-            <ion-select-option value="10"
-              >10+ Years of Experience</ion-select-option
-            >
+            <ion-select-option value="0">Fresher 0-1 Year </ion-select-option>
+            <ion-select-option value="1">1 Year </ion-select-option>
+            <ion-select-option value="2">2 Years </ion-select-option>
+            <ion-select-option value="3">3 Years </ion-select-option>
+            <ion-select-option value="4">4 Years </ion-select-option>
+            <ion-select-option value="5">5 Years </ion-select-option>
+            <ion-select-option value="6">6 Years </ion-select-option>
+            <ion-select-option value="7">7 Years </ion-select-option>
+            <ion-select-option value="8">8 Years </ion-select-option>
+            <ion-select-option value="9">9 Years </ion-select-option>
+            <ion-select-option value="10">10+ Years </ion-select-option>
           </ion-select>
         </ion-item>
         <div
@@ -166,6 +144,42 @@
         >
           * Invalid Data. Must be between 1980-2030
         </div>
+
+        <ion-item class="rounded-lg mt-4">
+          <ion-label position="stacked">Notice Period (in days) </ion-label>
+          <ion-input formControlName="noticePeriod" type="text"></ion-input>
+        </ion-item>
+        <div
+          class="text-red-600 mt-2"
+          *ngIf="form.get('noticePeriod').invalid && form.get('noticePeriod').touched"
+        >
+          * Required
+        </div>
+
+        <ion-item class="rounded-lg mt-4">
+          <ion-label position="stacked"
+            >Current Salary (0 if fresher)</ion-label
+          >
+          <ion-input formControlName="currentSalary" type="text"></ion-input>
+        </ion-item>
+        <div
+          class="text-red-600 mt-2"
+          *ngIf="form.get('currentSalary').invalid && form.get('currentSalary').touched"
+        >
+          * Required
+        </div>
+
+        <ion-item class="rounded-lg mt-4">
+          <ion-label position="stacked">Expected Salary</ion-label>
+          <ion-input formControlName="expectedSalary" type="text"></ion-input>
+        </ion-item>
+        <div
+          class="text-red-600 mt-2"
+          *ngIf="form.get('expectedSalary').invalid && form.get('expectedSalary').touched"
+        >
+          * Required
+        </div>
+
         <ion-item class="rounded-lg mt-4">
           <ion-label position="stacked">Interested Job Types</ion-label>
           <ion-select

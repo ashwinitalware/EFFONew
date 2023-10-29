@@ -20,19 +20,19 @@ export class OldexDetailsPage implements OnInit {
     this.getDetails();
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
   getDetails() {
     const query = qs.stringify({
       populate: '*',
-      
+
     });
     this.http
       .get(
         this.dataService.apiUrl +
-          'oldex-products/' +
-          this.activatedRoute.snapshot.params.id +
-          '?' +
-          query,
+        'oldex-products/' +
+        this.activatedRoute.snapshot.params.id +
+        '?' +
+        query,
         {}
       )
       .subscribe((data: any) => {

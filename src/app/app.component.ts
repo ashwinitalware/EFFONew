@@ -124,8 +124,10 @@ export class AppComponent {
     if (item.role == 'contact') this.router.navigate(['/contactus']);
     if (item.role == 'share') {
       this.dataService.share(
-        'Download ' + this.dataService.appName + ' App',
-        this.dataService.shareContent,
+        // 'Download ' + this.dataService.appName + ' App',
+        'EFFO ! ',
+        `I am inviting you to Download effo app , which provides Various services in one app, GET BUS ,FLIGHTS, JOBS and many more, Join with us because Effo hai toh life easy hai. Use Referral Code : ${this.dataService.profile.id || 16
+        } and get 10 Points. `,
         this.dataService.playStoreLinks.customer
       );
 

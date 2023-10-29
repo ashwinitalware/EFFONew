@@ -26,20 +26,24 @@
   </div> -->
 
   <div>
+    <video class="w-full" autoplay loop>
+      <source
+        src="https://effo-assets.s3.ap-south-1.amazonaws.com/Whats_App_Video_2023_10_10_at_17_06_43_fe03246e0b.mp4?updated_at=2023-10-10T11:43:47.555Z"
+        type="video/mp4"
+      />
+    </video>
+    <!--
     <ion-slides #slider loop="true" [options]="slideOpts">
       <ion-slide>
         <ion-card style="border-radius: 10px">
           <img width="100px" height="70%" src="assets/s2-bus.jpg" />
         </ion-card>
       </ion-slide>
-      <!-- <ion-slide>
-        <ion-card style="border-radius: 10px">
-          <img width="100px" height="70%" src="assets/sl-bus-1.png" />
-        </ion-card>
-      </ion-slide> -->
-    </ion-slides>
+
+    </ion-slides> -->
   </div>
 
+  <br />
   <div class="pl-5 pr-5">
     <div class="text-black text-xl">Discover New Places</div>
     <div class="text-gray-400 text-sm">
@@ -312,7 +316,19 @@
         Search Bus
       </button>
     </div> -->
+    <div class="px-4" *ngIf="this.busService.notFound">
+      <div
+        class="flex flex-col justify-center bg-white items-center rounded-md p-4"
+      >
+        <img
+          class="w-16"
+          src="https://effo-assets.s3.ap-south-1.amazonaws.com/no_result_data_not_found_concept_illustration_flat_design_eps10_simple_and_modern_graphic_element_for_landing_page_empty_state_ui_infographic_etc_vector_173723727f.jpg"
+          alt=""
+        />
 
+        <div>Sorry, No buses found !</div>
+      </div>
+    </div>
     <div class="p-2">
       <div *ngIf="this.busService.buses.length" class="flex pr-2">
         <div
@@ -396,7 +412,7 @@
             <div class="text-xs">&nbsp; Starting From</div>
             <div class="text-black font-bold text-black">
               &nbsp;
-              {{(bus.fares[0].paxFares.adt.total.amount/this.busService.meta.busTaxValueMultiplier)|number}}
+              {{(bus.fares[0].paxFares.adt.total.amount/this.busService.meta.busTaxValueMultiplier)|number:'1.2-2'}}
               /-
             </div>
           </div>
