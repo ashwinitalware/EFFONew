@@ -43,13 +43,7 @@ export class DashboardPage implements OnInit {
       icon: 'home',
       available: true,
     },
-    // {
-    //   name: 'Services',
-    //   image: '',
-    //   icon: 'apps',
-    //   link: 'service-dashboard',
-    //   available: true,
-    // },
+
 
     {
       name: 'Bus / Travels',
@@ -80,16 +74,22 @@ export class DashboardPage implements OnInit {
       // link: '',
       available: true,
       icon: 'phone-portrait',
-    },
-    {
-      name: 'Cab Services',
+    }, {
+      name: 'Services',
       image: '',
-      icon: 'car',
-      // link: 'cab-home',
-      link: '',
-      // link: 'cab-tabs',
-      available: false,
+      icon: 'apps',
+      link: 'service-dashboard',
+      available: true,
     },
+    // {
+    //   name: 'Cab Services',
+    //   image: '',
+    //   icon: 'car',
+    //   // link: 'cab-home',
+    //   link: '',
+    //   // link: 'cab-tabs',
+    //   available: false,
+    // },
     // {
     //   name: 'Property',
     //   image: '',

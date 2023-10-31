@@ -1,0 +1,27 @@
+{
+    "gatewayDataList": [
+        {
+            "name": "order_ref_attr",
+            "gatewayData": "FMNJA1IQSKJI1"
+        },
+        {
+            "name": "order_reference_attr",
+            "gatewayData": "FMNJA1IQSKJI1"
+        },
+        {
+            "name": "action1",
+            "gatewayData": "https://testflight2.via.com/payment/charge/citrus"
+        },
+        {
+            "name": "gt",
+            "gatewayData": "NONE"
+        },
+        {
+            "name": "success",
+            "gatewayData": "true"
+        }
+    ],
+    "redirectionValue": 21,
+    "url": "https://testflight2.via.com/agent?action1=TICKET_DETAILS&referencePnr=FMNJA1IQSKJI1&newBook=true",
+    "reference": "FMNJA1IQSKJI1"
+}

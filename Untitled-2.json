@@ -1,0 +1,236 @@
+{
+    "itinKey": "FMNJA1IQSKGPN",
+    "reviewKey": "ddcc50ee-1e83-4d32-bc83-989dbc81764b",
+    "flights": [
+        {
+            "key": 0,
+            "carrier": {
+                "code": "AI",
+                "name": "AirIndia"
+            },
+            "depDetail": {
+                "time": "2023-11-01 06:55:00.000",
+                "terminal": "3",
+                "code": "DEL",
+                "name": "Delhi",
+                "country": "India",
+                "city": "Delhi"
+            },
+            "arrDetail": {
+                "time": "2023-11-01 09:20:00.000",
+                "code": "HYD",
+                "name": "Hyderabad",
+                "country": "India",
+                "city": "Hyderabad"
+            },
+            "flightNo": "560",
+            "classDetail": {
+                "adt": {
+                    "class": "S",
+                    "basis": "SEPP"
+                }
+            },
+            "aircraftType": "32N",
+            "flyTime": 145,
+            "layover": 45,
+            "amenities": {
+                "baggage": {
+                    "checkin": {
+                        "adt": {
+                            "desc": "20Kg Baggage included",
+                            "unit": "kg",
+                            "qty": 20,
+                            "isAvl": true
+                        }
+                    },
+                    "cabin": {
+                        "adt": {
+                            "desc": "8 Kg",
+                            "unit": "kg",
+                            "qty": 8
+                        }
+                    }
+                },
+                "meal": true
+            },
+            "nextDayArr": false,
+            "refundable": true,
+            "onlyHandbag": false,
+            "cabinClass": "ECONOMY",
+            "fareType": "Retail Fare"
+        },
+        {
+            "key": 1,
+            "carrier": {
+                "code": "AI",
+                "name": "AirIndia"
+            },
+            "depDetail": {
+                "time": "2023-11-01 10:05:00.000",
+                "code": "HYD",
+                "name": "Hyderabad",
+                "country": "India",
+                "city": "Hyderabad"
+            },
+            "arrDetail": {
+                "time": "2023-11-01 11:15:00.000",
+                "terminal": "2",
+                "code": "BLR",
+                "name": "Bangalore",
+                "country": "India",
+                "city": "Bangalore"
+            },
+            "flightNo": "515",
+            "classDetail": {
+                "adt": {
+                    "class": "S",
+                    "basis": "SEPP"
+                }
+            },
+            "aircraftType": "Airbus A321",
+            "flyTime": 70,
+            "amenities": {
+                "baggage": {
+                    "checkin": {
+                        "adt": {
+                            "desc": "20Kg Baggage included",
+                            "unit": "kg",
+                            "qty": 20,
+                            "isAvl": true
+                        }
+                    },
+                    "cabin": {
+                        "adt": {
+                            "desc": "8 Kg",
+                            "unit": "kg",
+                            "qty": 8
+                        }
+                    }
+                },
+                "meal": true
+            },
+            "nextDayArr": false,
+            "refundable": true,
+            "onlyHandbag": false,
+            "cabinClass": "ECONOMY"
+        }
+    ],
+    "fare": {
+        "paxFares": {
+            "adt": {
+                "base": {
+                    "amount": 5420.0
+                },
+                "tax": {
+                    "amount": 1017.0
+                },
+                "total": {
+                    "amount": 6437.0
+                }
+            }
+        },
+        "totalFare": {
+            "tds": {
+                "amount": 0.0
+            },
+            "base": {
+                "amount": 5420.0
+            },
+            "tax": {
+                "amount": 1017.0
+            },
+            "total": {
+                "amount": 6437.0
+            }
+        }
+    },
+    "ffCarriers": [
+        {
+            "code": "AI",
+            "name": "AirIndia"
+        }
+    ],
+    "searchQuery": {
+        "sectorInfos": [
+            {
+                "src": {
+                    "code": "DEL",
+                    "name": "Delhi",
+                    "country": "India",
+                    "city": "Delhi"
+                },
+                "dest": {
+                    "code": "BLR",
+                    "name": "Bangalore",
+                    "country": "India",
+                    "city": "Bangalore"
+                },
+                "date": "2023-11-01",
+                "debug": false
+            }
+        ],
+        "class": "ALL",
+        "paxCount": {
+            "adt": 1,
+            "inf": 0,
+            "chd": 0
+        },
+        "route": "ALL",
+        "disc": false,
+        "multiHop": false,
+        "multiCity": false,
+        "senior": false,
+        "special": false,
+        "domestic": true,
+        "isOfflineSearch": false,
+        "isPaxWiseCommission": false,
+        "isComboAllowed": false,
+        "isLiveSearch": false
+    },
+    "ssr": {},
+    "titles": {
+        "adt": [
+            "Mr",
+            "Mrs",
+            "Miss",
+            "Ms"
+        ]
+    },
+    "maxRedeemablePoints": 0,
+    "isBlock": true,
+    "isNearByAirport": false,
+    "promoCodeApplicableSegment": {},
+    "promoCodeDetail": [],
+    "isCreditShellApplicable": false,
+    "cndtns": {
+        "dobReq": false,
+        "voucherApplicable": true,
+        "passport": {
+            "proofReq": false,
+            "mandatory": false,
+            "applicable": false
+        },
+        "name": {
+            "nameSize": 40,
+            "firstNameSize": 40,
+            "lastNameSize": 40
+        },
+        "block": {
+            "applicable": false
+        },
+        "visa": {
+            "showInfo": false
+        },
+        "isRepriced": true,
+        "ssrMandatory": {
+            "Onward": {
+                "isSeatMandate": false,
+                "isMealMandate": false,
+                "isBaggageMandate": false
+            }
+        },
+        "autoFillContactDetails": false,
+        "showGST": false
+    },
+    "sessionTime": 900
+}
