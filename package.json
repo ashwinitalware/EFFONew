@@ -6,7 +6,7 @@
   "scripts": {
     "ionic": "ionic",
     "ng": "ng",
-    "start": "ng serve -o --host 0.0.0.0",
+    "start": "ng serve -o --host 0.0.0.0 --port 4201",
     "build": "ionic capacitor copy android",
     "build-prod": "ionic capacitor copy android --prod",
     "test": "ng test",

@@ -56,23 +56,27 @@
             </ion-button>
           </div>
         </div>
-        <!-- <span class="text-sm">
-        <ion-icon class="text-gray-600 text-sm" name="checkbox"></ion-icon> 2056
-        booking in nagapur this year
-      </span> -->
       </div>
     </div>
 
     <div class="bg-white mt-2">
       <div class="p-3">
         <ion-label class="text-lg font-bold">Business Details</ion-label><br />
+        <div
+          *ngIf="data.attributes.serviceableAreas"
+          class="text-red-600 text-sm"
+        >
+          * Note | Serviceable Areas : {{data.attributes.serviceableAreas}}
+        </div>
         <span class="text-sm">
           <ion-icon class="text-gray-600 text-sm" name="location"></ion-icon>
           {{data.attributes.companyAddress|titlecase}} </span
         ><br />
-        <div *ngIf="data.attributes.businessTimings">
+        <div>
           <span class="text-sm">
             <ion-icon class="text-gray-600 text-sm" name="time"></ion-icon>
+            {{convertToAMPM(data.attributes.fromTime)}} -
+            {{convertToAMPM(data.attributes.toTime)}} |
             {{data.attributes.businessTimings}}
           </span>
         </div>
@@ -96,7 +100,7 @@
 
     <div class="bg-white mt-2 pb-2">
       <div class="pl-3 pt-3 pr-3">
-        <ion-label class="text-lg font-bold"> Services</ion-label><br />
+        <ion-label class="text-lg font-bold"> We Offer</ion-label><br />
         <p class="text-sm">
           <!-- It is usually more messy and tedious compared to the other work such as furniture and kitchen. -->
         </p>

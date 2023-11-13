@@ -73,4 +73,21 @@ export class VendorDetailsPage implements OnInit {
       '_system'
     );
   }
+  convertToAMPM(time24) {
+    try {
+      const [hours, minutes] = time24.split(':');
+      let period = 'AM';
+
+      if (parseInt(hours) >= 12) {
+        period = 'PM';
+      }
+
+      const hours12 = (parseInt(hours) % 12) || 12;
+
+      return `${hours12}:${minutes} ${period}`;
+    } catch (error) {
+      return "-"
+    }
+  }
+
 }

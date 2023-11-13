@@ -30,6 +30,7 @@ export class VendorListingPage implements OnInit {
     const query = qs.stringify({
       filters: {
         status: 'accepted',
+        visibilityStatus: "approved",
         $or: [
           {
             companyName: {
@@ -74,5 +75,5 @@ export class VendorListingPage implements OnInit {
         }
       });
   }
-  ngOnInit() {}
+  ngOnInit() { }
 }

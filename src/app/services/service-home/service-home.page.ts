@@ -137,6 +137,7 @@ export class ServiceHomePage implements OnInit {
           populate: '*',
           filters: {
             status: 'accepted',
+            visibilityStatus: "approved",
             vendor: {
               city: {
                 // $containsi: this.dataService.profile.ci'ty,
@@ -181,7 +182,7 @@ export class ServiceHomePage implements OnInit {
     this.slider.stopAutoplay(); //this code for slide after page change
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
   jobDetails(job) {
     this.navCtrl.navigateForward(['/jobdetails/' + job.id]);
   }
