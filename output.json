@@ -1,0 +1,1000 @@
+[
+  {
+    "slots": [
+      {
+        "modalityName": "MRI 1.5 T",
+        "availableTimes": [
+          {
+            "startTime": "2023-11-07T08:00:00.000Z",
+            "endTime": "2023-11-07T08:15:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T08:15:00.000Z",
+            "endTime": "2023-11-07T08:30:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T08:30:00.000Z",
+            "endTime": "2023-11-07T08:45:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T08:45:00.000Z",
+            "endTime": "2023-11-07T09:00:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T09:00:00.000Z",
+            "endTime": "2023-11-07T09:15:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T09:15:00.000Z",
+            "endTime": "2023-11-07T09:30:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T09:30:00.000Z",
+            "endTime": "2023-11-07T09:45:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T09:45:00.000Z",
+            "endTime": "2023-11-07T10:00:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T10:00:00.000Z",
+            "endTime": "2023-11-07T10:15:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T10:15:00.000Z",
+            "endTime": "2023-11-07T10:30:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T10:30:00.000Z",
+            "endTime": "2023-11-07T10:45:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T10:45:00.000Z",
+            "endTime": "2023-11-07T11:00:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T11:00:00.000Z",
+            "endTime": "2023-11-07T11:15:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T11:15:00.000Z",
+            "endTime": "2023-11-07T11:30:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T11:30:00.000Z",
+            "endTime": "2023-11-07T11:45:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T11:45:00.000Z",
+            "endTime": "2023-11-07T12:00:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T12:00:00.000Z",
+            "endTime": "2023-11-07T12:15:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T12:15:00.000Z",
+            "endTime": "2023-11-07T12:30:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T12:30:00.000Z",
+            "endTime": "2023-11-07T12:45:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T12:45:00.000Z",
+            "endTime": "2023-11-07T13:00:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T13:00:00.000Z",
+            "endTime": "2023-11-07T13:15:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T13:15:00.000Z",
+            "endTime": "2023-11-07T13:30:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T13:30:00.000Z",
+            "endTime": "2023-11-07T13:45:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T13:45:00.000Z",
+            "endTime": "2023-11-07T14:00:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T14:00:00.000Z",
+            "endTime": "2023-11-07T14:15:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T14:15:00.000Z",
+            "endTime": "2023-11-07T14:30:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T14:30:00.000Z",
+            "endTime": "2023-11-07T14:45:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T14:45:00.000Z",
+            "endTime": "2023-11-07T15:00:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T15:00:00.000Z",
+            "endTime": "2023-11-07T15:15:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T15:15:00.000Z",
+            "endTime": "2023-11-07T15:30:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T15:30:00.000Z",
+            "endTime": "2023-11-07T15:45:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T15:45:00.000Z",
+            "endTime": "2023-11-07T16:00:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T16:00:00.000Z",
+            "endTime": "2023-11-07T16:15:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T16:15:00.000Z",
+            "endTime": "2023-11-07T16:30:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T16:30:00.000Z",
+            "endTime": "2023-11-07T16:45:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T16:45:00.000Z",
+            "endTime": "2023-11-07T17:00:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T17:00:00.000Z",
+            "endTime": "2023-11-07T17:15:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T17:15:00.000Z",
+            "endTime": "2023-11-07T17:30:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T17:30:00.000Z",
+            "endTime": "2023-11-07T17:45:00.000Z",
+            "technologist": "Dr. John Doe"
+          },
+          {
+            "startTime": "2023-11-07T17:45:00.000Z",
+            "endTime": "2023-11-07T18:00:00.000Z",
+            "technologist": "Dr. John Doe"
+          }
+        ],
+        "nonAvailableTimesForModality": []
+      }
+    ],
+    "procedure": {
+      "procedureName": "MRI of Chest",
+      "modalityType": "MRI"
+    },
+    "combinedSlots": [
+      {
+        "startTime": "2023-11-07T08:00:00.000Z",
+        "endTime": "2023-11-07T08:15:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T08:15:00.000Z",
+        "endTime": "2023-11-07T08:30:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T08:30:00.000Z",
+        "endTime": "2023-11-07T08:45:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T08:45:00.000Z",
+        "endTime": "2023-11-07T09:00:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T09:00:00.000Z",
+        "endTime": "2023-11-07T09:15:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T09:15:00.000Z",
+        "endTime": "2023-11-07T09:30:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T09:30:00.000Z",
+        "endTime": "2023-11-07T09:45:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T09:45:00.000Z",
+        "endTime": "2023-11-07T10:00:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T10:00:00.000Z",
+        "endTime": "2023-11-07T10:15:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T10:15:00.000Z",
+        "endTime": "2023-11-07T10:30:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T10:30:00.000Z",
+        "endTime": "2023-11-07T10:45:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T10:45:00.000Z",
+        "endTime": "2023-11-07T11:00:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T11:00:00.000Z",
+        "endTime": "2023-11-07T11:15:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T11:15:00.000Z",
+        "endTime": "2023-11-07T11:30:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T11:30:00.000Z",
+        "endTime": "2023-11-07T11:45:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T11:45:00.000Z",
+        "endTime": "2023-11-07T12:00:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T12:00:00.000Z",
+        "endTime": "2023-11-07T12:15:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T12:15:00.000Z",
+        "endTime": "2023-11-07T12:30:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T12:30:00.000Z",
+        "endTime": "2023-11-07T12:45:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T12:45:00.000Z",
+        "endTime": "2023-11-07T13:00:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T13:00:00.000Z",
+        "endTime": "2023-11-07T13:15:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T13:15:00.000Z",
+        "endTime": "2023-11-07T13:30:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T13:30:00.000Z",
+        "endTime": "2023-11-07T13:45:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T13:45:00.000Z",
+        "endTime": "2023-11-07T14:00:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T14:00:00.000Z",
+        "endTime": "2023-11-07T14:15:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T14:15:00.000Z",
+        "endTime": "2023-11-07T14:30:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T14:30:00.000Z",
+        "endTime": "2023-11-07T14:45:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T14:45:00.000Z",
+        "endTime": "2023-11-07T15:00:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T15:00:00.000Z",
+        "endTime": "2023-11-07T15:15:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T15:15:00.000Z",
+        "endTime": "2023-11-07T15:30:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T15:30:00.000Z",
+        "endTime": "2023-11-07T15:45:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T15:45:00.000Z",
+        "endTime": "2023-11-07T16:00:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T16:00:00.000Z",
+        "endTime": "2023-11-07T16:15:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T16:15:00.000Z",
+        "endTime": "2023-11-07T16:30:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T16:30:00.000Z",
+        "endTime": "2023-11-07T16:45:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T16:45:00.000Z",
+        "endTime": "2023-11-07T17:00:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T17:00:00.000Z",
+        "endTime": "2023-11-07T17:15:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T17:15:00.000Z",
+        "endTime": "2023-11-07T17:30:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T17:30:00.000Z",
+        "endTime": "2023-11-07T17:45:00.000Z",
+        "technologist": "Dr. John Doe"
+      },
+      {
+        "startTime": "2023-11-07T17:45:00.000Z",
+        "endTime": "2023-11-07T18:00:00.000Z",
+        "technologist": "Dr. John Doe"
+      }
+    ]
+  },
+  {
+    "slots": [
+      {
+        "modalityName": "CT1",
+        "availableTimes": [
+          {
+            "startTime": "2023-11-07T10:00:00.000Z",
+            "endTime": "2023-11-07T10:10:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T10:15:00.000Z",
+            "endTime": "2023-11-07T10:25:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T10:30:00.000Z",
+            "endTime": "2023-11-07T10:40:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T10:45:00.000Z",
+            "endTime": "2023-11-07T10:55:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:00:00.000Z",
+            "endTime": "2023-11-07T11:10:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:15:00.000Z",
+            "endTime": "2023-11-07T11:25:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:30:00.000Z",
+            "endTime": "2023-11-07T11:40:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:45:00.000Z",
+            "endTime": "2023-11-07T11:55:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T12:00:00.000Z",
+            "endTime": "2023-11-07T12:10:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T12:15:00.000Z",
+            "endTime": "2023-11-07T12:25:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T12:30:00.000Z",
+            "endTime": "2023-11-07T12:40:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T12:45:00.000Z",
+            "endTime": "2023-11-07T12:55:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T13:00:00.000Z",
+            "endTime": "2023-11-07T13:10:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T13:15:00.000Z",
+            "endTime": "2023-11-07T13:25:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T13:30:00.000Z",
+            "endTime": "2023-11-07T13:40:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T13:45:00.000Z",
+            "endTime": "2023-11-07T13:55:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T14:00:00.000Z",
+            "endTime": "2023-11-07T14:10:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T14:15:00.000Z",
+            "endTime": "2023-11-07T14:25:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T14:30:00.000Z",
+            "endTime": "2023-11-07T14:40:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T14:45:00.000Z",
+            "endTime": "2023-11-07T14:55:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T15:00:00.000Z",
+            "endTime": "2023-11-07T15:10:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T15:15:00.000Z",
+            "endTime": "2023-11-07T15:25:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T15:30:00.000Z",
+            "endTime": "2023-11-07T15:40:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T15:45:00.000Z",
+            "endTime": "2023-11-07T15:55:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T16:00:00.000Z",
+            "endTime": "2023-11-07T16:10:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T16:15:00.000Z",
+            "endTime": "2023-11-07T16:25:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T16:30:00.000Z",
+            "endTime": "2023-11-07T16:40:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T16:45:00.000Z",
+            "endTime": "2023-11-07T16:55:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T17:00:00.000Z",
+            "endTime": "2023-11-07T17:10:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T17:15:00.000Z",
+            "endTime": "2023-11-07T17:25:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T17:30:00.000Z",
+            "endTime": "2023-11-07T17:40:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          },
+          {
+            "startTime": "2023-11-07T17:45:00.000Z",
+            "endTime": "2023-11-07T17:55:00.000Z",
+            "technologist": "Dr. Link Mayer"
+          }
+        ],
+        "nonAvailableTimesForModality": []
+      },
+      {
+        "modalityName": "CT2",
+        "availableTimes": [
+          {
+            "startTime": "2023-11-07T10:00:00.000Z",
+            "endTime": "2023-11-07T10:10:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T10:05:00.000Z",
+            "endTime": "2023-11-07T10:15:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T10:10:00.000Z",
+            "endTime": "2023-11-07T10:20:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T10:15:00.000Z",
+            "endTime": "2023-11-07T10:25:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T10:20:00.000Z",
+            "endTime": "2023-11-07T10:30:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T10:25:00.000Z",
+            "endTime": "2023-11-07T10:35:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T10:30:00.000Z",
+            "endTime": "2023-11-07T10:40:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T10:35:00.000Z",
+            "endTime": "2023-11-07T10:45:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T10:40:00.000Z",
+            "endTime": "2023-11-07T10:50:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T10:45:00.000Z",
+            "endTime": "2023-11-07T10:55:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T10:50:00.000Z",
+            "endTime": "2023-11-07T11:00:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T10:55:00.000Z",
+            "endTime": "2023-11-07T11:05:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:00:00.000Z",
+            "endTime": "2023-11-07T11:10:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:05:00.000Z",
+            "endTime": "2023-11-07T11:15:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:10:00.000Z",
+            "endTime": "2023-11-07T11:20:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:15:00.000Z",
+            "endTime": "2023-11-07T11:25:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:20:00.000Z",
+            "endTime": "2023-11-07T11:30:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:25:00.000Z",
+            "endTime": "2023-11-07T11:35:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:30:00.000Z",
+            "endTime": "2023-11-07T11:40:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:35:00.000Z",
+            "endTime": "2023-11-07T11:45:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:40:00.000Z",
+            "endTime": "2023-11-07T11:50:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:45:00.000Z",
+            "endTime": "2023-11-07T11:55:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:50:00.000Z",
+            "endTime": "2023-11-07T12:00:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          },
+          {
+            "startTime": "2023-11-07T11:55:00.000Z",
+            "endTime": "2023-11-07T12:05:00.000Z",
+            "technologist": "Dr. Rob Mayer"
+          }
+        ],
+        "nonAvailableTimesForModality": []
+      }
+    ],
+    "procedure": {
+      "procedureName": "CT of Brain",
+      "modalityType": "CT"
+    },
+    "combinedSlots": [
+      {
+        "startTime": "2023-11-07T10:00:00.000Z",
+        "endTime": "2023-11-07T10:10:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:15:00.000Z",
+        "endTime": "2023-11-07T10:25:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:30:00.000Z",
+        "endTime": "2023-11-07T10:40:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:45:00.000Z",
+        "endTime": "2023-11-07T10:55:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:00:00.000Z",
+        "endTime": "2023-11-07T11:10:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:15:00.000Z",
+        "endTime": "2023-11-07T11:25:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:30:00.000Z",
+        "endTime": "2023-11-07T11:40:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:45:00.000Z",
+        "endTime": "2023-11-07T11:55:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T12:00:00.000Z",
+        "endTime": "2023-11-07T12:10:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T12:15:00.000Z",
+        "endTime": "2023-11-07T12:25:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T12:30:00.000Z",
+        "endTime": "2023-11-07T12:40:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T12:45:00.000Z",
+        "endTime": "2023-11-07T12:55:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T13:00:00.000Z",
+        "endTime": "2023-11-07T13:10:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T13:15:00.000Z",
+        "endTime": "2023-11-07T13:25:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T13:30:00.000Z",
+        "endTime": "2023-11-07T13:40:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T13:45:00.000Z",
+        "endTime": "2023-11-07T13:55:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T14:00:00.000Z",
+        "endTime": "2023-11-07T14:10:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T14:15:00.000Z",
+        "endTime": "2023-11-07T14:25:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T14:30:00.000Z",
+        "endTime": "2023-11-07T14:40:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T14:45:00.000Z",
+        "endTime": "2023-11-07T14:55:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T15:00:00.000Z",
+        "endTime": "2023-11-07T15:10:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T15:15:00.000Z",
+        "endTime": "2023-11-07T15:25:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T15:30:00.000Z",
+        "endTime": "2023-11-07T15:40:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T15:45:00.000Z",
+        "endTime": "2023-11-07T15:55:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T16:00:00.000Z",
+        "endTime": "2023-11-07T16:10:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T16:15:00.000Z",
+        "endTime": "2023-11-07T16:25:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T16:30:00.000Z",
+        "endTime": "2023-11-07T16:40:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T16:45:00.000Z",
+        "endTime": "2023-11-07T16:55:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T17:00:00.000Z",
+        "endTime": "2023-11-07T17:10:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T17:15:00.000Z",
+        "endTime": "2023-11-07T17:25:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T17:30:00.000Z",
+        "endTime": "2023-11-07T17:40:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T17:45:00.000Z",
+        "endTime": "2023-11-07T17:55:00.000Z",
+        "technologist": "Dr. Link Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:00:00.000Z",
+        "endTime": "2023-11-07T10:10:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:05:00.000Z",
+        "endTime": "2023-11-07T10:15:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:10:00.000Z",
+        "endTime": "2023-11-07T10:20:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:15:00.000Z",
+        "endTime": "2023-11-07T10:25:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:20:00.000Z",
+        "endTime": "2023-11-07T10:30:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:25:00.000Z",
+        "endTime": "2023-11-07T10:35:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:30:00.000Z",
+        "endTime": "2023-11-07T10:40:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:35:00.000Z",
+        "endTime": "2023-11-07T10:45:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:40:00.000Z",
+        "endTime": "2023-11-07T10:50:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:45:00.000Z",
+        "endTime": "2023-11-07T10:55:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:50:00.000Z",
+        "endTime": "2023-11-07T11:00:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T10:55:00.000Z",
+        "endTime": "2023-11-07T11:05:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:00:00.000Z",
+        "endTime": "2023-11-07T11:10:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:05:00.000Z",
+        "endTime": "2023-11-07T11:15:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:10:00.000Z",
+        "endTime": "2023-11-07T11:20:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:15:00.000Z",
+        "endTime": "2023-11-07T11:25:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:20:00.000Z",
+        "endTime": "2023-11-07T11:30:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:25:00.000Z",
+        "endTime": "2023-11-07T11:35:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:30:00.000Z",
+        "endTime": "2023-11-07T11:40:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:35:00.000Z",
+        "endTime": "2023-11-07T11:45:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:40:00.000Z",
+        "endTime": "2023-11-07T11:50:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:45:00.000Z",
+        "endTime": "2023-11-07T11:55:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:50:00.000Z",
+        "endTime": "2023-11-07T12:00:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      },
+      {
+        "startTime": "2023-11-07T11:55:00.000Z",
+        "endTime": "2023-11-07T12:05:00.000Z",
+        "technologist": "Dr. Rob Mayer"
+      }
+    ]
+  }
+]
