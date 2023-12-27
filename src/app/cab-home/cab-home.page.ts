@@ -15,10 +15,13 @@ export class CabHomePage implements OnInit {
   fromPinMarker;
   toPinMarker;
 
+  animatedClass = ' '
+  // animatedClass = 'animate-bounce '
   // fromPinLocation = undefined;
   // toPinLocation = undefined;
   @ViewChild('map') mapRef: ElementRef;
   map;
+  directline
   @ViewChild('pickSearch') public pickSearchElementRef: ElementRef;
   @ViewChild('search') public searchElementRef: ElementRef;
 
@@ -37,11 +40,19 @@ export class CabHomePage implements OnInit {
     initialSlide: 0,
     slidesPerView: 4.5,
     autoplay: true,
+    center: true
   };
 
   constructor(public cabService: CabService, public router: Router) {
     //reset everything
     this.resetEverything();
+  }
+  changeType(type) {
+    this.cabService.type = type
+  }
+
+  history() {
+    this.router.navigate(['/cab-history'])
   }
   resetEverything() {
     this.pinImage = 'fromPin';
@@ -50,7 +61,7 @@ export class CabHomePage implements OnInit {
     this.cabService.fromLatLngObject = undefined;
     this.cabService.toLatLngObject = undefined;
   }
-  ngOnInit() {}
+  ngOnInit() { }
   ionViewDidEnter() {
     // alert(this.cabService.selectedCityObj.lat)
     console.log('ref', this.mapRef);
@@ -68,6 +79,8 @@ export class CabHomePage implements OnInit {
     };
 
     this.map = new google.maps.Map(this.mapRef.nativeElement, options);
+
+
     this.addDragEndEvent();
     this.autocomplete = new google.maps.places.Autocomplete(
       this.searchElementRef.nativeElement,
@@ -87,6 +100,8 @@ export class CabHomePage implements OnInit {
 
     //THIS IS EXECUTED WHEN THE LOCATION FROM PICK BOX IS SELECTED #PICKINPUT
     this.pickAutocomplete.addListener('place_changed', () => {
+      if (this.directline)
+        this.directline.setMap(null)
       this.cabService.from = this.pickSearchElementRef.nativeElement.value;
       this.cabService.to = '';
       // this.dropAddress = this.searchElementRef.nativeElement.value;
@@ -168,14 +183,20 @@ export class CabHomePage implements OnInit {
       // this.fromPinLocation = this.map.getCenter();
       // if(this.fromPinMarker)
       // this.fromPinMarker.setMap(null);
-      this.cabService.fromLatLngObject = this.map.getCenter();
-      // alert(this.fromPinMarker)
+      if (!this.cabService.fromLatLngObject)
+        this.cabService.fromLatLngObject = this.map.getCenter();
+      console.log('saved fromLatLngObject', this.cabService.fromLatLngObject);
+
       if (!this.fromPinMarker) {
         this.fromPinMarker = new google.maps.Marker({
-          position: this.cabService.from,
+          // position: this.cabService.from,
+          position: { lat: this.cabService.fromLatLngObject.lat(), lng: this.cabService.fromLatLngObject.lng() },
           map: this.map,
           icon: {
             url: 'assets/cab/fromPin.png',
+            scaledSize: new google.maps.Size(40, 40), // scaled size
+            // origin: new google.maps.Point(0, 0), // origin
+            // anchor: new google.maps.Point(0, 0) // anchor
           },
         });
       }
@@ -196,7 +217,11 @@ export class CabHomePage implements OnInit {
 
   book() {
     // this.cabService.from;
+
     this.cabService.toLatLngObject = this.map.getCenter();
+    console.log(this.cabService.fromLatLngObject);
+    console.log(this.cabService.toLatLngObject);
+
     if (
       // eslint-disable-next-line eqeqeq
       this.cabService.type == 'local' ||
@@ -214,7 +239,28 @@ export class CabHomePage implements OnInit {
   }
 
   addDragEndEvent() {
+    this.map.addListener('zoom_changed', () => {
+      console.log('zoom_changed');
+
+      if (this.pinImage == 'toPin') {
+        // this.map.panTo(
+        //   new google.maps.LatLng(
+        //     this.cabService.toLatLngObject.lat(),
+        //     this.cabService.toLatLngObject.lng()
+        //   )
+        // );
+      }
+      // this.drawDirectline()
+    });
+    this.map.addListener('drag', () => {
+      console.log('dragging.');
+      if (this.pinImage == 'toPin')
+        this.drawDirectline()
+    });
     this.map.addListener('dragend', () => {
+
+
+
       // dont show if the category  is outstaion
       if (this.cabService.type === 'outstation') {
         // eslint-disable-next-line eqeqeq
@@ -222,6 +268,9 @@ export class CabHomePage implements OnInit {
           // console.log(this.map.getCenter());
           // this.dataService.outstation.from_lat = this.map.getCenter().lat();
           // this.dataService.outstation.from_lng = this.map.getCenter().lng();
+        } else {
+
+
         }
         return;
       }
@@ -229,9 +278,34 @@ export class CabHomePage implements OnInit {
       if (this.pinImage === 'fromPin') {
         this.fillPickAddress();
       } else {
+        this.cabService.toLatLngObject = this.map.getCenter();
+        console.log('DRAG ENDED FOR DROP PIN');
         this.fillDropAddress();
       }
     });
+  }
+  drawDirectline() {
+    if (this.directline)
+      this.directline.setMap(null)
+    // this.directline = new google.maps.Polyline({
+    //   path: [
+    //     { lat: this.cabService.fromLatLngObject.lat(), lng: this.cabService.fromLatLngObject.lng() },
+    //     { lat: this.map.getCenter().lat(), lng: this.map.getCenter().lng() },
+    //   ],
+    //   strokeOpacity: 0,
+    //   icons: [
+    //     {
+    //       icon: {
+    //         path: "M 0,-1 0,1",
+    //         strokeOpacity: 1,
+    //         scale: 3,
+    //       },
+    //       offset: "0",
+    //       repeat: "15px",
+    //     },
+    //   ],
+    //   map: this.map,
+    // })
   }
   fillPickAddress(resp = undefined) {
     let locationCord;

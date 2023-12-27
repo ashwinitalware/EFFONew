@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CabService } from 'src/app/services/cab.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-cab-out-booking',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabOutBookingPage implements OnInit {
 
-  constructor() { }
+  cabs = []
+  constructor(public ds: DataService, public cabService: CabService) { }
 
   ngOnInit() {
   }

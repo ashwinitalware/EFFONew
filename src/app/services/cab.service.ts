@@ -30,12 +30,12 @@ export class CabService {
     taxAndFees: 0,
     total: 0,
   };
-  apiKey = 'AIzaSyD6d0aNvUiSWaENoQ1UuqCOzfMg0Wmq7Do';
+  apiKey = 'AIzaSyC1Cz13aBYAbBYJL0oABZ8KZnd7imiWwA4';
 
   cities = [];
   cabTypes = [];
   driverInterval;
-  constructor(public dataService: DataService) {}
+  constructor(public dataService: DataService) { }
 
   getCities() {
     this.dataService._get('cab-cities', '').subscribe((data) => {

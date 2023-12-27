@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-back-button style="color: white"></ion-back-button>
     </ion-buttons>
@@ -10,31 +10,31 @@
 <ion-content>
   <div class="p-4">
     <!-- mode="ios"  -->
-    <ion-segment mode="ios" value="rides" (ionChange)='segmentChanged($event)'>
-      <ion-segment-button value="rides">
-        <ion-label>RIDES </ion-label>
+    <ion-segment mode="ios" value="local" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="local">
+        <ion-label>Local </ion-label>
       </ion-segment-button>
-      <ion-segment-button value="delivered">
-        <ion-label>DELIVERED</ion-label>
+      <ion-segment-button value="rental">
+        <ion-label>Rental </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="outstation">
+        <ion-label>Outstation</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="transport">
+        <ion-label>Transport</ion-label>
       </ion-segment-button>
     </ion-segment>
 
     <div *ngIf="switchTab === 'rides'">
       <ion-card class="bg-white">
-        <div class="flex justify-between p-3 ">
+        <div class="flex justify-between p-3">
           <p class="text-lg text-black">
-            Auto - <span class="text-gray-400 text-xs">
-              56minutes ago
-            </span>
+            Auto - <span class="text-gray-400 text-xs"> 56minutes ago </span>
           </p>
-          <p class="text-lg text-black">
-            ₹ 100
-          </p>
+          <p class="text-lg text-black">₹ 100</p>
         </div>
 
-        <p class="text-red-600 text-md -mt-2 pl-3 pb-3">
-          Cancelled
-        </p>
+        <p class="text-red-600 text-md -mt-2 pl-3 pb-3">Cancelled</p>
 
         <div class="border-b border-gray-300"></div>
 
@@ -44,32 +44,24 @@
             <p class="pl-2 -mt-1">Rathi Nagar Amravati.</p>
           </div>
 
-
           <div class="flex justify-start p-1 mt-2">
             <ion-icon name="ellipse-sharp" color="danger"></ion-icon>
-            <p class="pl-2 -mt-1"> Dastur Nagar Amravati.</p>
+            <p class="pl-2 -mt-1">Dastur Nagar Amravati.</p>
           </div>
-
         </div>
       </ion-card>
     </div>
 
     <div *ngIf="switchTab === 'delivered'">
       <ion-card class="bg-white">
-        <div class="flex justify-between p-3 ">
+        <div class="flex justify-between p-3">
           <p class="text-lg text-black">
-            Auto - <span class="text-gray-400 text-xs">
-             1 Hour
-            </span>
+            Auto - <span class="text-gray-400 text-xs"> 1 Hour </span>
           </p>
-          <p class="text-lg text-black">
-            ₹ 100
-          </p>
+          <p class="text-lg text-black">₹ 100</p>
         </div>
 
-        <p class="text-green-600 text-md -mt-2 pl-3 pb-3">
-          Completed
-        </p>
+        <p class="text-green-600 text-md -mt-2 pl-3 pb-3">Completed</p>
 
         <div class="border-b border-gray-300"></div>
 
@@ -79,16 +71,12 @@
             <p class="pl-2 -mt-1">Rathi Nagar Amravati.</p>
           </div>
 
-
           <div class="flex justify-start p-1 mt-2">
             <ion-icon name="ellipse-sharp" color="danger"></ion-icon>
-            <p class="pl-2 -mt-1"> Dastur Nagar Amravati.</p>
+            <p class="pl-2 -mt-1">Dastur Nagar Amravati.</p>
           </div>
-
         </div>
       </ion-card>
     </div>
-
-
   </div>
 </ion-content>
