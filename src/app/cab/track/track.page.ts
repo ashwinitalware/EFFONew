@@ -249,6 +249,7 @@ export class TrackPage {
   getDriverLocation() {
     // eslint-disable-next-line no-underscore-dangle
     this.dataService._get('users/' + this.driver.id, '').subscribe((data) => {
+
       this.animatedMove(
         this.cabMarker,
         1,
@@ -256,16 +257,17 @@ export class TrackPage {
           this.driver.attributes.driverLat,
           this.driver.attributes.driverLng
         ),
-        new google.maps.LatLng(data.lat, data.lng)
+        new google.maps.LatLng(data.driverLat, data.driverLng)
       );
 
       this.getHeading(
         this.driver.attributes.driverLat,
         this.driver.attributes.driverLng,
-        data.lat,
-        data.lng
+        data.driverLat,
+        data.driverLng
       );
       this.driver.attributes = data;
+
     });
   }
 
@@ -315,7 +317,6 @@ export class TrackPage {
     var brng = Math.atan2(y, x);
 
     const degree = ((brng * 180) / Math.PI + 360) % 360;
-    // console.log(this.filteredCabsImgs);
 
     if (degree) {
       console.log('GOT DEGREE', degree);
