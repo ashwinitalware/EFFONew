@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Booking Details</ion-title>
+    <ion-title>Confirm Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,7 +9,9 @@
     <ion-grid>
       <ion-row>
         <ion-col size="9">
-          <p class="font-bold mt-2 text-lg">One Way Trip to Aurangabad</p>
+          <p class="font-bold mt-2 text-lg">
+            {{this.cabService.type|titlecase}} Ride
+          </p>
         </ion-col>
         <ion-col size="3">
           <img src="assets/car4.png" alt="" />
@@ -20,34 +22,46 @@
 
   <div class="flex justify-between p-1">
     <ion-icon name="ellipse" color="success" class="ml-2"></ion-icon>
-    <p class="text-md pl-2">
-      No 57, Amravati Mc AMRAVARI, Maharashtra PIN Code: 444606 (INDIA)
-    </p>
+    <p class="text-md pl-2">{{this.cabService.from}}</p>
   </div>
 
   <div class="flex justify-between p-1">
     <ion-icon name="ellipse" color="danger" class="ml-2"></ion-icon>
-    <p class="text-md pl-2">
-      House No. 11, Pune Mc Pune, Maharashtra PIN Code: 444909 (INDIA)
-    </p>
+    <p class="text-md pl-2">{{this.cabService.to}}</p>
   </div>
 
-  <div>
+  <!-- <div>
     <ion-grid>
       <ion-row>
         <ion-col size="1">
-          <ion-icon name="calendar-number" class="h-4 w-4" color="danger"></ion-icon>
+          <ion-icon
+            name="calendar-number"
+            class="h-4 w-4"
+            color="danger"
+          ></ion-icon>
         </ion-col>
         <ion-col size="11">
           <p class="text-md">29 Sep, 3:30 PM</p>
         </ion-col>
       </ion-row>
     </ion-grid>
-  </div>
+  </div> -->
+  <div class="p-4">
+    <div
+      *ngFor="let cab of this.cabs"
+      class="bg-white rounded-lg mt-2 p-2"
+      [ngClass]="{'border-2 border-blue-600 shadow-md bg-blue-50 ': cab.selected,' border border-black ': !cab.selected}"
+    >
+      <div class="flex justify-between">
+        <p class="font-bold text-lg">{{cab.attributes.name|titlecase}} Cab</p>
+        <p class="text-xs font-bold text-blue-700">
+          <span class="text-md">{{cab.attributes.perKM}} </span>
+          / km
+        </p>
+      </div>
 
-  <div class="p-1">
-    <p class="font-bold mt-2 text-lg ml-3">Mini</p>
-    <p class="text-md ml-3">4 Seater - WagonR, Indica, Ritz</p>
+      <p class="text-sm">{{cab.attributes.description}}</p>
+    </div>
   </div>
 
   <div class="p-1">
@@ -55,10 +69,12 @@
       <ion-row>
         <ion-col size="9.8">
           <p class="font-bold text-lg">Estimated fare</p>
-          <p class="text-md text-gray-500 font-bold">About 324 Km, 7.23 Hour</p>
+          <p class="text-md text-gray-500 font-bold">
+            For {{this.cabService.distance}} Km
+          </p>
         </ion-col>
         <ion-col size="2.2">
-          <p class="text-lg">₹2227</p>
+          <p class="text-lg">₹ {{fare.total}}</p>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -66,45 +82,46 @@
 
   <div class="p-3">
     <div class="flex justify-between">
-      <p class="text-md text-gray-500 font-bold">Base fare</p>
-      <p>₹6142</p>
+      <p class="text-md text-gray-500 font-bold">Per KM</p>
+      <p>₹ {{fare.perKMPrice}}</p>
     </div>
 
     <div class="flex justify-between mt-2">
-      <p class="text-md text-gray-500 font-bold">Driver allowance</p>
-      <p class="text-lg">₹250</p>
+      <p class="text-md text-gray-500 font-bold">Tax</p>
+      <p class="text-lg">₹ {{fare.tax}}</p>
     </div>
-
+    <!--
     <div class="flex justify-between mt-2">
       <p class="text-md text-gray-500 font-bold">Booking Fee</p>
       <p class="text-lg">₹20</p>
     </div>
 
-    <div class="flex justify-between mt-2 ">
+    <div class="flex justify-between mt-2">
       <p class="text-md text-gray-500 font-bold">Taxes</p>
       <p class="text-lg">₹428</p>
-    </div>
+    </div> -->
   </div>
-
-
-
 </ion-content>
-<div class="flex justify-between p-1">
+<!-- <div class="flex justify-between p-1">
   <div class="pl-3 pt-2">
-    <p><ion-icon class="text-green-600 pr-1" name="cash"></ion-icon>&nbsp;Cash</p>
+    <p>
+      <ion-icon class="text-green-600 pr-1" name="cash"></ion-icon>&nbsp;Cash
+    </p>
   </div>
 
   <div class="pt-2">
-    <p><ion-icon class="text-green-600 pr-1" name="pricetag"></ion-icon>Coupon</p>
+    <p>
+      <ion-icon class="text-green-600 pr-1" name="pricetag"></ion-icon>Coupon
+    </p>
   </div>
 
-  <div  class="pr-3 pt-2">
-    <p><ion-icon class="text-green-600 pr-1" name="person-circle"></ion-icon>Myself</p>
+  <div class="pr-3 pt-2">
+    <p>
+      <ion-icon class="text-green-600 pr-1" name="person-circle"></ion-icon
+      >Myself
+    </p>
   </div>
-
-</div>
+</div> -->
 <div class="p-2">
-  <ion-button expand="block" color="danger">
-    Confirm Booking
-  </ion-button>
+  <ion-button expand="block" color="danger"> Confirm Booking </ion-button>
 </div>

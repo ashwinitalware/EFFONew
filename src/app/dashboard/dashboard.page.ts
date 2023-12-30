@@ -81,15 +81,15 @@ export class DashboardPage implements OnInit {
       link: 'service-dashboard',
       available: true,
     },
-    // {
-    //   name: 'Cab Services',
-    //   image: '',
-    //   icon: 'car',
-    //   // link: 'cab-home',
-    //   link: '',
-    //   // link: 'cab-tabs',
-    //   available: false,
-    // },
+    {
+      name: 'Cab Services',
+      image: '',
+      icon: 'car',
+      link: 'cab-home',
+      // link: '',
+      // link: 'cab-tabs',
+      available: true,
+    },
     // {
     //   name: 'Property',
     //   image: '',
@@ -114,14 +114,14 @@ export class DashboardPage implements OnInit {
 
 
 
-    {
-      name: 'Flights',
-      image: 'airplane',
-      // link: 'lodging-dashboard',
-      link: '',
-      available: false,
-      icon: 'airplane',
-    },
+    // {
+    //   name: 'Flights',
+    //   image: 'airplane',
+    //   // link: 'lodging-dashboard',
+    //   link: '',
+    //   available: false,
+    //   icon: 'airplane',
+    // },
     // {
     //   name: 'Restaurant ',
     //   image: '',

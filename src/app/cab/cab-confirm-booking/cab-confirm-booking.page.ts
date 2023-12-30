@@ -29,12 +29,11 @@ export class CabConfirmBookingPage implements OnInit {
       cabType.selected = false;
     });
     this.cabService.cabTypes[index].selected = true;
-    // this.calculatePrices()
-    // calculate Prices
 
     this.cabService.baseFare =
       this.cabService.distance *
-      this.cabService.cabTypes[index].attributes.pricePerKm;
+      // this.cabService.cabTypes[index].attributes.pricePerKm;
+      this.cabService.cabTypes[index].attributes.perKM;
     this.cabService.tax = this.cabService.baseFare * 0.18;
     this.cabService.total = this.cabService.baseFare + this.cabService.tax;
     this.showPrices = true;
@@ -61,7 +60,7 @@ export class CabConfirmBookingPage implements OnInit {
       }
     );
   }
-  ngOnInit() {}
+  ngOnInit() { }
   book() {
     this.dataService.present();
     this.dataService

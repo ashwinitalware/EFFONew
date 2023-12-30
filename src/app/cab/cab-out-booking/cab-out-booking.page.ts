@@ -10,7 +10,28 @@ import { DataService } from 'src/app/services/data.service';
 export class CabOutBookingPage implements OnInit {
 
   cabs = []
-  constructor(public ds: DataService, public cabService: CabService) { }
+  fare = {
+    perKMPrice: 0,
+    total: 0,
+    tax: 0
+  }
+  // fareObject = {
+  //   km: 0,
+  //   fare: 0,
+  //   taxAndFees: 0,
+  //   total: 0,
+  // };
+  constructor(public ds: DataService, public cabService: CabService) {
+    this.ds._get("cab-types", "?populate=*").subscribe(d => {
+      this.cabs = d.data
+
+      this.cabSelected(0)
+    })
+  }
+  cabSelected(index) {
+    this.cabs[0].selected = true
+
+  }
 
   ngOnInit() {
   }

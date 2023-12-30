@@ -24,12 +24,12 @@ export class CabService {
     lng: '73.861295',
   };
   historyRides = [];
-  fareObject = {
-    km: 0,
-    fare: 0,
-    taxAndFees: 0,
-    total: 0,
-  };
+  // fareObject = {
+  //   km: 0,
+  //   fare: 0,
+  //   taxAndFees: 0,
+  //   total: 0,
+  // };
   apiKey = 'AIzaSyC1Cz13aBYAbBYJL0oABZ8KZnd7imiWwA4';
 
   cities = [];
@@ -44,7 +44,7 @@ export class CabService {
   }
 
   getCabTypes() {
-    this.dataService._get('cab-types', '').subscribe((data) => {
+    this.dataService._get('cab-types', 'populate=*').subscribe((data) => {
       this.cabTypes = data.data;
     });
   }

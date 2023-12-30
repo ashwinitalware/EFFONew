@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Data, Router } from '@angular/router';
 import { CabService } from '../services/cab.service';
+import { DataService } from '../services/data.service';
 
 declare var google;
 @Component({
@@ -43,7 +44,7 @@ export class CabHomePage implements OnInit {
     center: true
   };
 
-  constructor(public cabService: CabService, public router: Router) {
+  constructor(public cabService: CabService, public router: Router, public ds: DataService) {
     //reset everything
     this.resetEverything();
   }
@@ -222,20 +223,16 @@ export class CabHomePage implements OnInit {
     console.log(this.cabService.fromLatLngObject);
     console.log(this.cabService.toLatLngObject);
 
-    if (
-      // eslint-disable-next-line eqeqeq
-      this.cabService.type == 'local' ||
-      // eslint-disable-next-line eqeqeq
-      this.cabService.type == 'outstation'
-    ) {
-      if (!this.cabService.from || !this.cabService.to) {
-        return;
-      } else if (!this.cabService.from) {
-        return;
-      }
+
+
+    if (!this.cabService.from || !this.cabService.to) {
+      return this.ds.presentToast("Need Proper From / To Location");
+    } else if (!this.cabService.from) {
+      return;
     }
 
-    this.router.navigate(['/cab-out-booking']);
+    // this.router.navigate(['/cab-out-booking']);
+    this.router.navigate(['/cab-confirm-booking']);
   }
 
   addDragEndEvent() {

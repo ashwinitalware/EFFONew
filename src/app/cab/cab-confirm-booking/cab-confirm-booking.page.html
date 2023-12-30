@@ -25,7 +25,12 @@
       class="flex mb-2"
       (click)="selectCabType(i)"
     >
-      <img src="{{cabType.attributes.icon}}" class="w-14" alt="" />
+      <!-- <img src="{{cabType.attributes.icon}}" class="w-14" alt="" /> -->
+      <img
+        src="{{cabType.attributes.image?.data[0].attributes.formats.thumbnail.url}}"
+        class="w-14"
+        alt=""
+      />
       <div class="flex-1 pl-4 text-lg">
         <div class="flex items-center">
           {{cabType.attributes.name|titlecase}} &nbsp;
@@ -41,7 +46,7 @@
         </div>
       </div>
       <div class="font-bold">
-        <div>₹{{cabType.attributes.pricePerKm}}/km</div>
+        <div>₹{{cabType.attributes.perKM}}/km</div>
         <div class="text-right"></div>
       </div>
     </div>
