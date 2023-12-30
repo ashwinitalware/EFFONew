@@ -1,8 +1,5 @@
 <ion-header>
   <ion-toolbar color="dark">
-    <ion-buttons slot="start">
-      <ion-back-button style="color: white"></ion-back-button>
-    </ion-buttons>
     <ion-title>History</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,73 +7,67 @@
 <ion-content>
   <div class="p-4">
     <!-- mode="ios"  -->
-    <ion-segment mode="ios" value="local" (ionChange)="segmentChanged($event)">
+    <!-- <ion-segment mode="ios" [(ngModel)]="type">
       <ion-segment-button value="local">
-        <ion-label>Local </ion-label>
+        <ion-label>Local</ion-label>
       </ion-segment-button>
       <ion-segment-button value="rental">
-        <ion-label>Rental </ion-label>
+        <ion-label>Rental</ion-label>
       </ion-segment-button>
       <ion-segment-button value="outstation">
         <ion-label>Outstation</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="transport">
-        <ion-label>Transport</ion-label>
-      </ion-segment-button>
-    </ion-segment>
+    </ion-segment> -->
 
-    <div *ngIf="switchTab === 'rides'">
-      <ion-card class="bg-white">
-        <div class="flex justify-between p-3">
-          <p class="text-lg text-black">
-            Auto - <span class="text-gray-400 text-xs"> 56minutes ago </span>
-          </p>
-          <p class="text-lg text-black">₹ 100</p>
-        </div>
+    <div
+      *ngFor="let ride of this.cabService.historyRides"
+      class="rounded-md bg-white my-2 p-4"
+    >
+      <div class="flex">
+        <!-- <div class="w-12">
+          <img
+            src="https://effo.s3.ap-south-1.amazonaws.com/ic_prime_2x_639c1ed045.png?updated_at=2022-06-04T10:40:06.201Z"
+            alt=""
+            class="w-full h-auto"
+          />
+        </div> -->
+        <div class="flex-1 pl-2">
+          <div class="font-bold flex justify-between">
+            <div>{{ride.attributes.createdAt|date:"MMM d, y"}}</div>
 
-        <p class="text-red-600 text-md -mt-2 pl-3 pb-3">Cancelled</p>
-
-        <div class="border-b border-gray-300"></div>
-
-        <div class="p-2">
-          <div class="flex justify-start p-1">
-            <ion-icon name="ellipse-sharp" color="success"></ion-icon>
-            <p class="pl-2 -mt-1">Rathi Nagar Amravati.</p>
+            <div
+              class=" flex text-sm {{this.dataService.statusToClassCab(ride.attributes.status)}}"
+            >
+              {{ride.attributes.status|titlecase}}
+            </div>
           </div>
-
-          <div class="flex justify-start p-1 mt-2">
-            <ion-icon name="ellipse-sharp" color="danger"></ion-icon>
-            <p class="pl-2 -mt-1">Dastur Nagar Amravati.</p>
-          </div>
-        </div>
-      </ion-card>
-    </div>
-
-    <div *ngIf="switchTab === 'delivered'">
-      <ion-card class="bg-white">
-        <div class="flex justify-between p-3">
-          <p class="text-lg text-black">
-            Auto - <span class="text-gray-400 text-xs"> 1 Hour </span>
-          </p>
-          <p class="text-lg text-black">₹ 100</p>
-        </div>
-
-        <p class="text-green-600 text-md -mt-2 pl-3 pb-3">Completed</p>
-
-        <div class="border-b border-gray-300"></div>
-
-        <div class="p-2">
-          <div class="flex justify-start p-1">
-            <ion-icon name="ellipse-sharp" color="success"></ion-icon>
-            <p class="pl-2 -mt-1">Rathi Nagar Amravati.</p>
-          </div>
-
-          <div class="flex justify-start p-1 mt-2">
-            <ion-icon name="ellipse-sharp" color="danger"></ion-icon>
-            <p class="pl-2 -mt-1">Dastur Nagar Amravati.</p>
+          <div class="text-sm">
+            Ride ID : {{ride.id}} | {{ride.attributes.type|titlecase}}
           </div>
         </div>
-      </ion-card>
+      </div>
+      <div>
+        <div class="text-blue-800 flex items-center">
+          <div>
+            <img src="assets/cab/fromPin.png" style="width: 1rem" alt="" />
+          </div>
+          <div class="pl-2">{{ride.attributes.from|titlecase}}</div>
+        </div>
+        <div class="text-blue-800 flex items-center">
+          <div>
+            <img src="assets/cab/toPin.png" style="width: 1rem" alt="" />
+          </div>
+          <div class="pl-2">{{ride.attributes.to|titlecase}}</div>
+        </div>
+      </div>
+
+      <div
+        class="flex justify-end"
+        (click)="this.navCtrl.navigateForward(['/cab-history-details/'+ride.id])"
+      >
+        <ion-button fill="clear" color="dark"> View Details </ion-button>
+        <!-- <ion-button color="dark"> Track </ion-button> -->
+      </div>
     </div>
   </div>
 </ion-content>

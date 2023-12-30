@@ -31,7 +31,7 @@ export class TrackPage {
     public dataService: DataService,
     public http: HttpClient, // public fcm: FCM
     public activatedRoute: ActivatedRoute
-  ) {}
+  ) { }
 
   showMap() {
     // set map center location
@@ -72,10 +72,11 @@ export class TrackPage {
         url: 'assets/cab/toPin.png',
       },
     });
+    // alert('123')
     this.cabMarker = new google.maps.Marker({
       position: new google.maps.LatLng(
-        this.driver.attributes.lat,
-        this.driver.attributes.lng
+        this.driver.attributes.driverLat,
+        this.driver.attributes.driverLng
       ),
       map: this.map,
       icon: {
@@ -103,8 +104,8 @@ export class TrackPage {
     this.directionsService.route(
       {
         origin: new google.maps.LatLng(
-          this.driver.attributes.lat,
-          this.driver.attributes.lng
+          this.driver.attributes.driverLat,
+          this.driver.attributes.driverLng
         ),
         waypoints: [
           {
@@ -132,7 +133,7 @@ export class TrackPage {
           if (firstTime) {
             try {
               clearInterval(this.cabService.driverInterval);
-            } catch (error) {}
+            } catch (error) { }
             this.cabService.driverInterval = setInterval(() => {
               this.getDriverLocation();
             }, 5000);
@@ -157,6 +158,7 @@ export class TrackPage {
       ._get('cab-rides/' + this.activatedRoute.snapshot.params.rideId, query)
       .subscribe((data) => {
         this.ride = data.data;
+        // this.driver = data.data.attributes.driver.data;
         this.driver = data.data.attributes.driver.data;
         // SHOW THE MAP WITH CENTER AS USER START LOCATION
         this.showMap();
@@ -251,15 +253,15 @@ export class TrackPage {
         this.cabMarker,
         1,
         new google.maps.LatLng(
-          this.driver.attributes.lat,
-          this.driver.attributes.lng
+          this.driver.attributes.driverLat,
+          this.driver.attributes.driverLng
         ),
         new google.maps.LatLng(data.lat, data.lng)
       );
 
       this.getHeading(
-        this.driver.attributes.lat,
-        this.driver.attributes.lng,
+        this.driver.attributes.driverLat,
+        this.driver.attributes.driverLng,
         data.lat,
         data.lng
       );
@@ -267,8 +269,8 @@ export class TrackPage {
     });
   }
 
-  ionViewDidLoad() {}
-  ionViewDidLeave() {}
+  ionViewDidLoad() { }
+  ionViewDidLeave() { }
 
   rotateCab() {
     console.log('cabmarker', this.cabMarker);

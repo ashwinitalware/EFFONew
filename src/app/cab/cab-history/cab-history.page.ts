@@ -11,19 +11,13 @@ import { NavController, ViewDidEnter } from '@ionic/angular';
 })
 export class CabHistoryPage implements ViewDidEnter {
   // type='local'
-  segmentChanged(ev: any) {
-    this.switchTab = ev.detail.value;
-    console.log('Segment changed', ev);
-  }
-
-switchTab = 'rides';
 
   constructor(
     public dataService: DataService,
     public cabService: CabService,
     public http: HttpClient,
     public navCtrl: NavController
-  ) {}
+  ) { }
 
   ionViewDidEnter(): void {
     this.cabService.getHistoryRides();

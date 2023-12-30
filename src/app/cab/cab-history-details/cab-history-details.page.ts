@@ -44,10 +44,12 @@ export class CabHistoryDetailsPage implements OnInit {
     this.dataService
       ._get('cab-rides/' + this.activatedRoute.snapshot.params.id, query)
       .subscribe((data) => {
+        // console.log(data);
+
         this.data = data.data;
       });
   }
-  ngOnInit() {}
+  ngOnInit() { }
   cancel() {
     this.dataService.present();
     this.dataService
